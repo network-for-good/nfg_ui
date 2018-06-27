@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module NfgUi
   module Utilities
     require_relative 'utilities/component_groupings'

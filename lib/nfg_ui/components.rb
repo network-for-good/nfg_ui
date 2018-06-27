@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module NfgUi
   class Components
     require_relative 'bootstrap/components'
@@ -6,7 +7,7 @@ module NfgUi
     require_relative 'elements/element_components'
     require_relative 'patterns/pattern_components'
     require_relative 'foundations/foundation_components'
-    
+
     include NfgUi::Utilities
     include NfgUi::Foundations::FoundationComponents
     include NfgUi::Elements::ElementComponents

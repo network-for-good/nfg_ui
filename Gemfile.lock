@@ -2,6 +2,7 @@ PATH
   remote: .
   specs:
     nfg_ui (0.0.1)
+      activesupport
       bootstrap (~> 4.1.1)
       coffee-script
       font-awesome-rails

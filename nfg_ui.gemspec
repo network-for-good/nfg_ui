@@ -22,6 +22,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'rails', '~> 5.2.0'
   s.add_dependency 'sass-rails'
   s.add_dependency 'select2-rails'
+  s.add_dependency 'activesupport'
 
   s.add_development_dependency 'rspec-rails'
   s.add_development_dependency 'sqlite3'
