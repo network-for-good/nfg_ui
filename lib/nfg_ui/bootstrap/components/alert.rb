@@ -4,7 +4,6 @@ module NfgUi
   module Bootstrap
     module Components
       class Alert
-        p ":::::: #{__FILE__.split('/').last.to_s} :::::: #{__FILE__} :::::: Loaded"
         include Bootstrap::Utilities::Themeable
         include ActionView::Helpers::TextHelper
         include ActionView::Helpers::TagHelper

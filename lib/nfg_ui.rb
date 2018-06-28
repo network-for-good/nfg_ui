@@ -3,17 +3,19 @@
 require 'nfg_ui/engine'
 
 # Core documentation coming soon.
-# In the meantime, rendering usage and basic documentation
-# can be found within the NfgUi::Render helper:
-# lib/nfg_ui/helpers/render.rb
+# In the meantime, rendering/builder usage and basic documentation
+# can be found within the NfgUi::Builder module:
+# lib/nfg_ui/builder.rb
 module NfgUi
-  p ":::::: #{__FILE__.split('/').last.to_s} :::::: #{__FILE__} :::::: Loaded"
   require 'bootstrap'
   require 'font-awesome-rails'
   require 'haml'
   require 'sass-rails'
   require 'select2-rails'
 
+  # Autoloads app/helpers/nfg_ui/helper.rb
+  # Which is responsible for include-ing 
+  # all of the actual view helpers
   ActiveSupport.on_load(:active_record) { include Helper }
 
   extend ActiveSupport::Autoload

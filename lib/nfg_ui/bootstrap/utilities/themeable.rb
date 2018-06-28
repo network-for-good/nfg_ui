@@ -4,7 +4,7 @@ module NfgUi
   module Bootstrap
     module Utilities
       module Themeable
-        p ":::::: #{__FILE__.split('/').last.to_s} :::::: #{__FILE__} :::::: Loaded"
+        
         attr_reader :theme
 
         def theme_html_class

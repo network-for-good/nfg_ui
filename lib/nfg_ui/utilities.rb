@@ -11,9 +11,8 @@ module NfgUi
   # Or, another example: figuring out which group a component
   # belongs to.
   module Utilities
-    p ":::::: #{__FILE__.split('/').last.to_s} :::::: #{__FILE__} :::::: Loaded"
     extend ActiveSupport::Autoload
-    
+
     autoload :PartialPath
     autoload :Groupings
   end

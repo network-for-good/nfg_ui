@@ -7,9 +7,8 @@ module NfgUi
     # Example: render partial: partial_path(component_name: :alert), locals: { etc... }
     # yields: render partial: 'nfg_ui/elements/alert/alert', locals: { etc... } 
     module PartialPath
-      p ":::::: #{__FILE__.split('/').last.to_s} :::::: #{__FILE__} :::::: Loaded"
       include Groupings
-      
+
       def partial_path(component_name:, trait: nil)
         [
           engine_folder_name,
