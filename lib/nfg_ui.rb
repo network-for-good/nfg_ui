@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require 'nfg_ui/engine'
-require 'active_support'
 
 # Core documentation coming soon.
 # In the meantime, rendering usage and basic documentation
