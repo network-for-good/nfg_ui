@@ -58,17 +58,14 @@ module NfgUi
     #          as well as custom attributes such as the component's theme
     #          or content.
     module Render
+      p ":::::: #{__FILE__.split('/').last.to_s} :::::: #{__FILE__} :::::: Loaded"
       include NfgUi::Utilities::PartialPath
-      include NfgUi::Utilities::ComponentGroupings
-      include NfgUi::Foundations::FoundationComponents
-      include NfgUi::Elements::ElementComponents
-      include NfgUi::Patterns::PatternComponents
 
       def nfg_ui(component_name, trait = nil, **options, &block)
         options = options.dup
         options[:body] = capture(&block) if block_given?
-        component = NfgUi::Components.new(class_name: component_name.to_s.camelize,
-                                          options: options).call
+        component = NfgUi::Builder.new(class_name: component_name.to_s.camelize,
+                                       options: options).call
 
         render_component(component,
                          trait: trait,

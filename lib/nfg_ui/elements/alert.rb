@@ -2,8 +2,11 @@
 
 module NfgUi
   module Elements
-    # Alert has no customizations from bootstrap yet
+    # Alert doesn't have any customizations unique to the design system yet
+    # As such, the NFG UI alert is simply a bootstrap alert behind the scenes.
+    # Traits will eventually be connected here.
     class Alert < NfgUi::Bootstrap::Components::Alert
+      p ":::::: #{__FILE__.split('/').last.to_s} :::::: #{__FILE__} :::::: Loaded"
     end
   end
 end

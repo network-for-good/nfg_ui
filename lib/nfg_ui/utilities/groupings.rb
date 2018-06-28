@@ -7,9 +7,10 @@ module NfgUi
     #
     # Example: grouped_components_array(grouping: :patterns)
     # Yields: [:activity_feed, :button_group, :card, etc...]
-    module ComponentGroupings
+    module Groupings
+      p ":::::: #{__FILE__.split('/').last.to_s} :::::: #{__FILE__} :::::: Loaded"
       def grouped_components_array(grouping:)
-        send("#{grouping.to_s.singularize}_components")
+        "NfgUi::#{grouping.to_s.singularize.upcase}_COMPONENT_NAMES".constantize
       end
     end
   end

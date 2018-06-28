@@ -3,7 +3,12 @@
 module NfgUi
   module Bootstrap
     module Components
-      require_relative 'components/alert'
+      p ":::::: #{__FILE__.split('/').last.to_s} :::::: #{__FILE__} :::::: Loaded"
+      # require_relative 'components/alert'
+      extend ActiveSupport::Autoload
+
+      autoload :Alert
+
     end
   end
 end

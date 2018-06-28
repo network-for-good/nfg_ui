@@ -2,6 +2,8 @@
 
 module NfgUi
   module Helpers
-    autoload :Render, 'nfg_ui/helpers/render'
+    p ":::::: #{__FILE__.split('/').last.to_s} :::::: #{__FILE__} :::::: Loaded"
+    extend ActiveSupport::Autoload
+    autoload :Render
   end
 end
