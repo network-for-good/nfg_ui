@@ -10,7 +10,7 @@ module NfgUi
 
     def call
       return unless nested_class_name_string.present?
-      "NfgUi::#{nested_class_name_string}::#{@class_name}".constantize.new(**@options)
+      "NfgUi::Components::#{nested_class_name_string}::#{@class_name}".constantize.new(**@options)
     end
 
     private

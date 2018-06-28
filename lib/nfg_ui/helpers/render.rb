@@ -66,7 +66,7 @@ module NfgUi
         options[:body] = capture(&block) if block_given?
         component = NfgUi::Builder.new(class_name: component_name.to_s.camelize,
                                        options: options).call
-
+        
         render_component(component,
                          trait: trait,
                          component_name: component_name)

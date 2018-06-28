@@ -23,11 +23,8 @@ module NfgUi
   autoload :Builder
 
   eager_autoload do
-    autoload :Components
     autoload :Bootstrap
-    autoload :Foundations
-    autoload :Elements
-    autoload :Patterns
+    autoload :Components
   end
 
   GROUPING_NAMES = %i[foundations elements patterns].freeze
