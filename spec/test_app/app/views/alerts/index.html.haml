@@ -1,11 +1,25 @@
 %h1 Alerts
 
-= nfg_ui :alert, headline: "Oh snap! there's a major problem here", theme: :danger, class: 'my-4' do
+= nfg_ui :alert, headline: "Default Theme Alert (no :theme passed in)", class: 'my-4' do
   Yielded from captured block: You forgot to fill out an important field, notice my nifty
   = link_to 'link without class or classes', 'javascript:;'
   and
   = link_to 'link with classes but not alert-link', 'javascript:;', class: 'h6 small'
   = link_to 'link with classes and alert-link', 'javascript:;', class: 'test-class alert-link'
   = link_to 'link with only alert-link class', 'javascript:;', class: 'alert-link'
+
+= nfg_ui :alert, headline: "Oh snap! there's a major problem here", body: 'Passed in as a local: This is a crazy cool alert!', theme: :primary, dismissible: true, class: 'my-4' 
+
+= nfg_ui :alert, headline: "Oh snap! there's a major problem here", body: 'Passed in as a local: This is a crazy cool alert!', theme: :secondary, class: 'my-4' 
+
+= nfg_ui :alert, headline: "Oh snap! there's a major problem here", body: 'Passed in as a local: This is a crazy cool alert!', theme: :success, class: 'my-4' 
+
+= nfg_ui :alert, headline: "Oh snap! there's a major problem here", body: 'Passed in as a local: This is a crazy cool alert!', theme: :danger, class: 'my-4' 
+
+= nfg_ui :alert, headline: "Oh snap! there's a major problem here", body: 'Passed in as a local: This is a crazy cool alert!', theme: :warning, class: 'my-4' 
+
+= nfg_ui :alert, headline: "Oh snap! there's a major problem here", body: 'Passed in as a local: This is a crazy cool alert!', theme: :info, class: 'my-4' 
+
+= nfg_ui :alert, headline: "Oh snap! there's a major problem here", body: 'Passed in as a local: This is a crazy cool alert!', theme: :light, class: 'my-4' 
 
 = nfg_ui :alert, headline: "Oh snap! there's a major problem here", body: 'Passed in as a local: This is a crazy cool alert!', theme: :dark, class: 'my-4' 

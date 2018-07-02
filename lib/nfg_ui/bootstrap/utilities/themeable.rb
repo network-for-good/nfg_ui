@@ -3,34 +3,46 @@
 module NfgUi
   module Bootstrap
     module Utilities
+      # Allows component to utilize the bootstrap4 theme color palette
       module Themeable
-        
-        attr_reader :theme
+        attr_accessor :theme
+
+        def initialize(component_options)
+          super
+          self.theme = component_options.fetch(:theme, default_theme)
+        end
+
+        def defaults
+          super.merge!(theme: default_theme)
+        end
+
+        def html_classes
+          [super, theme_html_class].join(' ')
+        end
+
+        def non_html_attribute_options
+          super.push(:theme)
+        end
 
         def theme_html_class
-          return unless theme.present? && bootstrap4_themes.include?(theme)
-          [(component_html_class.present? ? component_html_class : default_html_class), theme].join('-') 
-        end
-
-        def bootstrap4_themes
-          [:primary,
-           :secondary,
-           :success,
-           :danger,
-           :warning,
-           :info,
-           :light,
-           :dark]
-        end
-
-        def default_theme
-          :success
+          "#{component_html_class}-#{theme}" if bootstrap4_themes.include?(theme)
         end
 
         private
 
-        def default_html_class
-          self.class.name.to_s.split('::').last.dasherize.downcase
+        def bootstrap4_themes
+          %i[primary
+             secondary
+             success
+             danger
+             warning
+             info
+             light
+             dark]
+        end
+
+        def default_theme
+          :primary
         end
       end
     end

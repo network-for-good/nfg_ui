@@ -6,6 +6,7 @@ module NfgUi
       extend ActiveSupport::Autoload
 
       autoload :Themeable
+      autoload :Dismissible
     end
   end
 end
