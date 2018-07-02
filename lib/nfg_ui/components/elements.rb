@@ -7,6 +7,7 @@ module NfgUi
       extend ActiveSupport::Autoload
 
       autoload :Alert
+      autoload :Badge
     end
   end
 end

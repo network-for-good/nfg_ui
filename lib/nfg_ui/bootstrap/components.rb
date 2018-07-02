@@ -9,6 +9,7 @@ module NfgUi
       autoload :Base
 
       autoload :Alert
+      autoload :Badge
     end
   end
 end
