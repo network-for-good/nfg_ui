@@ -14,7 +14,7 @@ module NfgUi
   require 'select2-rails'
 
   # Autoloads app/helpers/nfg_ui/helper.rb
-  # Which is responsible for include-ing 
+  # Which is responsible for 'include'ing
   # all of the actual view helpers
   ActiveSupport.on_load(:active_record) { include Helper }
 
