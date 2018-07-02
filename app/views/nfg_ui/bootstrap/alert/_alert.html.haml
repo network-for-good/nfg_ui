@@ -1,0 +1,10 @@
+-# http://getbootstrap.com/docs/4.1/components/alerts/
+%div{ **alert.html_options }
+  - if alert.dismissible?
+    %button{ class: 'close', data: { dismiss: 'alert' }, aria: { label: 'Close' } }
+      &times;
+
+  - if alert.headline
+    %h4.alert-heading= alert.headline
+  
+  = alert.body
