@@ -33,6 +33,7 @@ module NfgUi
 
         private
 
+        # Assigned on individual components as needed
         # Ex: { role: 'alert' }
         def assistive_html_attributes
           {}
@@ -40,8 +41,9 @@ module NfgUi
 
         # Fallback component css class name.
         # Example: returns 'alert' from NfgUi::Bootstrap::Components::Alert
+        # Prefer setting this in individual components for specificity and accuracy
         def component_html_class
-          self.class.name.split('::').last.to_s.underscore.downcase
+          self.class.name.split('::').last.to_s.underscore.dasherize.downcase
         end
 
         def html_classes

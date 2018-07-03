@@ -17,14 +17,14 @@ module NfgUi
         end
 
         def html_classes
-          [super, theme_html_class].join(' ')
+          [super, theme_css_class].join(' ')
         end
 
         def non_html_attribute_options
           super.push(:theme)
         end
 
-        def theme_html_class
+        def theme_css_class
           "#{component_html_class}-#{theme}" if bootstrap4_themes.include?(theme)
         end
 

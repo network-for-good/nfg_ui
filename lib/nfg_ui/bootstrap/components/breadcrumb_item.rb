@@ -6,16 +6,10 @@ module NfgUi
       # Bootstrap Breadcrumb Item
       # Subcomponent of Breadcrumb
       # https://getbootstrap.com/docs/4.1/components/breadcrumb/
-      class BreadcrumbItem < NfgUi::Bootstrap::Components::Base
-        def active?
-          options.fetch(:active, default_active)
-        end
+      class BreadcrumbItem < Bootstrap::Components::Base
+        include Bootstrap::Utilities::Activatable
 
         private
-
-        def default_active
-          false
-        end
 
         def parent_component
           :breadcrumb
@@ -23,6 +17,10 @@ module NfgUi
 
         def component_html_class
           'breadcrumb-item'
+        end
+
+        def assistive_html_attributes
+          active? ? { aria: { current: 'page' } } : {}
         end
       end
     end
