@@ -6,7 +6,7 @@ module NfgUi
       # Alert doesn't have any customizations unique to the design system yet
       # As such, the NFG UI alert is simply a bootstrap alert behind the scenes.
       # Traits will eventually be connected here.
-      class Alert < NfgUi::Bootstrap::Components::Alert
+      class Alert < Bootstrap::Components::Alert
       end
     end
   end
