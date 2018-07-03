@@ -8,15 +8,12 @@ module NfgUi
       class Button < Bootstrap::Components::Base
         include Bootstrap::Utilities::Themeable
         include Bootstrap::Utilities::Sizable
+        include Bootstrap::Utilities::Wrappable
 
         private
 
         def component_html_class
           'btn'
-        end
-
-        def default_html_wrapper_element
-          :div
         end
       end
     end

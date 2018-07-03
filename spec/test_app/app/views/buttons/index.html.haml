@@ -1,30 +1,40 @@
 %h1 Buttons
 
+%h2 Elements
+= nfg_ui :button, href: '#testURL', body: 'Link Btn W/O :as'
+= nfg_ui :button, as: :link, href: '#testURL' do
+  Link Button with HREF
+= nfg_ui :button, as: :link do
+  Link Button without HREF
+= nfg_ui :button, as: :button, body: 'Button'
+
+
+%hr
 
 %h2 Themes
 -# Block example
 = nfg_ui :button, class: 'example-class' do
-  Default Button
+  Default Button (Link w/o href)
 
-= nfg_ui :button, body: 'Primary', theme: :primary, class: 'example-class'
+= nfg_ui :button, as: :button, body: 'Primary', theme: :primary, class: 'example-class'
 
-= nfg_ui :button, body: 'Secondary', theme: :secondary, class: 'example-class' 
+= nfg_ui :button, as: :button, body: 'Secondary', theme: :secondary, class: 'example-class' 
 
-= nfg_ui :button, body: 'Success', theme: :success, class: 'example-class' 
+= nfg_ui :button, as: :button, body: 'Success', theme: :success, class: 'example-class' 
 
-= nfg_ui :button, body: 'Danger', theme: :danger, class: 'example-class' 
+= nfg_ui :button, as: :button, body: 'Danger', theme: :danger, class: 'example-class' 
 
-= nfg_ui :button, body: 'Warning', theme: :warning, class: 'example-class' 
+= nfg_ui :button, as: :button, body: 'Warning', theme: :warning, class: 'example-class' 
 
-= nfg_ui :button, body: 'Info', theme: :info, class: 'example-class' 
+= nfg_ui :button, as: :button, body: 'Info', theme: :info, class: 'example-class' 
 
-= nfg_ui :button, body: 'Light', theme: :light, class: 'example-class' 
+= nfg_ui :button, as: :button, body: 'Light', theme: :light, class: 'example-class' 
 
-= nfg_ui :button, body: 'Dark', theme: :dark, class: 'example-class' 
+= nfg_ui :button, as: :button, body: 'Dark', theme: :dark, class: 'example-class' 
 
 %hr
 
 %h2 Sizes
-= nfg_ui :button, size: :lg, class: 'example-class', body: 'Large'
-= nfg_ui :button, class: 'example-class', body: 'Default Size'
-= nfg_ui :button, size: :sm, class: 'example-class', body: 'Small'
+= nfg_ui :button, as: :button, size: :lg, class: 'example-class', body: 'Large'
+= nfg_ui :button, as: :button, class: 'example-class', body: 'Default Size'
+= nfg_ui :button, as: :button, size: :sm, class: 'example-class', body: 'Small'
