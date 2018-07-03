@@ -29,6 +29,12 @@ module NfgUi
     autoload :Components
   end
 
+  def self.eager_load!
+    super
+    NfgUi::Bootstrap.eager_load!
+    NfgUi::Components.eager_load!
+  end
+
   GROUPING_NAMES = %i[foundations elements patterns].freeze
 
   FOUNDATION_COMPONENT_NAMES = %i[color
