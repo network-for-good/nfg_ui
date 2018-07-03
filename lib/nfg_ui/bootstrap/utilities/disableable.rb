@@ -19,15 +19,19 @@ module NfgUi
         private
 
         def css_classes
-          [super, ('disabled' if disabled?)].join(' ').squish
+          disabled? ? super + ' disabled' : super
         end
 
         def non_html_attribute_options
-          if as && as == :button
+          if elements_with_disabled_attribute.include?(as)
             super
           else
             super.push(:disabled)
           end
+        end
+
+        def elements_with_disabled_attribute
+          [:button]
         end
 
         def default_disabled
