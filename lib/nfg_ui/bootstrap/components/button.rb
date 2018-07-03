@@ -10,6 +10,7 @@ module NfgUi
         include Bootstrap::Utilities::Sizable
         include Bootstrap::Utilities::Wrappable
         include Bootstrap::Utilities::Activatable
+        include Bootstrap::Utilities::Disableable
 
         private
 

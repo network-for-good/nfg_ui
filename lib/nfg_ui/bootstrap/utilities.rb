@@ -11,6 +11,7 @@ module NfgUi
       autoload :Activatable
       autoload :Sizable
       autoload :Wrappable
+      autoload :Disableable
     end
   end
 end

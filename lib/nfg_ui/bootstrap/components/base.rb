@@ -7,7 +7,7 @@ module NfgUi
       # Defines conventional, shared behavior across
       # Bootstrap components
       class Base
-        attr_reader :headline, :body, :parent_component, :traits
+        attr_reader :headline, :body, :parent_component, :traits, :as
         attr_accessor :options
 
         def initialize(component_options)
