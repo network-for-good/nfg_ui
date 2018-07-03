@@ -18,6 +18,13 @@ module NfgUi
   # all of the actual view helpers
   ActiveSupport.on_load(:active_record) { include Helper }
 
+  # Autoloading inspired by simple_form methodology
+  # and the fact that this is a significantly sized library
+  # it seems to make sense to not try to pre-load the dozens and dozens
+  # of assets that comprise of this library.
+  #
+  # Reference article:
+  # http://blog.plataformatec.com.br/2012/08/eager-loading-for-greater-good/
   extend ActiveSupport::Autoload
 
   autoload :Helpers

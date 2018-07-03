@@ -3,6 +3,7 @@ module NfgUi
   module Components
     include NfgUi::Utilities::Groupings
     include NfgUi::Utilities::PartialPath
+
     extend ActiveSupport::Autoload
 
     autoload :Foundations

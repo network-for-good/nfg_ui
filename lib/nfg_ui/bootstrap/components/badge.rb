@@ -7,12 +7,6 @@ module NfgUi
       # https://getbootstrap.com/docs/4.1/components/badge/
       class Badge < Bootstrap::Components::Base
         include Bootstrap::Utilities::Themeable
-
-        private
-
-        def component_html_class
-          'badge'
-        end
       end
     end
   end

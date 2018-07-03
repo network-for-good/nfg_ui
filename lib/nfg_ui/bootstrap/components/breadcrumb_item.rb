@@ -15,10 +15,6 @@ module NfgUi
           :breadcrumb
         end
 
-        def component_html_class
-          'breadcrumb-item'
-        end
-
         def assistive_html_attributes
           active? ? { aria: { current: 'page' } } : {}
         end
