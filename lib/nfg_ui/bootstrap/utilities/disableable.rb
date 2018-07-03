@@ -10,6 +10,7 @@ module NfgUi
         def initialize(component_options)
           super
           self.disabled = options.fetch(:disabled, default_disabled)
+          add_negative_tab_index?
         end
 
         def disabled?
@@ -33,6 +34,14 @@ module NfgUi
         def elements_permitted_to_have_disabled_attribute
           %i[button
              input]
+        end
+
+        def elements_with_negative_tab_index
+          %i[a]
+        end
+
+        def add_negative_tab_index?
+          options.merge!(tabindex: '-1') if disabled? && elements_with_negative_tab_index.include?(as)
         end
 
         def default_disabled
