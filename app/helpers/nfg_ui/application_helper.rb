@@ -5,6 +5,9 @@ module NfgUi
   module ApplicationHelper
     include NfgUi::Builder
 
+    # Exposed here for convenience -- otherwise #nfg_ui seems
+    # awfully magical and perhaps challenging to track down
+    # in a hurry (if missing what NfgUi::Builder does)
     def nfg_ui(component_name, trait = nil, **options, &block)
       super
     end
