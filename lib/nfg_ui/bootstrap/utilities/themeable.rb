@@ -16,7 +16,7 @@ module NfgUi
           super.merge!(theme: default_theme)
         end
 
-        def html_classes
+        def css_classes
           [super, theme_css_class].join(' ')
         end
 
@@ -25,7 +25,7 @@ module NfgUi
         end
 
         def theme_css_class
-          "#{component_html_class}-#{theme}" if bootstrap4_themes.include?(theme)
+          "#{component_css_class}-#{outline}#{theme}" if bootstrap4_themes.include?(theme)
         end
 
         private
@@ -43,6 +43,10 @@ module NfgUi
 
         def default_theme
           :primary
+        end
+
+        def outline
+          'outline-' if traits.include?(:outlined)
         end
       end
     end
