@@ -8,6 +8,7 @@ module NfgUi
       autoload :Themeable
       autoload :Dismissible
       autoload :Activatable
+      autoload :Sizable
     end
   end
 end
