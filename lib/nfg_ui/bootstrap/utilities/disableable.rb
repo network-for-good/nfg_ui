@@ -36,12 +36,12 @@ module NfgUi
              input]
         end
 
-        def elements_with_negative_tab_index
+        def elements_permitted_to_have_negative_tab_index
           %i[a]
         end
 
         def add_negative_tab_index?
-          options.merge!(tabindex: '-1') if disabled? && elements_with_negative_tab_index.include?(as)
+          options.merge!(tabindex: '-1') if disabled? && elements_permitted_to_have_negative_tab_index.include?(as)
         end
 
         def default_disabled
