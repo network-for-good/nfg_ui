@@ -20,7 +20,7 @@ module NfgUi
 
         private
 
-        # UPDATING DEFAULTS FROM LINK_DEFAULTS DOES NOT WORK YET
+        # # UPDATING DEFAULTS FROM LINK_DEFAULTS DOES NOT WORK YET
         def defaults
           super.merge!(link_defaults)
         end

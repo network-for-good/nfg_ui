@@ -1,6 +1,12 @@
 %h1 Buttons
 
-%h2 Elements
+%h2 Pre-configured, design system buttons
+
+%hr
+
+%h2 Manually Created Buttons
+
+%h3 Elements
 = nfg_ui :button, href: '#testURL', body: 'Link Btn W/O :as'
 = nfg_ui :button, as: :link, href: '#testURL' do
   Link Button with HREF
@@ -11,7 +17,7 @@
 
 %hr
 
-%h2 Themes
+%h3 Themes
 -# Block example
 = nfg_ui :button, class: 'example-class' do
   Default Button (Link w/o href)
@@ -29,12 +35,44 @@
 = nfg_ui :button, as: :button, body: 'Info', theme: :info, class: 'example-class' 
 
 = nfg_ui :button, as: :button, body: 'Light', theme: :light, class: 'example-class' 
-
 = nfg_ui :button, as: :button, body: 'Dark', theme: :dark, class: 'example-class' 
 
 %hr
 
-%h2 Sizes
+%h3 Sizes
 = nfg_ui :button, as: :button, size: :lg, class: 'example-class', body: 'Large'
 = nfg_ui :button, as: :button, class: 'example-class', body: 'Default Size'
 = nfg_ui :button, as: :button, size: :sm, class: 'example-class', body: 'Small'
+
+%hr
+%h3 Outlines
+= nfg_ui :button, :outlined, class: 'example-class' do
+  Default Outline Button (Link w/o href)
+
+= nfg_ui :button, :outlined, as: :button, body: 'Primary Outlined', theme: :primary, class: 'example-class'
+
+= nfg_ui :button, :outlined, as: :button, body: 'Secondary Outlined', theme: :secondary, class: 'example-class' 
+
+= nfg_ui :button, :outlined, as: :button, body: 'Success Outlined', theme: :success, class: 'example-class' 
+
+= nfg_ui :button, :outlined, as: :button, body: 'Danger Outlined', theme: :danger, class: 'example-class' 
+
+= nfg_ui :button, :outlined, as: :button, body: 'Warning Outlined', theme: :warning, class: 'example-class' 
+
+= nfg_ui :button, :outlined, as: :button, body: 'Info Outlined', theme: :info, class: 'example-class' 
+
+= nfg_ui :button, :outlined, as: :button, body: 'Light Outlined', theme: :light, class: 'example-class' 
+= nfg_ui :button, :outlined, as: :button, body: 'Dark Outlined', theme: :dark, class: 'example-class' 
+
+%hr
+%h3 Block Buttons
+= nfg_ui :button, :block, as: :button, body: 'Block Button'
+= nfg_ui :button, :block, body: 'Block Button As Link', href: '#nogo'
+
+%hr
+
+%h3 Activated Buttons
+= nfg_ui :button, body: 'Active Button as Link', href: '#nogo', active: true
+= nfg_ui :button, as: :button, body: 'Active Button', active: true
+= nfg_ui :button, :block, :outlined, as: :button, body: 'Active Outlined Button', active: true
+

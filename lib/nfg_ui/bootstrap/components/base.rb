@@ -7,18 +7,18 @@ module NfgUi
       # Defines conventional, shared behavior across
       # Bootstrap components
       class Base
-        attr_reader :headline, :body, :parent_component, :trait
+        attr_reader :headline, :body, :parent_component, :traits
         attr_accessor :options
 
         def initialize(component_options)
           @options = defaults.merge!(component_options)
           @body = @options.fetch(:body, '')
           @headline = @options.fetch(:headline, '')
-          @trait = @options.fetch(:trait, nil)
+          @traits = @options.fetch(:traits, nil)
         end
 
         def html_options
-          @options.except(*non_html_attribute_options).merge(class: html_classes, **assistive_html_attributes)
+          @options.except(*non_html_attribute_options).merge(class: css_classes, **assistive_html_attributes)
         end
 
         private
@@ -44,16 +44,20 @@ module NfgUi
         # Overwritten within individual classes for situations like
         # Button's css class is 'btn'...
         # Example: returns 'alert' from NfgUi::Bootstrap::Components::Alert
-        def component_html_class
+        def component_css_class
           self.class.name.split('::').last.to_s.underscore.dasherize.downcase
         end
 
-        def html_classes
-          [component_html_class, @options[:class]].join(' ')
+        def css_classes
+          [component_css_class, trait_css_classes, @options[:class]].join(' ').squish
         end
 
         def non_html_attribute_options
-          %i[body headline trait]
+          %i[body headline traits]
+        end
+
+        def trait_css_classes
+          ''
         end
       end
     end
