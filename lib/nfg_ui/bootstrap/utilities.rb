@@ -7,6 +7,7 @@ module NfgUi
 
       autoload :Themeable
       autoload :Dismissible
+      autoload :Activatable
     end
   end
 end
