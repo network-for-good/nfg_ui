@@ -19,7 +19,7 @@ module NfgUi
         private
 
         def css_classes
-          [super, ('disabled' if disabled?)].join(' ')
+          [super, ('disabled' if disabled?)].join(' ').squish
         end
 
         def non_html_attribute_options
