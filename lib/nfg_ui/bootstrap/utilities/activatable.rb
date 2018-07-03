@@ -20,8 +20,8 @@ module NfgUi
           super.merge(active: default_active)
         end
 
-        def html_classes
-          [super, (active_css_class if active?)].join(' ')
+        def css_classes
+          [super, (active_css_class if active?)].join(' ').squish
         end
 
         def non_html_attribute_options
