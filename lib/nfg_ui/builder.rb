@@ -66,6 +66,7 @@ module NfgUi
     def nfg_ui(component_name, trait = nil, **options, &block)
       options = options.dup
       options[:body] = capture(&block) if block_given?
+      options[:trait] = trait
       component = get_component(class_name: component_name.to_s.camelize,
                                 options: options)
 

@@ -7,14 +7,21 @@ module NfgUi
       # Defines conventional, shared behavior across
       # Bootstrap components
       class Base
-        attr_reader :headline, :body, :parent_component
+        attr_reader :headline, :body, :parent_component, :trait
         attr_accessor :options
 
         def initialize(component_options)
-          @options = defaults.merge(component_options)
+          @options = defaults.merge!(component_options)
           @body = @options.fetch(:body, '')
           @headline = @options.fetch(:headline, '')
+          @trait = @options.fetch(:trait, nil)
         end
+
+        def html_options
+          @options.except(*non_html_attribute_options).merge(class: html_classes, **assistive_html_attributes)
+        end
+
+        private
 
         def defaults
           {
@@ -27,12 +34,6 @@ module NfgUi
           }
         end
 
-        def html_options
-          @options.except(*non_html_attribute_options).merge(class: html_classes, **assistive_html_attributes)
-        end
-
-        private
-
         # Assigned on individual components as needed
         # Ex: { role: 'alert' }
         def assistive_html_attributes
@@ -40,8 +41,9 @@ module NfgUi
         end
 
         # Fallback component css class name.
+        # Overwritten within individual classes for situations like
+        # Button's css class is 'btn'...
         # Example: returns 'alert' from NfgUi::Bootstrap::Components::Alert
-        # Prefer setting this in individual components for specificity and accuracy
         def component_html_class
           self.class.name.split('::').last.to_s.underscore.dasherize.downcase
         end
@@ -51,7 +53,7 @@ module NfgUi
         end
 
         def non_html_attribute_options
-          %i[body headline]
+          %i[body headline trait]
         end
       end
     end
