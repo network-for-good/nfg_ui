@@ -17,7 +17,7 @@ module NfgUi
           super.merge(size: default_size)
         end
 
-        def html_classes
+        def css_classes
           [super, size_css_class].join(' ')
         end
 
@@ -26,7 +26,7 @@ module NfgUi
         end
 
         def size_css_class
-          bootstrap4_size_options.include?(size) ? "#{component_html_class}-#{size}" : ''
+          bootstrap4_size_options.include?(size) ? "#{component_css_class}-#{size}" : ''
         end
 
         private
