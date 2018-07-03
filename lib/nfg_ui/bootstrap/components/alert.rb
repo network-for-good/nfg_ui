@@ -14,6 +14,10 @@ module NfgUi
         def assistive_html_attributes
           { role: 'alert' }
         end
+
+        def component_html_class
+          'alert'
+        end
       end
     end
   end

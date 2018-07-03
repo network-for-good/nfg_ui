@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   resources :alerts, only: [:index]
   resources :badges, only: [:index]
   resources :breadcrumbs, only: [:index]
+  resources :buttons, only: [:index]
 end

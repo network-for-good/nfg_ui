@@ -1,0 +1,30 @@
+%h1 Buttons
+
+
+%h2 Themes
+-# Block example
+= nfg_ui :button, class: 'example-class' do
+  Default Button
+
+= nfg_ui :button, body: 'Primary', theme: :primary, class: 'example-class'
+
+= nfg_ui :button, body: 'Secondary', theme: :secondary, class: 'example-class' 
+
+= nfg_ui :button, body: 'Success', theme: :success, class: 'example-class' 
+
+= nfg_ui :button, body: 'Danger', theme: :danger, class: 'example-class' 
+
+= nfg_ui :button, body: 'Warning', theme: :warning, class: 'example-class' 
+
+= nfg_ui :button, body: 'Info', theme: :info, class: 'example-class' 
+
+= nfg_ui :button, body: 'Light', theme: :light, class: 'example-class' 
+
+= nfg_ui :button, body: 'Dark', theme: :dark, class: 'example-class' 
+
+%hr
+
+%h2 Sizes
+= nfg_ui :button, size: :lg, class: 'example-class', body: 'Large'
+= nfg_ui :button, class: 'example-class', body: 'Default Size'
+= nfg_ui :button, size: :sm, class: 'example-class', body: 'Small'

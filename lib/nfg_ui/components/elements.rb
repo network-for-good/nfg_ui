@@ -10,6 +10,7 @@ module NfgUi
       autoload :Badge
       autoload :Breadcrumb
       autoload :BreadcrumbItem
+      autoload :Button
     end
   end
 end

@@ -33,8 +33,7 @@ module NfgUi
         str
       end
 
-      def component_name_folder(component_name, parent_component:)
-
+      def component_name_folder(component_name, parent_component: nil)
         parent_component.nil? ? component_name.to_s.pluralize : parent_component.to_s.pluralize
       end
 
