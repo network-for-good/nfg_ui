@@ -9,7 +9,7 @@ module NfgUi
 
         def initialize(component_options)
           super
-          self.disabled = component_options.fetch(:disabled, default_disabled)
+          self.disabled = options.fetch(:disabled, default_disabled)
         end
 
         def disabled?
@@ -23,15 +23,16 @@ module NfgUi
         end
 
         def non_html_attribute_options
-          if elements_with_disabled_attribute.include?(as)
+          if elements_permitted_to_have_disabled_attribute.include?(as)
             super
           else
             super.push(:disabled)
           end
         end
 
-        def elements_with_disabled_attribute
-          [:button]
+        def elements_permitted_to_have_disabled_attribute
+          %i[button
+             input]
         end
 
         def default_disabled
