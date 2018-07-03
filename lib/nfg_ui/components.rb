@@ -15,16 +15,22 @@ module NfgUi
     end
 
     def render_component(component, trait: nil, component_name:)
-      render partial: partial_path(component_name: component_name, trait: trait),
+      render partial: partial_path(component_name: component_name,
+                                   trait: trait,
+                                   parent_component: get_parent_component(component)),
              locals: { component_name => component }
     end
 
     private
 
+    def get_parent_component(component)
+      component.send(:parent_component).presence
+    end
+
     def nested_class_name_string(class_name:)
       str = ''
       NfgUi::GROUPING_NAMES.each do |grouping|
-        next unless grouped_components_array(grouping: grouping).include?(class_name.downcase.underscore.to_sym)
+        next unless grouped_components_array(grouping: grouping).include?(class_name.underscore.downcase.to_sym)
         str = grouping.to_s.camelize
       end
       str

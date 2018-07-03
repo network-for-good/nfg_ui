@@ -9,11 +9,11 @@ module NfgUi
     module PartialPath
       include Groupings
 
-      def partial_path(component_name:, trait: nil)
+      def partial_path(component_name:, trait: nil, parent_component: nil)
         [
           engine_folder_name,
           grouping_folder(component_name),
-          component_name_folder(component_name),
+          component_name_folder(component_name, parent_component: parent_component),
           template_name(component_name, trait: trait)
         ].join('/').chomp
       end
@@ -33,8 +33,9 @@ module NfgUi
         str
       end
 
-      def component_name_folder(component_name)
-        component_name.to_s.pluralize
+      def component_name_folder(component_name, parent_component:)
+
+        parent_component.nil? ? component_name.to_s.pluralize : parent_component.to_s.pluralize
       end
 
       def template_name(component_name, trait: nil)

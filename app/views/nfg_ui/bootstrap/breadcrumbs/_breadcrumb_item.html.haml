@@ -1,0 +1,3 @@
+- aria = breadcrumb_item.active? ? { current: 'page' } : {}
+%li{ class: "breadcrumb-item #{'active' if breadcrumb_item.active?}", aria: aria }
+  = breadcrumb_item.body

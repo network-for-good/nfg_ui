@@ -51,6 +51,8 @@ module NfgUi
                                   loader
                                   media_object
                                   nav
+                                  breadcrumb
+                                  breadcrumb_item
                                   popover
                                   progress_bar
                                   slat

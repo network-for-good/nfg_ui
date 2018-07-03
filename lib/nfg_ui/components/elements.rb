@@ -8,6 +8,8 @@ module NfgUi
 
       autoload :Alert
       autoload :Badge
+      autoload :Breadcrumb
+      autoload :BreadcrumbItem
     end
   end
 end
