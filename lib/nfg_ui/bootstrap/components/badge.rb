@@ -7,6 +7,19 @@ module NfgUi
       # https://getbootstrap.com/docs/4.1/components/badge/
       class Badge < Bootstrap::Components::Base
         include Bootstrap::Utilities::Themeable
+        include Bootstrap::Utilities::Wrappable
+
+        def pill?
+          traits.include?(:pill)
+        end
+
+        def css_classes
+          pill? ? super + " #{component_css_class}-pill" : super
+        end
+
+        def default_html_wrapper_element
+          :span
+        end
       end
     end
   end
