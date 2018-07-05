@@ -12,6 +12,7 @@ module NfgUi
         def initialize(component_options)
           super
           self.as = options.fetch(:as, default_html_wrapper_element)
+          auto_update_as
         end
 
         def html_wrapper_element
@@ -19,6 +20,10 @@ module NfgUi
         end
 
         private
+
+        def auto_update_as
+          :a if options.try(:href)
+        end
 
         # UPDATING DEFAULTS FROM LINK_DEFAULTS DOES NOT WORK YET
         def defaults
