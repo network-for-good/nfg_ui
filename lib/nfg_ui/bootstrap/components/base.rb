@@ -18,7 +18,7 @@ module NfgUi
         end
 
         def html_options
-          @options.except(*non_html_attribute_options).merge(class: css_classes, **assistive_html_attributes)
+          options.except(*non_html_attribute_options).merge!(class: css_classes, **assistive_html_attributes)
         end
 
         private
@@ -29,15 +29,15 @@ module NfgUi
             class: '',
 
             # Content
-            headline: ('' if @headline.present?),
-            body: ('' if @body.present?)
+            headline: ('' if headline.present?),
+            body: ('' if body.present?)
           }
         end
 
         # Assigned on individual components as needed
         # Ex: { role: 'alert' }
         def assistive_html_attributes
-          {}
+          { aria: aria_assistive_html_attributes }
         end
 
         # Fallback component css class name.
@@ -48,8 +48,12 @@ module NfgUi
           self.class.name.split('::').last.to_s.underscore.dasherize.downcase
         end
 
+        def aria_assistive_html_attributes
+          options.fetch(:aria, {})
+        end
+
         def css_classes
-          [component_css_class, trait_css_classes, @options[:class]].join(' ').squish
+          [component_css_class, trait_css_classes, options[:class]].join(' ').squish
         end
 
         def non_html_attribute_options
