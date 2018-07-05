@@ -12,9 +12,9 @@ module NfgUi
 
         def initialize(component_options)
           @options = defaults.merge!(component_options)
-          @body = @options.fetch(:body, '')
-          @headline = @options.fetch(:headline, '')
-          @traits = @options.fetch(:traits, nil)
+          @body = options.fetch(:body, '')
+          @headline = options.fetch(:headline, '')
+          @traits = options.fetch(:traits, nil)
         end
 
         def html_options
