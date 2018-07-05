@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   resources :breadcrumbs, only: [:index]
   resources :buttons, only: [:index]
   resources :button_groups, only: [:index]
+  resources :cards, only: [:index]
 end

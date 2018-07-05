@@ -1,0 +1,52 @@
+%h1 Cards
+
+= nfg_ui :card, headline: 'Card headline', subtitle: 'Card subtitle', body: 'Card body', class: 'my-4'
+= nfg_ui :card, headline: 'Card headline', class: 'my-4' do
+  %p.card-text Card body from a block
+
+= nfg_ui :card do
+  Default, no frills card
+
+
+%hr
+
+%h2 Themes
+
+%h3 Solid Card Themes
+
+= nfg_ui :card, headline: 'Card Headline', subtitle: 'Card Subtitle', theme: :primary, class: 'my-4' do
+  %p.card-text Card with primary theme
+
+= nfg_ui :card, headline: 'Card Headline', subtitle: 'Card Subtitle', theme: :secondary, class: 'my-4', body: 'Card with secondary theme'
+
+= nfg_ui :card, headline: 'Card Headline', subtitle: 'Card Subtitle', theme: :success, class: 'my-4', body: 'Card with success theme'
+
+= nfg_ui :card, headline: 'Card Headline', subtitle: 'Card Subtitle', theme: :danger, class: 'my-4', body: 'Card with danger theme'
+
+= nfg_ui :card, headline: 'Card Headline', subtitle: 'Card Subtitle', theme: :warning, class: 'my-4', body: 'Card with warning theme'
+
+= nfg_ui :card, headline: 'Card Headline', subtitle: 'Card Subtitle', theme: :info, class: 'my-4', body: 'Card with info theme'
+
+= nfg_ui :card, headline: 'Card Headline', subtitle: 'Card Subtitle', theme: :light, class: 'my-4', body: 'Card with light theme'
+
+= nfg_ui :card, headline: 'Card Headline', subtitle: 'Card Subtitle', theme: :dark, class: 'my-4', body: 'Card with dark theme'
+
+%hr
+
+%h3 Outlined Card Themes
+= nfg_ui :card, :outlined, headline: 'Card Headline', subtitle: 'Card Subtitle', theme: :primary, class: 'my-4' do
+  %p.card-text Card with primary theme
+
+= nfg_ui :card, :outlined, headline: 'Card Headline', subtitle: 'Card Subtitle', theme: :secondary, class: 'my-4', body: 'Card with secondary theme'
+
+= nfg_ui :card, :outlined, headline: 'Card Headline', subtitle: 'Card Subtitle', theme: :success, class: 'my-4', body: 'Card with success theme'
+
+= nfg_ui :card, :outlined, headline: 'Card Headline', subtitle: 'Card Subtitle', theme: :danger, class: 'my-4', body: 'Card with danger theme'
+
+= nfg_ui :card, :outlined, headline: 'Card Headline', subtitle: 'Card Subtitle', theme: :warning, class: 'my-4', body: 'Card with warning theme'
+
+= nfg_ui :card, :outlined, headline: 'Card Headline', subtitle: 'Card Subtitle', theme: :info, class: 'my-4', body: 'Card with info theme'
+
+= nfg_ui :card, :outlined, headline: 'Card Headline', subtitle: 'Card Subtitle', theme: :light, class: 'my-4', body: 'Card with light theme'
+
+= nfg_ui :card, :outlined, headline: 'Card Headline', subtitle: 'Card Subtitle', theme: :dark, class: 'my-4', body: 'Card with dark theme'

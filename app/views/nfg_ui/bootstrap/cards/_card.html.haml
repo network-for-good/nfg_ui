@@ -1,0 +1,9 @@
+-# http://getbootstrap.com/docs/4.1/components/alerts/
+%div{ card.html_options }
+  .card-body
+    - if card.headline
+      = content_tag card.card_title_element, card.headline, class: 'card-title'
+    - if card.subtitle.present?
+      = content_tag card.card_subtitle_element, card.subtitle, class: 'card-subtitle'
+    
+    = card.body

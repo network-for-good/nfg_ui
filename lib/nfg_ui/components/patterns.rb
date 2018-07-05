@@ -5,8 +5,9 @@ module NfgUi
     # This is the authoritative document for 'Patterns'
     module Patterns
       extend ActiveSupport::Autoload
-      
+
       autoload :ButtonGroup
+      autoload :Card
     end
   end
 end
