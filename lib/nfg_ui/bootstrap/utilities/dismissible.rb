@@ -16,6 +16,8 @@ module NfgUi
           dismissible
         end
 
+        private
+
         def defaults
           super.merge(dismissible: default_dismissible)
         end
@@ -23,8 +25,6 @@ module NfgUi
         def non_html_attribute_options
           super.push(:dismissible)
         end
-
-        private
 
         def default_dismissible
           true

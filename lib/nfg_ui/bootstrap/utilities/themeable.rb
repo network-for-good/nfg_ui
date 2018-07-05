@@ -12,6 +12,8 @@ module NfgUi
           self.theme = component_options.fetch(:theme, default_theme)
         end
 
+        private
+
         def defaults
           super.merge!(theme: default_theme)
         end
@@ -27,8 +29,6 @@ module NfgUi
         def theme_css_class
           "#{component_css_class}-#{outline}#{theme}" if bootstrap4_themes.include?(theme)
         end
-
-        private
 
         def bootstrap4_themes
           %i[primary

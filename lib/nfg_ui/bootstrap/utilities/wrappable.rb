@@ -21,6 +21,10 @@ module NfgUi
 
         private
 
+        def assistive_html_attributes
+          as == :button && super[:type].nil? ? super.merge(type: 'button') : super
+        end
+
         def auto_update_as
           :a if options.try(:href)
         end
