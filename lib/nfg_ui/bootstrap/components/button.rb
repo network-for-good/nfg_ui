@@ -18,8 +18,8 @@ module NfgUi
           'btn'
         end
 
-        def assistive_html_attributes
-          active? ? super.merge(aria: { pressed: true }) : super
+        def aria_assistive_html_attributes
+          active? ? super.merge!(pressed: super.fetch(:pressed, true)) : super
         end
 
         # To be expanded later
