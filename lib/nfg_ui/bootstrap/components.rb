@@ -12,6 +12,7 @@ module NfgUi
       autoload :Breadcrumb
       autoload :BreadcrumbItem
       autoload :Button
+      autoload :ButtonGroup
     end
   end
 end

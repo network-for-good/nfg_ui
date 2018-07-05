@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   resources :badges, only: [:index]
   resources :breadcrumbs, only: [:index]
   resources :buttons, only: [:index]
+  resources :button_groups, only: [:index]
 end
