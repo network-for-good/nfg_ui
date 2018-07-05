@@ -8,15 +8,17 @@ module NfgUi
       # https://getbootstrap.com/docs/4.1/components/breadcrumb/
       class BreadcrumbItem < Bootstrap::Components::Base
         include Bootstrap::Utilities::Activatable
+        include Bootstrap::Utilities::AriaAssistable
+
+        def initialize(component_options)
+          super
+          build_aria(aria_key: :current, aria_value: 'page') if active?
+        end
 
         private
 
         def parent_component
           :breadcrumb
-        end
-
-        def assistive_html_attributes
-          active? ? { aria: { current: 'page' } } : {}
         end
       end
     end
