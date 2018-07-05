@@ -12,6 +12,7 @@ module NfgUi
       autoload :Sizable
       autoload :Wrappable
       autoload :Disableable
+      autoload :AriaAssistable
     end
   end
 end

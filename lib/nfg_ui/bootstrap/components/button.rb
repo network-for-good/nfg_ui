@@ -11,6 +11,12 @@ module NfgUi
         include Bootstrap::Utilities::Wrappable
         include Bootstrap::Utilities::Activatable
         include Bootstrap::Utilities::Disableable
+        include Bootstrap::Utilities::AriaAssistable
+
+        def initialize(component_options)
+          super
+          build_aria(aria_key: :pressed, aria_value: true) if active?
+        end
 
         private
 
@@ -18,11 +24,6 @@ module NfgUi
           'btn'
         end
 
-        def aria_assistive_html_attributes
-          active? ? super.merge!(pressed: super.fetch(:pressed, true)) : super
-        end
-
-        # To be expanded later
         def trait_css_classes
           traits.include?(:block) ? "#{component_css_class}-block" : super
         end

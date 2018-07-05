@@ -36,8 +36,12 @@ module NfgUi
 
         # Assigned on individual components as needed
         # Ex: { role: 'alert' }
+        #
+        # If aria assistive html is needed, see:
+        # Bootstrap::Utilities::AriaAssistable
+        # avoid passing aria to assistive_html_attributes directly
         def assistive_html_attributes
-          { aria: aria_assistive_html_attributes }
+          {}
         end
 
         # Fallback component css class name.
@@ -46,10 +50,6 @@ module NfgUi
         # Example: returns 'alert' from NfgUi::Bootstrap::Components::Alert
         def component_css_class
           self.class.name.split('::').last.to_s.underscore.dasherize.downcase
-        end
-
-        def aria_assistive_html_attributes
-          options.fetch(:aria, {})
         end
 
         def css_classes
