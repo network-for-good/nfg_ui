@@ -27,7 +27,7 @@ module NfgUi
         end
 
         def theme_css_class
-          "#{component_css_class}-#{outline}#{theme}" if bootstrap4_themes.include?(theme)
+          "#{theme_css_class_prefix}-#{outline_css_class_string}#{theme}" if bootstrap4_themes.include?(theme)
         end
 
         def bootstrap4_themes
@@ -41,12 +41,20 @@ module NfgUi
              dark]
         end
 
+        def outlined?
+          traits.include?(:outlined)
+        end
+
+        def theme_css_class_prefix
+          component_css_class
+        end
+
         def default_theme
           :primary
         end
 
-        def outline
-          'outline-' if traits.include?(:outlined)
+        def outline_css_class_string
+          'outline-' if outlined?
         end
       end
     end
