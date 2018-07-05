@@ -19,9 +19,9 @@ module NfgUi
   ActiveSupport.on_load(:active_record) { include Helper }
 
   # Autoloading inspired by simple_form methodology
-  # and the fact that this is a significantly sized library
-  # it seems to make sense to not try to pre-load the dozens and dozens
-  # of assets that comprise of this library.
+  # and the fact that this is a significantly sized library.
+  # It seems to make sense to not try to pre-load the dozens and dozens
+  # of assets that comprise this library.
   #
   # Reference article:
   # http://blog.plataformatec.com.br/2012/08/eager-loading-for-greater-good/
@@ -69,14 +69,26 @@ module NfgUi
                                   popover
                                   progress_bar
                                   slat
+                                  stat
                                   table
                                   task
                                   tooltip].freeze
 
-  PATTERN_COMPONENT_NAMES    = %i[color
-                                  icon
-                                  image
-                                  input
-                                  grid
-                                  typeface].freeze
+  PATTERN_COMPONENT_NAMES    = %i[activity_feed
+                                  button_group
+                                  card
+                                  carousel
+                                  empty_state
+                                  filter_bar
+                                  form
+                                  graph
+                                  jumbotron
+                                  list_group
+                                  media_group
+                                  modal
+                                  navbar
+                                  panel
+                                  slat_list
+                                  task_list
+                                  tile].freeze
 end
