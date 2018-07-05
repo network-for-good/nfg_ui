@@ -12,7 +12,7 @@ module NfgUi
         private
 
         def assistive_html_attributes
-          { role: 'alert' }
+          super.merge!(role: 'alert') unless options[:role]
         end
       end
     end
