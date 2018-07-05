@@ -9,7 +9,7 @@ module NfgUi
 
         def initialize(component_options)
           super
-          self.active = component_options.fetch(:active, default_active)
+          self.active = options.fetch(:active, default_active)
         end
 
         def active?
@@ -21,7 +21,7 @@ module NfgUi
         end
 
         def css_classes
-          [super, (active_css_class if active?)].join(' ').squish
+          active? ? super + ' active' : super
         end
 
         def non_html_attribute_options
@@ -29,10 +29,6 @@ module NfgUi
         end
 
         private
-
-        def active_css_class
-          'active'
-        end
 
         def default_active
           false
