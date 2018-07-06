@@ -1,3 +1,3 @@
-class Bootstrap::ProgressesController < ApplicationController
+class Bootstrap::ProgressesController < Bootstrap::BaseBootstrapController
   def index; end
 end

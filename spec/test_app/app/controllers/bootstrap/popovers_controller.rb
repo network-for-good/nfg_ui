@@ -1,3 +1,3 @@
-class Bootstrap::PopoversController < ApplicationController
+class Bootstrap::PopoversController < Bootstrap::BaseBootstrapController
   def index; end
 end

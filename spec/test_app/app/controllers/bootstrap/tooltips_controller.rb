@@ -1,3 +1,3 @@
-class Bootstrap::TooltipsController < ApplicationController
+class Bootstrap::TooltipsController < Bootstrap::BaseBootstrapController
   def index; end
 end

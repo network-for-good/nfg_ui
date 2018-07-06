@@ -1,3 +1,3 @@
-class Bootstrap::DropdownsController < ApplicationController
+class Bootstrap::DropdownsController < Bootstrap::BaseBootstrapController
   def index; end
 end

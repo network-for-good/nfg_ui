@@ -1,0 +1,35 @@
+- component_suite = local_assigns[:component_suite]
+
+%nav.navbar.navbar-expand-lg.navbar-light.bg-light
+  = link_to component_suite, root_path, class: 'navbar-brand'
+  %button.navbar-toggler{"aria-controls" => "main_nav", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#main_nav", "data-toggle" => "collapse", :type => "button"}
+    %span.navbar-toggler-icon
+  #main_nav.collapse.navbar-collapse
+    %ul.navbar-nav.mr-auto
+      %li.nav-item.dropdown
+        %a#bootstrap.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+          Bootstrap Components
+        .dropdown-menu{"aria-labelledby" => "bootstrap"}
+          - NfgUi::BOOTSTRAP_COMPONENT_NAMES.each do |component|
+            = link_to component.to_s.humanize, send("bootstrap_#{component.to_s.pluralize}_path"), class: 'dropdown-item'
+      
+      %li.nav-item.dropdown
+        %a#foundation.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+          Foundation Components
+        .dropdown-menu{"aria-labelledby" => "foundation"}
+          - NfgUi::FOUNDATION_COMPONENT_NAMES.each do |component|
+            = link_to component.to_s.humanize, send("foundations_#{component.to_s.pluralize}_path"), class: 'dropdown-item'
+
+      %li.nav-item.dropdown
+        %a#element.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+          Element Components
+        .dropdown-menu{"aria-labelledby" => "foundation"}
+          - NfgUi::ELEMENT_COMPONENT_NAMES.each do |component|
+            = link_to component.to_s.humanize, send("elements_#{component.to_s.pluralize}_path"), class: 'dropdown-item'
+
+      %li.nav-item.dropdown
+        %a#element.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+          Pattern Components
+        .dropdown-menu{"aria-labelledby" => "foundation"}
+          - NfgUi::PATTERN_COMPONENT_NAMES.each do |component|
+            = link_to component.to_s.humanize, send("patterns_#{component.to_s.pluralize}_path"), class: 'dropdown-item'

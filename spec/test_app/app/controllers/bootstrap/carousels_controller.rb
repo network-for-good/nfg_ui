@@ -1,3 +1,3 @@
-class Bootstrap::CarouselsController < ApplicationController
+class Bootstrap::CarouselsController < Bootstrap::BaseBootstrapController
   def index; end
 end

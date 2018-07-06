@@ -4,23 +4,26 @@ Rails.application.routes.draw do
   resources :dashboard, only: [:index]
 
   namespace :bootstrap do
-    resources :alerts, only: [:index]
-    resources :badges, only: [:index]
-    resources :breadcrumbs, only: [:index]
-    resources :buttons, only: [:index]
-    resources :button_groups, only: [:index]
-    resources :cards, only: [:index]
-    resources :carousels, only: [:index]
-    resources :dropdowns, only: [:index]
-    resources :forms, only: [:index]
-    resources :jumbotrons, only: [:index]
-    resources :list_groups, only: [:index]
-    resources :modals, only: [:index]
-    resources :navbars, only: [:index]
-    resources :navs, only: [:index]
-    resources :paginations, only: [:index]
-    resources :popovers, only: [:index]
-    resources :progresses, only: [:index]
-    resources :tooltips, only: [:index]
+    NfgUi::BOOTSTRAP_COMPONENT_NAMES.each do |resource|
+      resources resource.to_s.pluralize.to_sym, only: [:index]
+    end
+  end
+
+  namespace :elements do
+    NfgUi::ELEMENT_COMPONENT_NAMES.each do |resource|
+      resources resource.to_s.pluralize.to_sym, only: [:index]
+    end
+  end
+
+  namespace :foundations do
+    NfgUi::FOUNDATION_COMPONENT_NAMES.each do |resource|
+      resources resource.to_s.pluralize.to_sym, only: [:index]
+    end
+  end
+
+  namespace :patterns do
+    NfgUi::PATTERN_COMPONENT_NAMES.each do |resource|
+      resources resource.to_s.pluralize.to_sym, only: [:index]
+    end
   end
 end

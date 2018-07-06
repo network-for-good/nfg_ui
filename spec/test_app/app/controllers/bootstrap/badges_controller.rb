@@ -1,3 +1,3 @@
-class Bootstrap::BadgesController < ApplicationController
+class Bootstrap::BadgesController < Bootstrap::BaseBootstrapController
   def index; end
 end

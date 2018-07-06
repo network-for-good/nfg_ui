@@ -1,3 +1,3 @@
-class Bootstrap::FormsController < ApplicationController
+class Bootstrap::FormsController < Bootstrap::BaseBootstrapController
   def index; end
 end

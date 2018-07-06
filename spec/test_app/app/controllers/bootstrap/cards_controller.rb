@@ -1,3 +1,3 @@
-class Bootstrap::CardsController < ApplicationController
+class Bootstrap::CardsController < Bootstrap::BaseBootstrapController
   def index; end
 end
