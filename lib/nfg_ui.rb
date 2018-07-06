@@ -8,8 +8,10 @@ require 'nfg_ui/engine'
 # lib/nfg_ui/builder.rb
 module NfgUi
   require 'bootstrap'
+  require 'coffee-script'
   require 'font-awesome-rails'
   require 'haml'
+  require 'jquery-rails'
   require 'sass-rails'
   require 'select2-rails'
 
