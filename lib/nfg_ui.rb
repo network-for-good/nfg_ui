@@ -56,18 +56,18 @@ module NfgUi
   ELEMENT_COMPONENT_NAMES    = %i[activity
                                   alert
                                   badge
+                                  breadcrumb
+                                  breadcrumb_item
                                   button
                                   chart
                                   dropdown
-                                  form_group
+                                  form_control
                                   input_group
                                   key
                                   list_group_item
                                   loader
                                   media_object
                                   nav
-                                  breadcrumb
-                                  breadcrumb_item
                                   popover
                                   progress_bar
                                   slat
@@ -82,14 +82,13 @@ module NfgUi
                                   carousel
                                   empty_state
                                   filter_bar
-                                  form
+                                  form_group
                                   graph
                                   jumbotron
                                   list_group
                                   media_group
                                   modal
                                   navbar
-                                  panel
                                   slat_list
                                   task_list
                                   tile].freeze
