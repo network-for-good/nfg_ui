@@ -8,6 +8,38 @@
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
   %body
+    .container-fluid
+      %nav.navbar.navbar-expand-lg.navbar-light.bg-light
+        %a.navbar-brand{:href => "#"} NFG UI
+        %button.navbar-toggler{"aria-controls" => "navbarSupportedContent", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarSupportedContent", "data-toggle" => "collapse", :type => "button"}
+          %span.navbar-toggler-icon
+        #navbarSupportedContent.collapse.navbar-collapse
+          %ul.navbar-nav.mr-auto
+            %li.nav-item
+              = link_to 'Dashboard', root_path, class: 'nav-link'
+            %li.nav-item.dropdown
+              %a#navbarDropdown.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+                Bootstrap Components
+              .dropdown-menu{"aria-labelledby" => "navbarDropdown"}
+                = link_to 'Alerts', bootstrap_alerts_path, class: 'dropdown-item'
+                = link_to 'Badges', bootstrap_badges_path, class: 'dropdown-item'
+                = link_to 'Breadcrumbs', bootstrap_breadcrumbs_path, class: 'dropdown-item'
+                = link_to 'Buttons', bootstrap_buttons_path, class: 'dropdown-item'
+                = link_to 'Button Groups', bootstrap_button_groups_path, class: 'dropdown-item'
+                = link_to 'Cards', bootstrap_cards_path, class: 'dropdown-item'
+                = link_to 'Carousel', bootstrap_carousels_path, class: 'dropdown-item'
+                = link_to 'Dropdowns', bootstrap_dropdowns_path, class: 'dropdown-item'
+                = link_to 'Forms', bootstrap_forms_path, class: 'dropdown-item'
+                = link_to 'Jumbotrons', bootstrap_jumbotrons_path, class: 'dropdown-item'
+                = link_to 'List Groups', bootstrap_list_groups_path, class: 'dropdown-item'
+                = link_to 'Modals', bootstrap_modals_path, class: 'dropdown-item'
+                = link_to 'Navbars', bootstrap_navbars_path, class: 'dropdown-item'
+                = link_to 'Navs', bootstrap_navs_path, class: 'dropdown-item'
+                = link_to 'Pagination', bootstrap_paginations_path, class: 'dropdown-item'
+                = link_to 'Popovers', bootstrap_popovers_path, class: 'dropdown-item'
+                = link_to 'Progresses', bootstrap_progresses_path, class: 'dropdown-item'
+                = link_to 'Tooltips', bootstrap_tooltips_path, class: 'dropdown-item'
+
     .container.mb-5
       .row
         .col

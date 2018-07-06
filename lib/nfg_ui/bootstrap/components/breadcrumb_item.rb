@@ -15,9 +15,7 @@ module NfgUi
           build_aria(aria_key: :current, aria_value: 'page') if active?
         end
 
-        private
-
-        def parent_component
+        def component_family
           :breadcrumb
         end
       end

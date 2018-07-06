@@ -1,8 +1,13 @@
 # frozen_string_literal: true
 
 module NfgUi
-  # Exposes nfg_ui rendering method
+  # Core rendering helper methods
   module ApplicationHelper
-    include NfgUi::Builder
+    # render components from the pertinent suite
+    # Network for Good components: = ui.nfg
+    # Bootstrap core components:   = ui.bootstrap
+    def ui
+      NfgUi::UI::Base.new
+    end
   end
 end

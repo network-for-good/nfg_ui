@@ -8,6 +8,7 @@ module NfgUi
 
       autoload :ButtonGroup
       autoload :Card
+      autoload :Carousel
     end
   end
 end

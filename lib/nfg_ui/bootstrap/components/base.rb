@@ -7,7 +7,7 @@ module NfgUi
       # Defines conventional, shared behavior across
       # Bootstrap components
       class Base
-        attr_reader :headline, :body, :parent_component, :traits, :as
+        attr_reader :headline, :body, :component_family, :traits, :as
         attr_accessor :options
 
         def initialize(component_options)
@@ -19,6 +19,17 @@ module NfgUi
 
         def html_options
           options.except(*non_html_attribute_options).merge!(class: css_classes, **assistive_html_attributes)
+        end
+
+        # This is used to help identify where to find partials for rendering components.
+        #
+        # Set the component family, e.g.: :breadcrumb
+        # on any sibling components.
+        #
+        # For example:
+        # BreadcrumbItem & Breadcrumb are members of the :breadcrumb component_family
+        def component_family
+          nil
         end
 
         private

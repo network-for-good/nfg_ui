@@ -1,0 +1,11 @@
+%h1 Breadcrumbs
+
+= ui.bootstrap :breadcrumb, class: 'example-class' do
+  = ui.bootstrap :breadcrumb_item, body: 'Home', class: 'example-class'
+  = ui.bootstrap :breadcrumb_item, body: 'Second Tier', class: 'example-class'
+  
+  -# Block example
+  = ui.bootstrap :breadcrumb_item, active: true, class: 'example-class' do
+    Active Page
+
+

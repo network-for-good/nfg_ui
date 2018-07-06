@@ -1,0 +1,52 @@
+%h1 Cards
+
+= ui.bootstrap :card, headline: 'Card headline', subtitle: 'Card subtitle', body: 'Card body', class: 'my-4'
+= ui.bootstrap :card, headline: 'Card headline', class: 'my-4' do
+  %p.card-text Card body from a block
+
+= ui.bootstrap :card do
+  Default, no frills card
+
+
+%hr
+
+%h2 Themes
+
+%h3 Solid Card Themes
+
+= ui.bootstrap :card, headline: 'Card Headline', subtitle: 'Card Subtitle', theme: :primary, class: 'my-4' do
+  %p.card-text Card with primary theme
+
+= ui.bootstrap :card, headline: 'Card Headline', subtitle: 'Card Subtitle', theme: :secondary, class: 'my-4', body: 'Card with secondary theme'
+
+= ui.bootstrap :card, headline: 'Card Headline', subtitle: 'Card Subtitle', theme: :success, class: 'my-4', body: 'Card with success theme'
+
+= ui.bootstrap :card, headline: 'Card Headline', subtitle: 'Card Subtitle', theme: :danger, class: 'my-4', body: 'Card with danger theme'
+
+= ui.bootstrap :card, headline: 'Card Headline', subtitle: 'Card Subtitle', theme: :warning, class: 'my-4', body: 'Card with warning theme'
+
+= ui.bootstrap :card, headline: 'Card Headline', subtitle: 'Card Subtitle', theme: :info, class: 'my-4', body: 'Card with info theme'
+
+= ui.bootstrap :card, headline: 'Card Headline', subtitle: 'Card Subtitle', theme: :light, class: 'my-4', body: 'Card with light theme'
+
+= ui.bootstrap :card, headline: 'Card Headline', subtitle: 'Card Subtitle', theme: :dark, class: 'my-4', body: 'Card with dark theme'
+
+%hr
+
+%h3 Outlined Card Themes
+= ui.bootstrap :card, :outlined, headline: 'Card Headline', subtitle: 'Card Subtitle', theme: :primary, class: 'my-4' do
+  %p.card-text Card with primary theme
+
+= ui.bootstrap :card, :outlined, headline: 'Card Headline', subtitle: 'Card Subtitle', theme: :secondary, class: 'my-4', body: 'Card with secondary theme'
+
+= ui.bootstrap :card, :outlined, headline: 'Card Headline', subtitle: 'Card Subtitle', theme: :success, class: 'my-4', body: 'Card with success theme'
+
+= ui.bootstrap :card, :outlined, headline: 'Card Headline', subtitle: 'Card Subtitle', theme: :danger, class: 'my-4', body: 'Card with danger theme'
+
+= ui.bootstrap :card, :outlined, headline: 'Card Headline', subtitle: 'Card Subtitle', theme: :warning, class: 'my-4', body: 'Card with warning theme'
+
+= ui.bootstrap :card, :outlined, headline: 'Card Headline', subtitle: 'Card Subtitle', theme: :info, class: 'my-4', body: 'Card with info theme'
+
+= ui.bootstrap :card, :outlined, headline: 'Card Headline', subtitle: 'Card Subtitle', theme: :light, class: 'my-4', body: 'Card with light theme'
+
+= ui.bootstrap :card, :outlined, headline: 'Card Headline', subtitle: 'Card Subtitle', theme: :dark, class: 'my-4', body: 'Card with dark theme'

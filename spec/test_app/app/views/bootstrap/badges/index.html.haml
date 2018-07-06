@@ -1,0 +1,65 @@
+%h1 Badges
+
+%h2 Standard Badges
+-# Block example
+= ui.bootstrap :badge, class: 'example-class' do
+  Default
+
+= ui.bootstrap :badge, body: 'Primary', theme: :primary, class: 'example-class'
+
+= ui.bootstrap :badge, body: 'Secondary', theme: :secondary, class: 'example-class' 
+
+= ui.bootstrap :badge, body: 'Success', theme: :success, class: 'example-class' 
+
+= ui.bootstrap :badge, body: 'Danger', theme: :danger, class: 'example-class' 
+
+= ui.bootstrap :badge, body: 'Warning', theme: :warning, class: 'example-class' 
+
+= ui.bootstrap :badge, body: 'Info', theme: :info, class: 'example-class' 
+
+= ui.bootstrap :badge, body: 'Light', theme: :light, class: 'example-class' 
+= ui.bootstrap :badge, body: 'Dark', theme: :dark, class: 'example-class' 
+
+%hr
+
+%h2 Pill Badges
+-# Block example
+= ui.bootstrap :badge, :pill, class: 'example-class' do
+  Default
+
+= ui.bootstrap :badge, :pill, body: 'Primary', theme: :primary, class: 'example-class'
+
+= ui.bootstrap :badge, :pill, body: 'Secondary', theme: :secondary, class: 'example-class' 
+
+= ui.bootstrap :badge, :pill, body: 'Success', theme: :success, class: 'example-class' 
+
+= ui.bootstrap :badge, :pill, body: 'Danger', theme: :danger, class: 'example-class' 
+
+= ui.bootstrap :badge, :pill, body: 'Warning', theme: :warning, class: 'example-class' 
+
+= ui.bootstrap :badge, :pill, body: 'Info', theme: :info, class: 'example-class' 
+
+= ui.bootstrap :badge, :pill, body: 'Light', theme: :light, class: 'example-class' 
+= ui.bootstrap :badge, :pill, body: 'Dark', theme: :dark, class: 'example-class' 
+
+%hr
+
+%h2 Badges as links
+-# Block example
+= ui.bootstrap :badge, as: :link, class: 'example-class' do
+  Default no href
+
+= ui.bootstrap :badge, body: 'Primary', href: '#nogo', theme: :primary, class: 'example-class'
+
+= ui.bootstrap :badge, as: :link, body: 'Secondary', href: '#nogo', theme: :secondary, class: 'example-class' 
+
+= ui.bootstrap :badge, as: :link, body: 'Success', href: '#nogo', theme: :success, class: 'example-class' 
+
+= ui.bootstrap :badge, as: :link, body: 'Danger', href: '#nogo', theme: :danger, class: 'example-class' 
+
+= ui.bootstrap :badge, as: :link, body: 'Warning', href: '#nogo', theme: :warning, class: 'example-class' 
+
+= ui.bootstrap :badge, as: :link, body: 'Info', href: '#nogo', theme: :info, class: 'example-class' 
+
+= ui.bootstrap :badge, as: :link, body: 'Light', href: '#nogo', theme: :light, class: 'example-class' 
+= ui.bootstrap :badge, as: :link, body: 'Dark', href: '#nogo', theme: :dark, class: 'example-class' 

@@ -23,6 +23,10 @@ module NfgUi
           :h6
         end
 
+        def component_family
+          :card
+        end
+
         private
 
         def card_theme_text_css_class

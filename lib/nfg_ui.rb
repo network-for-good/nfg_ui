@@ -29,9 +29,7 @@ module NfgUi
   # http://blog.plataformatec.com.br/2012/08/eager-loading-for-greater-good/
   extend ActiveSupport::Autoload
 
-  autoload :Helpers
-  autoload :Utilities
-  autoload :Builder
+  autoload :UI
 
   eager_autoload do
     autoload :Bootstrap
@@ -44,7 +42,29 @@ module NfgUi
     NfgUi::Components.eager_load!
   end
 
-  GROUPING_NAMES = %i[foundations elements patterns].freeze
+  BOOTSTRAP_COMPONENT_NAMES  = %i[alert
+                                  badge
+                                  breadcrumb
+                                  breadcrumb_item
+                                  button
+                                  button_group
+                                  card
+                                  carousel
+                                  dropdown
+                                  form
+                                  jumbotron
+                                  list_group
+                                  modal
+                                  navbar
+                                  nav
+                                  pagination
+                                  popover
+                                  progress
+                                  tooltip].freeze
+
+  GROUPING_NAMES             = %i[foundations
+                                  elements
+                                  patterns].freeze
 
   FOUNDATION_COMPONENT_NAMES = %i[color
                                   icon
@@ -93,3 +113,5 @@ module NfgUi
                                   task_list
                                   tile].freeze
 end
+
+require 'nfg_ui/railtie' if defined?(Rails)
