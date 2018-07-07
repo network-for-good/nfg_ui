@@ -3,7 +3,7 @@ module NfgUi
     module Utilities
       extend ActiveSupport::Autoload
 
-      autoload :Factory
+      autoload :Initializer
     end
   end
 end
