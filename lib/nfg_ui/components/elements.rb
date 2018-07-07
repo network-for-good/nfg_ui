@@ -6,11 +6,28 @@ module NfgUi
     module Elements
       extend ActiveSupport::Autoload
 
+      autoload :Activity
       autoload :Alert
       autoload :Badge
       autoload :Breadcrumb
       autoload :BreadcrumbItem
       autoload :Button
+      autoload :Chart
+      autoload :Dropdown
+      autoload :FormControl
+      autoload :InputGroup
+      autoload :Key
+      autoload :ListGroupItem
+      autoload :Loader
+      autoload :MediaObject
+      autoload :Nav
+      autoload :Popover
+      autoload :ProgressBar
+      autoload :Slat
+      autoload :Stat
+      autoload :Table
+      autoload :Task
+      autoload :Tooltip
     end
   end
 end

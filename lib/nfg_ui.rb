@@ -52,14 +52,18 @@ module NfgUi
                                   carousel
                                   dropdown
                                   form
+                                  input_group
                                   jumbotron
                                   list_group
+                                  list_group_item
+                                  media_object
                                   modal
-                                  navbar
                                   nav
+                                  navbar
                                   pagination
                                   popover
                                   progress
+                                  table
                                   tooltip].freeze
 
   GROUPING_NAMES             = %i[foundations

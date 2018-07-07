@@ -16,15 +16,19 @@ module NfgUi
       autoload :Card
       autoload :Carousel
       autoload :Dropdown
+      autoload :InputGroup
       autoload :Form
       autoload :Jumbotron
       autoload :ListGroup
+      autoload :ListGroupItem
+      autoload :MediaObject
       autoload :Modal
       autoload :Navbar
       autoload :Nav
       autoload :Pagination
       autoload :Popover
       autoload :Progress
+      autoload :Table
       autoload :Tooltip
     end
   end
