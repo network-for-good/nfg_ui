@@ -25,7 +25,7 @@ module NfgUi
       protected
 
       def render_component
-        ApplicationController.render partial: partial_path, locals: { component_name => component }
+        ActionController::Base.render partial: partial_path, locals: { component_name => component }
       end
 
       private
