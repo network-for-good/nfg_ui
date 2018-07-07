@@ -2,10 +2,6 @@
 
 require 'nfg_ui/engine'
 
-# Core documentation coming soon.
-# In the meantime, rendering/builder usage and basic documentation
-# can be found within the NfgUi::Builder module:
-# lib/nfg_ui/builder.rb
 module NfgUi
   require 'bootstrap'
   require 'coffee-script'
@@ -14,11 +10,6 @@ module NfgUi
   require 'jquery-rails'
   require 'sass-rails'
   require 'select2-rails'
-
-  # Autoloads app/helpers/nfg_ui/helper.rb
-  # Which is responsible for 'include'ing
-  # all of the actual view helpers
-  ActiveSupport.on_load(:active_record) { include Helper }
 
   # Autoloading inspired by simple_form methodology
   # and the fact that this is a significantly sized library.

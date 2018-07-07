@@ -6,7 +6,7 @@ module NfgUi
 
     config.before_initialize do
       ActiveSupport.on_load :action_controller do
-        helper NfgUi::Helper
+        helper NfgUi::ApplicationHelper
       end
     end
   end
