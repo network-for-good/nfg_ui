@@ -2,6 +2,7 @@ PATH
   remote: .
   specs:
     nfg_ui (0.0.1)
+      backport_new_renderer
       bootstrap (~> 4.1.1)
       coffee-script
       font-awesome-rails
@@ -57,6 +58,8 @@ GEM
     arel (9.0.0)
     autoprefixer-rails (8.6.5)
       execjs
+    backport_new_renderer (1.0.0)
+      rails
     bootstrap (4.1.1)
       autoprefixer-rails (>= 6.0.3)
       popper_js (>= 1.12.9, < 2)

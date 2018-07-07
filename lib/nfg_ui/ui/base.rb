@@ -24,8 +24,10 @@ module NfgUi
 
       protected
 
+      # Rails 4/5 render "anywhere" thanks to
+      # https://github.com/brainopia/backport_new_renderer
       def render_component
-        ActionController::Base.render partial: partial_path, locals: { component_name => component }
+        ApplicationController.renderer.render partial: partial_path, locals: { component_name => component }
       end
 
       private
