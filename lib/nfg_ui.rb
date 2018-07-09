@@ -10,6 +10,7 @@ module NfgUi
   require 'jquery-rails'
   require 'sass-rails'
   require 'select2-rails'
+  # require 'backport_new_renderer'
 
   # Autoloading inspired by simple_form methodology
   # and the fact that this is a significantly sized library.
