@@ -4,9 +4,14 @@ module NfgUi
     # components (bootstrap vs network_for_good / nfg)
     class Base
       include Utilities::Initializer
+      attr_accessor :view_context
 
       # Child classes manage initialization
-      def initialize; end
+      # Base collects the view_context to supply the
+      # render_component method with the appropriate ActionView
+      def initialize(view_context, *)
+        @view_context = view_context
+      end
 
       def bootstrap?
         false
@@ -17,11 +22,11 @@ module NfgUi
       end
 
       def bootstrap(component_name = nil, *traits, **options, &block)
-        NfgUi::UI::Bootstrap.new(component_name, *traits, **options, &block).render_component
+        NfgUi::UI::Bootstrap.new(view_context, component_name, *traits, **options, &block).render_component
       end
 
       def nfg(component_name = nil, *traits, **options, &block)
-        NfgUi::UI::NetworkForGood.new(component_name, *traits, **options, &block).render_component
+        NfgUi::UI::NetworkForGood.new(view_context, component_name, *traits, **options, &block).render_component
       end
 
       protected
@@ -31,8 +36,7 @@ module NfgUi
       # rails 5 fanciness with rendering anywhere.
       # https://www.thegreatcodeadventure.com/rendering-views-outside-of-actions-with-action-view/
       def render_component
-        view = ActionView::Base.new(ActionController::Base.view_paths, {})
-        view.render partial: partial_path, locals: { component_name => component }
+        view_context.render partial: partial_path, locals: { component_name => component }
       end
 
       private

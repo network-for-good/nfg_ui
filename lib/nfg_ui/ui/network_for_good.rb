@@ -1,7 +1,8 @@
 module NfgUi
   module UI
     class NetworkForGood < NfgUi::UI::Base
-      def initialize(component_name = nil, *traits, **options, &block)
+      def initialize(view_context, component_name = nil, *traits, **options, &block)
+        super
         initializer(component_name, *traits, **options, &block)
       end
 

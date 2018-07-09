@@ -2,7 +2,8 @@ module NfgUi
   module UI
     # The class that yields the component for the view
     class Bootstrap < NfgUi::UI::Base
-      def initialize(component_name = nil, *traits, **options, &block)
+      def initialize(view_context, component_name = nil, *traits, **options, &block)
+        super
         if NfgUi::BOOTSTRAP_COMPONENT_NAMES.include?(component_name)
           initializer(component_name, *traits, **options, &block)
         else
