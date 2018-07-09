@@ -1,5 +1,7 @@
 module NfgUi
   module UI
+    # The base component building class for namespaced
+    # components (bootstrap vs network_for_good / nfg)
     class Base
       include Utilities::Initializer
 
