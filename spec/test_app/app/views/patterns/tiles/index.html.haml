@@ -1,3 +1,4 @@
 %h1 Tiles
-
-= ui.nfg :tile
+= ui.nfg :tile, headline: 'Tile headline', icon: 'rocket' do
+  %p Tile body
+  = ui.nfg :tile_footer, body: 'Tile footer'

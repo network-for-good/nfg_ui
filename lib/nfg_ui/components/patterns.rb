@@ -22,6 +22,7 @@ module NfgUi
       autoload :SlatList
       autoload :TaskList
       autoload :Tile
+      autoload :TileFooter
     end
   end
 end

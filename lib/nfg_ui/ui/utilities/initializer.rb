@@ -24,7 +24,6 @@ module NfgUi
           # (when outside of Rails)
           # https://www.rubydoc.info/github/haml/haml/Haml%2FHelpers:init_haml_helpers
           init_haml_helpers
-
           @component_name = component_name
           @class_name = component_name.to_s.camelize
           @traits = traits

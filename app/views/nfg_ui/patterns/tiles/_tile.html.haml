@@ -1,1 +1,12 @@
-%b.text-danger Tile Pattern Component
+%div{ tile.html_options }
+  - if tile.headline
+    %a.d-block.no-link-color{ href: "#tileCollapse", "aria-expanded" => "true", "aria-controls" => "tileCollapse", data: { "toggle" => "collapse" } }
+      .row.align-items-center
+        .col-10
+          %h6.text-uppercase
+            = fa_icon "#{tile.icon} fw", class: 'mr-1', text: tile.headline
+        .col-2.text-right
+          = fa_icon "caret-down fw"
+  - if tile.body
+    .tile-body
+      = tile.body
