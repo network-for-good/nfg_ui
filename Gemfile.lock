@@ -7,6 +7,7 @@ PATH
       font-awesome-rails
       haml
       jquery-rails
+      rails
       sass-rails
       select2-rails
 
@@ -197,7 +198,6 @@ PLATFORMS
 
 DEPENDENCIES
   nfg_ui!
-  rails (~> 5.2.0)
   rspec-rails
   spring
   spring-commands-rspec

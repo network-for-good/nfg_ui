@@ -1,10 +1,6 @@
 module NfgUi
   module UI
     class Base
-      # require 'active_support/core_ext/module/delegation'
-
-      # delegate :to_param, :model_name, :to_partial_path, to: :product
-
       include Utilities::Initializer
 
       # Child classes manage initialization
@@ -28,29 +24,13 @@ module NfgUi
 
       protected
 
-      # Rails 4/5 render "anywhere" thanks to
-      # https://github.com/brainopia/backport_new_renderer
+      # Render outside of a controller reference:
+      # Necessary for rails 4+ compatibility since rails 4 doesn't have
+      # rails 5 fanciness with rendering anywhere.
+      # https://www.thegreatcodeadventure.com/rendering-views-outside-of-actions-with-action-view/
       def render_component
         view = ActionView::Base.new(ActionController::Base.view_paths, {})
         view.render partial: partial_path, locals: { component_name => component }
-
-        # self.send(:require, 'backport_new_renderer')
-        
-        # ActionView::Base.new(
-        #   Rails.configuration.paths['app/views']
-        # ).render(
-        #   partial: partial_path,
-        #   format: :txt,
-        #   locals: { component_name => component }
-        # )
-
-        # ApplicationController.renderer.render template: partial_path, assigns: {}, locals: { component_name => component }
-
-        # ApplicationController.new.render_to_string(
-        #   :template => partial_path
-        #   # :layout => 'my_layout',
-        #   :locals => { component_name => component }
-        # )
       end
 
       private
