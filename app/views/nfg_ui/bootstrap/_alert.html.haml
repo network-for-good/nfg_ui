@@ -4,7 +4,7 @@
     %button{ class: 'close', data: { dismiss: 'alert' }, aria: { label: 'Close' } }
       &times;
 
-  - if alert.headline
-    %h4.alert-heading= alert.headline
+  - if alert.heading
+    %h4.alert-heading= alert.heading
   
   = alert.body

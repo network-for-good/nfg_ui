@@ -7,14 +7,15 @@ module NfgUi
       # Defines conventional, shared behavior across
       # Bootstrap components
       class Base
-        attr_reader :headline, :body, :traits, :as
+        attr_reader :heading, :body, :traits, :as, :id
         attr_accessor :options
 
         def initialize(component_options)
           @options = defaults.merge!(component_options)
           @body = options.fetch(:body, '')
-          @headline = options.fetch(:headline, '')
+          @heading = options.fetch(:heading, '')
           @traits = options.fetch(:traits, nil)
+          @id = options.fetch(:id, '')
         end
 
         def html_options
@@ -38,9 +39,10 @@ module NfgUi
           {
             # HTML Defaults
             class: '',
+            id: ('' if id.present?),
 
             # Content
-            headline: ('' if headline.present?),
+            heading: ('' if heading.present?),
             body: ('' if body.present?)
           }
         end
@@ -68,7 +70,7 @@ module NfgUi
         end
 
         def non_html_attribute_options
-          %i[body headline traits]
+          %i[body heading traits]
         end
 
         def trait_css_classes
