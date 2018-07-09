@@ -31,14 +31,18 @@ module NfgUi
       # Rails 4/5 render "anywhere" thanks to
       # https://github.com/brainopia/backport_new_renderer
       def render_component
+        view = ActionView::Base.new(ActionController::Base.view_paths, {})
+        view.render partial: partial_path, locals: { component_name => component }
+
         # self.send(:require, 'backport_new_renderer')
-        ActionView::Base.new(
-          Rails.configuration.paths['app/views']
-        ).render(
-          partial: partial_path,
-          format: :txt,
-          locals: { component_name => component }
-        )
+        
+        # ActionView::Base.new(
+        #   Rails.configuration.paths['app/views']
+        # ).render(
+        #   partial: partial_path,
+        #   format: :txt,
+        #   locals: { component_name => component }
+        # )
 
         # ApplicationController.renderer.render template: partial_path, assigns: {}, locals: { component_name => component }
 
