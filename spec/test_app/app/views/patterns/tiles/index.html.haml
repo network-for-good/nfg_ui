@@ -1,4 +1,10 @@
 %h1 Tiles
-= ui.nfg :tile, headline: 'Tile headline', icon: 'rocket' do
+%h2 Tile with custom / manual footer
+= ui.nfg :tile, title: 'Tile Title', headline: 'Tile heading below title', icon: 'rocket' do
   %p Tile body
-  = ui.nfg :tile_footer, body: 'Tile footer'
+  = ui.nfg :tile_footer, headline: 'Tile heading', body: 'Tile footer'
+
+%hr
+
+%h2 Tile with auto-footer
+= ui.nfg :tile, title: 'Tile Title', headline: 'Tile headline', icon: 'thumbs-up', footer: 'Tile footer'

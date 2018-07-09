@@ -1,12 +1,18 @@
 %div{ tile.html_options }
-  - if tile.headline
-    %a.d-block.no-link-color{ href: "#tileCollapse", "aria-expanded" => "true", "aria-controls" => "tileCollapse", data: { "toggle" => "collapse" } }
+  - if tile.title
+    %a.d-block.no-link-color{ href: '#tileCollapse', 'aria-expanded' => 'true', 'aria-controls' => 'tileCollapse', data: { 'toggle' => 'collapse' } }
       .row.align-items-center
         .col-10
           %h6.text-uppercase
-            = fa_icon "#{tile.icon} fw", class: 'mr-1', text: tile.headline
+            = fa_icon "#{tile.icon} fw", class: 'mr-1', text: tile.title
         .col-2.text-right
-          = fa_icon "caret-down fw"
+          = fa_icon 'caret-down fw'
   - if tile.body
-    .tile-body
-      = tile.body
+    #tileCollapse.collapse.show
+      .tile-body
+        - if tile.headline
+          %h1= tile.headline
+        = tile.body
+  - if tile.footer
+    .tile-footer
+      = tile.footer
