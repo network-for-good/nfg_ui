@@ -17,20 +17,7 @@ module NfgUi
         private
 
         def collapsible_body
-          collapsible? ? tile_collapse_body_html : tile_body_html
-        end
-
-        def tile_collapse_body_html
-          view_context.content_tag(:div,
-                                   tile_body_html,
-                                   id: collapsible_target_id,
-                                   class: collapsible_target_css_classes)
-        end
-
-        def tile_body_html
-          view_context.content_tag(:div,
-                                   options[:body],
-                                   html_options.merge!(id: tile_body_html_id))
+          collapsible? ? collapsible_wrapper_html : collapsible_body_html
         end
 
         def tile_body_html_id

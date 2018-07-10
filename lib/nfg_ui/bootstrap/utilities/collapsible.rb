@@ -22,6 +22,21 @@ module NfgUi
 
         private
 
+        def collapsible_wrapper_html
+          view_context.content_tag(:div,
+                                   collapsible_body_html,
+                                   id: collapsible_target_id,
+                                   class: collapsible_target_css_classes)
+        end
+
+        def collapsible_body_html
+          @collapsible_body_html ||= begin
+            view_context.content_tag(:div,
+                                     options[:body],
+                                     html_options.merge!(id: tile_body_html_id))
+          end
+        end
+
         def collapsible_target_css_classes
           ['collapse', expanded_collapse_css_class].reject(&:nil?).join(' ').squish
         end
