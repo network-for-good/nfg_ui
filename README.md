@@ -64,7 +64,20 @@ Examples:
   = ui.nfg :icon, 'trash', class: 'mr-1', text: 'Delete Row'
 ```
 
- bootstrap4 component, coded to strict bootstrap standards via `= ui.bootstrap :my_component, options...`
+### Bootstrap design system components
+
+Utilize all bootstrap4 components, coded to strict bootstrap standards via a similar method: `= ui.bootstrap :my_component, options...`
+
+*Note: while the names of bootstrap components and network for good components may be similar, do not use bootstrap components on the front-end. _Only use `ui.nfg` components for front-end code._ Great care has been taken to ensure that any component you'd expect to have from bootstrap4 is made available by an appropriately coded and designed design system component*
+
+```haml
+// Produce a styled, pre-designed submit button for your form on the fly
+= ui.nfg :button, :submit
+
+// Build your own button
+= ui.nfg :button, :danger, data: { describe: 'delete-button' } do
+  = ui.nfg :icon, 'trash', class: 'mr-1', text: 'Delete Row'
+```
 
 ## Library of components
 
