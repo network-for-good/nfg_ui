@@ -7,7 +7,7 @@ module NfgUi
       module Dismissible
         attr_accessor :dismissible
 
-        def initialize(component_options)
+        def initialize(*)
           super
           self.dismissible = component_options.fetch(:dismissible, default_dismissible)
         end

@@ -13,7 +13,7 @@ module NfgUi
         include Bootstrap::Utilities::Disableable
         include Bootstrap::Utilities::AriaAssistable
 
-        def initialize(component_options)
+        def initialize(*)
           super
           build_aria(aria_key: :pressed, aria_value: true) if active?
         end

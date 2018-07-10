@@ -10,7 +10,7 @@ module NfgUi
 
         attr_reader :subtitle
 
-        def initialize(component_options)
+        def initialize(*)
           super
           @subtitle = options.fetch(:subtitle, '')
         end

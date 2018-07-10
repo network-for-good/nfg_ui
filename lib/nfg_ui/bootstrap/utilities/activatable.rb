@@ -7,7 +7,7 @@ module NfgUi
       module Activatable
         attr_accessor :active
 
-        def initialize(component_options)
+        def initialize(*)
           super
           self.active = options.fetch(:active, default_active)
         end

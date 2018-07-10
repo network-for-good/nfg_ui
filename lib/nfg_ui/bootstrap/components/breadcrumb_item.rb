@@ -10,7 +10,7 @@ module NfgUi
         include Bootstrap::Utilities::Activatable
         include Bootstrap::Utilities::AriaAssistable
 
-        def initialize(component_options)
+        def initialize(*)
           super
           build_aria(aria_key: :current, aria_value: 'page') if active?
         end

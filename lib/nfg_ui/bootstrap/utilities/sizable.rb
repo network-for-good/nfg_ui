@@ -8,7 +8,7 @@ module NfgUi
       module Sizable
         attr_accessor :size
 
-        def initialize(component_options)
+        def initialize(*)
           super
           self.size = component_options.fetch(:size, default_size)
         end

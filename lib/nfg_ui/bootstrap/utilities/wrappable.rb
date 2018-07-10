@@ -9,7 +9,7 @@ module NfgUi
       module Wrappable
         attr_accessor :as
 
-        def initialize(component_options)
+        def initialize(*)
           super
           self.as = options.fetch(:as, default_html_wrapper_element)
           auto_update_as

@@ -7,7 +7,7 @@ module NfgUi
       module Themeable
         attr_accessor :theme
 
-        def initialize(component_options)
+        def initialize(*)
           super
           self.theme = component_options.fetch(:theme, default_theme)
         end

@@ -7,7 +7,7 @@ module NfgUi
       module Disableable
         attr_accessor :disabled
 
-        def initialize(component_options)
+        def initialize(*)
           super
           self.disabled = options.fetch(:disabled, default_disabled)
           add_negative_tab_index?

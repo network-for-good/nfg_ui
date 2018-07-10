@@ -10,7 +10,7 @@ module NfgUi
         include Bootstrap::Utilities::Sizable
         include Bootstrap::Utilities::AriaAssistable
 
-        def initialize(component_options)
+        def initialize(*)
           super
           build_aria(aria_key: :label, aria_value: 'action buttons')
         end
