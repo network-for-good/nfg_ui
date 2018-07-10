@@ -1,19 +1,17 @@
 = NfgUi
 The authoritative resource for the Network for Good front-end UI, empowered by the NFG Design System.
 
+```ruby
+gem 'nfg_ui', git: 'https://github.com/network-for-good/nfg_ui'
+```
+
 The result of 4 years of study, practice, implementation, planning, drafting and sweat. NFG UX & UI team (J&K) are excited to bring you... the *Network For Good design system* gem or: `nfg_ui` gem. This bad boy is an all encompassing one-stop shop for everything front-end for Network for Good products.
 
 With this gem, you can stand up a brand new rails app and it will seamlessly, from day 1, look, feel and be a Network for Good product. *Huzzah*
 
-With <3 
-Kyle & Jonathan
 
-## Add it to your app
-Add the gem to your `Gemfile`:
-
-```
-gem 'nfg_ui', git: git: 'https://github.com/network-for-good/nfg_ui'
-```
+## Accessing Component Code Examples & Documentation:
+to review the documentation for the components, get code samples and browse the library, follow the instructions at the bottom for getting the gem setup locally. It has its own `test_app` so the documentation is hosted there and the gem doesn't need to be added to a seperate parent app (unless you want to). We intend to get this online in its own dedicated space... until then, that's your best bet for browsing docs.
 
 ### Import & Require the gem's assets
 In `application.scss` add your pertinent stylesheet suite based on whatever context you're building an interface. These are currently two categories: `admin` and `public`
@@ -34,7 +32,7 @@ In `application.scss` add your pertinent stylesheet suite based on whatever cont
 Currently, there is only one javascript library. This will likely change, but the current setup is as follows: 
 
 Javascript should be `//= required` in your pertinent application.js file:
-```scss
+```js
 //= require nfg_ui/application
 ```
 
@@ -68,7 +66,7 @@ Examples:
 
  bootstrap4 component, coded to strict bootstrap standards via `= ui.bootstrap :my_component, options...`
 
-## Including it in your app
+## Library of components
 
 ## Setup
 
