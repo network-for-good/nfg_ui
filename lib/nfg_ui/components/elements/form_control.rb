@@ -4,7 +4,7 @@ module NfgUi
   module Components
     module Elements
       # FormControl doc coming soon
-      class FormControl < Bootstrap::Components::Base
+      class FormControl < NfgUi::Components::Base
       end
     end
   end

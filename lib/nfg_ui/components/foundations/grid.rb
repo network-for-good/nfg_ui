@@ -4,7 +4,7 @@ module NfgUi
   module Components
     module Foundations
       # Grid doc coming soon
-      class Grid < Bootstrap::Components::Base
+      class Grid < NfgUi::Components::Base
       end
     end
   end

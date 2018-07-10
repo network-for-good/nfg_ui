@@ -4,7 +4,7 @@ module NfgUi
   module Components
     module Elements
       # Task doc coming soon
-      class Task < Bootstrap::Components::Base
+      class Task < NfgUi::Components::Base
       end
     end
   end

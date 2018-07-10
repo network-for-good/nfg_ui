@@ -4,7 +4,7 @@ module NfgUi
   module Components
     module Elements
       # Loader doc coming soon
-      class Loader < Bootstrap::Components::Base
+      class Loader < NfgUi::Components::Base
       end
     end
   end

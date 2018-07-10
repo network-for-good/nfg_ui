@@ -4,7 +4,7 @@ module NfgUi
   module Components
     module Elements
       # Chart doc coming soon
-      class Chart < Bootstrap::Components::Base
+      class Chart < NfgUi::Components::Base
       end
     end
   end

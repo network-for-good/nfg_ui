@@ -4,7 +4,7 @@ module NfgUi
   module Components
     module Patterns
       # ActivityFeed doc coming soon
-      class ActivityFeed < Bootstrap::Components::Base
+      class ActivityFeed < NfgUi::Components::Base
       end
     end
   end

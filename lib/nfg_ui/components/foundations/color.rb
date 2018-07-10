@@ -4,7 +4,7 @@ module NfgUi
   module Components
     module Foundations
       # Color doc coming soon
-      class Color < Bootstrap::Components::Base
+      class Color < NfgUi::Components::Base
       end
     end
   end

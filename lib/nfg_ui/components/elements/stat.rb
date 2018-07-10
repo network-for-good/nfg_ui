@@ -4,7 +4,7 @@ module NfgUi
   module Components
     module Elements
       # Stat doc coming soon
-      class Stat < Bootstrap::Components::Base
+      class Stat < NfgUi::Components::Base
       end
     end
   end

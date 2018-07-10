@@ -4,7 +4,7 @@ module NfgUi
   module Components
     module Foundations
       # Input doc coming soon
-      class Input < Bootstrap::Components::Base
+      class Input < NfgUi::Components::Base
       end
     end
   end

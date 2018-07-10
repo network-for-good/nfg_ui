@@ -4,7 +4,7 @@ module NfgUi
   module Components
     module Elements
       # Slat doc coming soon
-      class Slat < Bootstrap::Components::Base
+      class Slat < NfgUi::Components::Base
       end
     end
   end

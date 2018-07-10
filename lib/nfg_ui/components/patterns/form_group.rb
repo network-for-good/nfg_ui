@@ -4,7 +4,7 @@ module NfgUi
   module Components
     module Patterns
       # FormGroup doc coming soon
-      class FormGroup < Bootstrap::Components::Base
+      class FormGroup < NfgUi::Components::Base
       end
     end
   end

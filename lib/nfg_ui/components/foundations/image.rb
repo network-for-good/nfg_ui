@@ -4,7 +4,7 @@ module NfgUi
   module Components
     module Foundations
       # Image doc coming soon
-      class Image < Bootstrap::Components::Base
+      class Image < NfgUi::Components::Base
       end
     end
   end

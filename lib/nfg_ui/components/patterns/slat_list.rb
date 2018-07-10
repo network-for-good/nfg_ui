@@ -4,7 +4,7 @@ module NfgUi
   module Components
     module Patterns
       # SlatList doc coming soon
-      class SlatList < Bootstrap::Components::Base
+      class SlatList < NfgUi::Components::Base
       end
     end
   end

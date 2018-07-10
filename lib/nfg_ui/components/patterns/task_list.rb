@@ -4,7 +4,7 @@ module NfgUi
   module Components
     module Patterns
       # TaskList doc coming soon
-      class TaskList < Bootstrap::Components::Base
+      class TaskList < NfgUi::Components::Base
       end
     end
   end

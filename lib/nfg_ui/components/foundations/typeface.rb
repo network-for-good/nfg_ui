@@ -4,7 +4,7 @@ module NfgUi
   module Components
     module Foundations
       # Typeface doc coming soon
-      class Typeface < Bootstrap::Components::Base
+      class Typeface < NfgUi::Components::Base
       end
     end
   end
