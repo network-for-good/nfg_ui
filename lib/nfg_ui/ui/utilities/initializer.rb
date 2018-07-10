@@ -7,7 +7,8 @@ module NfgUi
                       :options,
                       :traits,
                       :component_name,
-                      :class_name
+                      :class_name,
+                      :view_context
 
         attr_reader :ancestry_string
 
@@ -27,11 +28,10 @@ module NfgUi
           @component_name = component_name
           @class_name = component_name.to_s.camelize
           @traits = traits
-          @options = options.dup
+          @options = options
           options[:body] = capture(&block) if block_given?
           options[:traits] = traits.present? ? traits : []
-
-          self.component = ancestry_string.constantize.new(options)
+          self.component = ancestry_string.constantize.new(options, view_context)
         end
       end
     end

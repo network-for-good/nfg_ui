@@ -8,14 +8,15 @@ module NfgUi
       # Bootstrap components
       class Base
         attr_reader :heading, :body, :traits, :as, :id
-        attr_accessor :options
+        attr_accessor :options, :view_context
 
-        def initialize(component_options)
-          @options = defaults.merge!(component_options)
+        def initialize(component_options, view_context)
+          self.options = defaults.merge!(component_options)
           @body = options.fetch(:body, '')
           @heading = options.fetch(:heading, '')
-          @traits = options.fetch(:traits, nil)
+          @traits = options.fetch(:traits, [])
           @id = options.fetch(:id, '')
+          self.view_context = view_context
         end
 
         def html_options

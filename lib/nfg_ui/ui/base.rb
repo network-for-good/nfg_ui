@@ -4,13 +4,11 @@ module NfgUi
     # components (bootstrap vs network_for_good / nfg)
     class Base
       include Utilities::Initializer
-      attr_accessor :view_context
-
       # Child classes manage initialization
       # Base collects the view_context to supply the
       # render_component method with the appropriate ActionView
       def initialize(view_context, *)
-        @view_context = view_context
+        self.view_context = view_context
       end
 
       def bootstrap?
