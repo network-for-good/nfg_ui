@@ -107,7 +107,10 @@ module NfgUi
                                   slat_list
                                   task_list
                                   tile
-                                  tile_footer].freeze
+                                  tile_body
+                                  tile_footer
+                                  tile_header
+                                  tile_section].freeze
 end
 
 require 'nfg_ui/railtie' if defined?(Rails)

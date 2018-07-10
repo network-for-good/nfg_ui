@@ -1,0 +1,5 @@
+%h6{ tile_header.html_options }
+  - if tile_header.icon
+    = ui.nfg :icon, "#{tile_header.icon} fw", class: 'mr-1', text: tile_header.title
+  - else
+    = tile_header.title

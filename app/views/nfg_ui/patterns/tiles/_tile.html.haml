@@ -1,18 +1,24 @@
 %div{ tile.html_options }
-  - if tile.title
-    %a.d-block.no-link-color{ href: '#tileCollapse', 'aria-expanded' => 'true', 'aria-controls' => 'tileCollapse', data: { 'toggle' => 'collapse' } }
-      .row.align-items-center
-        .col-10
-          %h6.text-uppercase
-            = fa_icon "#{tile.icon} fw", class: 'mr-1', text: tile.title
-        .col-2.text-right
-          = fa_icon 'caret-down fw'
+  - if tile.title.present?
+    - if tile.collapsible?
+      %a.d-block.no-link-color{ href: "#collapse_target_#{tile.id}", 'aria-expanded' => tile.collapsed?, 'aria-controls' => "collapse_target_#{tile.id}", data: { 'toggle' => 'collapse' } }
+        .row.align-items-center
+          .col-10
+            = ui.nfg :tile_header, icon: tile.icon, title: tile.title
+
+          .col-2.text-right
+            = ui.nfg :icon, 'caret-down fw'
+    - else
+      = ui.nfg :tile_header, icon: tile.icon, title: tile.title
+
   - if tile.body
-    #tileCollapse.collapse.show
-      .tile-body
-        - if tile.headline
-          %h1= tile.headline
-        = tile.body
+    = ui.nfg :tile_body, *tile.tile_body_traits, body: tile.body, heading: tile.heading.presence, id: tile.id
+
+  - if tile.sections.present?
+    - tile.sections.each do |section_body|
+      = ui.nfg :tile_section, body: section_body
+  - if tile.section
+    = ui.nfg :tile_section, body: tile.section
+  
   - if tile.footer
-    .tile-footer
-      = tile.footer
+    = ui.nfg :tile_footer, body: tile.footer

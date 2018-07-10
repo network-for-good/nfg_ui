@@ -1,10 +1,54 @@
 %h1 Tiles
+
+%h2 Default tile
+= ui.nfg :tile, :collapsible, title: 'Tile Title', icon: 'rocket', id: 'id_is_required' do
+  Collapsible content!
+  
+
+%hr
+
+%h2 Collapsible tiles
+-# This one shouldn't be auto collapsing!
+= ui.nfg :tile, :collapsible, title: 'Collapsible Not-Auto-Collapsed Tile Title', icon: 'rocket', id: 'id_is_required99' do
+  %p Collapsible Tile Body
+
+= ui.nfg :tile, :collapsed, title: 'Collapsed Tile Title', body: 'Collapsed content for tile via :collapsed trait', id: 'id_test99'
+
+= ui.nfg :tile, :collapsible, title: 'Collapsed Tile Title', body: 'Collapsed content for tile via collapsed: true', collapsed: true, id: 'id_test999'
+
+%hr
+
+%h2 Loaded tile with sections
+
+%h3 Loaded Tile
+= ui.nfg :tile, title: 'Loaded Tile', icon: 'rocket', heading: 'Loaded Tile Heading', id: 'loaded_tile_id', sections: ['First section content', 'Second section content', 'Third section content'], footer: 'Loaded tile footer'
+
+= ui.nfg :tile, :collapsible, title: 'Loaded Tile', icon: 'rocket', heading: 'Loaded Tile Heading', id: 'loaded_tile_id', footer: 'Loaded tile footer', sections: ['Test section'] do
+  %p Test body
+
+%hr
+
+%h3 Tile with one section
+
+= ui.nfg :tile, title: 'Loaded Tile', icon: 'rocket', heading: 'Loaded Tile Heading', id: 'loaded_tile_id', section: 'Section content', footer: 'Loaded tile footer'
+
+= ui.nfg :tile, title: 'Tile with block section', icon: 'rocket', heading: 'Tile with block section heading', id: 'tile_with_block_section', body: 'Locally assigned body' do
+  = ui.nfg :tile_section, body: 'Section body passed in locally'
+  = ui.nfg :tile_section do
+    Block section written in
+
+%hr
+
 %h2 Tile with custom / manual footer
-= ui.nfg :tile, title: 'Tile Title', headline: 'Tile heading below title', icon: 'rocket' do
+= ui.nfg :tile, title: 'Tile Title', heading: 'Tile heading below title', icon: 'rocket', id: 'test_id' do
   %p Tile body
-  = ui.nfg :tile_footer, headline: 'Tile heading', body: 'Tile footer'
+  = ui.nfg :tile_footer, heading: 'Tile heading', body: 'Tile footer'
 
 %hr
 
 %h2 Tile with auto-footer
-= ui.nfg :tile, title: 'Tile Title', headline: 'Tile headline', icon: 'thumbs-up', footer: 'Tile footer'
+= ui.nfg :tile, title: 'Tile Title', heading: 'Tile heading', icon: 'thumbs-up', footer: 'Tile footer', id: 'test_id2', body: 'Testing body'
+
+= ui.nfg :tile, title: 'Auto-collapsed Tile', heading: 'Collapsd tile heading', icon: 'thumbs-up', id: 'test_id3', collapsed: true, body: 'Test body'
+
+%hr

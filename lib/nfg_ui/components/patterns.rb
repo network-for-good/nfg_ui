@@ -22,7 +22,10 @@ module NfgUi
       autoload :SlatList
       autoload :TaskList
       autoload :Tile
+      autoload :TileBody
       autoload :TileFooter
+      autoload :TileHeader
+      autoload :TileSection
     end
   end
 end

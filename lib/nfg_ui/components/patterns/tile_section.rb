@@ -3,8 +3,8 @@
 module NfgUi
   module Components
     module Patterns
-      # TileFooter doc coming soon
-      class TileFooter < NfgUi::Components::Base
+      # TileSection doc coming soon
+      class TileSection < NfgUi::Components::Base
         private
 
         def component_family
