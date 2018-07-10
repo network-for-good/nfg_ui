@@ -1,0 +1,26 @@
+// Specific styles for entity branding
+
+.custom-control {
+  .custom-control-input:checked {
+    ~ .custom-control-label, ~ .custom-control-label::before { border-color: $primary; }
+    ~ .custom-control-label::before { background-color: $primary; }
+  }
+}
+
+.custom-select {
+  color: $primary;
+  background-image: $custom-select-indicator;
+  &:focus {
+    border-color: $primary;
+    &::-ms-value { color: $primary; }
+  }
+}
+
+.custom-control-toggle {
+  .custom-control-input:checked {
+    ~ .custom-control-label {
+      &::before { background-color: $primary; }
+      &::after { border-color: $primary; }
+    }
+  }
+}

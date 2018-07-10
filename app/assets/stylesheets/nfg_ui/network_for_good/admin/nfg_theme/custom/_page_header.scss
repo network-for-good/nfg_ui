@@ -1,0 +1,9 @@
+// Page header specific styles
+.page-header { transition: $transition-base; }
+.sticky-div {
+  box-shadow: 0;
+  &.stuck {
+    background-color: transparentize($white, 0.1);
+    box-shadow: $box-shadow;
+  }
+}

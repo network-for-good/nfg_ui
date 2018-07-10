@@ -1,0 +1,67 @@
+// Required styles
+label {
+  font-weight: $font-weight-bold;
+  &.required {
+    padding-left: ($spacer * .5);
+    &::before{
+      content: '*';
+      color: theme-color("danger");
+      margin-left: -($spacer * .5);
+      padding-right: ($spacer * .25);
+    }
+  }
+}
+
+// Form groups
+//
+// Designed to help with the organization and spacing of vertical forms. For
+// horizontal forms, use the predefined grid classes.
+
+.form-text {
+  font-size: $font-size-sm;
+  line-height: 1.3;
+}
+
+// Checkboxes and radios
+//
+// Indent the labels to position radios/checkboxes as hanging controls.
+
+.form-check-label { font-weight: $font-weight-normal; }
+.form-check-inline { display: inline-block; } // override inline-flex display for better line-height
+
+
+// Form validation
+//
+// Provide feedback to users when form field values are valid or invalid. Works
+// primarily for client-side validation via scoped `:invalid` and `:valid`
+// pseudo-classes but also includes `.is-invalid` and `.is-valid` classes for
+// server side validation.
+
+.valid-feedback,
+.invalid-feedback {
+  line-height: 1.3;
+}
+.valid-tooltip,
+.invalid-tooltip {
+  padding: $tooltip-padding-y $tooltip-padding-x;
+  font-size: $tooltip-font-size;
+  font-weight: $font-weight-bold;
+  line-height: 1.3;
+  border-radius: $tooltip-border-radius;
+}
+
+
+// Inline checkbox/radio validation is a sibling of the form element instead of a child
+.form-group {
+  &.is-valid, &.is-invalid {
+    .form-check, .custom-control {
+      ~ .valid-feedback, ~ .invalid-feedback { display: block; }
+    }
+  }
+}
+
+
+// Sometimes rails likes to say a form control is valid even when it isn't... this helps ensure that
+// When simple_form (accurately) detects an error on the field...
+// that the invalid version wins ... avoiding false readings
+.is-invalid { border-color: $form-feedback-invalid-color !important; }

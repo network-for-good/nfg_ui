@@ -1,0 +1,53 @@
+// Fluid container with thematic padding to be used when a white content section / division is needed
+.container-division, .container-division-sm {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  background-color: #fff;
+  border-top: $border-width solid $border-color;
+  border-bottom: $border-width solid $border-color;
+  @include media-breakpoint-down(sm) {
+    margin-right: -($grid-gutter-width / 2);
+    margin-left: -($grid-gutter-width / 2);
+  }
+  @include media-breakpoint-up(sm) {
+    border-right: $border-width solid $border-color;
+    border-left: $border-width solid $border-color;
+  }
+  & + & { border-top: none; }
+}
+.container-division {
+  padding: $grid-gutter-width;
+  @include media-breakpoint-up(sm) { padding: ($grid-gutter-width * 1.5); }
+}
+.container-division-sm {
+  margin-bottom: -1px;
+  padding:($grid-gutter-width / 2) $grid-gutter-width;
+  @include media-breakpoint-up(sm) { padding: $grid-gutter-width; }
+}
+
+
+// Specifically for use when nested within a container-division to indicate and divide major content sections
+.container-subdivision {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  @include media-breakpoint-down(sm) { padding-bottom: $grid-gutter-width; }
+  @include media-breakpoint-up(sm) { padding-bottom: ($grid-gutter-width * 1.5); }
+  &:last-child { padding-bottom: 0; }
+  + .container-subdivision {
+    border-top: $border-width solid $border-color;
+    @include media-breakpoint-down(sm) { padding-top: $grid-gutter-width; }
+    @include media-breakpoint-up(sm) { padding-top: ($grid-gutter-width * 1.5); }
+  }
+
+  &.container-flush{
+    margin-left: -$grid-gutter-width !important;
+    margin-right: -$grid-gutter-width !important;
+
+    @include media-breakpoint-up(sm) {
+      margin-left: -$spacer !important;
+      margin-right: -$spacer !important;
+    }
+  }
+}

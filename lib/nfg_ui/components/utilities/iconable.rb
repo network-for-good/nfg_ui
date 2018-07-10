@@ -21,6 +21,10 @@ module NfgUi
         def defaults
           super.merge!(icon: default_icon)
         end
+
+        def non_html_attribute_options
+          super.push(:icon)
+        end
       end
     end
   end

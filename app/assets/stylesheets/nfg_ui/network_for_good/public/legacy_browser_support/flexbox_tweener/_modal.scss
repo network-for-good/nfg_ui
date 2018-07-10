@@ -1,0 +1,27 @@
+.modal-dialog-centered {
+  display: -ms-flexbox;
+  -ms-flex-align: center;
+}
+
+// Actual modal
+.modal-content {
+  display: -ms-flexbox;
+  -ms-flex-direction: column;
+}
+
+// Modal header
+.modal-header {
+  display: -ms-flexbox;
+  -ms-flex-align: start;
+  -ms-flex-pack: justify;
+}
+
+// Modal body
+.modal-body { -ms-flex: 1 1 auto; }
+
+// Footer (for actions)
+.modal-footer {
+  display: -ms-flexbox;
+  -ms-flex-align: center;
+  -ms-flex-pack: end;
+}

@@ -1,0 +1,16 @@
+// Specific styles for entity branding
+
+a.no-link-color {
+  &:hover, &:active, &:focus { color: $primary !important; }
+}
+
+.text-primary { color: yiq-contrast-color($primary, $yiq-text-dark, $primary) !important; }
+
+a.text-primary {
+  color: yiq-contrast-color($primary, darken($primary, 15%), $primary) !important;
+  &:hover, &:focus { color: darken($primary, 15%) !important; }
+}
+
+.bg-dark {
+  .text-primary { color: yiq-contrast-color($primary, $primary, $yiq-text-light) !important; }
+}

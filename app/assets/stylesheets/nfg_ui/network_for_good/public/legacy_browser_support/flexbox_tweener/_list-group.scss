@@ -1,0 +1,8 @@
+// Base class
+//
+// Easily usable on <ul>, <ol>, or <div>.
+
+.list-group {
+  display: -ms-flexbox;
+  -ms-flex-direction: column;
+}

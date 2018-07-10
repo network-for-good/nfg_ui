@@ -1,0 +1,8 @@
+// Styles for legal footer links on campaign pages (bad practice to use ID, so these styles should be switched to inline classes eventually)
+
+#footer_site_links {
+  a {
+    display: inline-block;
+    padding: ($spacer * .5);
+  }
+}

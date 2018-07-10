@@ -1,0 +1,49 @@
+// Flex variation
+//
+// Custom styles for additional flex alignment options.
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+    .flex#{$infix}-row            { -ms-flex-direction: row !important; }
+    .flex#{$infix}-column         { -ms-flex-direction: column !important; }
+    .flex#{$infix}-row-reverse    { -ms-flex-direction: row-reverse !important; }
+    .flex#{$infix}-column-reverse { -ms-flex-direction: column-reverse !important; }
+
+    .flex#{$infix}-wrap         { -ms-flex-wrap: wrap !important; }
+    .flex#{$infix}-nowrap       { -ms-flex-wrap: none !important; }
+    .flex#{$infix}-wrap-reverse { -ms-flex-wrap: wrap-reverse !important; }
+    .flex#{$infix}-fill         { -ms-flex: 1 1 auto !important; }
+    .flex#{$infix}-grow-0       { -ms-flex-positive: 0 !important; }
+    .flex#{$infix}-grow-1       { -ms-flex-positive: 1 !important; }
+    .flex#{$infix}-shrink-0     { -ms-flex-negative: 0 !important; }
+    .flex#{$infix}-shrink-1     { -ms-flex-negative: 1 !important; }
+
+    .justify-content#{$infix}-start   { -ms-flex-pack: start !important; }
+    .justify-content#{$infix}-end     { -ms-flex-pack: end !important; }
+    .justify-content#{$infix}-center  { -ms-flex-pack: center !important; }
+    .justify-content#{$infix}-between { -ms-flex-pack: justify !important; }
+    .justify-content#{$infix}-around  { -ms-flex-pack: distribute !important; }
+
+    .align-items#{$infix}-start    { -ms-flex-align: start !important; }
+    .align-items#{$infix}-end      { -ms-flex-align: end !important; }
+    .align-items#{$infix}-center   { -ms-flex-align: center !important; }
+    .align-items#{$infix}-baseline { -ms-flex-align: baseline !important; }
+    .align-items#{$infix}-stretch  { -ms-flex-align: stretch !important; }
+
+    .align-content#{$infix}-start   { -ms-flex-line-pack: start !important; }
+    .align-content#{$infix}-end     { -ms-flex-line-pack: end !important; }
+    .align-content#{$infix}-center  { -ms-flex-line-pack: center !important; }
+    .align-content#{$infix}-between { -ms-flex-line-pack: space-between !important; }
+    .align-content#{$infix}-around  { -ms-flex-line-pack: space-around !important; }
+    .align-content#{$infix}-stretch { -ms-flex-line-pack: stretch !important; }
+
+    .align-self#{$infix}-auto     { -ms-flex-item-align: auto !important; }
+    .align-self#{$infix}-start    { -ms-flex-item-align: start !important; }
+    .align-self#{$infix}-end      { -ms-flex-item-align: end !important; }
+    .align-self#{$infix}-center   { -ms-flex-item-align: center !important; }
+    .align-self#{$infix}-baseline { -ms-flex-item-align: baseline !important; }
+    .align-self#{$infix}-stretch  { -ms-flex-item-align: stretch !important; }
+  }
+}

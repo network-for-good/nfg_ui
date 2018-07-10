@@ -5,7 +5,7 @@ module NfgUi
     module Patterns
       # Tile doc coming soon
       class Tile < NfgUi::Components::Base
-        include NfgUi::Bootstrap::Utilities::Collapsible
+        include Bootstrap::Utilities::Collapsible
         include Utilities::Titleable
         include Utilities::Requireable
         include Utilities::Iconable
@@ -26,8 +26,9 @@ module NfgUi
           options[:footer].presence
         end
 
-        def tile_body_traits
-          [(:collapsed if collapsed?), (:collapsible if collapsible?)].reject(&:nil?)
+        def collapsible_toggle_html_options
+          raise super[:class].inspect
+          super.merge!(class: 'd-block no-link-color')
         end
 
         private
@@ -36,6 +37,10 @@ module NfgUi
           raise ArgumentError.new "You attempted to pass in both :sections and :section.
                                    You may only pass in an array of :sections or
                                    a single :section, not both".squish
+        end
+
+        def collapsible_target_id
+          collapsible? ? "target_collapsible_id_for_#{id}" : ''
         end
 
         def required
@@ -60,9 +65,7 @@ module NfgUi
         end
 
         def non_html_attribute_options
-          super.push(:icon,
-                     :title,
-                     (:footer if footer),
+          super.push((:footer if footer),
                      *sections_html_attributes).reject(&:nil?)
         end
 

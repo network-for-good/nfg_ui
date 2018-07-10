@@ -1,0 +1,9 @@
+// Clouds
+.bg-clouds {
+  padding-bottom: 20%;
+  background-position: 50% 100%;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  &.blue { background-image: image-url("onboarding/clouds-blue.png"); }
+  &.green { background-image: image-url("onboarding/clouds-green.png"); }
+}

@@ -1,4 +1,5 @@
 - component_suite = local_assigns[:component_suite]
+- stylesheet_family = params[:stylesheet].presence
 
 %nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.mb-4
   = link_to component_suite, root_path, class: 'navbar-brand'
@@ -11,25 +12,31 @@
           Bootstrap Components
         .dropdown-menu{"aria-labelledby" => "bootstrap"}
           - NfgUi::BOOTSTRAP_COMPONENT_NAMES.each do |component|
-            = link_to component.to_s.humanize, send("bootstrap_#{component.to_s.pluralize}_path"), class: 'dropdown-item'
+            = link_to component.to_s.humanize, send("bootstrap_#{component.to_s.pluralize}_path", stylesheet: stylesheet_family), class: 'dropdown-item'
       
       %li.nav-item.dropdown
         %a#foundation.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
           Foundation Components
         .dropdown-menu{"aria-labelledby" => "foundation"}
           - NfgUi::FOUNDATION_COMPONENT_NAMES.each do |component|
-            = link_to component.to_s.humanize, send("foundations_#{component.to_s.pluralize}_path"), class: 'dropdown-item'
+            = link_to component.to_s.humanize, send("foundations_#{component.to_s.pluralize}_path", stylesheet: stylesheet_family), class: 'dropdown-item'
 
       %li.nav-item.dropdown
         %a#element.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
           Element Components
         .dropdown-menu{"aria-labelledby" => "foundation"}
           - NfgUi::ELEMENT_COMPONENT_NAMES.each do |component|
-            = link_to component.to_s.humanize, send("elements_#{component.to_s.pluralize}_path"), class: 'dropdown-item'
+            = link_to component.to_s.humanize, send("elements_#{component.to_s.pluralize}_path", stylesheet: stylesheet_family), class: 'dropdown-item'
 
       %li.nav-item.dropdown
         %a#element.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
           Pattern Components
         .dropdown-menu{"aria-labelledby" => "foundation"}
           - NfgUi::PATTERN_COMPONENT_NAMES.each do |component|
-            = link_to component.to_s.humanize, send("patterns_#{component.to_s.pluralize}_path"), class: 'dropdown-item'
+            = link_to component.to_s.humanize, send("patterns_#{component.to_s.pluralize}_path", stylesheet: stylesheet_family), class: 'dropdown-item'
+    - unless controller_path.include?('bootstrap')
+      %ul.navbar-nav.ml-auto
+        %li.nav-item
+          = link_to 'Admin Styles', url_for(stylesheet: 'admin'), class: ['btn btn-outline-primary', ('active' if params[:stylesheet] == 'admin')]
+        %li.nav-item
+          = link_to 'Public Styles', url_for(stylesheet: 'public'), class: ['btn btn-outline-primary', ('active' if params[:stylesheet] == 'public')]

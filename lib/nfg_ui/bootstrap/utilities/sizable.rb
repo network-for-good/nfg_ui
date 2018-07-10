@@ -10,7 +10,7 @@ module NfgUi
 
         def initialize(*)
           super
-          self.size = component_options.fetch(:size, default_size)
+          self.size = options.fetch(:size, default_size)
         end
 
         def resized?

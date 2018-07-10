@@ -1,0 +1,45 @@
+// Product icons
+
+@font-face {
+  font-family: 'IcoMoon-product-icons';
+  src:  font-url('admin/nfg_product_icons/IcoMoon-product-icons.eot?b2y89i');
+  src:  font-url('admin/nfg_product_icons/IcoMoon-product-icons.eot?b2y89i#iefix') format('embedded-opentype'),
+    font-url('admin/nfg_product_icons/IcoMoon-product-icons.ttf?b2y89i') format('truetype'),
+    font-url('admin/nfg_product_icons/IcoMoon-product-icons.woff?b2y89i') format('woff'),
+    font-url('admin/nfg_product_icons/IcoMoon-product-icons.svg?b2y89i#IcoMoon-product-icons') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-sso-"], [class*=" icon-sso-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'IcoMoon-product-icons' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-sso-donatenow:before {
+  content: "\e900";
+}
+.icon-sso-donation-pages:before {
+  content: "\e683";
+}
+.icon-sso-dms:before {
+  content: "\e6ba";
+}
+.icon-product-fundraising-coach:before {
+  content: "\e199";
+}
+.icon-sso-disbursements:before {
+  content: "\e466";
+}
+
+

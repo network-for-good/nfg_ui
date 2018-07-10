@@ -1,0 +1,9 @@
+// Utilities for common `display` values
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+    .d#{$infix}-flex         { display: -ms-flexbox !important; }
+    .d#{$infix}-inline-flex  { display: -ms-inline-flexbox !important; }
+  }
+}

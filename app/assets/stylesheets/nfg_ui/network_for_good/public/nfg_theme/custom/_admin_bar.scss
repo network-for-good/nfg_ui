@@ -1,0 +1,21 @@
+// Remove styles and use bs4 structure and styles once update is final
+
+.admin-bar {
+  position: relative;
+  z-index: 100;
+  font-weight: $font-weight-bold;
+  font-size: $font-size-sm;
+  color: $text-muted;
+  text-transform: uppercase;
+  background-color: $black;
+}
+.admin-bar-descriptor {
+  display: inline-block;
+  padding: ($spacer * .5) 0;
+}
+.admin-bar-main-links a {
+  display: inline-block;
+  padding: ($spacer * .5);
+  color: $white;
+  &:hover, &:active { color: $text-muted; }
+}

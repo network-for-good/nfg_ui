@@ -1,0 +1,4 @@
+// Removes transition on mobile
+* {
+  @include media-breakpoint-down(sm) { transition: none !important; }
+}

@@ -9,7 +9,7 @@ module NfgUi
 
         def initialize(*)
           super
-          self.theme = component_options.fetch(:theme, default_theme)
+          self.theme = options.fetch(:theme, default_theme)
         end
 
         private

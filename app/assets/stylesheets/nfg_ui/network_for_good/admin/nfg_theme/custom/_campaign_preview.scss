@@ -1,0 +1,25 @@
+// Iframed preview of campaign page on project overview
+.responsive-iframe-container {
+  width: 100%;
+  padding: 0;
+  overflow: hidden;
+  position: relative;
+  &:after {
+    content: '';
+    position: absolute;
+    z-index:1;
+    top:0;
+    left: 0;
+    right:0;
+    bottom: 0;
+  }
+}
+.responsive-iframe {
+  min-height: 400px;
+  position: relative;
+  z-index: 0;
+  -moz-transform-origin: 0 0;
+  -o-transform-origin: 0 0;
+  -webkit-transform-origin: 0 0;
+  border: 0;
+}

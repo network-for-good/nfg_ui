@@ -1,0 +1,43 @@
+// Styles specific for the new user navbar on everyday_story and everyday_classic_style layouts
+
+$navbar-user-height: ($spacer * 5);
+
+.navbar-user {
+  @include media-breakpoint-up(lg) { height: $navbar-user-height; }
+}
+
+.navbar-brand {
+  margin-right: 0;
+  height: auto;
+  img {
+    max-width: 250px;
+    max-height: ($navbar-user-height - ($spacer * 1.5));
+  }
+  @include media-breakpoint-up(lg) {
+    height: $navbar-user-height;
+    max-width: 340px;
+    padding-top: ($spacer * .5);
+    padding-bottom: ($spacer * .5);
+    img {
+      max-height: ($navbar-user-height - $spacer);
+      max-width: 340px;
+    }
+  }
+  white-space: normal !important;
+  img { max-height: $navbar-user-height - $spacer; }
+}
+.navbar-text {
+  margin-left: $navbar-padding-x;
+  padding-left: $navbar-padding-x;
+  border-left: $border-width solid $border-color;
+}
+.sticky-div {
+  .btn-header-donate {
+    opacity: 0;
+    transition: $transition-base;
+  }
+  &.stuck {
+    box-shadow: $box-shadow;
+    .btn-header-donate { opacity: 1; }
+  }
+}

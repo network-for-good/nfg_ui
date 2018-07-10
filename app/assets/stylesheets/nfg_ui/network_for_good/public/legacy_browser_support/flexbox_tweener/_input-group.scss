@@ -1,0 +1,25 @@
+//
+// Base styles
+//
+.input-group {
+  display: -ms-flexbox;
+  -ms-flex-wrap: wrap;
+  -ms-flex-align: stretch;
+  > .form-control,
+  > .custom-select,
+  > .custom-file {
+    -ms-flex: 1 1 auto;
+  }
+  > .custom-file {
+    display: -ms-flexbox;
+    -ms-flex-align: center;
+  }
+}
+
+// Prepend and append
+
+.input-group-prepend, .input-group-append { display: -ms-flexbox; }
+
+// Textual addons
+
+.input-group-text { display: -ms-flexbox; }

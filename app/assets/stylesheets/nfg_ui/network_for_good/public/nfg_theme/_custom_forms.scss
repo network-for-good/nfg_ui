@@ -1,0 +1,134 @@
+// Checkboxes and radios
+//
+// Base class takes care of all the key behavioral aspects.
+
+.custom-control {
+  .custom-control-input:checked {
+    ~ .custom-control-label,
+    ~ .custom-control-label::before { border-color: $input-focus-border-color; }
+  }
+}
+
+// Custom control indicators
+//
+// Build the custom controls out of pseudo-elements.
+
+.custom-control-label {
+  font-weight: $font-weight-normal;
+
+  // Background-color and icon
+  &::before, &::after { top: .3rem; }
+  &::before { border: $border-width solid $border-color; }
+  &::after { cursor: pointer; }
+}
+
+// Radios
+//
+// Tweak just a few things for radios.
+
+.custom-radio {
+  .custom-control-label::after { background-size: 45% 45%; }
+}
+
+// Select
+//
+// Replaces the browser default select with a custom one, mostly pulled from
+// https://primer.github.io/.
+//
+
+.custom-select {
+  font-weight: $btn-font-weight;
+  cursor: pointer;
+}
+
+// File
+//
+// Custom file input.
+
+.custom-file-label {
+  font-weight: $font-weight-normal;
+  cursor: pointer;
+  border-radius: 0 $btn-border-radius $btn-border-radius 0;
+  &::after {
+    font-weight: $btn-font-weight;
+    border-radius: 0 $btn-border-radius $btn-border-radius 0;
+  }
+}
+
+// Block
+//
+// Custom control block (ex: for images)
+.custom-control-block {
+  padding: 0;
+  .custom-control-label {
+    margin-bottom: 0;
+    padding: ($spacer * .5) ($spacer * .5) ($spacer * 1.5);
+    border: $border-width solid $border-color;
+    border-radius: $border-radius;
+    cursor: pointer;
+    transition: $transition-base;
+    &:hover { border-color: $gray-600; }
+    &::before, &::after {
+      top: auto;
+      left: 50%;
+      bottom: ($spacer * .5);
+      margin-left: -9px;
+    }
+  }
+}
+
+// Without radio or checkbox indicator
+.custom-control-block:not(.custom-radio):not(.custom-checkbox) {
+  .custom-control-label {
+    padding: ($spacer * .5);
+    &::before, &::after { display: none; }
+  }
+}
+
+// Custom toggle
+//
+// Used in yes/no situations
+.custom-control-toggle {
+  padding-left: ($spacer * 2.5);
+  .custom-control-label {
+    &::before, &::after {
+      left: -($spacer * 2.5);
+      transition: $transition-base;
+    }
+    &::before {
+      padding-left: 28px;
+      width: ($spacer * 2);
+      font-size: 12px;
+      line-height: 16px;
+      color: $text-muted;
+      font-family: "FontAwesome";
+      content: "\f00d";
+      background-color: $body-bg;
+      border-radius: ($custom-control-indicator-size * .5);
+    }
+    &::after {
+      top: 0;
+      width: $spacer;
+      height: $spacer;
+      background-color: $white;
+      border: $border-width solid $border-color;
+      border-radius: $custom-radio-indicator-border-radius;
+    }
+  }
+  .custom-control-input:checked {
+    ~ .custom-control-label {
+      &::before {
+        content: "";
+        background-repeat: no-repeat;
+        background-size: 30%;
+        background-position: 6px 2px;
+        background-image: $custom-checkbox-indicator-icon-checked;
+        background-color: $custom-control-indicator-checked-bg;
+      }
+      &::after {
+        left: -($spacer * 1.5);
+        border-color: $input-focus-border-color;
+      }
+    }
+  }
+}

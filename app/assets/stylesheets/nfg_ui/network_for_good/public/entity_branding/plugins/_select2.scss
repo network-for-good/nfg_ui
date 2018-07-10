@@ -1,0 +1,14 @@
+// Specific styles for entity branding
+
+.select2-container--default {
+  .select2-selection--single {
+    background-image: $custom-select-indicator;
+    &,
+    .select2-selection__placeholder,
+    .select2-selection__choice__remove,
+    .select2-selection__rendered,
+    .select2-selection__rendered .select2-selection__choice { color: yiq-contrast-color($primary, $yiq-text-dark, $primary);  }
+  }
+  &.select2-container--focus .select2-selection--multiple { border-color: $primary; }
+  .select2-search--dropdown .select2-search__field:focus { border-color: $primary; }
+}

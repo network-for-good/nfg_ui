@@ -1,0 +1,63 @@
+// Fixes issue with padding on select fields
+select {
+  padding-left: 10px;
+  padding-right: 15px;
+}
+input[type='file'] {
+  padding: 0;
+  border: none;
+}
+
+// Form grid
+//
+// Special replacement for our grid system's `.row` for tighter form layouts.
+
+.form-row {
+  display: -ms-flexbox;
+  -ms-flex-wrap: wrap;
+}
+
+
+// Checkboxes and radios
+//
+// Indent the labels to position radios/checkboxes as hanging controls.
+
+.form-check-inline {
+  display: -ms-inline-flexbox;
+  -ms-flex-align: center;
+}
+
+
+// Inline forms
+
+.form-inline {
+  display: -ms-flexbox;
+  -ms-flex-direction: row;
+  -ms-flex-wrap: wrap;
+  -ms-flex-align: center;
+
+  // Kick in the inline
+  @include media-breakpoint-up(sm) {
+    label {
+      display: -ms-flexbox;
+      -ms-flex-align: center;
+      -ms-flex-pack: center;
+    }
+    .form-group {
+      display: -ms-flexbox;
+      -ms-flex: 0 0 auto;
+      -ms-flex-direction: row;
+      -ms-flex-wrap: wrap;
+      -ms-flex-align: center;
+    }
+    .form-check {
+      display: -ms-flexbox;
+      -ms-flex-align: center;
+      -ms-flex-pack: center;
+    }
+    .custom-control {
+      -ms-flex-align: center;
+      -ms-flex-pack: center;
+    }
+  }
+}

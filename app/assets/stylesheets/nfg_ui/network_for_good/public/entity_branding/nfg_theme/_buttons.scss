@@ -1,0 +1,36 @@
+// Specific styles for entity branding
+
+.btn-primary {
+  color: yiq-contrast-color($primary, $yiq-text-dark, $yiq-text-light);
+  background-color: $primary;
+  border-color: $primary;
+  &:hover,
+  &.disabled,
+  &:disabled {
+    color: yiq-contrast-color($primary, $yiq-text-dark, $yiq-text-light);
+    background-color: $primary;
+    border-color: $primary;
+  }
+
+  &:not(:disabled):not(.disabled):active,
+  &:not(:disabled):not(.disabled).active,
+  .show > &.dropdown-toggle {
+    color: yiq-contrast-color($primary, $yiq-text-dark, $yiq-text-light);
+    background-color: $primary;
+    border-color: $primary;
+  }
+}
+
+.btn-outline-secondary {
+  color: $primary;
+  &:hover { color: yiq-contrast-color($primary, $yiq-text-dark, $primary); }
+  &:not(:disabled):not(.disabled):active,
+  &:not(:disabled):not(.disabled).active,
+  .show > &.dropdown-toggle { color: yiq-contrast-color($primary, $yiq-text-dark, $primary); }
+}
+
+.bg-dark {
+  .btn-outline-secondary {
+    h1, h2, h3, h4, h5, h6, p, label { color: yiq-contrast-color($primary, $yiq-text-dark, $primary); }
+  }
+}

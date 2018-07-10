@@ -1,0 +1,84 @@
+$questionnaire-h: 280px;
+$questionnaire-vh: 30vh;
+
+// Question List
+#question_bank_list .btn { transition: background-color 0.3s ease-in-out !important; }
+.question-bank-question {
+  background-color: $body-bg;
+  border-radius: $border-radius;
+  &.disabled .btn {
+    background-color: theme-color("secondary");
+    border-color: theme-color("secondary");
+    opacity: $btn-disabled-opacity;
+    cursor: not-allowed;
+  }
+}
+.questionnaire-overflow {
+  position: relative;
+  &:before, &:after {
+    position: absolute;
+    left: 0;
+    right: $spacer;
+    content: '';
+    z-index: 20;
+  }
+  &:before {
+    top: 0;
+    height: ($spacer * .5);
+    @include gradient-y(transparentize($white, 0), transparentize($white, 1));
+  }
+  &:after {
+    bottom: 0;
+    height: $spacer;
+    @include gradient-y(transparentize($white, 1), transparentize($white, 0));
+  }
+}
+.questionnaire-overflow-scroll {
+  position: relative;
+  min-height: $questionnaire-h;
+  min-height: $questionnaire-vh;
+  max-height: 50vh;
+  overflow-y: scroll;
+}
+
+// Dropzone Section
+#questionnaire_question_list {
+  min-height: $questionnaire-h;
+  min-height: $questionnaire-vh;
+}
+.dragging-over {
+  background-color: $gray-300;
+  transition: $transition-base;;
+  .dropzone, .dropzone-sm {
+    background-color: $gray-300;
+    border-color: $gray-800;
+    + div[style*="height: 38px;"] { display: none; } // removes pesky spacing (provided by drag/drop plugin that calculates the height of the button) at bottom of dropzone
+  }
+}
+.dropzone {
+  min-height: $questionnaire-h;
+  min-height: $questionnaire-vh;
+  background-color: $body-bg;
+  border: $border-width dashed $gray-600;
+  border-radius: $border-radius;
+  transition: $transition-base;
+  &.dropzone-sm { min-height: 0; }
+}
+
+// Question Interactions
+.questionnaire-question {
+  .form-group {
+    border: $border-width solid $white;
+    transition: $transition-base;
+    &:hover, &:focus {
+      background-color: theme-color("light");
+      border: $border-width dashed $gray-600;
+      cursor: move;
+    }
+    &[style*="position: fixed;"] {
+      background-color: theme-color("light");
+      border: $border-width dashed $gray-800;
+      box-shadow: $box-shadow;
+    }
+  }
+}

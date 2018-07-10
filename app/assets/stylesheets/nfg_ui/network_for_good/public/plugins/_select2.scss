@@ -1,0 +1,215 @@
+//*****************************//
+// SELECT 2
+//*****************************//
+
+.select2-container {
+  display: block;
+  width: auto !important;
+  max-width: 100% !important;
+}
+.select2.select2-hidden-accessible { width: auto !important; } // Prevents horizontal scrolling on designation select on donation form
+
+body:not(.modal-open) {
+  .select2-container--default{
+    z-index: 901;
+  }
+}
+
+.select2-container--default {
+  &.select2-container--focus .select2-selection--multiple { border-color: $primary; }
+  &.select2-container--open {
+    .select2-selection--single {
+      background-color: theme-color("light");
+    }
+  }
+
+  //** Single select option
+  .select2-selection--single {
+    display: inline-block;
+    width: 100%;
+    height: $custom-select-height;
+    padding: $custom-select-padding-y ($custom-select-padding-x + $custom-select-indicator-padding) $custom-select-padding-y $custom-select-padding-x;
+    font-weight: $btn-font-weight;
+    line-height: $custom-select-line-height;
+    color: $custom-select-color;
+    vertical-align: middle;
+    background: $custom-select-bg $custom-select-indicator no-repeat right $custom-select-padding-x center;
+    background-size: $custom-select-bg-size;
+    border: $custom-select-border-width solid $custom-select-border-color;
+    border-radius: $border-radius;
+    outline: none;
+    cursor: pointer;
+    transition: $transition-base;
+    &:hover {
+      background-color: theme-color("light");
+      .select2-selection__rendered { color: $body-color; }
+    }
+    .select2-selection__rendered {
+      padding: 0;
+      color: $primary;
+      line-height: $spacer;
+      transition: $transition-base;
+    }
+    .select2-selection__arrow { display: none; }
+  }
+
+  //** Multiple select option
+  .select2-selection--multiple {
+    padding: 8px $input-padding-x 0;
+    min-height: $input-height;
+    font-size: $font-size-base;
+    color: $input-color;
+    border: $border-width solid $input-border-color;
+    border-radius: $input-border-radius;
+    transition: $transition-base;
+    .select2-search--inline {
+      min-height: 18px;
+      font-size: $font-size-base;
+      color: $input-color;
+      line-height: 1;
+      .select2-search__field {
+        margin-top: 0;
+        min-height: 18px;
+      }
+    }
+    .select2-selection__rendered {
+      margin: 0;
+      padding: 0;
+      @include clearfix();
+      .select2-selection__choice {
+        margin: 0 3px 3px 0;
+        padding: 3px ($spacer * .25);
+        min-width: 14px;
+        font-weight: $badge-font-weight;
+        font-size: $font-size-sm;
+        line-height: 1;
+        color: $primary;
+        background-color: $white;
+        border: $border-width solid $border-color;
+        border-radius: $border-radius;
+        transition: $transition-base;
+        &:hover, &:active {
+          color: $body-color;
+          background-color: theme-color("light");
+        }
+        + li { margin-top: 0; }
+      }
+    }
+    .select2-selection__choice__remove {
+      margin-right: ($spacer * .25);
+      color: $primary;
+    }
+  }
+
+  //** Dropdown styles
+  .select2-dropdown {
+    font-size: $font-size-base;
+    color: $body-color;
+    text-align: left;
+    list-style: none;
+    background-color: $dropdown-bg;
+    background-clip: padding-box;
+    border: $dropdown-border-width solid $dropdown-border-color;
+    @include border-radius($dropdown-border-radius);
+    @include box-shadow($dropdown-box-shadow);
+  }
+  .select2-search--dropdown {
+    padding: ($spacer * .5);
+    .select2-search__field {
+      display: block;
+      width: 100%;
+      padding: $input-padding-y $input-padding-x;
+      font-size: $font-size-base;
+      line-height: $input-line-height;
+      color: $input-color;
+      background-color: $input-bg;
+      background-clip: padding-box;
+      border: $input-border-width solid $input-border-color;
+      outline: 0;
+      transition: $transition-base;
+      &:focus { border-color: $primary; }
+    }
+  }
+  .select2-results__option {
+    position: relative;
+    margin-top: 0;
+    display: block;
+    width: 100%; // For `<button>`s
+    padding: $dropdown-item-padding-y $dropdown-item-padding-x;
+    clear: both;
+    font-weight: $font-weight-normal;
+    color: $dropdown-link-color;
+    text-align: inherit; // For `<button>`s
+    white-space: nowrap; // prevent links from randomly breaking onto new lines
+    background-color: transparent; // For `<button>`s
+    border: 0; // For `<button>`s
+    border-top: $border-width solid $border-color;
+    z-index: 1;
+    transition: $transition-base;
+    &.select2-results__option--highlighted {
+      color: $body-color;
+      background-color: transparent;
+      &:hover, &:active {
+        color: $body-color;
+        background-color: theme-color("light");
+      }
+    }
+    &[aria-selected='true'] {
+      padding-right: ($spacer * 2);
+      color: $body-color;
+      background-color: transparent !important;
+      cursor: default;
+      &:after {
+        position: absolute;
+        top: ($spacer * .5);
+        right: ($spacer * .25);
+        width: 36px;
+        height: 100%;
+        font-family: "FontAwesome";
+        font-size: $font-size-base;
+        line-height: 1;
+        color: theme-color("success");
+        text-align: center;
+        content: '\f00c';
+        z-index: 5;
+      }
+    }
+  }
+  .select2-results__group {
+    padding: ($spacer * .5);
+    font-weight: $headings-font-weight;
+    font-size: $font-size-base;
+    line-height: 1.3;
+  }
+}
+
+
+// Error handling
+  .has-danger {
+    .select2-selection {
+      border-color: theme-color("danger");
+      color: theme-color("danger");
+    }
+  }
+
+
+// Clear selection
+  .select2-selection__rendered .select2-selection__clear {
+    position: relative;
+    width: 60px;
+    color: transparent;
+    &:before {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 60px;
+      font-size: 10px;
+      line-height: 34px;
+      font-family: $font-family-sans-serif;
+      color: $link-color;
+      text-transform: uppercase;
+      text-align: right;
+      z-index: 10;
+      content: "Clear X";
+    }
+  }

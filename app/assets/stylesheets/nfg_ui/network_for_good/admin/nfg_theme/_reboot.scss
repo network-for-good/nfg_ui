@@ -1,0 +1,26 @@
+html {
+  height: 100%;
+  font-size: 62.5%;
+}
+body {
+  -ms-overflow-style: scrollbar !important;
+  height: 100%;
+  font-smooth: always;
+  -webkit-font-smoothing: antialiased;
+     -moz-font-smoothing: antialiased;
+          font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-size: $font-size-base;
+  @include media-breakpoint-down(md) {
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: auto;
+  }
+}
+
+div { position: relative; } // setting this as a base to avoid improper absolute positioning elements
+
+ol,
+ul,
+dl {
+  margin-bottom: $paragraph-margin-bottom;
+}

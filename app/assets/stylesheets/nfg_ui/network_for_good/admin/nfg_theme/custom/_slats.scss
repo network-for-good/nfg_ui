@@ -1,0 +1,45 @@
+// Custom slat styles
+// Sort
+.sort {
+  .fa { color: $gray-300 !important; }
+  cursor: move;
+}
+
+// Slat header
+.slat-header { padding-bottom: ($spacer * .5); }
+
+// List layout
+.slat-list {
+  .slat {
+    padding-top: $spacer;
+    padding-bottom: $spacer;
+    background-color: $white;
+    border-top: $border-width solid $border-color;
+
+    // Various slat states
+    &.ui-sortable-placeholder {
+      visibility: visible !important;
+      background: theme-color("light");
+      border: $border-width dashed $border-color;
+      + .slat { border-top: none; }
+      + &.ui-sortable-helper {
+        border-top-style: dashed;
+        + &.slat { border-top: none; }
+      }
+    }
+    &.ui-sortable-helper {
+      border-top: none;
+      opacity: .5;
+      border-top: none;
+      + &.ui-sortable-placeholder { border-top: $border-width dashed $border-color; }
+    }
+  }
+
+  // Condensed slats
+  &.slat-condensed {
+    .slat {
+      padding-top: ($spacer * .5);
+      padding-bottom: ($spacer * .5);
+    }
+  }
+}

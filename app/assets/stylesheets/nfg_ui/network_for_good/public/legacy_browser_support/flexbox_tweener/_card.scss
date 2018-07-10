@@ -1,0 +1,44 @@
+//
+// Base styles
+//
+
+.card {
+  display: -ms-flexbox;
+  -ms-flex-direction: column;
+}
+
+.card-body { -ms-flex: 1 1 auto; }
+
+
+// Card deck
+
+.card-deck {
+  display: -ms-flexbox;
+  -ms-flex-direction: column;
+
+  @include media-breakpoint-up(sm) {
+    -ms-flex-direction: row;
+    -ms-flex-wrap: wrap;
+    .card {
+      display: -ms-flexbox;
+      -ms-flex: 1 0 0%;
+      -ms-flex-direction: column;
+    }
+  }
+}
+
+
+//
+// Card groups
+//
+
+.card-group {
+  display: -ms-flexbox;
+  -ms-flex-direction: column;
+
+  @include media-breakpoint-up(sm) {
+    -ms-flex-direction: row;
+    -ms-flex-wrap: wrap;
+    > .card { -ms-flex: 1 0 0%; }
+  }
+}

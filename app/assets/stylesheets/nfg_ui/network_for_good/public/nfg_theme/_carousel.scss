@@ -1,0 +1,9 @@
+// Optional indicator pips
+//
+// Add an unordered list with the following class and add a list item for each
+// slide your carousel holds.
+
+.carousel-indicators {
+  bottom: 0;
+  li { border-radius: 50%; }
+}

@@ -1,0 +1,12 @@
+// Flush list items
+//
+// Remove borders and border-radius to keep list group items edge-to-edge. Most
+// useful within other components (e.g., cards).
+
+.list-group-flush {
+  .list-group-item {
+    padding-right: 0;
+    padding-left: 0;
+    &:last-child { border-bottom: 0; }
+  }
+}

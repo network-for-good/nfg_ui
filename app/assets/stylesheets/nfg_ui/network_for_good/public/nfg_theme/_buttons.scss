@@ -1,0 +1,17 @@
+// Custom secondary button usage
+.btn-outline-secondary {
+  color: $primary;
+  background-color: $white;
+  border-color: $border-color;
+  &:hover {
+    color: $primary;
+    background-color: $body-bg;
+  }
+  &:not(:disabled):not(.disabled):active,
+  &:not(:disabled):not(.disabled).active,
+  .show > &.dropdown-toggle {
+    color: $primary;
+    background-color: $body-bg;
+  }
+}
+.btn-link { font-weight: $btn-font-weight; }

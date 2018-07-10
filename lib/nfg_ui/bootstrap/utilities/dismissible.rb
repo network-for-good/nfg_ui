@@ -9,7 +9,7 @@ module NfgUi
 
         def initialize(*)
           super
-          self.dismissible = component_options.fetch(:dismissible, default_dismissible)
+          self.dismissible = options.fetch(:dismissible, default_dismissible)
         end
 
         def dismissible?

@@ -1,0 +1,18 @@
+// Specific styles for entity branding
+
+.navbar-light {
+  .navbar-brand,
+  .navbar-toggler {
+    color: yiq-contrast-color($primary, $yiq-text-dark, $primary);
+    &:hover, &:focus { color: yiq-contrast-color($primary, $yiq-text-dark, $primary); }
+  }
+  .navbar-nav {
+    .nav-link {
+      &:hover, &:focus { color: yiq-contrast-color($primary, darken($primary, 10%), $primary); }
+    }
+    .open > .nav-link,
+    .active > .nav-link,
+    .nav-link.open,
+    .nav-link.active { color: yiq-contrast-color($primary, darken($primary, 10%), $primary); }
+  }
+}

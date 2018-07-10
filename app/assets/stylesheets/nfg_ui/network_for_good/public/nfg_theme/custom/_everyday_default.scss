@@ -1,0 +1,43 @@
+// Styles specific to the everyday default style
+.everyday_default {
+  .jumbotron {
+    &::before {
+      width:100%;
+      height: 100%;
+      -ms-transform-style: preserve-3d;
+      -ms-transform: translate3d(0,0,0);
+      transform: translate3d(0,0,0);
+      position: fixed;
+      content: '';
+      background-repeat: no-repeat;
+      background-size: cover;
+      z-index: 0;
+    }
+    @include media-breakpoint-down(md) {
+      padding: 0;
+      &::before { content: none; }
+      .card {
+        box-shadow: none;
+        border-radius: 0;
+      }
+    }
+  }
+  .progress-stats {
+    position: absolute;
+    top: ($spacer * .25);
+    left: $grid-gutter-width / 2;
+    width: 100%;
+    z-index: 1;
+  }
+
+  &.admin {
+    .jumbotron {
+      &::before { margin-top: 0; }
+    }
+  }
+}
+
+// positioning background image properly in iframe campaign preview
+body.preview.everyday_default{
+  .jumbotron::before { position: absolute; }
+}

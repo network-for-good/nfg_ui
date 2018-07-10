@@ -21,6 +21,10 @@ module NfgUi
         def defaults
           super.merge!(title: '')
         end
+
+        def non_html_attribute_options
+          super.push(:title)
+        end
       end
     end
   end

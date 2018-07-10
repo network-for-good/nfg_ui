@@ -1,0 +1,18 @@
+.carousel-item { -ms-flex-align: center; }
+
+// Left/right controls for nav
+
+.carousel-control-prev,
+.carousel-control-next {
+  display: -ms-flexbox;
+  -ms-flex-align: center;
+  -ms-flex-pack: center;
+}
+
+// Optional indicator pips
+
+.carousel-indicators {
+  display: -ms-flexbox;
+  -ms-flex-pack: center;
+  li { -ms-flex: 0 1 auto; }
+}

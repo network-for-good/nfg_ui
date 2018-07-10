@@ -1,0 +1,21 @@
+// Base class
+
+.nav {
+  display: -ms-flexbox;
+  -ms-flex-wrap: wrap;
+}
+
+// Justified variants
+
+.nav-fill {
+  .nav-item {
+    -ms-flex: 1 1 auto;
+  }
+}
+
+.nav-justified {
+  .nav-item {
+    -ms-flex-preferred-size: 0;
+    -ms-flex-positive: 1;
+  }
+}

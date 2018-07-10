@@ -23,7 +23,7 @@ module NfgUi
         end
 
         private
-
+        
         def present_required_options
           (options.keys & required)
         end

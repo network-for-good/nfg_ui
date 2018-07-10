@@ -1,0 +1,15 @@
+[data-describe='custom_receipt_language_for_body'],
+[data-describe='custom_receipt_language_for_email_subject'],
+.content-muted {
+  position: relative;
+  display: block;
+  padding: ($spacer * .25) ($spacer * .5);
+  border: dashed 2px $gray-200;
+}
+
+[data-describe='custom_receipt_language_for_body'] + hr { display: none; }
+
+.content-muted {
+  color: $text-muted;
+  background-color: $body-bg;
+}

@@ -1,0 +1,23 @@
+//
+// Tabs
+//
+
+.nav-tabs {
+  border-width: $border-width;
+
+  .nav-item {
+    margin-bottom: -$border-width;
+    font-weight: $font-weight-bold;
+    font-size: $font-size-base;
+  }
+
+  .nav-link {
+    color: $text-muted;
+    border: none;
+    border-bottom: $nav-tabs-border-width solid transparent;
+    @include hover-focus {
+      color: $nav-tabs-link-active-color;
+      border-color: $nav-tabs-link-hover-border-color;
+    }
+  }
+}

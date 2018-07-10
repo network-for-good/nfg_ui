@@ -1,0 +1,9 @@
+// Status indicator on campaigns index
+.status-indicator {
+  position: absolute;
+  top: -($font-size-base * .5);
+  right: -($font-size-base * .5);
+  display: block;
+  z-index: 100;
+  font-size: $font-size-base;
+}

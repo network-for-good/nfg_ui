@@ -21,7 +21,11 @@ module NfgUi
         end
 
         def tile_body_html_id
-          id unless collapsible?
+          collapsible? ? id : ''
+        end
+
+        def collapsible_target_id
+          "target_collapsible_id_for_#{id}"
         end
 
         def component_family

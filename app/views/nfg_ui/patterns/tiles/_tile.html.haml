@@ -1,18 +1,24 @@
 %div{ tile.html_options }
+  -#
   - if tile.title.present?
-    - if tile.collapsible?
-      %a.d-block.no-link-color{ href: "#collapse_target_#{tile.id}", 'aria-expanded' => tile.collapsed?, 'aria-controls' => "collapse_target_#{tile.id}", data: { 'toggle' => 'collapse' } }
-        .row.align-items-center
-          .col-10
-            = ui.nfg :tile_header, icon: tile.icon, title: tile.title
+    / = raise tile.dynamic_collapsible_traits.inspect
+    = ui.nfg :tile_header, *tile.collapsible_trait, icon: tile.icon, title: tile.title, id: tile.id
+    -# if tile.title.present?
+      / - if tile.collapsible?
+      /   / %a.d-block.no-link-color{ href: "#collapse_target_#{tile.id}", 'aria-expanded' => tile.collapsed?, 'aria-controls' => "collapse_target_#{tile.id}", data: { 'toggle' => 'collapse' } }
+      /   %a{ tile.collapsible_toggle_html_options }
+      /     .row.align-items-center
+      /       .col-10
+      /         = ui.nfg :tile_header, icon: tile.icon, title: tile.title
 
-          .col-2.text-right
-            = ui.nfg :icon, 'caret-down fw'
-    - else
-      = ui.nfg :tile_header, icon: tile.icon, title: tile.title
+      /       .col-2.text-right
+      /         = ui.nfg :icon, 'caret-down fw'
+      / - else
+      /   = ui.nfg :tile_header, icon: tile.icon, title: tile.title
+
 
   - if tile.body
-    = ui.nfg :tile_body, *tile.tile_body_traits, body: tile.body, heading: tile.heading.presence, id: tile.id
+    = ui.nfg :tile_body, *tile.collapsible_trait, body: tile.body, heading: tile.heading.presence, id: tile.id
 
   - if tile.sections.present?
     - tile.sections.each do |section_body|

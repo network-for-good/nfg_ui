@@ -1,0 +1,14 @@
+$navbar-height-for-ie: 120px;
+.no-smil.flexboxtweener { // IE 10 & 11
+  .everyday_default,
+  .everyday_story {
+    .jumbotron {
+      top: $navbar-height-for-ie;
+      &::before { top: $navbar-height-for-ie; }
+      .card { margin-bottom: $navbar-height-for-ie; }
+    }
+    &.preview {
+      .jumbotron::before { top: 0; }
+    }
+  }
+}

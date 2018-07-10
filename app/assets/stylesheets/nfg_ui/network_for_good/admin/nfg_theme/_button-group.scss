@@ -1,0 +1,8 @@
+// Add visual separator for btn-primary buttons that are in a button group
+.btn-group {
+  > .btn-primary:not(:first-child),
+  > .btn-group:not(:first-child) > .btn-primary {
+    margin-left: 0;
+    border-left-color: rgba(0,0,0,.15);
+  }
+}

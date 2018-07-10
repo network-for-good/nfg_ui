@@ -1,0 +1,10 @@
+// Styles to make sticky div perform correctly
+
+[data-toggle='sticky-div'] {
+  position: relative; // fallback for IE, etc
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  z-index: 999;
+  transition: $transition-base;
+}
