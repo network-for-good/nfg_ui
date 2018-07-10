@@ -3,8 +3,10 @@ module NfgUi
   module Components
     extend ActiveSupport::Autoload
 
-    autoload :Foundations
+    autoload :Base
     autoload :Elements
+    autoload :Foundations
     autoload :Patterns
+    autoload :Utilities
   end
 end

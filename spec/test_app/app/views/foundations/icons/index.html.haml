@@ -1,3 +1,11 @@
 %h1 Icons
 
-= ui.nfg :icon
+%h2 Standard icon
+= ui.nfg :icon, 'rocket'
+
+%hr
+
+%h2 Icon with text, right & left
+= ui.nfg :icon, 'rocket', text: 'Icon on the left'
+%br
+= ui.nfg :icon, 'rocket', :right, text: 'Icon on the right'
