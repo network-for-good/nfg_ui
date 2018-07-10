@@ -9,6 +9,7 @@ module NfgUi
       autoload :Themeable
       autoload :Dismissible
       autoload :Activatable
+      autoload :Collapsible
       autoload :Sizable
       autoload :Wrappable
       autoload :Disableable
