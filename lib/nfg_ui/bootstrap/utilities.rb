@@ -6,14 +6,14 @@ module NfgUi
     module Utilities
       extend ActiveSupport::Autoload
 
-      autoload :Themeable
-      autoload :Dismissible
       autoload :Activatable
-      autoload :Collapsible
-      autoload :Sizable
-      autoload :Wrappable
-      autoload :Disableable
       autoload :AriaAssistable
+      autoload :Collapsible
+      autoload :Disableable
+      autoload :Dismissible
+      autoload :Sizable
+      autoload :Themeable
+      autoload :Wrappable
     end
   end
 end
