@@ -38,12 +38,10 @@ module NfgUi
       end
 
       def nested_class_name_string
-        nested_class_name = ''
         NfgUi::GROUPING_NAMES.each do |grouping|
           next unless components_within_group(grouping: grouping).include?(component_name)
-          nested_class_name = grouping.to_s.camelize
+          return grouping.to_s.camelize
         end
-        nested_class_name
       end
 
       def components_within_group(grouping:)
