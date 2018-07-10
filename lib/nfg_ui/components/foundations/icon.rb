@@ -47,6 +47,12 @@ module NfgUi
           nil
         end
 
+        def defaults
+          super.merge!(icon: '',
+                       right: default_right,
+                       text: '')
+        end
+
         def non_html_attribute_options
           super.push(*icon_non_html_attribute_options)
         end
