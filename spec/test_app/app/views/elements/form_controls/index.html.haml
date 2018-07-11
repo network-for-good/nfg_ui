@@ -1,3 +1,205 @@
 %h1 Form Controls
+%p Temporary form controls page with manual html (these are not official components *yet*)
 
-= ui.nfg :form_control
+.container-fluid
+  .row
+    .col.col-xl-11.mx-auto
+      .tile
+        .tile-header
+          %a.d-block.no-link-color{ href: "#tileCollapse", "aria-expanded" => "true", "aria-controls" => "tileCollapse", data: { "toggle" => "collapse" } }
+            .row.align-items-center
+              .col-10
+                %h6.text-uppercase
+                  = fa_icon "rocket fw", class: "mr-1", text: "Tile Header"
+              .col-2.text-right
+                = fa_icon "caret-down fw"
+        #tileCollapse.collapse.show
+          .tile-body
+            %h1 Form Elements
+            %form.mt-3
+              .form-group
+                %label.required Label:
+                %input.form-control{ type: "text", placeholder: "Normal Input" }
+                %small.form-text.text-muted Help text goes right here
+
+              .form-group
+                %label Label:
+                %input.form-control.form-control-lg{ type: "text", placeholder: "Large Input" }
+
+              .form-group
+                %label Label:
+                %input.form-control.form-control-sm{ type: "text", placeholder: "Small Input", disabled: true }
+
+              .form-group
+                %label Select:
+                %select.form-control
+                  %option Select a number
+                  %option 1
+                  %option 2
+                  %option 3
+
+              .form-group
+                %label Multiselect:
+                %select.form-control{ multiple: true }
+                  %option Select a number
+                  %option 1
+                  %option 2
+                  %option 3
+
+              .form-group
+                %label Textarea:
+                %textarea.form-control{ rows: 5 }
+
+              .form-group
+                %label File Input:
+                %input.form-control-file{ type: "file" }
+
+              .form-group
+                %label Checkboxes:
+                .form-check
+                  %input.form-check-input{ type: "checkbox", id: "checkbox1" }
+                  %label.form-check-label{ for: "checkbox1" } Checkbox 1
+                .form-check
+                  %input.form-check-input{ type: "checkbox", id: "checkbox2" }
+                  %label.form-check-label{ for: "checkbox2" } Checkbox 2
+
+              .form-group
+                %label Radios:
+                .form-check
+                  %input.form-check-input{ type: "radio", id: "radio1", name: "radios" }
+                  %label.form-check-label{ for: "radio1" } Radio 1
+                .form-check
+                  %input.form-check-input{ type: "radio", id: "radio2", name: "radios" }
+                  %label.form-check-label{ for: "radio2" } Radio 2
+
+              .form-group
+                %label.mr-2 Inline Checkboxes:
+                .form-check.form-check-inline
+                  %input.form-check-input{ type: "checkbox", id: "checkbox3" }
+                  %label.form-check-label{ for: "checkbox3" } Checkbox 3
+                .form-check.form-check-inline
+                  %input.form-check-input{ type: "checkbox", id: "checkbox4" }
+                  %label.form-check-label{ for: "checkbox4" } Checkbox 4
+
+              .form-group
+                %label Custom Checkbox:
+                .custom-control.custom-checkbox
+                  %input.custom-control-input{ type: "checkbox", id: "customCheckbox" }
+                  %label.custom-control-label{ for: "customCheckbox" } Custom Checkbox
+
+              .form-group
+                %label Custom Radio:
+                .custom-control.custom-radio
+                  %input.custom-control-input{ type: "radio", id: "customRadio", name: "customRadios" }
+                  %label.custom-control-label{ for: "customRadio" } Custom Radio
+
+              .form-group
+                %label.mr-2 Custom Checkbox Inline:
+                .custom-control.custom-checkbox.custom-control-inline
+                  %input.custom-control-input{ type: "checkbox", id: "customCheckboxInline" }
+                  %label.custom-control-label{ for: "customCheckboxInline" } Custom Checkbox Inline
+
+              .form-group
+                %label.mr-2 Custom Toggle:
+                .custom-control.custom-control-toggle
+                  %input.custom-control-input{ type: "checkbox", id: "customCheckboxToggle" }
+                  %label.custom-control-label{ for: "customCheckboxToggle" } Custom Toggle
+
+              .form-group
+                %label Custom Select:
+                %select{ class: "custom-select" }
+                  %option Select a number
+                  %option 1
+                  %option 2
+                  %option 3
+
+              .form-group
+                %label Custom File:
+                .custom-file
+                  %input.custom-file-input{ type: "file" }
+                  %label.custom-file-label Choose File
+
+              .form-group
+                %label Custom Block:
+                .form-row
+                  .col-4
+                    .custom-control.custom-radio.custom-control-block
+                      %input.custom-control-input{ type: "radio", id: "customBlockRadio", name: "customBlockRadios" }
+                      %label.custom-control-label.text-center{ for: "customBlockRadio" }
+                        %img.img-fluid{ src: "http://via.placeholder.com/200x200" }
+                        %p.mt-2.mb-0 Custom Block Radio
+                  .col-4
+                    .custom-control.custom-control-block
+                      %input.custom-control-input{ type: "checkbox", id: "customBlockCheckbox" }
+                      %label.custom-control-label.text-center{ for: "customBlockCheckbox" }
+                        %img.img-fluid{ src: "http://via.placeholder.com/200x200" }
+                        %p.mt-2.mb-0 Custom Block Checkbox without Indicator
+
+              .form-group
+                %label Input Group:
+                .input-group
+                  .input-group-prepend
+                    %span.input-group-text $
+                  %input.form-control{ type: "text", placeholder: "Enter an amount" }
+                  .input-group-append
+                    %span.input-group-text .00
+
+            %form.needs-validation
+              .form-group
+                %label Success:
+                %input.form-control.is-valid{ type: "text" }
+                .valid-feedback This info is correct!
+              .form-group
+                %label Error:
+                %input.form-control.is-invalid{ type: "text" }
+                .invalid-feedback Error!
+
+            %form.was-validated
+              .form-group.is-valid
+                %label.mr-2 Inline Checkboxes:
+                .form-check.form-check-inline
+                  %input.form-check-input{ type: "checkbox", id: "checkbox3" }
+                  %label.form-check-label{ for: "checkbox3" } Checkbox 3
+                .form-check.form-check-inline
+                  %input.form-check-input{ type: "checkbox", id: "checkbox4" }
+                  %label.form-check-label{ for: "checkbox4" } Checkbox 4
+                .valid-feedback This info is correct!
+
+            %form.needs-validation
+              .form-group
+                %label Success:
+                %input.form-control.is-valid{ type: "text" }
+                .valid-tooltip This info is correct!
+              .form-group
+                %label Error:
+                %input.form-control.is-invalid{ type: "text" }
+                .invalid-tooltip Error!
+
+      .row
+        .col-12.col-lg-7.mt-3
+          .tile
+            .tile-header
+              %ul.nav.nav-tabs.tile-header-tabs
+                %li.nav-item
+                  %a.nav-link.active{ href: "#first", id: "firstTab", "aria-controls" => "home", "aria-selected" => "true", data: { "toggle" => "tab" } } First Tab
+                %li.nav-item
+                  %a.nav-link{ href: "#second", id: "secondTab", "aria-controls" => "home", "aria-selected" => "false", data: { "toggle" => "tab" } } Second Tab
+            .tile-body.tab-content
+              #first.tab-pane.fade.show.active{"aria-labelledby" => "firstTab" }
+                %h1 First Tab Content
+              #second.tab-pane.fade{"aria-labelledby" => "secondTab" }
+                %h1 Second Tab Content
+            .tile-footer
+              %p.mb-0 Tile Footer
+        .col-12.col-lg-5.mt-3
+          .tile
+            .tile-header
+              %h6 Tile Header
+            .tile-body
+              .tile-section
+                %p.mb-0 Section
+              .tile-section
+                %p.mb-0 Another Section
+            .tile-footer
+              %p.mb-0 Tile Footer
+
