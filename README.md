@@ -1,14 +1,15 @@
-= NfgUi
+# Network for Good's Design System for Ruby on Rails
 The authoritative resource for the Network for Good front-end UI, empowered by the NFG Design System.
 
 ```ruby
 gem 'nfg_ui', git: 'https://github.com/network-for-good/nfg_ui'
 ```
 
-The ongoing work resulting from 4+ years of study, practice, implementation, planning, drafting and sweat for how to create, manage, and maintain a robust design system framework. _NFG UX & UI team_ (J&K) are excited to bring you... the *Network For Good design system* gem or: `nfg_ui` gem. This bad boy is an all encompassing one-stop shop for everything front-end for Network for Good products.
+NFG UX & UI team_ (J&K) are excited to bring you... the *Network For Good design system* gem or: `nfg_ui` gem. This bad boy is an all encompassing one-stop shop for everything front-end for Network for Good products.
+
+This gem is an organic, evolving and ongoing work that is the loving result of 4+ years of study, practice, implementation, planning, drafting and good ol' sweat. After a dozen code drafts, a fully realized Sketch design system suite, and the canvas to work on... we're building a robust design system framework.
 
 With this gem, you can stand up a brand new rails app and it will seamlessly, from day 1, look, feel and be a Network for Good product. *Huzzah*
-
 
 ## Accessing Component Code Examples & Documentation:
 to review the documentation for the components, get code samples and browse the library, follow the instructions at the bottom for getting the gem setup locally. It has its own `test_app` so the documentation is hosted there and the gem doesn't need to be added to a seperate parent app (unless you want to). We intend to get this online in its own dedicated space... until then, that's your best bet for browsing docs.
