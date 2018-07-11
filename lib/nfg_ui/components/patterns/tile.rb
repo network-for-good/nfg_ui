@@ -38,6 +38,10 @@ module NfgUi
                                    a single :section, not both".squish
         end
 
+        def css_classes
+          super + ' mb-3'
+        end
+
         def default_collapsible
           false
         end
