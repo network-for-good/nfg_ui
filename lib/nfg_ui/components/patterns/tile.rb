@@ -27,7 +27,6 @@ module NfgUi
         end
 
         def collapsible_toggle_html_options
-          raise super[:class].inspect
           super.merge!(class: 'd-block no-link-color')
         end
 
@@ -37,6 +36,10 @@ module NfgUi
           raise ArgumentError.new "You attempted to pass in both :sections and :section.
                                    You may only pass in an array of :sections or
                                    a single :section, not both".squish
+        end
+
+        def default_collapsible
+          false
         end
 
         def collapsible_target_id

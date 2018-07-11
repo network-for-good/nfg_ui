@@ -1,9 +1,9 @@
 %div{ tile.html_options }
   - if tile.title.present?
-    = ui.nfg :tile_header, *tile.collapsible_trait, icon: tile.icon, title: tile.title, id: tile.id
+    = ui.nfg :tile_header, (:collapsible if tile.collapsible?), icon: tile.icon, title: tile.title, id: tile.id, collapsed: (tile.collapsed? if tile.collapsible?)
 
   - if tile.body
-    = ui.nfg :tile_body, *tile.collapsible_trait, heading: tile.heading.presence, id: tile.id do
+    = ui.nfg :tile_body, (:collapsible if tile.collapsible?), heading: tile.heading.presence, id: tile.id, collapsed: (tile.collapsed? if tile.collapsible?) do
       = tile.body
 
       - if tile.sections.present?

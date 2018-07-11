@@ -31,10 +31,6 @@ module NfgUi
                               **build_aria(aria_key: :controls, aria_value: collapsible_target_id)) }
         end
 
-        def collapsible_trait
-          collapsed? ? :collapsed : :collapsible
-        end
-
         private
 
         def required
@@ -94,6 +90,10 @@ end"
 
         def default_collapsed
           false
+        end
+
+        def default_collapsible
+          false unless collapsible?
         end
 
         def collapsible_traits
