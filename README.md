@@ -63,12 +63,78 @@ Examples:
 = ui.nfg :button, :danger, data: { describe: 'delete-button' } do
   = ui.nfg :icon, 'trash', class: 'mr-1', text: 'Delete Row'
 ```
+More soon...
+
+### NFG Components
+Components are organized into 4 major groupings. Currently 3 of the groupings are available through this gem.
+
+#### Foundations
+The basic essentials that form elements
+* `:color`
+* `:icon`
+* `:image`
+* `:input`
+* `:grid`
+* `:typeface`
+
+#### Elements
+The main component blocks, made up of foundation components.
+
+* `:activity`
+* `:alert`
+* `:badge`
+* `:breadcrumb`
+* `:breadcrumb_item`
+* `:button`
+* `:chart`
+* `:dropdown`
+* `:form_control`
+* `:input_group`
+* `:key`
+* `:list_group_item`
+* `:loader`
+* `:media_object`
+* `:nav`
+* `:popover`
+* `:progress_bar`
+* `:slat`
+* `:stat`
+* `:table`
+* `:task`
+* `:tooltip`
+
+#### Patterns
+Groupings of elements to create rich interfaces. For example, an `:activity_feed` (one of the patterns) is made up many `:activity`
+
+* `:activity_feed`
+* `:button_group`
+* `:card`
+* `:carousel`
+* `:empty_state`
+* `:filter_bar`
+* `:form_group`
+* `:graph`
+* `:jumbotron`
+* `:list_group`
+* `:media_group`
+* `:modal`
+* `:navbar`
+* `:slat_list`
+* `:task_list`
+* *Tiles*
+  * `:tile`
+  * `:tile_body`
+  * `:tile_footer`
+  * `:tile_header`
+  * `:tile_section`
 
 ### Bootstrap design system components
 
 Utilize all bootstrap4 components, coded to strict bootstrap standards via a similar method: `= ui.bootstrap :my_component, options...`
 
 *Note: while the names of bootstrap components and network for good components may be similar, do not use bootstrap components on the front-end. _Only use `ui.nfg` components for front-end code._ Great care has been taken to ensure that any component you'd expect to have from bootstrap4 is made available by an appropriately coded and designed design system component*
+
+The bootstrap side of this will eventually be isolated into its own gem. Until then, it lives within the `nfg_ui` gem.
 
 ```haml
 // Produce a styled, pre-designed submit button for your form on the fly
@@ -79,7 +145,30 @@ Utilize all bootstrap4 components, coded to strict bootstrap standards via a sim
   = ui.nfg :icon, 'trash', class: 'mr-1', text: 'Delete Row'
 ```
 
-## Library of components
+_Available Bootstrap Components_
+* `:alert`
+* `:badge`
+* `:breadcrumb`
+* `:breadcrumb_item`
+* `:button`
+* `:button_group`
+* `:card`
+* `:carousel`
+* `:dropdown`
+* `:form`
+* `:input_group`
+* `:jumbotron`
+* `:list_group`
+* `:list_group_item`
+* `:media_object`
+* `:modal`
+* `:nav`
+* `:navbar`
+* `:pagination`
+* `:popover`
+* `:progress`
+* `:table`
+* `:tooltip`
 
 ## Setup
 
