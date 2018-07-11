@@ -185,7 +185,7 @@ Syntax: `= ui.bootstrap :component_name, options`
 * `:table`
 * `:tooltip`
 
-## Setup
+## Local development & accessing documentation
 
 1. Clone repo:
 
