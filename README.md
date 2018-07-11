@@ -5,7 +5,7 @@ The authoritative resource for the Network for Good front-end UI, empowered by t
 gem 'nfg_ui', git: 'https://github.com/network-for-good/nfg_ui'
 ```
 
-The result of 4 years of study, practice, implementation, planning, drafting and sweat. NFG UX & UI team (J&K) are excited to bring you... the *Network For Good design system* gem or: `nfg_ui` gem. This bad boy is an all encompassing one-stop shop for everything front-end for Network for Good products.
+The ongoing work resulting from 4+ years of study, practice, implementation, planning, drafting and sweat for how to create, manage, and maintain a robust design system framework. _NFG UX & UI team_ (J&K) are excited to bring you... the *Network For Good design system* gem or: `nfg_ui` gem. This bad boy is an all encompassing one-stop shop for everything front-end for Network for Good products.
 
 With this gem, you can stand up a brand new rails app and it will seamlessly, from day 1, look, feel and be a Network for Good product. *Huzzah*
 
@@ -66,6 +66,8 @@ Examples:
 More soon...
 
 ### NFG Components
+Syntax: `= ui.nfg :component_name, optional_traits, options`
+
 Components are organized into 4 major groupings. Currently 3 of the groupings are available through this gem.
 
 #### Foundations
@@ -132,20 +134,22 @@ Groupings of elements to create rich interfaces. For example, an `:activity_feed
 
 Utilize all bootstrap4 components, coded to strict bootstrap standards via a similar method: `= ui.bootstrap :my_component, options...`
 
-*Note: while the names of bootstrap components and network for good components may be similar, do not use bootstrap components on the front-end. _Only use `ui.nfg` components for front-end code._ Great care has been taken to ensure that any component you'd expect to have from bootstrap4 is made available by an appropriately coded and designed design system component*
+*Note: while the names of bootstrap components and network for good components may be similar or identical (ex.: the design system has an `:alert` as does bootstrap), do not use bootstrap components on the front-end. _Only use `ui.nfg` components for front-end code._ Great care has been taken to ensure that any component you'd expect to have from bootstrap4 is made available by an appropriately coded and designed design system component*
 
 The bootstrap side of this will eventually be isolated into its own gem. Until then, it lives within the `nfg_ui` gem.
 
 ```haml
-// Produce a styled, pre-designed submit button for your form on the fly
-= ui.nfg :button, :submit
+// An example alert
+= ui.nfg :alert, theme: :danger, dismissible: false, headline: 'Oh snap!', body: 'The alert body content'
 
 // Build your own button
-= ui.nfg :button, :danger, data: { describe: 'delete-button' } do
-  = ui.nfg :icon, 'trash', class: 'mr-1', text: 'Delete Row'
+= ui.bootstrap :button, theme: :danger, data: { describe: 'delete-button' } do
+  = fa_icon 'trash', class: 'mr-1', text: 'Delete Row'
 ```
 
-_Available Bootstrap Components_
+#### Bootstrap components
+Syntax: `= ui.nfg :component_name, options`
+
 * `:alert`
 * `:badge`
 * `:breadcrumb`
