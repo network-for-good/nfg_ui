@@ -26,7 +26,9 @@ module NfgUi
 
         def collapsible_toggle_html_options
           { href: "##{collapsible_target_id}",
-            data: data.merge!(toggle: 'collapse'),
+            data: data.merge!(toggle: 'collapse',
+                              collapse_icon: collapse_icon,
+                              collapsed_icon: collapsed_icon),
             aria: aria.merge!(**build_aria(aria_key: :expanded, aria_value: collapsed?),
                               **build_aria(aria_key: :controls, aria_value: collapsible_target_id)) }
         end
@@ -35,6 +37,14 @@ module NfgUi
 
         def required
           [:id]
+        end
+
+        def collapse_icon
+          'caret-up'
+        end
+
+        def collapsed_icon
+          'caret-down'
         end
 
         def collapsible_wrapper_html
