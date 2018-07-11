@@ -148,7 +148,7 @@ The bootstrap side of this will eventually be isolated into its own gem. Until t
 ```
 
 #### Bootstrap components
-Syntax: `= ui.nfg :component_name, options`
+Syntax: `= ui.bootstrap :component_name, options`
 
 * `:alert`
 * `:badge`
