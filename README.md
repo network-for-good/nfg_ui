@@ -12,7 +12,14 @@ This gem is an organic, evolving and ongoing work that is the loving result of 4
 With this gem, you can stand up a brand new rails app and it will seamlessly, from day 1, look, feel and be a Network for Good product. *Huzzah*
 
 ## Accessing Component Code Examples & Documentation:
-to review the documentation for the components, get code samples and browse the library, follow the instructions at the bottom for getting the gem setup locally. It has its own `test_app` so the documentation is hosted there and the gem doesn't need to be added to a seperate parent app (unless you want to). We intend to get this online in its own dedicated space... until then, that's your best bet for browsing docs.
+To review the documentation for the components, get code samples and browse the library, follow the instructions at the bottom for getting the gem setup locally. It has its own `test_app` so the documentation is hosted there and the gem doesn't need to be added to a seperate parent app (unless you want to). We intend to get this online in its own dedicated space... until then, that's your best bet for browsing docs.
+
+## Configuration
+
+### Include the gem in your Gemfile
+```ruby
+gem 'nfg_ui', git: 'https://github.com/network-for-good/nfg_ui'
+```
 
 ### Import & Require the gem's assets
 In `application.scss` add your pertinent stylesheet suite based on whatever context you're building an interface. These are currently two categories: `admin` and `public`
@@ -130,6 +137,9 @@ Groupings of elements to create rich interfaces. For example, an `:activity_feed
   * `:tile_footer`
   * `:tile_header`
   * `:tile_section`
+
+### Component traits for design system components
+*Coming soon*
 
 ### Bootstrap design system components
 
