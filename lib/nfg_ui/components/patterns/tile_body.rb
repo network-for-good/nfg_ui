@@ -11,12 +11,12 @@ module NfgUi
 
         def initialize(component_options, view_context)
           super
-          self.body = collapsible_body
+          self.body = collapse_capable_body
         end
 
         private
 
-        def collapsible_body
+        def collapse_capable_body
           collapsible? ? collapsible_wrapper_html : collapsible_body_html
         end
 
@@ -25,7 +25,7 @@ module NfgUi
         end
 
         def collapsible_target_id
-          "target_collapsible_id_for_#{id}"
+          collapsible? ? "target_collapsible_id_for_#{id}" : ''
         end
 
         def component_family

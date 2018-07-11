@@ -39,16 +39,12 @@
 
 %hr
 
-%h2 Tile with custom / manual footer
-= ui.nfg :tile, title: 'Tile Title', heading: 'Tile heading below title', icon: 'rocket', id: 'test_id' do
-  %p Tile body
-  = ui.nfg :tile_footer, heading: 'Tile heading', body: 'Tile footer'
-
-%hr
-
 %h2 Tile with auto-footer
 = ui.nfg :tile, title: 'Tile Title', heading: 'Tile heading', icon: 'thumbs-up', footer: 'Tile footer', id: 'test_id2', body: 'Testing body'
 
 = ui.nfg :tile, title: 'Auto-collapsed Tile', heading: 'Collapsd tile heading', icon: 'thumbs-up', id: 'test_id3', collapsed: true, body: 'Test body'
 
 %hr
+
+%h2 Tile with custom / manual footer
+At this time (and because tile footers are rarely used) manual tile footers don't work. You'll need to pass in a footer argument

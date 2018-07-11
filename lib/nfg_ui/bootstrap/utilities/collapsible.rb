@@ -61,7 +61,10 @@ module NfgUi
         def collapsible_target_id_error
           raise NoMethodError.new "
 NoMethodError occurred in NfgUi::Bootstrap::Utilities::Collapsible#collapsible_target_id_error
-#{self.class} is missing a #collapsible_target_id\n\nYou must define a #collapsible_target_id method on #{self.class} when you `include NfgUi::Bootstrap::Utilities::Collapsible`\nExample:\n
+#{self.class} is missing a #collapsible_target_id\n\nYou must define a #collapsible_target_id method on #{self.class} when you `include NfgUi::Bootstrap::Utilities::Collapsible`
+
+Example:
+
 module NfgUi
   module Components
     module Patterns
@@ -69,7 +72,7 @@ module NfgUi
         private
 
         def collapsible_target_id
-          \"target_collapsible_id_for_\#\{id\}\"
+          collapsible? ? \"target_collapsible_id_for_\#\{id\}\" : ''
         end
       end
     end
