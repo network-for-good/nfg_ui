@@ -44,9 +44,9 @@ Javascript should be `//= required` in your pertinent application.js file:
 //= require nfg_ui/application
 ```
 
-## Usage
+# Usage
 
-### Network for Good design system components
+## Network for Good design system components
 
 This gem allows you to add any NFG design component to your haml view at command. You can build one line, all inclusive components and build out high level pre-designed and pre-configured context-specific components.
 
@@ -141,7 +141,7 @@ Groupings of elements to create rich interfaces. For example, an `:activity_feed
 ### Component traits for design system components
 *Coming soon*
 
-### Bootstrap design system components
+## Bootstrap design system components
 
 Utilize all bootstrap4 components, coded to strict bootstrap standards via a similar method: `= ui.bootstrap :my_component, options...`
 
