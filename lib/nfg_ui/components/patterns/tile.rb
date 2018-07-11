@@ -24,11 +24,7 @@ module NfgUi
         # ex: = ui.nfg :tile, body: 'Example', footer: 'Example footer'
         def footer
           options[:footer].presence
-        end
-
-        def collapsible_toggle_html_options
-          super.merge!(class: 'd-block no-link-color')
-        end
+        end        
 
         private
 

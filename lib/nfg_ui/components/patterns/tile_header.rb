@@ -10,6 +10,10 @@ module NfgUi
         include Utilities::Titleable
         include Utilities::Iconable
         
+        def collapsible_toggle_html_options
+          super.merge!(class: 'd-block no-link-color')
+        end
+        
         private
 
         def required
