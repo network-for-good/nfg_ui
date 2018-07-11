@@ -2,12 +2,12 @@ PATH
   remote: .
   specs:
     nfg_ui (0.1.0)
-      bootstrap (~> 4.1.1)
+      bootstrap (= 4.1.1)
       coffee-script
       font-awesome-rails
       haml
       jquery-rails
-      rails
+      rails (>= 4.1.0)
       sass-rails
       select2-rails
 
