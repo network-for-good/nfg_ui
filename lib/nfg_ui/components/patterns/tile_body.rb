@@ -6,7 +6,7 @@ module NfgUi
       # TileBody doc coming soon
       class TileBody < NfgUi::Components::Base
         include Bootstrap::Utilities::Collapsible
-        
+
         attr_accessor :body
 
         def initialize(component_options, view_context)

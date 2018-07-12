@@ -1,10 +1,10 @@
 %div{ tile.html_options }
   - if tile.title.present?
-    = ui.nfg :tile_header, (:collapsible if tile.collapsible?), icon: tile.icon, title: tile.title, id: tile.id, collapsed: (tile.collapsed? if tile.collapsible?)
+    = ui.nfg :tile_header, (:collapsible if tile.collapsible?), icon: tile.icon, title: tile.title, id: (tile.id if tile.collapsible?), collapsed: (tile.collapsed? if tile.collapsible?)
 
-  - if tile.body
-    = ui.nfg :tile_body, (:collapsible if tile.collapsible?), heading: tile.heading.presence, id: tile.id, collapsed: (tile.collapsed? if tile.collapsible?) do
-      = tile.body
+  - if tile.body || tile.tile_section?
+    = ui.nfg :tile_body, (:collapsible if tile.collapsible?), heading: tile.heading.presence, id: (tile.id if tile.collapsible?), collapsed: (tile.collapsed? if tile.collapsible?) do
+      = tile.body.presence
 
       - if tile.sections.present?
         - tile.sections.each do |section_body|
@@ -12,6 +12,3 @@
       
       - if tile.section
         = ui.nfg :tile_section, body: tile.section
-      
-  - if tile.footer
-    = ui.nfg :tile_footer, body: tile.footer

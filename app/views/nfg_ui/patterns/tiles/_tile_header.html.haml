@@ -3,14 +3,9 @@
     %a{ tile_header.collapsible_toggle_html_options }
       .row.align-items-center
         .col-10
-          %h6
-            - if tile_header.icon
-              = ui.nfg :icon, "#{tile_header.icon} fw", class: 'mr-1'
-            = tile_header.title
+          = ui.nfg :typeface, title: tile_header.title, icon: tile_header.icon
+
         .col-2.text-right
           = ui.nfg :icon, 'caret-down fw'
   - else
-    %h6
-      - if tile_header.icon
-        = ui.nfg :icon, "#{tile_header.icon} fw", class: 'mr-1'
-      = tile_header.title
+    = ui.nfg :typeface, title: tile_header.title, icon: tile_header.icon

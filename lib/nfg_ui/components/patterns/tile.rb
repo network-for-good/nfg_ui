@@ -6,9 +6,9 @@ module NfgUi
       # Tile doc coming soon
       class Tile < NfgUi::Components::Base
         include Bootstrap::Utilities::Collapsible
-        include Utilities::Titleable
-        include Utilities::Requireable
-        include Utilities::Iconable
+        include NfgUi::Components::Utilities::Titleable
+        include NfgUi::Components::Utilities::Requireable
+        include NfgUi::Components::Utilities::Iconable
 
         attr_accessor :section, :sections
 
@@ -24,8 +24,16 @@ module NfgUi
         # ex: = ui.nfg :tile, body: 'Example', footer: 'Example footer'
         def footer
           options[:footer].presence
-        end        
+        end
 
+        def tile_section?
+          section.present? || sections.any?
+        end
+
+        def collapsible_body_id
+          collapsible_target_id
+        end
+        
         private
 
         def section_error
@@ -35,7 +43,7 @@ module NfgUi
         end
 
         def css_classes
-          super + ' mb-3'
+          super + ' mt-3'
         end
 
         def default_collapsible
