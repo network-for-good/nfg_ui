@@ -8,5 +8,6 @@ module NfgUi
     autoload :Foundations
     autoload :Patterns
     autoload :Utilities
+    autoload :Traits
   end
 end
