@@ -32,7 +32,7 @@ module NfgUi
         end
 
         def text_maybe_with_icon
-          icon? ? view_context.ui.nfg(:icon, "#{icon} fw", class: 'mr-1', text: text) : text
+          icon? ? view_context.ui.nfg(:icon, "#{icon}", class: 'mr-1', text: text) : text
         end
       end
     end
