@@ -134,7 +134,6 @@ Groupings of elements to create rich interfaces. For example, an `:activity_feed
 * *Tiles*
   * `:tile`
   * `:tile_body`
-  * `:tile_footer`
   * `:tile_header`
   * `:tile_section`
 

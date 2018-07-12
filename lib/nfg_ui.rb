@@ -108,7 +108,6 @@ module NfgUi
                                   task_list
                                   tile
                                   tile_body
-                                  tile_footer
                                   tile_header
                                   tile_section].freeze
 end
