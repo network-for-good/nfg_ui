@@ -12,7 +12,6 @@ module NfgUi
                       :traits,
                       :as,
                       :id
-                      
 
         attr_accessor :options,
                       :view_context,
@@ -21,18 +20,21 @@ module NfgUi
         def initialize(component_options, view_context)
           self.options = defaults.merge!(component_options)
           self.view_context = view_context
-          
+          self.data = options.fetch(:data, {})
+
           @body = options.fetch(:body, '')
           @heading = options.fetch(:heading, '')
           @traits = options.fetch(:traits, [])
           @id = options.fetch(:id, '')
-          self.data = options.fetch(:data, {})
         end
 
         def html_options
-          options.except(*non_html_attribute_options).merge!(class: css_classes,
-                                                             data: data,
-                                                             **assistive_html_attributes)
+          options.except(*non_html_attribute_options)
+                 .merge!(class: css_classes,
+                         data: data,
+                         **assistive_html_attributes)
+                 .reject { |_k, v| v.blank? } # prevent empty attributes from showing up
+                                              # Example: <div class>Text</div>
         end
 
         # This is used to help identify where to find partials for rendering components.
@@ -76,7 +78,11 @@ module NfgUi
         # Button's css class is 'btn'...
         # Example: returns 'alert' from NfgUi::Bootstrap::Components::Alert
         def component_css_class
-          self.class.name.split('::').last.to_s.underscore.dasherize.downcase
+          component_class_name_string.underscore.dasherize.downcase
+        end
+
+        def component_class_name_string
+          self.class.name.demodulize.to_s
         end
 
         # Manage or adjust the css_classes of the component by
