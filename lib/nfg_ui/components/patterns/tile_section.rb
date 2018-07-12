@@ -5,6 +5,8 @@ module NfgUi
     module Patterns
       # TileSection doc coming soon
       class TileSection < NfgUi::Components::Base
+        include NfgUi::Components::Utilities::Iconable
+
         private
 
         def component_family

@@ -6,9 +6,9 @@ module NfgUi
       # TileHeader doc coming soon
       class TileHeader < NfgUi::Components::Base
         include Bootstrap::Utilities::Collapsible
-        include Utilities::Requireable
-        include Utilities::Titleable
-        include Utilities::Iconable
+        include NfgUi::Components::Utilities::Requireable
+        include NfgUi::Components::Utilities::Titleable
+        include NfgUi::Components::Utilities::Iconable
         
         def collapsible_toggle_html_options
           super.merge!(class: 'd-block no-link-color')
