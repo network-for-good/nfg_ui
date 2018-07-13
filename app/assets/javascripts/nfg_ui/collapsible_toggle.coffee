@@ -1,7 +1,6 @@
 class NfgUi.CollapsibleToggle
   constructor: (@el) ->
     @target = $(@el.data 'target')
-
     @iconBase = 'fa'
     @collapseIconClass = "fa-#{@el.data 'collapsed-icon'}"
     @collapsedIconClass = "fa-#{@el.data 'collapse-icon'}"
@@ -21,11 +20,8 @@ class NfgUi.CollapsibleToggle
         .removeClass @collapsedIconClass
         .addClass @collapseIconClass
 
-
-
-$(document).on NfgUi.readyOrTurbolinksLoad, ($) ->
+$ ->
   el = $("[data-toggle='collapse']")
-  alert el
   return unless el.length
   el.each ->
     inst = new NfgUi.CollapsibleToggle $(@)

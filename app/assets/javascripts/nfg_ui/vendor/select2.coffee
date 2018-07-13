@@ -7,7 +7,7 @@ init_plugin = (parent) ->
   parent.find('select.select2').select2
     dropdownParent: parent
 
-$(document).on NfgUi.readyOrTurbolinksLoad, ->
+$ ->
   doc = $(document)
   body = $('body')
   modal = $('.modal')
