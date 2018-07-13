@@ -5,11 +5,11 @@ module NfgUi
     module Utilities
       # Allows NFG design system components to utilize the :title option
       module Titleable
-        attr_accessor :title
+        attr_reader :title
 
         def initialize(*)
           super
-          self.title = options.fetch(:title, default_title)
+          @title = options.fetch(:title, default_title)
         end
 
         private

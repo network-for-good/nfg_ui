@@ -7,20 +7,19 @@ module NfgUi
       # Defines conventional, shared behavior across
       # Bootstrap components
       class Base
-        attr_reader   :heading,
-                      :body,
-                      :traits,
+        attr_reader   :traits,
                       :as,
-                      :id
-
-        attr_accessor :options,
+                      :id,
+                      :options,
                       :view_context,
-                      :data
+                      :data,
+                      :heading,
+                      :body
 
         def initialize(component_options, view_context)
-          self.options = defaults.merge!(component_options)
-          self.view_context = view_context
-          self.data = options.fetch(:data, {})
+          @options = defaults.merge!(component_options)
+          @view_context = view_context
+          @data = options.fetch(:data, {})
 
           @body = options.fetch(:body, '')
           @heading = options.fetch(:heading, '')
@@ -59,7 +58,11 @@ module NfgUi
             # Content
             heading: ('' if heading.present?),
             body: ('' if body.present?),
-            data: {}
+            data: {},
+
+            # Configuration
+            as: (nil if as.present?),
+            traits: ([] if traits.present?)
           }
         end
 

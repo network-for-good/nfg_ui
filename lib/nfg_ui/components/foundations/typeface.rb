@@ -10,8 +10,16 @@ module NfgUi
       # Example usage:
       # = ui.nfg :typeface, :heading, tile_header.title
       #
+      # With a block:
+      # = ui.nfg :typeface, :title do
+      #   Some title
+      #   %span.foobar{ data: { foo: 'bar' } }= foo.bar
+      #
       # Arguments:
       # = ui.nfg(component, trait, text)
+      #
+      # = ui.nfg(component, trait) do
+      #   &block
       #
       # or manually declare your content type without a trait
       # = ui.nfg(component, heading: 'heading')
@@ -19,14 +27,14 @@ module NfgUi
         include NfgUi::Components::Utilities::Iconable
         include NfgUi::Components::Utilities::Titleable
 
-        attr_accessor :text, :trait
+        attr_reader :text, :trait
 
         def initialize(*)
           super
-          self.text = traits[1].presence || options[active_typeface_option]
-          self.trait = traits.first.presence
+          @text = traits[1].presence || options[active_typeface_option]
+          @trait = traits.first.presence
 
-          typeface_error if typeface_error?
+          typeface_error if text_is_not_a_string?
         end
 
         def typeface_html
@@ -40,19 +48,15 @@ module NfgUi
         end
 
         def generate_typeface_html
-          if active_typeface_option
-            send "trait_#{active_typeface_option}"
-          elsif trait
-            send "trait_#{trait}"
-          end
+          send "#{active_typeface_option}="
         end
 
-        def typeface_error?
-          active_typeface_options.size > 1
+        def text_is_not_a_string?
+          active_typeface_options.size > 1 || !text.is_a?(String)
         end
 
         def typeface_error
-          raise ArgumentError.new "Typeface only accepts one content block, permissible content block potions are: #{allowed_typeface_options} or an &block. Or, via simplified syntax: ui.nfg(:typeface, :heading, 'The text')" and return
+          raise ArgumentError.new "#{self.class.name} only accepts text-based content once, permissible content traits/options are: #{allowed_typeface_options} or an &block.\n\n#{self.class.name} are rendered with these variations:\nui.nfg(:typeface, :title, 'Text')\nui.nfg(:typeface, title: 'text')\n\nOr with a block:\n\nui.nfg(:typeface, :title) do\n  Text content"
         end
 
         def allowed_typeface_options

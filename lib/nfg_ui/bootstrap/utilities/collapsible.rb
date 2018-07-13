@@ -7,12 +7,12 @@ module NfgUi
       module Collapsible
         include Bootstrap::Utilities::AriaAssistable
         include NfgUi::Components::Utilities::Requireable
-        attr_accessor :collapsed, :collapsible_target_id
+        attr_reader :collapsed, :collapsible_target_id
 
         def initialize(*)
           super
-          self.collapsed = options.fetch(:collapsed, nil)
-          self.collapsible_target_id = collapsible_target_id unless collapsible_target_id.nil? && collapsible?
+          @collapsed = options.fetch(:collapsed, nil)
+          @collapsible_target_id = collapsible_target_id unless collapsible_target_id.nil? && collapsible?
           collapsible_target_id_error if collapsible_target_id.nil?
         end
 

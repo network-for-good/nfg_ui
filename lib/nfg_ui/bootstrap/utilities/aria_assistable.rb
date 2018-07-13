@@ -7,11 +7,11 @@ module NfgUi
       # accounting for manual overrides and/or set-it-and-forget-it
       # by using the default bootstrap aria attributes.
       module AriaAssistable
-        attr_accessor :aria
+        attr_reader :aria
 
         def initialize(*)
           super
-          self.aria = options.fetch(:aria, {})
+          @aria = options.fetch(:aria, {})
         end
 
         def build_aria(aria_key:, aria_value:)

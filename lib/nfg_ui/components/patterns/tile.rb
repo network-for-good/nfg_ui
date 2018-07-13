@@ -33,7 +33,7 @@ module NfgUi
         def collapsible_body_id
           collapsible_target_id
         end
-        
+
         private
 
         def section_error

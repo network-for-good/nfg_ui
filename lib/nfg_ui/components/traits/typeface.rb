@@ -5,20 +5,30 @@ module NfgUi
     module Traits
       # Access to pre-designed typeface traits
       module Typeface
-        attr_reader :text
-
         private
 
-        def trait_heading
-          view_context.content_tag :h4, text_maybe_with_icon, html_options
+        def heading=
+          @heading = view_context.content_tag heading_html_tag, text_maybe_with_icon, html_options
         end
 
-        def trait_title
-          view_context.content_tag :h6, text_maybe_with_icon, html_options
+        def title=
+          @title = view_context.content_tag title_html_tag, text_maybe_with_icon, html_options
         end
 
-        def trait_body
-          view_context.content_tag :p, text, html_options
+        def body=
+          @body = view_context.content_tag body_html_tag, text_maybe_with_icon, html_options
+        end
+
+        def body_html_tag
+          :p
+        end
+
+        def heading_html_tag
+          :h4
+        end
+
+        def title_html_tag
+          :h6
         end
       end
     end
