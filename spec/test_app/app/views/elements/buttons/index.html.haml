@@ -1,3 +1,87 @@
 %h1 Buttons
 
-= ui.nfg :button
+%h2 Default button
+= ui.nfg :button, text: 'Default Button'
+
+%h2 Manually Created Buttons
+
+%h3 Elements
+= ui.nfg :button, href: '#testURL', body: 'Link Btn W/O :as'
+= ui.nfg :button, as: :link, href: '#testURL' do
+  Link Button with HREF
+= ui.nfg :button, as: :link do
+  Link Button without HREF
+= ui.nfg :button, as: :button, body: 'Button'
+
+
+%hr
+
+%h3 Themes
+-# Block example
+= ui.nfg :button, class: 'example-class' do
+  Default Button (Link w/o href)
+
+= ui.nfg :button, as: :button, body: 'Primary', theme: :primary, class: 'example-class'
+
+= ui.nfg :button, as: :button, body: 'Secondary', theme: :secondary, class: 'example-class' 
+
+= ui.nfg :button, as: :button, body: 'Success', theme: :success, class: 'example-class' 
+
+= ui.nfg :button, as: :button, body: 'Danger', theme: :danger, class: 'example-class' 
+
+= ui.nfg :button, as: :button, body: 'Warning', theme: :warning, class: 'example-class' 
+
+= ui.nfg :button, as: :button, body: 'Info', theme: :info, class: 'example-class' 
+
+= ui.nfg :button, as: :button, body: 'Light', theme: :light, class: 'example-class' 
+= ui.nfg :button, as: :button, body: 'Dark', theme: :dark, class: 'example-class' 
+
+%hr
+
+%h3 Sizes
+= ui.nfg :button, as: :button, size: :lg, class: 'example-class', body: 'Large'
+= ui.nfg :button, as: :button, class: 'example-class', body: 'Default Size'
+= ui.nfg :button, as: :button, size: :sm, class: 'example-class', body: 'Small'
+
+%hr
+%h3 Outlines
+= ui.nfg :button, :outlined, class: 'example-class' do
+  Default Outline Button (Link w/o href)
+
+= ui.nfg :button, :outlined, as: :button, body: 'Primary Outlined', theme: :primary, class: 'example-class'
+
+= ui.nfg :button, :outlined, as: :button, body: 'Secondary Outlined', theme: :secondary, class: 'example-class' 
+
+= ui.nfg :button, :outlined, as: :button, body: 'Success Outlined', theme: :success, class: 'example-class' 
+
+= ui.nfg :button, :outlined, as: :button, body: 'Danger Outlined', theme: :danger, class: 'example-class' 
+
+= ui.nfg :button, :outlined, as: :button, body: 'Warning Outlined', theme: :warning, class: 'example-class' 
+
+= ui.nfg :button, :outlined, as: :button, body: 'Info Outlined', theme: :info, class: 'example-class' 
+
+= ui.nfg :button, :outlined, as: :button, body: 'Light Outlined', theme: :light, class: 'example-class' 
+= ui.nfg :button, :outlined, as: :button, body: 'Dark Outlined', theme: :dark, class: 'example-class' 
+
+%hr
+%h3 Block Buttons
+= ui.nfg :button, :block, as: :button, body: 'Block Button'
+= ui.nfg :button, :block, body: 'Block Button As Link', href: '#nogo'
+
+%hr
+
+%h3 Activated Buttons
+= ui.nfg :button, body: 'Active Button as Link', href: '#nogo', active: true
+= ui.nfg :button, as: :button, body: 'Active Button', active: true
+= ui.nfg :button, :block, :outlined, as: :button, body: 'Active Outlined Button', active: true
+
+%hr
+
+%h3 Disabled Buttons
+= ui.nfg :button, body: 'Disabled Button as Link', href: '#nogo', disabled: true
+= ui.nfg :button, as: :button, body: 'Disabled Button', disabled: true
+
+%hr
+
+%h3 Button with tooltip
+= ui.nfg :button, as: :button, body: "Tooltip'd Button", href: '#nogo', tooltip: 'Button with a tooltip'
