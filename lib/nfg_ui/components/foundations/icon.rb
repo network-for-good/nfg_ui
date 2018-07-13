@@ -9,7 +9,7 @@ module NfgUi
       # Example usage:
       # = ui.nfg :icon, 'rocket', :right, text: 'Example text with icon on the right'
       class Icon < NfgUi::Components::Base
-        include NfgUi::Components::Elements::Tooltip
+        include Bootstrap::Utilities::Tooltipable
 
         attr_reader   :text, :right
         attr_accessor :icon
@@ -34,7 +34,7 @@ module NfgUi
         end
 
         def allowed_traits
-          [:right]
+          %i[right]
         end
 
         def default_right

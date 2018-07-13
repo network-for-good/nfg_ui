@@ -13,6 +13,7 @@ module NfgUi
       autoload :Dismissible
       autoload :Sizable
       autoload :Themeable
+      autoload :Tooltipable
       autoload :Wrappable
     end
   end

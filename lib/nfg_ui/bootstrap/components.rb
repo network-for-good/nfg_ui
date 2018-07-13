@@ -29,7 +29,6 @@ module NfgUi
       autoload :Popover
       autoload :Progress
       autoload :Table
-      autoload :Tooltip
     end
   end
 end

@@ -8,7 +8,7 @@ module NfgUi
       # Traits will eventually be connected here.
       class Button < Bootstrap::Components::Button
         include NfgUi::Components::Utilities::Iconable
-        include NfgUi::Components::Elements::Tooltip
+        include Bootstrap::Utilities::Tooltipable
       end
     end
   end

@@ -27,7 +27,6 @@ module NfgUi
       autoload :Stat
       autoload :Table
       autoload :Task
-      autoload :Tooltip
     end
   end
 end

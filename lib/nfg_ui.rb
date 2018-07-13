@@ -54,8 +54,7 @@ module NfgUi
                                   pagination
                                   popover
                                   progress
-                                  table
-                                  tooltip].freeze
+                                  table].freeze
 
   GROUPING_NAMES             = %i[foundations
                                   elements
@@ -88,8 +87,7 @@ module NfgUi
                                   slat
                                   stat
                                   table
-                                  task
-                                  tooltip].freeze
+                                  task].freeze
 
   PATTERN_COMPONENT_NAMES    = %i[activity_feed
                                   button_group
