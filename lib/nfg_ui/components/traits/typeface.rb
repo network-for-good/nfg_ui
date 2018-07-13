@@ -19,6 +19,7 @@ module NfgUi
           @body = view_context.content_tag body_html_tag, text_maybe_with_icon, html_options
         end
 
+        # These may eventually be changeable on components that have a typeface component in their body
         def body_html_tag
           :p
         end

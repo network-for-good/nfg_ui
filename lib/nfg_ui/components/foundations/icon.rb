@@ -7,11 +7,13 @@ module NfgUi
       # Example usage:
       # = ui.nfg :icon, 'rocket', :right, text: 'Example text with icon on the right'
       class Icon < NfgUi::Components::Base
+        include NfgUi::Components::Elements::Tooltip
+
         attr_accessor :text, :icon, :traits, :right
 
         def initialize(*)
           super
-          self.icon = traits.dup.first.to_s
+          self.icon = traits.first.to_s
           self.right = options.fetch(:right, traits.include?(:right))
           self.text = options.fetch(:text, default_text)
           self.traits = (traits & allowed_traits) # only permissible traits are allowed
