@@ -7,11 +7,13 @@ module NfgUi
       # Pass in :as -- only unique logic at the moment
       # is converting :link to :a for tag generation
       module Wrappable
+        attr_reader :default_html_wrapper_element
         attr_writer :as
 
         def initialize(*)
           super
           self.as = options.fetch(:as, default_html_wrapper_element) || as_becomes_link
+          wrapper_element_error if default_html_wrapper_element.nil? 
         end
 
         def html_wrapper_element
@@ -37,8 +39,14 @@ module NfgUi
         #   link? ? { href: 'javascripts:;' } : {}
         # end
 
-        def default_html_wrapper_element
-          :a
+        # Set this as necessary on components using the Wrappable module.
+        def wrapper_element_error
+          raise ArgumentError.new "#{self.class.name} is expected to define a #default_html_wrapper_element\n\nExample:\n
+class #{self.class.name} < Bootstrap::Components::Base
+  def default_html_wrapper_element
+    :a
+  end
+end"
         end
 
         def non_html_attribute_options

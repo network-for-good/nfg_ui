@@ -4,19 +4,23 @@ module NfgUi
   module Components
     module Foundations
       # Icon doc coming soon
+      # Implementation and usage is designed to mimic the font_awesome_rails gem
+      #
       # Example usage:
       # = ui.nfg :icon, 'rocket', :right, text: 'Example text with icon on the right'
       class Icon < NfgUi::Components::Base
         include NfgUi::Components::Elements::Tooltip
 
-        attr_accessor :text, :icon, :traits, :right
+        attr_reader   :text
+        attr_accessor :traits
+        attr_writer   :icon, :right
 
         def initialize(*)
           super
           self.icon = traits.first.to_s
-          self.right = options.fetch(:right, traits.include?(:right))
-          self.text = options.fetch(:text, default_text)
+          self.right = options.fetch(:right) || traits.include?(:right)
           self.traits = (traits & allowed_traits) # only permissible traits are allowed
+          @text = options.fetch(:text, default_text)
         end
 
         def right?

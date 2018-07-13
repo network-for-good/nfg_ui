@@ -27,6 +27,10 @@ module NfgUi
         def trait_css_classes
           traits.include?(:block) ? "#{component_css_class}-block" : super
         end
+
+        def default_html_wrapper_element
+          :a
+        end
       end
     end
   end
