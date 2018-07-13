@@ -7,12 +7,11 @@ module NfgUi
       # Pass in :as -- only unique logic at the moment
       # is converting :link to :a for tag generation
       module Wrappable
-        attr_accessor :as
+        attr_writer :as
 
         def initialize(*)
           super
-          self.as = options.fetch(:as, default_html_wrapper_element)
-          auto_update_as
+          self.as = options.fetch(:as, default_html_wrapper_element) || as_becomes_link
         end
 
         def html_wrapper_element
@@ -25,18 +24,18 @@ module NfgUi
           as == :button && super[:type].nil? ? super.merge(type: 'button') : super
         end
 
-        def auto_update_as
+        def as_becomes_link
           :a if options.try(:href)
         end
 
         # UPDATING DEFAULTS FROM LINK_DEFAULTS DOES NOT WORK YET
-        def defaults
-          super.merge!(link_defaults)
-        end
+        # def defaults
+        #   super.merge!(link_defaults)
+        # end
 
-        def link_defaults
-          link? ? { href: 'javascripts:;' } : {}
-        end
+        # def link_defaults
+        #   link? ? { href: 'javascripts:;' } : {}
+        # end
 
         def default_html_wrapper_element
           :a

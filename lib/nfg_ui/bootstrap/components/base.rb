@@ -61,7 +61,6 @@ module NfgUi
             data: {},
 
             # Configuration
-            as: (nil if as.present?),
             traits: ([] if traits.present?)
           }
         end
