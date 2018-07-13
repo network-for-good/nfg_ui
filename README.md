@@ -60,6 +60,7 @@ All components accept the same attributes when appropriate. This list will expan
 * `headline: 'For components with headlines like media objects'`
 * `:collapsible` and `:collapsed`
 * more to come...
+* `tooltip: 'My tooltip text'` is available on many components (that would make sense to have tooltips) and will automatically apply a tooltip to the component
 
 
 Examples:
