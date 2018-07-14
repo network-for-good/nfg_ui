@@ -7,14 +7,14 @@ module NfgUi
       # Defines conventional, shared behavior across
       # Bootstrap components
       class Base
-        attr_reader   :traits,
-                      :as,
-                      :id,
-                      :options,
-                      :view_context,
-                      :data,
-                      :heading,
-                      :body
+        attr_reader :traits,
+                    :as,
+                    :id,
+                    :options,
+                    :view_context,
+                    :data,
+                    :heading,
+                    :body
 
         def initialize(component_options, view_context)
           @options = defaults.merge!(component_options)
@@ -94,7 +94,7 @@ module NfgUi
           [component_css_class, trait_css_classes, options[:class]].join(' ').squish
         end
 
-        # Remove attributes from @options that shouldn't show up in the
+        # Remove attributes from html_options that shouldn't show up in the
         # html element, ex: <div body='should not be here'>
         def non_html_attribute_options
           %i[body heading traits]
