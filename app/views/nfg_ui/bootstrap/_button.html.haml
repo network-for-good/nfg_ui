@@ -1,4 +1,10 @@
 -# https://getbootstrap.com/docs/4.1/components/buttons/
-= content_tag button.html_wrapper_element, button.html_options do
-  = button.body
 
+- if button.disabled_tooltipable?
+  %span{ button.disabled_component_tooltip_wrapper_html_options }
+    = content_tag button.html_wrapper_element, button.html_options do
+      = button.body
+
+- else
+  = content_tag button.html_wrapper_element, button.html_options do
+    = button.body
