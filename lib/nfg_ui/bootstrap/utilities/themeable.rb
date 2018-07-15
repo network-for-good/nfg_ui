@@ -5,11 +5,14 @@ module NfgUi
     module Utilities
       # Allows component to utilize the bootstrap4 theme color palette
       module Themeable
-        attr_accessor :theme
+        attr_reader :theme, :outlined
 
         def initialize(*)
           super
-          self.theme = options.fetch(:theme, default_theme)
+          @theme = options.fetch(:theme, default_theme)
+          @outlined = options.fetch(:outlined, traits.include?(:outlined))
+
+          theme_not_present_error if theme_not_present_error?
         end
 
         private
@@ -27,7 +30,7 @@ module NfgUi
         end
 
         def theme_css_class
-          "#{theme_css_class_prefix}-#{outline_css_class_string}#{theme}" if bootstrap4_themes.include?(theme)
+          "#{theme_css_class_prefix}-#{outline_css_class_string}#{theme}"
         end
 
         def bootstrap4_themes
@@ -42,7 +45,7 @@ module NfgUi
         end
 
         def outlined?
-          traits.include?(:outlined)
+          outlined
         end
 
         def theme_css_class_prefix
@@ -51,6 +54,14 @@ module NfgUi
 
         def default_theme
           :primary
+        end
+
+        def theme_not_present_error?
+          !bootstrap4_themes.include?(theme)
+        end
+
+        def theme_not_present_error
+          raise ArgumentError.new "#{self.class.name} passed in a theme (:#{theme}) that was not recognized as a bootstrap theme.\n\nBootstrap4 theme options are:\n:#{bootstrap4_themes.join("\n\:")}"
         end
 
         def outline_css_class_string
