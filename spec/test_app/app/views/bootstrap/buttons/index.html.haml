@@ -66,15 +66,15 @@
 
 %hr
 %h3 Block Buttons
-= ui.bootstrap :button, :block, as: :button, body: 'Block Button'
-= ui.bootstrap :button, :block, body: 'Block Button As Link', href: '#nogo'
+= ui.bootstrap :button, block: true, as: :button, body: 'Block Button'
+= ui.bootstrap :button, block: true, body: 'Block Button As Link', href: '#nogo'
 
 %hr
 
 %h3 Activated Buttons
 = ui.bootstrap :button, body: 'Active Button as Link', href: '#nogo', active: true
 = ui.bootstrap :button, as: :button, body: 'Active Button', active: true
-= ui.bootstrap :button, :block, :outlined, as: :button, body: 'Active Outlined Button', active: true
+= ui.bootstrap :button, :outlined, block: true, as: :button, body: 'Active Outlined Button', active: true
 
 %hr
 

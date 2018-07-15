@@ -87,7 +87,11 @@
 = ui.nfg :button, :outlined, as: :button, body: 'Dark Outlined', theme: :dark, class: 'example-class' 
 
 %hr
-%h3 Block Buttons
+%h3 Block Buttons without traits
+= ui.nfg :button, block: true, as: :button, body: 'Block Button'
+= ui.nfg :button, block: true, body: 'Block Button As Link', href: '#nogo'
+
+%h3 Block Buttons with traits
 = ui.nfg :button, :block, as: :button, body: 'Block Button'
 = ui.nfg :button, :block, body: 'Block Button As Link', href: '#nogo'
 

@@ -12,10 +12,18 @@ module NfgUi
         include Bootstrap::Utilities::Activatable
         include Bootstrap::Utilities::Disableable
         include Bootstrap::Utilities::AriaAssistable
+        include Bootstrap::Utilities::Tooltipable
+
+        attr_reader :block
 
         def initialize(*)
           super
+          @block = options.fetch(:block, default_block)
           build_aria(aria_key: :pressed, aria_value: true) if active?
+        end
+
+        def block?
+          block
         end
 
         private
@@ -24,8 +32,12 @@ module NfgUi
           'btn'
         end
 
-        def trait_css_classes
-          traits.include?(:block) ? "#{component_css_class}-block" : super
+        def css_classes
+          block? ? super + " #{component_css_class}-block" : super
+        end
+
+        def default_block
+          false
         end
 
         def default_html_wrapper_element
