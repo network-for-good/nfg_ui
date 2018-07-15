@@ -8,6 +8,7 @@ module NfgUi
     module Traits
       extend ActiveSupport::Autoload
 
+      autoload :Alert
       autoload :Button
       autoload :Theme
       autoload :Typeface
