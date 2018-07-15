@@ -26,6 +26,7 @@ module NfgUi
       class Typeface < NfgUi::Components::Base
         include NfgUi::Components::Utilities::Iconable
         include NfgUi::Components::Utilities::Titleable
+        include NfgUi::Components::Traits::Typeface
 
         attr_reader :text, :trait
 
@@ -34,7 +35,7 @@ module NfgUi
           @text = traits[1].presence || options[active_typeface_option]
           @trait = traits.first.presence
 
-          typeface_error if text_is_not_a_string?
+          typeface_error if text_trait_is_not_a_string?
         end
 
         def typeface_html
@@ -51,7 +52,7 @@ module NfgUi
           send "#{active_typeface_option}="
         end
 
-        def text_is_not_a_string?
+        def text_trait_is_not_a_string?
           active_typeface_options.size > 1 || !text.is_a?(String)
         end
 

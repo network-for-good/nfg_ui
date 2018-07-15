@@ -17,6 +17,7 @@
 %hr
 
 %h3 Themes
+%h4 Themes with manual :theme options
 -# Block example
 = ui.nfg :button, class: 'example-class' do
   Default Button (Link w/o href)
@@ -35,6 +36,28 @@
 
 = ui.nfg :button, as: :button, body: 'Light', theme: :light, class: 'example-class' 
 = ui.nfg :button, as: :button, body: 'Dark', theme: :dark, class: 'example-class' 
+
+%hr
+
+%h4 Themes with :theme trait
+%p
+  = ui.nfg :button, :primary, body: 'Primary trait'
+  = ui.nfg :button, :secondary, body: 'Secondary trait'
+  = ui.nfg :button, :success, body: 'Success trait'
+  = ui.nfg :button, :danger, body: 'Danger trait'
+  = ui.nfg :button, :warning, body: 'Warning trait'
+  = ui.nfg :button, :info, body: 'Info trait'
+  = ui.nfg :button, :light, body: 'Light trait'
+  = ui.nfg :button, :dark, body: 'Dark trait'
+%p
+  = ui.nfg :button, :primary, :outlined, body: 'Primary trait'
+  = ui.nfg :button, :secondary, :outlined, body: 'Secondary trait'
+  = ui.nfg :button, :success, :outlined, body: 'Success trait'
+  = ui.nfg :button, :danger, :outlined, body: 'Danger trait'
+  = ui.nfg :button, :warning, :outlined, body: 'Warning trait'
+  = ui.nfg :button, :info, :outlined, body: 'Info trait'
+  = ui.nfg :button, :light, :outlined, body: 'Light trait'
+  = ui.nfg :button, :dark, :outlined, body: 'Dark trait'
 
 %hr
 

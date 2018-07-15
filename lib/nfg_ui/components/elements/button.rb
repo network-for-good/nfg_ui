@@ -9,6 +9,7 @@ module NfgUi
       class Button < Bootstrap::Components::Button
         include NfgUi::Components::Utilities::Iconable
         include Bootstrap::Utilities::Tooltipable
+        include NfgUi::Components::Traits::Button
       end
     end
   end
