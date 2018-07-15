@@ -13,6 +13,8 @@ module NfgUi
           traits.include?(:pill)
         end
 
+        private
+
         def css_classes
           pill? ? super + " #{component_css_class}-pill" : super
         end
