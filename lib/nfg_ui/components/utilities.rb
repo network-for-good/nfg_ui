@@ -6,6 +6,7 @@ module NfgUi
     module Utilities
       extend ActiveSupport::Autoload
 
+      autoload :BrowserDetectable
       autoload :Iconable
       autoload :Titleable
       autoload :Requireable

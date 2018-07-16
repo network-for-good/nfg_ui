@@ -14,7 +14,7 @@ Gem::Specification.new do |s|
 
   s.files = Dir['{app,config,db,lib}/**/*', 'MIT-LICENSE', 'Rakefile', 'README.md']
 
-  s.add_dependency 'bootstrap', '4.1.1'
+  s.add_dependency 'bootstrap', '~> 4.1'
   s.add_dependency 'coffee-script'
   s.add_dependency 'font-awesome-rails'
   s.add_dependency 'haml'
@@ -22,7 +22,8 @@ Gem::Specification.new do |s|
   s.add_dependency 'rails', '>= 4.1.0'
   s.add_dependency 'sass-rails'
   s.add_dependency 'select2-rails'
-  s.add_dependency 'browser', '~> 2.5.3'
+  # s.add_dependency 'browser', '~> 2.5.0'
+  s.add_dependency 'browser', '~> 1.1'
 
   s.add_development_dependency 'rspec-rails'
   s.add_development_dependency 'sqlite3'

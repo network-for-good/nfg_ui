@@ -6,6 +6,7 @@ module NfgUi
     # inherited from Bootstrap base components (e.g.: buttons do not
     # inherit this Base class, but Tile does)
     class Base < Bootstrap::Components::Base
+      
     end
   end
 end

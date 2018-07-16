@@ -5,11 +5,11 @@ module NfgUi
     module Traits
       # Access to pre-designed Alert traits
       module PageHeader
-        attr_reader :sticky, :browser
+        include NfgUi::Components::Utilities::BrowserDetectable
+        attr_reader :sticky
 
         def initialize(*)
           super
-          @browser = Browser.new(view_context.request.env['HTTP_USER_AGENT'])
           @sticky = traits.include?(:sticky)
           @data = data.merge!(sticky_div_data_attributes) if sticky?
         end
