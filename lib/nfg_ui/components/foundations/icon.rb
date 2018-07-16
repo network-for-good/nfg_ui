@@ -13,13 +13,13 @@ module NfgUi
 
         attr_reader   :text, :right
         attr_accessor :icon
-        attr_writer :traits
+        attr_writer   :traits
 
         def initialize(*)
           super
           self.icon = traits.first.to_s
           self.traits = (traits & allowed_traits) # only permissible traits are allowed
-          @right = options.fetch(:right) || traits.include?(:right)
+          @right = options[:right] || traits.include?(:right)
           @text = options.fetch(:text, default_text)
         end
 
