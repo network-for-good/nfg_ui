@@ -15,12 +15,6 @@ module NfgUi
         def toolbar_html_options
           page_header_toolbar ? super.merge(class: 'float-lg-right') : super
         end
-
-        private
-
-        def sticky_div_data_attributes
-          { toggle: 'sticky-div' }
-        end
       end
     end
   end

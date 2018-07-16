@@ -12,9 +12,10 @@ module NfgUi
                     :resource_theme_color,
                     :subtitle
 
-        attr_writer :button_groups
-
         attr_writer :options
+
+        attr_accessor :button_groups
+                    
 
         def initialize(component_options, *)
           super
@@ -32,7 +33,7 @@ module NfgUi
         end
 
         def show_button_toolbar?
-          page_header.body.present?
+          body.present?
         end
 
         private
