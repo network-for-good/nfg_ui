@@ -18,14 +18,6 @@ module NfgUi
           @toolbar = traits.include?(:toolbar)
         end
 
-        def toolbar?
-          toolbar
-        end
-
-        def toolbar_html_options
-          { role: 'toolbar', class: 'btn-toolbar' }
-        end
-
         private
 
         def component_css_class
@@ -37,7 +29,7 @@ module NfgUi
         end
 
         def assistive_html_attributes
-          options[:role] ? super : super.merge!(role: 'group')
+          super.merge!(role: options.fetch(:role, 'group'))
         end
       end
     end
