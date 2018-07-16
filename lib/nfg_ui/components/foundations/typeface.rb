@@ -32,7 +32,7 @@ module NfgUi
 
         def initialize(*)
           super
-          @text = traits[1].presence || options[active_typeface_option]
+          @text = traits[1].presence || options[active_typeface_option] || body
           @trait = traits.first.presence
 
           typeface_error if text_trait_is_not_a_string?
@@ -69,7 +69,7 @@ module NfgUi
         end
 
         def active_typeface_option
-          active_typeface_options.first
+          trait.present? && body.present? ? trait : active_typeface_options.first
         end
       end
     end
