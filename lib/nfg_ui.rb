@@ -11,6 +11,8 @@ module NfgUi
   require 'sass-rails'
   require 'select2-rails'
   require 'browser'
+  require 'browser/aliases'
+  Browser::Base.include(Browser::Aliases)
   # Autoloading inspired by simple_form methodology
   # and the fact that this is a significantly sized library.
   # It seems to make sense to not try to pre-load the dozens and dozens

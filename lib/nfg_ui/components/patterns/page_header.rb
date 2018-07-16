@@ -21,7 +21,7 @@ module NfgUi
         end
 
         def subtitle?
-          subtitle
+          subtitle.present?
         end
 
         def title_column_css_classes

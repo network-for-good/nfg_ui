@@ -3,7 +3,7 @@ PATH
   specs:
     nfg_ui (0.1.0)
       bootstrap (= 4.1.1)
-      browser
+      browser (~> 2.5.3)
       coffee-script
       font-awesome-rails
       haml
