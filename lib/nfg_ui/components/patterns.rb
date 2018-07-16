@@ -8,6 +8,7 @@ module NfgUi
 
       autoload :ActivityFeed
       autoload :ButtonGroup
+      autoload :ButtonToolbar
       autoload :Card
       autoload :Collapse
       autoload :Carousel

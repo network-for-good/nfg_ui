@@ -1,0 +1,23 @@
+%h1 Button Toolbars
+
+= ui.bootstrap :button_toolbar, class: 'justify-content-between' do
+  = ui.bootstrap :button_group, class: 'example-class' do
+    = ui.bootstrap :button, as: :button, theme: :primary, body: 'Button'
+    = ui.bootstrap :button, as: :button, theme: :primary do
+      Button
+    = ui.bootstrap :button, as: :button, theme: :primary do
+      Button
+
+  = ui.bootstrap :button_group, size: :lg, class: 'example-class' do
+    = ui.bootstrap :button, as: :button, theme: :primary, body: 'Button'
+    = ui.bootstrap :button, as: :button, theme: :primary do
+      Button
+    = ui.bootstrap :button, as: :button, theme: :primary do
+      Button
+
+  = ui.bootstrap :button_group, class: 'example-class' do
+    = ui.bootstrap :button, as: :button, theme: :primary, body: 'Button'
+    = ui.bootstrap :button, as: :button, theme: :primary do
+      Button
+    = ui.bootstrap :button, as: :button, theme: :primary do
+      Button

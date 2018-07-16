@@ -13,6 +13,7 @@ module NfgUi
       autoload :BreadcrumbItem
       autoload :Button
       autoload :ButtonGroup
+      autoload :ButtonToolbar
       autoload :Card
       autoload :Carousel
       autoload :Dropdown

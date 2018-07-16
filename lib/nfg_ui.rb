@@ -39,6 +39,7 @@ module NfgUi
                                   breadcrumb_item
                                   button
                                   button_group
+                                  button_toolbar
                                   card
                                   carousel
                                   dropdown
@@ -91,6 +92,7 @@ module NfgUi
 
   PATTERN_COMPONENT_NAMES    = %i[activity_feed
                                   button_group
+                                  button_toolbar
                                   card
                                   carousel
                                   collapse

@@ -1,0 +1,23 @@
+%h1 Button Toolbars
+
+= ui.nfg :button_toolbar, class: 'justify-content-between' do
+  = ui.nfg :button_group, class: 'example-class' do
+    = ui.nfg :button, as: :button, theme: :primary, body: 'Button'
+    = ui.nfg :button, as: :button, theme: :primary do
+      Button
+    = ui.nfg :button, as: :button, theme: :primary do
+      Button
+
+  = ui.nfg :button_group, size: :lg, class: 'example-class' do
+    = ui.nfg :button, as: :button, theme: :primary, body: 'Button'
+    = ui.nfg :button, as: :button, theme: :primary do
+      Button
+    = ui.nfg :button, as: :button, theme: :primary do
+      Button
+
+  = ui.nfg :button_group, class: 'example-class' do
+    = ui.nfg :button, as: :button, theme: :primary, body: 'Button'
+    = ui.nfg :button, as: :button, theme: :primary do
+      Button
+    = ui.nfg :button, as: :button, theme: :primary do
+      Button
