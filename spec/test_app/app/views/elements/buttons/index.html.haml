@@ -13,8 +13,15 @@
   Link Button without HREF
 = ui.nfg :button, as: :button, body: 'Button'
 
+%hr
+
 %h3 Buttons with icons
 = ui.nfg :button, icon: 'rocket', body: 'Button with icon'
+
+%hr
+
+%h3
+
 
 %hr
 
@@ -97,6 +104,9 @@
 = ui.nfg :button, :block, as: :button, body: 'Block Button'
 = ui.nfg :button, :block, body: 'Block Button As Link', href: '#nogo'
 
+%h4 Submit button
+= ui.nfg :button, :submit, body: 'Submit Button Via Trait'
+= ui.nfg :button, body: 'Submit Button via Type', type: 'submit'
 %hr
 
 %h3 Activated Buttons

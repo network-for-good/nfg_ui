@@ -24,7 +24,7 @@ module NfgUi
         private
 
         def assistive_html_attributes
-          as == :button && super[:type].nil? ? super.merge(type: 'button') : super
+          as == :button ? super.merge(type: options.fetch(:type, 'button')) : super
         end
 
         def non_html_attribute_options

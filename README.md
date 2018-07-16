@@ -268,3 +268,5 @@ $ Collapsible? (Y/n):
 13. Review what's involved in having simple_form "subscribe" to our design system inputs and form controls, particularly the advanced ones (like radio buttons with images) so that the design system is actually hosting the html and not obnoxiously complicated simple_form classes doing that job.
 
 14. Design tokens
+
+15. Traits: I need to figure out a way to resolve the wrappable component module.. or just get rid of it ... or make it less obnoxious. It's killing me when it comes to stuff like building out a submit button with a trait... it's capturing / defaulting an :a tag before anything else can run its logic... so buttons end up with an href, etc. Noticeable in NfgUi::Components::Traits::Buton
