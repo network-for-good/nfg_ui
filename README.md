@@ -22,6 +22,10 @@ gem 'nfg_ui', git: 'https://github.com/network-for-good/nfg_ui'
 ```
 
 ### Import & Require the gem's assets
+_NOTE:_ This gem has not taken over ownership of CSS & JS from Evo yet. Some styles have been brought over for documentation visual check purposes (the core styling is in place), but it's not fully brought over yet. This includes javascript plugins, etc.
+
+Here are the instructions placeholder: 
+
 In `application.scss` add your pertinent stylesheet suite based on whatever context you're building an interface. These are currently two categories: `admin` and `public`
 
 
