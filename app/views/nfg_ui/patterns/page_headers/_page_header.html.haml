@@ -5,6 +5,7 @@
       - if page_header.subtitle?
         %small.text-muted= page_header.subtitle
   
-  - if page_header.body.present?
+  - if page_header.show_button_toolbar?
     .col-12.col-lg-5.py-2
-      = page_header.body
+      = ui.nfg :button_toolbar do
+        = page_header.button_groups

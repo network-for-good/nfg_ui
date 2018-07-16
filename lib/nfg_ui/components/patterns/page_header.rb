@@ -12,12 +12,15 @@ module NfgUi
                     :resource_theme_color,
                     :subtitle
 
+        attr_writer :button_groups
+
         attr_writer :options
 
         def initialize(component_options, *)
           super
           @subtitle = options.fetch(:subtitle, '')
           self.options = defaults.merge!(**default_subtitle, **options) if subtitle?
+          self.button_groups = body
         end
 
         def subtitle?
@@ -26,6 +29,10 @@ module NfgUi
 
         def title_column_css_classes
           'py-2 col-12' + (body.present? ? ' col-lg-7' : '')
+        end
+
+        def show_button_toolbar?
+          page_header.body.present?
         end
 
         private
