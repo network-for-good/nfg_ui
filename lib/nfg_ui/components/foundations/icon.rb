@@ -9,9 +9,11 @@ module NfgUi
       # Example usage:
       # = ui.nfg :icon, 'rocket', :right, text: 'Example text with icon on the right'
       class Icon < NfgUi::Components::Base
+        include NfgUi::Components::Traits::Theme
         include Bootstrap::Utilities::Tooltipable
+        include NfgUi::Components::Traits::Icon
 
-        attr_reader   :text, :right
+        attr_reader   :text
         attr_accessor :icon
         attr_writer   :traits
 
@@ -19,34 +21,13 @@ module NfgUi
           super
           self.icon = traits.first.to_s
           self.traits = (traits & allowed_traits) # only permissible traits are allowed
-          @right = options[:right] || traits.include?(:right)
           @text = options.fetch(:text, default_text)
-        end
-
-        def right?
-          right && allow_right?
         end
 
         private
 
-        def allow_right?
-          text.present?
-        end
-
-        def allowed_traits
-          %i[right]
-        end
-
-        def default_right
-          false
-        end
-
         def default_text
           ''
-        end
-
-        def css_classes
-          right? ? super + ' ml-1' : super
         end
 
         def component_css_class
@@ -55,7 +36,6 @@ module NfgUi
 
         def defaults
           super.merge!(icon: '',
-                       right: default_right,
                        text: '')
         end
 
@@ -64,7 +44,7 @@ module NfgUi
         end
 
         def icon_non_html_attribute_options
-          [(:text if text), (:right if right)].reject(&:nil?)
+          text ? [:text] : []
         end
       end
     end
