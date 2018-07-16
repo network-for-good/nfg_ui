@@ -27,7 +27,7 @@ module NfgUi
               object.class.name
             end
           else
-            params[:controller].split('/').last.classify
+            controller_name.split('/').last.classify
           end
         end
 
