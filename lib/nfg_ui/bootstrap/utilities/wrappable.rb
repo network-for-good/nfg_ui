@@ -13,7 +13,7 @@ module NfgUi
         def initialize(component_options, *)
           super
           self.as = options.fetch(:as, assigned_html_wrapper_element)
-          self.options = defaults.merge!(**default_link, **options) if link?
+          self.options = defaults.merge!(**defaults_for_link, **options) if link?
           @href = options.try(:href, nil)
         end
 
@@ -48,7 +48,7 @@ module NfgUi
           html_wrapper_element == :a
         end
 
-        def default_link
+        def defaults_for_link
           { href: 'javascript:;' }
         end
       end
