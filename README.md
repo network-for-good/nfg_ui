@@ -258,3 +258,5 @@ $ Collapsible? (Y/n):
 10. API feed for design token for third party sites like wordpress?
 
 11. Add I18n lookup.
+
+12. Update browser gem in all NFG apps to 2.5+
