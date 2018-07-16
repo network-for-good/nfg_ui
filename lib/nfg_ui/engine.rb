@@ -7,6 +7,7 @@ module NfgUi
     config.before_initialize do
       ActiveSupport.on_load :action_controller do
         helper NfgUi::ApplicationHelper
+        helper NfgUi::Components::ResourceThemesHelper
       end
     end
   end
