@@ -14,13 +14,14 @@ module NfgUi
                     :view_context,
                     :data,
                     :heading,
-                    :body
+                    :body,
+                    :name
 
         def initialize(component_options, view_context)
           @options = defaults.merge!(component_options)
           @view_context = view_context
           @data = options.fetch(:data, {})
-
+          @name = component_class_name_string.underscore.downcase
           @body = options.fetch(:body, '')
           @heading = options.fetch(:heading, '')
           @traits = options.fetch(:traits, [])
