@@ -269,4 +269,4 @@ $ Collapsible? (Y/n):
 
 14. Design tokens
 
-15. Traits: I need to figure out a way to resolve the wrappable component module.. or just get rid of it ... or make it less obnoxious. It's killing me when it comes to stuff like building out a submit button with a trait... it's capturing / defaulting an :a tag before anything else can run its logic... so buttons end up with an href, etc. Noticeable in NfgUi::Components::Traits::Buton
+15. need a better way to define and create / map traits. I am not enjoying the bloat in attr_readers...
