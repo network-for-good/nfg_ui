@@ -7,13 +7,12 @@ module NfgUi
       # https://getbootstrap.com/docs/4.1/utilities/embed/
       class Embed < Bootstrap::Components::Base
         attr_reader :aspect_ratio,
-                    :iframe,
                     :autoplay
 
         def initialize(*)
           super
           @autoplay = options.fetch(:autoplay, default_autoplay)
-          @iframe = iframe if options[:iframe]
+          @iframe = options.fetch(:iframe, body)
           @aspect_ratio = options.fetch(:aspect_ratio, default_aspect_ratio)
         end
 
@@ -48,12 +47,13 @@ module NfgUi
         end
 
         def non_html_attribute_options
-          super.push(:iframe, :aspect_ratio)
+          super.push(:iframe, :aspect_ratio, :autoplay)
         end
 
         def defaults
           super.merge!(iframe: default_iframe,
-                       aspect_ratio: default_aspect_ratio)
+                       aspect_ratio: default_aspect_ratio,
+                       autoplay: default_autoplay)
         end
 
         def default_autoplay
