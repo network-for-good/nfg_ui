@@ -1,3 +1,10 @@
 -# https://getbootstrap.com/docs/4.1/components/button-group/
-%div{ button_group.html_options }
-  = button_group.body
+
+- if button_group.toolbar?
+  %div{ button_group.toolbar_html_options }
+    %div{ button_group.html_options }
+      = button_group.body
+
+- else
+  %div{ button_group.html_options }
+    = button_group.body

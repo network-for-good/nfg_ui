@@ -10,9 +10,20 @@ module NfgUi
         include Bootstrap::Utilities::Sizable
         include Bootstrap::Utilities::AriaAssistable
 
+        attr_reader :toolbar
+
         def initialize(*)
           super
           build_aria(aria_key: :label, aria_value: 'action buttons')
+          @toolbar = traits.include?(:toolbar)
+        end
+
+        def toolbar?
+          toolbar
+        end
+
+        def toolbar_html_options
+          { role: 'toolbar', class: 'btn-toolbar' }
         end
 
         private
