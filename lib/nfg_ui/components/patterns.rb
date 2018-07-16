@@ -9,6 +9,7 @@ module NfgUi
       autoload :ActivityFeed
       autoload :ButtonGroup
       autoload :Card
+      autoload :Collapse
       autoload :Carousel
       autoload :EmptyState
       autoload :FilterBar

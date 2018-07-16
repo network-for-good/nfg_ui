@@ -10,7 +10,7 @@ module NfgUi
   require 'jquery-rails'
   require 'sass-rails'
   require 'select2-rails'
-  require 'browser'
+
   # Autoloading inspired by simple_form methodology
   # and the fact that this is a significantly sized library.
   # It seems to make sense to not try to pre-load the dozens and dozens
@@ -93,6 +93,7 @@ module NfgUi
                                   button_group
                                   card
                                   carousel
+                                  collapse
                                   empty_state
                                   filter_bar
                                   form_group

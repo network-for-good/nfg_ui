@@ -64,26 +64,8 @@ module NfgUi
           ['collapse', expanded_collapse_css_class].reject(&:nil?).join(' ').squish
         end
 
-        def collapsible_target_id_error
-          raise NoMethodError.new "
-NoMethodError occurred in NfgUi::Bootstrap::Utilities::Collapsible#collapsible_target_id_error
-#{self.class} is missing a #collapsible_target_id\n\nYou must define a #collapsible_target_id method on #{self.class} when you `include NfgUi::Bootstrap::Utilities::Collapsible`
-
-Example:
-
-module NfgUi
-  module Components
-    module Patterns
-      Class NewComponent < NfgUi::Components::Base
-        private
-
         def collapsible_target_id
-          collapsible? ? \"target_collapsible_id_for_\#\{id\}\" : ''
-        end
-      end
-    end
-  end
-end"
+          "target_collapsible_id_for_#{id}"
         end
 
         def expanded_collapse_css_class

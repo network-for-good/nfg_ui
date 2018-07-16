@@ -1,0 +1,7 @@
+%a{ collapse.collapsible_toggle_html_options }
+  .row.align-items-center
+    .col-auto
+      %strong{ data: { describe: 'toggle-tag-strong' } }= collapse.heading
+    .col-auto.pl-0
+      = ui.nfg :icon, 'caret-down', tooltip: 'Show / hide additional information'
+= collapse.body
