@@ -8,14 +8,10 @@ module NfgUi
         include NfgUi::Components::Utilities::Titleable
         include NfgUi::Components::Traits::PageHeader
 
-        attr_reader :resource_theme_icon,
-                    :resource_theme_color,
-                    :subtitle
+        attr_reader   :subtitle
 
-        attr_writer :options
-
+        attr_writer   :options
         attr_accessor :button_groups
-                    
 
         def initialize(component_options, *)
           super
