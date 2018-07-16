@@ -1,0 +1,12 @@
+%h1 Page headers
+
+%h2 Standard
+= ui.nfg :page_header, title: 'Page header title', subtitle: 'Small subtitle'
+
+%h2 Standard with sticky
+= ui.nfg :page_header, :sticky, title: 'Sticky page header title', subtitle: 'Sticky subtitle'
+
+%h2 Page header with button toolbar
+= ui.nfg :page_header, title: 'Toolbar Title', subtitle: 'Toolbar subtitle' do
+  = ui.nfg :button_group, :toolbar do
+    = ui.nfg :button, :primary, as: :button, body: 'Button', data: { disable_with: 'Saving...' }

@@ -19,6 +19,7 @@ module NfgUi
       autoload :MediaGroup
       autoload :Modal
       autoload :Navbar
+      autoload :PageHeader
       autoload :SlatList
       autoload :TaskList
       autoload :Tile

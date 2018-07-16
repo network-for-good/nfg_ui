@@ -1,0 +1,10 @@
+.row.align-items-center{ page_header.html_options }
+  %div{ class: page_header.title_column_css_classes }
+    %h1.h2
+      = ui.nfg :icon, page_header.resource_theme_icon, class: "text-#{page_header.resource_theme_color} mr-1", text: page_header.title
+      - if page_header.subtitle?
+        %small.text-muted= page_header.subtitle
+  
+  - if page_header.body.present?
+    .col-12.col-lg-5.py-2
+      = page_header.body
