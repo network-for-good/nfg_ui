@@ -264,3 +264,7 @@ $ Collapsible? (Y/n):
 11. Add I18n lookup.
 
 12. Update browser gem in all NFG apps to 2.5+
+
+13. Review what's involved in having simple_form "subscribe" to our design system inputs and form controls, particularly the advanced ones (like radio buttons with images) so that the design system is actually hosting the html and not obnoxiously complicated simple_form classes doing that job.
+
+14. Design tokens
