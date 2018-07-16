@@ -1,4 +1,4 @@
-%div{ tile_header.html_options }
+%div{ tile_header.html_options.merge!(id: ("tile_header_for_#{tile_header.id}" if tile_header.collapsible?)) }
   - if tile_header.collapsible?
     %a{ tile_header.collapsible_toggle_html_options }
       .row.align-items-center
