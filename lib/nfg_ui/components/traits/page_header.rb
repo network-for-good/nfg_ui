@@ -10,7 +10,7 @@ module NfgUi
 
         def initialize(*)
           super
-          @sticky = traits.include?(:sticky)
+          @sticky = traits.include?(:sticky) || options.fetch(:sticky, default_sticky)
           @data = data.merge!(sticky_div_data_attributes) if sticky?
         end
 
@@ -20,6 +20,10 @@ module NfgUi
         end
 
         private
+
+        def default_sticky
+          true
+        end
 
         def sticky_div_data_attributes
           { toggle: 'sticky-div' }
