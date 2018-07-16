@@ -17,6 +17,7 @@ module NfgUi
       autoload :Card
       autoload :Carousel
       autoload :Dropdown
+      autoload :Embed
       autoload :InputGroup
       autoload :Form
       autoload :Jumbotron

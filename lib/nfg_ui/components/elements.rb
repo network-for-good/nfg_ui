@@ -14,6 +14,7 @@ module NfgUi
       autoload :Button
       autoload :Chart
       autoload :Dropdown
+      autoload :Embed
       autoload :FormControl
       autoload :InputGroup
       autoload :Key

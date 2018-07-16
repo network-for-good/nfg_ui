@@ -1,0 +1,16 @@
+%h1 Embeds
+
+%h2 Default embed
+%p Defaults to 16:9
+.row
+  .col-8.mx-auto
+    = ui.bootstrap :embed, iframe: 'https://www.youtube.com/embed/zpOULjyy-n8?rel=0'
+
+%h2 Embed aspect ratios
+= ui.bootstrap :embed, aspect_ratio: '21:9', iframe: 'https://www.youtube.com/embed/zpOULjyy-n8?rel=0', class: 'mb-3'
+
+= ui.bootstrap :embed, aspect_ratio: '16:9', iframe: 'https://www.youtube.com/embed/zpOULjyy-n8?rel=0', class: 'mb-3'
+
+= ui.bootstrap :embed, aspect_ratio: '4:3', iframe: 'https://www.youtube.com/embed/zpOULjyy-n8?rel=0', class: 'mb-3'
+
+= ui.bootstrap :embed, aspect_ratio: '1:1', iframe: 'https://www.youtube.com/embed/zpOULjyy-n8?rel=0', class: 'mb-3'

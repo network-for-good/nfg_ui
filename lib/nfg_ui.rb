@@ -43,6 +43,7 @@ module NfgUi
                                   card
                                   carousel
                                   dropdown
+                                  embed
                                   form
                                   input_group
                                   jumbotron
@@ -76,6 +77,7 @@ module NfgUi
                                   button
                                   chart
                                   dropdown
+                                  embed
                                   form_control
                                   input_group
                                   key
