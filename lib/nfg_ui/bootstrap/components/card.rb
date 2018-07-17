@@ -9,10 +9,12 @@ module NfgUi
         include Bootstrap::Utilities::Themeable
 
         attr_reader :subtitle
+        attr_writer :options
 
         def initialize(*)
           super
           @subtitle = options.fetch(:subtitle, '')
+          self.options = defaults.merge!(**defaults_for_subtitle, **options) if subtitle.present?
         end
 
         def card_title_element
@@ -39,10 +41,9 @@ module NfgUi
           end
         end
 
-        # DOESN'T WORK YET (looking into lazy initialization options)
-        # def defaults
-        #   subtitle.present? ? super.merge!(subtitle: '') : super
-        # end
+        def defaults_for_subtitle
+          { subtitle: '' }
+        end
 
         def default_theme
           nil
