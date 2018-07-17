@@ -3,9 +3,9 @@
     %a{ tile_header.collapsible_toggle_html_options }
       .row.align-items-center
         .col-10
-          = ui.nfg :typeface, title: tile_header.title, icon: tile_header.icon
+          = ui.nfg :typeface, title: tile_header.title, icon: tile_header.icon, class: 'text-uppercase'
 
         .col-2.text-right
           = ui.nfg :icon, 'caret-down fw', tooltip: 'Show / hide additional information'
   - else
-    = ui.nfg :typeface, title: tile_header.title, icon: tile_header.icon
+    = ui.nfg :typeface, title: tile_header.title, icon: tile_header.icon, class: 'text-uppercase'
