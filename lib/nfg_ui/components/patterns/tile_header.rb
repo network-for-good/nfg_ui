@@ -11,7 +11,7 @@ module NfgUi
         include NfgUi::Components::Utilities::Iconable
 
         def collapsible_toggle_html_options
-          super.merge!(class: 'd-block no-link-color')
+          super.merge!(class: 'd-block no-link-color text-uppercase')
         end
 
         private
