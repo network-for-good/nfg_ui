@@ -221,6 +221,12 @@ If you're running other rails apps on port 3000 or 3001 you can run this on anot
 $ rails s -p 3003
 ```
 
+Documentation .haml files can be found here:
+```
+/spec/test_app/app/views 
+```
+Within that folder are all of the component code examples found when you click through the navigation. Divided up as `Bootstrap`, then the grouping names: `patterns`, `elements`, `foundations`. 
+
 ## Specs
 _From the gem's root directory (not spec/test_app/):_
 This gem comes with spring, you can use spring when executing rspec

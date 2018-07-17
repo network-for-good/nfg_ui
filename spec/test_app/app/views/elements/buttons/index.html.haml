@@ -2,6 +2,20 @@
 
 %h2 Default button
 = ui.nfg :button, text: 'Default Button'
+= ui.nfg :button, body: 'Default Button'
+
+= ui.nfg :button, :submit, :danger, body: 'Delete', icon: 'trash'
+
+/ form submit
+%form{ action: 'http://www.google.com' }
+  = ui.nfg :button, :submit, :primary, :disable_with, body: 'Whatever', icon: 'rocket', id: 'tester'
+
+:javascript
+  $("form").submit(function(e){
+      e.preventDefault();
+  });
+
+
 
 %h2 Manually Created Buttons
 
