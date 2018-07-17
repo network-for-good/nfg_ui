@@ -10,6 +10,11 @@ module NfgUi
         include NfgUi::Components::Utilities::Iconable
         include Bootstrap::Utilities::Tooltipable
         include NfgUi::Components::Traits::Button
+
+        def initialize(*)
+          super
+          @body = text_maybe_with_icon
+        end
       end
     end
   end
