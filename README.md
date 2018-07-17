@@ -203,15 +203,7 @@ $ git clone https://github.com/network-for-good/nfg_ui.git
 $ bundle exec bundle install
 ```
 
-3. Create database
-
-```
-$ rake db:create
-
-# which should output:
-# Created database 'db/development.sqlite3'
-# Created database 'db/test.sqlite3'
-```
+All done!
 
 ## To browse the components:
 Browse the components at: *http://localhost:3000/*
