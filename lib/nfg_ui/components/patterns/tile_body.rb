@@ -7,7 +7,7 @@ module NfgUi
       class TileBody < NfgUi::Components::Base
         include Bootstrap::Utilities::Collapsible
 
-        def initialize(component_options, view_context)
+        def initialize(*)
           super
           @body = collapse_capable_body
         end
