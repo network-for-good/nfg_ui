@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    nfg_ui (0.1.0)
+    nfg_ui (0.1.2)
       bootstrap (~> 4.1)
       browser (~> 1.1)
       coffee-script
@@ -57,7 +57,7 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
     arel (9.0.0)
-    autoprefixer-rails (8.6.5)
+    autoprefixer-rails (9.0.0)
       execjs
     bootstrap (4.1.1)
       autoprefixer-rails (>= 6.0.3)
