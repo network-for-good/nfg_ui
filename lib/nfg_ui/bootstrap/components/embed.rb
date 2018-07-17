@@ -12,13 +12,16 @@ module NfgUi
         def initialize(*)
           super
           @autoplay = options.fetch(:autoplay, default_autoplay)
-          @iframe = options.fetch(:iframe, body)
+          @iframe = iframe if iframe?
           @aspect_ratio = options.fetch(:aspect_ratio, default_aspect_ratio)
         end
 
         def iframe
-          return body if body.present?
           view_context.content_tag :iframe, nil, src: options[:iframe], class: 'embed-responsive-item', allowfullscreen: 'true'
+        end
+
+        def iframe?
+          options[:iframe].present?
         end
 
         private

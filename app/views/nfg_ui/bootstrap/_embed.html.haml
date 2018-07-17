@@ -1,2 +1,2 @@
 %div{ embed.html_options }
-  = embed.iframe
+  = embed.iframe? ? embed.iframe : embed.body
