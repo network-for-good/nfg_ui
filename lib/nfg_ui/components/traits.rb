@@ -10,6 +10,7 @@ module NfgUi
 
       autoload :Alert
       autoload :Button
+      autoload :Card
       autoload :Icon
       autoload :PageHeader
       autoload :Theme
