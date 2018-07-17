@@ -1,3 +1,51 @@
 %h1 Cards
 
-= ui.nfg :card
+= ui.nfg :card, heading: 'Card heading', subtitle: 'Card subtitle', body: 'Card body', class: 'my-4'
+= ui.nfg :card, heading: 'Card heading', class: 'my-4' do
+  %p.card-text Card body from a block
+
+= ui.nfg :card do
+  Default, no frills card
+
+%hr
+
+%h2 Themes
+
+%h3 Solid Card Themes
+
+= ui.nfg :card, :primary, heading: 'Card Headline', subtitle: 'Card Subtitle', class: 'my-4' do
+  %p.card-text Card with primary theme
+
+= ui.nfg :card, :secondary, heading: 'Card Headline', subtitle: 'Card Subtitle', class: 'my-4', body: 'Card with secondary theme'
+
+= ui.nfg :card, :success, heading: 'Card Headline', subtitle: 'Card Subtitle', class: 'my-4', body: 'Card with success theme'
+
+= ui.nfg :card, :danger, heading: 'Card Headline', subtitle: 'Card Subtitle', class: 'my-4', body: 'Card with danger theme'
+
+= ui.nfg :card, :warning, heading: 'Card Headline', subtitle: 'Card Subtitle', class: 'my-4', body: 'Card with warning theme'
+
+= ui.nfg :card, :info, heading: 'Card Headline', subtitle: 'Card Subtitle', class: 'my-4', body: 'Card with info theme'
+
+= ui.nfg :card, :light, heading: 'Card Headline', subtitle: 'Card Subtitle', class: 'my-4', body: 'Card with light theme'
+
+= ui.nfg :card, :dark, heading: 'Card Headline', subtitle: 'Card Subtitle', class: 'my-4', body: 'Card with dark theme'
+
+%hr
+
+%h3 Outlined Card Themes
+= ui.nfg :card, :primary, :outlined, heading: 'Card Headline', subtitle: 'Card Subtitle', class: 'my-4' do
+  %p.card-text Card with primary theme
+
+= ui.nfg :card, :outlined, :secondary, heading: 'Card Headline', subtitle: 'Card Subtitle', class: 'my-4', body: 'Card with secondary theme'
+
+= ui.nfg :card, :success, :outlined, heading: 'Card Headline', subtitle: 'Card Subtitle', class: 'my-4', body: 'Card with success theme'
+
+= ui.nfg :card, :outlined, :danger, heading: 'Card Headline', subtitle: 'Card Subtitle', class: 'my-4', body: 'Card with danger theme'
+
+= ui.nfg :card, :outlined, :warning, heading: 'Card Headline', subtitle: 'Card Subtitle', class: 'my-4', body: 'Card with warning theme'
+
+= ui.nfg :card, :outlined, :info, heading: 'Card Headline', subtitle: 'Card Subtitle', class: 'my-4', body: 'Card with info theme'
+
+= ui.nfg :card, :outlined, :light, heading: 'Card Headline', subtitle: 'Card Subtitle', class: 'my-4', body: 'Card with light theme'
+
+= ui.nfg :card, :outlined, :dark, heading: 'Card Headline', subtitle: 'Card Subtitle', class: 'my-4', body: 'Card with dark theme'

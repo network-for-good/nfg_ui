@@ -1,3 +1,156 @@
 %h1 Button Groups
 
-= ui.nfg :button_group
+%h2 Pre-configured, design system buttons
+
+%hr
+
+%h2 Manually Created Button Groups
+
+%h3 Patterns
+
+%h4 Button Group Themes
+= ui.nfg :button_group, class: 'example-class' do
+  = ui.nfg :button, as: :button, theme: :primary, body: 'Button'
+  = ui.nfg :button, as: :button, theme: :primary do
+    Button
+  = ui.nfg :button, as: :button, theme: :primary do
+    Button
+
+%br
+
+= ui.nfg :button_group, class: 'example-class' do
+  = ui.nfg :button, as: :button, theme: :secondary, body: 'Button'
+  = ui.nfg :button, as: :button, theme: :secondary do
+    Button
+  = ui.nfg :button, as: :button, theme: :secondary do
+    Button
+
+%br
+
+= ui.nfg :button_group, class: 'example-class' do
+  = ui.nfg :button, as: :button, theme: :success, body: 'Button'
+  = ui.nfg :button, as: :button, theme: :success do
+    Button
+  = ui.nfg :button, as: :button, theme: :success do
+    Button
+
+%br
+
+= ui.nfg :button_group, class: 'example-class' do
+  = ui.nfg :button, as: :button, theme: :danger, body: 'Button'
+  = ui.nfg :button, as: :button, theme: :danger do
+    Button
+  = ui.nfg :button, as: :button, theme: :danger do
+    Button
+
+%br
+
+= ui.nfg :button_group, class: 'example-class' do
+  = ui.nfg :button, as: :button, theme: :warning, body: 'Button'
+  = ui.nfg :button, as: :button, theme: :warning do
+    Button
+  = ui.nfg :button, as: :button, theme: :warning do
+    Button
+
+%br
+
+= ui.nfg :button_group, class: 'example-class' do
+  = ui.nfg :button, as: :button, theme: :info, body: 'Button'
+  = ui.nfg :button, as: :button, theme: :info do
+    Button
+  = ui.nfg :button, as: :button, theme: :info do
+    Button
+
+%br
+
+= ui.nfg :button_group, class: 'example-class' do
+  = ui.nfg :button, as: :button, theme: :light, body: 'Button'
+  = ui.nfg :button, as: :button, theme: :light do
+    Button
+  = ui.nfg :button, as: :button, theme: :light do
+    Button
+
+%br
+
+= ui.nfg :button_group, class: 'example-class' do
+  = ui.nfg :button, as: :button, theme: :dark, body: 'Button'
+  = ui.nfg :button, as: :button, theme: :dark do
+    Button
+  = ui.nfg :button, as: :button, theme: :dark do
+    Button
+
+
+%hr
+
+%h4 Button Groups with links
+= ui.nfg :button_group, class: 'example-class' do
+  / = ui.nfg :button, href: '#testURL', body: 'Link Btn W/O :as'
+  = ui.nfg :button, as: :link, active: true, href: '#testURL' do
+    Active Button
+  = ui.nfg :button, as: :link do
+    Link Button without HREF
+
+%hr
+
+%h4 Button groups with buttons
+= ui.nfg :button_group, role: 'not a good one' do
+  = ui.nfg :button, as: :button, body: 'Button'
+  = ui.nfg :button, as: :button do
+    Button
+  = ui.nfg :button, as: :button do
+    Button
+
+%hr
+
+%h3 Sizing
+
+= ui.nfg :button_group, size: :lg, aria: { 'test' => 'test2' } do
+  = ui.nfg :button, as: :button, body: 'Left'
+  = ui.nfg :button, as: :button do
+    Middle
+  = ui.nfg :button, as: :button do
+    Right
+
+= ui.nfg :button_group, aria: { 'test' => 'test2' } do
+  = ui.nfg :button, as: :button, body: 'Left'
+  = ui.nfg :button, as: :button do
+    Middle
+  = ui.nfg :button, as: :button do
+    Right
+
+= ui.nfg :button_group, size: :sm, aria: { 'test' => 'test2' } do
+  = ui.nfg :button, as: :button, body: 'Left'
+  = ui.nfg :button, as: :button do
+    Middle
+  = ui.nfg :button, as: :button do
+    Right
+
+%hr
+
+%h4 Nesting Button Groups
+
+%h5 Nesting Sizes
+= ui.nfg :button_group, size: :lg, aria: { 'test' => 'test2' } do
+  = ui.nfg :button, as: :button, body: 'Large Left'
+  = ui.nfg :button, as: :button do
+    Large Middle
+  = ui.nfg :button, as: :button do
+    Large Right
+
+  = ui.nfg :button_group, size: :sm, aria: { 'test' => 'test2' } do
+    = ui.nfg :button, as: :button, body: 'Small Left'
+    = ui.nfg :button, as: :button do
+      Small Middle
+    = ui.nfg :button, as: :button do
+      Small Right
+
+%hr
+
+%h3 Vertical variation
+%h4 Button groups with buttons
+= ui.nfg :button_group, :vertical, aria: { 'test' => 'test2' } do
+  = ui.nfg :button, as: :button, body: 'Button'
+  = ui.nfg :button, as: :button do
+    Button
+  = ui.nfg :button, as: :button do
+    Button
