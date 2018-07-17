@@ -11,8 +11,6 @@ module NfgUi
           super
           @theme = options.fetch(:theme, default_theme)
           @outlined = options.fetch(:outlined, traits.include?(:outlined))
-
-          theme_not_present_error if theme_not_present_error?
         end
 
         private
@@ -54,14 +52,6 @@ module NfgUi
 
         def default_theme
           :primary
-        end
-
-        def theme_not_present_error?
-          !bootstrap4_themes.include?(theme)
-        end
-
-        def theme_not_present_error
-          raise ArgumentError.new "#{self.class.name} passed in a theme (:#{theme}) that was not recognized as a bootstrap theme.\n\nBootstrap4 theme options are:\n:#{bootstrap4_themes.join("\n\:")}"
         end
 
         def outline_css_class_string
