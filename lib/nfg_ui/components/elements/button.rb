@@ -11,30 +11,30 @@ module NfgUi
         include Bootstrap::Utilities::Tooltipable
         include NfgUi::Components::Traits::Button
 
-        # Consider data disable-with as a default (of '') and the ability to pass in as an option
-        # data: { disable_with: disable_with_text.html_safe }
-        # disable_with: disable_with_text.html_safe
-        # disable_with: nil / false
-
         attr_reader :disable_with, :data
 
         def initialize(*)
           super
           @body = text_maybe_with_icon
-          # @disable_with = options.fetch(:disable_with, default_disable_with)
-          @disable_with = traits.include?(:disable_with)
-          @data = data.merge!(disable_with: disable_with_text)
+          @disable_with = options[:disable_with]
+          update_data_attributes if disable_with?
         end
 
         def disable_with?
-          disable_with.present?
-        end
-
-        def disable_with_text
-          view_context.ui.nfg(:icon, 'spinner spin fw', text: 'Saving...') if disable_with?
+          disable_with.present? || traits.include?(:disable_with)
         end
 
         private
+
+        def disable_with_text
+          disable_with.present? ? disable_with : view_context.ui.nfg(:icon,
+                                                                     'spinner spin fw',
+                                                                     text: 'Saving...')
+        end
+
+        def update_data_attributes
+          data.merge!(disable_with: disable_with_text)
+        end
 
         def defaults
           super.merge(disable_with: default_disable_with)

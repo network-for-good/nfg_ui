@@ -1,28 +1,28 @@
 %h1 Buttons
 
 %h2 Default button
-= ui.nfg :button, text: 'Default Button'
-= ui.nfg :button, body: 'Default Button'
+%p
+  = ui.nfg :button, body: 'Default Button'
+  == ui.nfg :button, body: 'Default Button' 
+%p
+  = ui.nfg :button, :submit, :danger, body: 'Delete', icon: 'trash'
+  == ui.nfg :button, :submit, :danger, body: 'Delete', icon: 'trash'
 
-= ui.nfg :button, :submit, :danger, body: 'Delete', icon: 'trash'
-
-/ form submit
-%form{ action: 'http://www.google.com' }
-  = ui.nfg :button, :submit, :primary, :disable_with, body: 'Whatever', icon: 'rocket', id: 'tester'
-
-:javascript
-  $("form").submit(function(e){
-      e.preventDefault();
-  });
-
-
+%hr
 
 %h2 Manually Created Buttons
 
 %h3 Elements
-= ui.nfg :button, href: '#testURL', body: 'Link Btn W/O :as'
-= ui.nfg :button, as: :link, href: '#testURL' do
-  Link Button with HREF
+%p
+  = ui.nfg :button, href: '#testURL', body: 'Link Btn W/O :as'
+  == ui.nfg :button, href: '#testURL', body: 'Link Btn W/O :as'
+
+%p
+
+  = ui.nfg :button, as: :link, href: '#testURL' do
+    Link Button with HREF
+
+%br
 = ui.nfg :button, as: :link do
   Link Button without HREF
 = ui.nfg :button, as: :button, body: 'Button'
@@ -31,12 +31,6 @@
 
 %h3 Buttons with icons
 = ui.nfg :button, icon: 'rocket', body: 'Button with icon'
-
-%hr
-
-%h3
-
-
 %hr
 
 %h3 Themes
@@ -86,8 +80,11 @@
 
 %h3 Sizes
 = ui.nfg :button, as: :button, size: :lg, class: 'example-class', body: 'Large'
+= ui.nfg :button, :lg, as: :button, class: 'example-class', body: 'Large Trait'
+
 = ui.nfg :button, as: :button, class: 'example-class', body: 'Default Size'
 = ui.nfg :button, as: :button, size: :sm, class: 'example-class', body: 'Small'
+= ui.nfg :button, :sm, as: :button, class: 'example-class', body: 'Small Trait'
 
 %hr
 %h3 Outlines
@@ -110,13 +107,23 @@
 = ui.nfg :button, :outlined, as: :button, body: 'Dark Outlined', theme: :dark, class: 'example-class' 
 
 %hr
+
+%h3 Buttons with disable_with (for submitting)
+= ui.nfg :button, :submit, disable_with: 'Manual disable with text', body: 'Manual disable_with'
+= ui.nfg :button, :submit, :disable_with, body: 'Trait disable_with with default'
+
+%hr
+
 %h3 Block Buttons without traits
 = ui.nfg :button, block: true, as: :button, body: 'Block Button'
 = ui.nfg :button, block: true, body: 'Block Button As Link', href: '#nogo'
 
+%hr
+
 %h3 Block Buttons with traits
 = ui.nfg :button, :block, as: :button, body: 'Block Button'
 = ui.nfg :button, :block, body: 'Block Button As Link', href: '#nogo'
+%hr
 
 %h4 Submit button
 = ui.nfg :button, :submit, body: 'Submit Button Via Trait'
