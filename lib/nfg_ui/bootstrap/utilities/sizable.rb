@@ -28,7 +28,7 @@ module NfgUi
         end
 
         def size_css_class
-          " #{component_css_class}-#{size}" if resized?
+          " #{component_css_class}-#{component_size}" if resized?
         end
 
         def non_html_attribute_options
@@ -36,7 +36,20 @@ module NfgUi
         end
 
         def bootstrap4_size_options
-          %i[sm lg]
+          [:sm, :lg, *alias_size_options]
+        end
+
+        def alias_size_options
+          %i[small lg]
+        end
+
+        def component_size
+          case size
+          when :lg then :lg
+          when :sm then :sm
+          when :large then :lg
+          when :small then :sm
+          end
         end
 
         def default_size
