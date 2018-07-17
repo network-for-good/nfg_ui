@@ -4,7 +4,7 @@
 
   - if tile.body || tile.tile_section?
     = ui.nfg :tile_body, (:collapsible if tile.collapsible?), heading: tile.heading.presence, id: (tile.id if tile.collapsible?), collapsed: (tile.collapsed? if tile.collapsible?) do
-      = tile.body.presence
+      = tile.body
 
       - if tile.sections.present?
         - tile.sections.each do |section_body|
