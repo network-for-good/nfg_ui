@@ -17,6 +17,7 @@ module NfgUi
         end
 
         def iframe
+          return body if body.present?
           view_context.content_tag :iframe, nil, src: options[:iframe], class: 'embed-responsive-item', allowfullscreen: 'true'
         end
 
