@@ -9,7 +9,6 @@ module NfgUi
         include NfgUi::Components::Traits::PageHeader
 
         attr_reader   :subtitle
-
         attr_writer   :options
         attr_accessor :button_groups
 

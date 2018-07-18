@@ -1,12 +1,14 @@
 .container-fluid{ page_header.html_options }
-  .row.align-items-center
-    %div{ class: page_header.title_column_css_classes }
-      %h1.h2
-        = ui.nfg :icon, resource_theme_icon, class: "text-#{resource_theme_color} mr-1", text: page_header.title
-        - if page_header.subtitle?
-          %small.text-muted= page_header.subtitle
-    
-    - if page_header.show_button_toolbar?
-      .col-12.col-lg-5.py-2
-        = ui.nfg :button_toolbar, class: 'float-lg-right' do
-          = page_header.button_groups
+  .row
+    .col.col-xl-11.mx-auto
+      .row.align-items-center
+        %div{ class: page_header.title_column_css_classes }
+          %h2
+            = ui.nfg :icon, resource_theme_icon, class: "text-#{resource_theme_color} mr-1", text: page_header.title
+            - if page_header.subtitle?
+              %small.text-muted= page_header.subtitle
+
+        - if page_header.show_button_toolbar?
+          .col-12.col-lg-5.py-2
+            = ui.nfg :button_toolbar, class: 'float-lg-right' do
+              = page_header.button_groups
