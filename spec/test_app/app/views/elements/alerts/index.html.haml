@@ -1,5 +1,14 @@
 %h1 Alerts
 
+%hr
+
+%h2 Special traits
+%b== ui.nfg :alert, :error
+%br
+= ui.nfg :alert, :error
+
+%hr
+
 = ui.nfg :alert, heading: "Oh Snap! There's a major problem here", class: 'my-4' do
   Yielded from captured block: You forgot to fill out an important field, notice my nifty
   = link_to 'link without class or classes', 'javascript:;'
