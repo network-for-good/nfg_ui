@@ -85,7 +85,22 @@ Traits are designed to allow you to speedily build components, or pre-design com
 
 Traits are pre-designed / pre-created in the gem (the process / system for this is getting an update after some very cool conversations recently, but the implementation on the front end likely won't be changing)
 
-Here are some implementation examples
+We use two general "kinds" of traits (this is being examined in more detail, but the usage is the same).
+
+The first "kind" of trait is "speedy" versions of options. The second "kind" of trait are more like a combination of options.
+
+We do this, for example, with an error alert, which then pre-supplies a set of options...
+
+```haml
+= ui.nfg :alert, :error
+
+// is the pre-designed error alert that looks like this:
+= ui.nfg :alert, :dismissible, theme: :danger, heading: 'Oops!', body: 'There appears to be someting wrong with your submission! Please take a look...'
+```
+
+The second kind of trait is the speedy version (described above).
+
+Here are some implementation examples of speedy traits:
 # For components that are "themeable" (alerts, buttons, etc) and are designated as such, automatically get a theme trait:
 ## `ui.nfg :button, :primary` is a speedy way to write `ui.nfg :button, theme: :primary`
 ## `:primary`
