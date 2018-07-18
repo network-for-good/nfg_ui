@@ -1,3 +1,26 @@
 %h1 Modals
 
-= ui.nfg :modal
+Create a button with a modal option. The modal option should be the id of the modal you want to load:
+%br
+== ui.nfg :button, body: 'Modal Trigger Button', modal: 'test_modal'
+
+%hr
+
+%h2 Conventional modal
+= ui.nfg :button, body: 'Modal Trigger Button', modal: 'test_modal'
+
+= ui.nfg :modal, id: 'test_modal', title: 'Test Modal', footer: 'Modal footer (as a component option only)' do
+  Modal body goes here
+
+/ Coming soon
+/ %h3 Modal with sizes
+/ = ui.nfg :button, body: 'Small Modal', modal: 'small_modal'
+
+/ = ui.nfg :modal, :small, id: 'small_modal', title: 'Small Test Modal' do
+/   Small modal
+
+/ = ui.nfg :button, body: 'Large Modal', modal: 'large_modal'
+
+/ = ui.nfg :modal, :small, id: 'large_modal', title: 'Large Test Modal' do
+/   Large modal
+

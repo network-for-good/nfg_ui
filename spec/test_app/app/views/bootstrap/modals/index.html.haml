@@ -1,4 +1,6 @@
 %h1 Modals
 
-= ui.bootstrap :modal, class: 'my-4' do
-  Coming Soon
+= ui.bootstrap :button, body: 'Modal Trigger Button', modal: 'test_modal'
+
+= ui.bootstrap :modal, id: 'test_modal', title: 'Test Modal', footer: 'Modal footer (as a component option only)' do
+  Modal body goes here

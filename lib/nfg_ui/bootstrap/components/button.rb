@@ -14,11 +14,13 @@ module NfgUi
         include Bootstrap::Utilities::AriaAssistable
         include Bootstrap::Utilities::Tooltipable
 
-        attr_reader :block
+        attr_reader :block, :modal
 
         def initialize(*)
           super
+          @modal = options.fetch(:modal, nil)
           @block = options.fetch(:block, default_block)
+          data.merge!(toggle: 'modal', target: "##{modal}") if modal
           build_aria(aria_key: :pressed, aria_value: true) if active?
         end
 
@@ -42,6 +44,10 @@ module NfgUi
 
         def default_html_wrapper_element
           :a
+        end
+
+        def non_html_attribute_options
+          super.push((:modal if modal.present?))
         end
       end
     end

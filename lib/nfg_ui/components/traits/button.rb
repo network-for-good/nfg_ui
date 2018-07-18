@@ -9,7 +9,7 @@ module NfgUi
       module Button
         include NfgUi::Components::Traits::Theme
 
-        attr_reader   :type
+        attr_reader   :type, :close
         attr_writer   :block, :default_html_wrapper_element, :size
         attr_accessor :submit, :as
 
@@ -18,14 +18,28 @@ module NfgUi
           @type = options.fetch(:type, nil)
           self.submit = traits.include?(:submit) || type == 'submit'
           self.block = traits.include?(:block) || block
-          self.as = :button if submit?
           self.size = (traits & bootstrap4_size_options).first || size
           @default_html_wrapper_element = submit? ? :button : as
-          options[:href] = nil if submit?
+          @close = traits.include?(:close)
+          self.as = :button if submit? || close
+          options[:href] = nil if submit? || close
         end
 
         def submit?
           submit
+        end
+
+        def html_options
+          return super unless close
+
+          super.merge!(aria: { label: 'Clase' },
+                       data: { dismiss: 'modal' },
+                       class: 'close')
+        end
+
+        def icon
+          return super unless close
+          'times'
         end
 
         private
