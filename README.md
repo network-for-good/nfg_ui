@@ -72,10 +72,43 @@ Examples:
 // Produce a styled, pre-designed submit button for your form on the fly
 = ui.nfg :button, :submit
 
+// Is the traited / predesigned equivalent of...
+= ui.nfg :button, as: :button, type: 'submit', icon: 'chevron-right', body: 'Save & Exit', theme: :primary, disable_with: "<i class='fa fa-spinner fa-spin mr-1'></i> Saving..." 
+
 // Build your own button
 = ui.nfg :button, :danger, data: { describe: 'delete-button' } do
   = ui.nfg :icon, 'trash', class: 'mr-1', text: 'Delete Row'
 ```
+
+#### Trait details
+Traits are designed to allow you to speedily build components, or pre-design complex components using meaningful symbols.
+
+Traits are pre-designed / pre-created in the gem (the process / system for this is getting an update after some very cool conversations recently, but the implementation on the front end likely won't be changing)
+
+Here are some implementation examples
+# For components that are "themeable" (alerts, buttons, etc) and are designated as such, automatically get a theme trait:
+## `ui.nfg :button, :primary` is a speedy way to write `ui.nfg :button, theme: :primary`
+## `:primary`
+## `:secondary`
+## `:success`
+## `:danger`
+## `:warning`
+## `:info`
+## `:light`
+## `:dark`
+# For components that are resizable (buttons, modals, etc)
+## `ui.nfg :button, :large` is the same as `ui.nfg :button, size: :large`
+## `:lg`
+## `:large`
+## `:sm`
+## `:small`
+# For components that are collapsible (Tiles for example)
+## `ui.nfg :tile, :collapsible` is the same as `ui.nfg :tile, collapsed: false` 
+## `ui.nfg :tile, :collapsed` is the same as `ui.nfg :tile, collapsed: true`
+## `:collapsible`
+## `:collapsed`
+# And more... to be documented
+
 More soon...
 
 ### NFG Components
