@@ -101,28 +101,28 @@ We do this, for example, with an error alert, which then pre-supplies a set of o
 The second kind of trait is the speedy version (described above).
 
 Here are some implementation examples of speedy traits:
-# For components that are "themeable" (alerts, buttons, etc) and are designated as such, automatically get a theme trait:
-## `ui.nfg :button, :primary` is a speedy way to write `ui.nfg :button, theme: :primary`
-## `:primary`
-## `:secondary`
-## `:success`
-## `:danger`
-## `:warning`
-## `:info`
-## `:light`
-## `:dark`
-# For components that are resizable (buttons, modals, etc)
-## `ui.nfg :button, :large` is the same as `ui.nfg :button, size: :large`
-## `:lg`
-## `:large`
-## `:sm`
-## `:small`
-# For components that are collapsible (Tiles for example)
-## `ui.nfg :tile, :collapsible` is the same as `ui.nfg :tile, collapsed: false` 
-## `ui.nfg :tile, :collapsed` is the same as `ui.nfg :tile, collapsed: true`
-## `:collapsible`
-## `:collapsed`
-# And more... to be documented
+* For components that are "themeable" (alerts, buttons, etc) and are designated as such, automatically get a theme trait:
+  * `ui.nfg :button, :primary` is a speedy way to write `ui.nfg :button, theme: :primary`
+  * `:primary`
+  * `:secondary`
+  * `:success`
+  * `:danger`
+  * `:warning`
+  * `:info`
+  * `:light`
+  * `:dark`
+* For components that are resizable (buttons, modals, etc)
+  * `ui.nfg :button, :large` is the same as `ui.nfg :button, size: :large`
+  * `:lg`
+  * `:large`
+  * `:sm`
+  * `:small`
+* For components that are collapsible (Tiles for example)
+  * `ui.nfg :tile, :collapsible` is the same as `ui.nfg :tile, collapsed: false` 
+  * `ui.nfg :tile, :collapsed` is the same as `ui.nfg :tile, collapsed: true`
+  * `:collapsible`
+  * `:collapsed`
+* And more... to be documented
 
 More soon...
 
