@@ -41,9 +41,7 @@ module NfgUi
 
         def initialize(*)
           super
-          data_toggle_error if data_toggle_error?
-
-          @tooltip = options.fetch(:tooltip, '')
+          @tooltip = options.fetch(:tooltip, false)
           self.data = data.merge!(tooltip_data_attributes) if tooltipable?
         end
 
@@ -81,12 +79,8 @@ module NfgUi
             html: tooltip_html.to_s }
         end
 
-        def data_toggle_error?
-          data.key?(:toggle) && data[:toggle] != 'tooltip'
-        end
-
         def defaults
-          super.merge!(tooltip: '')
+          super.merge!(tooltip: false)
         end
 
         def non_html_attribute_options
@@ -99,10 +93,6 @@ module NfgUi
 
         def tooltip_html
           true
-        end
-
-        def data_toggle_error
-          raise ArgumentError.new "#{self.class.name} passed in a data-toggle html attribute that is competing with the Tooltip module supplying a tooltip to this class.\nCurrent data attributes are: #{data}\n\nYou can certainly add your own data-toggle to your component... but you'll need to remove the :tooltip first."
         end
       end
     end
