@@ -4,8 +4,6 @@ module NfgUi
   module Components
     # This is the authoritative document for 'Patterns'
     module Patterns
-      # extend ActiveSupport::Autoload
-
       require_relative 'patterns/activity_feed'
       require_relative 'patterns/button_group'
       require_relative 'patterns/button_toolbar'

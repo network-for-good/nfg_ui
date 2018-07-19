@@ -4,8 +4,6 @@ module NfgUi
   module Components
     # This is the authoritative document for 'Elements'
     module Elements
-      # extend ActiveSupport::Autoload
-
       require_relative 'elements/activity'
       require_relative 'elements/alert'
       require_relative 'elements/badge'

@@ -7,7 +7,6 @@ module NfgUi
     require_relative 'components/elements'
     require_relative 'components/foundations'
     require_relative 'components/patterns'
-    require_relative 'components/traits'
-    require_relative 'components/utilities'
+    # require_relative 'components/traits'
   end
 end

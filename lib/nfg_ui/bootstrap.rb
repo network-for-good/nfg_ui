@@ -6,6 +6,6 @@ module NfgUi
     # extend ActiveSupport::Autoload
 
     require_relative 'bootstrap/components'
-    require_relative 'bootstrap/utilities'
+    # require_relative 'bootstrap/utilities'
   end
 end
