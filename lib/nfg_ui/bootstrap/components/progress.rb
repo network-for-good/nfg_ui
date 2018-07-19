@@ -6,6 +6,9 @@ module NfgUi
       # Bootstrap Progress Component
       # https://getbootstrap.com/docs/4.1/components/progress/
       class Progress < Bootstrap::Components::Base
+        require_relative '../utilities/themeable'
+        require_relative '../utilities/aria_assistable'
+
         include Bootstrap::Utilities::Themeable
         include Bootstrap::Utilities::AriaAssistable
 

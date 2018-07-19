@@ -3,9 +3,9 @@
 module NfgUi
   # The top-level bootstrap framework module
   module Bootstrap
-    extend ActiveSupport::Autoload
+    # extend ActiveSupport::Autoload
 
-    autoload :Components
-    autoload :Utilities
+    require_relative 'bootstrap/components'
+    require_relative 'bootstrap/utilities'
   end
 end

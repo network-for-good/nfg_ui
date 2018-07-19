@@ -5,8 +5,12 @@ module NfgUi
     module Utilities
       # Allows components to have a collapsed state when appropriate
       module Collapsible
+        require_relative '../utilities/aria_assistable'
+        require 'nfg_ui/components/utilities/requireable'
+
         include Bootstrap::Utilities::AriaAssistable
         include NfgUi::Components::Utilities::Requireable
+        
         attr_reader :collapsed, :collapsible_target_id
 
         def initialize(*)

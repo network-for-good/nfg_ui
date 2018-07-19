@@ -6,6 +6,14 @@ module NfgUi
       # Bootstrap Button Component
       # https://getbootstrap.com/docs/4.1/components/buttons/
       class Button < Bootstrap::Components::Base
+        require_relative '../utilities/themeable'
+        require_relative '../utilities/sizable'
+        require_relative '../utilities/wrappable'
+        require_relative '../utilities/activatable'
+        require_relative '../utilities/disableable'
+        require_relative '../utilities/aria_assistable'
+        require_relative '../utilities/tooltipable'
+
         include Bootstrap::Utilities::Themeable
         include Bootstrap::Utilities::Sizable
         include Bootstrap::Utilities::Wrappable

@@ -5,6 +5,11 @@ module NfgUi
     module Patterns
       # TileHeader doc coming soon
       class TileHeader < NfgUi::Components::Base
+        require 'nfg_ui/bootstrap/utilities/collapsible'
+        require_relative '../utilities/requireable'
+        require_relative '../utilities/titleable'
+        require_relative '../utilities/iconable'
+
         include Bootstrap::Utilities::Collapsible
         include NfgUi::Components::Utilities::Requireable
         include NfgUi::Components::Utilities::Titleable

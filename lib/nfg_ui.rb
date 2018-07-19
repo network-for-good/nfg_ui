@@ -11,27 +11,9 @@ module NfgUi
   require 'sass-rails'
   require 'select2-rails'
 
-  # Autoloading inspired by simple_form methodology
-  # and the fact that this is a significantly sized library.
-  # It seems to make sense to not try to pre-load the dozens and dozens
-  # of assets that comprise this library.
-  #
-  # Reference article:
-  # http://blog.plataformatec.com.br/2012/08/eager-loading-for-greater-good/
-  extend ActiveSupport::Autoload
-
-  autoload :UI
-
-  eager_autoload do
-    autoload :Bootstrap
-    autoload :Components
-  end
-
-  def self.eager_load!
-    super
-    NfgUi::Bootstrap.eager_load!
-    NfgUi::Components.eager_load!
-  end
+  require_relative 'nfg_ui/ui'
+  require_relative 'nfg_ui/bootstrap'
+  require_relative 'nfg_ui/components'
 
   BOOTSTRAP_COMPONENT_NAMES  = %i[alert
                                   badge
@@ -115,5 +97,3 @@ module NfgUi
                                   tile_header
                                   tile_section].freeze
 end
-
-require 'nfg_ui/railtie' if defined?(Rails)

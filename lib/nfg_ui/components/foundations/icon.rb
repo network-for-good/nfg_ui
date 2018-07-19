@@ -9,6 +9,10 @@ module NfgUi
       # Example usage:
       # = ui.nfg :icon, 'rocket', :right, text: 'Example text with icon on the right'
       class Icon < NfgUi::Components::Base
+        require_relative '../traits/theme'
+        require_relative '../traits/icon'
+        require 'nfg_ui/bootstrap/utilities/tooltipable'
+
         include NfgUi::Components::Traits::Theme
         include Bootstrap::Utilities::Tooltipable
         include NfgUi::Components::Traits::Icon

@@ -7,6 +7,9 @@ module NfgUi
       # Subcomponent of Breadcrumb
       # https://getbootstrap.com/docs/4.1/components/breadcrumb/
       class BreadcrumbItem < Bootstrap::Components::Base
+        require_relative '../utilities/activatable'
+        require_relative '../utilities/aria_assistable'
+
         include Bootstrap::Utilities::Activatable
         include Bootstrap::Utilities::AriaAssistable
 

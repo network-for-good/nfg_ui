@@ -35,6 +35,8 @@ module NfgUi
       #   :right
       # end
       module Tooltipable
+        require_relative '../utilities/disableable'
+        
         include Bootstrap::Utilities::Disableable
         attr_reader :tooltip
         attr_accessor :data

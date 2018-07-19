@@ -6,6 +6,9 @@ module NfgUi
       # Bootstrap Modal Component
       # https://getbootstrap.com/docs/4.1/components/modal/
       class Modal < Bootstrap::Components::Base
+        require 'nfg_ui/components/utilities/titleable'
+        require_relative '../utilities/aria_assistable'
+
         include NfgUi::Components::Utilities::Titleable
         include Bootstrap::Utilities::AriaAssistable
 

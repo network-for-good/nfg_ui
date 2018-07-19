@@ -6,6 +6,9 @@ module NfgUi
       # Bootstrap Alert Component
       # https://getbootstrap.com/docs/4.1/components/alerts/
       class Alert < Bootstrap::Components::Base
+        require_relative '../utilities/themeable'
+        require_relative '../utilities/dismissible'
+        
         include Bootstrap::Utilities::Themeable
         include Bootstrap::Utilities::Dismissible
 

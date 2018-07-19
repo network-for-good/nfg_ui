@@ -5,6 +5,8 @@ module NfgUi
     module Traits
       # Access to pre-designed theme traits
       module Theme
+        require 'nfg_ui/bootstrap/utilities/themeable'
+        
         include Bootstrap::Utilities::Themeable
 
         attr_writer :theme

@@ -7,6 +7,7 @@ module NfgUi
       # To do: this needs to be re-worked with the new concept for
       # traits.
       module Button
+        require_relative 'theme'
         include NfgUi::Components::Traits::Theme
 
         attr_reader   :type, :close

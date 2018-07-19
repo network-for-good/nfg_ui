@@ -24,6 +24,10 @@ module NfgUi
       # or manually declare your content type without a trait
       # = ui.nfg(component, heading: 'heading')
       class Typeface < NfgUi::Components::Base
+        require_relative '../utilities/iconable'
+        require_relative '../utilities/titleable'
+        require_relative '../traits/typeface'
+
         include NfgUi::Components::Utilities::Iconable
         include NfgUi::Components::Utilities::Titleable
         include NfgUi::Components::Traits::Typeface

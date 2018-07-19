@@ -5,6 +5,8 @@ module NfgUi
     module Components
       # Bootstrap Button Toolbar Component
       class ButtonToolbar < Bootstrap::Components::Base
+        require_relative '../utilities/aria_assistable'
+
         include Bootstrap::Utilities::AriaAssistable
 
         def initialize(*)

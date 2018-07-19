@@ -6,6 +6,9 @@ module NfgUi
       # Bootstrap Badge Component
       # https://getbootstrap.com/docs/4.1/components/badge/
       class Badge < Bootstrap::Components::Base
+        require_relative '../utilities/themeable'
+        require_relative '../utilities/wrappable'
+
         include Bootstrap::Utilities::Themeable
         include Bootstrap::Utilities::Wrappable
 

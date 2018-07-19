@@ -4,13 +4,11 @@ module NfgUi
   module Components
     # Autoloads utilities unique for NFG design system components
     module Utilities
-      extend ActiveSupport::Autoload
-
-      autoload :BrowserDetectable
-      autoload :Iconable
-      autoload :Titleable
-      autoload :ResourceThemeable
-      autoload :Requireable
+      require_relative 'utilities/browser_detectable'
+      require_relative 'utilities/iconable'
+      require_relative 'utilities/titleable'
+      require_relative 'utilities/resource_themeable'
+      require_relative 'utilities/requireable'
     end
   end
 end

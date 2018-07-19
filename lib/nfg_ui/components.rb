@@ -1,13 +1,13 @@
 module NfgUi
   # The parent component module for design system components (excluding bootstrap framework)
   module Components
-    extend ActiveSupport::Autoload
+    # extend ActiveSupport::Autoload
 
-    autoload :Base
-    autoload :Elements
-    autoload :Foundations
-    autoload :Patterns
-    autoload :Utilities
-    autoload :Traits
+    require_relative 'components/base'
+    require_relative 'components/elements'
+    require_relative 'components/foundations'
+    require_relative 'components/patterns'
+    require_relative 'components/traits'
+    require_relative 'components/utilities'
   end
 end
