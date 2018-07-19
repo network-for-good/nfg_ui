@@ -5,10 +5,6 @@ module NfgUi
     module Patterns
       # Tile doc coming soon
       class Tile < NfgUi::Components::Base
-        require 'nfg_ui/bootstrap/utilities/collapsible'
-        require_relative '../utilities/requireable'
-        require_relative '../utilities/iconable'
-
         include Bootstrap::Utilities::Collapsible
         include NfgUi::Components::Utilities::Titleable
         include NfgUi::Components::Utilities::Requireable

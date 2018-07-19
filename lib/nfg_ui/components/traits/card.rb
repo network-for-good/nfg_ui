@@ -5,7 +5,6 @@ module NfgUi
     module Traits
       # Access to pre-designed Card traits
       module Card
-        require_relative 'theme'
         include NfgUi::Components::Traits::Theme
       end
     end

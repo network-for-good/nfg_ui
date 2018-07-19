@@ -7,10 +7,6 @@ module NfgUi
       # As such, the NFG UI Button is simply a bootstrap Button behind the scenes.
       # Traits will eventually be connected here.
       class Button < Bootstrap::Components::Button
-        require_relative '../utilities/iconable'
-        require_relative '../traits/button'
-        require 'nfg_ui/bootstrap/utilities/tooltipable'
-
         include NfgUi::Components::Utilities::Iconable
         include NfgUi::Components::Traits::Button
         include Bootstrap::Utilities::Tooltipable

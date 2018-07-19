@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module NfgUi
   module UI
     # The class that yields the component for the view

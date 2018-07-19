@@ -4,8 +4,6 @@ module NfgUi
   module Components
     # This is the authoritative document for 'Foundations'
     module Foundations
-      # extend ActiveSupport::Autoload
-
       require_relative 'foundations/color'
       require_relative 'foundations/icon'
       require_relative 'foundations/image'

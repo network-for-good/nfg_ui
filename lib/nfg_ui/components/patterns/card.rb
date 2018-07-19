@@ -7,7 +7,6 @@ module NfgUi
       # As such, the NFG UI card is simply a bootstrap card behind the scenes.
       # Traits will eventually be connected here.
       class Card < Bootstrap::Components::Card
-        require_relative '../traits/card'
         include NfgUi::Components::Traits::Card
       end
     end

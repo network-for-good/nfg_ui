@@ -5,9 +5,6 @@ module NfgUi
     module Patterns
       # PageHeader doc coming soon
       class PageHeader < NfgUi::Components::Base
-        require_relative '../utilities/titleable'
-        require_relative '../traits/page_header'
-
         include NfgUi::Components::Utilities::Titleable
         include NfgUi::Components::Traits::PageHeader
 

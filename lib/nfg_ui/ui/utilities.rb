@@ -1,7 +1,11 @@
+# frozen_string_literal: true
+
 module NfgUi
   module UI
     module Utilities
-      # require_relative 'utilities/initializer'
+      extend ActiveSupport::Autoload
+      p "AUTOLOADING UI::UTILITIES::INITIALIZER"
+      autoload :Initializer
     end
   end
 end

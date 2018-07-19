@@ -4,15 +4,25 @@ module NfgUi
   module Bootstrap
     # Manifest for Bootstrap utility modules
     module Utilities
-      # require_relative 'utilities/activatable'
-      # require_relative 'utilities/aria_assistable'
-      # require_relative 'utilities/collapsible'
-      # require_relative 'utilities/disableable'
-      # require_relative 'utilities/dismissible'
-      # require_relative 'utilities/sizable'
-      # require_relative 'utilities/themeable'
-      # require_relative 'utilities/tooltipable'
-      # require_relative 'utilities/wrappable'
+      extend ActiveSupport::Autoload
+      p "AUTOLOADING BOOTSTRAP::UTILITIES::ACTIVATABLE"
+      autoload :Activatable
+      p "AUTOLOADING BOOTSTRAP::UTILITIES::ARIAASSISTABLE"
+      autoload :AriaAssistable
+      p "AUTOLOADING BOOTSTRAP::UTILITIES::COLLAPSIBLE"
+      autoload :Collapsible
+      p "AUTOLOADING BOOTSTRAP::UTILITIES::DISABLEABLE"
+      autoload :Disableable
+      p "AUTOLOADING BOOTSTRAP::UTILITIES::DISMISSIBLE"
+      autoload :Dismissible
+      p "AUTOLOADING BOOTSTRAP::UTILITIES::SIZABLE"
+      autoload :Sizable
+      p "AUTOLOADING BOOTSTRAP::UTILITIES::THEMEABLE"
+      autoload :Themeable
+      p "AUTOLOADING BOOTSTRAP::UTILITIES::TOOLTIPABLE"
+      autoload :Tooltipable
+      p "AUTOLOADING BOOTSTRAP::UTILITIES::WRAPPABLE"
+      autoload :Wrappable
     end
   end
 end

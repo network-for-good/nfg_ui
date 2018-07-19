@@ -5,8 +5,6 @@ module NfgUi
     module Patterns
       # TileBody doc coming soon
       class TileBody < NfgUi::Components::Base
-        require 'nfg_ui/bootstrap/utilities/collapsible'
-
         include Bootstrap::Utilities::Collapsible
 
         def initialize(*)

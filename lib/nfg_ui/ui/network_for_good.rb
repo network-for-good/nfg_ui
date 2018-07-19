@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module NfgUi
   module UI
     class NetworkForGood < NfgUi::UI::Base

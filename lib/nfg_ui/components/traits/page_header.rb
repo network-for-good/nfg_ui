@@ -5,8 +5,6 @@ module NfgUi
     module Traits
       # Access to pre-designed Alert traits
       module PageHeader
-        require_relative '../utilities/browser_detectable'
-        
         include NfgUi::Components::Utilities::BrowserDetectable
         attr_reader :sticky
 

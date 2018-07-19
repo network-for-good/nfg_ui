@@ -7,7 +7,6 @@ module NfgUi
       # As such, the NFG UI button group is simply a bootstrap button group behind the scenes.
       # Traits will eventually be connected here.
       class Collapse < NfgUi::Components::Base
-        require 'nfg_ui/bootstrap/utilities/collapsible'
         include Bootstrap::Utilities::Collapsible
 
         def initialize(*)

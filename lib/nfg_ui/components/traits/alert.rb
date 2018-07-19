@@ -5,7 +5,6 @@ module NfgUi
     module Traits
       # Access to pre-designed Alert traits
       module Alert
-        require_relative 'theme'
         include NfgUi::Components::Traits::Theme
 
         attr_reader :error

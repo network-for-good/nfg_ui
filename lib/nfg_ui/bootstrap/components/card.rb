@@ -6,8 +6,6 @@ module NfgUi
       # Bootstrap Alert Component
       # https://getbootstrap.com/docs/4.1/components/alerts/
       class Card < Bootstrap::Components::Base
-        require_relative '../utilities/themeable'
-        
         include Bootstrap::Utilities::Themeable
 
         attr_reader :subtitle

@@ -6,13 +6,21 @@ module NfgUi
     # Trait modules must have the same name as the component they represent.
     # This provides autoloading of traits.
     module Traits
-      # require_relative 'traits/alert'
-      # require_relative 'traits/button'
-      # require_relative 'traits/card'
-      # require_relative 'traits/icon'
-      # require_relative 'traits/page_header'
-      # require_relative 'traits/theme'
-      # require_relative 'traits/typeface'
+      extend ActiveSupport::Autoload
+      p "AUTOLOADING TRAITS::ALERT"
+      autoload :Alert
+      p "AUTOLOADING TRAITS::BUTTON"
+      autoload :Button
+      p "AUTOLOADING TRAITS::CARD"
+      autoload :Card
+      p "AUTOLOADING TRAITS::ICON"
+      autoload :Icon
+      p "AUTOLOADING TRAITS::PAGEHEADER"
+      autoload :PageHeader
+      p "AUTOLOADING TRAITS::THEME"
+      autoload :Theme
+      p "AUTOLOADING TRAITS::TYPEFACE"
+      autoload :Typeface
     end
   end
 end

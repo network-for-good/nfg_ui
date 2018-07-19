@@ -5,7 +5,6 @@ module NfgUi
     module Traits
       # Access to pre-designed Button traits
       module Icon
-        require_relative 'theme'
         include NfgUi::Components::Traits::Theme
 
         attr_reader :right, :text

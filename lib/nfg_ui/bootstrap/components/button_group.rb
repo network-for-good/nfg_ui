@@ -7,9 +7,6 @@ module NfgUi
       # An optional parent of the Button component
       # https://getbootstrap.com/docs/4.1/components/breadcrumb/
       class ButtonGroup < Bootstrap::Components::Base
-        require_relative '../utilities/sizable'
-        require_relative '../utilities/aria_assistable'
-        
         include Bootstrap::Utilities::Sizable
         include Bootstrap::Utilities::AriaAssistable
 
