@@ -11,13 +11,14 @@ module NfgUi
         include Bootstrap::Utilities::Tooltipable
         include NfgUi::Components::Traits::Button
 
-        attr_reader :disable_with, :data
+        attr_reader :disable_with, :data, :remote
 
         def initialize(*)
           super
           @body = text_maybe_with_icon
           @disable_with = options[:disable_with]
-          update_data_attributes if disable_with?
+          @remote = options.fetch(:remote, false)
+          update_data_attributes
         end
 
         def disable_with?
@@ -33,7 +34,10 @@ module NfgUi
         end
 
         def update_data_attributes
-          data.merge!(disable_with: disable_with_text)
+          updated_data = disable_with ? { disable_with: disable_with } : {}
+          updated_data[:remote] = remote if remote
+          
+          data.merge!(updated_data)
         end
 
         def defaults
@@ -41,7 +45,7 @@ module NfgUi
         end
 
         def non_html_attribute_options
-          super.push(:disable_with)
+          super.push(:disable_with, :remote)
         end
 
         def default_disable_with
