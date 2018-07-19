@@ -6,6 +6,5 @@ module NfgUi
     require_relative 'ui/base'
     require_relative 'ui/bootstrap'
     require_relative 'ui/network_for_good'
-    # require_relative 'ui/utilities'
   end
 end

@@ -8,7 +8,7 @@ module NfgUi
         require 'browser'
 
         attr_reader :browser
-        
+
         def initialize(*)
           super
           @browser = Browser.new(user_agent: view_context.request.env['HTTP_USER_AGENT'])
