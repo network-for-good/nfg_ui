@@ -49,7 +49,7 @@ module NfgUi
         end
 
         def default_disable_with
-          ''
+          false
         end
       end
     end
