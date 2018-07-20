@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'Every page loads, quick sanity check', type: :feature do
   describe 'no pages throw an error' do
-    it 'visits every bootstrap page', js: true do
+    it 'visits every bootstrap page' do
       NfgUi::BOOTSTRAP_COMPONENT_NAMES.each do |component|
         visit root_path
         find('a#bootstrap').click
@@ -16,7 +16,7 @@ RSpec.describe 'Every page loads, quick sanity check', type: :feature do
       end
     end
 
-    it 'visits every foundation page', js: true do
+    it 'visits every foundation page' do
       NfgUi::FOUNDATION_COMPONENT_NAMES.each do |component|
         visit root_path
         find('a#foundation').click
@@ -30,7 +30,7 @@ RSpec.describe 'Every page loads, quick sanity check', type: :feature do
       end
     end
 
-    it 'visits every element page', js: true do
+    it 'visits every element page' do
       NfgUi::ELEMENT_COMPONENT_NAMES.each do |component|
         visit root_path
         find('a#element.dropdown-toggle').click
