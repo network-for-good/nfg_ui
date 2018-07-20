@@ -28,6 +28,7 @@ module NfgUi
         end
 
         def theme_css_class
+          return if theme.nil?
           "#{theme_css_class_prefix}-#{outline_css_class_string}#{theme}"
         end
 

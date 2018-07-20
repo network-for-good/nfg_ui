@@ -34,6 +34,10 @@ module NfgUi
           nil
         end
 
+        def default_theme
+          nil
+        end
+
         def defaults
           super.merge!(icon: '',
                        text: '')
