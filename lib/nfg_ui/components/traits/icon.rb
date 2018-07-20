@@ -32,6 +32,10 @@ module NfgUi
           false
         end
 
+        def theme_css_class_prefix
+          'text'
+        end
+
         def css_classes
           right? ? super + ' ml-1' : super
         end
