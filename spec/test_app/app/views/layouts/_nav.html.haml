@@ -24,14 +24,14 @@
       %li.nav-item.dropdown
         %a#element.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
           Element Components
-        .dropdown-menu{"aria-labelledby" => "foundation"}
+        .dropdown-menu{"aria-labelledby" => "element"}
           - NfgUi::ELEMENT_COMPONENT_NAMES.each do |component|
             = link_to component.to_s.humanize, send("elements_#{component.to_s.pluralize}_path", stylesheet: stylesheet_family), class: 'dropdown-item', data: { describe: component }
 
       %li.nav-item.dropdown
-        %a#element.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+        %a#pattern.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
           Pattern Components
-        .dropdown-menu{"aria-labelledby" => "foundation"}
+        .dropdown-menu{"aria-labelledby" => "pattern"}
           - NfgUi::PATTERN_COMPONENT_NAMES.each do |component|
             = link_to component.to_s.humanize, send("patterns_#{component.to_s.pluralize}_path", stylesheet: stylesheet_family), class: 'dropdown-item', data: { describe: component }
     - unless controller_path.include?('bootstrap')

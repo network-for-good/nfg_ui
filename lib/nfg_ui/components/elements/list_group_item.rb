@@ -5,6 +5,9 @@ module NfgUi
     module Elements
       # ListGroupItem doc coming soon
       class ListGroupItem < Bootstrap::Components::ListGroupItem
+        def component_family
+          nil
+        end
       end
     end
   end
