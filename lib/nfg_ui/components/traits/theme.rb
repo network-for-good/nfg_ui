@@ -12,7 +12,7 @@ module NfgUi
         end
 
         def secondary_trait
-          @theme = :primary
+          @theme = :secondary
         end
 
         def success_trait

@@ -70,14 +70,6 @@ module NfgUi
            :outlined,
            :link]
         end
-
-        # def assistive_html_attributes
-        #   if traits.include?(:submit) && type != 'submit'
-        #     super.merge!(type: 'submit')
-        #   else
-        #     super
-        #   end
-        # end
       end
     end
   end
