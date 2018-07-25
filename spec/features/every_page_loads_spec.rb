@@ -72,7 +72,7 @@ def nfg_component_parents
     { child: :breadcrumb_item, parent: :breadcrumb },
     { child: :tile_body, parent: :tile },
     { child: :tile_header, parent: :tile },
-    { child: :tile_section, parent: :tile },
+    { child: :tile_section, parent: :tile }
   ]
 end
 
