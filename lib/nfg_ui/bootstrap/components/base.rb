@@ -73,7 +73,7 @@ module NfgUi
         # Bootstrap::Utilities::AriaAssistable
         # avoid passing aria to assistive_html_attributes directly
         def assistive_html_attributes
-          {}
+          @assistive_html_attributes ||= {}
         end
 
         # Fallback component css class name.
@@ -92,13 +92,13 @@ module NfgUi
         # adding a new string of css classes to this method
         # ex: super.push('new-class')
         def css_classes
-          [component_css_class, trait_css_classes, options[:class]].join(' ').squish
+          @css_classes ||= [component_css_class, trait_css_classes, options[:class]].join(' ').squish
         end
 
         # Remove attributes from html_options that shouldn't show up in the
         # html element, ex: <div body='should not be here'>
         def non_html_attribute_options
-          %i[body heading traits]
+          @non_html_attribute_options ||= %i[body heading traits]
         end
 
         # Avoid usage of this method, it will likely be

@@ -4,7 +4,7 @@
       .modal-header
         - if modal.title
           = ui.nfg :typeface, title: modal.title, class: 'modal-title', id: "#{modal.id}_modal_title"
-        = ui.nfg :button, :close
+        = ui.nfg :button, :close, dismiss: 'modal'
       .modal-body= modal.body
       
       - if modal.footer?
