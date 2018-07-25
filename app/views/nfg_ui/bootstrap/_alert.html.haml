@@ -1,8 +1,7 @@
 -# http://getbootstrap.com/docs/4.1/components/alerts/
 %div{ alert.html_options }
   - if alert.dismissible?
-    %button{ class: 'close', data: { dismiss: 'alert' }, aria: { label: 'Close' } }
-      &times;
+    = ui.nfg :button, :close, dismiss: 'alert'
 
   - if alert.heading
     %h4.alert-heading= alert.heading

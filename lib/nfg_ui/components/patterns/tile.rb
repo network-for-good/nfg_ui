@@ -9,15 +9,8 @@ module NfgUi
         include NfgUi::Components::Utilities::Titleable
         include NfgUi::Components::Utilities::Iconable
 
-        def initialize(*)
-          super
-        end
-
-        def tile_body_css_class
-          css_class = ''
-          css_class += ' collapse' if collapsible?
-          css_class += collapsed? ? '' : ' show'
-          css_class
+        def collapsible_tile_wrapper_css_class
+          ' collapse' + (' show' if collapsed?) unless collapsible?
         end
 
         private
