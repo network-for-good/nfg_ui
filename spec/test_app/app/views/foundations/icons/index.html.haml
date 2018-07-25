@@ -12,7 +12,7 @@
 %br
 = ui.nfg :icon, 'rocket', text: 'Icon on the right with option', right: true
 
-%h2 Themes
+%h2 Themes via traits
 
 %br
 = ui.nfg :icon, 'rocket', :primary
@@ -30,3 +30,24 @@
 = ui.nfg :icon, 'rocket', :light
 %br
 = ui.nfg :icon, 'rocket', :dark
+
+%hr
+
+%h2 Themes via options
+
+%br
+= ui.nfg :icon, 'rocket', theme: :primary
+%br
+= ui.nfg :icon, 'rocket', theme: :secondary
+%br
+= ui.nfg :icon, 'rocket', theme: :success
+%br
+= ui.nfg :icon, 'rocket', theme: :danger
+%br
+= ui.nfg :icon, 'rocket', theme: :warning
+%br
+= ui.nfg :icon, 'rocket', theme: :info
+%br
+= ui.nfg :icon, 'rocket', theme: :light
+%br
+= ui.nfg :icon, 'rocket', theme: :dark
