@@ -21,10 +21,14 @@ module NfgUi
           super
           self.icon = traits.first.to_s
           self.traits = (traits & allowed_traits) # only permissible traits are allowed
-          @text = options.fetch(:text, nil)
+          @text = options.fetch(:text, default_text)
         end
 
         private
+
+        def default_text
+          ''
+        end
 
         def component_css_class
           nil
@@ -35,12 +39,16 @@ module NfgUi
         end
 
         def defaults
-          super.merge!(icon: nil,
-                       text: nil)
+          super.merge!(icon: '',
+                       text: '')
         end
 
         def non_html_attribute_options
-          super.push((:text if text))
+          super.push(*icon_non_html_attribute_options)
+        end
+
+        def icon_non_html_attribute_options
+          text ? [:text] : []
         end
       end
     end

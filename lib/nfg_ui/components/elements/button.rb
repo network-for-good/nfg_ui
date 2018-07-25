@@ -7,8 +7,8 @@ module NfgUi
       # As such, the NFG UI Button is simply a bootstrap Button behind the scenes.
       # Traits will eventually be connected here.
       class Button < Bootstrap::Components::Button
-        include NfgUi::Components::Traits::Button
         include NfgUi::Components::Utilities::Iconable
+        include NfgUi::Components::Traits::Button
         include Bootstrap::Utilities::Tooltipable
 
         attr_reader :disable_with, :data, :remote
@@ -16,10 +16,13 @@ module NfgUi
         def initialize(*)
           super
           @body = text_maybe_with_icon
-          @disable_with = options.fetch(:disable_with, nil)
+          @disable_with = options[:disable_with]
           @remote = options.fetch(:remote, false)
-          
           update_data_attributes
+        end
+
+        def disable_with?
+          disable_with.present? || traits.include?(:disable_with)
         end
 
         private

@@ -7,73 +7,50 @@ module NfgUi
       # To do: this needs to be re-worked with the new concept for
       # traits.
       module Button
-        include NfgUi::Components::Traits
         include NfgUi::Components::Traits::Theme
-        include NfgUi::Components::Traits::Size
+
+        attr_reader   :type, :close
+        attr_writer   :block, :default_html_wrapper_element, :size
+        attr_accessor :submit, :as
+
+        def initialize(*)
+          super
+          @type = options.fetch(:type, nil)
+          self.submit = traits.include?(:submit) || type == 'submit'
+          self.block = traits.include?(:block) || block
+          self.size = (traits & bootstrap4_size_options).first || size
+          @default_html_wrapper_element = submit? ? :button : as
+          @close = traits.include?(:close)
+          self.as = :button if submit? || close
+          options[:href] = nil if submit? || close
+        end
+
+        def submit?
+          submit
+        end
+
+        def html_options
+          return super unless close
+
+          super.merge!(aria: { label: 'Clase' },
+                       data: { dismiss: 'modal' },
+                       class: 'close')
+        end
+
+        def icon
+          return super unless close
+          'times'
+        end
 
         private
 
-        def active_trait
-          @active = true
-          build_aria(aria_key: :pressed, aria_value: true)
+        def assistive_html_attributes
+          if traits.include?(:submit) && type != 'submit'
+            super.merge!(type: 'submit')
+          else
+            super
+          end
         end
-
-        def block_trait
-          @block = true
-
-        end
-
-        def close_trait
-          @as = :button
-          data[:dismiss] = options.delete(:dismiss)
-          @theme = nil
-          @css_classes = 'close'
-          @icon = 'times'
-          build_aria(aria_key: :label, aria_value: 'Close')
-        end
-
-        def disable_with_trait
-          @disable_with_text = view_context.ui.nfg(:icon, 'spinner spin fw', text: 'Saving...')
-        end
-
-        def dismissible_trait
-          @dismissible = true
-        end
-
-        def remote_trait
-          @remote = true
-          @data.merge!(remote: true)
-        end
-
-        def submit_trait
-          @as = :button
-          options.delete(:href)
-          assistive_html_attributes.merge!(type: :submit)
-          @default_html_wrapper_element = :button
-        end
-
-        def outlined_trait
-          @outlined = true
-        end
-
-        def allowed_traits
-          [:disable_with,
-           :active,
-           :close,
-           :block,
-           :remote,
-           :submit,
-           :dismissible,
-           :outlined]
-        end
-
-        # def assistive_html_attributes
-        #   if traits.include?(:submit) && type != 'submit'
-        #     super.merge!(type: 'submit')
-        #   else
-        #     super
-        #   end
-        # end
       end
     end
   end

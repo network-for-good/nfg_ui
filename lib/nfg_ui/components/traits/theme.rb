@@ -5,51 +5,13 @@ module NfgUi
     module Traits
       # Access to pre-designed theme traits
       module Theme
-        # include Bootstrap::Utilities::Themeable
+        include Bootstrap::Utilities::Themeable
 
-        # attr_writer :theme
+        attr_writer :theme
 
-        # def initialize(*)
-        #   super
-        #   self.theme = (bootstrap4_themes & traits).last || theme
-        # end
-
-        private
-
-        def primary_trait
-          @theme = :primary
-        end
-
-        def secondary_trait
-          @theme = :primary
-        end
-
-        def success_trait
-          @theme = :success
-        end
-
-        def danger_trait
-          @theme = :danger
-        end
-
-        def warning_trait
-          @theme = :warning
-        end
-
-        def info_trait
-          @theme = :info
-        end
-
-        def light_trait
-          @theme = :light
-        end
-
-        def dark_trait
-          @theme = :dark
-        end
-
-        def allowed_traits
-          super.push(NfgUi::Bootstrap::Utilities::Themeable.bootstrap4_themes)
+        def initialize(*)
+          super
+          self.theme = (bootstrap4_themes & traits).last || theme
         end
       end
     end

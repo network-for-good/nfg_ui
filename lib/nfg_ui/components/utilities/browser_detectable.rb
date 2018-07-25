@@ -7,8 +7,11 @@ module NfgUi
       module BrowserDetectable
         require 'browser'
 
-        def browser
-          Browser.new(user_agent: view_context.request.env['HTTP_USER_AGENT'])
+        attr_reader :browser
+        
+        def initialize(*)
+          super
+          @browser = Browser.new(user_agent: view_context.request.env['HTTP_USER_AGENT'])
         end
       end
     end

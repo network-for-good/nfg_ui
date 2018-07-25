@@ -5,18 +5,26 @@ module NfgUi
     module Utilities
       # Allows components to be setup to accept icons
       module Iconable
-        def icon
-          @icon ||= options.fetch(:icon, nil)
+        attr_reader :text, :icon
+
+        def initialize(*)
+          super
+          @text = options.fetch(:text, options[:body])
+          @icon = options.fetch(:icon, default_icon)
         end
 
-        def text
-          @text ||= options[:body]
+        def icon?
+          icon.present?
         end
 
         private
 
+        def default_icon
+          ''
+        end
+
         def defaults
-          super.merge!(icon: nil)
+          super.merge!(icon: default_icon)
         end
 
         def non_html_attribute_options
@@ -24,7 +32,7 @@ module NfgUi
         end
 
         def text_maybe_with_icon
-          icon.present? ? view_context.ui.nfg(:icon, icon, class: 'mr-1', text: text) : @body
+          icon? ? view_context.ui.nfg(:icon, icon, class: 'mr-1', text: text) : text
         end
       end
     end

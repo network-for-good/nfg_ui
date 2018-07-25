@@ -41,7 +41,7 @@ module NfgUi
 
         # Set default_html_wrapper_element on individual components as needed
         def default_html_wrapper_element
-          @default_html_wrapper_element ||= :span
+          :span
         end
 
         def link?
