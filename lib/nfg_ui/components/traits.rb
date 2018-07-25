@@ -16,8 +16,6 @@ module NfgUi
       autoload :Theme
       autoload :Typeface
 
-      
-
       def initialize(*)
         super
         adjust_component_with_traits if traits.any?
