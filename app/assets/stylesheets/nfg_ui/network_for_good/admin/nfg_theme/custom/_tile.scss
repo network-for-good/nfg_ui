@@ -50,9 +50,11 @@
   background-color: $white;
   @include media-breakpoint-up(sm) { padding: $grid-gutter-width; }
 }
-.tile-header + .tile-body {
-  border-top: $border-width solid $border-color;
-  &.collapse:not(.show) { border-top: none; }
+.tile-header {
+  + .collapse,
+  + .collapsing,
+  + .tile-body,
+  + .tile-footer { border-top: $border-width solid $border-color; }
 }
 .tile-body + .tile-footer { border-top: $border-width solid $border-color; }
 

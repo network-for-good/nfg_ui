@@ -15,8 +15,7 @@ module NfgUi
         end
 
         def sticky?
-          return unless sticky
-          Rails.env.test? ? false : !browser.mobile?
+          sticky && !Rails.env.test? && !browser.mobile?
         end
 
         private
