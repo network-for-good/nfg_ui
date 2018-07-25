@@ -7,7 +7,7 @@ module NfgUi
       module Collapsible
         include Bootstrap::Utilities::AriaAssistable
 
-        attr_reader :collapsed
+        attr_reader :collapsed, :id
 
         def initialize(*)
           super
@@ -22,6 +22,10 @@ module NfgUi
 
         def collapsed?
           collapsed || traits.include?(:collapsed)
+        end
+
+        def collapsible_wrapper_html_options
+          { class: collapsible_target_css_classes, id: collapsible_target_id }
         end
 
         def collapsible_toggle_html_options
