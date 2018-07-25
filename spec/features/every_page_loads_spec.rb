@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Every page loads, quick sanity check', type: :feature do
+RSpec.describe 'Every page loads, quick sanity check', type: :feature, js: true do
   describe 'no pages throw an error' do
     it 'visits every bootstrap page' do
       NfgUi::BOOTSTRAP_COMPONENT_NAMES.each do |component|
@@ -43,6 +43,20 @@ RSpec.describe 'Every page loads, quick sanity check', type: :feature do
         end
       end
     end
+
+    it 'visits every pattern page' do
+      NfgUi::PATTERN_COMPONENT_NAMES.each do |component|
+        visit root_path
+        find('a#pattern.dropdown-toggle').click
+        find("[aria-labelledby='pattern'] [data-describe='#{component}']").click
+
+        if component_redirected?(component, :nfg)
+          expect(page).to have_css "body.patterns.#{parent_component(component, :nfg).to_s.pluralize}.index"
+        else
+          expect(page).to have_css "body.patterns.#{component.to_s.pluralize}.index"
+        end
+      end
+    end
   end
 end
 
@@ -55,7 +69,10 @@ end
 
 def nfg_component_parents
   [
-    { child: :breadcrumb_item, parent: :breadcrumb }
+    { child: :breadcrumb_item, parent: :breadcrumb },
+    { child: :tile_body, parent: :tile },
+    { child: :tile_header, parent: :tile },
+    { child: :tile_section, parent: :tile },
   ]
 end
 
