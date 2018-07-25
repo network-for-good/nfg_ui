@@ -12,6 +12,10 @@ module NfgUi
         include NfgUi::Components::Traits::Size
 
         private
+        
+        def link_trait
+          @theme = :link
+        end
 
         def active_trait
           @active = true
@@ -20,7 +24,6 @@ module NfgUi
 
         def block_trait
           @block = true
-
         end
 
         def close_trait
@@ -64,7 +67,8 @@ module NfgUi
            :remote,
            :submit,
            :dismissible,
-           :outlined]
+           :outlined,
+           :link]
         end
 
         # def assistive_html_attributes
