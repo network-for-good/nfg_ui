@@ -5,11 +5,8 @@ module NfgUi
     module Utilities
       # Passes in necessary attributes to allow a component to have an active state
       module Activatable
-        attr_accessor :active
-
-        def initialize(*)
-          super
-          self.active = options.fetch(:active, default_active)
+        def active
+          options.fetch(:active, default_active)
         end
 
         def active?
