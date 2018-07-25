@@ -18,7 +18,6 @@ module NfgUi
           @body = text_maybe_with_icon
           @disable_with = options.fetch(:disable_with, nil)
           @remote = options.fetch(:remote, false)
-          
           update_data_attributes
         end
 

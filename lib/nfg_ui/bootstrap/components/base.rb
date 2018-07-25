@@ -7,15 +7,15 @@ module NfgUi
       # Defines conventional, shared behavior across
       # Bootstrap components
       class Base
-        attr_reader :traits,
-                    :as,
-                    :id,
-                    :options,
-                    :view_context,
-                    :data,
-                    :heading,
-                    :body,
-                    :name
+        attr_accessor :traits,
+                      :as,
+                      :id,
+                      :options,
+                      :view_context,
+                      :data,
+                      :heading,
+                      :body,
+                      :name
 
         def initialize(component_options, view_context)
           @options = defaults.merge!(component_options)
@@ -37,6 +37,8 @@ module NfgUi
                                               # Example: <div class>Text</div>
         end
 
+        private
+
         # This is used to help identify where to find partials for rendering components.
         #
         # Set the component family, e.g.: :breadcrumb
@@ -47,8 +49,6 @@ module NfgUi
         def component_family
           nil
         end
-
-        private
 
         def defaults
           {
