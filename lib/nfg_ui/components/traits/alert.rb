@@ -5,6 +5,7 @@ module NfgUi
     module Traits
       # Access to pre-designed Alert traits
       module Alert
+        include NfgUi::Components::Traits
         include NfgUi::Components::Traits::Theme
 
         private

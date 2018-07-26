@@ -15,9 +15,9 @@ module NfgUi
         alias_method :small_trait, :sm_trait
 
         def allowed_traits
-          super.push(:lg, 
-                     :large, 
-                     :sm, 
+          super.push(:lg,
+                     :large,
+                     :sm,
                      :small)
         end
 
