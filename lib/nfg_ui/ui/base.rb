@@ -5,8 +5,6 @@ module NfgUi
     # The base component building class for namespaced
     # components (bootstrap vs network_for_good / nfg)
     class Base
-      # require_relative 'utilities'
-      # include UI::Utilities
       include NfgUi::UI::Utilities::Initializer
       # Child classes manage initialization
       # Base collects the view_context to supply the
