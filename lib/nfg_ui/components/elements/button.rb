@@ -32,7 +32,7 @@ module NfgUi
         def update_data_attributes
           updated_data = disable_with ? { disable_with: disable_with } : {}
           updated_data[:remote] = remote if remote
-          
+
           data.merge!(updated_data)
         end
 

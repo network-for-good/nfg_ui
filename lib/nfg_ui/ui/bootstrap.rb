@@ -20,7 +20,7 @@ module NfgUi
       private
 
       def component_name_folder
-        component.component_family.try(:to_s).try(:pluralize)
+        component.try(:component_family).try(:to_s).try(:pluralize)
       end
 
       def group
