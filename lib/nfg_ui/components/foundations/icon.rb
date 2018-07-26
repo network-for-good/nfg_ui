@@ -13,18 +13,27 @@ module NfgUi
         include Bootstrap::Utilities::Tooltipable
         include NfgUi::Components::Traits::Icon
 
-        attr_reader   :text
-        attr_accessor :icon
-        attr_writer   :traits
+        attr_accessor :icon, :text
 
         def initialize(*)
           super
           self.icon = traits.first.to_s
-          self.traits = (traits & allowed_traits) # only permissible traits are allowed
           @text = options.fetch(:text, nil)
         end
 
+        def right
+          @right ||= options[:right]
+        end
+
         private
+
+        def css_classes
+          right ? super + ' ml-1' : super
+        end
+
+        def theme_css_class_prefix
+          'text'
+        end
 
         def component_css_class
           nil
@@ -36,7 +45,8 @@ module NfgUi
 
         def defaults
           super.merge!(icon: nil,
-                       text: nil)
+                       text: nil,
+                       right: false)
         end
 
         def non_html_attribute_options
