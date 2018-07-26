@@ -17,6 +17,15 @@ module NfgUi
   require_relative 'nfg_ui/bootstrap'
   require_relative 'nfg_ui/components'
 
+  BOOTSTRAP_THEMES           = %i[primary
+                                  secondary
+                                  success
+                                  danger
+                                  warning
+                                  info
+                                  light
+                                  dark].freeze
+
   BOOTSTRAP_COMPONENT_NAMES  = %i[alert
                                   badge
                                   breadcrumb

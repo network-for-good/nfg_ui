@@ -40,7 +40,7 @@ module NfgUi
         end
 
         def allowed_traits
-          super.push(NfgUi::Bootstrap::Utilities::Themeable.bootstrap4_themes)
+          super.push(*NfgUi::BOOTSTRAP_THEMES)
         end
       end
     end

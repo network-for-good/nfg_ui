@@ -33,14 +33,7 @@ module NfgUi
         end
 
         def bootstrap4_themes
-          %i[primary
-             secondary
-             success
-             danger
-             warning
-             info
-             light
-             dark]
+          NfgUi::BOOTSTRAP_THEMES
         end
 
         def outlined?
