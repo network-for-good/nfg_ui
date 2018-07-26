@@ -27,7 +27,7 @@ module NfgUi
         return unless allowed_traits.present?
 
         traits.each do |trait|
-          next if skipped_traits.include?(trait) || options[trait].present?
+          next if skipped_traits.reject(&:nil?).include?(trait) || options[trait].present?
           send "#{trait}_trait"
         end
       end
