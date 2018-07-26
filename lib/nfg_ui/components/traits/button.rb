@@ -12,7 +12,7 @@ module NfgUi
         include NfgUi::Components::Traits::Size
 
         private
-        
+
         def link_trait
           @theme = :link
         end
@@ -60,15 +60,15 @@ module NfgUi
         end
 
         def allowed_traits
-          [:disable_with,
-           :active,
-           :close,
-           :block,
-           :remote,
-           :submit,
-           :dismissible,
-           :outlined,
-           :link]
+          super.push(:disable_with,
+                     :active,
+                     :close,
+                     :block,
+                     :remote,
+                     :submit,
+                     :dismissible,
+                     :outlined,
+                     :link)
         end
       end
     end

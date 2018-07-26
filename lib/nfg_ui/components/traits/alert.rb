@@ -16,11 +16,11 @@ module NfgUi
         end
 
         def allowed_traits
-          [*bootstrap4_themes, :dismissible, :error]
+          super.push(:dismissible, :error)
         end
 
         def skipped_traits
-          [*bootstrap4_themes, :dismissible]
+          super.push(:dismissible)
         end
       end
     end
