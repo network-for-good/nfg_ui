@@ -28,7 +28,7 @@ module NfgUi
 
         traits.each do |trait|
           next if skipped_traits.reject(&:nil?).include?(trait) || options[trait].present?
-          send "#{trait}_trait"
+          send "#{trait}_trait" rescue nil
         end
       end
 
