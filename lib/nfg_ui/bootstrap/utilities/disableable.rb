@@ -5,48 +5,48 @@ module NfgUi
     module Utilities
       # Allows components to have a disabled state when appropriate
       module Disableable
-        attr_accessor :disabled
+        # attr_accessor :disabled
 
-        def initialize(*)
-          super
-          self.disabled = options.fetch(:disabled, default_disabled)
-          add_negative_tab_index?
-        end
+        # def initialize(*)
+        #   super
+        #   self.disabled = options.fetch(:disabled, default_disabled)
+        #   add_negative_tab_index?
+        # end
 
-        def disabled?
-          disabled
-        end
+        # def disabled?
+        #   disabled
+        # end
 
-        private
+        # private
 
-        def css_classes
-          disabled? ? super + ' disabled' : super
-        end
+        # def css_classes
+        #   disabled? ? super + ' disabled' : super
+        # end
 
-        def non_html_attribute_options
-          if elements_permitted_to_have_disabled_attribute.include?(as)
-            super
-          else
-            super.push(:disabled)
-          end
-        end
+        # def non_html_attribute_options
+        #   if elements_permitted_to_have_disabled_attribute.include?(as)
+        #     super
+        #   else
+        #     super.push(:disabled)
+        #   end
+        # end
 
-        def elements_permitted_to_have_disabled_attribute
-          %i[button
-             input]
-        end
+        # def elements_permitted_to_have_disabled_attribute
+        #   %i[button
+        #      input]
+        # end
 
-        def elements_permitted_to_have_negative_tab_index
-          %i[a]
-        end
+        # def elements_permitted_to_have_negative_tab_index
+        #   %i[a]
+        # end
 
-        def add_negative_tab_index?
-          options.merge!(tabindex: '-1') if disabled? && elements_permitted_to_have_negative_tab_index.include?(as)
-        end
+        # def add_negative_tab_index?
+        #   options.merge!(tabindex: '-1') if disabled? && elements_permitted_to_have_negative_tab_index.include?(as)
+        # end
 
-        def default_disabled
-          false
-        end
+        # def default_disabled
+        #   false
+        # end
       end
     end
   end

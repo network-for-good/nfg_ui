@@ -37,65 +37,65 @@ module NfgUi
       module Tooltipable
         # require_relative '../utilities/disableable'
         
-        include Bootstrap::Utilities::Disableable
-        attr_reader :tooltip
-        attr_accessor :data
+        # include Bootstrap::Utilities::Disableable
+        # attr_reader :tooltip
+        # attr_accessor :data
 
-        def initialize(*)
-          super
-          @tooltip = options.fetch(:tooltip, false)
-          self.data = data.merge!(tooltip_data_attributes) if tooltipable?
-        end
+        # def initialize(*)
+        #   super
+        #   @tooltip = options.fetch(:tooltip, false)
+        #   self.data = data.merge!(tooltip_data_attributes) if tooltipable?
+        # end
 
-        def html_options
-          return super unless tooltip.present?
+        # def html_options
+        #   return super unless tooltip.present?
 
-          styles = options.fetch(:style, '') + (disabled? ? ' pointer-events: none;' : '')
-          super.merge!(title: tooltip, style: styles)
-        end
+        #   styles = options.fetch(:style, '') + (disabled? ? ' pointer-events: none;' : '')
+        #   super.merge!(title: tooltip, style: styles)
+        # end
 
-        def tooltipable?
-          tooltip.present? && !disabled?
-        end
+        # def tooltipable?
+        #   tooltip.present? && !disabled?
+        # end
 
-        def disabled_tooltipable?
-          tooltip.present? && disabled?
-        end
+        # def disabled_tooltipable?
+        #   tooltip.present? && disabled?
+        # end
 
-        def tooltip?
-          tooltip.present?
-        end
+        # def tooltip?
+        #   tooltip.present?
+        # end
 
-        def disabled_component_tooltip_wrapper_html_options
-          { data: tooltip_data_attributes,
-            title: tooltip,
-            class: 'd-inline-block',
-            tabindex: 0 }
-        end
+        # def disabled_component_tooltip_wrapper_html_options
+        #   { data: tooltip_data_attributes,
+        #     title: tooltip,
+        #     class: 'd-inline-block',
+        #     tabindex: 0 }
+        # end
 
-        private
+        # private
 
-        def tooltip_data_attributes
-          { toggle: 'tooltip',
-            placement: tooltip_placement,
-            html: tooltip_html.to_s }
-        end
+        # def tooltip_data_attributes
+        #   { toggle: 'tooltip',
+        #     placement: tooltip_placement,
+        #     html: tooltip_html.to_s }
+        # end
 
-        def defaults
-          super.merge!(tooltip: false)
-        end
+        # def defaults
+        #   super.merge!(tooltip: false)
+        # end
 
-        def non_html_attribute_options
-          super.push(:tooltip)
-        end
+        # def non_html_attribute_options
+        #   super.push(:tooltip)
+        # end
 
-        def tooltip_placement
-          @tooltip_placement ||= :top
-        end
+        # def tooltip_placement
+        #   @tooltip_placement ||= :top
+        # end
 
-        def tooltip_html
-          true
-        end
+        # def tooltip_html
+        #   true
+        # end
       end
     end
   end

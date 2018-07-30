@@ -5,43 +5,43 @@ module NfgUi
     module Traits
       # Access to pre-designed theme traits
       module Theme
-        private
+        # private
 
-        def primary_trait
-          @theme = :primary
-        end
+        # def primary_trait
+        #   @theme = :primary
+        # end
 
-        def secondary_trait
-          @theme = :secondary
-        end
+        # def secondary_trait
+        #   @theme = :secondary
+        # end
 
-        def success_trait
-          @theme = :success
-        end
+        # def success_trait
+        #   @theme = :success
+        # end
 
-        def danger_trait
-          @theme = :danger
-        end
+        # def danger_trait
+        #   @theme = :danger
+        # end
 
-        def warning_trait
-          @theme = :warning
-        end
+        # def warning_trait
+        #   @theme = :warning
+        # end
 
-        def info_trait
-          @theme = :info
-        end
+        # def info_trait
+        #   @theme = :info
+        # end
 
-        def light_trait
-          @theme = :light
-        end
+        # def light_trait
+        #   @theme = :light
+        # end
 
-        def dark_trait
-          @theme = :dark
-        end
+        # def dark_trait
+        #   @theme = :dark
+        # end
 
-        def allowed_traits
-          super.push(*NfgUi::BOOTSTRAP_THEMES)
-        end
+        # def allowed_traits
+        #   super.push(*NfgUi::BOOTSTRAP_THEMES)
+        # end
       end
     end
   end

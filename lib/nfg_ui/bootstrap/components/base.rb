@@ -7,25 +7,32 @@ module NfgUi
       # Defines conventional, shared behavior across
       # Bootstrap components
       class Base
-        attr_accessor :traits,
-                      :as,
-                      :id,
-                      :options,
+        # attr_accessor :traits,
+        #               :as,
+        #               :id,
+        #               :options,
+        #               :view_context,
+        #               :data,
+        #               :heading,
+        #               :body,
+        #               :name
+
+        attr_accessor :options,
                       :view_context,
+                      :id,
                       :data,
-                      :heading,
-                      :body,
-                      :name
+                      :body
 
         def initialize(component_options, view_context)
           @options = defaults.merge!(component_options)
           @view_context = view_context
+          @id = options.fetch(:id, nil)
           @data = options.fetch(:data, {})
-          @name = component_class_name_string.underscore.downcase
+          # @name = component_class_name_string.underscore.downcase
           @body = options.fetch(:body, '')
-          @heading = options.fetch(:heading, '')
-          @traits = options.fetch(:traits, [])
-          @id = options.fetch(:id, '')
+          # @heading = options.fetch(:heading, '')
+          # @traits = options.fetch(:traits, [])
+          # @id = options.fetch(:id, '')
         end
 
         def html_options
@@ -46,23 +53,23 @@ module NfgUi
         #
         # For example:
         # BreadcrumbItem & Breadcrumb are members of the :breadcrumb component_family
-        def component_family
-          nil
-        end
+        # def component_family
+        #   nil
+        # end
 
         def defaults
           {
             # HTML Defaults
             class: '',
-            id: ('' if id.present?),
+            id: (nil if id.present?),
 
             # Content
-            heading: ('' if heading.present?),
-            body: ('' if body.present?),
-            data: {},
+            # heading: (nil if heading.present?),
+            body: (nil if body.present?),
+            data: ({} if data.present?),
 
             # Configuration
-            traits: ([] if traits.present?)
+            # traits: ([] if traits.present?)
           }
         end
 
@@ -81,7 +88,7 @@ module NfgUi
         # Button's css class is 'btn'...
         # Example: returns 'alert' from NfgUi::Bootstrap::Components::Alert
         def component_css_class
-          component_class_name_string.underscore.dasherize.downcase
+          @component_css_class ||= component_class_name_string.underscore.dasherize.downcase
         end
 
         def component_class_name_string
@@ -92,7 +99,7 @@ module NfgUi
         # adding a new string of css classes to this method
         # ex: super.push('new-class')
         def css_classes
-          @css_classes ||= [component_css_class, trait_css_classes, options[:class]].join(' ').squish
+          @css_classes ||= [component_css_class, options[:class]].join(' ').squish
         end
 
         # Remove attributes from html_options that shouldn't show up in the
@@ -103,9 +110,9 @@ module NfgUi
 
         # Avoid usage of this method, it will likely be
         # phased out as traits mature
-        def trait_css_classes
-          ''
-        end
+        # def trait_css_classes
+        #   ''
+        # end
       end
     end
   end

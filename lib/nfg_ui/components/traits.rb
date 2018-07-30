@@ -16,29 +16,29 @@ module NfgUi
       autoload :Theme
       autoload :Typeface
 
-      def initialize(*)
-        super
-        adjust_component_with_traits if traits.any?
-      end
+      # def initialize(*)
+      #   super
+      #   adjust_component_with_traits if traits.any?
+      # end
 
-      private
+      # private
 
-      def adjust_component_with_traits
-        return unless allowed_traits.present?
+      # def adjust_component_with_traits
+      #   return unless allowed_traits.present?
 
-        traits.each do |trait|
-          next if skipped_traits.reject(&:nil?).include?(trait) || options[trait].present?
-          send "#{trait}_trait" rescue nil
-        end
-      end
+      #   traits.each do |trait|
+      #     next if skipped_traits.reject(&:nil?).include?(trait) || options[trait].present?
+      #     send "#{trait}_trait" rescue nil
+      #   end
+      # end
 
-      def allowed_traits
-        @allowed_traits ||= []
-      end
+      # def allowed_traits
+      #   @allowed_traits ||= []
+      # end
 
-      def skipped_traits
-        @skipped_traits ||= []
-      end
+      # def skipped_traits
+      #   @skipped_traits ||= []
+      # end
     end
   end
 end

@@ -5,11 +5,11 @@ module NfgUi
     module Patterns
       # TileBody doc coming soon
       class TileBody < NfgUi::Components::Base
-        private
+        # private
 
-        def component_family
-          :tile
-        end
+        # def component_family
+        #   :tile
+        # end
       end
     end
   end
