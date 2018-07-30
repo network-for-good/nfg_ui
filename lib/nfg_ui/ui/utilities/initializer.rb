@@ -23,6 +23,7 @@ module NfgUi
 
         # Provides a central initialization method for NfgUi::UI::Base child classes
         def initializer(component_name = nil, *traits, **options, &block)
+          p "====== (Utilities::Initializer) self.class.name: #{self.class.name} method: #{__method__}"
           # #init_haml_helpers is required when utilizing #capture with HAML
           # (when outside of Rails)
           # https://www.rubydoc.info/github/haml/haml/Haml%2FHelpers:init_haml_helpers

@@ -14,6 +14,11 @@ module NfgUi
         # def assistive_html_attributes
         #   super.merge!(role: 'alert') unless options[:role]
         # end
+
+        def defaults
+          p "====== (Components::Alert) self.class.name: #{self.class.name} method: #{__method__}"
+          super
+        end
       end
     end
   end
