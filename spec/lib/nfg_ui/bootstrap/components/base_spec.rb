@@ -134,4 +134,9 @@ RSpec.describe NfgUi::Bootstrap::Components::Base do
       it { is_expected.to eq 'base' }
     end
   end
+
+  describe '#non_html_attribute_options' do
+    subject { bootstrap_base.send(:non_html_attribute_options) }
+    it { is_expected.to eq %i[body heading traits] }
+  end
 end
