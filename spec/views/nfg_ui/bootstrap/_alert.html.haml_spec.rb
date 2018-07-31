@@ -9,5 +9,6 @@ RSpec.describe 'nfg_ui/bootstrap/_alert.html.haml', type: :view do
     expect(subject).to have_css '.alert'
     expect(subject).to have_css ".alert[role='alert']"
     expect(subject).to have_selector '.alert', text: body
+    expect(subject).to eq "<div class='alert' role='alert'>\n#{body}\n</div>\n"
   end
 end
