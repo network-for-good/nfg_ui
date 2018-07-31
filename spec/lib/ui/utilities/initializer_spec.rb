@@ -18,14 +18,14 @@ RSpec.describe NfgUi::UI::Utilities::Initializer do
                       &block
                     )
                   }
-  
+                  
   describe '#render_component' do
     let(:component_css_class) { component.component.send(:component_css_class) }
     subject { component.render_component }
 
     context 'rendering #bootstrap components' do
       let(:component_suite) { 'Bootstrap' }
-      it { is_expected.to eq "<div class='#{component_css_class}'>\n#{body}\n</div>\n" }
+      it { is_expected.to eq "<div class='alert' role='alert'>\n#{body}\n</div>\n" }
     end
 
     context 'rendering #nfg components' do
@@ -54,7 +54,7 @@ RSpec.describe NfgUi::UI::Utilities::Initializer do
     end
   end
 
-  describe '#ancestry_string' do    
+  describe '#ancestry_string' do
     subject { test_class_with_initializer.new.send(:ancestry_string) }
     it { is_expected.to eq '' }
   end
@@ -65,17 +65,17 @@ RSpec.describe NfgUi::UI::Utilities::Initializer do
              has been better organized'
   end
 
-  describe '#group' do    
+  describe '#group' do
     subject { test_class_with_initializer.new.send(:group) }
     it { is_expected.not_to be }
   end
 
-  describe '#components_within_group' do    
+  describe '#components_within_group' do
     subject { test_class_with_initializer.new.send(:components_within_group) }
     it { is_expected.to eq [] }
   end
 
-  describe '#partial_path' do    
+  describe '#partial_path' do
     subject { component.send(:partial_path) }
     context 'partial path for bootstrap components' do
       let(:component_suite) { 'Bootstrap' }

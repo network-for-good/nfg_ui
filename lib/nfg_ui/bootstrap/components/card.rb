@@ -25,9 +25,9 @@ module NfgUi
         #   :h6
         # end
 
-        # def component_family
-        #   :card
-        # end
+        def component_family
+          :card
+        end
 
         # private
 

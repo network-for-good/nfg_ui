@@ -34,6 +34,7 @@ module NfgUi
           # @heading = options.fetch(:heading, '')
           # @traits = options.fetch(:traits, [])
           # @id = options.fetch(:id, '')
+          # byebug
         end
 
         def html_options

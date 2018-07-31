@@ -56,7 +56,6 @@ module NfgUi
         def component_family
           p "====== (Utilities::Initializer) self.class.name: #{self.class.name} method: #{__method__}"
           component.send(:component_family).presence
-          raise 'sup'
         end
 
         def grouping_folder
