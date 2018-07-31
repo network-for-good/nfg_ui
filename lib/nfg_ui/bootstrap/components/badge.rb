@@ -9,15 +9,17 @@ module NfgUi
         # include Bootstrap::Utilities::Themeable
         # include Bootstrap::Utilities::Wrappable
 
-        def pill
-          options.fetch(:pill, default_pill)
-        end
+        
 
         # def pill?
         #   traits.include?(:pill)
         # end
 
         private
+
+        def pill
+          options.fetch(:pill, default_pill)
+        end
 
         def css_classes
           pill ? super + " #{component_css_class}-pill" : super

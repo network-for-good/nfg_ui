@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe 'nfg_ui/bootstrap/_badge.html.haml', type: :view do
-  
   let(:badge) { FactoryBot.create(:bootstrap_badge, **options) }
   let(:options) { {} }
   subject { render 'nfg_ui/bootstrap/badge', badge: badge }
@@ -9,7 +8,6 @@ RSpec.describe 'nfg_ui/bootstrap/_badge.html.haml', type: :view do
   describe 'html output for the bootstrap badge' do
     let(:options) { { body: body } }
     let(:body) { 'test body content' }
-
 
     it 'outputs a bootstrap badge component in html' do
       expect(subject).to have_css '.badge'
