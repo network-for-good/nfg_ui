@@ -2,14 +2,14 @@
 
 module NfgUi
   module UI
-    class NetworkForGood < NfgUi::UI::Base
-      def initialize(view_context, component_name = nil, *traits, **options, &block)
-        super
-        initializer(component_name, *traits, **options, &block)
-      end
+    class NetworkForGood
+      include NfgUi::UI::Utilities::Initializer
+      
+      attr_accessor :view_context
 
-      def nfg?
-        true
+      def initialize(view_context, component_name = nil, *traits, **options, &block)
+        self.view_context = view_context
+        initializer(component_name, *traits, **options, &block)
       end
 
       private
