@@ -9,16 +9,16 @@ module NfgUi
         # include Bootstrap::Utilities::Themeable
         # include Bootstrap::Utilities::Dismissible
 
-        # private
+        private
 
-        # def assistive_html_attributes
-        #   super.merge!(role: 'alert') unless options[:role]
-        # end
-
-        def defaults
+        def assistive_html_attributes
           p "====== (Components::Alert) self.class.name: #{self.class.name} method: #{__method__}"
-          super
+          super.merge!(role: 'alert') unless options[:role]
         end
+
+        # def component_family
+        #   nil
+        # end
       end
     end
   end

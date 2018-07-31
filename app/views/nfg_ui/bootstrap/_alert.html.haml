@@ -1,9 +1,10 @@
 -# http://getbootstrap.com/docs/4.1/components/alerts/
 %div{ alert.html_options }
-  / - if alert.dismissible?
-  /   = ui.nfg :button, :close, dismiss: 'alert'
+  -#
+    / - if alert.dismissible?
+    /   = ui.nfg :button, :close, dismiss: 'alert'
 
-  / - if alert.heading
-  /   %h4.alert-heading= alert.heading
+    / - if alert.heading
+    /   %h4.alert-heading= alert.heading
   
   = alert.body

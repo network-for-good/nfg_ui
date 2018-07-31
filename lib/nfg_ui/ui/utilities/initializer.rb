@@ -9,8 +9,8 @@ module NfgUi
                       :options,
                       :traits,
                       :component_name,
-                      :class_name,
-                      :view_context
+                      :class_name
+                      
 
         attr_reader :ancestry_string
 
@@ -20,6 +20,14 @@ module NfgUi
 
         include ActionView::Helpers::CaptureHelper # add capture support, required for Haml
         include Haml::Helpers # add capture_haml support
+
+        def render_component
+          p "====== (Utilities::Initializer) self.class.name: #{self.class.name} method: #{__method__}"
+          view_context.render partial: partial_path, locals: { component_name => component }
+        end
+
+        
+        private
 
         # Provides a central initialization method for NfgUi::UI::Base child classes
         def initializer(component_name = nil, *traits, **options, &block)
@@ -32,9 +40,45 @@ module NfgUi
           @class_name = component_name.to_s.camelize
           @traits = traits
           @options = options
+          
           options[:body] = capture(&block) if block_given?
           options[:traits] = traits.present? ? traits : []
+          
+          # self.view_context = view_context
           self.component = ancestry_string.constantize.new(options, view_context)
+        end
+
+        def ancestry_string
+          p "====== (Utilities::Initializer) self.class.name: #{self.class.name} method: #{__method__}"
+          ''
+        end
+
+        def component_family
+          p "====== (Utilities::Initializer) self.class.name: #{self.class.name} method: #{__method__}"
+          component.send(:component_family).presence
+          raise 'sup'
+        end
+
+        def grouping_folder
+          p "====== (Utilities::Initializer) self.class.name: #{self.class.name} method: #{__method__}"
+          ''
+        end
+
+        def group; end
+
+        def components_within_group(*)
+          p "====== (Utilities::Initializer) self.class.name: #{self.class.name} method: #{__method__}"
+          []
+        end
+
+        def partial_path
+          p "====== (Utilities::Initializer) self.class.name: #{self.class.name} method: #{__method__}"
+          [
+            'nfg_ui',
+            grouping_folder,
+            component_name_folder,
+            component_name
+          ].reject(&:nil?).join('/').chomp
         end
       end
     end
