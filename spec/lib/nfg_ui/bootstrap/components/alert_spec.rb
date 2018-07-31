@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe NfgUi::Bootstrap::Components::Alert do
-  let(:alert) { FactoryBot.build(:bootstrap_alert, body: 'howdy', id: 'super') }
+  let(:alert) { FactoryBot.build(:bootstrap_alert) }
 
   it { expect(described_class).to be < NfgUi::Bootstrap::Components::Base }
 
