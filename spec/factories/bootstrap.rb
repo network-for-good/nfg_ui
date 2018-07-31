@@ -19,7 +19,7 @@ FactoryBot.define do
     body nil
     data nil
     id nil
-    # pill {nil}
+    pill { nil }
     traits []
 
     skip_create
