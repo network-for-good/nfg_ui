@@ -56,9 +56,9 @@ module NfgUi
         #
         # For example:
         # BreadcrumbItem & Breadcrumb are members of the :breadcrumb component_family
-        # def component_family
-        #   nil
-        # end
+        def component_family
+          nil
+        end
 
         def defaults
           p "====== (Bootstrap::Components::Base) self.class.name: #{self.class.name} method: #{__method__}"
