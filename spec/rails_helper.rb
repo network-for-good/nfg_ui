@@ -13,6 +13,8 @@ require 'spec_helper'
 require 'rspec/rails'
 require 'selenium-webdriver'
 require 'capybara/rails'
+require 'factory_bot_rails'
+require 'support/factory_bot'
 
 # Load RSpec helpers.
 Dir[File.join(ENGINE_ROOT, 'spec/support/**/*.rb')].each { |f| require f }
