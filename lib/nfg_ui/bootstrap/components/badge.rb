@@ -27,6 +27,10 @@ module NfgUi
           false
         end
 
+        def non_html_attribute_options
+          pill ? super.push(:pill) : super
+        end
+
         # def default_html_wrapper_element
         #   :span
         # end

@@ -41,4 +41,18 @@ RSpec.describe NfgUi::Bootstrap::Components::Badge do
     subject { badge.send(:default_pill) }
     it { is_expected.to be false }
   end
+
+  describe '#non_html_attribute_options' do
+    subject { badge.send(:non_html_attribute_options) }
+
+    context 'when pill is true' do
+      let(:pill_presence) { true }
+      it { is_expected.to include(:pill) }
+    end
+
+    context 'when pill is false' do
+      let(:pill_presence) { false }
+      it { is_expected.not_to include(:pill) }
+    end
+  end
 end

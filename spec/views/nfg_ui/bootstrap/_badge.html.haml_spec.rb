@@ -10,6 +10,7 @@ RSpec.describe 'nfg_ui/bootstrap/_badge.html.haml', type: :view do
     let(:options) { { body: body } }
     let(:body) { 'test body content' }
 
+
     it 'outputs a bootstrap badge component in html' do
       expect(subject).to have_css '.badge'
       expect(subject).to have_selector '.badge', text: body
@@ -21,7 +22,13 @@ RSpec.describe 'nfg_ui/bootstrap/_badge.html.haml', type: :view do
     let(:options) { { pill: pill } }
     context 'when :pill is true' do
       let(:pill) { true }
-      it { is_expected.to have_css '.badge.badge-pill' }
+      it 'has the correct modifier css class' do
+        expect(subject).to have_css '.badge.badge-pill'
+      end
+
+      it 'does not add the :pill option as an html attribute' do
+        expect(subject).not_to have_css ".badge[pill]"
+      end
     end
 
     context 'when pill is false' do
