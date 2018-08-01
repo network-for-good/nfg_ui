@@ -22,6 +22,6 @@ RSpec.describe NfgUi::Bootstrap::Components::Alert do
     it { is_expected.to eq(role: 'alert') }
   end
 
-  it_behaves_like 'inclusion of the Dismissible utility module'
-  it_behaves_like 'inclusion of the Themeable utility module'
+  it_behaves_like 'a component that includes the Dismissible utility module'
+  it_behaves_like 'a component that includes the Themeable utility module'
 end
