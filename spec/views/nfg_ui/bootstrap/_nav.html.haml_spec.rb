@@ -5,8 +5,8 @@ RSpec.describe 'nfg_ui/bootstrap/_nav.html.haml', type: :view do
   let(:nav) { FactoryBot.create(:bootstrap_nav, body: body) }
   subject { render 'nfg_ui/bootstrap/nav', nav: nav }
 
-  pending 'coming soon'
-
   it 'outputs a bootstrap nav component in html' do
+    expect(subject).to have_selector '.nav', text: body
+    expect(subject).to eq "<div class='nav'>\n#{body}\n</div>\n"
   end
 end
