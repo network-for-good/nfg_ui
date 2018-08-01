@@ -1,6 +1,15 @@
 # Additional info on using FactoryBot without an ORM
 # https://robots.thoughtbot.com/tips-for-using-factory-girl-without-an-orm
 FactoryBot.define do
+  factory :bootstrap_base, class: NfgUi::Bootstrap::Components::Base do
+    id nil
+    data nil
+    body nil
+
+    skip_create
+    initialize_with { new(attributes, ActionController::Base.new.view_context) }
+  end
+
   factory :bootstrap_alert, class: NfgUi::Bootstrap::Components::Alert do
     body nil
     data nil
