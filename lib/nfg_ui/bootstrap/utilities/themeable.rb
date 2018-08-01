@@ -6,6 +6,18 @@ module NfgUi
       # Allows component to utilize the bootstrap4 theme color palette
       module Themeable
         # attr_reader :theme, :outlined
+        # attr_accessor :theme
+        
+        # pass in options: { theme: nil } to disable themes or set default_theme to nil
+        # for components that are themeable that, for whatever reason,
+        # need a theme removed (example: the modal 'close' button)
+        def theme
+          options.fetch(:theme, default_theme)
+        end
+
+        def outlined
+          options.fetch(:outlined, false)
+        end
 
         # def initialize(*)
         #   super
@@ -13,44 +25,36 @@ module NfgUi
         #   @outlined = options.fetch(:outlined, traits.include?(:outlined))
         # end
 
-        # private
+        private
 
         # def defaults
         #   super.merge!(theme: default_theme)
         # end
 
-        # def css_classes
-        #   [super, theme_css_class].join(' ')
-        # end
+        def css_classes
+          return super unless theme.present?
+          super + " #{component_css_class}-#{outlined_prefix}#{theme}"
+        end
 
-        # def non_html_attribute_options
-        #   super.push(:theme)
-        # end
-
-        # def theme_css_class
-        #   return if theme.nil?
-        #   "#{theme_css_class_prefix}-#{outline_css_class_string}#{theme}"
-        # end
+        def non_html_attribute_options
+          super.push(:theme, :outlined)
+        end
 
         # def bootstrap4_themes
         #   NfgUi::BOOTSTRAP_THEMES
         # end
 
-        # def outlined?
-        #   outlined
-        # end
+        def outlined?
+          outlined
+        end
 
-        # def theme_css_class_prefix
-        #   component_css_class
-        # end
+        def default_theme
+          @default_theme ||= :primary
+        end
 
-        # def default_theme
-        #   :primary
-        # end
-
-        # def outline_css_class_string
-        #   'outline-' if outlined?
-        # end
+        def outlined_prefix
+          'outline-' if outlined?
+        end
       end
     end
   end
