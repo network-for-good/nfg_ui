@@ -230,7 +230,7 @@ FactoryBot.define do
     end
   end
 
-  factory :media_object, class: NfgUi::Bootstrap::Components::MediaObject do
+  factory :bootstrap_media_object, class: NfgUi::Bootstrap::Components::MediaObject do
     body nil
     data nil
     id nil
