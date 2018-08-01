@@ -18,6 +18,7 @@ require 'support/factory_bot'
 
 # Load RSpec helpers.
 Dir[File.join(ENGINE_ROOT, 'spec/support/**/*.rb')].each { |f| require f }
+Dir[File.join(ENGINE_ROOT, 'spec/shared_examples/**/*.rb')].each { |f| require f }
 
 Capybara.register_driver :selenium do |app|
   Capybara::Selenium::Driver.new(app, browser: :chrome)
