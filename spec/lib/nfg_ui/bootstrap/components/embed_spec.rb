@@ -25,7 +25,7 @@ RSpec.describe NfgUi::Bootstrap::Components::Embed do
 
     context 'when aspect ratio is not set' do
       let(:aspect_ratio) { nil }
-      it { is_expected.to be_nil }
+      it { is_expected.to eq '16:9' }
     end
   end
 
