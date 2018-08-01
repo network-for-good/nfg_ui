@@ -75,4 +75,8 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+
+  # config.before :suite do
+  #   (FactoryBot.lint traits: true) unless config.files_to_run.one?
+  # end
 end
