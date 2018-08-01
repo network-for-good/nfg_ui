@@ -99,4 +99,35 @@ FactoryBot.define do
       initialize_with { NfgUi::UI::Base.new(ActionController::Base.new.view_context).bootstrap(:carousel, attributes) }
     end
   end
+
+  factory :bootstrap_dropdown, class: NfgUi::Bootstrap::Components::Dropdown do
+    body nil
+    data nil
+    id nil
+    traits []
+
+    skip_create
+    initialize_with { new(attributes, ActionController::Base.new.view_context) }
+
+    trait :rendered do
+      initialize_with { NfgUi::UI::Base.new(ActionController::Base.new.view_context).bootstrap(:dropdown, attributes) }
+    end
+  end
+
+  factory :bootstrap_embed, class: NfgUi::Bootstrap::Components::Embed do
+    body nil
+    data nil
+    id nil
+    aspect_ratio { '16:9' }
+    traits []
+    iframe { 'http://www.google.com' }
+    autoplay { false }
+
+    skip_create
+    initialize_with { new(attributes, ActionController::Base.new.view_context) }
+
+    trait :rendered do
+      initialize_with { NfgUi::UI::Base.new(ActionController::Base.new.view_context).bootstrap(:embed, attributes) }
+    end
+  end
 end
