@@ -18,19 +18,19 @@ module NfgUi
         #   @toolbar = traits.include?(:toolbar)
         # end
 
-        # private
+        private
 
-        # def component_css_class
-        #   'btn-group'
-        # end
+        def component_css_class
+          'btn-group'
+        end
 
         # def trait_css_classes
         #   traits.include?(:vertical) ? "#{component_css_class}-vertical" : super
         # end
 
-        # def assistive_html_attributes
-        #   super.merge!(role: options.fetch(:role, 'group'))
-        # end
+        def assistive_html_attributes
+          super.merge!(role: 'group')
+        end
       end
     end
   end
