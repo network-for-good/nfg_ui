@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'nfg_ui/bootstrap/_badge.html.haml', type: :view do
+RSpec.describe 'nfg_ui/bootstrap/_button_group.html.haml', type: :view do
   let(:button_group) { FactoryBot.create(:bootstrap_button_group, **options) }
   let(:options) { {} }
   subject { render 'nfg_ui/bootstrap/button_group', button_group: button_group }

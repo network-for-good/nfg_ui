@@ -71,4 +71,18 @@ FactoryBot.define do
       initialize_with { NfgUi::UI::Base.new(ActionController::Base.new.view_context).bootstrap(:button_group, attributes) }
     end
   end
+
+  factory :bootstrap_button_toolbar, class: NfgUi::Bootstrap::Components::ButtonToolbar do
+    body nil
+    data nil
+    id nil
+    traits []
+
+    skip_create
+    initialize_with { new(attributes, ActionController::Base.new.view_context) }
+
+    trait :rendered do
+      initialize_with { NfgUi::UI::Base.new(ActionController::Base.new.view_context).bootstrap(:button_toolbar, attributes) }
+    end
+  end
 end
