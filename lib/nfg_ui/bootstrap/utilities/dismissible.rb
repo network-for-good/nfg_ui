@@ -12,23 +12,27 @@ module NfgUi
         #   self.dismissible = options.fetch(:dismissible, default_dismissible)
         # end
 
-        # def dismissible?
-        #   dismissible
-        # end
+        def dismissible
+          options.fetch(:dismissible, default_dismissible)
+        end
+        
+        def dismissible?
+          dismissible
+        end
 
-        # private
+        private
 
         # def defaults
         #   super.merge(dismissible: default_dismissible)
         # end
 
-        # def non_html_attribute_options
-        #   super.push(:dismissible)
-        # end
+        def non_html_attribute_options
+          super.push(:dismissible)
+        end
 
-        # def default_dismissible
-        #   true
-        # end
+        def default_dismissible
+          true
+        end
       end
     end
   end
