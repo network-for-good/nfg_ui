@@ -25,7 +25,7 @@ RSpec.describe NfgUi::UI::Utilities::Initializer do
 
     context 'rendering #bootstrap components' do
       let(:component_suite) { 'Bootstrap' }
-      it { is_expected.to eq "<div class='alert' role='alert'>\n#{body}\n</div>\n" }
+      it { is_expected.to eq "<div class='alert alert-primary' role='alert'>\n#{body}\n</div>\n" }
     end
 
     context 'rendering #nfg components' do
