@@ -5,7 +5,7 @@ RSpec.describe 'nfg_ui/bootstrap/breadcrumbs/_breadcrumb.html.haml', type: :view
   let(:options) { {} }
   subject { render 'nfg_ui/bootstrap/breadcrumbs/breadcrumb', breadcrumb: breadcrumb }
 
-  describe 'html output for the bootstrap badge' do
+  describe 'html output for the bootstrap breadcrumb' do
     let(:options) { { body: body } }
     let(:body) { 'test body content' }
 
