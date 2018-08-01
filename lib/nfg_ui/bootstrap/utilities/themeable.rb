@@ -12,10 +12,12 @@ module NfgUi
         # for components that are themeable that, for whatever reason,
         # need a theme removed (example: the modal 'close' button)
         def theme
+          p "====== (Bootstrap::Utilities::Themeable) self.class.name: #{self.class.name} method: #{__method__}"
           options.fetch(:theme, default_theme)
         end
 
         def outlined
+          p "====== (Bootstrap::Utilities::Themeable) self.class.name: #{self.class.name} method: #{__method__}"
           options.fetch(:outlined, false)
         end
 
@@ -32,11 +34,13 @@ module NfgUi
         # end
 
         def css_classes
+          p "====== (Bootstrap::Utilities::Themeable) self.class.name: #{self.class.name} method: #{__method__}"
           return super unless theme.present?
           super + " #{component_css_class}-#{outlined_prefix}#{theme}"
         end
 
         def non_html_attribute_options
+          p "====== (Bootstrap::Utilities::Themeable) self.class.name: #{self.class.name} method: #{__method__}"
           super.push(:theme, :outlined)
         end
 
@@ -45,14 +49,17 @@ module NfgUi
         # end
 
         def outlined?
+          p "====== (Bootstrap::Utilities::Themeable) self.class.name: #{self.class.name} method: #{__method__}"
           outlined
         end
 
         def default_theme
+          p "====== (Bootstrap::Utilities::Themeable) self.class.name: #{self.class.name} method: #{__method__}"
           @default_theme ||= :primary
         end
 
         def outlined_prefix
+          p "====== (Bootstrap::Utilities::Themeable) self.class.name: #{self.class.name} method: #{__method__}"
           'outline-' if outlined?
         end
       end
