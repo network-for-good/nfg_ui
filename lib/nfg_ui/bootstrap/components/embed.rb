@@ -17,7 +17,7 @@ module NfgUi
         # end
 
         def aspect_ratio
-          options.fetch(:aspect_ratio, default_aspect_ratio)
+          options.fetch(:aspect_ratio, default_aspect_ratio) || default_aspect_ratio
         end
 
         def iframe
