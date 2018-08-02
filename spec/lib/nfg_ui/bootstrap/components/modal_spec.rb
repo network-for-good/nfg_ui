@@ -7,7 +7,21 @@ RSpec.describe NfgUi::Bootstrap::Components::Modal do
   let(:footer_text) { nil }
 
   it { expect(described_class).to be < NfgUi::Bootstrap::Components::Base }
-  it { expect(described_class).to include NfgUi::Components::Utilities::Titleable }
+  it_behaves_like 'a component with a consistent initalized construction'
+
+  describe '#title' do
+    subject { modal.title }
+    let(:tested_title) { 'tested title' }
+    context 'when title is present in options' do
+      let(:options) { { title: tested_title } }
+      it { is_expected.to eq tested_title }
+    end
+
+    context 'when title is not present in options' do
+      let(:options) { {} }
+      it { is_expected.to be_nil }
+    end
+  end
 
   describe '#footer' do
     subject { modal.footer }

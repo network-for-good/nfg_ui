@@ -6,7 +6,7 @@ module NfgUi
       # Bootstrap Modal Component
       # https://getbootstrap.com/docs/4.1/components/modal/
       class Modal < Bootstrap::Components::Base
-        include NfgUi::Components::Utilities::Titleable
+        
         # include Bootstrap::Utilities::AriaAssistable
 
         # attr_reader :footer
@@ -17,6 +17,10 @@ module NfgUi
         #   build_aria(aria_key: :hidden, aria_value: 'true')
         #   build_aria(aria_key: :labelledby, aria_value: "#{id}_modal_title")
         # end
+
+        def title
+          options.fetch(:title, nil)
+        end
 
         def footer
           options.fetch(:footer, nil)
