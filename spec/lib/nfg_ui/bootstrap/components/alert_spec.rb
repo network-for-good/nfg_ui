@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe NfgUi::Bootstrap::Components::Alert do
-  let(:alert) { FactoryBot.build(:bootstrap_alert, **options) }
+  let(:alert) { described_class.new(options, ActionController::Base.new.view_context) }
   let(:options) { {} }
 
   it { expect(described_class).to be < NfgUi::Bootstrap::Components::Base }
@@ -9,7 +9,7 @@ RSpec.describe NfgUi::Bootstrap::Components::Alert do
   describe 'default class construction' do
     let(:options) { {} }
     it 'contains only the public methods and options it is expected to' do
-      expect(alert.options).to eq(class: '', id: nil, body: nil, data: nil, traits: [])
+      expect(alert.options).to eq(class: '', id: nil, body: nil, data: nil)
       expect(alert.view_context).to be
       expect(alert.id).to be_nil
       expect(alert.data).to be_nil
