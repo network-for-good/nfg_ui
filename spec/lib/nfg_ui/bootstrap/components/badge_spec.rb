@@ -28,7 +28,7 @@ RSpec.describe NfgUi::Bootstrap::Components::Badge do
 
     context 'when pill is true' do
       let(:pill_presence) { true }
-      it { is_expected.to eq 'badge badge-pill' }
+      it { is_expected.to eq 'badge badge-primary badge-pill' }
     end
 
     context 'when pill is determined false' do
@@ -55,4 +55,6 @@ RSpec.describe NfgUi::Bootstrap::Components::Badge do
       it { is_expected.not_to include(:pill) }
     end
   end
+
+  it_behaves_like 'a component that includes the Themeable utility module'
 end

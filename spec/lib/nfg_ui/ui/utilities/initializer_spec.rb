@@ -18,7 +18,6 @@ RSpec.describe NfgUi::UI::Utilities::Initializer do
                       &block
                     )
                   }
-                  
   describe '#render_component' do
     let(:component_css_class) { component.component.send(:component_css_class) }
     subject { component.render_component }

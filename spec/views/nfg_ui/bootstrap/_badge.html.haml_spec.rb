@@ -12,7 +12,20 @@ RSpec.describe 'nfg_ui/bootstrap/_badge.html.haml', type: :view do
     it 'outputs a bootstrap badge component in html' do
       expect(subject).to have_css '.badge'
       expect(subject).to have_selector '.badge', text: body
-      expect(subject).to eq "<span class='badge'>\n#{body}\n</span>\n"
+      expect(subject).to eq "<span class='badge badge-primary'>\n#{body}\n</span>\n"
+    end
+  end
+
+  describe 'themes on badges' do
+    context 'when a theme is supplied' do
+      let(:options) { { theme: tested_theme } }
+      let(:tested_theme) { NfgUi::BOOTSTRAP_THEMES.sample(1).first }
+      it { is_expected.to have_css ".badge.badge-#{tested_theme}" }
+    end
+
+    context 'when a theme is not supplied' do
+      let(:options) { {} }
+      it { is_expected.to have_css '.badge.badge-primary' }
     end
   end
 
