@@ -6,6 +6,7 @@ RSpec.describe NfgUi::Bootstrap::Components::MediaObject do
   subject { described_class }
 
   it { is_expected.to be < NfgUi::Bootstrap::Components::Base }
+  it_behaves_like 'a component with a consistent initalized construction'
 
   describe '#component_css_class' do
     subject { media_object.send(:component_css_class) }

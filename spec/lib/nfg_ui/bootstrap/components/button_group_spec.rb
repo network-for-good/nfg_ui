@@ -6,7 +6,8 @@ RSpec.describe NfgUi::Bootstrap::Components::ButtonGroup do
   subject { described_class }
 
   it { is_expected.to be < NfgUi::Bootstrap::Components::Base }
-
+  it_behaves_like 'a component with a consistent initalized construction'
+  
   describe '#component_css_class' do
     subject { button_group.send(:component_css_class) }
     it { is_expected.to eq 'btn-group' }

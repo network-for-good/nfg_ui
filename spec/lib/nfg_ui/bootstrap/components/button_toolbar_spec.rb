@@ -4,7 +4,8 @@ RSpec.describe NfgUi::Bootstrap::Components::ButtonToolbar do
   let(:button_toolbar) { FactoryBot.create(:bootstrap_button_toolbar) }
   subject { described_class }
   it { is_expected.to be < NfgUi::Bootstrap::Components::Base }
-
+  it_behaves_like 'a component with a consistent initalized construction'
+  
   describe '#component_css_class' do
     subject { button_toolbar.send(:component_css_class) }
     it { is_expected.to eq 'btn-toolbar' }

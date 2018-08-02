@@ -18,22 +18,7 @@ RSpec.describe NfgUi::Bootstrap::Components::Base do
   let(:view_context) { tested_view_context }
   let(:tested_view_context) { ActionController::Base.new.view_context }
 
-  describe 'Base component initialization' do
-    subject { bootstrap_base }
-    let(:id) { tested_id }
-    let(:data) { tested_data }
-    let(:body) { tested_body }
-    let(:tested_options_hash) { { tested_key: :tested_value } }
-
-    it 'initializes with the expected attributes' do
-      expect(subject.options).to eq component_options
-      expect(subject.options).to include tested_options_hash
-      expect(subject.view_context).to eq tested_view_context
-      expect(subject.id).to eq tested_id
-      expect(subject.data).to eq tested_data
-      expect(subject.body).to eq tested_body
-    end
-  end
+  it_behaves_like 'a component with a consistent initalized construction'
 
   describe '#html_options' do
     subject { bootstrap_base.html_options }

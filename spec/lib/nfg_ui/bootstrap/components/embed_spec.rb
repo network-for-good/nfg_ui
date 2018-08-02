@@ -14,7 +14,8 @@ RSpec.describe NfgUi::Bootstrap::Components::Embed do
   subject { described_class }
 
   it { is_expected.to be < NfgUi::Bootstrap::Components::Base }
-
+  it_behaves_like 'a component with a consistent initalized construction'
+  
   describe '#aspect_ratio' do
     subject { embed.aspect_ratio }
 

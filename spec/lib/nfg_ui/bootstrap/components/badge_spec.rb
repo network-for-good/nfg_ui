@@ -5,18 +5,10 @@ RSpec.describe NfgUi::Bootstrap::Components::Badge do
   let(:options) { { pill: pill_presence } }
 
   it { expect(described_class).to be < NfgUi::Bootstrap::Components::Base }
-
-  describe 'default class construction' do
-    let(:options) { {} }
-    it 'contains only the public methods and options it is expected to' do
-      expect(badge.options).to eq(class: '', id: nil, body: nil, data: nil)
-      expect(badge.view_context).to be
-      expect(badge.id).to be_nil
-      expect(badge.data).to be_nil
-      expect(badge.body).to be_nil
-    end
-  end
-
+  it_behaves_like 'a component with a consistent initalized construction'
+  it_behaves_like 'a component that includes the Themeable utility module'
+  it_behaves_like 'a component that includes the Wrappable utility module'
+  
   describe '#pill' do
     context 'when pill is true' do
       let(:pill_presence) { true }
@@ -66,7 +58,4 @@ RSpec.describe NfgUi::Bootstrap::Components::Badge do
       it { is_expected.not_to include(:pill) }
     end
   end
-
-  it_behaves_like 'a component that includes the Themeable utility module'
-  it_behaves_like 'a component that includes the Wrappable utility module'
 end
