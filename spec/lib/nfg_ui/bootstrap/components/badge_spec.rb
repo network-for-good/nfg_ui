@@ -1,10 +1,21 @@
 require 'rails_helper'
 
 RSpec.describe NfgUi::Bootstrap::Components::Badge do
-  let(:badge) { FactoryBot.build(:bootstrap_badge, **options) }
+  let(:badge) { described_class.new(options, ActionController::Base.new.view_context) }
   let(:options) { { pill: pill_presence } }
 
   it { expect(described_class).to be < NfgUi::Bootstrap::Components::Base }
+
+  describe 'default class construction' do
+    let(:options) { {} }
+    it 'contains only the public methods and options it is expected to' do
+      expect(badge.options).to eq(class: '', id: nil, body: nil, data: nil)
+      expect(badge.view_context).to be
+      expect(badge.id).to be_nil
+      expect(badge.data).to be_nil
+      expect(badge.body).to be_nil
+    end
+  end
 
   describe '#pill' do
     context 'when pill is true' do
@@ -57,4 +68,5 @@ RSpec.describe NfgUi::Bootstrap::Components::Badge do
   end
 
   it_behaves_like 'a component that includes the Themeable utility module'
+  it_behaves_like 'a component that includes the Wrappable utility module'
 end

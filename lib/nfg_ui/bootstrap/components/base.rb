@@ -24,7 +24,7 @@ module NfgUi
                       :body
 
         def initialize(component_options, view_context)
-          p "====== (Bootstrap::Components::Base) self.class.name: #{self.class.name} method: #{__method__}"
+          p "====== Printed from: (Bootstrap::Components::Base) self.class.name: #{self.class.name} method: #{__method__}"
           @options = defaults.merge!(component_options)
           @view_context = view_context
           @id = options.fetch(:id, nil)
@@ -38,7 +38,7 @@ module NfgUi
         end
 
         def html_options
-          p "====== (Bootstrap::Components::Base) self.class.name: #{self.class.name} method: #{__method__}"
+          p "====== Printed from: (Bootstrap::Components::Base) self.class.name: #{self.class.name} method: #{__method__}"
           options.except(*non_html_attribute_options)
                  .merge!(class: css_classes,
                          data: data,
@@ -61,7 +61,7 @@ module NfgUi
         end
 
         def defaults
-          p "====== (Bootstrap::Components::Base) self.class.name: #{self.class.name} method: #{__method__}"
+          p "====== Printed from: (Bootstrap::Components::Base) self.class.name: #{self.class.name} method: #{__method__}"
           {
             # HTML Defaults
             class: '',
@@ -84,7 +84,7 @@ module NfgUi
         # Bootstrap::Utilities::AriaAssistable
         # avoid passing aria to assistive_html_attributes directly
         def assistive_html_attributes
-          p "====== (Bootstrap::Components::Base) self.class.name: #{self.class.name} method: #{__method__}"
+          p "====== Printed from: (Bootstrap::Components::Base) self.class.name: #{self.class.name} method: #{__method__}"
           {}
         end
 
@@ -93,12 +93,12 @@ module NfgUi
         # Button's css class is 'btn'...
         # Example: returns 'alert' from NfgUi::Bootstrap::Components::Alert
         def component_css_class
-          p "====== (Bootstrap::Components::Base) self.class.name: #{self.class.name} method: #{__method__}"
+          p "====== Printed from: (Bootstrap::Components::Base) self.class.name: #{self.class.name} method: #{__method__}"
           @component_css_class ||= component_class_name_string.underscore.dasherize.downcase
         end
 
         def component_class_name_string
-          p "====== (Bootstrap::Components::Base) self.class.name: #{self.class.name} method: #{__method__}"
+          p "====== Printed from: (Bootstrap::Components::Base) self.class.name: #{self.class.name} method: #{__method__}"
           self.class.name.demodulize.to_s
         end
 
@@ -106,14 +106,14 @@ module NfgUi
         # adding a new string of css classes to this method
         # ex: super.push('new-class')
         def css_classes
-          p "====== (Bootstrap::Components::Base) self.class.name: #{self.class.name} method: #{__method__}"
+          p "====== Printed from: (Bootstrap::Components::Base) self.class.name: #{self.class.name} method: #{__method__}"
           @css_classes ||= [component_css_class, options[:class]].join(' ').squish
         end
 
         # Remove attributes from html_options that shouldn't show up in the
         # html element, ex: <div body='should not be here'>
         def non_html_attribute_options
-          p "====== (Bootstrap::Components::Base) self.class.name: #{self.class.name} method: #{__method__}"
+          p "====== Printed from: (Bootstrap::Components::Base) self.class.name: #{self.class.name} method: #{__method__}"
           @non_html_attribute_options ||= %i[body heading traits]
         end
 

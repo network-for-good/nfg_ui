@@ -22,7 +22,7 @@ module NfgUi
         include Haml::Helpers # add capture_haml support
 
         def render_component
-          p "====== (Utilities::Initializer) self.class.name: #{self.class.name} method: #{__method__}"
+          p "====== Printed from: (Utilities::Initializer) self.class.name: #{self.class.name} method: #{__method__}"
           view_context.render partial: partial_path, locals: { component_name => component }
         end
 
@@ -31,7 +31,7 @@ module NfgUi
 
         # Provides a central initialization method for NfgUi::UI::Base child classes
         def initializer(component_name = nil, *traits, **options, &block)
-          p "====== (Utilities::Initializer) self.class.name: #{self.class.name} method: #{__method__}"
+          p "====== Printed from: (Utilities::Initializer) self.class.name: #{self.class.name} method: #{__method__}"
           # #init_haml_helpers is required when utilizing #capture with HAML
           # (when outside of Rails)
           # https://www.rubydoc.info/github/haml/haml/Haml%2FHelpers:init_haml_helpers
@@ -49,29 +49,29 @@ module NfgUi
         end
 
         def ancestry_string
-          p "====== (Utilities::Initializer) self.class.name: #{self.class.name} method: #{__method__}"
+          p "====== Printed from: (Utilities::Initializer) self.class.name: #{self.class.name} method: #{__method__}"
           ''
         end
 
         def component_family
-          p "====== (Utilities::Initializer) self.class.name: #{self.class.name} method: #{__method__}"
+          p "====== Printed from: (Utilities::Initializer) self.class.name: #{self.class.name} method: #{__method__}"
           component.send(:component_family).presence
         end
 
         def grouping_folder
-          p "====== (Utilities::Initializer) self.class.name: #{self.class.name} method: #{__method__}"
+          p "====== Printed from: (Utilities::Initializer) self.class.name: #{self.class.name} method: #{__method__}"
           ''
         end
 
         def group; end
 
         def components_within_group(*)
-          p "====== (Utilities::Initializer) self.class.name: #{self.class.name} method: #{__method__}"
+          p "====== Printed from: (Utilities::Initializer) self.class.name: #{self.class.name} method: #{__method__}"
           []
         end
 
         def partial_path
-          p "====== (Utilities::Initializer) self.class.name: #{self.class.name} method: #{__method__}"
+          p "====== Printed from: (Utilities::Initializer) self.class.name: #{self.class.name} method: #{__method__}"
           [
             'nfg_ui',
             grouping_folder,
