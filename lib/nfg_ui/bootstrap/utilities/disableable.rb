@@ -26,6 +26,7 @@ module NfgUi
 
         def css_classes
           p "====== Printed from: (Bootstrap::Utilities::Disableable) self.class.name: #{self.class.name} method: #{__method__}"
+          return super if as == :button
           disabled ? super + ' disabled' : super
         end
 

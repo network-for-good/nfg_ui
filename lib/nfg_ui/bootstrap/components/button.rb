@@ -11,7 +11,7 @@ module NfgUi
         include Bootstrap::Utilities::Wrappable
         include Bootstrap::Utilities::Activatable
         include Bootstrap::Utilities::Disableable
-        # include Bootstrap::Utilities::Tooltipable
+        include Bootstrap::Utilities::Tooltipable
 
         # attr_reader :block, :modal
 
@@ -39,8 +39,10 @@ module NfgUi
 
         def html_options
           p "====== Printed from: (Bootstrap::Components::Button) self.class.name: #{self.class.name} method: #{__method__}"
-          # html_options doesn't know about #modal yet, need to use options[:] to check
-          return super unless options[:modal].present? 
+          # html_options doesn't know about #modal yet, 
+          # Thus, options[:modal] is the best way to verify whether or not
+          # to update the data attributes for the component
+          return super unless options[:modal].present?
           super.fetch(:data, {}).merge!(data: { toggle: 'modal', target: "##{options[:modal]}" })
         end
 

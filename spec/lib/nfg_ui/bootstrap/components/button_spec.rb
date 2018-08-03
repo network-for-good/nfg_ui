@@ -11,6 +11,7 @@ RSpec.describe NfgUi::Bootstrap::Components::Button do
   it_behaves_like 'a component that includes the Activatable utility module'
   it_behaves_like 'a component that includes the Sizable utility module'
   it_behaves_like 'a component that includes the Disableable utility module'
+  it_behaves_like 'a component that includes the Tooltipable utility module'
 
   describe '#block' do
     subject { button.block }
@@ -119,7 +120,7 @@ RSpec.describe NfgUi::Bootstrap::Components::Button do
     let(:options) { { active: tested_active } }
     let(:tested_active) { nil }
     subject { button.send(:assistive_html_attributes) }
-    
+
     context 'when :active is true' do
       let(:tested_active) { true }
       it { is_expected.to include(aria: { pressed: true }) }

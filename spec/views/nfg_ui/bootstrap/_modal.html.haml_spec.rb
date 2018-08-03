@@ -23,10 +23,10 @@ RSpec.describe 'nfg_ui/bootstrap/_modal.html.haml', type: :view do
       expect(subject).to have_css '.modal .modal-content'
       expect(subject).to have_css '.modal .modal-header'
       expect(subject).to have_css '.modal .modal-body'
-
+      
       # sanity check to make sure more attributes didn't sneak in.
       expect(subject).to include "<div class='modal fade' role='dialog' tabindex='-1'>\n<div class='modal-dialog' role='document'>\n<div class='modal-content'>"
-      expect(subject).to include "<div class='modal-header'>\n<button aria-label='Close' class='btn close' data-dismiss='modal'>\n<span aria-hidden='true'>\n&times;\n</span>\n\n</button>\n</div>"
+      expect(subject).to include "<div class='modal-header'>\n<button class=\"btn close\" data-dismiss=\"modal\" aria-label=\"Close\"><span aria-hidden='true'>\n&times;\n</span>\n\n</button></div>"
       expect(subject).to include "<div class='modal-body'>"
     end
   end

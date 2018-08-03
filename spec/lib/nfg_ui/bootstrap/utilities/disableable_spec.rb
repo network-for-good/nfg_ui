@@ -27,15 +27,24 @@ RSpec.describe NfgUi::Bootstrap::Utilities::Disableable do
   describe '#css_classes' do
     subject { button.send(:css_classes) }
     context 'when component has :disabled in options' do
-      context 'when component has disabled: true' do
+      context 'and when component has disabled: true' do
+        let(:options) { { disabled: tested_disabled, as: as_option } }
         let(:tested_disabled) { true }
-        it { is_expected.to include 'disabled' }
+        
+        context 'and when :as is a :button' do
+          let(:as_option) { :button }
+          it { is_expected.not_to include 'disabled' }
+        end
+
+        context 'and when :as is not a button' do
+          let(:as_option) { :a }
+          it { is_expected.to include 'disabled' }
+        end
       end
 
       context 'when component has disabled: false' do
         let(:tested_disabled) { false }
         it { is_expected.not_to include 'disabled' }
-
       end
     end
 
