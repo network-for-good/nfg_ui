@@ -58,4 +58,11 @@ RSpec.describe NfgUi::Bootstrap::Components::Badge do
       it { is_expected.not_to include(:pill) }
     end
   end
+
+  describe '#default_html_wrapper_element' do
+    let(:pill_presence) { nil }
+    subject { badge.send(:default_html_wrapper_element) }
+
+    it { is_expected.to eq :span }
+  end
 end
