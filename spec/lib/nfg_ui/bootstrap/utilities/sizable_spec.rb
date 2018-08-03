@@ -35,4 +35,9 @@ RSpec.describe NfgUi::Bootstrap::Utilities::Sizable do
       it { is_expected.to be_falsey }
     end
   end
+
+  describe '#non_html_attribute_options' do
+    subject { button.send(:non_html_attribute_options) }
+    it { is_expected.to include :size }
+  end
 end
