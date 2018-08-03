@@ -7,8 +7,7 @@ module NfgUi
       # Subcomponent of Breadcrumb
       # https://getbootstrap.com/docs/4.1/components/breadcrumb/
       class BreadcrumbItem < Bootstrap::Components::Base
-        # include Bootstrap::Utilities::Activatable
-        # include Bootstrap::Utilities::AriaAssistable
+        include Bootstrap::Utilities::Activatable
 
         # def initialize(*)
         #   super
@@ -16,9 +15,13 @@ module NfgUi
         # end
 
         private
-        
+
         def component_family
           :breadcrumb
+        end
+
+        def assistive_html_attributes
+          active ? super.merge(aria: { current: 'page' }) : super
         end
       end
     end
