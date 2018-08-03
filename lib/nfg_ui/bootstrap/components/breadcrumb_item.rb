@@ -21,7 +21,7 @@ module NfgUi
         end
 
         def assistive_html_attributes
-          active ? super.merge(aria: { current: 'page' }) : super
+          active ? super.merge!(aria: { current: 'page' }) : super
         end
       end
     end
