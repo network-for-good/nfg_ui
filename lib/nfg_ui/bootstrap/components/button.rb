@@ -7,7 +7,7 @@ module NfgUi
       # https://getbootstrap.com/docs/4.1/components/buttons/
       class Button < Bootstrap::Components::Base
         include Bootstrap::Utilities::Themeable
-        # include Bootstrap::Utilities::Sizable
+        include Bootstrap::Utilities::Sizable
         include Bootstrap::Utilities::Wrappable
         include Bootstrap::Utilities::Activatable
         # include Bootstrap::Utilities::Disableable

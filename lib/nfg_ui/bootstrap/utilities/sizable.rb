@@ -12,12 +12,15 @@ module NfgUi
         #   super
         #   self.size = options.fetch(:size, default_size)
         # end
+        def size
+          options.fetch(:size, nil)
+        end
 
-        # def resized?
-        #   bootstrap4_size_options.include?(size)
-        # end
+        private
 
-        # private
+        def resized?
+          size == :sm || size == :lg
+        end
 
         # def defaults
         #   super.merge(size: default_size)
@@ -31,9 +34,9 @@ module NfgUi
         #   " #{component_css_class}-#{component_size}" if resized?
         # end
 
-        # def non_html_attribute_options
-        #   super.push(:size)
-        # end
+        def non_html_attribute_options
+          super.push(:size)
+        end
 
         # def bootstrap4_size_options
         #   [:sm, :lg, *alias_size_options]

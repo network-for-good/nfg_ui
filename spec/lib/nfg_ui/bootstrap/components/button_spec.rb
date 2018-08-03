@@ -7,4 +7,5 @@ RSpec.describe NfgUi::Bootstrap::Components::Button do
   it_behaves_like 'a component that includes the Themeable utility module'
   it_behaves_like 'a component that includes the Wrappable utility module'
   it_behaves_like 'a component that includes the Activatable utility module'
+  it_behaves_like 'a component that includes the Sizable utility module'
 end
