@@ -6,10 +6,10 @@ module NfgUi
       # Bootstrap Button Component
       # https://getbootstrap.com/docs/4.1/components/buttons/
       class Button < Bootstrap::Components::Base
-        # include Bootstrap::Utilities::Themeable
+        include Bootstrap::Utilities::Themeable
         # include Bootstrap::Utilities::Sizable
-        # include Bootstrap::Utilities::Wrappable
-        # include Bootstrap::Utilities::Activatable
+        include Bootstrap::Utilities::Wrappable
+        include Bootstrap::Utilities::Activatable
         # include Bootstrap::Utilities::Disableable
         # include Bootstrap::Utilities::AriaAssistable
         # include Bootstrap::Utilities::Tooltipable
@@ -28,15 +28,27 @@ module NfgUi
         #   block
         # end
 
-        # private
+        def block
+          options.fetch(:block, false)
+        end
 
-        # def component_css_class
-        #   'btn'
+        def modal
+          options.fetchh(:modal, nil)
+        end
+
+        # def data
+        #   self.data.merge!(toggle: 'modal')
         # end
 
-        # def css_classes
-        #   block? ? super + " #{component_css_class}-block" : super
-        # end
+        private
+
+        def component_css_class
+          'btn'
+        end
+
+        def css_classes
+          block ? super + " #{component_css_class}-block" : super
+        end
 
         # def default_block
         #   false
@@ -46,9 +58,9 @@ module NfgUi
         #   :a
         # end
 
-        # def non_html_attribute_options
-        #   super.push((:modal if modal.present?))
-        # end
+        def non_html_attribute_options
+          super.push(:modal, :block)
+        end
       end
     end
   end

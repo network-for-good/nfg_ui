@@ -17,24 +17,32 @@ module NfgUi
         #               :body,
         #               :name
 
-        attr_accessor :options,
-                      :view_context,
-                      :id,
+        attr_reader   :id,
                       :data,
                       :body
 
+        attr_accessor :options,
+                      :view_context
+                      # :id,
+                      # :data,
+                      # :body
+
         def initialize(component_options, view_context)
           p "====== Printed from: (Bootstrap::Components::Base) self.class.name: #{self.class.name} method: #{__method__}"
-          @options = defaults.merge!(component_options)
-          @view_context = view_context
+          self.options = defaults.merge!(component_options)
+          self.view_context = view_context
           @id = options.fetch(:id, nil)
           @data = options.fetch(:data, {})
-          # @name = component_class_name_string.underscore.downcase
           @body = options.fetch(:body, '')
+          # @id = options.fetch(:id, nil)
+          # @data = options.fetch(:data, {})
+          # @name = component_class_name_string.underscore.downcase
+          # @body = options.fetch(:body, '')
           # @heading = options.fetch(:heading, '')
           # @traits = options.fetch(:traits, [])
           # @id = options.fetch(:id, '')
           # byebug
+          # raise options.inspect
         end
 
         def html_options
@@ -46,6 +54,22 @@ module NfgUi
                  .reject { |_k, v| v.blank? } # prevent empty attributes from showing up
                                               # Example: <div class>Text</div>
         end
+
+        # def id
+        #   # raise self.options.inspect
+        #   # p "====== Printed from: (Bootstrap::Components::Base) self.class.name: #{self.class.name} method: #{__method__}"
+        #   self.options.fetch(:id, nil)
+        # end
+
+        # def data
+        #   # p "====== Printed from: (Bootstrap::Components::Base) self.class.name: #{self.class.name} method: #{__method__}"
+        #   self.options.fetch(:data, {})
+        # end
+
+        # def body
+        #   # p "====== Printed from: (Bootstrap::Components::Base) self.class.name: #{self.class.name} method: #{__method__}"
+        #   self.options.fetch(:body, '')
+        # end
 
         private
 

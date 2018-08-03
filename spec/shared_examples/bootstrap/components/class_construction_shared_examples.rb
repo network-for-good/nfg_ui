@@ -5,14 +5,10 @@ shared_examples_for 'a component with a consistent initalized construction' do
     
     it 'contains only the public methods and options it is expected to' do
       expect(unique_public_methods).to include(:body,
-                                               :body=,
                                                :data,
-                                               :data=,
                                                :html_options,
                                                :id,
-                                               :id=,
                                                :options,
-                                               :options=,
                                                :view_context,
                                                :view_context=)
       expect(component.options).to include(class: '', id: nil, body: nil, data: nil)
