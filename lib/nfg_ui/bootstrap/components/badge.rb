@@ -31,9 +31,9 @@ module NfgUi
           pill ? super.push(:pill) : super
         end
 
-        # def default_html_wrapper_element
-        #   :span
-        # end
+        def default_html_wrapper_element
+          :span
+        end
       end
     end
   end
