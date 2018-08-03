@@ -45,7 +45,7 @@ module NfgUi
           return super unless options[:modal].present?
           component_data = options[:data] || {}
           super.merge!(data: component_data.merge!(toggle: 'modal',
-                                                   target: "##{options[:modal]}"))
+                                                   target: "#{options[:modal]}"))
           # super.fetch(:data, {}).merge(data: { toggle: 'modal', target: "##{options[:modal]}" })
           # super.merge!( toggle: 'modal', target: "##{options[:modal]}")
         end

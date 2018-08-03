@@ -56,12 +56,12 @@ RSpec.describe 'nfg_ui/bootstrap/_button.html.haml', type: :view do
         end
 
         context 'when :modal is also present in the options' do
-          let(:tested_modal) { 'tested_modal' }
+          let(:tested_modal) { '#tested_modal' }
           let(:add_on_options) { { modal: tested_modal } }
           # it { raise options[:modal].present?.inspect }
           it 'prioritizes :modal html over :tooltip html which excludes the tooltip html' do
             expect(subject).not_to have_css ".btn[data-toggle='tooltip']"
-            expect(subject).to eq "<a class=\"btn btn-primary\" data-toggle=\"modal\" data-target=\"##{tested_modal}\">\n</a>"
+            expect(subject).to eq "<a class=\"btn btn-primary\" data-toggle=\"modal\" data-target=\"#{tested_modal}\">\n</a>"
             # raise subject.inspect
           end
 
@@ -92,14 +92,14 @@ RSpec.describe 'nfg_ui/bootstrap/_button.html.haml', type: :view do
             let(:tested_data) { { test_key: :data_test_value } }
             # , data: { tested_key: :tested_value }
             # it { raise subject.inspect }
-            it { is_expected.to have_css "[data-test-key='data_test_value'][data-toggle='modal'][data-target='##{tested_modal}']" }
+            it { is_expected.to have_css "[data-test-key='data_test_value'][data-toggle='modal'][data-target='#{tested_modal}']" }
 
             context 'and when there is another manually set data toggle within the options hash' do
               before { tested_data.merge!(toggle: 'a-plugin') }
               it 'prioritizes :modal over both data toggles' do
                 expect(subject).not_to have_css "[data-toggle='a-plugin']"
                 expect(subject).to have_css "[data-toggle='modal']"
-                expect(subject).to eq "<a class=\"btn btn-primary\" data-test-key=\"data_test_value\" data-toggle=\"modal\" data-target=\"##{tested_modal}\">\n</a>"
+                expect(subject).to eq "<a class=\"btn btn-primary\" data-test-key=\"data_test_value\" data-toggle=\"modal\" data-target=\"#{tested_modal}\">\n</a>"
               end
             end
           end
@@ -115,10 +115,10 @@ RSpec.describe 'nfg_ui/bootstrap/_button.html.haml', type: :view do
         end
 
         context 'and when (in addition to being disabled) it has :modal set in the options' do
-          let(:tested_modal) { 'tested_modal' }
+          let(:tested_modal) { '#tested_modal' }
           let(:add_on_options) { { modal: tested_modal } }
           it 'outputs the modal html on the button and wraps the button with the disabled tooltip wrapper html' do
-            expect(subject).to have_css "[data-toggle='tooltip'][title='#{tested_tooltip}'] [data-toggle='modal'][data-target='##{tested_modal}']"
+            expect(subject).to have_css "[data-toggle='tooltip'][title='#{tested_tooltip}'] [data-toggle='modal'][data-target='#{tested_modal}']"
             expect(subject).to eq "<span class='d-inline-block' data-html='true' data-placement='top' data-toggle='tooltip' tabindex='0' title='tested tooltip'>\n<a class=\"btn btn-primary disabled\" tabindex=\"-1\" data-toggle=\"modal\" data-target=\"#tested_modal\">\n</a></span>\n"
           end
         end

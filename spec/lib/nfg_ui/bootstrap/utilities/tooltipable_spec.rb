@@ -56,10 +56,10 @@ RSpec.describe NfgUi::Bootstrap::Utilities::Themeable do
 
       context 'when :modal is present in the options as well' do
         let(:add_on_options) { { modal: tested_modal } }
-        let(:tested_modal) { 'tested_modal' }
+        let(:tested_modal) { '#tested_modal' }
         it 'prioritizes modal options and ignores tooltip options' do
           expect(subject).not_to include(data: button.send(:tooltip_data_attributes))
-          expect(subject).to include(data: { toggle: 'modal', target: "##{tested_modal}" })
+          expect(subject).to include(data: { toggle: 'modal', target: "#{tested_modal}" })
         end
       end
     end

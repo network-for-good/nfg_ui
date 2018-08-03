@@ -45,7 +45,7 @@ RSpec.describe NfgUi::Bootstrap::Components::Button do
     subject { button.modal }
 
     context 'when :modal is present & provided in the options' do
-      let(:tested_modal) { 'tested_modal' }
+      let(:tested_modal) { '#tested_modal' }
       it { is_expected.to eq tested_modal }
     end
 
@@ -66,8 +66,8 @@ RSpec.describe NfgUi::Bootstrap::Components::Button do
     subject { button.html_options }
 
     context 'when modal is truthy' do
-      let(:tested_modal) { 'tested_modal' }
-      it { is_expected.to include(data: { toggle: 'modal', target: "##{tested_modal}" }) }
+      let(:tested_modal) { '#tested_modal' }
+      it { is_expected.to include(data: { toggle: 'modal', target: "#{tested_modal}" }) }
     end
 
     context 'when modal is falsey' do
