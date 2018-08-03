@@ -17,10 +17,12 @@ module NfgUi
         private
 
         def component_family
+          p "====== Printed from: (Bootstrap::Components::BreadcrumbItem) self.class.name: #{self.class.name} method: #{__method__}"
           :breadcrumb
         end
 
         def assistive_html_attributes
+          p "====== Printed from: (Bootstrap::Components::BreadcrumbItem) self.class.name: #{self.class.name} method: #{__method__}"
           active ? super.merge!(aria: { current: 'page' }) : super
         end
       end

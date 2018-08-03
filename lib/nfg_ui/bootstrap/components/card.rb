@@ -26,6 +26,7 @@ module NfgUi
         # end
 
         def component_family
+          p "====== Printed from: (Bootstrap::Components::Card) self.class.name: #{self.class.name} method: #{__method__}"
           :card
         end
 

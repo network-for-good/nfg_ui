@@ -28,15 +28,19 @@ module NfgUi
         # end
 
         def block
+          p "====== Printed from: (Bootstrap::Components::Button) self.class.name: #{self.class.name} method: #{__method__}"
           options.fetch(:block, false)
         end
 
         def modal
+          p "====== Printed from: (Bootstrap::Components::Button) self.class.name: #{self.class.name} method: #{__method__}"
           options.fetch(:modal, nil)
         end
 
         def html_options
-          return super unless options[:modal].present?
+          p "====== Printed from: (Bootstrap::Components::Button) self.class.name: #{self.class.name} method: #{__method__}"
+          # html_options doesn't know about #modal yet, need to use options[:] to check
+          return super unless options[:modal].present? 
           super.fetch(:data, {}).merge!(data: { toggle: 'modal', target: "##{options[:modal]}" })
         end
 
@@ -49,10 +53,12 @@ module NfgUi
 
 
         def component_css_class
+          p "====== Printed from: (Bootstrap::Components::Button) self.class.name: #{self.class.name} method: #{__method__}"
           'btn'
         end
 
         def css_classes
+          p "====== Printed from: (Bootstrap::Components::Button) self.class.name: #{self.class.name} method: #{__method__}"
           block ? super + " #{component_css_class}-block" : super
         end
 
@@ -61,14 +67,17 @@ module NfgUi
         # end
 
         def default_html_wrapper_element
+          p "====== Printed from: (Bootstrap::Components::Button) self.class.name: #{self.class.name} method: #{__method__}"
           :a
         end
 
         def non_html_attribute_options
+          p "====== Printed from: (Bootstrap::Components::Button) self.class.name: #{self.class.name} method: #{__method__}"
           super.push(:modal, :block)
         end
 
         def assistive_html_attributes
+          p "====== Printed from: (Bootstrap::Components::Button) self.class.name: #{self.class.name} method: #{__method__}"
           active ? super.merge(aria: { pressed: true }) : super
         end
       end

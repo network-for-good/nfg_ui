@@ -39,9 +39,9 @@ RSpec.describe NfgUi::Bootstrap::Components::Button do
   end
 
   describe '#modal' do
-    subject { button.modal }
     let(:options) { { modal: tested_modal } }
     let(:tested_modal) { nil }
+    subject { button.modal }
 
     context 'when :modal is present & provided in the options' do
       let(:tested_modal) { 'tested_modal' }
@@ -83,10 +83,12 @@ RSpec.describe NfgUi::Bootstrap::Components::Button do
   describe '#css_classes' do
     let(:options) { { block: tested_block } }
     subject { button.send(:css_classes) }
+    
     context 'when :block is true in options' do
       let(:tested_block) { true }
       it { is_expected.to include 'btn-block' }
     end
+
     context 'when :block is false in options' do
       let(:tested_block) { false }
       it { is_expected.not_to include 'btn-block' }
@@ -117,6 +119,7 @@ RSpec.describe NfgUi::Bootstrap::Components::Button do
     let(:options) { { active: tested_active } }
     let(:tested_active) { nil }
     subject { button.send(:assistive_html_attributes) }
+    
     context 'when :active is true' do
       let(:tested_active) { true }
       it { is_expected.to include(aria: { pressed: true }) }
@@ -132,5 +135,4 @@ RSpec.describe NfgUi::Bootstrap::Components::Button do
       it { is_expected.not_to include(aria: { pressed: true }) }
     end
   end
-
 end

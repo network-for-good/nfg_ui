@@ -15,10 +15,12 @@ module NfgUi
         private
 
         def component_css_class
+          p "====== Printed from: (Bootstrap::Components::ButtonToolbar) self.class.name: #{self.class.name} method: #{__method__}"
           'btn-toolbar'
         end
 
         def assistive_html_attributes
+          p "====== Printed from: (Bootstrap::Components::ButtonToolbar) self.class.name: #{self.class.name} method: #{__method__}"
           super.merge!(role: options.fetch(:role, 'toolbar'))
         end
       end

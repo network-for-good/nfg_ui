@@ -21,6 +21,7 @@ module NfgUi
         private
 
         def component_css_class
+          p "====== Printed from: (Bootstrap::Components::ButtonGroup) self.class.name: #{self.class.name} method: #{__method__}"
           'btn-group'
         end
 
@@ -29,6 +30,7 @@ module NfgUi
         # end
 
         def assistive_html_attributes
+          p "====== Printed from: (Bootstrap::Components::ButtonGroup) self.class.name: #{self.class.name} method: #{__method__}"
           super.merge!(role: 'group')
         end
       end

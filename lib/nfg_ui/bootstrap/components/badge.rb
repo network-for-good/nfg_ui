@@ -12,18 +12,22 @@ module NfgUi
         private
 
         def pill
+          p "====== Printed from: (Bootstrap::Components::Badge) self.class.name: #{self.class.name} method: #{__method__}"
           options.fetch(:pill, default_pill)
         end
 
         def css_classes
+          p "====== Printed from: (Bootstrap::Components::Badge) self.class.name: #{self.class.name} method: #{__method__}"
           pill ? super + " #{component_css_class}-pill" : super
         end
 
         def default_pill
+          p "====== Printed from: (Bootstrap::Components::Badge) self.class.name: #{self.class.name} method: #{__method__}"
           false
         end
 
         def non_html_attribute_options
+          p "====== Printed from: (Bootstrap::Components::Badge) self.class.name: #{self.class.name} method: #{__method__}"
           pill ? super.push(:pill) : super
         end
 

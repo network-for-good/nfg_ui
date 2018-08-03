@@ -7,6 +7,7 @@ module NfgUi
       module Activatable
 
         def active
+          p "====== Printed from: (Bootstrap::Utilities::Activatable) self.class.name: #{self.class.name} method: #{__method__}"
           options.fetch(:active, default_active)
         end
 
@@ -21,14 +22,17 @@ module NfgUi
         private
 
         def css_classes
+          p "====== Printed from: (Bootstrap::Utilities::Activatable) self.class.name: #{self.class.name} method: #{__method__}"
           active ? super + ' active' : super
         end
 
         def non_html_attribute_options
+          p "====== Printed from: (Bootstrap::Utilities::Activatable) self.class.name: #{self.class.name} method: #{__method__}"
           super.push(:active)
         end
 
         def default_active
+          p "====== Printed from: (Bootstrap::Utilities::Activatable) self.class.name: #{self.class.name} method: #{__method__}"
           false
         end
       end

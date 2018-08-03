@@ -14,6 +14,7 @@ module NfgUi
         # end
 
         def disabled
+          p "====== Printed from: (Bootstrap::Utilities::Disableable) self.class.name: #{self.class.name} method: #{__method__}"
           options.fetch(:disabled, false)
         end
 
@@ -24,10 +25,12 @@ module NfgUi
         private
 
         def css_classes
+          p "====== Printed from: (Bootstrap::Utilities::Disableable) self.class.name: #{self.class.name} method: #{__method__}"
           disabled ? super + ' disabled' : super
         end
 
         def non_html_attribute_options
+          p "====== Printed from: (Bootstrap::Utilities::Disableable) self.class.name: #{self.class.name} method: #{__method__}"
           as == :button ? super : super.push(:disabled)
         #   if elements_permitted_to_have_disabled_attribute.include?(as)
         #     super
@@ -46,6 +49,7 @@ module NfgUi
         # end
 
         def assistive_html_attributes
+          p "====== Printed from: (Bootstrap::Utilities::Disableable) self.class.name: #{self.class.name} method: #{__method__}"
           disabled ? super.merge!(tabindex: '-1') : super
         end
 

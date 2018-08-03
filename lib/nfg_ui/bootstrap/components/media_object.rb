@@ -9,6 +9,7 @@ module NfgUi
         private
 
         def component_css_class
+          p "====== Printed from: (Bootstrap::Components::Media) self.class.name: #{self.class.name} method: #{__method__}"
           'media'
         end
       end
