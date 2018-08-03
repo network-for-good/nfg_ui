@@ -52,15 +52,19 @@ RSpec.describe NfgUi::Bootstrap::Utilities::Wrappable do
   end
 
   describe '#default_html_wrapper_element' do
-    subject { badge.send(:default_html_wrapper_element) }
+    let(:test_class) { Class.new { include NfgUi::Bootstrap::Utilities::Wrappable }.new }
+    subject { test_class.send(:default_html_wrapper_element) }
 
     context 'when default_html_wrapper_element is not overwritten' do
       it { is_expected.to eq :span }
     end
 
-    context 'when default theme has been overwritten' do
-      before { badge.instance_variable_set(:@default_html_wrapper_element, :li) }
-      it { is_expected.to eq :li }
+    context 'when default_html_wrapper_element has been overwritten' do
+      before { test_class.instance_variable_set(:@default_html_wrapper_element, :a) }
+
+      it 'accepts the redefined value as set by the component' do
+        expect(subject).to eq :a
+      end
     end
   end
 

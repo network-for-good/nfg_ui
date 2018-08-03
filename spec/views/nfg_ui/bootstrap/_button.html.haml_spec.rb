@@ -135,4 +135,35 @@ RSpec.describe 'nfg_ui/bootstrap/_button.html.haml', type: :view do
       it { is_expected.not_to have_css "[data-toggle='tooltip']" }
     end
   end
+
+  describe 'button sizes' do
+    let(:options) { { size: tested_size } }
+    context 'when size is :sm' do
+      let(:tested_size) { :sm }
+      it 'outputs a small button' do
+        expect(subject).to have_css '.btn-sm'
+      end
+    end
+
+    context 'when size is :lg' do
+      let(:tested_size) { :lg }
+      it 'outputs a large button' do
+        expect(subject).to have_css '.btn-lg'
+      end
+    end
+
+    context 'when size is an invalid value' do
+      let(:tested_size) { :not_sm_or_lg }
+      it 'does not output a resized button' do
+        expect(subject).not_to have_css ".btn-#{tested_size}"
+      end
+    end
+
+    context 'when size is not present in the options' do
+      let(:options) { {} }
+      it 'does not output a resized button' do
+        expect(subject).to eq "<a class=\"btn btn-primary\">\n</a>"
+      end
+    end
+  end
 end

@@ -40,4 +40,32 @@ RSpec.describe NfgUi::Bootstrap::Utilities::Sizable do
     subject { button.send(:non_html_attribute_options) }
     it { is_expected.to include :size }
   end
+
+  describe '#css_classes' do
+    subject { button.send(:css_classes) }
+
+
+    context 'when size is a valid size' do
+      context 'when size is :lg' do
+        let(:tested_size) { :lg }
+        it { is_expected.to eq 'btn btn-primary btn-lg' }
+      end
+
+      context 'when size is :sm' do
+        let(:tested_size) { :sm }
+        it { is_expected.to eq 'btn btn-primary btn-sm' }
+      end
+    end
+
+    context 'when size is not a valid size' do
+      let(:tested_size) { :invalid }
+      it { is_expected.to eq 'btn btn-primary' }
+      it { is_expected.not_to include "btn-#{tested_size}" }
+    end
+
+    context 'when size is not present in options' do
+      let(:options) { {} }
+      it { is_expected.to eq 'btn btn-primary' }
+    end
+  end
 end

@@ -28,9 +28,10 @@ module NfgUi
         #   super.merge(size: default_size)
         # end
 
-        # def css_classes
-        #   resized? ? super + size_css_class : super
-        # end
+        def css_classes
+          p "====== Printed from: (Bootstrap::Utilities::Sizable) self.class.name: #{self.class.name} method: #{__method__}"
+          resized? ? super + " #{component_css_class}-#{size}" : super
+        end
 
         # def size_css_class
         #   " #{component_css_class}-#{component_size}" if resized?

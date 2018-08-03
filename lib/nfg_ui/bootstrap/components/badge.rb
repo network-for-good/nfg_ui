@@ -32,6 +32,7 @@ module NfgUi
         end
 
         def default_html_wrapper_element
+          p "====== Printed from: (Bootstrap::Components::Badge) self.class.name: #{self.class.name} method: #{__method__}"
           :span
         end
       end
