@@ -4,6 +4,6 @@ shared_examples_for 'a component that includes the Wrappable utility module' do
     it { expect(described_class.included_modules).to include NfgUi::Bootstrap::Utilities::Wrappable }
     it 'responds to the wrappable public methods' do
       expect(component).to respond_to :as
-    end 
+    end
   end
 end

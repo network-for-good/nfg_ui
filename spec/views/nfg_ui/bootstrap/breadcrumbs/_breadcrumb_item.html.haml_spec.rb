@@ -10,7 +10,7 @@ RSpec.describe 'nfg_ui/bootstrap/breadcrumbs/_breadcrumb_item.html.haml', type: 
     let(:body) { 'test body content' }
 
     it 'outputs a bootstrap breadcrumb component in html' do
-      expect(subject).to have_css "li.breadcrumb-item"
+      expect(subject).to have_css 'li.breadcrumb-item'
       expect(subject).to have_selector 'li.breadcrumb-item', text: body
       expect(subject).to eq "<li class='breadcrumb-item'>\n#{body}\n</li>\n"
     end
