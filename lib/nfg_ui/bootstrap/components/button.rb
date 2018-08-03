@@ -11,7 +11,6 @@ module NfgUi
         include Bootstrap::Utilities::Wrappable
         include Bootstrap::Utilities::Activatable
         include Bootstrap::Utilities::Disableable
-        # include Bootstrap::Utilities::AriaAssistable
         # include Bootstrap::Utilities::Tooltipable
 
         # attr_reader :block, :modal
@@ -33,14 +32,21 @@ module NfgUi
         end
 
         def modal
-          options.fetchh(:modal, nil)
+          options.fetch(:modal, nil)
+        end
+
+        def html_options
+          return super unless options[:modal].present?
+          super.fetch(:data, {}).merge!(data: { toggle: 'modal', target: "##{options[:modal]}" })
         end
 
         # def data
-        #   self.data.merge!(toggle: 'modal')
+        # #   self.data.merge!(toggle: 'modal')
         # end
 
         private
+
+
 
         def component_css_class
           'btn'
@@ -54,12 +60,16 @@ module NfgUi
         #   false
         # end
 
-        # def default_html_wrapper_element
-        #   :a
-        # end
+        def default_html_wrapper_element
+          :a
+        end
 
         def non_html_attribute_options
           super.push(:modal, :block)
+        end
+
+        def assistive_html_attributes
+          active ? super.merge(aria: { pressed: true }) : super
         end
       end
     end
