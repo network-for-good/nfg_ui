@@ -142,6 +142,7 @@ RSpec.describe 'nfg_ui/bootstrap/_button.html.haml', type: :view do
       let(:tested_size) { :sm }
       it 'outputs a small button' do
         expect(subject).to have_css '.btn-sm'
+        expect(subject).to eq "<a class=\"btn btn-primary btn-sm\">\n</a>"
       end
     end
 
@@ -149,6 +150,7 @@ RSpec.describe 'nfg_ui/bootstrap/_button.html.haml', type: :view do
       let(:tested_size) { :lg }
       it 'outputs a large button' do
         expect(subject).to have_css '.btn-lg'
+        expect(subject).to eq "<a class=\"btn btn-primary btn-lg\">\n</a>"
       end
     end
 
@@ -156,6 +158,7 @@ RSpec.describe 'nfg_ui/bootstrap/_button.html.haml', type: :view do
       let(:tested_size) { :not_sm_or_lg }
       it 'does not output a resized button' do
         expect(subject).not_to have_css ".btn-#{tested_size}"
+        expect(subject).to eq "<a class=\"btn btn-primary\">\n</a>"
       end
     end
 

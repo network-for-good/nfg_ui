@@ -44,7 +44,6 @@ RSpec.describe NfgUi::Bootstrap::Utilities::Sizable do
   describe '#css_classes' do
     subject { button.send(:css_classes) }
 
-
     context 'when size is a valid size' do
       context 'when size is :lg' do
         let(:tested_size) { :lg }
