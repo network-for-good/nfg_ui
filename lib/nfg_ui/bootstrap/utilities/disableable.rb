@@ -13,23 +13,28 @@ module NfgUi
         #   add_negative_tab_index?
         # end
 
+        def disabled
+          options.fetch(:disabled, false)
+        end
+
         # def disabled?
         #   disabled
         # end
 
-        # private
+        private
 
-        # def css_classes
-        #   disabled? ? super + ' disabled' : super
-        # end
+        def css_classes
+          disabled ? super + ' disabled' : super
+        end
 
-        # def non_html_attribute_options
+        def non_html_attribute_options
+          as == :button ? super : super.push(:disabled)
         #   if elements_permitted_to_have_disabled_attribute.include?(as)
         #     super
         #   else
         #     super.push(:disabled)
         #   end
-        # end
+        end
 
         # def elements_permitted_to_have_disabled_attribute
         #   %i[button
@@ -40,9 +45,9 @@ module NfgUi
         #   %i[a]
         # end
 
-        # def add_negative_tab_index?
-        #   options.merge!(tabindex: '-1') if disabled? && elements_permitted_to_have_negative_tab_index.include?(as)
-        # end
+        def assistive_html_attributes
+          disabled ? super.merge!(tabindex: '-1') : super
+        end
 
         # def default_disabled
         #   false
