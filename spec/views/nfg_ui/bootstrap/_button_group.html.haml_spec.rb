@@ -12,7 +12,7 @@ RSpec.describe 'nfg_ui/bootstrap/_button_group.html.haml', type: :view do
     it 'outputs a bootstrap button_group component in html' do
       expect(subject).to have_css '.btn-group'
       expect(subject).to have_selector '.btn-group', text: body
-      expect(subject).to eq "<div class='btn-group' role='group'>\n#{body}\n</div>\n"
+      expect(subject).to eq "<div aria-label='action buttons' class='btn-group' role='group'>\n#{body}\n</div>\n"
     end
   end
 end

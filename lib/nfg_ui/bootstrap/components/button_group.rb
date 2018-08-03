@@ -7,7 +7,7 @@ module NfgUi
       # An optional parent of the Button component
       # https://getbootstrap.com/docs/4.1/components/breadcrumb/
       class ButtonGroup < Bootstrap::Components::Base
-        # include Bootstrap::Utilities::Sizable
+        include Bootstrap::Utilities::Sizable
         # include Bootstrap::Utilities::AriaAssistable
 
         # attr_reader :toolbar
@@ -17,6 +17,10 @@ module NfgUi
         #   build_aria(aria_key: :label, aria_value: 'action buttons')
         #   @toolbar = traits.include?(:toolbar)
         # end
+
+        def vertical
+          options.fetch(:vertical, false)
+        end
 
         private
 
@@ -31,7 +35,7 @@ module NfgUi
 
         def assistive_html_attributes
           p "====== Printed from: (Bootstrap::Components::ButtonGroup) self.class.name: #{self.class.name} method: #{__method__}"
-          super.merge!(role: 'group')
+          super.merge!(role: 'group', aria: { label: 'action buttons' })
         end
       end
     end
