@@ -26,7 +26,8 @@ RSpec.describe NfgUi::Bootstrap::Utilities::Themeable do
 
   describe '#html_options' do
     subject { button.html_options }
-    let(:options) { { tooltip: tested_tooltip, disabled: tested_disabled, style: tested_style } }
+    let(:options) { { tooltip: tested_tooltip, disabled: tested_disabled, style: tested_style, **add_on_options } }
+    let(:add_on_options) { {} }
     let(:tested_disabled) { nil }
     let(:tested_style) { nil }
     context 'when :tooltip is present in the options' do
@@ -35,7 +36,7 @@ RSpec.describe NfgUi::Bootstrap::Utilities::Themeable do
 
       context 'when component is disabled' do
         let(:tested_disabled) { true }
-        it { is_expected.to eq(class: 'btn btn-primary disabled', tabindex: nil, title: nil, style: 'pointer-events: none;', data: nil) }
+        it { is_expected.to eq(class: 'btn btn-primary disabled', tabindex: nil, title: nil, style: 'pointer-events: none;', data: {}) }
 
         context 'when a component has :style applied in the options' do
           let(:tested_style) { 'background-color: purple;' }
@@ -51,6 +52,15 @@ RSpec.describe NfgUi::Bootstrap::Utilities::Themeable do
         let(:tested_disabled) { false }
         it { is_expected.not_to include(style: 'pointer-events: none;') }
         it { is_expected.to eq(class: 'btn btn-primary', title: tested_tooltip, style: nil, data: { toggle: 'tooltip', placement: :top, html: 'true' }, tabindex: nil) }
+      end
+
+      context 'when :modal is present in the options as well' do
+        let(:add_on_options) { { modal: tested_modal } }
+        let(:tested_modal) { 'tested_modal' }
+        it 'prioritizes modal options and ignores tooltip options' do
+          expect(subject).not_to include(data: button.send(:tooltip_data_attributes))
+          expect(subject).to include(data: { toggle: 'modal', target: "##{tested_modal}" })
+        end
       end
     end
   end

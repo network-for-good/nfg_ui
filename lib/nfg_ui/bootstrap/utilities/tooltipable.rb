@@ -58,17 +58,27 @@ module NfgUi
         # 
         # https://getbootstrap.com/docs/4.1/components/tooltips/#disabled-elements
         def html_options
-          return super unless tooltip.present?
+          return super if options[:tooltip].nil? || options[:modal].present?
+          
+          # if 
+          #   raise ArgumentError.new("A data :toggle has already been set as: #{data[:toggle]}. Your tooltip was not addable.") 
+          # end
 
-          component_title = tooltip unless disabled
+          component_title = disabled ? options.fetch(:title, nil) : tooltip
+          # raise component_title.inspect
           component_styles = (options[:style] || '') + (disabled ? ' pointer-events: none;' : '') if disabled
-          component_data = tooltip_data_attributes unless disabled
           component_tabindex = nil if disabled
-
+          # raise options.inspect
+          component_data = disabled ? {} : (options[:data] || {}).merge!(tooltip_data_attributes)
+          # tooltip_data_attributes unless disabled || options[:data].try(:toggle)
           super.merge!(title: component_title,
                        style: component_styles.try(:squish),
-                       data: component_data,
-                       tabindex: component_tabindex)
+                       tabindex: component_tabindex,
+                       data: component_data)
+
+          
+          # raise super.fetch(:data).inspect
+          # super
         end
 
         # def tooltipable?
@@ -95,7 +105,7 @@ module NfgUi
         def tooltip_data_attributes
           { toggle: 'tooltip',
             placement: tooltip_placement,
-            html: 'true' }
+            html: 'true'}
         end
 
         # def defaults

@@ -43,7 +43,11 @@ module NfgUi
           # Thus, options[:modal] is the best way to verify whether or not
           # to update the data attributes for the component
           return super unless options[:modal].present?
-          super.fetch(:data, {}).merge!(data: { toggle: 'modal', target: "##{options[:modal]}" })
+          component_data = options[:data] || {}
+          super.merge!(data: component_data.merge!(toggle: 'modal',
+                                                   target: "##{options[:modal]}"))
+          # super.fetch(:data, {}).merge(data: { toggle: 'modal', target: "##{options[:modal]}" })
+          # super.merge!( toggle: 'modal', target: "##{options[:modal]}")
         end
 
         # def data
