@@ -4,7 +4,7 @@ module NfgUi
       # Bootstrap Collapse Component
       # https://getbootstrap.com/docs/4.1/components/collapse/
       class Collapse < Bootstrap::Components::Base
-        # include Bootstrap::Utilities::Collapsible
+        include Bootstrap::Utilities::Collapsible
 
         # def initialize(*)
         #   super
