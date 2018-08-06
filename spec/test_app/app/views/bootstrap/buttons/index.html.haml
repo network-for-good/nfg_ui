@@ -8,9 +8,9 @@
 
 %h3 Elements
 = ui.bootstrap :button, href: '#testURL', body: 'Link Btn W/O :as'
-= ui.bootstrap :button, as: :link, href: '#testURL' do
+= ui.bootstrap :button, as: :a, href: '#testURL' do
   Link Button with HREF
-= ui.bootstrap :button, as: :link do
+= ui.bootstrap :button, as: :a do
   Link Button without HREF
 = ui.bootstrap :button, as: :button, body: 'Button'
 
@@ -46,23 +46,23 @@
 
 %hr
 %h3 Outlines
-= ui.bootstrap :button, :outlined, class: 'example-class' do
+= ui.bootstrap :button, outlined: true, class: 'example-class' do
   Default Outline Button (Link w/o href)
 
-= ui.bootstrap :button, :outlined, as: :button, body: 'Primary Outlined', theme: :primary, class: 'example-class'
+= ui.bootstrap :button, outlined: true, as: :button, body: 'Primary Outlined', theme: :primary, class: 'example-class'
 
-= ui.bootstrap :button, :outlined, as: :button, body: 'Secondary Outlined', theme: :secondary, class: 'example-class' 
+= ui.bootstrap :button, outlined: true, as: :button, body: 'Secondary Outlined', theme: :secondary, class: 'example-class' 
 
-= ui.bootstrap :button, :outlined, as: :button, body: 'Success Outlined', theme: :success, class: 'example-class' 
+= ui.bootstrap :button, outlined: true, as: :button, body: 'Success Outlined', theme: :success, class: 'example-class' 
 
-= ui.bootstrap :button, :outlined, as: :button, body: 'Danger Outlined', theme: :danger, class: 'example-class' 
+= ui.bootstrap :button, outlined: true, as: :button, body: 'Danger Outlined', theme: :danger, class: 'example-class' 
 
-= ui.bootstrap :button, :outlined, as: :button, body: 'Warning Outlined', theme: :warning, class: 'example-class' 
+= ui.bootstrap :button, outlined: true, as: :button, body: 'Warning Outlined', theme: :warning, class: 'example-class' 
 
-= ui.bootstrap :button, :outlined, as: :button, body: 'Info Outlined', theme: :info, class: 'example-class' 
+= ui.bootstrap :button, outlined: true, as: :button, body: 'Info Outlined', theme: :info, class: 'example-class' 
 
-= ui.bootstrap :button, :outlined, as: :button, body: 'Light Outlined', theme: :light, class: 'example-class' 
-= ui.bootstrap :button, :outlined, as: :button, body: 'Dark Outlined', theme: :dark, class: 'example-class' 
+= ui.bootstrap :button, outlined: true, as: :button, body: 'Light Outlined', theme: :light, class: 'example-class' 
+= ui.bootstrap :button, outlined: true, as: :button, body: 'Dark Outlined', theme: :dark, class: 'example-class' 
 
 %hr
 %h3 Block Buttons
@@ -74,10 +74,17 @@
 %h3 Activated Buttons
 = ui.bootstrap :button, body: 'Active Button as Link', href: '#nogo', active: true
 = ui.bootstrap :button, as: :button, body: 'Active Button', active: true
-= ui.bootstrap :button, :outlined, block: true, as: :button, body: 'Active Outlined Button', active: true
+= ui.bootstrap :button, outlined: true, block: true, as: :button, body: 'Active Outlined Button', active: true
 
 %hr
 
 %h3 Disabled Buttons
 = ui.bootstrap :button, body: 'Disabled Button as Link', href: '#nogo', disabled: true
 = ui.bootstrap :button, as: :button, body: 'Disabled Button', disabled: true
+
+%hr
+
+%h3 Button with tooltip
+= ui.bootstrap :button, as: :button, body: "Tooltip'd Button", tooltip: 'Button with a tooltip'
+
+= ui.bootstrap :button, as: :button, disabled: true, body: "Disabled Tooltip'd Button", tooltip: 'Disabled button with a tooltip'
