@@ -56,8 +56,6 @@ module NfgUi
 
         private
 
-
-
         def component_css_class
           p "====== Printed from: (Bootstrap::Components::Button) self.class.name: #{self.class.name} method: #{__method__}"
           'btn'

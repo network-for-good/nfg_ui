@@ -35,6 +35,7 @@ module NfgUi
                                   button_toolbar
                                   card
                                   carousel
+                                  collapse
                                   dropdown
                                   embed
                                   form

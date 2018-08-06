@@ -14,6 +14,7 @@ module NfgUi
       require_relative 'components/button_toolbar'
       require_relative 'components/card'
       require_relative 'components/carousel'
+      require_relative 'components/collapse'
       require_relative 'components/dropdown'
       require_relative 'components/embed'
       require_relative 'components/input_group'
