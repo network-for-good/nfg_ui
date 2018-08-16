@@ -26,6 +26,7 @@ RSpec.describe NfgUi do
                                                           button_toolbar
                                                           card
                                                           carousel
+                                                          collapse
                                                           dropdown
                                                           embed
                                                           form

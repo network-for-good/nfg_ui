@@ -11,7 +11,8 @@ module NfgUi
   require 'sass-rails'
   require 'select2-rails'
 
-  # Order is important
+  # Require_relative required order:
+  # Utilities -> UI -> Bootstrap -> Components
   require_relative 'nfg_ui/utilities'
   require_relative 'nfg_ui/ui'
   require_relative 'nfg_ui/bootstrap'
