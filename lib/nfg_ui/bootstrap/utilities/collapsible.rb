@@ -16,6 +16,14 @@ module NfgUi
         #   collapsible_target_id_error if collapsible_target_id.nil?
         # end
 
+        def collapsed
+          options.fetch(:collapsed, nil)
+        end
+
+        def collapsible
+          options.fetch(:collapsible, false)
+        end
+
         # def collapsible?
         #   (traits & collapsible_traits).present? || collapsed
         # end
@@ -37,19 +45,19 @@ module NfgUi
         #                       **build_aria(aria_key: :controls, aria_value: collapsible_target_id)) }
         # end
 
-        # private
+        private
 
         # def required
         #   [:id]
         # end
 
-        # def collapse_icon
-        #   'caret-up'
-        # end
+        def collapse_icon
+          'caret-up'
+        end
 
-        # def collapsed_icon
-        #   'caret-down'
-        # end
+        def collapsed_icon
+          'caret-down'
+        end
 
         # def collapsible_wrapper_html
         #   view_context.content_tag(:div,
