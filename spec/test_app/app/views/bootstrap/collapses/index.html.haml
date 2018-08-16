@@ -1,3 +1,8 @@
 %h1 Collapses
 
-= ui.bootstrap :collapse
+= ui.bootstrap :collapse, id: 'required_id1' do
+  Hello collapse, I should be collapsed
+
+%hr
+
+= ui.bootstrap :collapse, id: 'required_id2', body: 'Body implemented via options and is not collapsed. Collapse is collapsed by default', collapsed: false
