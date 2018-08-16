@@ -17,8 +17,8 @@ module NfgUi
         #               :body,
         #               :name
 
-        attr_reader   :id,
-                      :data,
+        attr_reader   :data,
+                      # :id,
                       :body
 
         attr_accessor :options,
@@ -31,7 +31,7 @@ module NfgUi
           p "====== Printed from: (Bootstrap::Components::Base) self.class.name: #{self.class.name} method: #{__method__}"
           self.options = defaults.merge!(component_options)
           self.view_context = view_context
-          @id = options.fetch(:id, nil)
+          # @id = options.fetch(:id, nil)
           @data = options.fetch(:data, nil)
           @body = options.fetch(:body, '')
           # @id = options.fetch(:id, nil)
@@ -43,6 +43,10 @@ module NfgUi
           # @id = options.fetch(:id, '')
           # byebug
           # raise options.inspect
+        end
+
+        def id
+          nil
         end
 
         def html_options
@@ -89,12 +93,12 @@ module NfgUi
           {
             # HTML Defaults
             class: '',
-            id: (nil if id.present?),
+            id: nil,
 
             # Content
             # heading: (nil if heading.present?),
-            body: (nil if body.present?),
-            data: ({} if data.present?),
+            body: nil,
+            data: {},
 
             # Configuration
             # traits: ([] if traits.present?)

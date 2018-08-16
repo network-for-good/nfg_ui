@@ -76,7 +76,7 @@ RSpec.describe NfgUi::Bootstrap::Components::Base do
 
   describe '#defaults' do
     subject { bootstrap_base.send(:defaults) }
-    it { is_expected.to eq(class: '', id: nil, body: nil, data: nil) }
+    it { is_expected.to eq(class: '', id: nil, body: nil, data: {}) }
 
     describe 'defaults for data attribute' do
       context 'when data is present' do
@@ -86,7 +86,7 @@ RSpec.describe NfgUi::Bootstrap::Components::Base do
 
       context 'when data is not present' do
         let(:data) { nil }
-        it { expect(subject[:data]).to be_nil }
+        it { expect(subject[:data]).to eq({}) }
       end
     end
   end
