@@ -16,13 +16,54 @@ module NfgUi
         #   collapsible_target_id_error if collapsible_target_id.nil?
         # end
 
-        def collapsed
-          options.fetch(:collapsed, nil)
+        def collapse
+          p "====== Printed from: (Bootstrap::Utilities::Collapsible) self.class.name: #{self.class.name} method: #{__method__}"
+          options.fetch(:collapse, nil)
         end
 
-        def collapsible
-          options.fetch(:collapsible, false)
+        # def collapsed
+        #   options.fetch(:collapsed, default_collapsed)
+        # end
+
+        def html_options
+          p "====== Printed from: (Bootstrap::Utilities::Collapsible) self.class.name: #{self.class.name} method: #{__method__}"
+          return super unless collapse
+          component_data = options[:data] || {}
+          super.merge!(data: component_data.merge!(collapse_data_attributes))
         end
+
+        private
+
+        # Buttons need to be able to to set a target on :buttons
+        # and an href on links -- so this attribute is customizable if needed
+        def collapse_data_attributes
+          p "====== Printed from: (Bootstrap::Utilities::Collapsible) self.class.name: #{self.class.name} method: #{__method__}"
+          @collapse_data_attributes ||= { toggle: 'collapse', target: collapse }
+        end
+
+        # To do: currently collapsible doesn't control the actual collapse
+        # As such, there's no way to set aria-expanded on the button / toggle...
+        # based on whether or not the collapse component is expanded or not
+        #
+        # To solve: how to address aria-expanded to accurately reflect the expanded status
+        def assistive_html_attributes
+          p "====== Printed from: (Bootstrap::Utilities::Collapsible) self.class.name: #{self.class.name} method: #{__method__}"
+          return super unless collapse
+          super.merge!(aria: { expanded: 'false', controls: collapse.tr('#','') }, role: 'button')
+        end
+
+        # def default_collapsed
+        #   p "====== Printed from: (Bootstrap::Utilities::Collapsible) self.class.name: #{self.class.name} method: #{__method__}"
+        #   NfgUi::Bootstrap::Components::Collapse.send(:default_collapsed)
+        # end
+
+        # def collapsed
+        #   options.fetch(:collapsed, nil)
+        # end
+
+        # def collapsible
+        #   options.fetch(:collapsible, false)
+        # end
 
         # def collapsible?
         #   (traits & collapsible_traits).present? || collapsed
@@ -51,13 +92,13 @@ module NfgUi
         #   [:id]
         # end
 
-        def collapse_icon
-          'caret-up'
-        end
+        # def collapse_icon
+        #   'caret-up'
+        # end
 
-        def collapsed_icon
-          'caret-down'
-        end
+        # def collapsed_icon
+        #   'caret-down'
+        # end
 
         # def collapsible_wrapper_html
         #   view_context.content_tag(:div,
@@ -84,9 +125,10 @@ module NfgUi
         #   'show' unless collapsed?
         # end
 
-        # def non_html_attribute_options
-        #   super.push(:collapsed)
-        # end
+        def non_html_attribute_options
+          p "====== Printed from: (Bootstrap::Utilities::Collapsible) self.class.name: #{self.class.name} method: #{__method__}"
+          super.push(:collapse)
+        end
 
         # def defaults
         #   super.merge!(collapsed: default_collapsed)

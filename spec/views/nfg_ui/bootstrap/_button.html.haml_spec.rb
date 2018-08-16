@@ -136,6 +136,10 @@ RSpec.describe 'nfg_ui/bootstrap/_button.html.haml', type: :view do
     end
   end
 
+  describe 'a button set as a collapse toggle' do
+    pending 'coming soon'
+  end
+
   describe 'button sizes' do
     let(:options) { { size: tested_size } }
     context 'when size is :sm' do

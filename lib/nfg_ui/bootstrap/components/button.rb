@@ -12,6 +12,7 @@ module NfgUi
         include Bootstrap::Utilities::Activatable
         include Bootstrap::Utilities::Disableable
         include Bootstrap::Utilities::Tooltipable
+        include Bootstrap::Utilities::Collapsible
 
         # attr_reader :block, :modal
 
@@ -39,13 +40,16 @@ module NfgUi
 
         def html_options
           p "====== Printed from: (Bootstrap::Components::Button) self.class.name: #{self.class.name} method: #{__method__}"
-          # html_options doesn't know about #modal yet, 
-          # Thus, options[:modal] is the best way to verify whether or not
-          # to update the data attributes for the component
-          return super unless options[:modal].present?
           component_data = options[:data] || {}
-          super.merge!(data: component_data.merge!(toggle: 'modal',
-                                                   target: "#{options[:modal]}"))
+
+          if options[:modal].present?
+            super.merge!(data: component_data.merge!(toggle: 'modal', target: "#{options[:modal]}"))
+          elsif options[:collapse].present? && as == :a
+            super.merge!(href: collapse)
+          else
+            super
+          end
+
           # super.fetch(:data, {}).merge(data: { toggle: 'modal', target: "##{options[:modal]}" })
           # super.merge!( toggle: 'modal', target: "##{options[:modal]}")
         end
@@ -55,6 +59,11 @@ module NfgUi
         # end
 
         private
+
+        def collapse_data_attributes
+          p "====== Printed from: (Bootstrap::Utilities::Collapsible) self.class.name: #{self.class.name} method: #{__method__}"
+          as == :a ? super.except!(:target) : super
+        end
 
         def component_css_class
           p "====== Printed from: (Bootstrap::Components::Button) self.class.name: #{self.class.name} method: #{__method__}"

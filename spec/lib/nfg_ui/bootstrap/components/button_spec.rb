@@ -12,6 +12,7 @@ RSpec.describe NfgUi::Bootstrap::Components::Button do
   it_behaves_like 'a component that includes the Sizable utility module'
   it_behaves_like 'a component that includes the Disableable utility module'
   it_behaves_like 'a component that includes the Tooltipable utility module'
+  it_behaves_like 'a component that includes the Collapsible utility module'
 
   describe '#block' do
     subject { button.block }
@@ -60,19 +61,35 @@ RSpec.describe NfgUi::Bootstrap::Components::Button do
     end
   end
 
-  describe '#html_options' do
-    let(:options) { { modal: tested_modal } }
-    let(:tested_modal) { nil }
-    subject { button.html_options }
+  describe '#collapse_data_attributes' do
+    subject { button.collapse_data_attributes }
+    pending 'coming soon'
+  end
 
-    context 'when modal is truthy' do
-      let(:tested_modal) { '#tested_modal' }
-      it { is_expected.to include(data: { toggle: 'modal', target: "#{tested_modal}" }) }
+  describe '#html_options' do
+    context 'button for a modal' do
+      let(:options) { { modal: tested_modal } }
+      let(:tested_modal) { nil }
+      subject { button.html_options }
+
+      context 'when modal is truthy' do
+        let(:tested_modal) { '#tested_modal' }
+        it { is_expected.to include(data: { toggle: 'modal', target: "#{tested_modal}" }) }
+      end
+
+      context 'when modal is falsey' do
+        let(:options) { {} }
+        it { is_expected.not_to include(data: { toggle: 'modal' }) }
+      end
     end
 
-    context 'when modal is falsey' do
-      let(:options) { {} }
-      it { is_expected.not_to include(data: { toggle: 'modal' }) }
+    context 'button for a collapse' do
+      pending 'coming soon'
+      context 'and when the button is as a :button' do
+      end
+
+      context 'and when the button is as an :a' do
+      end
     end
   end
 

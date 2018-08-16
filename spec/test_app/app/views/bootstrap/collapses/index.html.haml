@@ -1,8 +1,12 @@
 %h1 Collapses
 
+= ui.bootstrap :button, as: :button, collapse: '#required_id1', body: 'Collapse Toggle Button Element'
+
 = ui.bootstrap :collapse, id: 'required_id1' do
   Hello collapse, I should be collapsed
 
 %hr
+
+= ui.bootstrap :button, collapse: '#required_id2', body: 'Collapse Toggle Link Element'
 
 = ui.bootstrap :collapse, id: 'required_id2', body: 'Body implemented via options and is not collapsed. Collapse is collapsed by default', collapsed: false
