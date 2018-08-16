@@ -34,11 +34,6 @@ module NfgUi
           options.fetch(:collapsed, default_collapsed)
         end
 
-        def html_options
-          p "====== Printed from: (Bootstrap::Components::Collapse) self.class.name: #{self.class.name} method: #{__method__}"
-          super.merge!(id: id)
-        end
-
         private
 
 
