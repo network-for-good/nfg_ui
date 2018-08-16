@@ -14,7 +14,6 @@ FactoryBot.define do
     body nil
     data nil
     id nil
-    traits []
 
     skip_create
     initialize_with { new(attributes, ActionController::Base.new.view_context) }
@@ -30,7 +29,6 @@ FactoryBot.define do
     data nil
     id nil
     pill { nil }
-    traits []
 
     skip_create
     initialize_with { new(attributes, ActionController::Base.new.view_context) }
@@ -45,7 +43,6 @@ FactoryBot.define do
     body nil
     data nil
     id nil
-    traits []
 
     skip_create
     initialize_with { new(attributes, ActionController::Base.new.view_context) }
@@ -60,7 +57,6 @@ FactoryBot.define do
     body nil
     data nil
     id nil
-    traits []
 
     skip_create
     initialize_with { new(attributes, ActionController::Base.new.view_context) }
@@ -75,7 +71,6 @@ FactoryBot.define do
     body nil
     data nil
     id nil
-    traits []
 
     skip_create
     initialize_with { new(attributes, ActionController::Base.new.view_context) }
@@ -90,7 +85,6 @@ FactoryBot.define do
     body nil
     data nil
     id nil
-    traits []
 
     skip_create
     initialize_with { new(attributes, ActionController::Base.new.view_context) }
@@ -105,7 +99,6 @@ FactoryBot.define do
     body nil
     data nil
     id nil
-    traits []
 
     skip_create
     initialize_with { new(attributes, ActionController::Base.new.view_context) }
@@ -120,7 +113,6 @@ FactoryBot.define do
     body nil
     data nil
     id nil
-    traits []
 
     skip_create
     initialize_with { new(attributes, ActionController::Base.new.view_context) }
@@ -135,7 +127,6 @@ FactoryBot.define do
     body nil
     data nil
     id nil
-    traits []
 
     skip_create
     initialize_with { new(attributes, ActionController::Base.new.view_context) }
@@ -146,11 +137,24 @@ FactoryBot.define do
     end
   end
 
+  factory :bootstrap_collapse, class: NfgUi::Bootstrap::Components::Collapse do
+    body nil
+    data nil
+    id { "collapse_id" }
+
+    skip_create
+    initialize_with { new(attributes, ActionController::Base.new.view_context) }
+
+    trait :rendered do
+      initialize_with { NfgUi::UI::Base.new(ActionController::Base.new.view_context)
+                                       .bootstrap(:collapse, attributes) }
+    end
+  end
+
   factory :bootstrap_dropdown, class: NfgUi::Bootstrap::Components::Dropdown do
     body nil
     data nil
     id nil
-    traits []
 
     skip_create
     initialize_with { new(attributes, ActionController::Base.new.view_context) }
@@ -166,7 +170,6 @@ FactoryBot.define do
     data nil
     id nil
     aspect_ratio { '16:9' }
-    traits []
     iframe { 'http://www.google.com' }
     autoplay { false }
 
@@ -183,7 +186,6 @@ FactoryBot.define do
     body nil
     data nil
     id nil
-    traits []
 
     skip_create
     initialize_with { new(attributes, ActionController::Base.new.view_context) }
@@ -198,7 +200,6 @@ FactoryBot.define do
     body nil
     data nil
     id nil
-    traits []
 
     skip_create
     initialize_with { new(attributes, ActionController::Base.new.view_context) }
@@ -213,7 +214,6 @@ FactoryBot.define do
     body nil
     data nil
     id nil
-    traits []
 
     skip_create
     initialize_with { new(attributes, ActionController::Base.new.view_context) }
@@ -228,7 +228,6 @@ FactoryBot.define do
     body nil
     data nil
     id nil
-    traits []
 
     skip_create
     initialize_with { new(attributes, ActionController::Base.new.view_context) }
@@ -243,7 +242,6 @@ FactoryBot.define do
     body nil
     data nil
     id nil
-    traits []
 
     skip_create
     initialize_with { new(attributes, ActionController::Base.new.view_context) }
@@ -258,7 +256,6 @@ FactoryBot.define do
     body nil
     data nil
     id nil
-    traits []
 
     skip_create
     initialize_with { new(attributes, ActionController::Base.new.view_context) }
@@ -273,7 +270,6 @@ FactoryBot.define do
     body nil
     data nil
     id nil
-    traits []
 
     skip_create
     initialize_with { new(attributes, ActionController::Base.new.view_context) }
@@ -288,7 +284,6 @@ FactoryBot.define do
     body nil
     data nil
     id nil
-    traits []
 
     skip_create
     initialize_with { new(attributes, ActionController::Base.new.view_context) }
@@ -303,7 +298,6 @@ FactoryBot.define do
     body nil
     data nil
     id nil
-    traits []
 
     skip_create
     initialize_with { new(attributes, ActionController::Base.new.view_context) }
@@ -318,7 +312,6 @@ FactoryBot.define do
     body nil
     data nil
     id nil
-    traits []
 
     skip_create
     initialize_with { new(attributes, ActionController::Base.new.view_context) }
@@ -333,7 +326,6 @@ FactoryBot.define do
     body nil
     data nil
     id nil
-    traits []
 
     skip_create
     initialize_with { new(attributes, ActionController::Base.new.view_context) }
@@ -348,7 +340,6 @@ FactoryBot.define do
     body nil
     data nil
     id nil
-    traits []
 
     skip_create
     initialize_with { new(attributes, ActionController::Base.new.view_context) }
@@ -363,7 +354,6 @@ FactoryBot.define do
     body nil
     data nil
     id nil
-    traits []
 
     skip_create
     initialize_with { new(attributes, ActionController::Base.new.view_context) }
