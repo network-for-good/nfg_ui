@@ -103,7 +103,6 @@ RSpec.describe NfgUi::Bootstrap::Utilities::Collapsible do
 
   describe '#non_html_attribute_options' do
     subject { button.send(:non_html_attribute_options) }
-
     it { is_expected.to include :collapse }
   end
 end

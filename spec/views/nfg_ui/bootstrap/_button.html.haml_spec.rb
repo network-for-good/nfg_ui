@@ -58,19 +58,14 @@ RSpec.describe 'nfg_ui/bootstrap/_button.html.haml', type: :view do
         context 'when :modal is also present in the options' do
           let(:tested_modal) { '#tested_modal' }
           let(:add_on_options) { { modal: tested_modal } }
-          # it { raise options[:modal].present?.inspect }
           it 'prioritizes :modal html over :tooltip html which excludes the tooltip html' do
             expect(subject).not_to have_css ".btn[data-toggle='tooltip']"
             expect(subject).to eq "<a class=\"btn btn-primary\" data-toggle=\"modal\" data-target=\"#{tested_modal}\">\n</a>"
-            # raise subject.inspect
           end
 
           describe 'the title html attribute output' do
             context 'and when a title is not present in options' do
-              # let(:add_on_options) { {} }
-              
               it 'does not add the :title html attribute with the tooltip text to the component html' do
-                # raise subject.inspect
                 expect(subject).not_to have_css ".btn[title='#{tested_tooltip}']"
               end
             end
@@ -80,7 +75,6 @@ RSpec.describe 'nfg_ui/bootstrap/_button.html.haml', type: :view do
               before { add_on_options.merge!(title: tested_title) }
 
               it 'ignores the tooltip value and adds the options[:title] as an html attribute' do
-                # raise subject.inspect
                 expect(subject).to have_css "[title='#{tested_title}']"
                 expect(subject).not_to have_css "[title='#{tested_tooltip}']"
               end
@@ -90,8 +84,7 @@ RSpec.describe 'nfg_ui/bootstrap/_button.html.haml', type: :view do
           context 'and when an arbitrary data attribute and data key are present' do
             let(:add_on_options) { { modal: tested_modal, data: tested_data } }
             let(:tested_data) { { test_key: :data_test_value } }
-            # , data: { tested_key: :tested_value }
-            # it { raise subject.inspect }
+
             it { is_expected.to have_css "[data-test-key='data_test_value'][data-toggle='modal'][data-target='#{tested_modal}']" }
 
             context 'and when there is another manually set data toggle within the options hash' do
@@ -137,7 +130,48 @@ RSpec.describe 'nfg_ui/bootstrap/_button.html.haml', type: :view do
   end
 
   describe 'a button set as a collapse toggle' do
-    pending 'coming soon'
+    context 'when a button has :collapse in the options hash' do
+      let(:options) { { collapse: tested_collapse, as: tested_as } }
+      let(:tested_collapse) { '#tested_collapse_id' }
+      let(:tested_as) { :button }
+
+      it { is_expected.to include "data-toggle=\"collapse\"" } 
+
+      it 'removes the hash symbol from the collapse option for the aria-controls attribute' do
+        expect(subject).to include 'aria-controls="tested_collapse_id"'
+        expect(subject).not_to include 'aria-controls="#tested_collapse_id"'
+      end
+
+      context 'and when a button component is :button element' do
+        let(:tested_as) { :button }
+        it 'uses a data-target attribute to identify its collapse target' do
+          expect(subject).to include "data-target=\"#{tested_collapse}\""
+        end
+
+        it 'does not have an href for targeting the collapsible element' do
+          expect(subject).not_to include "href=\"#{tested_collapse}\""
+        end
+
+        it { is_expected.to eq "<button class=\"btn btn-primary\" aria-expanded=\"false\" aria-controls=\"#{tested_collapse.gsub('#', '')}\" role=\"button\" data-toggle=\"collapse\" data-target=\"#{tested_collapse}\">\n</button>" }
+      end
+
+      context 'and when a button component is an :a element' do
+        let(:tested_as) { :a }
+        it 'uses the link href to identify its collapse target' do
+          expect(subject).to include "href=\"#{tested_collapse}\""
+        end
+
+        it 'does not use a data-target attribute to identify its collapse target' do
+          expect(subject).not_to include "data-target=\"#{tested_collapse}\""
+        end
+
+        it { is_expected.to eq "<a class=\"btn btn-primary\" aria-expanded=\"false\" aria-controls=\"#{tested_collapse.gsub('#', '')}\" role=\"button\" data-toggle=\"collapse\" href=\"#{tested_collapse}\">\n</a>" }
+      end
+    end
+
+    context 'when a button does not have :collapse in the options hash' do
+      it { is_expected.not_to include "data-toggle=\"collapse\"" }
+    end
   end
 
   describe 'button sizes' do
