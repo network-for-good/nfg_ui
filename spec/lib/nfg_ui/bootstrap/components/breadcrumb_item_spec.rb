@@ -10,7 +10,7 @@ RSpec.describe NfgUi::Bootstrap::Components::BreadcrumbItem do
   it_behaves_like 'a component that includes the Activatable utility module'
 
   describe '#component_family' do
-    subject { breadcrumb_item.send(:component_family) }
+    subject { breadcrumb_item.component_family }
     it { is_expected.to eq :breadcrumb }
   end
 

@@ -70,7 +70,7 @@ RSpec.describe NfgUi::Bootstrap::Components::Base do
   end
 
   describe '#component_family' do
-    subject { bootstrap_base.send(:component_family) }
+    subject { bootstrap_base.component_family }
     it { is_expected.to be_nil }
   end
 

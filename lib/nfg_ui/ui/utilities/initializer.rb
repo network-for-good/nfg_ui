@@ -59,7 +59,7 @@ module NfgUi
 
         def component_family
           p "====== Printed from: (Utilities::Initializer) self.class.name: #{self.class.name} method: #{__method__}"
-          component.send(:component_family).presence
+          component.component_family.presence
         end
 
         def grouping_folder
