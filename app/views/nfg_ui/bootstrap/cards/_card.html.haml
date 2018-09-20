@@ -1,9 +1,13 @@
--# http://getbootstrap.com/docs/4.1/components/alerts/
+-# http://getbootstrap.com/docs/4.1/components/card/
 %div{ card.html_options }
+  - if card.heading.present?
+    = ui.bootstrap :card_header, heading: card.heading
   .card-body
-    - if card.heading
-      = content_tag card.card_title_element, card.heading, class: 'card-title'
+    - if card.title.present?
+      %h5.card-title= card.title
     - if card.subtitle.present?
-      = content_tag card.card_subtitle_element, card.subtitle, class: 'card-subtitle'
-    
+      %h6.card-subtitle= card.subtitle
     = card.body
+  - if card.footer.present?
+    .card-footer
+      = card.footer

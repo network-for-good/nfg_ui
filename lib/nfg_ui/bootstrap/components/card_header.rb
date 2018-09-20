@@ -3,9 +3,9 @@
 module NfgUi
   module Bootstrap
     module Components
-      # Bootstrap Alert Component
-      # https://getbootstrap.com/docs/4.1/components/alerts/
-      class Card < Bootstrap::Components::Base
+      # Bootstrap Card (Header)
+      # https://getbootstrap.com/docs/4.1/components/card/
+      class CardHeader < Bootstrap::Components::Base
         # include Bootstrap::Utilities::Themeable
 
         # attr_reader :subtitle
@@ -30,25 +30,12 @@ module NfgUi
           options.fetch(:heading, '')
         end
 
-        def title
-          p "====== Printed from: (Bootstrap::Components::Card) self.class.name: #{self.class.name} method: #{__method__}"
-          options.fetch(:title, '')
-        end
-
-        def subtitle
-          p "====== Printed from: (Bootstrap::Components::Card) self.class.name: #{self.class.name} method: #{__method__}"
-          options.fetch(:subtitle, '')
-        end
-
-        def footer
-          p "====== Printed from: (Bootstrap::Components::Card) self.class.name: #{self.class.name} method: #{__method__}"
-          options.fetch(:footer, '')
-        end
-
         def component_family
           p "====== Printed from: (Bootstrap::Components::Card) self.class.name: #{self.class.name} method: #{__method__}"
           :card
         end
+
+        
 
         private
 
@@ -73,8 +60,7 @@ module NfgUi
         # end
 
         def non_html_attribute_options
-          p "====== Printed from: (Bootstrap::Components::Card) self.class.name: #{self.class.name} method: #{__method__}"
-          super.push(:footer, :heading, :subtitle, :title)
+          super.push(:heading)
         end
 
         # def outline_css_class_string

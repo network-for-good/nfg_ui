@@ -53,6 +53,10 @@ module NfgUi
           ''
         end
 
+        # def component_name_folder
+        #   @component_name_folder ||= ''
+        # end
+
         def component_family
           p "====== Printed from: (Utilities::Initializer) self.class.name: #{self.class.name} method: #{__method__}"
           component.send(:component_family).presence
@@ -75,7 +79,7 @@ module NfgUi
           [
             'nfg_ui',
             grouping_folder,
-            component_name_folder,
+            (component_name_folder if component_name_folder.present?),
             component_name
           ].reject(&:nil?).join('/').chomp
         end

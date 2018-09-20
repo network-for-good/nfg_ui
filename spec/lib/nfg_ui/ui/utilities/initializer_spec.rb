@@ -81,6 +81,12 @@ RSpec.describe NfgUi::UI::Utilities::Initializer do
       it { is_expected.to eq 'nfg_ui/bootstrap/alert' }
     end
 
+    context 'partial path for bootstrap component within a component family' do
+      let(:component_suite) { 'Bootstrap' }
+      let(:tested_component_name) { :card }
+      it { is_expected.to eq 'nfg_ui/bootstrap/cards/card' }
+    end
+
     context 'partial path for network for good components' do
       let(:component_suite) { 'NetworkForGood' }
       before { allow(component).to receive(:component_family).and_return(nil) }

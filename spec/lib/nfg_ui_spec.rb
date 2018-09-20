@@ -25,6 +25,7 @@ RSpec.describe NfgUi do
                                                           button_group
                                                           button_toolbar
                                                           card
+                                                          card_header
                                                           carousel
                                                           collapse
                                                           dropdown

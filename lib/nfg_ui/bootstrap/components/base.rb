@@ -75,7 +75,6 @@ module NfgUi
         #   self.options.fetch(:body, '')
         # end
 
-        private
 
         # This is used to help identify where to find partials for rendering components.
         #
@@ -87,6 +86,8 @@ module NfgUi
         def component_family
           nil
         end
+
+        private
 
         def defaults
           p "====== Printed from: (Bootstrap::Components::Base) self.class.name: #{self.class.name} method: #{__method__}"

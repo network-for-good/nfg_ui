@@ -30,7 +30,7 @@ RSpec.describe NfgUi::UI::Bootstrap do
 
     context 'when the component does not have a component family' do
       let(:component_name) { :alert } # alert does not belong to a component family
-      it { is_expected.not_to be }
+      it { is_expected.to eq '' }
     end
   end
 
