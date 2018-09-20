@@ -12,7 +12,7 @@ module NfgUi
                       :class_name
                       
 
-        attr_reader :ancestry_string
+        # attr_reader :ancestry_string
 
         # Protect the component from outside manipulation
         # after initialization
