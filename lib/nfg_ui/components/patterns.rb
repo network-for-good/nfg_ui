@@ -16,7 +16,7 @@ module NfgUi
       require_relative 'patterns/graph'
       require_relative 'patterns/jumbotron'
       require_relative 'patterns/list_group'
-      require_relative 'patterns/media_group'
+      require_relative 'patterns/media'
       require_relative 'patterns/modal'
       require_relative 'patterns/navbar'
       require_relative 'patterns/page_header'

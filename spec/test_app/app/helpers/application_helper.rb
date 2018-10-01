@@ -12,4 +12,8 @@ module ApplicationHelper
       params[:stylesheet]
     end
   end
+
+  def body_css_classes
+    [controller_path.split('/').each { |c| c << "-controller" }.join(' '), action_name].join(' ')
+  end
 end

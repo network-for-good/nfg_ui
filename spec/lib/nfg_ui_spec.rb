@@ -35,6 +35,8 @@ RSpec.describe NfgUi do
                                                           jumbotron
                                                           list_group
                                                           list_group_item
+                                                          media
+                                                          media_body
                                                           media_object
                                                           modal
                                                           nav
@@ -82,6 +84,7 @@ RSpec.describe NfgUi do
                                                           key
                                                           list_group_item
                                                           loader
+                                                          media_body
                                                           media_object
                                                           nav
                                                           popover
@@ -107,7 +110,7 @@ RSpec.describe NfgUi do
                                                           graph
                                                           jumbotron
                                                           list_group
-                                                          media_group
+                                                          media
                                                           modal
                                                           navbar
                                                           page_header

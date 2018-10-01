@@ -23,6 +23,8 @@ module NfgUi
       require_relative 'components/jumbotron'
       require_relative 'components/list_group'
       require_relative 'components/list_group_item'
+      require_relative 'components/media'
+      require_relative 'components/media_body'
       require_relative 'components/media_object'
       require_relative 'components/modal'
       require_relative 'components/navbar'

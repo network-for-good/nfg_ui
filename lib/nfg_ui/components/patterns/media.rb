@@ -4,7 +4,7 @@ module NfgUi
   module Components
     module Patterns
       # MediaGroup doc coming soon
-      class MediaGroup < NfgUi::Components::Base
+      class Media < Bootstrap::Components::Media
       end
     end
   end

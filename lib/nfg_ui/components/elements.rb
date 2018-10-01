@@ -18,6 +18,7 @@ module NfgUi
       require_relative 'elements/key'
       require_relative 'elements/list_group_item'
       require_relative 'elements/loader'
+      require_relative 'elements/media_body'
       require_relative 'elements/media_object'
       require_relative 'elements/nav'
       require_relative 'elements/popover'

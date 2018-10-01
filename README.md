@@ -179,7 +179,7 @@ Groupings of elements to create rich interfaces. For example, an `:activity_feed
 * `:graph`
 * `:jumbotron`
 * `:list_group`
-* `:media_group`
+* `:media`
 * `:modal`
 * `:navbar`
 * `:slat_list`

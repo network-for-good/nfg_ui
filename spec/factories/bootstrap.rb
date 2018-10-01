@@ -252,6 +252,34 @@ FactoryBot.define do
     end
   end
 
+  factory :bootstrap_media, class: NfgUi::Bootstrap::Components::Media do
+    body nil
+    data nil
+    id nil
+
+    skip_create
+    initialize_with { new(attributes, ActionController::Base.new.view_context) }
+
+    trait :rendered do
+      initialize_with { NfgUi::UI::Base.new(ActionController::Base.new.view_context)
+                                       .bootstrap(:media, attributes) }
+    end
+  end
+  
+  factory :bootstrap_media_body, class: NfgUi::Bootstrap::Components::MediaBody do
+    body nil
+    data nil
+    id nil
+
+    skip_create
+    initialize_with { new(attributes, ActionController::Base.new.view_context) }
+
+    trait :rendered do
+      initialize_with { NfgUi::UI::Base.new(ActionController::Base.new.view_context)
+                                       .bootstrap(:media_body, attributes) }
+    end
+  end
+
   factory :bootstrap_media_object, class: NfgUi::Bootstrap::Components::MediaObject do
     body nil
     data nil
