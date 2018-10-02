@@ -55,7 +55,7 @@ module NfgUi
 
         def default_theme
           p "====== Printed from: (Bootstrap::Utilities::Themeable) self.class.name: #{self.class.name} method: #{__method__}"
-          @default_theme ||= :primary
+          @default_theme ||= NfgUi::DEFAULT_BOOTSTRAP_THEME
         end
 
         def outlined_prefix

@@ -152,7 +152,7 @@ RSpec.describe 'nfg_ui/bootstrap/_button.html.haml', type: :view do
           expect(subject).not_to include "href=\"#{tested_collapse}\""
         end
 
-        it { is_expected.to eq "<button class=\"btn btn-primary\" aria-expanded=\"false\" aria-controls=\"#{tested_collapse.gsub('#', '')}\" role=\"button\" data-toggle=\"collapse\" data-target=\"#{tested_collapse}\">\n</button>" }
+        it { is_expected.to eq "<button class=\"btn btn-primary\" aria-expanded=\"false\" aria-controls=\"#{tested_collapse.gsub('#', '')}\" role=\"button\" type=\"button\" data-toggle=\"collapse\" data-target=\"#{tested_collapse}\">\n</button>" }
       end
 
       context 'and when a button component is an :a element' do

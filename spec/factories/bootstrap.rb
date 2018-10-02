@@ -165,6 +165,76 @@ FactoryBot.define do
     end
   end
 
+  factory :bootstrap_dropdown_divider, class: NfgUi::Bootstrap::Components::DropdownDivider do
+    body nil
+    data nil
+    id nil
+
+    skip_create
+    initialize_with { new(attributes, ActionController::Base.new.view_context) }
+
+    trait :rendered do
+      initialize_with { NfgUi::UI::Base.new(ActionController::Base.new.view_context)
+                                       .bootstrap(:dropdown_divider, attributes) }
+    end
+  end
+
+  factory :bootstrap_dropdown_header, class: NfgUi::Bootstrap::Components::DropdownHeader do
+    body nil
+    data nil
+    id nil
+
+    skip_create
+    initialize_with { new(attributes, ActionController::Base.new.view_context) }
+
+    trait :rendered do
+      initialize_with { NfgUi::UI::Base.new(ActionController::Base.new.view_context)
+                                       .bootstrap(:dropdown_header, attributes) }
+    end
+  end
+
+  factory :bootstrap_dropdown_item, class: NfgUi::Bootstrap::Components::DropdownItem do
+    body nil
+    data nil
+    id nil
+
+    skip_create
+    initialize_with { new(attributes, ActionController::Base.new.view_context) }
+
+    trait :rendered do
+      initialize_with { NfgUi::UI::Base.new(ActionController::Base.new.view_context)
+                                       .bootstrap(:dropdown_item, attributes) }
+    end
+  end
+
+  factory :bootstrap_dropdown_menu, class: NfgUi::Bootstrap::Components::DropdownMenu do
+    body nil
+    data nil
+    id nil
+
+    skip_create
+    initialize_with { new(attributes, ActionController::Base.new.view_context) }
+
+    trait :rendered do
+      initialize_with { NfgUi::UI::Base.new(ActionController::Base.new.view_context)
+                                       .bootstrap(:dropdown_menu, attributes) }
+    end
+  end
+
+  factory :bootstrap_dropdown_toggle, class: NfgUi::Bootstrap::Components::DropdownToggle do
+    body nil
+    data nil
+    id nil
+
+    skip_create
+    initialize_with { new(attributes, ActionController::Base.new.view_context) }
+
+    trait :rendered do
+      initialize_with { NfgUi::UI::Base.new(ActionController::Base.new.view_context)
+                                       .bootstrap(:dropdown_toggle, attributes) }
+    end
+  end
+
   factory :bootstrap_embed, class: NfgUi::Bootstrap::Components::Embed do
     body nil
     data nil

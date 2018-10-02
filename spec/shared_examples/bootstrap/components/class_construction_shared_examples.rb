@@ -14,7 +14,7 @@ shared_examples_for 'a component with a consistent initalized construction' do |
       expect(component.options).to include(class: '', body: nil, data: {})
       expect(component.view_context).to be
       expect(component.id).to eq(required_options[:id].present? ? required_options[:id] : nil)
-      expect(component.data).to eq({})
+      expect(component.data).to eq(component.data.present? ? component.data : {})
       expect(component.body).to be_nil
       expect(component.html_options).to be
     end

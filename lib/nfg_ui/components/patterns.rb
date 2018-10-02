@@ -10,6 +10,8 @@ module NfgUi
       require_relative 'patterns/card'
       require_relative 'patterns/collapse'
       require_relative 'patterns/carousel'
+      require_relative 'patterns/dropdown'
+      require_relative 'patterns/dropdown_menu'
       require_relative 'patterns/empty_state'
       require_relative 'patterns/filter_bar'
       require_relative 'patterns/form_group'

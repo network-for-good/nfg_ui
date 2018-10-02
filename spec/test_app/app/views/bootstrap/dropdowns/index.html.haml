@@ -1,4 +1,86 @@
 %h1 Dropdowns
 
+%h3 Default
+= ui.bootstrap :dropdown, id: 'test_id1', class: 'my-4' do
+  = ui.bootstrap :dropdown_toggle, body: 'Secondary Manual Toggle as Link', theme: :secondary, as: :a
+  = ui.bootstrap :dropdown_menu do
+    = ui.bootstrap :dropdown_header, heading: 'Dropdown Header'
+    = ui.bootstrap :dropdown_item, body: 'Dropdown Item 1 Disabled', disabled: true, href: '#'
+    = ui.bootstrap :dropdown_item, body: 'Dropdown Item 2 Tooltipped', tooltip: 'Tested tooltip', href: '#'
+    = ui.bootstrap :dropdown_divider
+    = ui.bootstrap :dropdown_item, body: 'Dropdown Item 3 Disabled with Tooltip', disabled: true, tooltip: 'Test tooltip', class: 'test-class', id: 'test_id', data: { test_data: 'response' }, href: '#test'
+    = ui.bootstrap :dropdown_item, body: 'Dropdown Item 4 - No href'
+    = ui.bootstrap :dropdown_item, body: 'Dropdown Item 5 - Active', active: true, href: '#'
+
+%hr
+
+%h3 Auto dropdown button
+= ui.bootstrap :dropdown, button: 'Auto Dropdown' do
+  = ui.bootstrap :dropdown_menu do
+    = ui.bootstrap :dropdown_item, body: 'Dropdown Item 1'
+    = ui.bootstrap :dropdown_item, body: 'Dropdown Item 2'
+    = ui.bootstrap :dropdown_item, body: 'Dropdown Item 3'
+    = ui.bootstrap :dropdown_item, body: 'Dropdown Item 4'
+
+%h4.mt-4 Thematic auto button
+= ui.bootstrap :dropdown, button: 'Auto Dropdown with Theme', theme: :warning do
+  = ui.bootstrap :dropdown_menu do
+    = ui.bootstrap :dropdown_item, body: 'Dropdown Item 1'
+    = ui.bootstrap :dropdown_item, body: 'Dropdown Item 2'
+    = ui.bootstrap :dropdown_item, body: 'Dropdown Item 3'
+    = ui.bootstrap :dropdown_item, body: 'Dropdown Item 4'
+
+%hr
+
+%h3 Disabled Dropdown 
+%p Disabled dropdown toggles can have tooltips
 = ui.bootstrap :dropdown, class: 'my-4' do
-  Coming Soon
+  = ui.bootstrap :dropdown_toggle, body: 'Disabled Dropdown Toggle', theme: :secondary, as: :a, disabled: true, tooltip: 'Disabled', id: 'tester'
+  = ui.bootstrap :dropdown_menu do
+    = ui.bootstrap :dropdown_item, body: 'Dropdown Item 1'
+    = ui.bootstrap :dropdown_item, body: 'Dropdown Item 2'
+    = ui.bootstrap :dropdown_item, body: 'Dropdown Item 3'
+    = ui.bootstrap :dropdown_item, body: 'Dropdown Item 4'
+
+%hr
+
+%h3 Dropdown menu locations
+%h4.mt-4 Right aligned menu
+= ui.bootstrap :dropdown, button: 'Right Aligned Menu' do
+  = ui.bootstrap :dropdown_menu, right: true do
+    = ui.bootstrap :dropdown_item, body: 'Dropdown Item 1'
+    = ui.bootstrap :dropdown_item, body: 'Dropdown Item 2'
+    = ui.bootstrap :dropdown_item, body: 'Dropdown Item 3'
+    = ui.bootstrap :dropdown_item, body: 'Dropdown Item 4'
+
+%h4.mt-4 Left Aligned Menu
+%p 
+  %i Left aligned by default
+= ui.bootstrap :dropdown, button: 'Left Aligned Menu' do
+  = ui.bootstrap :dropdown_menu do
+    = ui.bootstrap :dropdown_item, body: 'Dropdown Item 1'
+    = ui.bootstrap :dropdown_item, body: 'Dropdown Item 2'
+    = ui.bootstrap :dropdown_item, body: 'Dropdown Item 3'
+    = ui.bootstrap :dropdown_item, body: 'Dropdown Item 4'
+
+%h4.mt-4 Offset Menu
+%p Use coordinates per BS documentation; supply to the dropdown toggle component
+= ui.bootstrap :dropdown do
+  = ui.bootstrap :dropdown_toggle, body: 'Manual Offset Dropdown Toggle', offset: '10,20'
+  = ui.bootstrap :dropdown_menu do
+    = ui.bootstrap :dropdown_item, body: 'Dropdown Item 1'
+    = ui.bootstrap :dropdown_item, body: 'Dropdown Item 2'
+    = ui.bootstrap :dropdown_item, body: 'Dropdown Item 3'
+    = ui.bootstrap :dropdown_item, body: 'Dropdown Item 4'
+
+.mb-4
+
+= ui.bootstrap :dropdown, button: 'Auto Button with Offset', offset: '10,20' do
+  = ui.bootstrap :dropdown_menu do
+    = ui.bootstrap :dropdown_item, body: 'Dropdown Item 1'
+    = ui.bootstrap :dropdown_item, body: 'Dropdown Item 2'
+    = ui.bootstrap :dropdown_item, body: 'Dropdown Item 3'
+    = ui.bootstrap :dropdown_item, body: 'Dropdown Item 4'
+
+.mb-5.pb-5
+.mb-5.pb-5

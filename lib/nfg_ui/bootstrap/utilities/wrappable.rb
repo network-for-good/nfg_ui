@@ -22,6 +22,10 @@ module NfgUi
           options.fetch(:as, automatic_as)
         end
 
+        def html_options
+          as == :button ? super.merge!(type: 'button') : super
+        end
+
         private
 
         def href
@@ -44,6 +48,8 @@ module NfgUi
           p "====== Printed from: (Bootstrap::Utilities::Wrappable) self.class.name: #{self.class.name} method: #{__method__}"
           super.push(:as)
         end
+
+        
 
         # def defaults
         #   return super unless options[:as] == :a

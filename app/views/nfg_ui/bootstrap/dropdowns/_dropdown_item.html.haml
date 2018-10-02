@@ -1,0 +1,8 @@
+-if dropdown_item.tooltip && dropdown_item.disabled
+  %span{ dropdown_item.disabled_component_tooltip_wrapper_html_options.merge!(class: 'dropdown-item disabled') }
+    = content_tag dropdown_item.as, dropdown_item.html_options.except(:href) do
+      = dropdown_item.body
+
+- else
+  = content_tag dropdown_item.as, dropdown_item.html_options do
+    = dropdown_item.body

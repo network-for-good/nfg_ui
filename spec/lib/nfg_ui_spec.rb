@@ -29,6 +29,11 @@ RSpec.describe NfgUi do
                                                           carousel
                                                           collapse
                                                           dropdown
+                                                          dropdown_divider
+                                                          dropdown_header
+                                                          dropdown_item
+                                                          dropdown_menu
+                                                          dropdown_toggle
                                                           embed
                                                           form
                                                           input_group
@@ -77,7 +82,10 @@ RSpec.describe NfgUi do
                                                           breadcrumb_item
                                                           button
                                                           chart
-                                                          dropdown
+                                                          dropdown_divider
+                                                          dropdown_header
+                                                          dropdown_item
+                                                          dropdown_toggle
                                                           embed
                                                           form_control
                                                           input_group
@@ -104,6 +112,8 @@ RSpec.describe NfgUi do
                                                           card
                                                           carousel
                                                           collapse
+                                                          dropdown
+                                                          dropdown_menu
                                                           empty_state
                                                           filter_bar
                                                           form_group
