@@ -13,6 +13,18 @@ module NfgUi
 
         attr_reader :disable_with, :data, :remote
 
+        # TODO
+        # Note: when remote: true ... modal won't fire from ajax when type='button' is present within forms
+        # current working solution is to set type: nil -- button by default (in Wrappable) sets type: button
+        # ... example:
+        # = ui.nfg :button, :primary,
+        #                   :block,
+        #                   as: :button,
+        #                   type: nil,
+        #                   class: "#{button_css_class}",
+        #                   disabled: (project_presenter.donation_area_state == :disable),
+        #                   data: { describe: 'campaign-donate-button' } ...
+
         def initialize(*)
           super
           @body = text_maybe_with_icon
