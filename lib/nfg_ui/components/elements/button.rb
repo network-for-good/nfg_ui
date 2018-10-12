@@ -24,6 +24,8 @@ module NfgUi
         #                   class: "#{button_css_class}",
         #                   disabled: (project_presenter.donation_area_state == :disable),
         #                   data: { describe: 'campaign-donate-button' } ...
+        # 
+        # Write a feature spec for ajax / remote js forms.
 
         def initialize(*)
           super
