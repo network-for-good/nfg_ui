@@ -40,18 +40,19 @@ module NfgUi
 
         def html_options
           p "====== Printed from: (Bootstrap::Components::Button) self.class.name: #{self.class.name} method: #{__method__}"
-          component_data = options[:data] || {}
-
-          if options[:modal].present?
-            super.merge!(data: component_data.merge!(toggle: 'modal', target: "#{options[:modal]}"))
-          elsif options[:collapse].present? && as == :a
+          if options[:collapse].present? && as == :a
             super.merge!(href: collapse)
           else
             super
           end
+        end
 
-          # super.fetch(:data, {}).merge(data: { toggle: 'modal', target: "##{options[:modal]}" })
-          # super.merge!( toggle: 'modal', target: "##{options[:modal]}")
+        def data
+          if options[:modal].present?
+            super.merge!(toggle: 'modal', target: "##{options[:modal]}")
+          else
+            super
+          end
         end
 
         # def data
