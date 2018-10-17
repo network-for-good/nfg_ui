@@ -18,7 +18,7 @@ module NfgUi
 
         private
 
-        def non_html_attributes_attributes
+        def non_html_attribute_options
           p "====== Printed from: (Bootstrap::Components::ModalHeader) self.class.name: #{self.class.name} method: #{__method__}"
           super.push(:title)
         end
