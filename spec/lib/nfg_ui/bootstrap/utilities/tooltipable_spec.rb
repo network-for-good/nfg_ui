@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe NfgUi::Bootstrap::Utilities::Themeable do
+RSpec.describe NfgUi::Bootstrap::Utilities::Tooltipable do
   # Button is both disableable and tooltipable.
   let(:button) { FactoryBot.create(:bootstrap_button, **options) }
   let(:options) { { tooltip: tested_tooltip } }
