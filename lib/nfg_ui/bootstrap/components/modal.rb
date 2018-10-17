@@ -18,6 +18,10 @@ module NfgUi
         #   build_aria(aria_key: :labelledby, aria_value: "#{id}_modal_title")
         # end
 
+        def component_family
+          :modal
+        end
+
         def title
           p "====== Printed from: (Bootstrap::Components::Modal) self.class.name: #{self.class.name} method: #{__method__}"
           options.fetch(:title, nil)
