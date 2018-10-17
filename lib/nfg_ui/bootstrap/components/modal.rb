@@ -7,16 +7,9 @@ module NfgUi
       # https://getbootstrap.com/docs/4.1/components/modal/
       class Modal < Bootstrap::Components::Base
         
-        # include Bootstrap::Utilities::AriaAssistable
-
-        # attr_reader :footer
-
-        # def initialize(*)
-        #   super
-        #   @footer = options.fetch(:footer, '')
-        #   build_aria(aria_key: :hidden, aria_value: 'true')
-        #   build_aria(aria_key: :labelledby, aria_value: "#{id}_modal_title")
-        # end
+        # NOTE: ARIALABELLEDBY has not been introduced on speed modals.
+        # ex: aria-labelledby="exampleModalLabel"
+        # which is then the ID of the modal title element
 
         def component_family
           p "====== Printed from: (Bootstrap::Components::Modal) self.class.name: #{self.class.name} method: #{__method__}"
@@ -47,7 +40,7 @@ module NfgUi
 
         def assistive_html_attributes
           p "====== Printed from: (Bootstrap::Components::Modal) self.class.name: #{self.class.name} method: #{__method__}"
-          super.merge(role: 'dialog', tabindex: '-1')
+          super.merge(role: 'dialog', tabindex: '-1', aria: { hidden: 'true' })
         end
       end
     end

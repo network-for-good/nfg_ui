@@ -9,6 +9,11 @@ RSpec.describe NfgUi::Bootstrap::Components::Modal do
   it { expect(described_class).to be < NfgUi::Bootstrap::Components::Base }
   it_behaves_like 'a component with a consistent initalized construction'
 
+  describe '#component_family' do
+    subject { modal.component_family }
+    it { is_expected.to eq :modal }
+  end
+
   describe '#title' do
     subject { modal.title }
     let(:tested_title) { 'tested title' }
@@ -77,6 +82,6 @@ RSpec.describe NfgUi::Bootstrap::Components::Modal do
 
   describe '#assistive_html_attributes' do
     subject { modal.send(:assistive_html_attributes) }
-    it { is_expected.to include(role: 'dialog', tabindex: '-1') }
+    it { is_expected.to include(role: 'dialog', tabindex: '-1', aria: { hidden: 'true' }) }
   end
 end
