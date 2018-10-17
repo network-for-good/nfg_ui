@@ -378,6 +378,48 @@ FactoryBot.define do
     end
   end
 
+  factory :bootstrap_modal_header, class: NfgUi::Bootstrap::Components::ModalHeader do
+    body nil
+    data nil
+    id nil
+
+    skip_create
+    initialize_with { new(attributes, ActionController::Base.new.view_context) }
+
+    trait :rendered do
+      initialize_with { NfgUi::UI::Base.new(ActionController::Base.new.view_context)
+                                       .bootstrap(:modal_header, attributes) }
+    end
+  end
+
+  factory :bootstrap_modal_body, class: NfgUi::Bootstrap::Components::ModalBody do
+    body nil
+    data nil
+    id nil
+
+    skip_create
+    initialize_with { new(attributes, ActionController::Base.new.view_context) }
+
+    trait :rendered do
+      initialize_with { NfgUi::UI::Base.new(ActionController::Base.new.view_context)
+                                       .bootstrap(:modal_body, attributes) }
+    end
+  end
+
+  factory :bootstrap_modal_footer, class: NfgUi::Bootstrap::Components::ModalFooter do
+    body nil
+    data nil
+    id nil
+
+    skip_create
+    initialize_with { new(attributes, ActionController::Base.new.view_context) }
+
+    trait :rendered do
+      initialize_with { NfgUi::UI::Base.new(ActionController::Base.new.view_context)
+                                       .bootstrap(:modal_footer, attributes) }
+    end
+  end
+
   factory :bootstrap_nav, class: NfgUi::Bootstrap::Components::Nav do
     body nil
     data nil
