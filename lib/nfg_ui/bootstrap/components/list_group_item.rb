@@ -9,9 +9,9 @@ module NfgUi
         
         # private
         
-        # def component_family
-        #   :list_group
-        # end
+        def component_family
+          :list_group
+        end
       end
     end
   end
