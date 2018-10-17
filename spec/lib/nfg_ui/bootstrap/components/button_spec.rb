@@ -62,17 +62,67 @@ RSpec.describe NfgUi::Bootstrap::Components::Button do
   end
 
   describe '#collapse_data_attributes' do
-    subject { button.collapse_data_attributes }
-    pending 'coming soon'
+    subject { button.send(:collapse_data_attributes) }
+    let(:options) { { collapse: 'collapse_target', as: as } }
+
+    context 'when collapse is an <a> tag' do
+      let(:as) { :a }
+      it { is_expected.not_to include :target }
+    end
+
+    context 'when collapse is not an <a> tag' do
+      let(:as) { :button }
+      it { is_expected.to include :target }
+    end
   end
 
   describe '#html_options' do
-    context 'button for a collapse' do
-      pending 'coming soon -- collapse will likely become its own component'
-      context 'and when the button is as a :button' do
+    let(:collapse_options) { {} }
+    let(:modal_options) { {} }
+    let(:as) { :a }
+    let(:options) { { **collapse_options, **modal_options, as: as, href: href } }
+    let(:href) { nil }
+
+    subject { button.html_options }
+    describe 'component options that result in a specific :href attribute' do
+      context 'when button is an <a> tag' do
+        describe 'button for a collapse' do
+          let(:collapse_options) { { collapse: collapse_target } }
+          let(:collapse_target) { nil }
+          context 'when collapse is present in options' do
+            let(:collapse_target) { '#test' }
+            it { is_expected.to include(href: collapse_target) }
+          end
+
+          context 'when collapse is not present in options' do
+            it { is_expected.not_to include(:href) }
+          end
+        end
+
+        describe 'button for modal' do
+          context 'when button has :modal in options' do
+            let(:modal_options) { { modal: 'test_modal' } }
+            context 'when button has :href in options' do
+              let(:href) { 'test_href' }
+              it { is_expected.to include(href: href) }
+              it { is_expected.not_to include(href: 'javascript:;') }
+            end
+
+            context 'when button does not have :href in options' do
+              let(:href) { nil }
+              it { is_expected.to include(href: 'javascript:;') }
+            end
+          end
+
+          context 'when button does not have :modal in options' do
+            it { is_expected.not_to include :href }
+          end
+        end
       end
 
-      context 'and when the button is as an :a' do
+      context 'when button is not <a> tag' do
+        let(:as) { :blockquote }
+        it { is_expected.not_to include :href }
       end
     end
   end
@@ -80,24 +130,26 @@ RSpec.describe NfgUi::Bootstrap::Components::Button do
   describe '#data' do
     subject { button.data }
 
-    context 'when :modal is present in options' do
-      let(:data_hash) { {} }
-      let(:modal) { 'test_modal' }
-      let(:options) { { data: data_hash, modal: modal } }
+    describe 'modal implications on the component data attribute' do
+      context 'when :modal is present in options' do
+        let(:data_hash) { {} }
+        let(:modal) { '#test_modal' }
+        let(:options) { { data: data_hash, modal: modal } }
 
-      context 'when data is already present' do
-        let(:data_hash) { { test: 'value' } }
-        it { is_expected.to eq({ **data_hash, toggle: 'modal', target: "##{modal}" }) }
+        context 'when data is already present' do
+          let(:data_hash) { { test: 'value' } }
+          it { is_expected.to eq(**data_hash, toggle: 'modal', target: "#{modal}") }
+        end
+
+        context 'when data is not already present' do
+          it { is_expected.to eq({ toggle: 'modal', target: "#{modal}" }) }
+        end
       end
 
-      context 'when data is not already present' do
-        it { is_expected.to eq({ toggle: 'modal', target: "##{modal}" }) }
+      context 'when :modal is not present in options' do
+        let(:options) { {} }
+        it { is_expected.to eq({}) }
       end
-    end
-
-    context 'when :modal is not present in options' do
-      let(:options) { {} }
-      it { is_expected.to eq({})  }
     end
   end
 
@@ -109,7 +161,7 @@ RSpec.describe NfgUi::Bootstrap::Components::Button do
   describe '#css_classes' do
     let(:options) { { block: tested_block } }
     subject { button.send(:css_classes) }
-    
+
     context 'when :block is true in options' do
       let(:tested_block) { true }
       it { is_expected.to include 'btn-block' }

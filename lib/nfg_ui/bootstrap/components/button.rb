@@ -40,24 +40,19 @@ module NfgUi
 
         def html_options
           p "====== Printed from: (Bootstrap::Components::Button) self.class.name: #{self.class.name} method: #{__method__}"
-          if options[:collapse].present? && as == :a
+          return super unless as == :a && (options[:collapse].present? || options[:modal].present?)
+          if options[:collapse].present?
             super.merge!(href: collapse)
-          else
-            super
+          elsif options[:modal].present?
+            options[:href].nil? ? super.merge!(href: 'javascript:;') : super
           end
         end
 
         def data
-          if options[:modal].present?
-            super.merge!(toggle: 'modal', target: "##{options[:modal]}")
-          else
-            super
-          end
+          p "====== Printed from: (Bootstrap::Components::Button) self.class.name: #{self.class.name} method: #{__method__}"
+          return super unless options[:modal].present?
+          (options[:data] || {}).merge!(toggle: 'modal', target: options[:modal])
         end
-
-        # def data
-        # #   self.data.merge!(toggle: 'modal')
-        # end
 
         private
 
@@ -75,10 +70,6 @@ module NfgUi
           p "====== Printed from: (Bootstrap::Components::Button) self.class.name: #{self.class.name} method: #{__method__}"
           block ? super + " #{component_css_class}-block" : super
         end
-
-        # def default_block
-        #   false
-        # end
 
         def default_html_wrapper_element
           p "====== Printed from: (Bootstrap::Components::Button) self.class.name: #{self.class.name} method: #{__method__}"
