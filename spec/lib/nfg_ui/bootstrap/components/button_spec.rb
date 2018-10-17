@@ -67,29 +67,37 @@ RSpec.describe NfgUi::Bootstrap::Components::Button do
   end
 
   describe '#html_options' do
-    context 'button for a modal' do
-      let(:options) { { modal: tested_modal } }
-      let(:tested_modal) { nil }
-      subject { button.html_options }
-
-      context 'when modal is truthy' do
-        let(:tested_modal) { '#tested_modal' }
-        it { is_expected.to include(data: { toggle: 'modal', target: "#{tested_modal}" }) }
-      end
-
-      context 'when modal is falsey' do
-        let(:options) { {} }
-        it { is_expected.not_to include(data: { toggle: 'modal' }) }
-      end
-    end
-
     context 'button for a collapse' do
-      pending 'coming soon'
+      pending 'coming soon -- collapse will likely become its own component'
       context 'and when the button is as a :button' do
       end
 
       context 'and when the button is as an :a' do
       end
+    end
+  end
+
+  describe '#data' do
+    subject { button.data }
+
+    context 'when :modal is present in options' do
+      let(:data_hash) { {} }
+      let(:modal) { 'test_modal' }
+      let(:options) { { data: data_hash, modal: modal } }
+
+      context 'when data is already present' do
+        let(:data_hash) { { test: 'value' } }
+        it { is_expected.to eq({ **data_hash, toggle: 'modal', target: "##{modal}" }) }
+      end
+
+      context 'when data is not already present' do
+        it { is_expected.to eq({ toggle: 'modal', target: "##{modal}" }) }
+      end
+    end
+
+    context 'when :modal is not present in options' do
+      let(:options) { {} }
+      it { is_expected.to eq({})  }
     end
   end
 
