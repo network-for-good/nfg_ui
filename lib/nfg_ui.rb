@@ -56,6 +56,9 @@ module NfgUi
                                   media_body
                                   media_object
                                   modal
+                                  modal_body
+                                  modal_footer
+                                  modal_header
                                   nav
                                   navbar
                                   pagination

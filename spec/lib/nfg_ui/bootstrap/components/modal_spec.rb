@@ -41,24 +41,6 @@ RSpec.describe NfgUi::Bootstrap::Components::Modal do
     end
   end
 
-  describe '#footer?' do
-    subject { modal.footer? }
-    context 'when footer is present' do
-      let(:footer_text) { 'test footer' }
-      it { is_expected.to be }
-    end
-
-    context 'when footer is not present' do
-      let(:options) { {} }
-      it { is_expected.to be false }
-    end
-
-    context 'when footer is nil' do
-      let(:options) { { footer: nil } }
-      it { is_expected.to be_falsey }
-    end
-  end
-
   describe '#css_classes' do
     subject { modal.send(:css_classes) }
     it { is_expected.to eq 'modal fade' }
@@ -79,6 +61,17 @@ RSpec.describe NfgUi::Bootstrap::Components::Modal do
     context 'when footer is not present' do
       let(:options) { {} }
       it { is_expected.not_to include :footer }
+    end
+
+    context 'when title is present' do
+      let(:title) { 'test_title' }
+      let(:options) { { title: title } }
+      it { is_expected.to include :title }
+
+    end
+
+    context 'when title is not present' do
+      it { is_expected.not_to include :title }
     end
   end
 

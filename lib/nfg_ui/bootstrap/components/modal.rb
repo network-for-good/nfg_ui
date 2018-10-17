@@ -19,6 +19,7 @@ module NfgUi
         # end
 
         def component_family
+          p "====== Printed from: (Bootstrap::Components::Modal) self.class.name: #{self.class.name} method: #{__method__}"
           :modal
         end
 
@@ -32,11 +33,6 @@ module NfgUi
           options.fetch(:footer, nil)
         end
 
-        def footer?
-          p "====== Printed from: (Bootstrap::Components::Modal) self.class.name: #{self.class.name} method: #{__method__}"
-          footer.present?
-        end
-
         private
 
         def css_classes
@@ -46,7 +42,7 @@ module NfgUi
 
         def non_html_attribute_options
           p "====== Printed from: (Bootstrap::Components::Modal) self.class.name: #{self.class.name} method: #{__method__}"
-          super.push((:footer if footer.present?))
+          super.push((:footer if footer.present?), (:title if title.present?))
         end
 
         def assistive_html_attributes
