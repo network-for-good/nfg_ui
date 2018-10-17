@@ -9,6 +9,7 @@ module NfgUi
         def component_css_class
           ''
         end
+        
         def component_family
           :media
         end
