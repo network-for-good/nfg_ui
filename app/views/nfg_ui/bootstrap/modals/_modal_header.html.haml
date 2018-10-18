@@ -1,6 +1,6 @@
 %div{ modal_header.html_options }
   - if modal_header.title
-    %h5= modal_header.title
+    %h5.modal-title= modal_header.title
   = ui.bootstrap :button, as: :button, class: 'close', theme: nil, data: { dismiss: 'modal' }, aria: { label: 'Close' } do
     %span{ aria: { hidden: 'true' } } 
       &times;

@@ -44,6 +44,9 @@ RSpec.describe NfgUi do
                                                           media_body
                                                           media_object
                                                           modal
+                                                          modal_body
+                                                          modal_footer
+                                                          modal_header
                                                           nav
                                                           navbar
                                                           pagination
@@ -94,6 +97,9 @@ RSpec.describe NfgUi do
                                                           loader
                                                           media_body
                                                           media_object
+                                                          modal_body
+                                                          modal_footer
+                                                          modal_header
                                                           nav
                                                           popover
                                                           progress_bar

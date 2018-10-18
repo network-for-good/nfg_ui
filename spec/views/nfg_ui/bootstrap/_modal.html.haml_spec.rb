@@ -1,9 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe 'nfg_ui/bootstrap/_modal.html.haml', type: :view do
-  let(:body) { 'test body content' }
+RSpec.describe 'nfg_ui/bootstrap/modals/_modal.html.haml', type: :view do
   let(:modal) { FactoryBot.create(:bootstrap_modal, **options) }
-
   let(:options) { { title: title, body: body, footer: footer } }
   let(:title) { nil }
   let(:tested_title) { 'Test title' }
@@ -12,7 +10,7 @@ RSpec.describe 'nfg_ui/bootstrap/_modal.html.haml', type: :view do
   let(:footer) { nil }
   let(:tested_footer) { 'Test footer' }
 
-  subject { render 'nfg_ui/bootstrap/modal', modal: modal }
+  subject { render 'nfg_ui/bootstrap/modals/modal', modal: modal }
 
   describe 'modal html that is always present' do
     it 'has the correct wrapping element attributes' do
@@ -25,7 +23,7 @@ RSpec.describe 'nfg_ui/bootstrap/_modal.html.haml', type: :view do
       expect(subject).to have_css '.modal .modal-body'
 
       # sanity check to make sure more attributes didn't sneak in.
-      expect(subject).to include "<div class='modal fade' role='dialog' tabindex='-1'>\n<div class='modal-dialog' role='document'>\n<div class='modal-content'>"
+      expect(subject).to include "<div aria-hidden='true' class='modal fade' role='dialog' tabindex='-1'>\n<div class='modal-dialog' role='document'>\n<div class='modal-content'>"
       expect(subject).to include "<div class='modal-header'>\n<button class=\"btn close\" data-dismiss=\"modal\" aria-label=\"Close\" type=\"button\"><span aria-hidden='true'>\n&times;\n</span>\n\n</button></div>"
       expect(subject).to include "<div class='modal-body'>"
     end
@@ -55,14 +53,14 @@ RSpec.describe 'nfg_ui/bootstrap/_modal.html.haml', type: :view do
         let(:body) { tested_body }
         it 'renders the modal body' do
           expect(subject).to have_selector '.modal-body', text: tested_body
-          expect(subject).to include "<div class='modal-body'>#{tested_body}</div>"
+          expect(subject).to include "<div class='modal-body'>\n#{tested_body}\n</div>"
         end
       end
 
       context 'and when a modal does not have a body' do
         let(:body) { nil }
         it 'renders the modal body without text' do
-          expect(subject).to include "<div class='modal-body'></div>"
+          expect(subject).to include "<div class='modal-body'>\n\n</div>"
         end
       end
     end
@@ -72,7 +70,7 @@ RSpec.describe 'nfg_ui/bootstrap/_modal.html.haml', type: :view do
         let(:footer) { tested_footer }
         it 'renders the modal footer with text' do
           expect(subject).to have_selector '.modal-footer', text: tested_footer
-          expect(subject).to include "<div class='modal-footer'>#{tested_footer}</div>"
+          expect(subject).to include "<div class='modal-footer'>\n#{tested_footer}\n</div>"
         end
       end
 

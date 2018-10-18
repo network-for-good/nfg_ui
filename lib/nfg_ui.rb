@@ -96,6 +96,9 @@ module NfgUi
                                   loader
                                   media_body
                                   media_object
+                                  modal_body
+                                  modal_footer
+                                  modal_header
                                   nav
                                   popover
                                   progress_bar

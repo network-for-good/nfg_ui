@@ -24,6 +24,7 @@ RSpec.describe 'nfg_ui/bootstrap/_button.html.haml', type: :view do
 
   describe 'a button with a tooltip' do
     let(:options) { { tooltip: tested_tooltip, disabled: tested_disabled, **add_on_options } }
+
     let(:add_on_options) { {} }
     let(:tested_tooltip) { nil }
     let(:tested_disabled) { nil }
@@ -60,7 +61,7 @@ RSpec.describe 'nfg_ui/bootstrap/_button.html.haml', type: :view do
           let(:add_on_options) { { modal: tested_modal } }
           it 'prioritizes :modal html over :tooltip html which excludes the tooltip html' do
             expect(subject).not_to have_css ".btn[data-toggle='tooltip']"
-            expect(subject).to eq "<a class=\"btn btn-primary\" data-toggle=\"modal\" data-target=\"#{tested_modal}\">\n</a>"
+            expect(subject).to eq "<a class=\"btn btn-primary\" data-toggle=\"modal\" data-target=\"#{tested_modal}\" href=\"javascript:;\">\n</a>"
           end
 
           describe 'the title html attribute output' do
@@ -92,7 +93,7 @@ RSpec.describe 'nfg_ui/bootstrap/_button.html.haml', type: :view do
               it 'prioritizes :modal over both data toggles' do
                 expect(subject).not_to have_css "[data-toggle='a-plugin']"
                 expect(subject).to have_css "[data-toggle='modal']"
-                expect(subject).to eq "<a class=\"btn btn-primary\" data-test-key=\"data_test_value\" data-toggle=\"modal\" data-target=\"#{tested_modal}\">\n</a>"
+                expect(subject).to eq "<a class=\"btn btn-primary\" data-test-key=\"data_test_value\" data-toggle=\"modal\" data-target=\"#{tested_modal}\" href=\"javascript:;\">\n</a>"
               end
             end
           end
@@ -110,9 +111,10 @@ RSpec.describe 'nfg_ui/bootstrap/_button.html.haml', type: :view do
         context 'and when (in addition to being disabled) it has :modal set in the options' do
           let(:tested_modal) { '#tested_modal' }
           let(:add_on_options) { { modal: tested_modal } }
+
           it 'outputs the modal html on the button and wraps the button with the disabled tooltip wrapper html' do
             expect(subject).to have_css "[data-toggle='tooltip'][title='#{tested_tooltip}'] [data-toggle='modal'][data-target='#{tested_modal}']"
-            expect(subject).to eq "<span class='d-inline-block' data-html='true' data-placement='top' data-toggle='tooltip' tabindex='0' title='tested tooltip'>\n<a class=\"btn btn-primary disabled\" tabindex=\"-1\" data-toggle=\"modal\" data-target=\"#tested_modal\">\n</a></span>\n"
+            expect(subject).to eq "<span class='d-inline-block' data-html='true' data-placement='top' data-toggle='tooltip' tabindex='0' title='tested tooltip'>\n<a class=\"btn btn-primary disabled\" data-toggle=\"modal\" data-target=\"#{tested_modal}\" tabindex=\"-1\" href=\"javascript:;\">\n</a></span>\n"
           end
         end
       end
