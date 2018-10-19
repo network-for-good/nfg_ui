@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe NfgUi::Bootstrap::Components::BreadcrumbItem do
-  let(:breadcrumb_item) { FactoryBot.build(:bootstrap_breadcrumb_item, **options) }
+  let(:breadcrumb_item) { described_class.new(options, ActionController::Base.new.view_context) }
   let(:options) { {} }
   subject { described_class }
 

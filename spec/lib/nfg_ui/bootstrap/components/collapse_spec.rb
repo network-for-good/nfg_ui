@@ -1,12 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe NfgUi::Bootstrap::Components::Collapse do
-  let(:collapse) { FactoryBot.create(:bootstrap_collapse, **options) }
+  let(:collapse) { described_class.new(options, ActionController::Base.new.view_context) }
   let(:options) { { id: test_id } }
   let(:test_id) { 'test_id' }
-  subject { described_class }
   
-  it { is_expected.to be < NfgUi::Bootstrap::Components::Base }
+  it { expect(described_class).to be < NfgUi::Bootstrap::Components::Base }
   it_behaves_like 'a component with a consistent initalized construction', required_options: { id: 'test_id' }
   # it_behaves_like 'a component that includes the Collapsible utility module'
 

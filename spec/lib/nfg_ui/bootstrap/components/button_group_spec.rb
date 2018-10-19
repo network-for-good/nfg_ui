@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe NfgUi::Bootstrap::Components::ButtonGroup do
-  let(:button_group) { FactoryBot.build(:bootstrap_button_group, **options) }
+  let(:button_group) { described_class.new(options, ActionController::Base.new.view_context) }
   let(:options) { {} }
 
   subject { described_class }

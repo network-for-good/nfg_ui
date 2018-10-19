@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe NfgUi::Bootstrap::Components::Embed do
-  let(:embed) { FactoryBot.create(:bootstrap_embed, **options) }
+  let(:embed) { described_class.new(options, ActionController::Base.new.view_context) }
   let(:options) { { aspect_ratio: aspect_ratio, iframe: iframe, autoplay: autoplay } }
 
   let(:aspect_ratio) { nil }
@@ -11,9 +11,7 @@ RSpec.describe NfgUi::Bootstrap::Components::Embed do
   let(:autoplay) { nil }
   let(:tested_autoplay) { true }
 
-  subject { described_class }
-
-  it { is_expected.to be < NfgUi::Bootstrap::Components::Base }
+  it { expect(described_class).to be < NfgUi::Bootstrap::Components::Base }
   it_behaves_like 'a component with a consistent initalized construction'
   
   describe '#aspect_ratio' do

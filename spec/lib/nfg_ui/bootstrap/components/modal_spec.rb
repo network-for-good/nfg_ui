@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe NfgUi::Bootstrap::Components::Modal do
-  let(:modal) { FactoryBot.create(:bootstrap_modal, **options) }
+  let(:modal) { described_class.new(options, ActionController::Base.new.view_context) }
   let(:options) { { body: body, footer: footer_text } }
   let(:body) { 'test body' }
   let(:footer_text) { nil }
