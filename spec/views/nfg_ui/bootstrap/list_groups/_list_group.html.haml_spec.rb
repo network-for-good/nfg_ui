@@ -6,8 +6,6 @@ RSpec.describe 'nfg_ui/bootstrap/list_groups/_list_group.html.haml', type: :view
   let(:list_group) { FactoryBot.create(:bootstrap_list_group, **options, body: test_body) }
   subject { render 'nfg_ui/bootstrap/list_groups/list_group', list_group: list_group }
 
-  pending 'coming soon'
-  
   it 'outputs a bootstrap list_group component in html' do
     expect(subject).to eq "<ul class=\"list-group\">#{test_body}\n</ul>"
   end
