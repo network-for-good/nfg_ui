@@ -42,7 +42,7 @@ module NfgUi
         
 
         # def card_theme_text_css_class
-        #   if outlined?
+        #   if outlined
         #     "text-#{theme}" unless theme == :light
         #   elsif theme != :light
         #     'text-white'
@@ -64,12 +64,12 @@ module NfgUi
         end
 
         # def outline_css_class_string
-        #   'border-' if outlined?
+        #   'border-' if outlined
         # end
 
         # def theme_css_class
         #   if theme.present?
-        #     if outlined?
+        #     if outlined
         #       "#{outline_css_class_string}#{theme} #{card_theme_text_css_class}"
         #     else
         #       super + " #{card_theme_text_css_class}"

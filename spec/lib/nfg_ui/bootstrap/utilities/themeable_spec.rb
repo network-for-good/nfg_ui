@@ -98,26 +98,6 @@ RSpec.describe NfgUi::Bootstrap::Utilities::Themeable do
     it { is_expected.to include(:theme, :outlined) }
   end
 
-  describe '#outlined?' do
-    subject { alert.send(:outlined?) }
-    context 'when outlined is true' do
-      let(:outlined) { true }
-      let(:options) { options_with_outlined }
-      it { is_expected.to be }
-    end
-
-    context 'when outlined is false' do
-      let(:outlined) { false }
-      let(:options) { options_with_outlined }
-      it { is_expected.not_to be }
-    end
-
-    context 'when outlined is not present' do
-      let(:options) { {} }
-      it { is_expected.to be_falsey }
-    end
-  end
-
   describe '#default_theme' do
     subject { alert.send(:default_theme) }
 
@@ -131,15 +111,28 @@ RSpec.describe NfgUi::Bootstrap::Utilities::Themeable do
     end
   end
 
-  describe '#outlined_prefix' do
-    subject { alert.send(:outlined_prefix) }
-    context 'when outlined? is true' do
+  describe '#theme_css_class_prefix' do
+    subject { alert.send(:theme_css_class_prefix) }
+    context 'when the default has not been overwritten' do
+      it { is_expected.to eq alert.component_css_class }
+    end
+
+    context 'when the default has been overwritten' do
+      let(:test_theme_class) { :tested_class }
+      before { alert.instance_variable_set(:@theme_css_class_prefix, test_theme_class) }
+      it { is_expected.to eq test_theme_class }
+    end
+  end
+
+  describe '#outlined_css_class_prefix' do
+    subject { alert.send(:outlined_css_class_prefix) }
+    context 'when outlined is true' do
       let(:options) { options_with_outlined }
       let(:outlined) { true }
       it { is_expected.to eq 'outline-' }
     end
 
-    context 'when outlined? is false' do
+    context 'when outlined is false' do
       let(:options) { options_with_outlined }
       let(:outlined) { false }
       it { is_expected.to be_nil }

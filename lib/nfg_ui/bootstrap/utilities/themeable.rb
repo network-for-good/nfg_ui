@@ -36,7 +36,7 @@ module NfgUi
         def css_classes
           p "====== Printed from: (Bootstrap::Utilities::Themeable) self.class.name: #{self.class.name} method: #{__method__}"
           return super unless theme.present?
-          super + " #{component_css_class}-#{outlined_prefix}#{theme}"
+          super + " #{theme_css_class_prefix}#{outlined_css_class_prefix if outlined}#{theme}"
         end
 
         def non_html_attribute_options
@@ -48,9 +48,8 @@ module NfgUi
         #   NfgUi::BOOTSTRAP_THEMES
         # end
 
-        def outlined?
-          p "====== Printed from: (Bootstrap::Utilities::Themeable) self.class.name: #{self.class.name} method: #{__method__}"
-          outlined
+        def theme_css_class_prefix
+          @theme_css_class_prefix ||= "#{component_css_class}-"
         end
 
         def default_theme
@@ -58,9 +57,9 @@ module NfgUi
           @default_theme ||= NfgUi::DEFAULT_BOOTSTRAP_THEME
         end
 
-        def outlined_prefix
+        def outlined_css_class_prefix
           p "====== Printed from: (Bootstrap::Utilities::Themeable) self.class.name: #{self.class.name} method: #{__method__}"
-          'outline-' if outlined?
+          @outlined_css_class_prefix ||= 'outline-'
         end
       end
     end
