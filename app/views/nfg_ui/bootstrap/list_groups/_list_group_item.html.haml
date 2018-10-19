@@ -1,2 +1,4 @@
-%div{ list_group_item.html_options }
+= content_tag list_group_item.as, list_group_item.html_options do
   = list_group_item.body
+  - if list_group_item.badge
+    = ui.bootstrap :badge, pill: true, theme: (list_group_item.theme || :primary), body: list_group_item.badge

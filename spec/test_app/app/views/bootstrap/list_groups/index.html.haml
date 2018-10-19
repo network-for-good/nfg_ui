@@ -1,4 +1,90 @@
 %h1 List Groups
 
-= ui.bootstrap :list_group, class: 'my-4' do
-  Coming Soon
+%h2 Standard, default list group
+
+= ui.bootstrap :list_group do
+  = ui.bootstrap :list_group_item, body: 'List Group Item #1'
+  = ui.bootstrap :list_group_item, body: 'List Group Item #2'
+  = ui.bootstrap :list_group_item, body: 'List Group Item #3'
+  = ui.bootstrap :list_group_item, body: 'List Group Item #4'
+
+%hr
+
+%h2 List groups made of custom wrapper elements
+%h3.mb-4 Div and link version of list group example
+%h4.mb-4 Non-action version
+= ui.bootstrap :list_group, as: :div, class: 'mb-4' do
+  = ui.bootstrap :list_group_item, as: :a, body: 'List Group Item #1', href: '#'
+  = ui.bootstrap :list_group_item, as: :a, body: 'List Group Item #2', href: '#'
+  = ui.bootstrap :list_group_item, as: :a, body: 'List Group Item #3', href: '#'
+  = ui.bootstrap :list_group_item, as: :a, body: 'List Group Item #4', href: '#'
+
+%h4.mb-4 Action version
+= ui.bootstrap :list_group, as: :div, class: 'mb-4' do
+  = ui.bootstrap :list_group_item, as: :a, action: true, body: 'List Group Item #1', href: '#'
+  = ui.bootstrap :list_group_item, as: :a, action: true, body: 'List Group Item #2', href: '#'
+  = ui.bootstrap :list_group_item, as: :a, action: true, body: 'List Group Item #3', href: '#'
+  = ui.bootstrap :list_group_item, as: :a, action: true, body: 'List Group Item #4', href: '#'
+
+
+%hr
+
+%h2 Flush list group
+= ui.bootstrap :list_group, flush: true do
+  = ui.bootstrap :list_group_item, body: 'List Group Item #1'
+  = ui.bootstrap :list_group_item, body: 'List Group Item #2'
+  = ui.bootstrap :list_group_item, body: 'List Group Item #3'
+  = ui.bootstrap :list_group_item, body: 'List Group Item #4'
+
+%h2 List groups with themeable list group items
+
+%h3.mb-4 Thematic list group items
+= ui.bootstrap :list_group do
+  = ui.bootstrap :list_group_item, body: 'No theme'
+  = ui.bootstrap :list_group_item, theme: :primary, body: 'List Group Item - Primary'
+  = ui.bootstrap :list_group_item, theme: :secondary, body: 'List Group Item - Secondary'
+  = ui.bootstrap :list_group_item, theme: :success, body: 'List Group Item - Success'
+  = ui.bootstrap :list_group_item, theme: :info, body: 'List Group Item - Info'
+  = ui.bootstrap :list_group_item, theme: :warning, body: 'List Group Item - Warning'
+  = ui.bootstrap :list_group_item, theme: :danger, body: 'List Group Item - Danger'
+  = ui.bootstrap :list_group_item, theme: :light, body: 'List Group Item - Light'
+  = ui.bootstrap :list_group_item, theme: :dark, body: 'List Group Item - Dark'
+
+%h3 Thematic list group items with action / interaction
+= ui.bootstrap :list_group do
+  = ui.bootstrap :list_group_item, action: true, as: :a, href: '#', body: 'No theme'
+  = ui.bootstrap :list_group_item, theme: :primary, action: true, as: :a, href: '#', body: 'List Group Item - Primary'
+  = ui.bootstrap :list_group_item, theme: :secondary, action: true, as: :a, href: '#', body: 'List Group Item - Secondary'
+  = ui.bootstrap :list_group_item, theme: :success, action: true, as: :a, href: '#', body: 'List Group Item - Success'
+  = ui.bootstrap :list_group_item, theme: :info, action: true, as: :a, href: '#', body: 'List Group Item - Info'
+  = ui.bootstrap :list_group_item, theme: :warning, action: true, as: :a, href: '#', body: 'List Group Item - Warning'
+  = ui.bootstrap :list_group_item, theme: :danger, action: true, as: :a, href: '#', body: 'List Group Item - Danger'
+  = ui.bootstrap :list_group_item, theme: :light, action: true, as: :a, href: '#', body: 'List Group Item - Light'
+  = ui.bootstrap :list_group_item, theme: :dark, action: true, as: :a, href: '#', body: 'List Group Item - Dark'
+
+%hr
+
+%h2 Active list group item
+= ui.bootstrap :list_group do
+  = ui.bootstrap :list_group_item, active: true, body: 'List Group Item #1 - Active'
+  = ui.bootstrap :list_group_item, body: 'List Group Item #2'
+  = ui.bootstrap :list_group_item, body: 'List Group Item #3'
+  = ui.bootstrap :list_group_item, body: 'List Group Item #4'
+
+%hr
+
+%h2 Disabled list group item
+= ui.bootstrap :list_group do
+  = ui.bootstrap :list_group_item, disabled: true, body: 'List Group Item #1 - Disabled'
+  = ui.bootstrap :list_group_item, body: 'List Group Item #2'
+  = ui.bootstrap :list_group_item, body: 'List Group Item #3'
+  = ui.bootstrap :list_group_item, body: 'List Group Item #4'
+
+%hr
+
+%h2 List group item with a badge
+= ui.bootstrap :list_group do
+  = ui.bootstrap :list_group_item, body: 'List Group Item #1 - No Theme', badge: '100'
+  = ui.bootstrap :list_group_item, theme: :success, body: 'List Group Item #2 with Theme - auto applied to badge', badge: '32'
+  = ui.bootstrap :list_group_item, body: 'List Group Item #3'
+  = ui.bootstrap :list_group_item, body: 'List Group Item #4'
