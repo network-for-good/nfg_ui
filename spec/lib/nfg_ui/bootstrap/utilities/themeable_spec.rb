@@ -114,7 +114,7 @@ RSpec.describe NfgUi::Bootstrap::Utilities::Themeable do
   describe '#theme_css_class_prefix' do
     subject { alert.send(:theme_css_class_prefix) }
     context 'when the default has not been overwritten' do
-      it { is_expected.to eq alert.component_css_class }
+      it { is_expected.to eq 'alert-' }
     end
 
     context 'when the default has been overwritten' do
@@ -126,16 +126,14 @@ RSpec.describe NfgUi::Bootstrap::Utilities::Themeable do
 
   describe '#outlined_css_class_prefix' do
     subject { alert.send(:outlined_css_class_prefix) }
-    context 'when outlined is true' do
-      let(:options) { options_with_outlined }
-      let(:outlined) { true }
+    context 'when the default has not been overwritten' do
       it { is_expected.to eq 'outline-' }
     end
 
-    context 'when outlined is false' do
-      let(:options) { options_with_outlined }
-      let(:outlined) { false }
-      it { is_expected.to be_nil }
+    context 'when the default has been overwritten' do
+      let(:test_outlined_css_class_prefix) { 'test-' }
+      before { alert.instance_variable_set(:@outlined_css_class_prefix, test_outlined_css_class_prefix) }
+      it { is_expected.to eq test_outlined_css_class_prefix }
     end
   end
 end
