@@ -1,4 +1,27 @@
 %h1 Navs
 
-= ui.bootstrap :nav, class: 'my-4' do
-  Coming Soon
+%h2 Standard, default nav
+
+= ui.bootstrap :nav do
+  = ui.bootstrap :nav_item, body: 'Nav Item #1'
+  = ui.bootstrap :nav_item, body: 'Nav Item #2'
+  = ui.bootstrap :nav_item, body: 'Nav Item #3'
+  = ui.bootstrap :nav_item, body: 'Nav Item #4'
+
+%hr
+
+%h2 Horizontal positioning of nav
+
+%h3 Right
+= ui.bootstrap :nav, right: true do
+  = ui.bootstrap :nav_item, body: 'Nav Item #1'
+  = ui.bootstrap :nav_item, body: 'Nav Item #2'
+  = ui.bootstrap :nav_item, body: 'Nav Item #3'
+  = ui.bootstrap :nav_item, body: 'Nav Item #4' 
+
+%h3 Center
+= ui.bootstrap :nav, center: true do
+  = ui.bootstrap :nav_item, body: 'Nav Item #1'
+  = ui.bootstrap :nav_item, body: 'Nav Item #2'
+  = ui.bootstrap :nav_item, body: 'Nav Item #3'
+  = ui.bootstrap :nav_item, body: 'Nav Item #4'
