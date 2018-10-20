@@ -7,7 +7,6 @@ module NfgUi
       # https://getbootstrap.com/docs/4.1/components/list-group/
       class ListGroup < Bootstrap::Components::Base
         include Bootstrap::Utilities::Wrappable
-        # private
         
         def component_family
           :list_group
