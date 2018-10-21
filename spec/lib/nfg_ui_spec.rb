@@ -48,6 +48,7 @@ RSpec.describe NfgUi do
                                                           modal_footer
                                                           modal_header
                                                           nav
+                                                          nav_item
                                                           navbar
                                                           pagination
                                                           popover
@@ -101,6 +102,7 @@ RSpec.describe NfgUi do
                                                           modal_footer
                                                           modal_header
                                                           nav
+                                                          nav_item
                                                           popover
                                                           progress_bar
                                                           slat

@@ -60,6 +60,7 @@ module NfgUi
                                   modal_footer
                                   modal_header
                                   nav
+                                  nav_item
                                   navbar
                                   pagination
                                   popover
@@ -100,6 +101,7 @@ module NfgUi
                                   modal_footer
                                   modal_header
                                   nav
+                                  nav_item
                                   popover
                                   progress_bar
                                   slat

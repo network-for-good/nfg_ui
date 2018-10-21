@@ -27,6 +27,7 @@ module NfgUi
       require_relative 'elements/modal_footer'
       require_relative 'elements/modal_header'
       require_relative 'elements/nav'
+      require_relative 'elements/nav_item'
       require_relative 'elements/popover'
       require_relative 'elements/progress_bar'
       require_relative 'elements/slat'
