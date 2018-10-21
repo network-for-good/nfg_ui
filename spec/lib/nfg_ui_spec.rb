@@ -49,6 +49,7 @@ RSpec.describe NfgUi do
                                                           modal_header
                                                           nav
                                                           nav_item
+                                                          nav_link
                                                           navbar
                                                           pagination
                                                           popover

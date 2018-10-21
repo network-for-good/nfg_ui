@@ -38,6 +38,7 @@ module NfgUi
       require_relative 'components/navbar'
       require_relative 'components/nav'
       require_relative 'components/nav_item'
+      require_relative 'components/nav_link'
       require_relative 'components/pagination'
       require_relative 'components/popover'
       require_relative 'components/progress'
