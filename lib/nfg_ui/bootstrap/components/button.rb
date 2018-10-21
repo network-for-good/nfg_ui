@@ -54,6 +54,10 @@ module NfgUi
           (options[:data] || {}).merge!(toggle: 'modal', target: options[:modal])
         end
 
+        def remove_component_css_classes
+          options.fetch(:remove_component_css_classes, false)
+        end
+
         private
 
         def collapse_data_attributes
@@ -63,7 +67,7 @@ module NfgUi
 
         def component_css_class
           p "====== Printed from: (Bootstrap::Components::Button) self.class.name: #{self.class.name} method: #{__method__}"
-          'btn'
+          remove_component_css_classes ? '' : 'btn'
         end
 
         def css_classes
@@ -78,7 +82,7 @@ module NfgUi
 
         def non_html_attribute_options
           p "====== Printed from: (Bootstrap::Components::Button) self.class.name: #{self.class.name} method: #{__method__}"
-          super.push(:modal, :block)
+          super.push(:modal, :block, :remove_component_css_classes)
         end
 
         def assistive_html_attributes

@@ -40,6 +40,32 @@ RSpec.describe NfgUi::Bootstrap::Components::Button do
     end
   end
 
+  describe '#remove_component_css_classes' do
+    subject { button.remove_component_css_classes }
+    let(:options) { { remove_component_css_classes: tested_remove_component_css_classes } }
+    let(:tested_remove_component_css_classes) { nil }
+
+    context 'when :block is set as true in options' do
+      let(:tested_remove_component_css_classes) { true }
+      it { is_expected.to be }
+    end
+
+    context 'when :block is set as false in options' do
+      let(:tested_remove_component_css_classes) { false }
+      it { is_expected.to be false }
+    end
+
+    context 'when :block is set as nil in options' do
+      let(:tested_remove_component_css_classes) { nil }
+      it { is_expected.to be_nil }
+    end
+
+    context 'when :block is not present in options' do
+      let(:options) { {} }
+      it { is_expected.to be false }
+    end
+  end
+
   describe '#modal' do
     let(:options) { { modal: tested_modal } }
     let(:tested_modal) { nil }
@@ -155,7 +181,15 @@ RSpec.describe NfgUi::Bootstrap::Components::Button do
 
   describe '#component_css_class' do
     subject { button.send(:component_css_class) }
-    it { is_expected.to eq 'btn' }
+    context 'when remove_component_css_classes is true' do
+      let(:options) { { remove_component_css_classes: true } }
+      it { is_expected.to eq '' }
+    end
+
+    context 'when remove_component_css_classes is false' do
+      let(:options) { { remove_component_css_classes: false } }
+      it { is_expected.to eq 'btn' }
+    end
   end
 
   describe '#css_classes' do
