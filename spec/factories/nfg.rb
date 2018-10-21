@@ -2,10 +2,10 @@
 # https://robots.thoughtbot.com/tips-for-using-factory-girl-without-an-orm
 FactoryBot.define do
   factory :nfg_modal, class: NfgUi::Components::Patterns::Modal do
-    body nil
-    data nil
-    id nil
-    traits []
+    body { nil }
+    data { nil }
+    id { nil }
+    traits { [] }
 
     skip_create
     initialize_with { new(attributes, ActionController::Base.new.view_context) }

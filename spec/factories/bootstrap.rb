@@ -2,18 +2,18 @@
 # https://robots.thoughtbot.com/tips-for-using-factory-girl-without-an-orm
 FactoryBot.define do
   factory :bootstrap_base, class: NfgUi::Bootstrap::Components::Base do
-    id nil
-    data nil
-    body nil
+    id { nil }
+    data { nil }
+    body { nil }
 
     skip_create
     initialize_with { new(attributes, ActionController::Base.new.view_context) }
   end
 
   factory :bootstrap_alert, class: NfgUi::Bootstrap::Components::Alert do
-    body nil
-    data nil
-    id nil
+    body { nil }
+    data { nil }
+    id { nil }
 
     skip_create
     initialize_with { new(attributes, ActionController::Base.new.view_context) }
@@ -25,9 +25,9 @@ FactoryBot.define do
   end
 
   factory :bootstrap_badge, class: NfgUi::Bootstrap::Components::Badge do
-    body nil
-    data nil
-    id nil
+    body { nil }
+    data { nil }
+    id { nil }
     pill { nil }
 
     skip_create
@@ -40,9 +40,9 @@ FactoryBot.define do
   end
 
   factory :bootstrap_breadcrumb, class: NfgUi::Bootstrap::Components::Breadcrumb do
-    body nil
-    data nil
-    id nil
+    body { nil }
+    data { nil }
+    id { nil }
 
     skip_create
     initialize_with { new(attributes, ActionController::Base.new.view_context) }
@@ -54,9 +54,9 @@ FactoryBot.define do
   end
 
   factory :bootstrap_breadcrumb_item, class: NfgUi::Bootstrap::Components::BreadcrumbItem do
-    body nil
-    data nil
-    id nil
+    body { nil }
+    data { nil }
+    id { nil }
 
     skip_create
     initialize_with { new(attributes, ActionController::Base.new.view_context) }
@@ -68,9 +68,9 @@ FactoryBot.define do
   end
 
   factory :bootstrap_button, class: NfgUi::Bootstrap::Components::Button do
-    body nil
-    data nil
-    id nil
+    body { nil }
+    data { nil }
+    id { nil }
 
     skip_create
     initialize_with { new(attributes, ActionController::Base.new.view_context) }
@@ -82,9 +82,9 @@ FactoryBot.define do
   end
 
   factory :bootstrap_button_group, class: NfgUi::Bootstrap::Components::ButtonGroup do
-    body nil
-    data nil
-    id nil
+    body { nil }
+    data { nil }
+    id { nil }
 
     skip_create
     initialize_with { new(attributes, ActionController::Base.new.view_context) }
@@ -96,9 +96,9 @@ FactoryBot.define do
   end
 
   factory :bootstrap_button_toolbar, class: NfgUi::Bootstrap::Components::ButtonToolbar do
-    body nil
-    data nil
-    id nil
+    body { nil }
+    data { nil }
+    id { nil }
 
     skip_create
     initialize_with { new(attributes, ActionController::Base.new.view_context) }
@@ -110,9 +110,9 @@ FactoryBot.define do
   end
 
   factory :bootstrap_card, class: NfgUi::Bootstrap::Components::Card do
-    body nil
-    data nil
-    id nil
+    body { nil }
+    data { nil }
+    id { nil }
 
     skip_create
     initialize_with { new(attributes, ActionController::Base.new.view_context) }
@@ -124,9 +124,9 @@ FactoryBot.define do
   end
 
   factory :bootstrap_carousel, class: NfgUi::Bootstrap::Components::Carousel do
-    body nil
-    data nil
-    id nil
+    body { nil }
+    data { nil }
+    id { nil }
 
     skip_create
     initialize_with { new(attributes, ActionController::Base.new.view_context) }
@@ -138,8 +138,8 @@ FactoryBot.define do
   end
 
   factory :bootstrap_collapse, class: NfgUi::Bootstrap::Components::Collapse do
-    body nil
-    data nil
+    body { nil }
+    data { nil }
     id { "collapse_id" }
 
     skip_create
@@ -152,9 +152,9 @@ FactoryBot.define do
   end
 
   factory :bootstrap_dropdown, class: NfgUi::Bootstrap::Components::Dropdown do
-    body nil
-    data nil
-    id nil
+    body { nil }
+    data { nil }
+    id { nil }
 
     skip_create
     initialize_with { new(attributes, ActionController::Base.new.view_context) }
@@ -166,9 +166,9 @@ FactoryBot.define do
   end
 
   factory :bootstrap_dropdown_divider, class: NfgUi::Bootstrap::Components::DropdownDivider do
-    body nil
-    data nil
-    id nil
+    body { nil }
+    data { nil }
+    id { nil }
 
     skip_create
     initialize_with { new(attributes, ActionController::Base.new.view_context) }
@@ -180,9 +180,9 @@ FactoryBot.define do
   end
 
   factory :bootstrap_dropdown_header, class: NfgUi::Bootstrap::Components::DropdownHeader do
-    body nil
-    data nil
-    id nil
+    body { nil }
+    data { nil }
+    id { nil }
 
     skip_create
     initialize_with { new(attributes, ActionController::Base.new.view_context) }
@@ -194,9 +194,9 @@ FactoryBot.define do
   end
 
   factory :bootstrap_dropdown_item, class: NfgUi::Bootstrap::Components::DropdownItem do
-    body nil
-    data nil
-    id nil
+    body { nil }
+    data { nil }
+    id { nil }
 
     skip_create
     initialize_with { new(attributes, ActionController::Base.new.view_context) }
@@ -208,9 +208,9 @@ FactoryBot.define do
   end
 
   factory :bootstrap_dropdown_menu, class: NfgUi::Bootstrap::Components::DropdownMenu do
-    body nil
-    data nil
-    id nil
+    body { nil }
+    data { nil }
+    id { nil }
 
     skip_create
     initialize_with { new(attributes, ActionController::Base.new.view_context) }
@@ -222,9 +222,9 @@ FactoryBot.define do
   end
 
   factory :bootstrap_dropdown_toggle, class: NfgUi::Bootstrap::Components::DropdownToggle do
-    body nil
-    data nil
-    id nil
+    body { nil }
+    data { nil }
+    id { nil }
 
     skip_create
     initialize_with { new(attributes, ActionController::Base.new.view_context) }
@@ -236,9 +236,9 @@ FactoryBot.define do
   end
 
   factory :bootstrap_embed, class: NfgUi::Bootstrap::Components::Embed do
-    body nil
-    data nil
-    id nil
+    body { nil }
+    data { nil }
+    id { nil }
     aspect_ratio { '16:9' }
     iframe { 'http://www.google.com' }
     autoplay { false }
@@ -253,9 +253,9 @@ FactoryBot.define do
   end
 
   factory :bootstrap_form, class: NfgUi::Bootstrap::Components::Form do
-    body nil
-    data nil
-    id nil
+    body { nil }
+    data { nil }
+    id { nil }
 
     skip_create
     initialize_with { new(attributes, ActionController::Base.new.view_context) }
@@ -267,9 +267,9 @@ FactoryBot.define do
   end
 
   factory :bootstrap_input_group, class: NfgUi::Bootstrap::Components::InputGroup do
-    body nil
-    data nil
-    id nil
+    body { nil }
+    data { nil }
+    id { nil }
 
     skip_create
     initialize_with { new(attributes, ActionController::Base.new.view_context) }
@@ -281,9 +281,9 @@ FactoryBot.define do
   end
 
   factory :bootstrap_jumbotron, class: NfgUi::Bootstrap::Components::Jumbotron do
-    body nil
-    data nil
-    id nil
+    body { nil }
+    data { nil }
+    id { nil }
 
     skip_create
     initialize_with { new(attributes, ActionController::Base.new.view_context) }
@@ -295,9 +295,9 @@ FactoryBot.define do
   end
 
   factory :bootstrap_list_group, class: NfgUi::Bootstrap::Components::ListGroup do
-    body nil
-    data nil
-    id nil
+    body { nil }
+    data { nil }
+    id { nil }
 
     skip_create
     initialize_with { new(attributes, ActionController::Base.new.view_context) }
@@ -309,9 +309,9 @@ FactoryBot.define do
   end
 
   factory :bootstrap_list_group_item, class: NfgUi::Bootstrap::Components::ListGroupItem do
-    body nil
-    data nil
-    id nil
+    body { nil }
+    data { nil }
+    id { nil }
 
     skip_create
     initialize_with { new(attributes, ActionController::Base.new.view_context) }
@@ -323,9 +323,9 @@ FactoryBot.define do
   end
 
   factory :bootstrap_media, class: NfgUi::Bootstrap::Components::Media do
-    body nil
-    data nil
-    id nil
+    body { nil }
+    data { nil }
+    id { nil }
 
     skip_create
     initialize_with { new(attributes, ActionController::Base.new.view_context) }
@@ -337,9 +337,9 @@ FactoryBot.define do
   end
   
   factory :bootstrap_media_body, class: NfgUi::Bootstrap::Components::MediaBody do
-    body nil
-    data nil
-    id nil
+    body { nil }
+    data { nil }
+    id { nil }
 
     skip_create
     initialize_with { new(attributes, ActionController::Base.new.view_context) }
@@ -351,9 +351,9 @@ FactoryBot.define do
   end
 
   factory :bootstrap_media_object, class: NfgUi::Bootstrap::Components::MediaObject do
-    body nil
-    data nil
-    id nil
+    body { nil }
+    data { nil }
+    id { nil }
 
     skip_create
     initialize_with { new(attributes, ActionController::Base.new.view_context) }
@@ -365,9 +365,9 @@ FactoryBot.define do
   end
 
   factory :bootstrap_modal, class: NfgUi::Bootstrap::Components::Modal do
-    body nil
-    data nil
-    id nil
+    body { nil }
+    data { nil }
+    id { nil }
 
     skip_create
     initialize_with { new(attributes, ActionController::Base.new.view_context) }
@@ -379,9 +379,9 @@ FactoryBot.define do
   end
 
   factory :bootstrap_modal_header, class: NfgUi::Bootstrap::Components::ModalHeader do
-    body nil
-    data nil
-    id nil
+    body { nil }
+    data { nil }
+    id { nil }
 
     skip_create
     initialize_with { new(attributes, ActionController::Base.new.view_context) }
@@ -393,9 +393,9 @@ FactoryBot.define do
   end
 
   factory :bootstrap_modal_body, class: NfgUi::Bootstrap::Components::ModalBody do
-    body nil
-    data nil
-    id nil
+    body { nil }
+    data { nil }
+    id { nil }
 
     skip_create
     initialize_with { new(attributes, ActionController::Base.new.view_context) }
@@ -407,9 +407,9 @@ FactoryBot.define do
   end
 
   factory :bootstrap_modal_footer, class: NfgUi::Bootstrap::Components::ModalFooter do
-    body nil
-    data nil
-    id nil
+    body { nil }
+    data { nil }
+    id { nil }
 
     skip_create
     initialize_with { new(attributes, ActionController::Base.new.view_context) }
@@ -421,9 +421,9 @@ FactoryBot.define do
   end
 
   factory :bootstrap_nav, class: NfgUi::Bootstrap::Components::Nav do
-    body nil
-    data nil
-    id nil
+    body { nil }
+    data { nil }
+    id { nil }
 
     skip_create
     initialize_with { new(attributes, ActionController::Base.new.view_context) }
@@ -435,9 +435,9 @@ FactoryBot.define do
   end
 
   factory :bootstrap_nav_item, class: NfgUi::Bootstrap::Components::NavItem do
-    body nil
-    data nil
-    id nil
+    body { nil }
+    data { nil }
+    id { nil }
 
     skip_create
     initialize_with { new(attributes, ActionController::Base.new.view_context) }
@@ -449,9 +449,9 @@ FactoryBot.define do
   end
 
   factory :bootstrap_nav_link, class: NfgUi::Bootstrap::Components::NavLink do
-    body nil
-    data nil
-    id nil
+    body { nil }
+    data { nil }
+    id { nil }
 
     skip_create
     initialize_with { new(attributes, ActionController::Base.new.view_context) }
@@ -463,9 +463,9 @@ FactoryBot.define do
   end
 
   factory :bootstrap_navbar, class: NfgUi::Bootstrap::Components::Navbar do
-    body nil
-    data nil
-    id nil
+    body { nil }
+    data { nil }
+    id { nil }
 
     skip_create
     initialize_with { new(attributes, ActionController::Base.new.view_context) }
@@ -477,9 +477,9 @@ FactoryBot.define do
   end
 
   factory :bootstrap_pagination, class: NfgUi::Bootstrap::Components::Pagination do
-    body nil
-    data nil
-    id nil
+    body { nil }
+    data { nil }
+    id { nil }
 
     skip_create
     initialize_with { new(attributes, ActionController::Base.new.view_context) }
@@ -491,9 +491,9 @@ FactoryBot.define do
   end
 
   factory :bootstrap_popover, class: NfgUi::Bootstrap::Components::Popover do
-    body nil
-    data nil
-    id nil
+    body { nil }
+    data { nil }
+    id { nil }
 
     skip_create
     initialize_with { new(attributes, ActionController::Base.new.view_context) }
@@ -505,9 +505,9 @@ FactoryBot.define do
   end
 
   factory :bootstrap_progress, class: NfgUi::Bootstrap::Components::Progress do
-    body nil
-    data nil
-    id nil
+    body { nil }
+    data { nil }
+    id { nil }
 
     skip_create
     initialize_with { new(attributes, ActionController::Base.new.view_context) }
@@ -519,9 +519,9 @@ FactoryBot.define do
   end
 
   factory :bootstrap_table, class: NfgUi::Bootstrap::Components::Table do
-    body nil
-    data nil
-    id nil
+    body { nil }
+    data { nil }
+    id { nil }
 
     skip_create
     initialize_with { new(attributes, ActionController::Base.new.view_context) }
