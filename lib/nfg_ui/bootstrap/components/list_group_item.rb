@@ -10,8 +10,7 @@ module NfgUi
         include Bootstrap::Utilities::Activatable
         include Bootstrap::Utilities::Disableable
         include Bootstrap::Utilities::Themeable
-        # private
-        
+
         def component_family
           :list_group
         end
@@ -35,10 +34,11 @@ module NfgUi
         end
 
         def css_classes
-          return super unless action || badge
-          super +
-            (action ? " #{component_css_class}-action" : '') +
-            (badge ? ' d-flex justify-content-between align-items-center' : '')
+          [
+            super,
+            ("#{component_css_class}-action" if action),
+            ('d-flex justify-content-between align-items-center' if badge)
+          ].join(' ').squish
         end
 
         def non_html_attribute_options

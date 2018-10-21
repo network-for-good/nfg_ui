@@ -73,7 +73,7 @@ RSpec.describe NfgUi::Bootstrap::Components::ListGroupItem do
         it { is_expected.not_to include 'list-group-item-action' }
       end
 
-      context 'whenf action is not set' do
+      context 'when action is not set' do
         let(:options) { {} }
         it { is_expected.not_to include 'list-group-item-action' }
       end
