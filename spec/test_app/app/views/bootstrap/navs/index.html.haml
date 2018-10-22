@@ -1,27 +1,181 @@
 %h1 Navs
 
 %h2 Standard, default nav
+%p 
+  Note: to generate a nav item that utilizes the :nav_link component, simply pass an :href option into the :nav_item. This will automatically generate the .nav-item > .nav-link syntax and supply the href to the nav_link for you.
+%p
+  %b Example:
+  ui.bootstrap :nav_item, body: 'Nav Item #1', href: '#'
 
-= ui.bootstrap :nav do
-  = ui.bootstrap :nav_item, body: 'Nav Item #1'
-  = ui.bootstrap :nav_item, body: 'Nav Item #2'
-  = ui.bootstrap :nav_item, body: 'Nav Item #3'
-  = ui.bootstrap :nav_item, body: 'Nav Item #4'
+%p :nav_link component is available and is usable if you need to build a more complex or complicated nav item. See examples below
+
+= ui.bootstrap :nav, class: 'bg-light p-3' do
+  = ui.bootstrap :nav_item, body: 'Nav Item #1', href: '#'
+  = ui.bootstrap :nav_item, body: 'Nav Item #2', href: '#'
+  = ui.bootstrap :nav_item, body: 'Nav Item #3', href: '#'
+  = ui.bootstrap :nav_item, body: 'Nav Item #4', href: '#'
+
+%hr
+
+%h3 Nav with :nav_items and manually added :nav_links
+= ui.bootstrap :nav, class: 'bg-light p-3' do
+  = ui.bootstrap :nav_item do
+    = ui.bootstrap :nav_link, body: 'Nav Link #1', href: '#'
+  = ui.bootstrap :nav_item do
+    = ui.bootstrap :nav_link, body: 'Nav Link #2', href: '#'
+  = ui.bootstrap :nav_item do
+    = ui.bootstrap :nav_link, body: 'Nav Link #3', href: '#'
+  = ui.bootstrap :nav_item do
+    = ui.bootstrap :nav_link, body: 'Nav Link #4 (disabled)', href: '#', disabled: true
+  
+
+
+%hr
+
+%h2 <nav> element based Nav
+%p Docs show that when using nav element, utilize :nav_link (a tag) component
+
+%h3 Standard nav using as: :nav (thus, nav element)
+= ui.bootstrap :nav, as: :nav, class: 'bg-light p-3' do
+  = ui.bootstrap :nav_link, body: 'Nav Link #1', href: '#'
+  = ui.bootstrap :nav_link, body: 'Nav Link #2', href: '#'
+  = ui.bootstrap :nav_link, body: 'Nav Link #3', href: '#'
+  = ui.bootstrap :nav_link, body: 'Nav Link #4', href: '#'
+
+%hr
+
+%h3 Complex nav using as: :nav 
+%p Per documentation on nav-fill / justified, etc, add 'nav-item' class to nav_link:
+
+= ui.bootstrap :nav, as: :nav, fill: true, pills: true, class: 'bg-light p-3' do
+  = ui.bootstrap :nav_link, active: true, body: 'Nav Link #1 - Active', href: '#', class: 'nav-item'
+  = ui.bootstrap :nav_link, body: 'Nav Link #2', href: '#', class: 'nav-item'
+  = ui.bootstrap :nav_link, body: 'Nav Link #3', href: '#', class: 'nav-item'
+  = ui.bootstrap :nav_link, body: 'Nav Link #4', href: '#', class: 'nav-item'
+
+
+
+  
 
 %hr
 
 %h2 Horizontal positioning of nav
 
-%h3 Right
-= ui.bootstrap :nav, right: true do
-  = ui.bootstrap :nav_item, body: 'Nav Item #1'
-  = ui.bootstrap :nav_item, body: 'Nav Item #2'
-  = ui.bootstrap :nav_item, body: 'Nav Item #3'
-  = ui.bootstrap :nav_item, body: 'Nav Item #4' 
+%h3.h4 Right
+= ui.bootstrap :nav, right: true, class: 'bg-light p-3' do
+  = ui.bootstrap :nav_item, body: 'Nav Item #1', href: '#'
+  = ui.bootstrap :nav_item, body: 'Nav Item #2', href: '#'
+  = ui.bootstrap :nav_item, body: 'Nav Item #3', href: '#'
+  = ui.bootstrap :nav_item, body: 'Nav Item #4' , href: '#'
 
-%h3 Center
-= ui.bootstrap :nav, center: true do
-  = ui.bootstrap :nav_item, body: 'Nav Item #1'
-  = ui.bootstrap :nav_item, body: 'Nav Item #2'
-  = ui.bootstrap :nav_item, body: 'Nav Item #3'
-  = ui.bootstrap :nav_item, body: 'Nav Item #4'
+%h3.h4 Center
+= ui.bootstrap :nav, center: true, class: 'bg-light p-3' do
+  = ui.bootstrap :nav_item, body: 'Nav Item #1', href: '#'
+  = ui.bootstrap :nav_item, body: 'Nav Item #2', href: '#'
+  = ui.bootstrap :nav_item, body: 'Nav Item #3', href: '#'
+  = ui.bootstrap :nav_item, body: 'Nav Item #4', href: '#'
+
+%hr
+
+%h2 Vertical
+
+= ui.bootstrap :nav, vertical: true, class: 'bg-light p-3' do
+  = ui.bootstrap :nav_item, body: 'Nav Item #1', href: '#'
+  = ui.bootstrap :nav_item, body: 'Nav Item #2', href: '#'
+  = ui.bootstrap :nav_item, body: 'Nav Item #3', href: '#'
+  = ui.bootstrap :nav_item, body: 'Nav Item #4', href: '#'
+
+%hr
+
+%h2 Tabs
+
+= ui.bootstrap :nav, tabs: true, class: 'bg-light px-3 pt-3' do
+  = ui.bootstrap :nav_item, body: 'Nav Item #1', href: '#', active: true
+  = ui.bootstrap :nav_item, body: 'Nav Item #2', href: '#'
+  = ui.bootstrap :nav_item, body: 'Nav Item #3', href: '#'
+  = ui.bootstrap :nav_item, body: 'Nav Item #4', href: '#'
+
+%h2 Pills
+
+= ui.bootstrap :nav, pills: true, class: 'bg-light p-3' do
+  = ui.bootstrap :nav_item, body: 'Nav Item #1', href: '#', active: true
+  = ui.bootstrap :nav_item, body: 'Nav Item #2', href: '#'
+  = ui.bootstrap :nav_item, body: 'Nav Item #3', href: '#'
+  = ui.bootstrap :nav_item, body: 'Nav Item #4', href: '#'
+
+%hr
+
+%h2 Fill
+
+= ui.bootstrap :nav, fill: true, class: 'bg-light p-3' do
+  = ui.bootstrap :nav_item, body: 'Nav Item #1', href: '#'
+  = ui.bootstrap :nav_item, body: 'Nav Item #2', href: '#'
+  = ui.bootstrap :nav_item, body: 'Nav Item #3', href: '#'
+  = ui.bootstrap :nav_item, body: 'Nav Item #4', href: '#'
+
+%hr
+
+%h2 Justify
+
+= ui.bootstrap :nav, justify: true, class: 'bg-light p-3' do
+  = ui.bootstrap :nav_item, body: 'Nav Item #1', href: '#'
+  = ui.bootstrap :nav_item, body: 'Nav Item #2', href: '#'
+  = ui.bootstrap :nav_item, body: 'Nav Item #3', href: '#'
+  = ui.bootstrap :nav_item, body: 'Nav Item #4', href: '#'
+
+%hr
+
+%h2 Nav Items / links: States
+
+= ui.bootstrap :nav, pills: true ,class: 'bg-light p-3' do
+  = ui.bootstrap :nav_item, body: 'Nav Item #1 - Active', href: '#', active: true
+  = ui.bootstrap :nav_item, body: 'Nav Item #2 - Disabled', href: '#', disabled: true
+  = ui.bootstrap :nav_item, body: 'Nav Item #3', href: '#'
+  = ui.bootstrap :nav_item, body: 'Nav Item #4', href: '#'
+
+%hr
+
+%h2 Nav items with dropdowns
+%p Note: to create an automatic dropdown toggle to power your dropdown, you need to pass in :button instead of :body
+%p Example: = ui.bootstrap :nav_item, button: 'Nav Item #4 - Dropdown', dropdown: true do ...
+
+%h3 Standard Nav with dropdown
+= ui.bootstrap :nav, class: 'bg-light p-3' do
+  = ui.bootstrap :nav_item, body: 'Nav Item #1', href: '#'
+  = ui.bootstrap :nav_item, body: 'Nav Item #2', href: '#'
+  = ui.bootstrap :nav_item, body: 'Nav Item #3', href: '#'
+  = ui.bootstrap :nav_item, button: 'Nav Item #4 - Dropdown', dropdown: true do
+    = ui.bootstrap :dropdown_menu do
+      = ui.bootstrap :dropdown_item, body: 'Dropdown Item 1', href: '#'
+      = ui.bootstrap :dropdown_item, body: 'Dropdown Item 2', href: '#'
+      = ui.bootstrap :dropdown_item, body: 'Dropdown Item 3', href: '#'
+      = ui.bootstrap :dropdown_item, body: 'Dropdown Item 4', href: '#'
+
+%hr
+
+%h3 Pills with dropdowns
+= ui.bootstrap :nav, pills: true, class: 'bg-light p-3' do
+  = ui.bootstrap :nav_item, body: 'Nav Item #1', href: '#', active: true
+  = ui.bootstrap :nav_item, body: 'Nav Item #2', href: '#'
+  = ui.bootstrap :nav_item, body: 'Nav Item #3', href: '#'
+  = ui.bootstrap :nav_item, button: 'Nav Item #4 - Dropdown', dropdown: true do
+    = ui.bootstrap :dropdown_menu do
+      = ui.bootstrap :dropdown_item, body: 'Dropdown Item 1', href: '#'
+      = ui.bootstrap :dropdown_item, body: 'Dropdown Item 2', href: '#'
+      = ui.bootstrap :dropdown_item, body: 'Dropdown Item 3', href: '#'
+      = ui.bootstrap :dropdown_item, body: 'Dropdown Item 4', href: '#'
+
+%hr
+
+%h3 Tabs with dropdowns
+= ui.bootstrap :nav, tabs: true, class: 'bg-light px-3 pt-3' do
+  = ui.bootstrap :nav_item, body: 'Nav Item #1', href: '#'
+  = ui.bootstrap :nav_item, body: 'Nav Item #2', href: '#'
+  = ui.bootstrap :nav_item, body: 'Nav Item #3', href: '#'
+  = ui.bootstrap :nav_item, button: 'Nav Item #4 with Dropdown', dropdown: true do
+    = ui.bootstrap :dropdown_menu do
+      = ui.bootstrap :dropdown_item, body: 'Dropdown Item 1', href: '#dd1'
+      = ui.bootstrap :dropdown_item, body: 'Dropdown Item 2', href: '#dd2'
+      = ui.bootstrap :dropdown_item, body: 'Dropdown Item 3', href: '#dd3'
+      = ui.bootstrap :dropdown_item, body: 'Dropdown Item 4', href: '#dd4'
+

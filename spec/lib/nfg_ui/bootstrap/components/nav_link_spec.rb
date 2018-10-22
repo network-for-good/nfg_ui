@@ -11,4 +11,22 @@ RSpec.describe NfgUi::Bootstrap::Components::NavLink do
     subject { nav.component_family }
     it { is_expected.to eq :nav }
   end
+
+  describe '#dropdown' do
+    subject { nav.dropdown }
+    context 'when dropdown is true in options' do
+      let(:options) { { dropdown: true } }
+      it { is_expected.to be }
+    end
+
+    context 'when dropdown is nil in options' do
+      let(:options) { { dropdown: nil } }
+      it { is_expected.to be_nil }
+    end
+
+    context 'when dropdown is not present in options' do
+      let(:options) { {} }
+      it { is_expected.not_to be }
+    end
+  end
 end

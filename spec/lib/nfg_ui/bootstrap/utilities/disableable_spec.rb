@@ -40,6 +40,11 @@ RSpec.describe NfgUi::Bootstrap::Utilities::Disableable do
           let(:as_option) { :a }
           it { is_expected.to include 'disabled' }
         end
+
+        context 'and when :as is not present' do
+          let(:options) { { disabled: tested_disabled } }
+          it { is_expected.to include 'disabled' }
+        end
       end
 
       context 'when component has disabled: false' do

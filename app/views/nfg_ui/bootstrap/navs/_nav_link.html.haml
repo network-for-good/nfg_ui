@@ -1,2 +1,6 @@
-%a{ nav_link.html_options }
-  = nav_link.body
+- if nav_link.dropdown
+  = ui.bootstrap :dropdown_toggle, body: nav_link.body, as: :a, **nav_link.html_options, theme: nil, nav_link: true
+
+- else
+  %a{ nav_link.html_options }
+    = nav_link.body
