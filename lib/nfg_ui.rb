@@ -105,6 +105,7 @@ module NfgUi
                                   modal_header
                                   nav
                                   nav_item
+                                  nav_link
                                   popover
                                   progress_bar
                                   slat
