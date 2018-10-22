@@ -1,0 +1,10 @@
+.btn-group,
+.btn-group-vertical {
+  display: -ms-inline-flexbox;
+  > .btn { -ms-flex: 1 1 auto; }
+}
+.btn-toolbar {
+  display: -ms-flexbox;
+  -ms-flex-wrap: wrap;
+  -ms-flex-pack: start;
+}

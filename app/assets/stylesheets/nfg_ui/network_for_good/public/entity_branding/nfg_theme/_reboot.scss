@@ -2,5 +2,5 @@
 
 a {
   color: yiq-contrast-color($primary, darken($primary, 15%), $primary);
-  &:hover, &:focus { color: darken($primary, 15%) !important; }
+  &:not(.btn):hover, &:not(.btn):focus { color: darken($primary, 15%) !important; }
 }

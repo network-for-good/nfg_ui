@@ -1,0 +1,10 @@
+// Stripped out additional styles not needed for flexbox support from original mixins/grid.scss
+
+@mixin make-row() {
+  display: -ms-flexbox;
+  -ms-flex-wrap: wrap;
+}
+
+@mixin make-col($size, $columns: $grid-columns) {
+  -ms-flex: 0 0 percentage($size / $columns);
+}

@@ -27,8 +27,8 @@ body:not(.modal-open) {
   .select2-selection--single {
     display: inline-block;
     width: 100%;
-    height: $custom-select-height;
-    padding: $custom-select-padding-y ($custom-select-padding-x + $custom-select-indicator-padding) $custom-select-padding-y $custom-select-padding-x;
+    height: $custom-select-height !important;
+    padding: $custom-select-padding-y ($custom-select-padding-x + $custom-select-indicator-padding) $custom-select-padding-y $custom-select-padding-x !important;
     font-weight: $btn-font-weight;
     line-height: $custom-select-line-height;
     color: $custom-select-color;
@@ -47,7 +47,7 @@ body:not(.modal-open) {
     .select2-selection__rendered {
       padding: 0;
       color: $primary;
-      line-height: $spacer;
+      line-height: $spacer !important;
       transition: $transition-base;
     }
     .select2-selection__arrow { display: none; }
@@ -167,7 +167,7 @@ body:not(.modal-open) {
         height: 100%;
         font-family: "FontAwesome";
         font-size: $font-size-base;
-        line-height: 1;
+        line-height: 1.5;
         color: theme-color("success");
         text-align: center;
         content: '\f00c';
