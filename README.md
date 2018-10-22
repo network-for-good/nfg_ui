@@ -320,3 +320,5 @@ $ Collapsible? (Y/n):
 16. Generator for customizable components with commented out class methods (like devise's generated controllers) for easy customization (reference that kicked this off was the modal title ... allowing an icon on the bs version might be what you want to do if you're a gem consumer...)
 
 17. Consider implementing a universal catch all "content" attribute when there's only one region so that users don't need to guess if a something like the dropdown header uses `heading` or `body` or `content` for passing in the content.
+
+18. Create a registered list ... for things like tooltippable nfg components (all? some?) -- that way can mass add modules for nfg side as needed.
