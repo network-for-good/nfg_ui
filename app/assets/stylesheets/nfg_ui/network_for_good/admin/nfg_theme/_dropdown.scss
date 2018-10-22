@@ -1,5 +1,8 @@
 // Custom dropdown styles
 .dropdown-item {
   + .dropdown-item { border-top: $border-width solid $border-color; }
-  &.disabled, &:disabled { background-color: $body-bg; }
+  &.disabled, &:disabled {
+    background-color: $body-bg;
+    cursor: not-allowed;
+  }
 }

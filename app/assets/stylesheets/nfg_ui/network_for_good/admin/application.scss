@@ -1,15 +1,22 @@
-@import url(//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700);
+//** Admin Styles **//
+
+// App Vendors
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,700);
 @import 'font-awesome';
 @import 'select2';
 
 // Our Variables
-@import "variables";
+@import 'variables';
 
 // Bootstrap Vendor Base
-@import "bootstrap";
+@import 'bootstrap';
 
 // NFG Theme
-@import "./nfg_theme/*";
+@import 'nfg_theme/*';
 
 // Plugins
-@import "nfg_ui/network_for_good/public/plugins/sticky_div";
+@import 'nfg_ui/network_for_good/public/plugins/sticky_div';
+@import 'nfg_ui/network_for_good/public/plugins/select2';
+
+// // Legacy browser support
+// @import 'bootstrap4/legacy_browser_support/application';

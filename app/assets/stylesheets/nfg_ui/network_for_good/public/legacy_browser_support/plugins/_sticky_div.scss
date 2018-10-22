@@ -1,13 +1,9 @@
-.no-smil.flexboxtweener { // IE 10 & 11
-  [data-toggle='sticky-div'] {
+// IE 10 & 11 suppport styles
+[data-toggle='sticky-div'] {
+  &.stuck {
     position: fixed;
     left: 0;
     right: 0;
     top: 0;
-    z-index: 999;
-    transition: $transition-base;
-    box-shadow: $box-shadow;
   }
 }
-
-

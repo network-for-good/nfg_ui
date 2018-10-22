@@ -1,0 +1,4 @@
+// Stripped out additional styles not needed for flexbox support from original grid.scss
+
+.row { @include make-row(); }
+@include make-grid-columns();

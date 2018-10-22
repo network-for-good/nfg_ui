@@ -1,0 +1,30 @@
+// Stripped out additional styles not needed for flexbox support from original mixins/grid-framework.scss
+
+@mixin make-grid-columns($columns: $grid-columns, $gutter: $grid-gutter-width, $breakpoints: $grid-breakpoints) {
+  @each $breakpoint in map-keys($breakpoints) {
+    $infix: breakpoint-infix($breakpoint, $breakpoints);
+    @include media-breakpoint-up($breakpoint, $breakpoints) {
+      // Provide basic `.col-{bp}` classes for equal-width flexbox columns
+      .col#{$infix} {
+        -ms-flex-preferred-size: 0;
+        -ms-flex-positive: 1;
+      }
+      .col#{$infix}-auto {
+        -ms-flex: 0 0 auto;
+      }
+
+      @for $i from 1 through $columns {
+        .col#{$infix}-#{$i} {
+          @include make-col($i, $columns);
+        }
+      }
+
+      .order#{$infix}-first { -ms-flex-order: -1; }
+      .order#{$infix}-last { -ms-flex-order: $columns + 1; }
+
+      @for $i from 0 through $columns {
+        .order#{$infix}-#{$i} { -ms-flex-order: $i; }
+      }
+    }
+  }
+}
