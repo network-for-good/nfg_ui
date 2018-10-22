@@ -30,5 +30,10 @@ RSpec.describe 'nfg_ui/bootstrap/dropdowns/_dropdown_toggle.html.haml', type: :v
       let(:options) { { id: 'tested_id' } }
       it { is_expected.to have_css '#tested_id.dropdown-toggle' }
     end
+
+    context 'and when a dropdown_toggle passes in nav_link' do
+      let(:options) { { nav_link: true } }
+      it { is_expected.not_to have_css '.btn' }
+    end
   end
 end

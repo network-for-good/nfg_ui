@@ -50,6 +50,19 @@ RSpec.describe NfgUi::Bootstrap::Components::DropdownToggle do
     end
   end
 
+  describe '#nav_link' do
+    subject { dropdown_toggle.nav_link }
+    context 'when nav_link is present in options' do
+      let(:options) { { nav_link: true } }
+      it { is_expected.to be }
+    end
+
+    context 'when nav_link is not present in options' do
+      let(:options) { {} }
+      it { is_expected.not_to be }
+    end
+  end
+
   describe '#html_options' do
     subject { dropdown_toggle.html_options }
     context 'when :as is :a' do
@@ -82,7 +95,7 @@ RSpec.describe NfgUi::Bootstrap::Components::DropdownToggle do
 
     describe '#non_html_attribute_options' do
       let(:tested_method) { :non_html_attribute_options }
-      it { is_expected.to include :offset }
+      it { is_expected.to include :offset, :nav_link }
     end
   end
 end

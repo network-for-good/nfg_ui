@@ -6,14 +6,7 @@ module NfgUi
       # Bootstrap Dropdown Component
       # https://getbootstrap.com/docs/4.1/components/dropdowns/
       class DropdownToggle < Bootstrap::Components::Base
-        # include Bootstrap::Utilities::Themeable
         include Bootstrap::Utilities::Wrappable
-        # include Bootstrap::Utilities::Tooltipable
-        # include Bootstrap::Utilities::Disableable
-
-        # def as
-        #   options.fetch(:as, :button)
-        # end
 
         def component_family
           :dropdown
@@ -41,6 +34,10 @@ module NfgUi
           offset.present? ? { **data_toggle, offset: offset } : data_toggle
         end
 
+        def nav_link
+          options.fetch(:nav_link, false)
+        end
+
         private
 
         def assistive_html_attributes
@@ -52,12 +49,8 @@ module NfgUi
         end
 
         def non_html_attribute_options
-          super.push(:offset)
+          super.push(:offset, :nav_link)
         end
-
-        # def theme_css_class_prefix
-        #   'btn'
-        # end
       end
     end
   end
