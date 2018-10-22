@@ -1,2 +1,7 @@
 = content_tag nav_item.as, nav_item.html_options do
-  = nav_item.body
+  - if nav_item.include_nav_link?
+    = ui.bootstrap :nav_link, href: nav_item.href, body: (nav_item.button ? nav_item.button : nav_item.body), active: nav_item.active, disabled: nav_item.disabled, dropdown: nav_item.dropdown
+    - if nav_item.dropdown
+      = nav_item.body
+  - else
+    = nav_item.body
