@@ -23,4 +23,22 @@ RSpec.describe NfgUi::UI::Base do
       expect(subject).to respond_to :nfg
     end
   end
+
+  describe '#bootstrap' do
+    subject { base_component.bootstrap(*component_args) }
+    let(:body) { 'test' }
+    let(:component_args) { [:button, [], { body: body}] }
+    it 'renders a bootstrap component' do
+      expect(subject).to eq "<a class=\"btn btn-primary\">#{body}\n</a>"
+    end
+  end
+
+  describe '#nfg' do
+    subject { base_component.nfg(*component_args) }
+    let(:body) { 'test' }
+    let(:component_args) { [:button, [], { body: body}] }
+    it 'renders an nfg component' do
+      expect(subject).to eq "<a class=\"btn btn-primary\">#{body}\n</a>\n"
+    end
+  end
 end

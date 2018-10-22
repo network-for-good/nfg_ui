@@ -66,7 +66,7 @@ RSpec.describe NfgUi::UI::Utilities::Initializer do
 
   describe '#group' do
     subject { test_class_with_initializer.new.send(:group) }
-    it { is_expected.not_to be }
+    it { is_expected.to be_nil }
   end
 
   describe '#components_within_group' do

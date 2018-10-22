@@ -11,14 +11,14 @@ module NfgUi
         #   @body = collapsible_wrapper_html
         # end
 
-        def id
-          p "====== Printed from: (Bootstrap::Components::Collapse) self.class.name: #{self.class.name} method: #{__method__}"
-          if options[:id].present?
-            options[:id]
-          else
-            raise ArgumentError.new "#{self.class.name} requires options[:id]. You must pass in an :id to the options hash\n\nExample:\n= ui.bootstrap :collapse, id: 'required_id', body: 'Your body'"
-          end
-        end
+        # def id
+        #   p "====== Printed from: (Bootstrap::Components::Collapse) self.class.name: #{self.class.name} method: #{__method__}"
+        #   if options[:id].present?
+        #     options[:id]
+        #   else
+        #     raise ArgumentError.new "#{self.class.name} requires options[:id]. You must pass in an :id to the options hash\n\nExample:\n= ui.bootstrap :collapse, id: 'required_id', body: 'Your body'"
+        #   end
+        # end
         
         #   super
         #   # if options[:id].present?

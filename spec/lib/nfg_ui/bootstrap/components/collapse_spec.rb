@@ -9,23 +9,23 @@ RSpec.describe NfgUi::Bootstrap::Components::Collapse do
   it_behaves_like 'a component with a consistent initalized construction', required_options: { id: 'test_id' }
   # it_behaves_like 'a component that includes the Collapsible utility module'
 
-  describe '#id' do
-    let(:view_context) { ActionController::Base.new.view_context }
-    let(:collapse) { NfgUi::Bootstrap::Components::Collapse.new(options, view_context) }
-    let(:options) { {} }
-    subject { collapse.id }
+  # describe '#id' do
+  #   let(:view_context) { ActionController::Base.new.view_context }
+  #   let(:collapse) { NfgUi::Bootstrap::Components::Collapse.new(options, view_context) }
+  #   let(:options) { {} }
+  #   subject { collapse.id }
 
-    context 'when collapse id is present' do
-      let(:options) { { id: test_id } }
-      it { expect { subject }.not_to raise_error }
-      it { is_expected.to eq test_id }
-    end
+  #   context 'when collapse id is present' do
+  #     let(:options) { { id: test_id } }
+  #     it { expect { subject }.not_to raise_error }
+  #     it { is_expected.to eq test_id }
+  #   end
 
-    context 'when collapse id is not present' do
-      let(:options) { {} }
-      it { expect { subject }.to raise_error(ArgumentError) }
-    end
-  end
+  #   context 'when collapse id is not present' do
+  #     let(:options) { {} }
+  #     it { expect { subject }.to raise_error(ArgumentError) }
+  #   end
+  # end
 
   describe '#collapsed' do
     subject { collapse.collapsed }

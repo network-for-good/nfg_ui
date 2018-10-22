@@ -27,7 +27,7 @@ module NfgUi
 
         def heading
           p "====== Printed from: (Bootstrap::Components::Card) self.class.name: #{self.class.name} method: #{__method__}"
-          options.fetch(:heading, '')
+          options.fetch(:heading, nil)
         end
 
         def component_family
