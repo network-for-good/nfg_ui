@@ -23,6 +23,7 @@ module NfgUi
       require_relative 'patterns/navbar'
       require_relative 'patterns/page_header'
       require_relative 'patterns/slat_list'
+      require_relative 'patterns/tab_content'
       require_relative 'patterns/task_list'
       require_relative 'patterns/tile'
       require_relative 'patterns/tile_body'

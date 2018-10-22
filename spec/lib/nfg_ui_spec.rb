@@ -54,6 +54,7 @@ RSpec.describe NfgUi do
                                                           pagination
                                                           popover
                                                           progress
+                                                          tab_content
                                                           tab_pane
                                                           table]
       end
@@ -136,6 +137,7 @@ RSpec.describe NfgUi do
                                                           navbar
                                                           page_header
                                                           slat_list
+                                                          tab_content
                                                           task_list
                                                           tile
                                                           tile_body
