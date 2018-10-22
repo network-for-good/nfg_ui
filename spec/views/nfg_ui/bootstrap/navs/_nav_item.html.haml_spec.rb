@@ -36,7 +36,7 @@ RSpec.describe 'nfg_ui/bootstrap/navs/_nav_item.html.haml', type: :view do
     let(:options) { { dropdown: true } }
     it 'outputs a nav with a dropdown toggle and dropdown menu' do
       expect(subject).to have_css '.nav-item.dropdown .dropdown-toggle + .dropdown-menu'
-      expect(subject).to eq "<li class=\"nav-item dropdown\"><a class=\"dropdown-toggle nav-link\" data-toggle=\"dropdown\" dropdown=\"true\" aria-haspopup=\"true\" aria-expanded=\"false\" href=\"#\">#{body}\n\n</a>\n\n<div class='dropdown-menu'>\n\n</div>\n\n</li>"
+      expect(subject).to eq "<li class=\"nav-item dropdown\"><a class=\"dropdown-toggle nav-link\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\" href=\"#\">#{body}\n\n</a>\n\n<div class='dropdown-menu'>\n\n</div>\n\n</li>"
     end
   end
 
@@ -91,6 +91,19 @@ RSpec.describe 'nfg_ui/bootstrap/navs/_nav_item.html.haml', type: :view do
       it 'does not apply an disabled class on the child nav_link' do
         expect(subject).to have_css 'li.nav-item'
       end
+    end
+  end
+
+  describe 'a nav_item acting as a tab/pill for javascript tabs' do
+    let(:tested_tab) { '#tested_tab' }
+    let(:options) { { tab: tested_tab } }
+    it 'outputs a nav_item with a nav_link connected to a javascript data toggled tab' do
+      expect(subject).to have_css "li.nav-item a.nav-link[aria-controls='#{tested_tab.tr('#', '')}'][data-toggle='tab']"
+      expect(subject).to eq "<li class=\"nav-item\"><a aria-controls='#{tested_tab.tr('#', '')}' class='nav-link' data-toggle='tab' href='#{tested_tab}' role='tab'>\n#{body}\n</a>\n\n</li>"
+    end
+
+    it "supplies the link's href from the :tab argument in options" do
+      expect(subject).to have_css "a[href='#{tested_tab}']"
     end
   end
 end

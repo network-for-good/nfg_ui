@@ -37,7 +37,11 @@ module NfgUi
         end
 
         def include_nav_link?
-          (href.present? && options[:as].nil?) || dropdown
+          (href.present? && options[:as].nil?) || dropdown || tab
+        end
+
+        def tab
+          options.fetch(:tab, nil)
         end
 
         private
@@ -67,7 +71,8 @@ module NfgUi
                      :disabled,
                      :dropdown,
                      :button,
-                     :href)
+                     :href,
+                     :tab)
         end
       end
     end

@@ -15,7 +15,7 @@ RSpec.describe 'nfg_ui/bootstrap/navs/_nav_link.html.haml', type: :view do
     let(:options) { { dropdown: true } }
     it 'outputs an <a> tag as a dropdown toggle without the .btn class' do
       expect(subject).to have_css 'a.dropdown-toggle.nav-link'
-      expect(subject).to eq "<a class=\"dropdown-toggle nav-link\" data-toggle=\"dropdown\" dropdown=\"true\" aria-haspopup=\"true\" aria-expanded=\"false\" href=\"#\">#{body}\n\n</a>\n"
+      expect(subject).to eq "<a class=\"dropdown-toggle nav-link\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\" href=\"#\">#{body}\n\n</a>\n"
     end
 
     context 'when attempting to adjust the :as options' do
