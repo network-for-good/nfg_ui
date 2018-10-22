@@ -54,6 +54,7 @@ RSpec.describe NfgUi do
                                                           pagination
                                                           popover
                                                           progress
+                                                          tab_pane
                                                           table]
       end
     end
@@ -108,6 +109,7 @@ RSpec.describe NfgUi do
                                                           progress_bar
                                                           slat
                                                           stat
+                                                          tab_pane
                                                           table
                                                           task]
         end

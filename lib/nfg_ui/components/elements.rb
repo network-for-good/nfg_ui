@@ -32,6 +32,7 @@ module NfgUi
       require_relative 'elements/progress_bar'
       require_relative 'elements/slat'
       require_relative 'elements/stat'
+      require_relative 'elements/tab_pane'
       require_relative 'elements/table'
       require_relative 'elements/task'
     end

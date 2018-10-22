@@ -66,6 +66,7 @@ module NfgUi
                                   pagination
                                   popover
                                   progress
+                                  tab_pane
                                   table].freeze
 
   GROUPING_NAMES             = %i[foundations
@@ -107,6 +108,7 @@ module NfgUi
                                   progress_bar
                                   slat
                                   stat
+                                  tab_pane
                                   table
                                   task].freeze
 

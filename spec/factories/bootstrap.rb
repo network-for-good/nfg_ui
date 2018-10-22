@@ -518,6 +518,20 @@ FactoryBot.define do
     end
   end
 
+  factory :bootstrap_tab_pane, class: NfgUi::Bootstrap::Components::TabPane do
+    body { nil }
+    data { nil }
+    id { nil }
+
+    skip_create
+    initialize_with { new(attributes, ActionController::Base.new.view_context) }
+
+    trait :rendered do
+      initialize_with { NfgUi::UI::Base.new(ActionController::Base.new.view_context)
+                                       .bootstrap(:table, attributes) }
+    end
+  end
+
   factory :bootstrap_table, class: NfgUi::Bootstrap::Components::Table do
     body { nil }
     data { nil }
