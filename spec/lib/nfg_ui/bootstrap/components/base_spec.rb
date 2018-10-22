@@ -91,6 +91,25 @@ RSpec.describe NfgUi::Bootstrap::Components::Base do
     end
   end
 
+  describe '#id' do
+    subject { bootstrap_base.id }
+    context 'when :id is present in options' do
+      let(:tested_id) { 'tested_id' }
+      let(:component_options) { { id: tested_id } }
+      it { is_expected.to eq tested_id }
+    end
+
+    context 'when :id is not present in options' do
+      let(:component_options) { {} }
+      it { is_expected.to be_nil }
+    end
+
+    context 'when :id is nil in options' do
+      let(:component_options) { { id: nil } }
+      it { is_expected.to be_nil }
+    end
+  end
+
   describe '#assistive_html_attributes' do
     subject { bootstrap_base.send(:assistive_html_attributes) }
     it { is_expected.to eq({}) }

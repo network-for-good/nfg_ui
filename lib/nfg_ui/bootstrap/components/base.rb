@@ -45,18 +45,19 @@ module NfgUi
           # raise options.inspect
         end
 
-        def id
-          nil
-        end
-
         def html_options
           p "====== Printed from: (Bootstrap::Components::Base) self.class.name: #{self.class.name} method: #{__method__}"
           options.except(*non_html_attribute_options)
-                 .merge!(class: css_classes,
+                 .merge!(id: id,
+                         class: css_classes,
                          data: data,
                          **assistive_html_attributes)
                  .reject { |_k, v| v.blank? } # prevent empty attributes from showing up
                                               # Example: <div class>Text</div>
+        end
+
+        def id
+          options.fetch(:id, nil)
         end
 
         # def id
