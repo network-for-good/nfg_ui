@@ -66,6 +66,7 @@ module NfgUi
                                   pagination
                                   popover
                                   progress
+                                  tab_content
                                   tab_pane
                                   table].freeze
 
@@ -131,6 +132,7 @@ module NfgUi
                                   navbar
                                   page_header
                                   slat_list
+                                  tab_content
                                   task_list
                                   tile
                                   tile_body
