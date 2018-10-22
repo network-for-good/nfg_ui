@@ -8,6 +8,10 @@ module NfgUi
       class Nav < Bootstrap::Components::Base
         include Bootstrap::Utilities::Wrappable
 
+        def center
+          options.fetch(:center, false)
+        end
+
         def component_family
           :nav
         end
@@ -20,10 +24,6 @@ module NfgUi
           options.fetch(:justified, false)
         end
 
-        def tabs
-          options.fetch(:tabs, false)
-        end
-
         def pills
           options.fetch(:pills, false)
         end
@@ -32,8 +32,8 @@ module NfgUi
           options.fetch(:right, false)
         end
 
-        def center
-          options.fetch(:center, false)
+        def tabs
+          options.fetch(:tabs, false)
         end
 
         def vertical
@@ -46,17 +46,27 @@ module NfgUi
           [
             super,
             ('justify-content-center' if center),
-            ('justify-content-end' if right),
-            ('flex-column' if vertical),
-            ('nav-tabs' if tabs),
-            ('nav-pills' if pills),
             ('nav-fill' if fill),
-            ('nav-justified' if justified)
+            ('nav-justified' if justified),
+            ('nav-pills' if pills),
+            ('justify-content-end' if right),
+            ('nav-tabs' if tabs),
+            ('flex-column' if vertical)
           ].join(' ').squish
         end
 
         def default_html_wrapper_element
           :ul
+        end
+
+        def non_html_attribute_options
+          super.push(:fill,
+                     :justified,
+                     :tabs,
+                     :pills,
+                     :right,
+                     :center,
+                     :vertical)
         end
       end
     end
