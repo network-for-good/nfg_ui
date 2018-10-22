@@ -15,6 +15,10 @@ module NfgUi
           :dropdown
         end
 
+        # def href
+        #   options.fetch(:href, nil)
+        # end
+
         # When a dropdown item is both disabled AND given a tooltip
         # We need to restructure the syntax to wrap the dropdown item in
         # a faux dropdown item that also contains the tooltip content
