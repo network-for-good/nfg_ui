@@ -32,7 +32,7 @@ module NfgUi
           self.options = defaults.merge!(component_options)
           self.view_context = view_context
           # @id = options.fetch(:id, nil)
-          @data = options.fetch(:data, nil)
+          @data = options.fetch(:data, {})
           @body = options.fetch(:body, '')
           # @id = options.fetch(:id, nil)
           # @data = options.fetch(:data, {})

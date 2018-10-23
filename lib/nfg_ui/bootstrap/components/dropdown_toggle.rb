@@ -30,7 +30,7 @@ module NfgUi
         end
 
         def data
-          data_toggle = super.merge!(toggle: 'dropdown')
+          data_toggle = (options[:data] || {}).merge!(toggle: 'dropdown')
           offset.present? ? { **data_toggle, offset: offset } : data_toggle
         end
 

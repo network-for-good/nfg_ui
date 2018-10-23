@@ -8,6 +8,6 @@ RSpec.describe 'nfg_ui/bootstrap/navbars/_navbar_text.html.haml', type: :view do
 
   it 'outputs a bootstrap navbar component in html' do
     expect(subject).to have_selector '.navbar-text', text: body
-    expect(subject).to eq "<div class='navbar-text'>\n#{body}\n</div>\n"
+    expect(subject).to eq "<span class='navbar-text'>\n#{body}\n</span>\n"
   end
 end
