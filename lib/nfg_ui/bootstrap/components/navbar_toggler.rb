@@ -19,9 +19,12 @@ module NfgUi
 
         private
 
-        def assistive_html_attributes
-          collapse ? super.merge!(aria: { controls: collapse.tr('#', '') }) : super
-        end
+        # def assistive_html_attributes
+        #   # raise super.inspect
+        #   tester = collapse ? super.merge!(aria: { controls: collapse.tr('#', '') }) : super
+        #   # collapse ? super.merge!(aria: { controls: collapse.tr('#', '') }) : super
+        #   raise tester.inspect
+        # end
       end
     end
   end

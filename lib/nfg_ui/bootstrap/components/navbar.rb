@@ -64,7 +64,6 @@ module NfgUi
           elsif light
             'navbar-light'
           else
-            dark_themes = %i[primary secondary success danger warning info dark]
             dark_themes.include?(theme) ? 'navbar-dark' : 'navbar-light'
           end
         end
@@ -79,6 +78,10 @@ module NfgUi
                      :right,
                      :left,
                      :light)
+        end
+
+        def dark_themes
+          %i[primary secondary success danger warning info dark]
         end
       end
     end

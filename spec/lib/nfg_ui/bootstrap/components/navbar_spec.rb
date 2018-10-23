@@ -254,4 +254,9 @@ RSpec.describe NfgUi::Bootstrap::Components::Navbar do
     subject { navbar.send(:non_html_attribute_options) }
     it { is_expected.to include :dark, :expand, :right, :left, :light }
   end
+
+  describe '#dark_themes' do
+    subject { navbar.send(:dark_themes) }
+    it { is_expected.to eq %i[primary secondary success danger warning info dark] }
+  end
 end

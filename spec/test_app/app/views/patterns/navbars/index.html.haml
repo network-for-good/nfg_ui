@@ -1,3 +1,182 @@
 %h1 Navbars
+%p Navbars are complicated beasts. The thought here is that you're only going to build a couple of these (or only one) at any given time. So, customization and sub components are provided and... needed. 
 
-= ui.nfg :navbar
+%h2 Standard Navbar
+%p 
+  Note: modify navbar expand breakpoint by passing in
+  %b expand: :size
+  to the component. It will automatically utilize expand: :lg by default per docs.
+
+= ui.nfg :navbar, class: 'my-4' do
+  = ui.nfg :navbar_brand, body: 'Brand', href: '#test_url'
+  = ui.nfg :navbar_toggler, collapse: '#test_navbar'
+  = ui.nfg :collapse, id: 'test_navbar', navbar: true do
+    = ui.nfg :navbar_nav do
+      = ui.nfg :nav_item, body: 'Nav Item #1', href: '#', active: true
+      = ui.nfg :nav_item, body: 'Nav Item #2', href: '#'
+      = ui.nfg :nav_item, body: 'Nav Item #3', href: '#'
+      = ui.nfg :nav_item, button: 'Nav Item #4 with Dropdown', dropdown: true do
+        = ui.nfg :dropdown_menu do
+          = ui.nfg :dropdown_item, body: 'Dropdown Item 1', href: '#dd1'
+          = ui.nfg :dropdown_item, body: 'Dropdown Item 2', href: '#dd2'
+          = ui.nfg :dropdown_item, body: 'Dropdown Item 3', href: '#dd3'
+          = ui.nfg :dropdown_item, body: 'Dropdown Item 4', href: '#dd4'
+    = ui.nfg :navbar_text, body: 'Some Navbar Text'
+
+%href
+%h2 Thematic navbars
+%p navbar-light and navbar-dark are automatically added based on the selected theme. You can overwrite this by passing in either dark: true or light: true into the :navbar
+= ui.nfg :navbar, theme: :primary, class: 'my-4' do
+  = ui.nfg :navbar_brand, body: 'Brand', href: '#test_url'
+  = ui.nfg :navbar_toggler, collapse: '#test_navbar_primary'
+  = ui.nfg :collapse, id: 'test_navbar_primary', navbar: true do
+    = ui.nfg :navbar_nav do
+      = ui.nfg :nav_item, body: 'Nav Item #1', href: '#', active: true
+      = ui.nfg :nav_item, body: 'Nav Item #2', href: '#'
+      = ui.nfg :nav_item, body: 'Nav Item #3', href: '#'
+    = ui.nfg :navbar_text, body: 'Some Navbar Text'
+
+= ui.nfg :navbar, theme: :secondary, class: 'my-4' do
+  = ui.nfg :navbar_brand, body: 'Brand', href: '#test_url'
+  = ui.nfg :navbar_toggler, collapse: '#test_navbar_secondary'
+  = ui.nfg :collapse, id: 'test_navbar_secondary', navbar: true do
+    = ui.nfg :navbar_nav do
+      = ui.nfg :nav_item, body: 'Nav Item #1', href: '#', active: true
+      = ui.nfg :nav_item, body: 'Nav Item #2', href: '#'
+      = ui.nfg :nav_item, body: 'Nav Item #3', href: '#'
+    = ui.nfg :navbar_text, body: 'Some Navbar Text'
+
+= ui.nfg :navbar, theme: :success, class: 'my-4' do
+  = ui.nfg :navbar_brand, body: 'Brand', href: '#test_url'
+  = ui.nfg :navbar_toggler, collapse: '#test_navbar_success'
+  = ui.nfg :collapse, id: 'test_navbar_success', navbar: true do
+    = ui.nfg :navbar_nav do
+      = ui.nfg :nav_item, body: 'Nav Item #1', href: '#', active: true
+      = ui.nfg :nav_item, body: 'Nav Item #2', href: '#'
+      = ui.nfg :nav_item, body: 'Nav Item #3', href: '#'
+    = ui.nfg :navbar_text, body: 'Some Navbar Text'
+
+= ui.nfg :navbar, theme: :danger, class: 'my-4' do
+  = ui.nfg :navbar_brand, body: 'Brand', href: '#test_url'
+  = ui.nfg :navbar_toggler, collapse: '#test_navbar_danger'
+  = ui.nfg :collapse, id: 'test_navbar_danger', navbar: true do
+    = ui.nfg :navbar_nav do
+      = ui.nfg :nav_item, body: 'Nav Item #1', href: '#', active: true
+      = ui.nfg :nav_item, body: 'Nav Item #2', href: '#'
+      = ui.nfg :nav_item, body: 'Nav Item #3', href: '#'
+    = ui.nfg :navbar_text, body: 'Some Navbar Text'
+
+= ui.nfg :navbar, theme: :info, class: 'my-4' do
+  = ui.nfg :navbar_brand, body: 'Brand', href: '#test_url'
+  = ui.nfg :navbar_toggler, collapse: '#test_navbar_info'
+  = ui.nfg :collapse, id: 'test_navbar_info', navbar: true do
+    = ui.nfg :navbar_nav do
+      = ui.nfg :nav_item, body: 'Nav Item #1', href: '#', active: true
+      = ui.nfg :nav_item, body: 'Nav Item #2', href: '#'
+      = ui.nfg :nav_item, body: 'Nav Item #3', href: '#'
+    = ui.nfg :navbar_text, body: 'Some Navbar Text'
+
+= ui.nfg :navbar, theme: :light, class: 'my-4' do
+  = ui.nfg :navbar_brand, body: 'Brand', href: '#test_url'
+  = ui.nfg :navbar_toggler, collapse: '#test_navbar_light'
+  = ui.nfg :collapse, id: 'test_navbar_light', navbar: true do
+    = ui.nfg :navbar_nav do
+      = ui.nfg :nav_item, body: 'Nav Item #1', href: '#', active: true
+      = ui.nfg :nav_item, body: 'Nav Item #2', href: '#'
+      = ui.nfg :nav_item, body: 'Nav Item #3', href: '#'
+    = ui.nfg :navbar_text, body: 'Some Navbar Text'
+
+= ui.nfg :navbar, theme: :dark, class: 'my-4' do
+  = ui.nfg :navbar_brand, body: 'Brand', href: '#test_url'
+  = ui.nfg :navbar_toggler, collapse: '#test_navbar_dark'
+  = ui.nfg :collapse, id: 'test_navbar_dark', navbar: true do
+    = ui.nfg :navbar_nav do
+      = ui.nfg :nav_item, body: 'Nav Item #1', href: '#', active: true
+      = ui.nfg :nav_item, body: 'Nav Item #2', href: '#'
+      = ui.nfg :nav_item, body: 'Nav Item #3', href: '#'
+    = ui.nfg :navbar_text, body: 'Some Navbar Text'
+
+%hr
+
+%h2 Manually overridden dark/light
+= ui.nfg :navbar, theme: :dark, light: true, class: 'my-4' do
+  = ui.nfg :navbar_brand, body: 'Brand', href: '#test_url'
+  = ui.nfg :navbar_toggler, collapse: '#test_navbar_light_override'
+  = ui.nfg :collapse, id: 'test_navbar_light_override', navbar: true do
+    = ui.nfg :navbar_nav do
+      = ui.nfg :nav_item, body: 'Nav Item #1', href: '#', active: true
+      = ui.nfg :nav_item, body: 'Nav Item #2', href: '#'
+      = ui.nfg :nav_item, body: 'Nav Item #3', href: '#'
+    = ui.nfg :navbar_text, body: 'Some Navbar Text'
+
+= ui.nfg :navbar, theme: :light, dark: true, class: 'my-4' do
+  = ui.nfg :navbar_brand, body: 'Brand', href: '#test_url'
+  = ui.nfg :navbar_toggler, collapse: '#test_navbar_dark_override'
+  = ui.nfg :collapse, id: 'test_navbar_dark_override', navbar: true do
+    = ui.nfg :navbar_nav do
+      = ui.nfg :nav_item, body: 'Nav Item #1', href: '#', active: true
+      = ui.nfg :nav_item, body: 'Nav Item #2', href: '#'
+      = ui.nfg :nav_item, body: 'Nav Item #3', href: '#'
+    = ui.nfg :navbar_text, body: 'Some Navbar Text'
+
+%hr
+
+%h2 Horizontal Alignment
+
+%p Note, left is implemented by default
+
+= ui.nfg :navbar, class: 'my-4' do
+  = ui.nfg :navbar_brand, body: 'Brand', href: '#test_url'
+  = ui.nfg :navbar_toggler, collapse: '#test_navbar_horizontal_alignment'
+  = ui.nfg :collapse, id: 'test_navbar_horizontal_alignment', navbar: true do
+    = ui.nfg :navbar_text, body: 'Some Navbar Text'
+    = ui.nfg :navbar_nav, right: true do
+      = ui.nfg :nav_item, body: 'Nav Item #1', href: '#', active: true
+      = ui.nfg :nav_item, body: 'Nav Item #2', href: '#'
+      = ui.nfg :nav_item, body: 'Nav Item #3', href: '#'
+      = ui.nfg :nav_item, body: 'Nav Item #4', href: '#'
+
+
+%hr
+
+%h2 Affixed and Sticky
+
+%h3 Sticky Top
+%p See commented code :)
+  
+-# Commented Out
+  = ui.nfg :navbar, sticky: :top, class: 'my-4' do
+    = ui.nfg :navbar_brand, body: 'Brand', href: '#test_url'
+    = ui.nfg :navbar_toggler, collapse: '#test_navbar_horizontal_alignment'
+    = ui.nfg :collapse, id: 'test_navbar_horizontal_alignment', navbar: true do
+      = ui.nfg :navbar_nav, right: true do
+        = ui.nfg :nav_item, body: 'Nav Item #1', href: '#', active: true
+        = ui.nfg :nav_item, body: 'Nav Item #2', href: '#'
+        = ui.nfg :nav_item, body: 'Nav Item #3', href: '#'
+        = ui.nfg :nav_item, body: 'Nav Item #4', href: '#'
+
+%h3 Fixed Top
+%p See commented code :)
+-# Commented Out
+  = ui.nfg :navbar, fixed: :top, class: 'my-4' do
+    = ui.nfg :navbar_brand, body: 'Brand', href: '#test_url'
+    = ui.nfg :navbar_toggler, collapse: '#test_navbar_horizontal_alignment'
+    = ui.nfg :collapse, id: 'test_navbar_horizontal_alignment', navbar: true do
+      = ui.nfg :navbar_nav, right: true do
+        = ui.nfg :nav_item, body: 'Nav Item #1', href: '#', active: true
+        = ui.nfg :nav_item, body: 'Nav Item #2', href: '#'
+        = ui.nfg :nav_item, body: 'Nav Item #3', href: '#'
+        = ui.nfg :nav_item, body: 'Nav Item #4', href: '#'
+
+%h3 Fixed Bottom
+%p See commented code :)
+-# Commented Out
+  = ui.nfg :navbar, fixed: :bottom, class: 'my-4' do
+    = ui.nfg :navbar_brand, body: 'Brand', href: '#test_url'
+    = ui.nfg :navbar_toggler, collapse: '#test_navbar_horizontal_alignment'
+    = ui.nfg :collapse, id: 'test_navbar_horizontal_alignment', navbar: true do
+      = ui.nfg :navbar_nav, right: true do
+        = ui.nfg :nav_item, body: 'Nav Item #1', href: '#', active: true
+        = ui.nfg :nav_item, body: 'Nav Item #2', href: '#'
+        = ui.nfg :nav_item, body: 'Nav Item #3', href: '#'
+        = ui.nfg :nav_item, body: 'Nav Item #4', href: '#'
