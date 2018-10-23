@@ -80,7 +80,7 @@ RSpec.describe 'nfg_ui/bootstrap/navs/_nav_item.html.haml', type: :view do
     context 'when a custom wrapper element is set via :as in the options' do
       let(:tested_element) { :b }
       let(:options) { { as: tested_element } }
-      it 'applies the disabled css class to the child nav_link' do
+      it 'applies the wrapper element' do
         expect(subject).to have_css "#{tested_element}.nav-item"
         expect(subject).to eq "<#{tested_element} class=\"nav-item\">#{body}\n</#{tested_element}>"
       end
@@ -88,7 +88,7 @@ RSpec.describe 'nfg_ui/bootstrap/navs/_nav_item.html.haml', type: :view do
 
     context 'when a custom wrapper element is not set via :as in the options' do
       let(:options) { {} }
-      it 'does not apply an disabled class on the child nav_link' do
+      it 'does not apply the wrapper element' do
         expect(subject).to have_css 'li.nav-item'
       end
     end

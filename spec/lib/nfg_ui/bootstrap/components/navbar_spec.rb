@@ -41,6 +41,8 @@ RSpec.describe NfgUi::Bootstrap::Components::Navbar do
     end
   end
 
+  
+
   describe '#dark' do
     subject { navbar.dark }
     context 'when dark is true in options' do
@@ -49,6 +51,34 @@ RSpec.describe NfgUi::Bootstrap::Components::Navbar do
     end
 
     context 'when dark is not present in options' do
+      let(:options) { {} }
+      it { is_expected.to be_nil }
+    end
+  end
+
+  describe '#sticky' do
+    subject { navbar.sticky }
+    context 'when sticky is present in options' do
+      let(:tested_sticky) { :top }
+      let(:options) { { sticky: tested_sticky } }
+      it { is_expected.to eq tested_sticky }
+    end
+
+    context 'when sticky is not present in options' do
+      let(:options) { {} }
+      it { is_expected.to be_nil }
+    end
+  end
+
+  describe '#fixed' do
+    subject { navbar.fixed }
+    context 'when fixed is present in options' do
+      let(:tested_fixed) { :top }
+      let(:options) { { fixed: tested_fixed } }
+      it { is_expected.to eq tested_fixed }
+    end
+
+    context 'when fixed is not present in options' do
       let(:options) { {} }
       it { is_expected.to be_nil }
     end
@@ -100,6 +130,44 @@ RSpec.describe NfgUi::Bootstrap::Components::Navbar do
       end
     end
 
+    describe 'sticky top option' do
+      context 'when sticky is set to top' do
+        let(:options) { { sticky: :top } }
+        it { is_expected.to include 'sticky-top' }
+      end
+
+      context 'when sticky is not set to top' do
+        let(:options) { { sticky: :bottom } }
+        it { is_expected.not_to include 'sticky-top' }
+      end
+    end
+
+    describe 'fixed top option' do
+      context 'when fixed is set to top' do
+        let(:options) { { fixed: :top } }
+        it { is_expected.to include 'fixed-top' }
+      end
+
+      context 'when fixed is not set to top (or bottom)' do
+        let(:options) { { fixed: :arbitrary } }
+        it { is_expected.not_to include 'fixed-top' }
+        it { is_expected.not_to include 'fixed-bottom' }
+      end
+    end
+
+    describe 'fixed bottom option' do
+      context 'when fixed is set to bottom' do
+        let(:options) { { fixed: :bottom } }
+        it { is_expected.to include 'fixed-bottom' }
+      end
+
+      context 'when fixed is not set to bottom (or bottom)' do
+        let(:options) { { fixed: :arbitrary } }
+        it { is_expected.not_to include 'fixed-top' }
+        it { is_expected.not_to include 'fixed-bottom' }
+      end
+    end
+
     describe 'dark or light navbar css class' do
       context 'when navbar is any of the dark-ish color themes' do
         let(:options) { { theme: :dark, **secondary_options } }
@@ -142,8 +210,48 @@ RSpec.describe NfgUi::Bootstrap::Components::Navbar do
     end
   end
 
+  describe '#dark_or_light_navbar_css_class' do
+    subject { navbar.send(:dark_or_light_navbar_css_class) }
+    context 'when dark is true in options' do
+      let(:options) { { dark: true } }
+      it { is_expected.to eq 'navbar-dark' }
+    end
+
+    context 'when light is true in options' do
+      let(:options) { { light: true } }
+      it { is_expected.to eq 'navbar-light' }
+    end
+
+    context 'when neither light or dark are present in options' do
+      context 'and when the theme is a visually dark theme' do
+        let(:options) { { theme: :dark } }
+        it { is_expected.to eq 'navbar-dark' }
+      end
+
+      context 'and when the theme is a visually light theme' do
+        let(:options) { { theme: :light } }
+        it { is_expected.to eq 'navbar-light' }
+      end
+
+      context 'and when no theme is present in options' do
+        let(:options) { {} }
+        it { is_expected.to eq 'navbar-light' }
+      end
+    end
+  end
+
+  describe '#default_theme' do
+    subject { navbar.send(:default_theme) }
+    it { is_expected.to eq :light }
+  end
+
   describe '#theme_css_class_prefix' do
     subject { navbar.send(:theme_css_class_prefix) }
     it { is_expected.to eq 'bg-' }
+  end
+
+  describe '#non_html_attribute_options' do
+    subject { navbar.send(:non_html_attribute_options) }
+    it { is_expected.to include :dark, :expand, :right, :left, :light }
   end
 end

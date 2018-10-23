@@ -25,13 +25,24 @@ module NfgUi
           options.fetch(:dark, nil)
         end
 
+        def sticky
+          options.fetch(:sticky, nil)
+        end
+
+        def fixed
+          options.fetch(:fixed, nil)
+        end
+
         private
 
         def css_classes
           [
             super,
             ("#{component_css_class}-expand-#{expand}" unless expand.nil?),
-            dark_or_light_navbar_css_class
+            dark_or_light_navbar_css_class,
+            ('sticky-top' if sticky == :top),
+            ('fixed-bottom' if fixed == :bottom),
+            ('fixed-top' if fixed == :top),
           ].join(' ').squish
         end
 
@@ -60,6 +71,14 @@ module NfgUi
 
         def default_theme
           :light
+        end
+
+        def non_html_attribute_options
+          super.push(:dark,
+                     :expand,
+                     :right,
+                     :left,
+                     :light)
         end
       end
     end

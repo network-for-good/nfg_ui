@@ -28,6 +28,10 @@ module NfgUi
         #   # end
         # end
 
+        def navbar
+          options.fetch(:navbar, false)
+        end
+
         def collapsed
           p "====== Printed from: (Bootstrap::Components::Collapse) self.class.name: #{self.class.name} method: #{__method__}"
           options.fetch(:collapsed, default_collapsed)
@@ -37,7 +41,12 @@ module NfgUi
         
         def css_classes
           p "====== Printed from: (Bootstrap::Components::Collapse) self.class.name: #{self.class.name} method: #{__method__}"
-          collapsed ? super : super + ' show'
+          [
+            super,
+            ('show' unless collapsed),
+            ('navbar-collapse' if navbar)
+          ].join(' ').squish
+          # collapsed ? super : super + ' show'
         end
         
         # def component_css_class
@@ -46,7 +55,7 @@ module NfgUi
 
         def non_html_attribute_options
           p "====== Printed from: (Bootstrap::Components::Collapse) self.class.name: #{self.class.name} method: #{__method__}"
-          super.push(:collapsed)
+          super.push(:collapsed, :navbar)
         end
 
         def default_collapsed

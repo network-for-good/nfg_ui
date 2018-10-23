@@ -1,2 +1,5 @@
-%div{ navbar_toggler.html_options }
-  = navbar_toggler.body
+%button{ navbar_toggler.html_options }
+  - if navbar_toggler.body
+    = navbar_toggler.body
+  - else
+    %span.navbar-toggler-icon
