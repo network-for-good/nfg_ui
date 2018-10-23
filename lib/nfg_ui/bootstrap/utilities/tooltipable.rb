@@ -69,16 +69,23 @@ module NfgUi
           component_styles = (options[:style] || '') + (disabled ? ' pointer-events: none;' : '') if disabled
           component_tabindex = nil if disabled
           # raise options.inspect
-          component_data = disabled ? {} : (options[:data] || {}).merge!(tooltip_data_attributes)
+          # component_data = disabled ? {} : (options[:data] || {}).merge!(tooltip_data_attributes)
           # tooltip_data_attributes unless disabled || options[:data].try(:toggle)
           super.merge!(title: component_title,
                        style: component_styles.try(:squish),
-                       tabindex: component_tabindex,
-                       data: component_data)
+                       tabindex: component_tabindex)
 
           
           # raise super.fetch(:data).inspect
           # super
+        end
+
+        def data
+          if tooltip
+            disabled || options[:modal] ? super : super.merge!(tooltip_data_attributes)
+          else
+            super
+          end
         end
 
         # def tooltipable?

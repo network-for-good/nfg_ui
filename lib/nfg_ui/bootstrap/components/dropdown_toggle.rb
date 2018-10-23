@@ -25,8 +25,12 @@ module NfgUi
           options.fetch(:theme, NfgUi::DEFAULT_BOOTSTRAP_THEME)
         end
 
-        def html_options
-          as == :a ? super.merge!(href: '#') : super
+        # def html_options
+        #   as == :a ? super.merge!(href: '#') : super
+        # end
+
+        def href
+          options[:as] == :a ? '#' : super
         end
 
         def data

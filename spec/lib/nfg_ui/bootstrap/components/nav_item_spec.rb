@@ -224,7 +224,6 @@ RSpec.describe NfgUi::Bootstrap::Components::NavItem do
                                 :disabled,
                                 :dropdown,
                                 :button,
-                                :href,
                                 :tab) }
   end
 end

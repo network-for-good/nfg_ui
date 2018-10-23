@@ -32,9 +32,9 @@ module NfgUi
           options.fetch(:dropdown, false)
         end
 
-        def href
-          options.fetch(:href, nil)
-        end
+        # def href
+        #   options.fetch(:href, nil)
+        # end
 
         def include_nav_link?
           (href.present? && options[:as].nil?) || dropdown || tab
@@ -42,6 +42,13 @@ module NfgUi
 
         def tab
           options.fetch(:tab, nil)
+        end
+
+        # href gets passed to the nav_link when present.
+        # Removes :href from nav_item's html_options so we don't end up with
+        # <li class='nav-item' href='#href'><a class='nav-link' href='#href'...
+        def html_options
+          super.except!(:href)
         end
 
         private
@@ -61,17 +68,11 @@ module NfgUi
           :li
         end
 
-        # Regarding :href attribute -- Slight work around; since we're using :href to determine
-        # whether or not to supply the nav_link component automatically
-        # We will then need to exclude :href from the nav_item's html attributes
-        # so that it doesn't show up in the li.nav-item as <li class='nav-item' href='...'>
-        # and instead gets "passed through" to the a.nav-link
         def non_html_attribute_options
           super.push(:active,
                      :disabled,
                      :dropdown,
                      :button,
-                     :href,
                      :tab)
         end
       end

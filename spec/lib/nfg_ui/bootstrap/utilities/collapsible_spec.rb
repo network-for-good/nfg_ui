@@ -76,7 +76,7 @@ RSpec.describe NfgUi::Bootstrap::Utilities::Collapsible do
     context 'when :collapse is present in the options' do
       context 'when :collapse is true' do
         let(:tested_collapse) { '#tested_collapse' }
-        it { is_expected.to eq(aria: { expanded: 'false', controls: 'tested_collapse' }, role: 'button') }
+        it { is_expected.to eq(aria: { expanded: 'false', controls: 'tested_collapse' }, role: 'button', type: 'button') }
 
         it 'removes the hash from the element ID for the aria-controls attribute' do
           expect(tested_collapse.chars.first).to eq '#'
@@ -86,18 +86,18 @@ RSpec.describe NfgUi::Bootstrap::Utilities::Collapsible do
 
       context 'when :collapse is false' do
         let(:tested_collapse) { false }
-        it { is_expected.to eq({}) }
+        it { is_expected.to eq(type: 'button') }
       end
     end
 
     context 'when :collapse is nil in the options' do
       let(:tested_collapse) { nil }
-      it { is_expected.to eq({}) }
+      it { is_expected.to eq(type: 'button') }
     end
 
     context 'when :collapse is not present in the options' do
       let(:options) { {} }
-      it { is_expected.to eq({}) }
+      it { is_expected.to eq(type: 'button') }
     end
   end
 

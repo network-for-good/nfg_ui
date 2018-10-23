@@ -17,9 +17,9 @@ module NfgUi
         #               :body,
         #               :name
 
-        attr_reader   :data,
+        attr_reader   :body
                       # :id,
-                      :body
+                      # :data
 
         attr_accessor :options,
                       :view_context
@@ -32,7 +32,7 @@ module NfgUi
           self.options = defaults.merge!(component_options)
           self.view_context = view_context
           # @id = options.fetch(:id, nil)
-          @data = options.fetch(:data, {})
+          # @data = options.fetch(:data, {})
           @body = options.fetch(:body, '')
           # @id = options.fetch(:id, nil)
           # @data = options.fetch(:data, {})
@@ -51,13 +51,18 @@ module NfgUi
                  .merge!(id: id,
                          class: css_classes,
                          data: data,
+                         href: href,
                          **assistive_html_attributes)
                  .reject { |_k, v| v.blank? } # prevent empty attributes from showing up
                                               # Example: <div class>Text</div>
         end
 
         def id
-          options.fetch(:id, nil)
+          options[:id] || nil
+        end
+
+        def data
+          options[:data] || {}
         end
 
         # def id
@@ -86,6 +91,10 @@ module NfgUi
         # BreadcrumbItem & Breadcrumb are members of the :breadcrumb component_family
         def component_family
           nil
+        end
+
+        def href
+          options.fetch(:href, nil)
         end
 
         private

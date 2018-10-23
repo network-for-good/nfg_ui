@@ -11,7 +11,7 @@ module NfgUi
         end
 
         def href
-          options.fetch(:href, 'javascript:;')
+          options.fetch(:href, '#')
         end
       end
     end

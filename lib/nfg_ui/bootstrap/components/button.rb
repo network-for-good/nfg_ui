@@ -38,20 +38,31 @@ module NfgUi
           options.fetch(:modal, nil)
         end
 
-        def html_options
-          p "====== Printed from: (Bootstrap::Components::Button) self.class.name: #{self.class.name} method: #{__method__}"
-          return super unless as == :a && (options[:collapse].present? || options[:modal].present?)
-          if options[:collapse].present?
-            super.merge!(href: collapse)
-          elsif options[:modal].present?
-            options[:href].nil? ? super.merge!(href: 'javascript:;') : super
+        # def html_options
+        #   p "====== Printed from: (Bootstrap::Components::Button) self.class.name: #{self.class.name} method: #{__method__}"
+        #   return super unless as == :a && (options[:collapse].present? || options[:modal].present?)
+        #   if options[:collapse].present?
+        #     super.merge!(href: collapse)
+        #   elsif options[:modal].present?
+        #     options[:href].nil? ? super.merge!(href: '#') : super
+        #   end
+        # end
+
+        def href
+          return if options[:as] == :button
+          if collapse
+            collapse
+          elsif modal
+            options[:href].nil? ? '#' : options[:href]
+          else
+            super
           end
         end
 
         def data
           p "====== Printed from: (Bootstrap::Components::Button) self.class.name: #{self.class.name} method: #{__method__}"
-          return super unless options[:modal].present?
-          (options[:data] || {}).merge!(toggle: 'modal', target: options[:modal])
+          # return super unless options[:modal].present?
+          modal ? super.merge!(toggle: 'modal', target: options[:modal]) : super
         end
 
         def remove_component_css_classes

@@ -131,12 +131,12 @@ RSpec.describe NfgUi::Bootstrap::Components::Button do
             context 'when button has :href in options' do
               let(:href) { 'test_href' }
               it { is_expected.to include(href: href) }
-              it { is_expected.not_to include(href: 'javascript:;') }
+              it { is_expected.not_to include(href: '#') }
             end
 
             context 'when button does not have :href in options' do
               let(:href) { nil }
-              it { is_expected.to include(href: 'javascript:;') }
+              it { is_expected.to include(href: '#') }
             end
           end
 

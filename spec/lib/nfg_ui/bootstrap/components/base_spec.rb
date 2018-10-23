@@ -30,6 +30,7 @@ RSpec.describe NfgUi::Bootstrap::Components::Base do
         let(:tested_options_hash) { { body: 'overwriting tested body', heading: 'tested heading', traits: [:a_trait] } }
         it 'does not include non_html_attribute_options in the html_options hash' do
           expect(subject).not_to include tested_options_hash
+          expect(subject).to eq(class: bootstrap_base.send(:component_css_class))
         end
       end
 
@@ -59,8 +60,7 @@ RSpec.describe NfgUi::Bootstrap::Components::Base do
     end
 
     describe 'options with blank keys' do
-      let(:id) { nil }
-      let(:data) { nil }
+      let(:tested_options_hash) { { id: nil, data: nil } }
 
       it 'rejects options with blank keys' do
         expect(subject.keys).not_to include :data
@@ -77,17 +77,19 @@ RSpec.describe NfgUi::Bootstrap::Components::Base do
   describe '#defaults' do
     subject { bootstrap_base.send(:defaults) }
     it { is_expected.to eq(class: '', id: nil, body: nil, data: {}) }
+  end
 
-    describe 'defaults for data attribute' do
-      context 'when data is present' do
-        let(:data) { tested_data }
-        it { expect(subject[:data]).to eq({}) }
-      end
+  describe '#data' do
+    subject { bootstrap_base.data }
 
-      context 'when data is not present' do
-        let(:data) { nil }
-        it { expect(subject[:data]).to eq({}) }
-      end
+    context 'when data is present' do
+      let(:tested_options_hash) { { data: tested_data } }
+      it { is_expected.to eq tested_data }
+    end
+
+    context 'when data is not present' do
+      let(:tested_options_hash) { {} }
+      it { is_expected.to eq({}) }
     end
   end
 

@@ -21,7 +21,7 @@ RSpec.describe NfgUi::Bootstrap::Components::NavbarBrand do
     end
 
     context 'when href is not present in options' do
-      it { is_expected.to eq 'javascript:;' }
+      it { is_expected.to eq '#' }
     end
   end
 end

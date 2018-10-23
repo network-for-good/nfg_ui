@@ -69,15 +69,15 @@ RSpec.describe NfgUi::Bootstrap::Components::DropdownToggle do
     end
   end
 
-  describe '#html_options' do
-    subject { dropdown_toggle.html_options }
+  describe '#href' do
+    subject { dropdown_toggle.href }
     context 'when :as is :a' do
       let(:options) { { as: :a } }
-      it { is_expected.to include(href: '#')  }
+      it { is_expected.to eq '#' }
     end
 
     context 'when :as is not :a' do
-      it { is_expected.not_to include(href: '#')  }
+      it { is_expected.to be_nil }
     end
   end
 

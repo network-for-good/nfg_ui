@@ -8,6 +8,8 @@ shared_examples_for 'a component with a consistent initalized construction' do |
                                                :data,
                                                :html_options,
                                                :id,
+                                               :component_family,
+                                               :href,
                                                :options,
                                                :view_context,
                                                :view_context=)
@@ -15,6 +17,8 @@ shared_examples_for 'a component with a consistent initalized construction' do |
       expect(component.view_context).to be
       expect(component.id).to eq(required_options[:id].present? ? required_options[:id] : nil)
       expect(component.data).to eq(component.data.present? ? component.data : {})
+      expect(component.href).to eq(component.href.present? ? component.href : nil)
+      expect(component.component_family).to eq(component.component_family.present? ? component.component_family : nil)
       expect(component.body).to be_nil
       expect(component.html_options).to be
     end

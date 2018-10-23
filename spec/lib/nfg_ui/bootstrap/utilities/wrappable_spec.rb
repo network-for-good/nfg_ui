@@ -32,8 +32,9 @@ RSpec.describe NfgUi::Bootstrap::Utilities::Wrappable do
   end
 
   describe '#href' do
-    subject { badge.send(:href) }
+    subject { badge.href }
     let(:options) { { href: tested_href } }
+    let(:tested_href) { nil }
 
     context 'when :href is present within the options' do
       let(:tested_href) { 'test_href' }
@@ -71,5 +72,18 @@ RSpec.describe NfgUi::Bootstrap::Utilities::Wrappable do
   describe '#non_html_attribute_options' do
     subject { badge.send(:non_html_attribute_options) }
     it { is_expected.to include :as }
+  end
+
+  describe '#assistive_html_attributes' do
+    subject { badge.send(:assistive_html_attributes) }
+    context 'when as is :button' do
+      let(:options) { { as: :button } }
+      it { is_expected.to include(type: 'button') }
+    end
+
+    context 'when as is not button' do
+      let(:options) { { as: :p } }
+      it { is_expected.not_to include(type: 'button') }
+    end
   end
 end

@@ -25,11 +25,15 @@ module NfgUi
         #   options.fetch(:collapsed, default_collapsed)
         # end
 
-        def html_options
-          p "====== Printed from: (Bootstrap::Utilities::Collapsible) self.class.name: #{self.class.name} method: #{__method__}"
-          return super unless collapse
-          component_data = options[:data] || {}
-          super.merge!(data: component_data.merge!(collapse_data_attributes))
+        # def html_options
+        #   p "====== Printed from: (Bootstrap::Utilities::Collapsible) self.class.name: #{self.class.name} method: #{__method__}"
+        #   # return super unless collapse
+        #   # component_data = options[:data] || {}
+        #   # super.merge!(data: component_data.merge!(collapse_data_attributes))
+        # end
+
+        def data
+          collapse ? super.merge!(collapse_data_attributes) : super
         end
 
         private

@@ -6,6 +6,12 @@
 
 %hr
 
+= ui.bootstrap :button, body: 'Modal Trigger Button', modal: '#test_modal'
+= ui.bootstrap :modal, id: 'test_modal', title: 'Test Modal', footer: 'Modal footer (as a component option only)' do
+  Modal body goes here
+
+%hr
+
 %h2 Disabled button modal
 = ui.bootstrap :button, body: 'Modal Trigger Button', modal: '#test_modal2', disabled: true, tooltip: 'Test tooltip'
 = ui.bootstrap :modal, id: 'test_modal2', title: 'Test Modal', footer: 'Modal footer (as a component option only)' do

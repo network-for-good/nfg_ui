@@ -22,16 +22,18 @@ module NfgUi
           options.fetch(:as, automatic_as)
         end
 
-        def html_options
-          as == :button ? super.merge!(type: 'button') : super
-        end
+        # def html_options
+        #   as == :button ? super.merge!(type: 'button') : super
+        # end
+
+        # def href
+        #   p "====== Printed from: (Bootstrap::Utilities::Wrappable) self.class.name: #{self.class.name} method: #{__method__}"
+        #   options.fetch(:href, nil)
+        # end
 
         private
 
-        def href
-          p "====== Printed from: (Bootstrap::Utilities::Wrappable) self.class.name: #{self.class.name} method: #{__method__}"
-          options.fetch(:href, nil)
-        end
+        
 
         def automatic_as
           p "====== Printed from: (Bootstrap::Utilities::Wrappable) self.class.name: #{self.class.name} method: #{__method__}"
@@ -53,7 +55,7 @@ module NfgUi
 
         # def defaults
         #   return super unless options[:as] == :a
-        #   super.merge(href: 'javascript:;')
+        #   super.merge(href: '#')
         # end
 
         # # def html_wrapper_element
@@ -85,12 +87,16 @@ module NfgUi
           @default_html_wrapper_element ||= :span
         end
 
+        def assistive_html_attributes
+          as == :button ? super.merge!(type: 'button') : super
+        end
+
         # def link?
         #   html_wrapper_element == :a
         # end
 
         # def defaults_for_link
-        #   { href: 'javascript:;' }
+        #   { href: '#' }
         # end
       end
     end

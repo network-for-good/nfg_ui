@@ -17,7 +17,7 @@ module NfgUi
           :navbar
         end
 
-        private
+        # private
 
         # def assistive_html_attributes
         #   # raise super.inspect
