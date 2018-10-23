@@ -6,8 +6,8 @@ RSpec.describe 'nfg_ui/bootstrap/navbars/_navbar.html.haml', type: :view do
   let(:options) { {} }
   subject { render 'nfg_ui/bootstrap/navbars/navbar', navbar: navbar }
 
-  it 'outputs a bootstrap navbar component in html' do
+  it 'outputs a default bootstrap navbar component in html' do
     expect(subject).to have_selector '.navbar', text: body
-    expect(subject).to eq "<div class='navbar'>\n#{body}\n</div>\n"
+    expect(subject).to eq "<div class='navbar bg-light navbar-expand-lg navbar-light'>\n#{body}\n</div>\n"
   end
 end
