@@ -40,6 +40,7 @@ module NfgUi
       require_relative 'components/nav_link'
       require_relative 'components/navbar'
       require_relative 'components/navbar_brand'
+      require_relative 'components/navbar_nav'
       require_relative 'components/navbar_text'
       require_relative 'components/navbar_toggler'
       require_relative 'components/pagination'

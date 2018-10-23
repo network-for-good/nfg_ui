@@ -490,6 +490,20 @@ FactoryBot.define do
     end
   end
 
+  factory :bootstrap_navbar_nav, class: NfgUi::Bootstrap::Components::NavbarNav do
+    body { nil }
+    data { nil }
+    id { nil }
+
+    skip_create
+    initialize_with { new(attributes, ActionController::Base.new.view_context) }
+
+    trait :rendered do
+      initialize_with { NfgUi::UI::Base.new(ActionController::Base.new.view_context)
+                                       .bootstrap(:navbar_nav, attributes) }
+    end
+  end
+
   factory :bootstrap_navbar_text, class: NfgUi::Bootstrap::Components::NavbarText do
     body { nil }
     data { nil }

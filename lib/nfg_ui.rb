@@ -64,6 +64,7 @@ module NfgUi
                                   nav_link
                                   navbar
                                   navbar_brand
+                                  navbar_nav
                                   navbar_text
                                   navbar_toggler
                                   pagination
@@ -137,6 +138,7 @@ module NfgUi
                                   media
                                   modal
                                   navbar
+                                  navbar_nav
                                   page_header
                                   slat_list
                                   tab_content

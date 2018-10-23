@@ -1,4 +1,7 @@
 %h1 Navbars
 
 = ui.bootstrap :navbar, class: 'my-4' do
-  Coming Soon
+  = ui.bootstrap :navbar_brand, body: 'Brand', href: '#test_url'
+  = ui.bootstrap :navbar_toggler, body: 'Brand', collapse: '#test_navbar'
+
+  = ui.bootstrap :collapse, id: '#test_navbar', navbar: true

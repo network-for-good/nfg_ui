@@ -52,6 +52,7 @@ RSpec.describe NfgUi do
                                                           nav_link
                                                           navbar
                                                           navbar_brand
+                                                          navbar_nav
                                                           navbar_text
                                                           navbar_toggler
                                                           pagination
@@ -142,6 +143,7 @@ RSpec.describe NfgUi do
                                                           media
                                                           modal
                                                           navbar
+                                                          navbar_nav
                                                           page_header
                                                           slat_list
                                                           tab_content

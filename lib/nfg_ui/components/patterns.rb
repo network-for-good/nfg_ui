@@ -21,6 +21,7 @@ module NfgUi
       require_relative 'patterns/media'
       require_relative 'patterns/modal'
       require_relative 'patterns/navbar'
+      require_relative 'patterns/navbar_nav'
       require_relative 'patterns/page_header'
       require_relative 'patterns/slat_list'
       require_relative 'patterns/tab_content'
