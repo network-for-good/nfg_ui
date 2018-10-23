@@ -18,7 +18,7 @@ module NfgUi
 
         # Left by default
         def left
-          options.fetch(:left, (right ? false : true))
+          options.fetch(:left, default_left)
         end
 
         private
@@ -33,6 +33,10 @@ module NfgUi
 
         def default_html_wrapper_element
           :ul
+        end
+
+        def default_left
+          right ? false : true
         end
       end
     end

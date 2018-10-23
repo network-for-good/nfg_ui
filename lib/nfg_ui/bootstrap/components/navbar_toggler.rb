@@ -16,6 +16,12 @@ module NfgUi
         def component_family
           :navbar
         end
+
+        private
+
+        def assistive_html_attributes
+          collapse ? super.merge!(aria: { controls: collapse.tr('#', '') }) : super
+        end
       end
     end
   end

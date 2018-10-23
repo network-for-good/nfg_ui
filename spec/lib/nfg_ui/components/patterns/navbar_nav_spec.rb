@@ -102,4 +102,16 @@ RSpec.describe NfgUi::Components::Patterns::NavbarNav do
     subject { navbar_nav.send(:default_html_wrapper_element) }
     it { is_expected.to eq :ul }
   end
+
+  describe '#default_left' do
+    subject { navbar_nav.send(:default_left) }
+    context 'when right is true' do
+      let(:options) { { right: true } }
+      it { is_expected.not_to be }
+    end
+
+    context 'when right is falsey' do
+      it { is_expected.to be }
+    end
+  end
 end
