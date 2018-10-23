@@ -33,6 +33,12 @@ RSpec.describe NfgUi::Bootstrap::Components::DropdownToggle do
     context 'when offset is not present' do
       it { is_expected.to eq(toggle: 'dropdown') }
     end
+
+    context 'when there are other data attributes in the component' do
+      let(:tested_data) { { tested: 'value' } }
+      let(:options) { { data: tested_data, offset: '10,20' } }
+      it { is_expected.to eq(offset: '10,20', **tested_data, toggle: 'dropdown') }
+    end
   end
 
   describe '#theme' do

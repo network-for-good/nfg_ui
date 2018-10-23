@@ -51,7 +51,7 @@ module NfgUi
         def data
           p "====== Printed from: (Bootstrap::Components::Button) self.class.name: #{self.class.name} method: #{__method__}"
           return super unless options[:modal].present?
-          (options[:data] || {}).merge!(toggle: 'modal', target: options[:modal])
+          super.merge!(toggle: 'modal', target: options[:modal])
         end
 
         def remove_component_css_classes

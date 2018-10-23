@@ -2,7 +2,7 @@
 
 %h3 Default
 = ui.bootstrap :dropdown, id: 'test_id1', class: 'my-4' do
-  = ui.bootstrap :dropdown_toggle, body: 'Secondary Manual Toggle as Link', theme: :secondary, as: :a
+  = ui.bootstrap :dropdown_toggle, body: 'Secondary Manual Toggle as Link', theme: :secondary, as: :a, data: { describe: 'test' }
   = ui.bootstrap :dropdown_menu do
     = ui.bootstrap :dropdown_header, heading: 'Dropdown Header'
     = ui.bootstrap :dropdown_item, body: 'Dropdown Item 1 Disabled', disabled: true, href: '#'
