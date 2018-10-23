@@ -11,4 +11,17 @@ RSpec.describe NfgUi::Bootstrap::Components::NavbarBrand do
     subject { navbar_brand.component_family }
     it { is_expected.to eq :navbar }
   end
+
+  describe '#href' do
+    subject { navbar_brand.href }
+    context 'when href is true in options' do
+      let(:tested_href) { 'tested_href' }
+      let(:options) { { href: tested_href } }
+      it { is_expected.to eq tested_href }
+    end
+
+    context 'when href is not present in options' do
+      it { is_expected.to eq 'javascript:;' }
+    end
+  end
 end

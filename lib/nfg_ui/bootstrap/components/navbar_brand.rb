@@ -9,6 +9,10 @@ module NfgUi
         def component_family
           :navbar
         end
+
+        def href
+          options.fetch(:href, 'javascript:;')
+        end
       end
     end
   end
