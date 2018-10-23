@@ -63,6 +63,9 @@ module NfgUi
                                   nav_item
                                   nav_link
                                   navbar
+                                  navbar_brand
+                                  navbar_text
+                                  navbar_toggler
                                   pagination
                                   popover
                                   progress
@@ -106,6 +109,9 @@ module NfgUi
                                   nav
                                   nav_item
                                   nav_link
+                                  navbar_brand
+                                  navbar_text
+                                  navbar_toggler
                                   popover
                                   progress_bar
                                   slat

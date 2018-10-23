@@ -476,6 +476,48 @@ FactoryBot.define do
     end
   end
 
+  factory :bootstrap_navbar_brand, class: NfgUi::Bootstrap::Components::NavbarBrand do
+    body { nil }
+    data { nil }
+    id { nil }
+
+    skip_create
+    initialize_with { new(attributes, ActionController::Base.new.view_context) }
+
+    trait :rendered do
+      initialize_with { NfgUi::UI::Base.new(ActionController::Base.new.view_context)
+                                       .bootstrap(:navbar_brand, attributes) }
+    end
+  end
+
+  factory :bootstrap_navbar_text, class: NfgUi::Bootstrap::Components::NavbarText do
+    body { nil }
+    data { nil }
+    id { nil }
+
+    skip_create
+    initialize_with { new(attributes, ActionController::Base.new.view_context) }
+
+    trait :rendered do
+      initialize_with { NfgUi::UI::Base.new(ActionController::Base.new.view_context)
+                                       .bootstrap(:navbar_text, attributes) }
+    end
+  end
+
+  factory :bootstrap_navbar_toggler, class: NfgUi::Bootstrap::Components::NavbarToggler do
+    body { nil }
+    data { nil }
+    id { nil }
+
+    skip_create
+    initialize_with { new(attributes, ActionController::Base.new.view_context) }
+
+    trait :rendered do
+      initialize_with { NfgUi::UI::Base.new(ActionController::Base.new.view_context)
+                                       .bootstrap(:navbar_toggler, attributes) }
+    end
+  end
+
   factory :bootstrap_pagination, class: NfgUi::Bootstrap::Components::Pagination do
     body { nil }
     data { nil }

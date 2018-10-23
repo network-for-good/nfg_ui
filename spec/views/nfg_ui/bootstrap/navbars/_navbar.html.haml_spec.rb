@@ -1,9 +1,10 @@
 require 'rails_helper'
 
-RSpec.describe 'nfg_ui/bootstrap/_navbar.html.haml', type: :view do
+RSpec.describe 'nfg_ui/bootstrap/navbars/_navbar.html.haml', type: :view do
   let(:body) { 'test body content' }
-  let(:navbar) { FactoryBot.create(:bootstrap_navbar, body: body) }
-  subject { render 'nfg_ui/bootstrap/navbar', navbar: navbar }
+  let(:navbar) { FactoryBot.create(:bootstrap_navbar, body: body, **options) }
+  let(:options) { {} }
+  subject { render 'nfg_ui/bootstrap/navbars/navbar', navbar: navbar }
 
   it 'outputs a bootstrap navbar component in html' do
     expect(subject).to have_selector '.navbar', text: body
