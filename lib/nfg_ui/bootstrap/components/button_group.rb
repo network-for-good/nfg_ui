@@ -16,12 +16,10 @@ module NfgUi
         private
 
         def assistive_html_attributes
-          p "====== Printed from: (Bootstrap::Components::ButtonGroup) self.class.name: #{self.class.name} method: #{__method__}"
           super.merge!(role: 'group', aria: { label: 'action buttons' })
         end
 
         def component_css_class
-          p "====== Printed from: (Bootstrap::Components::ButtonGroup) self.class.name: #{self.class.name} method: #{__method__}"
           'btn-group'
         end
       end
