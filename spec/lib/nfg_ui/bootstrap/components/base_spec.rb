@@ -20,6 +20,25 @@ RSpec.describe NfgUi::Bootstrap::Components::Base do
 
   it_behaves_like 'a component with a consistent initalized construction'
 
+  describe '#component_family' do
+    subject { bootstrap_base.component_family }
+    it { is_expected.to be_nil }
+  end
+
+  describe '#data' do
+    subject { bootstrap_base.data }
+
+    context 'when data is present' do
+      let(:tested_options_hash) { { data: tested_data } }
+      it { is_expected.to eq tested_data }
+    end
+
+    context 'when data is not present' do
+      let(:tested_options_hash) { {} }
+      it { is_expected.to eq({}) }
+    end
+  end
+
   describe '#html_options' do
     subject { bootstrap_base.html_options }
 
@@ -69,29 +88,24 @@ RSpec.describe NfgUi::Bootstrap::Components::Base do
     end
   end
 
-  describe '#component_family' do
-    subject { bootstrap_base.component_family }
-    it { is_expected.to be_nil }
-  end
-
-  describe '#defaults' do
-    subject { bootstrap_base.send(:defaults) }
-    it { is_expected.to eq(class: '', id: nil, body: nil, data: {}) }
-  end
-
-  describe '#data' do
-    subject { bootstrap_base.data }
-
-    context 'when data is present' do
-      let(:tested_options_hash) { { data: tested_data } }
-      it { is_expected.to eq tested_data }
+  describe '#href' do
+    subject { bootstrap_base.href }
+    context 'when :href is present in options' do
+      let(:tested_href) { 'tested_href' }
+      let(:component_options) { { href: tested_href } }
+      it { is_expected.to eq tested_href }
     end
 
-    context 'when data is not present' do
-      let(:tested_options_hash) { {} }
-      it { is_expected.to eq({}) }
+    context 'when :href is not present in options' do
+      let(:component_options) { {} }
+      it { is_expected.to be_nil }
     end
-  end
+
+    context 'when :href is nil in options' do
+      let(:component_options) { { href: nil } }
+      it { is_expected.to be_nil }
+    end
+  end  
 
   describe '#id' do
     subject { bootstrap_base.id }
@@ -139,6 +153,11 @@ RSpec.describe NfgUi::Bootstrap::Components::Base do
       let(:css_class) { nil }
       it { is_expected.to eq 'base' }
     end
+  end
+
+  describe '#defaults' do
+    subject { bootstrap_base.send(:defaults) }
+    it { is_expected.to eq(class: '', id: nil, body: nil, data: {}) }
   end
 
   describe '#non_html_attribute_options' do
