@@ -10,16 +10,6 @@ RSpec.describe NfgUi::Bootstrap::Components::ButtonGroup do
   it_behaves_like 'a component with a consistent initalized construction'
   it_behaves_like 'a component that includes the Sizable utility module'
 
-  describe '#component_css_class' do
-    subject { button_group.send(:component_css_class) }
-    it { is_expected.to eq 'btn-group' }
-  end
-
-  describe '#assistive_html_attributes' do
-    subject { button_group.send(:assistive_html_attributes) }
-    it { is_expected.to eq(role: 'group', aria: { label: 'action buttons' }) }
-  end
-
   describe '#vertical' do
     let(:options) { { vertical: tested_vertical } }
     let(:tested_vertical) { nil }
@@ -44,5 +34,15 @@ RSpec.describe NfgUi::Bootstrap::Components::ButtonGroup do
       let(:options) { {} }
       it { is_expected.to be_falsey }
     end
+  end
+
+  describe '#assistive_html_attributes' do
+    subject { button_group.send(:assistive_html_attributes) }
+    it { is_expected.to eq(role: 'group', aria: { label: 'action buttons' }) }
+  end
+
+  describe '#component_css_class' do
+    subject { button_group.send(:component_css_class) }
+    it { is_expected.to eq 'btn-group' }
   end
 end
