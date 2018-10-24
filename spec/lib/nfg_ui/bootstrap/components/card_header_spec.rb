@@ -7,6 +7,11 @@ RSpec.describe NfgUi::Bootstrap::Components::CardHeader do
   it { expect(described_class).to be < NfgUi::Bootstrap::Components::Base }
   it_behaves_like 'a component with a consistent initalized construction'
 
+  describe '#component_family' do
+    subject { card_header.component_family }
+    it { is_expected.to eq :card }
+  end
+
   describe '#heading' do
     subject { card_header.heading }
     context 'when heading is present in options' do
@@ -19,11 +24,6 @@ RSpec.describe NfgUi::Bootstrap::Components::CardHeader do
       let(:options) { {} }
       it { is_expected.to be_nil }
     end
-  end
-
-  describe '#component_family' do
-    subject { card_header.component_family }
-    it { is_expected.to eq :card }
   end
 
   describe '#non_html_attribute_options' do
