@@ -39,6 +39,10 @@ module NfgUi
                                   card
                                   card_header
                                   carousel
+                                  carousel_caption
+                                  carousel_control
+                                  carousel_indicators
+                                  carousel_item
                                   collapse
                                   dropdown
                                   dropdown_divider
@@ -91,6 +95,10 @@ module NfgUi
                                   breadcrumb
                                   breadcrumb_item
                                   button
+                                  carousel_caption
+                                  carousel_control
+                                  carousel_indicators
+                                  carousel_item
                                   chart
                                   dropdown_divider
                                   dropdown_header

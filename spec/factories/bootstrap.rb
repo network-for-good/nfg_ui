@@ -137,6 +137,62 @@ FactoryBot.define do
     end
   end
 
+  factory :bootstrap_carousel_caption, class: NfgUi::Bootstrap::Components::CarouselCaption do
+    body { nil }
+    data { nil }
+    id { nil }
+
+    skip_create
+    initialize_with { new(attributes, ActionController::Base.new.view_context) }
+
+    trait :rendered do
+      initialize_with { NfgUi::UI::Base.new(ActionController::Base.new.view_context)
+                                       .bootstrap(:carousel_caption, attributes) }
+    end
+  end
+
+  factory :bootstrap_carousel_control, class: NfgUi::Bootstrap::Components::CarouselControl do
+    body { nil }
+    data { nil }
+    id { nil }
+
+    skip_create
+    initialize_with { new(attributes, ActionController::Base.new.view_context) }
+
+    trait :rendered do
+      initialize_with { NfgUi::UI::Base.new(ActionController::Base.new.view_context)
+                                       .bootstrap(:carousel_control, attributes) }
+    end
+  end
+
+  factory :bootstrap_carousel_indicators, class: NfgUi::Bootstrap::Components::CarouselIndicators do
+    body { nil }
+    data { nil }
+    id { nil }
+
+    skip_create
+    initialize_with { new(attributes, ActionController::Base.new.view_context) }
+
+    trait :rendered do
+      initialize_with { NfgUi::UI::Base.new(ActionController::Base.new.view_context)
+                                       .bootstrap(:carousel_indicators, attributes) }
+    end
+  end
+
+  factory :bootstrap_carousel_item, class: NfgUi::Bootstrap::Components::CarouselItem do
+    body { nil }
+    data { nil }
+    id { nil }
+
+    skip_create
+    initialize_with { new(attributes, ActionController::Base.new.view_context) }
+
+    trait :rendered do
+      initialize_with { NfgUi::UI::Base.new(ActionController::Base.new.view_context)
+                                       .bootstrap(:carousel_item, attributes) }
+    end
+  end
+
   factory :bootstrap_collapse, class: NfgUi::Bootstrap::Components::Collapse do
     body { nil }
     data { nil }

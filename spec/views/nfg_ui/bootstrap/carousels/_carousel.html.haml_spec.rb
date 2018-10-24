@@ -1,9 +1,9 @@
 require 'rails_helper'
 
-RSpec.describe 'nfg_ui/bootstrap/_carousel.html.haml', type: :view do
+RSpec.describe 'nfg_ui/bootstrap/carousels/_carousel.html.haml', type: :view do
   let(:carousel) { FactoryBot.create(:bootstrap_carousel, **options) }
   let(:options) { {} }
-  subject { render 'nfg_ui/bootstrap/carousel', carousel: carousel }
+  subject { render 'nfg_ui/bootstrap/carousels/carousel', carousel: carousel }
 
   describe 'html output for the bootstrap carousel' do
     let(:options) { { body: body } }

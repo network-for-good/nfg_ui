@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe NfgUi::Bootstrap::Components::Carousel do
+RSpec.describe NfgUi::Bootstrap::Components::CarouselItem do
   let(:carousel) { described_class.new(options, ActionController::Base.new.view_context) }
   let(:options) { {} }
   it { expect(described_class).to be < NfgUi::Bootstrap::Components::Base }

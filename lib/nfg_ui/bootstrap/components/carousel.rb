@@ -6,6 +6,9 @@ module NfgUi
       # Bootstrap Carousel Component
       # https://getbootstrap.com/docs/4.1/components/carousel/
       class Carousel < Bootstrap::Components::Base
+        def component_family
+          :carousel
+        end
       end
     end
   end
