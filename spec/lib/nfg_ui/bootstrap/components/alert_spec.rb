@@ -9,8 +9,10 @@ RSpec.describe NfgUi::Bootstrap::Components::Alert do
   it_behaves_like 'a component that includes the Dismissible utility module'
   it_behaves_like 'a component that includes the Themeable utility module'
   
-  describe '#assistive_html_attributes' do
-    subject { alert.send(:assistive_html_attributes) }
-    it { is_expected.to eq(role: 'alert') }
+  describe 'private themes' do
+    describe '#assistive_html_attributes' do
+      subject { alert.send(:assistive_html_attributes) }
+      it { is_expected.to eq(role: 'alert') }
+    end
   end
 end

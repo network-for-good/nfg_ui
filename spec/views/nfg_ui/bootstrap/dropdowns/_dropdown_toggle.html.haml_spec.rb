@@ -36,4 +36,29 @@ RSpec.describe 'nfg_ui/bootstrap/dropdowns/_dropdown_toggle.html.haml', type: :v
       it { is_expected.not_to have_css '.btn' }
     end
   end
+
+  describe 'resized dropdown toggle' do
+    context 'when size is present in options' do
+      let(:tested_size) { :lg }
+      let(:options) { { size: tested_size } }
+      it 'outputs a dropdown component with size html in place' do
+        expect(subject).to have_css ".dropdown-toggle.btn-#{tested_size}"
+        expect(subject).to eq "<button class=\"btn dropdown-toggle btn-#{tested_size} btn-primary\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\" type=\"button\">\n\n</button>"
+      end
+    end
+
+    context 'when size is not present in options' do
+      let(:options) { {} }
+      it 'outputs a dropdown component with no size html in place' do
+        expect(subject).to eq "<button class=\"btn dropdown-toggle btn-primary\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\" type=\"button\">\n\n</button>"
+      end
+    end
+
+    context 'when size is not present in options' do
+      let(:options) { { size: nil } }
+      it 'outputs a dropdown component with no size html in place' do
+        expect(subject).to eq "<button class=\"btn dropdown-toggle btn-primary\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\" type=\"button\">\n\n</button>"
+      end
+    end
+  end
 end

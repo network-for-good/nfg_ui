@@ -6,6 +6,8 @@ module NfgUi
       # Bootstrap Dropdown Component
       # https://getbootstrap.com/docs/4.1/components/dropdowns/
       class Dropdown < Bootstrap::Components::Base
+        include Bootstrap::Utilities::DropdownDirectionable
+
         def button
           options.fetch(:button, '')
         end
@@ -25,7 +27,12 @@ module NfgUi
         private
 
         def non_html_attribute_options
-          super.push(:theme, :button, :offset)
+          super.push(:theme,
+                     :button,
+                     :offset,
+                     :dropleft,
+                     :dropright,
+                     :dropup)
         end
       end
     end

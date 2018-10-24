@@ -9,6 +9,7 @@ RSpec.describe NfgUi::Bootstrap::Components::ButtonGroup do
   it { is_expected.to be < NfgUi::Bootstrap::Components::Base }
   it_behaves_like 'a component with a consistent initalized construction'
   it_behaves_like 'a component that includes the Sizable utility module'
+  it_behaves_like 'a component that includes the DropdownDirectionable utility module'
 
   describe '#vertical' do
     let(:options) { { vertical: tested_vertical } }
@@ -36,13 +37,15 @@ RSpec.describe NfgUi::Bootstrap::Components::ButtonGroup do
     end
   end
 
-  describe '#assistive_html_attributes' do
-    subject { button_group.send(:assistive_html_attributes) }
-    it { is_expected.to eq(role: 'group', aria: { label: 'action buttons' }) }
-  end
+  describe 'private methods' do
+    describe '#assistive_html_attributes' do
+      subject { button_group.send(:assistive_html_attributes) }
+      it { is_expected.to eq(role: 'group', aria: { label: 'action buttons' }) }
+    end
 
-  describe '#component_css_class' do
-    subject { button_group.send(:component_css_class) }
-    it { is_expected.to eq 'btn-group' }
+    describe '#component_css_class' do
+      subject { button_group.send(:component_css_class) }
+      it { is_expected.to eq 'btn-group' }
+    end
   end
 end

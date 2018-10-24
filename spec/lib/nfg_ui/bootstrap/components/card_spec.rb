@@ -69,62 +69,64 @@ RSpec.describe NfgUi::Bootstrap::Components::Card do
     end
   end
 
-  describe '#css_classes' do
-    subject { card.send(:css_classes) }
-    let(:options) { { theme: tested_theme, outlined: tested_outline } }
-    let(:tested_theme) { nil }
-    let(:tested_outline) { false }
+  describe 'private methods' do
+    describe '#css_classes' do
+      subject { card.send(:css_classes) }
+      let(:options) { { theme: tested_theme, outlined: tested_outline } }
+      let(:tested_theme) { nil }
+      let(:tested_outline) { false }
 
-    context 'when theme is present' do
-      context 'when theme is not :light' do
-        let(:tested_theme) { :secondary }
+      context 'when theme is present' do
+        context 'when theme is not :light' do
+          let(:tested_theme) { :secondary }
 
-        context 'when outlined is true' do
-          let(:tested_outline) { true }
-          it { is_expected.to include "text-#{tested_theme}" }
-          it { is_expected.not_to include 'text-white' }
+          context 'when outlined is true' do
+            let(:tested_outline) { true }
+            it { is_expected.to include "text-#{tested_theme}" }
+            it { is_expected.not_to include 'text-white' }
+          end
+
+          context 'when outlined is false' do
+            let(:tested_outline) { false }
+            it { is_expected.to include 'text-white' }
+            it { is_expected.not_to include "text-#{tested_theme}" }
+          end
         end
 
-        context 'when outlined is false' do
-          let(:tested_outline) { false }
-          it { is_expected.to include 'text-white' }
+        context 'when theme is :light' do
+          let(:tested_theme) { :light }
+          it { is_expected.not_to include 'text-white' }
           it { is_expected.not_to include "text-#{tested_theme}" }
         end
       end
+    end
 
-      context 'when theme is :light' do
-        let(:tested_theme) { :light }
-        it { is_expected.not_to include 'text-white' }
-        it { is_expected.not_to include "text-#{tested_theme}" }
+    describe '#default_theme' do
+      subject { card.send(:default_theme) }
+      it { is_expected.to be_nil }
+    end
+
+    describe '#non_html_attribute_options' do
+      subject { card.send(:non_html_attribute_options) }
+      it { is_expected.to include :footer, :heading, :subtitle, :title }
+    end
+
+    describe '#outlined_css_class_prefix' do
+      subject { card.send(:outlined_css_class_prefix) }
+      it { is_expected.to eq 'border-' }
+    end
+
+    describe '#theme_css_class_prefix' do
+      subject { card.send(:theme_css_class_prefix) }
+      context 'when card has outlined set to true in options' do
+        let(:options) { { outlined: true } }
+        it { is_expected.to eq '' }
       end
-    end
-  end
 
-  describe '#default_theme' do
-    subject { card.send(:default_theme) }
-    it { is_expected.to be_nil }
-  end
-
-  describe '#non_html_attribute_options' do
-    subject { card.send(:non_html_attribute_options) }
-    it { is_expected.to include :footer, :heading, :subtitle, :title }
-  end
-
-  describe '#outlined_css_class_prefix' do
-    subject { card.send(:outlined_css_class_prefix) }
-    it { is_expected.to eq 'border-' }
-  end
-
-  describe '#theme_css_class_prefix' do
-    subject { card.send(:theme_css_class_prefix) }
-    context 'when card has outlined set to true in options' do
-      let(:options) { { outlined: true } }
-      it { is_expected.to eq '' }
-    end
-
-    context 'when card is not outlined' do
-      let(:options) { { outlined: false } }
-      it { is_expected.to eq 'bg-' }
+      context 'when card is not outlined' do
+        let(:options) { { outlined: false } }
+        it { is_expected.to eq 'bg-' }
+      end
     end
   end
 end

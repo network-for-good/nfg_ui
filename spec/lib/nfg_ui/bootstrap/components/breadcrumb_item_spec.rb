@@ -14,21 +14,23 @@ RSpec.describe NfgUi::Bootstrap::Components::BreadcrumbItem do
     it { is_expected.to eq :breadcrumb }
   end
 
-  describe '#assistive_html_attributes' do
-    subject { breadcrumb_item.send(:assistive_html_attributes) }
-    context 'when the breadcrumb has :active set to true in options' do
-      let(:options) { { active: true } }
-      it { is_expected.to include(aria: { current: 'page' }) }
-    end
+  describe 'private methods' do
+    describe '#assistive_html_attributes' do
+      subject { breadcrumb_item.send(:assistive_html_attributes) }
+      context 'when the breadcrumb has :active set to true in options' do
+        let(:options) { { active: true } }
+        it { is_expected.to include(aria: { current: 'page' }) }
+      end
 
-    context 'when the breadcrumb has :active set to false in options' do
-      let(:options) { { active: false } }
-      it { is_expected.not_to include(aria: { current: 'page' }) }
-    end
+      context 'when the breadcrumb has :active set to false in options' do
+        let(:options) { { active: false } }
+        it { is_expected.not_to include(aria: { current: 'page' }) }
+      end
 
-    context 'when the breadcrumb does not have :active set in options' do
-      let(:options) { {} }
-      it { is_expected.not_to include(aria: { current: 'page' }) }
+      context 'when the breadcrumb does not have :active set in options' do
+        let(:options) { {} }
+        it { is_expected.not_to include(aria: { current: 'page' }) }
+      end
     end
   end
 end

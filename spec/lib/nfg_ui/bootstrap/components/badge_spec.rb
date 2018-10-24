@@ -27,27 +27,29 @@ RSpec.describe NfgUi::Bootstrap::Components::Badge do
     end
   end
 
-  describe '#css_classes' do
-    subject { badge.send(:css_classes) }
+  describe 'private methods' do
+    describe '#css_classes' do
+      subject { badge.send(:css_classes) }
 
-    context 'when pill is true' do
-      let(:pill_presence) { true }
-      it { is_expected.to eq 'badge badge-primary badge-pill' }
+      context 'when pill is true' do
+        let(:pill_presence) { true }
+        it { is_expected.to eq 'badge badge-primary badge-pill' }
+      end
+
+      context 'when pill is determined false' do
+        let(:pill_presence) { false }
+        it { is_expected.not_to include 'badge-pill' }
+      end
     end
 
-    context 'when pill is determined false' do
-      let(:pill_presence) { false }
-      it { is_expected.not_to include 'badge-pill' }
+    describe '#default_html_wrapper_element' do
+      subject { badge.send(:default_html_wrapper_element) }
+      it { is_expected.to eq :span }
     end
-  end
 
-  describe '#default_html_wrapper_element' do
-    subject { badge.send(:default_html_wrapper_element) }
-    it { is_expected.to eq :span }
-  end
-
-  describe '#non_html_attribute_options' do
-    subject { badge.send(:non_html_attribute_options) }
-    it { is_expected.to include(:pill) }
+    describe '#non_html_attribute_options' do
+      subject { badge.send(:non_html_attribute_options) }
+      it { is_expected.to include(:pill) }
+    end
   end
 end

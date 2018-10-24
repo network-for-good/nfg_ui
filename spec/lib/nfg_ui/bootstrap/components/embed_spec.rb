@@ -79,44 +79,46 @@ RSpec.describe NfgUi::Bootstrap::Components::Embed do
     end
   end
 
-  describe '#component_css_class' do
-    subject { embed.send(:component_css_class) }
-    it { is_expected.to eq 'embed-responsive' }
-  end
+  describe 'private methods' do
+    describe '#component_css_class' do
+      subject { embed.send(:component_css_class) }
+      it { is_expected.to eq 'embed-responsive' }
+    end
 
-  describe '#css_classes' do
-    subject { embed.send(:css_classes) }
-    context 'when aspect_ratio is present' do
-      context 'and when aspect ratio is included in the allowed_aspect_ratios array' do
-        let(:aspect_ratio) { '21:9' }
-        it { is_expected.to eq 'embed-responsive embed-responsive-21by9' }
-      end
+    describe '#css_classes' do
+      subject { embed.send(:css_classes) }
+      context 'when aspect_ratio is present' do
+        context 'and when aspect ratio is included in the allowed_aspect_ratios array' do
+          let(:aspect_ratio) { '21:9' }
+          it { is_expected.to eq 'embed-responsive embed-responsive-21by9' }
+        end
 
-      context 'and when the aspect ratio is not included in the allowed_aspect_ratios array' do
-        let(:aspect_ratio) { 'invalid' }
-        it { is_expected.to eq 'embed-responsive' }
-        it { is_expected.not_to include "embed-responsive-#{aspect_ratio}" }
+        context 'and when the aspect ratio is not included in the allowed_aspect_ratios array' do
+          let(:aspect_ratio) { 'invalid' }
+          it { is_expected.to eq 'embed-responsive' }
+          it { is_expected.not_to include "embed-responsive-#{aspect_ratio}" }
+        end
       end
     end
-  end
 
-  describe '#allowed_aspect_ratios' do
-    subject { embed.send(:allowed_aspect_ratios) }
-    it { is_expected.to eq %w[21:9 16:9 4:3 1:1] }
-  end
+    describe '#allowed_aspect_ratios' do
+      subject { embed.send(:allowed_aspect_ratios) }
+      it { is_expected.to eq %w[21:9 16:9 4:3 1:1] }
+    end
 
-  describe '#default_aspect_ratio' do
-    subject { embed.send(:default_aspect_ratio) }
-    it { is_expected.to eq '16:9' }
-  end
+    describe '#default_aspect_ratio' do
+      subject { embed.send(:default_aspect_ratio) }
+      it { is_expected.to eq '16:9' }
+    end
 
-  describe '#non_html_attribute_options' do
-    subject { embed.send(:non_html_attribute_options) }
-    it { is_expected.to eq %i[body heading traits iframe aspect_ratio autoplay] }
-  end
+    describe '#non_html_attribute_options' do
+      subject { embed.send(:non_html_attribute_options) }
+      it { is_expected.to eq %i[body heading traits iframe aspect_ratio autoplay] }
+    end
 
-  describe '#default_autoplay' do
-    subject { embed.send(:default_autoplay) }
-    it { is_expected.to be false }
+    describe '#default_autoplay' do
+      subject { embed.send(:default_autoplay) }
+      it { is_expected.to be false }
+    end
   end
 end

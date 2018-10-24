@@ -37,33 +37,35 @@ RSpec.describe NfgUi::Bootstrap::Components::Collapse do
     end
   end
 
-  describe '#css_classes' do
-    subject { collapse.send(:css_classes) }
-    let(:options) { { id: test_id, collapsed: test_collapsed } }
+  describe 'private methods' do
+    describe '#css_classes' do
+      subject { collapse.send(:css_classes) }
+      let(:options) { { id: test_id, collapsed: test_collapsed } }
 
-    context 'when the component has :collapsed set as true' do
-      let(:test_collapsed) { true }
-      it { is_expected.not_to include 'show' }
+      context 'when the component has :collapsed set as true' do
+        let(:test_collapsed) { true }
+        it { is_expected.not_to include 'show' }
+      end
+
+      context 'when the component has :collapsed set to false' do
+        let(:test_collapsed) { false }
+        it { is_expected.to include 'show' }
+      end
+
+      context 'when navbar is true in options' do
+        let(:options) { { navbar: true } }
+        it { is_expected.to include 'navbar-collapse' }
+      end
+
+      context 'when navbar is falsey in options' do
+        let(:options) { {} }
+        it { is_expected.not_to include 'navbar-collapse' }
+      end
     end
 
-    context 'when the component has :collapsed set to false' do
-      let(:test_collapsed) { false }
-      it { is_expected.to include 'show' }
+    describe '#non_html_attribute_options' do
+      subject { collapse.send(:non_html_attribute_options) }
+      it { is_expected.to include :collapsed, :navbar }
     end
-
-    context 'when navbar is true in options' do
-      let(:options) { { navbar: true } }
-      it { is_expected.to include 'navbar-collapse' }
-    end
-
-    context 'when navbar is falsey in options' do
-      let(:options) { {} }
-      it { is_expected.not_to include 'navbar-collapse' }
-    end
-  end
-
-  describe '#non_html_attribute_options' do
-    subject { collapse.send(:non_html_attribute_options) }
-    it { is_expected.to include :collapsed, :navbar }
   end
 end

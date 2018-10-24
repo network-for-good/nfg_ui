@@ -3,8 +3,8 @@
 module NfgUi
   module Bootstrap
     module Components
-      # Bootstrap Dropdown Component
-      # https://getbootstrap.com/docs/4.1/components/dropdowns/
+      # Bootstrap Dropdown Items Component
+      # https://getbootstrap.com/docs/4.1/components/dropdowns/#menu-items
       class DropdownItem < Bootstrap::Components::Base
         include Bootstrap::Utilities::Wrappable
         include Bootstrap::Utilities::Activatable
@@ -15,9 +15,7 @@ module NfgUi
           :dropdown
         end
 
-        # def href
-        #   options.fetch(:href, nil)
-        # end
+        private
 
         # When a dropdown item is both disabled AND given a tooltip
         # We need to restructure the syntax to wrap the dropdown item in
@@ -33,10 +31,7 @@ module NfgUi
           end
         end
 
-        private
-
         def default_html_wrapper_element
-          p "====== Printed from: (Bootstrap::Components::DropdownItem) self.class.name: #{self.class.name} method: #{__method__}"
           :a
         end
       end

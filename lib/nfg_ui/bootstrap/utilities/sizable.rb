@@ -30,7 +30,7 @@ module NfgUi
 
         def css_classes
           p "====== Printed from: (Bootstrap::Utilities::Sizable) self.class.name: #{self.class.name} method: #{__method__}"
-          resized? ? super + " #{component_css_class}-#{size}" : super
+          resized? ? super + " #{size_css_class_prefix}-#{size}" : super
         end
 
         # def size_css_class
@@ -40,6 +40,10 @@ module NfgUi
         def non_html_attribute_options
           p "====== Printed from: (Bootstrap::Utilities::Sizable) self.class.name: #{self.class.name} method: #{__method__}"
           super.push(:size)
+        end
+
+        def size_css_class_prefix
+          @size_css_class_prefix ||= component_css_class
         end
 
         # def bootstrap4_size_options

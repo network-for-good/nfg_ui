@@ -40,4 +40,81 @@ RSpec.describe 'nfg_ui/bootstrap/dropdowns/_dropdown.html.haml', type: :view do
       end
     end
   end
+
+  describe 'dropdown menu directions' do
+    describe 'dropdown menu with dropleft direction' do
+      context 'when dropleft is true in options' do
+        let(:options) { { dropleft: true } }
+        it 'outputs a dropdown component with dropleft html in place' do
+          expect(subject).to have_css '.dropdown.dropleft'
+          expect(subject).to eq "<div class='dropdown dropleft'>\n\n</div>\n"
+        end
+      end
+
+      context 'when dropleft is false in options' do
+        let(:options) { { dropleft: false } }
+        it 'outputs a dropdown component without dropleft html in place' do
+          expect(subject).not_to have_css '.dropdown.dropleft'
+          expect(subject).to have_css '.dropdown'
+          expect(subject).to eq "<div class='dropdown'>\n\n</div>\n"
+        end
+      end
+
+      context 'when dropleft is not present in options' do
+        let(:options) { {} }
+        it { is_expected.not_to have_css '.dropdown.dropleft' }
+        it { is_expected.to have_css '.dropdown' }
+      end
+    end
+
+    describe 'dropdown menu with dropright direction' do
+      context 'when dropright is true in options' do
+        let(:options) { { dropright: true } }
+        it 'outputs a dropdown component with dropright html in place' do
+          expect(subject).to have_css '.dropdown.dropright'
+          expect(subject).to eq "<div class='dropdown dropright'>\n\n</div>\n"
+        end
+      end
+
+      context 'when dropright is false in options' do
+        let(:options) { { dropright: false } }
+        it 'outputs a dropdown component without dropright html in place' do
+          expect(subject).not_to have_css '.dropdown.dropright'
+          expect(subject).to have_css '.dropdown'
+          expect(subject).to eq "<div class='dropdown'>\n\n</div>\n"
+        end
+      end
+
+      context 'when dropright is not present in options' do
+        let(:options) { {} }
+        it { is_expected.not_to have_css '.dropdown.dropright' }
+        it { is_expected.to have_css '.dropdown' }
+      end
+    end
+
+    describe 'dropdown menu with dropup direction' do
+      context 'when dropup is true in options' do
+        let(:options) { { dropup: true } }
+        it 'outputs a dropdown component with dropup html in place' do
+          expect(subject).to have_css '.dropdown.dropup'
+          expect(subject).to eq "<div class='dropdown dropup'>\n\n</div>\n"
+        end
+      end
+
+      context 'when dropup is false in options' do
+        let(:options) { { dropup: false } }
+        it 'outputs a dropdown component without dropup html in place' do
+          expect(subject).not_to have_css '.dropdown.dropup'
+          expect(subject).to have_css '.dropdown'
+          expect(subject).to eq "<div class='dropdown'>\n\n</div>\n"
+        end
+      end
+
+      context 'when dropup is not present in options' do
+        let(:options) { {} }
+        it { is_expected.not_to have_css '.dropdown.dropup' }
+        it { is_expected.to have_css '.dropdown' }
+      end
+    end
+  end
 end

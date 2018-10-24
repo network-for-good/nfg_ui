@@ -7,6 +7,7 @@ RSpec.describe NfgUi::Bootstrap::Components::DropdownToggle do
   it { expect(described_class).to be < NfgUi::Bootstrap::Components::Base }
   it_behaves_like 'a component with a consistent initalized construction'
   it_behaves_like 'a component that includes the Wrappable utility module'
+  it_behaves_like 'a component that includes the Sizable utility module'
 
 
   describe '#offset' do
@@ -96,12 +97,17 @@ RSpec.describe NfgUi::Bootstrap::Components::DropdownToggle do
 
     describe '#assistive_html_attributes' do
       let(:tested_method) { :assistive_html_attributes }
-      it { is_expected.to eq({ aria: { haspopup: "true", expanded: "false" } }) }
+      it { is_expected.to eq(aria: { haspopup: 'true', expanded: 'false' }) }
     end
 
     describe '#non_html_attribute_options' do
       let(:tested_method) { :non_html_attribute_options }
       it { is_expected.to include :offset, :nav_link }
+    end
+
+    describe '#size_css_class_prefix' do
+      let(:tested_method) { :size_css_class_prefix }
+      it { is_expected.to eq 'btn' }
     end
   end
 end

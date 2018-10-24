@@ -11,8 +11,10 @@ RSpec.describe NfgUi::Bootstrap::Components::ButtonToolbar do
     it { is_expected.to eq 'btn-toolbar' }
   end
 
-  describe '#assistive_html_attributes' do
-    subject { button_toolbar.send(:assistive_html_attributes) }
-    it { is_expected.to eq(role: 'toolbar') }
+  describe 'private methods' do
+    describe '#assistive_html_attributes' do
+      subject { button_toolbar.send(:assistive_html_attributes) }
+      it { is_expected.to eq(role: 'toolbar') }
+    end
   end
 end

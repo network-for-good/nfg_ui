@@ -16,20 +16,20 @@ RSpec.describe NfgUi::Bootstrap::Components::DropdownItem do
     it { is_expected.to eq :dropdown }
   end
 
-  describe '#css_classes' do
-    subject { dropdown_item.css_classes }
-    context 'when disabled and tooltipped' do
-      let(:options) { { disabled: true, tooltip: 'test tooltip' } }
-      it { is_expected.to eq ' ' }
-    end
-
-    context 'when not disabled and not tooltipped' do
-      it { is_expected.to eq 'dropdown-item' }
-    end
-  end
-
   describe 'private methods' do
     subject { dropdown_item.send(tested_method) }
+
+    describe '#css_classes' do
+      let(:tested_method) { :css_classes }
+      context 'when disabled and tooltipped' do
+        let(:options) { { disabled: true, tooltip: 'test tooltip' } }
+        it { is_expected.to eq ' ' }
+      end
+
+      context 'when not disabled and not tooltipped' do
+        it { is_expected.to eq 'dropdown-item' }
+      end
+    end
 
     describe '#default_html_wrapper_element' do
       let(:tested_method) { :default_html_wrapper_element }

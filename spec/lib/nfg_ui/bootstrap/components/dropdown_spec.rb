@@ -6,6 +6,7 @@ RSpec.describe NfgUi::Bootstrap::Components::Dropdown do
 
   it { expect(described_class).to be < NfgUi::Bootstrap::Components::Base }
   it_behaves_like 'a component with a consistent initalized construction'
+  it_behaves_like 'a component that includes the DropdownDirectionable utility module'
 
   describe '#button' do
     subject { dropdown.button }
@@ -57,10 +58,9 @@ RSpec.describe NfgUi::Bootstrap::Components::Dropdown do
 
   describe 'private methods' do
     subject { dropdown.send(tested_method) }
-
     describe '#non_html_attribute_options' do
       let(:tested_method) { :non_html_attribute_options }
-      it { is_expected.to include :theme, :button }
+      it { is_expected.to include :theme, :button, :offset, :dropleft, :dropright, :dropup }
     end
   end
 end

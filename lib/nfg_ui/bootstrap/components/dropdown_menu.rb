@@ -17,7 +17,10 @@ module NfgUi
         private
 
         def css_classes
-          right ? super + ' dropdown-menu-right' : super
+          [
+            super,
+            ('dropdown-menu-right' if right)
+          ].join(' ').squish
         end
 
         def non_html_attribute_options

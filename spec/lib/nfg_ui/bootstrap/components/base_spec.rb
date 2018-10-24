@@ -126,42 +126,44 @@ RSpec.describe NfgUi::Bootstrap::Components::Base do
     end
   end
 
-  describe '#assistive_html_attributes' do
-    subject { bootstrap_base.send(:assistive_html_attributes) }
-    it { is_expected.to eq({}) }
-  end
-
-  describe '#component_css_class' do
-    subject { bootstrap_base.send(:component_css_class) }
-    it { is_expected.to eq 'base' }
-  end
-
-  describe '#component_class_name_string' do
-    subject { bootstrap_base.send(:component_class_name_string) }
-    it { is_expected.to eq 'Base' }
-  end
-
-  describe '#css_classes' do
-    subject { bootstrap_base.send(:css_classes) }
-    let(:tested_options_hash) { { class: css_class } }
-    context 'when component options include css classes' do
-      let(:css_class) { 'test_class' }
-      it { is_expected.to eq "base #{css_class}" }
+  describe 'private methods' do
+    describe '#assistive_html_attributes' do
+      subject { bootstrap_base.send(:assistive_html_attributes) }
+      it { is_expected.to eq({}) }
     end
 
-    context 'when component options do not include css classes' do
-      let(:css_class) { nil }
+    describe '#component_css_class' do
+      subject { bootstrap_base.send(:component_css_class) }
       it { is_expected.to eq 'base' }
     end
-  end
 
-  describe '#defaults' do
-    subject { bootstrap_base.send(:defaults) }
-    it { is_expected.to eq(class: '', id: nil, body: nil, data: {}) }
-  end
+    describe '#component_class_name_string' do
+      subject { bootstrap_base.send(:component_class_name_string) }
+      it { is_expected.to eq 'Base' }
+    end
 
-  describe '#non_html_attribute_options' do
-    subject { bootstrap_base.send(:non_html_attribute_options) }
-    it { is_expected.to eq %i[body heading traits] }
+    describe '#css_classes' do
+      subject { bootstrap_base.send(:css_classes) }
+      let(:tested_options_hash) { { class: css_class } }
+      context 'when component options include css classes' do
+        let(:css_class) { 'test_class' }
+        it { is_expected.to eq "base #{css_class}" }
+      end
+
+      context 'when component options do not include css classes' do
+        let(:css_class) { nil }
+        it { is_expected.to eq 'base' }
+      end
+    end
+
+    describe '#defaults' do
+      subject { bootstrap_base.send(:defaults) }
+      it { is_expected.to eq(class: '', id: nil, body: nil, data: {}) }
+    end
+
+    describe '#non_html_attribute_options' do
+      subject { bootstrap_base.send(:non_html_attribute_options) }
+      it { is_expected.to eq %i[body heading traits] }
+    end
   end
 end

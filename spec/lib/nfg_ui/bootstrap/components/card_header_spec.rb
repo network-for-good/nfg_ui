@@ -26,8 +26,10 @@ RSpec.describe NfgUi::Bootstrap::Components::CardHeader do
     end
   end
 
-  describe '#non_html_attribute_options' do
-    subject { card_header.send(:non_html_attribute_options) }
-    it { is_expected.to include :heading }
+  describe 'private methods' do
+    describe '#non_html_attribute_options' do
+      subject { card_header.send(:non_html_attribute_options) }
+      it { is_expected.to include :heading }
+    end
   end
 end
