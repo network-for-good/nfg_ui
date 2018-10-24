@@ -12,7 +12,6 @@ module NfgUi
         private
 
         def assistive_html_attributes
-          p "====== Printed from: (Components::Alert) self.class.name: #{self.class.name} method: #{__method__} -- super before update: #{super}"
           super.merge!(role: 'alert')
         end
       end
