@@ -1,4 +1,38 @@
 %h1 Carousels
 
-= ui.bootstrap :carousel, class: 'my-4' do
-  Coming Soon
+%h2 Carousel with slides only:
+
+%h3 Carousel with images, auto generated
+.row
+  .col-lg-8.col-12.mx-auto
+    = ui.bootstrap :carousel, class: 'my-4' do
+      = ui.bootstrap :carousel_item, active: true, image: 'https://via.placeholder.com/600x400?text=Auto+Generated+Image+No.+1'
+      = ui.bootstrap :carousel_item, image: 'https://via.placeholder.com/600x400?text=Auto+Generated+Image+No.+2'
+      = ui.bootstrap :carousel_item, image: 'https://via.placeholder.com/600x400?text=Auto+Generated+Image+No.+3'
+
+%hr
+%h3 Carousel with images, manually added to carousel items
+%p Note: per docs, you'll want to manually add d-block and w-100 css classes to your image. This is applied by default when using the image attribute on carousel_item.
+.row
+  .col-lg-8.col-12.mx-auto
+    = ui.bootstrap :carousel, class: 'my-4' do
+      = ui.bootstrap :carousel_item, active: true do
+        = image_tag 'https://via.placeholder.com/600x400?text=Carousel+Slide+No.+1', class: 'd-block w-100'
+      = ui.bootstrap :carousel_item do
+        = image_tag 'https://via.placeholder.com/600x400?text=Carousel+Slide+No.+2', class: 'd-block w-100'
+      = ui.bootstrap :carousel_item do
+        = image_tag 'https://via.placeholder.com/600x400?text=Carousel+Slide+No.+3', class: 'd-block w-100'
+
+%hr
+
+%h2 Carousel with Controls
+%p Note: when using controls & indicators, you must apply an html ID to the carousel. Then you must refer to that carousel ID within the carousel controls / indicators
+
+.row
+  .col-lg-8.col-12.mx-auto
+    = ui.bootstrap :carousel, id: 'carousel_with_controls', class: 'my-4' do
+      = ui.bootstrap :carousel_item, active: true, image: 'https://via.placeholder.com/600x400?text=Auto+Generated+Image+No.+1'
+      = ui.bootstrap :carousel_item, image: 'https://via.placeholder.com/600x400?text=Auto+Generated+Image+No.+2'
+      = ui.bootstrap :carousel_item, image: 'https://via.placeholder.com/600x400?text=Auto+Generated+Image+No.+3'
+      = ui.bootstrap :carousel_control, control: :next, carousel: '#carousel_with_controls'
+      = ui.bootstrap :carousel_control, control: :prev, carousel: '#carousel_with_controls'

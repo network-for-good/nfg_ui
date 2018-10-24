@@ -61,7 +61,7 @@ module NfgUi
         # Bootstrap::Utilities::AriaAssistable
         # avoid passing aria to assistive_html_attributes directly
         def assistive_html_attributes
-          {}
+          @assistive_html_attributes ||= {}
         end
 
         # Fallback component css class name.

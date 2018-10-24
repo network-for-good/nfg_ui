@@ -1,2 +1,4 @@
 %div{ carousel_item.html_options }
+  - if carousel_item.image
+    = image_tag carousel_item.image, class: 'd-block w-100'
   = carousel_item.body

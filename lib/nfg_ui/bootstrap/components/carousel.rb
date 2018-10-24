@@ -9,6 +9,19 @@ module NfgUi
         def component_family
           :carousel
         end
+
+        def data
+          super.merge!(ride: 'carousel')
+        end
+
+        private
+
+        def css_classes
+          [
+            super,
+            'slide'
+          ].join(' ').squish
+        end
       end
     end
   end

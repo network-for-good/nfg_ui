@@ -1,2 +1,5 @@
-%div{ carousel_control.html_options }
-  = carousel_control.body
+%a{ carousel_control.html_options }
+  - if carousel_control.control
+    %span{ carousel_control.icon_html_options }
+    %span.sr-only= carousel_control.control.to_s
+      
