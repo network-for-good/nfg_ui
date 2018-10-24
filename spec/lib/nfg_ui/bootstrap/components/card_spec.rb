@@ -8,6 +8,25 @@ RSpec.describe NfgUi::Bootstrap::Components::Card do
   it_behaves_like 'a component with a consistent initalized construction'
   it_behaves_like 'a component that includes the Themeable utility module'
 
+  describe '#component_family' do
+    subject { card.component_family }
+    it { is_expected.to eq :card }
+  end
+
+  describe '#footer' do
+    subject { card.footer }
+    context 'when footer is present in options' do
+      let(:tested_footer) { 'Tested Subtitle' }
+      let(:options) { { footer: tested_footer } }
+      it { is_expected.to eq tested_footer }
+    end
+
+    context 'when footer is not present in options' do
+      let(:options) { {} }
+      it { is_expected.to eq '' }
+    end
+  end
+
   describe '#heading' do
     subject { card.heading }
     context 'when heading is supplied in :options' do
@@ -17,20 +36,6 @@ RSpec.describe NfgUi::Bootstrap::Components::Card do
     end
 
     context 'when heading is not supplied in options' do
-      let(:options) { {} }
-      it { is_expected.to eq '' }
-    end
-  end
-
-  describe '#title' do
-    subject { card.title }
-    context 'when title is present in options' do
-      let(:tested_title) { 'Tested Title' }
-      let(:options) { { title: tested_title } }
-      it { is_expected.to eq tested_title }
-    end
-
-    context 'when title is not present in options' do
       let(:options) { {} }
       it { is_expected.to eq '' }
     end
@@ -50,28 +55,18 @@ RSpec.describe NfgUi::Bootstrap::Components::Card do
     end
   end
 
-  describe '#footer' do
-    subject { card.footer }
-    context 'when footer is present in options' do
-      let(:tested_footer) { 'Tested Subtitle' }
-      let(:options) { { footer: tested_footer } }
-      it { is_expected.to eq tested_footer }
+  describe '#title' do
+    subject { card.title }
+    context 'when title is present in options' do
+      let(:tested_title) { 'Tested Title' }
+      let(:options) { { title: tested_title } }
+      it { is_expected.to eq tested_title }
     end
 
-    context 'when footer is not present in options' do
+    context 'when title is not present in options' do
       let(:options) { {} }
       it { is_expected.to eq '' }
     end
-  end
-
-  describe '#component_family' do
-    subject { card.component_family }
-    it { is_expected.to eq :card }
-  end
-
-  describe '#non_html_attribute_options' do
-    subject { card.send(:non_html_attribute_options) }
-    it { is_expected.to include :footer, :heading, :subtitle, :title }
   end
 
   describe '#css_classes' do
@@ -79,7 +74,7 @@ RSpec.describe NfgUi::Bootstrap::Components::Card do
     let(:options) { { theme: tested_theme, outlined: tested_outline } }
     let(:tested_theme) { nil }
     let(:tested_outline) { false }
-    
+
     context 'when theme is present' do
       context 'when theme is not :light' do
         let(:tested_theme) { :secondary }
@@ -108,6 +103,11 @@ RSpec.describe NfgUi::Bootstrap::Components::Card do
   describe '#default_theme' do
     subject { card.send(:default_theme) }
     it { is_expected.to be_nil }
+  end
+
+  describe '#non_html_attribute_options' do
+    subject { card.send(:non_html_attribute_options) }
+    it { is_expected.to include :footer, :heading, :subtitle, :title }
   end
 
   describe '#outlined_css_class_prefix' do
