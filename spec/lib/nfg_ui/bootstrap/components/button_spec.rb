@@ -113,6 +113,27 @@ RSpec.describe NfgUi::Bootstrap::Components::Button do
     end
   end
 
+  describe '#modal' do
+    let(:options) { { modal: tested_modal } }
+    let(:tested_modal) { nil }
+    subject { button.modal }
+
+    context 'when :modal is present & provided in the options' do
+      let(:tested_modal) { '#tested_modal' }
+      it { is_expected.to eq tested_modal }
+    end
+
+    context 'when :modal is nil in the options' do
+      let(:tested_modal) { nil }
+      it { is_expected.to be_nil }
+    end
+
+    context 'when :modal is not present in the options' do
+      let(:options) { {} }
+      it { is_expected.to be_nil }
+    end
+  end
+
   describe '#remove_component_css_classes' do
     subject { button.remove_component_css_classes }
     let(:options) { { remove_component_css_classes: tested_remove_component_css_classes } }
@@ -139,24 +160,49 @@ RSpec.describe NfgUi::Bootstrap::Components::Button do
     end
   end
 
-  describe '#modal' do
-    let(:options) { { modal: tested_modal } }
-    let(:tested_modal) { nil }
-    subject { button.modal }
+  describe '#assistive_html_attributes' do
+    let(:options) { { active: tested_active } }
+    let(:tested_active) { nil }
+    subject { button.send(:assistive_html_attributes) }
 
-    context 'when :modal is present & provided in the options' do
-      let(:tested_modal) { '#tested_modal' }
-      it { is_expected.to eq tested_modal }
+    context 'when :active is true' do
+      let(:tested_active) { true }
+      it { is_expected.to include(aria: { pressed: true }) }
     end
 
-    context 'when :modal is nil in the options' do
-      let(:tested_modal) { nil }
-      it { is_expected.to be_nil }
+    context 'when :active is false' do
+      let(:tested_active) { false }
+      it { is_expected.not_to include(aria: { pressed: true }) }
     end
 
-    context 'when :modal is not present in the options' do
+    context 'when :active is not present' do
       let(:options) { {} }
-      it { is_expected.to be_nil }
+      it { is_expected.not_to include(aria: { pressed: true }) }
+    end
+  end
+
+  describe '#css_classes' do
+    let(:options) { { block: tested_block } }
+    subject { button.send(:css_classes) }
+
+    context 'when :block is true in options' do
+      let(:tested_block) { true }
+      it { is_expected.to include 'btn-block' }
+    end
+
+    context 'when :block is false in options' do
+      let(:tested_block) { false }
+      it { is_expected.not_to include 'btn-block' }
+    end
+
+    context 'when :block is nil in options' do
+      let(:tested_block) { nil }
+      it { is_expected.not_to include 'btn-block' }
+    end
+
+    context 'when :block is not present in options' do
+      let(:options) { {} }
+      it { is_expected.not_to include 'btn-block' }
     end
   end
 
@@ -173,6 +219,24 @@ RSpec.describe NfgUi::Bootstrap::Components::Button do
       let(:as) { :button }
       it { is_expected.to include :target }
     end
+  end
+
+  describe '#component_css_class' do
+    subject { button.send(:component_css_class) }
+    context 'when remove_component_css_classes is true' do
+      let(:options) { { remove_component_css_classes: true } }
+      it { is_expected.to eq '' }
+    end
+
+    context 'when remove_component_css_classes is false' do
+      let(:options) { { remove_component_css_classes: false } }
+      it { is_expected.to eq 'btn' }
+    end
+  end
+
+  describe '#default_html_wrapper_element' do
+    subject { button.send(:default_html_wrapper_element) }
+    it { is_expected.to eq :a }
   end
 
   describe '#html_options' do
@@ -226,74 +290,8 @@ RSpec.describe NfgUi::Bootstrap::Components::Button do
     end
   end
 
-  
-
-  describe '#component_css_class' do
-    subject { button.send(:component_css_class) }
-    context 'when remove_component_css_classes is true' do
-      let(:options) { { remove_component_css_classes: true } }
-      it { is_expected.to eq '' }
-    end
-
-    context 'when remove_component_css_classes is false' do
-      let(:options) { { remove_component_css_classes: false } }
-      it { is_expected.to eq 'btn' }
-    end
-  end
-
-  describe '#css_classes' do
-    let(:options) { { block: tested_block } }
-    subject { button.send(:css_classes) }
-
-    context 'when :block is true in options' do
-      let(:tested_block) { true }
-      it { is_expected.to include 'btn-block' }
-    end
-
-    context 'when :block is false in options' do
-      let(:tested_block) { false }
-      it { is_expected.not_to include 'btn-block' }
-    end
-
-    context 'when :block is nil in options' do
-      let(:tested_block) { nil }
-      it { is_expected.not_to include 'btn-block' }
-    end
-
-    context 'when :block is not present in options' do
-      let(:options) { {} }
-      it { is_expected.not_to include 'btn-block' }
-    end
-  end
-
-  describe '#default_html_wrapper_element' do
-    subject { button.send(:default_html_wrapper_element) }
-    it { is_expected.to eq :a }
-  end
-
   describe '#non_html_attribute_options' do
     subject { button.send(:non_html_attribute_options) }
     it { is_expected.to include(:modal, :block) }
-  end
-
-  describe '#assistive_html_attributes' do
-    let(:options) { { active: tested_active } }
-    let(:tested_active) { nil }
-    subject { button.send(:assistive_html_attributes) }
-
-    context 'when :active is true' do
-      let(:tested_active) { true }
-      it { is_expected.to include(aria: { pressed: true }) }
-    end
-
-    context 'when :active is false' do
-      let(:tested_active) { false }
-      it { is_expected.not_to include(aria: { pressed: true }) }
-    end
-
-    context 'when :active is not present' do
-      let(:options) { {} }
-      it { is_expected.not_to include(aria: { pressed: true }) }
-    end
   end
 end
