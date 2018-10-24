@@ -1,2 +1,4 @@
-%div{ carousel_indicators.html_options }
-  = carousel_indicators.body
+%ol{ carousel_indicators.html_options }
+  - carousel_indicators.count.times do |i|
+    %li{ class: ('active' if carousel_indicators.active == i + 1), data: { target: carousel_indicators.carousel, slide_to: i } }
+  

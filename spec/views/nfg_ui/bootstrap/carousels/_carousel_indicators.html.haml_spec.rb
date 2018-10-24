@@ -14,4 +14,12 @@ RSpec.describe 'nfg_ui/bootstrap/carousels/_carousel_indicators.html.haml', type
       expect(subject).to eq "<div class='carousel-indicators'>\n#{body}\n</div>\n"
     end
   end
+
+  describe 'carousel indicators with a count' do
+    let(:tested_count) { 2 }
+    let(:options) { { count: tested_count } }
+    it { is_expected.to have_css "[data-slide-to]", count: tested_count }
+  end
+
+  # More needed
 end
