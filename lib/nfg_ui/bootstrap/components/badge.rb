@@ -9,31 +9,25 @@ module NfgUi
         include Bootstrap::Utilities::Themeable
         include Bootstrap::Utilities::Wrappable
 
+        def pill
+          options.fetch(:pill, false)
+        end
+
         private
 
-        def pill
-          p "====== Printed from: (Bootstrap::Components::Badge) self.class.name: #{self.class.name} method: #{__method__}"
-          options.fetch(:pill, default_pill)
-        end
-
         def css_classes
-          p "====== Printed from: (Bootstrap::Components::Badge) self.class.name: #{self.class.name} method: #{__method__}"
-          pill ? super + " #{component_css_class}-pill" : super
-        end
-
-        def default_pill
-          p "====== Printed from: (Bootstrap::Components::Badge) self.class.name: #{self.class.name} method: #{__method__}"
-          false
-        end
-
-        def non_html_attribute_options
-          p "====== Printed from: (Bootstrap::Components::Badge) self.class.name: #{self.class.name} method: #{__method__}"
-          pill ? super.push(:pill) : super
+          [
+            super,
+            ("#{component_css_class}-pill" if pill)
+          ].join(' ').squish
         end
 
         def default_html_wrapper_element
-          p "====== Printed from: (Bootstrap::Components::Badge) self.class.name: #{self.class.name} method: #{__method__}"
           :span
+        end
+
+        def non_html_attribute_options
+          super.push(:pill)
         end
       end
     end
