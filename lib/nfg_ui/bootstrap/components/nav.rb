@@ -6,11 +6,8 @@ module NfgUi
       # Bootstrap Nav Component
       # https://getbootstrap.com/docs/4.1/components/navs/
       class Nav < Bootstrap::Components::Base
+        include Bootstrap::Utilities::Alignable
         include Bootstrap::Utilities::Wrappable
-
-        def center
-          options.fetch(:center, false)
-        end
 
         def component_family
           :nav
@@ -28,10 +25,6 @@ module NfgUi
           options.fetch(:pills, false)
         end
 
-        def right
-          options.fetch(:right, false)
-        end
-
         def tabs
           options.fetch(:tabs, false)
         end
@@ -45,11 +38,9 @@ module NfgUi
         def css_classes
           [
             super,
-            ('justify-content-center' if center),
             ('nav-fill' if fill),
             ('nav-justified' if justified),
             ('nav-pills' if pills),
-            ('justify-content-end' if right),
             ('nav-tabs' if tabs),
             ('flex-column' if vertical)
           ].join(' ').squish
@@ -64,8 +55,6 @@ module NfgUi
                      :justified,
                      :tabs,
                      :pills,
-                     :right,
-                     :center,
                      :vertical)
         end
       end
