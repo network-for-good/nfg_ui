@@ -39,17 +39,22 @@ module NfgUi
                          class: css_classes,
                          data: data,
                          href: href,
+                         style: style,
                          **assistive_html_attributes)
                  .reject { |_k, v| v.blank? } # prevent empty attributes from showing up
                                               # Example: <div class>Text</div>
         end
 
         def href
-          options.fetch(:href, nil)
+          options[:href]
         end
 
         def id
-          options[:id] || nil
+          options[:id]
+        end
+
+        def style
+          options[:style]
         end
 
         private
