@@ -6,6 +6,7 @@ module NfgUi
     module Utilities
       extend ActiveSupport::Autoload
       autoload :Activatable
+      autoload :Alignable
       autoload :Collapsible
       autoload :Disableable
       autoload :Dismissible
