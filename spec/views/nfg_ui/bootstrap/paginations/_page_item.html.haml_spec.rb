@@ -37,8 +37,8 @@ RSpec.describe 'nfg_ui/bootstrap/paginations/_page_item.html.haml', type: :view 
     context 'when a page item is active in options' do
       let(:tested_active) { true }
       it 'outputs a active page item' do
-        expect(subject).to have_css "li.page-item.active"
-        expect(subject).to eq "<li class='page-item active'>\n<a class='page-link' href='#'>\n#{tested_body}\n</a>\n</li>\n"
+        expect(subject).to have_css "li.page-item.active span.sr-only"
+        expect(subject).to eq "<li class='page-item active'>\n<a class='page-link' href='#'>\ntested body\n<span class='sr-only'>(current)</span>\n</a>\n</li>\n"
       end
     end
 
