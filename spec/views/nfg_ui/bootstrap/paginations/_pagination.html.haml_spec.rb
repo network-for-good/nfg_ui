@@ -1,9 +1,9 @@
 require 'rails_helper'
 
-RSpec.describe 'nfg_ui/bootstrap/_pagination.html.haml', type: :view do
+RSpec.describe 'nfg_ui/bootstrap/paginations/_pagination.html.haml', type: :view do
   let(:body) { 'test body content' }
   let(:pagination) { FactoryBot.create(:bootstrap_pagination, body: body) }
-  subject { render 'nfg_ui/bootstrap/pagination', pagination: pagination }
+  subject { render 'nfg_ui/bootstrap/paginations/pagination', pagination: pagination }
 
   it 'outputs a bootstrap pagination component in html' do
     expect(subject).to have_selector '.pagination', text: body
