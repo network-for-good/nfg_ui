@@ -13,14 +13,12 @@ module NfgUi
         #   self.size = options.fetch(:size, default_size)
         # end
         def size
-          p "====== Printed from: (Bootstrap::Utilities::Sizable) self.class.name: #{self.class.name} method: #{__method__}"
           options.fetch(:size, nil)
         end
 
         private
 
         def resized?
-          p "====== Printed from: (Bootstrap::Utilities::Sizable) self.class.name: #{self.class.name} method: #{__method__}"
           size == :sm || size == :lg
         end
 
@@ -29,7 +27,6 @@ module NfgUi
         # end
 
         def css_classes
-          p "====== Printed from: (Bootstrap::Utilities::Sizable) self.class.name: #{self.class.name} method: #{__method__}"
           resized? ? super + " #{size_css_class_prefix}-#{size}" : super
         end
 
@@ -38,7 +35,6 @@ module NfgUi
         # end
 
         def non_html_attribute_options
-          p "====== Printed from: (Bootstrap::Utilities::Sizable) self.class.name: #{self.class.name} method: #{__method__}"
           super.push(:size)
         end
 

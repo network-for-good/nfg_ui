@@ -18,7 +18,6 @@ module NfgUi
         # end
 
         def as
-          p "====== Printed from: (Bootstrap::Utilities::Wrappable) self.class.name: #{self.class.name} method: #{__method__}"
           options.fetch(:as, automatic_as)
         end
 
@@ -27,7 +26,7 @@ module NfgUi
         # end
 
         # def href
-        #   p "====== Printed from: (Bootstrap::Utilities::Wrappable) self.class.name: #{self.class.name} method: #{__method__}"
+      
         #   options.fetch(:href, nil)
         # end
 
@@ -36,7 +35,6 @@ module NfgUi
         
 
         def automatic_as
-          p "====== Printed from: (Bootstrap::Utilities::Wrappable) self.class.name: #{self.class.name} method: #{__method__}"
           if href.present?
             :a
           elsif options[:type] == 'submit'
@@ -47,7 +45,6 @@ module NfgUi
         end
 
         def non_html_attribute_options
-          p "====== Printed from: (Bootstrap::Utilities::Wrappable) self.class.name: #{self.class.name} method: #{__method__}"
           super.push(:as)
         end
 
@@ -83,7 +80,6 @@ module NfgUi
 
         # # # Set default_html_wrapper_element on individual components as needed
         def default_html_wrapper_element
-          p "====== Printed from: (Bootstrap::Utilities::Wrappable) self.class.name: #{self.class.name} method: #{__method__}"
           @default_html_wrapper_element ||= :span
         end
 

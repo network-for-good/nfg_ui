@@ -13,12 +13,10 @@ module NfgUi
         # end
 
         def dismissible
-          p "====== Printed from: (Bootstrap::Utilities::Dismissible) self.class.name: #{self.class.name} method: #{__method__}"
           options.fetch(:dismissible, default_dismissible)
         end
         
         def dismissible?
-          p "====== Printed from: (Bootstrap::Utilities::Dismissible) self.class.name: #{self.class.name} method: #{__method__}"
           dismissible
         end
 
@@ -29,12 +27,10 @@ module NfgUi
         # end
 
         def non_html_attribute_options
-          p "====== Printed from: (Bootstrap::Utilities::Dismissible) self.class.name: #{self.class.name} method: #{__method__}"
           super.push(:dismissible)
         end
 
         def default_dismissible
-          p "====== Printed from: (Bootstrap::Utilities::Dismissible) self.class.name: #{self.class.name} method: #{__method__}"
           true
         end
       end

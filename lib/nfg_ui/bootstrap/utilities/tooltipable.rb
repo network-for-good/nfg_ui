@@ -48,7 +48,6 @@ module NfgUi
         # end
 
         def tooltip
-          p "====== Printed from: (Bootstrap::Utilities::Tooltipable) self.class.name: #{self.class.name} method: #{__method__}"
           options.fetch(:tooltip, nil)
         end
 

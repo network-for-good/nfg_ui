@@ -12,14 +12,12 @@ module NfgUi
         end
 
         def title
-          p "====== Printed from: (Bootstrap::Components::ModalHeader) self.class.name: #{self.class.name} method: #{__method__}"
           options.fetch(:title, nil)
         end
 
         private
 
         def non_html_attribute_options
-          p "====== Printed from: (Bootstrap::Components::ModalHeader) self.class.name: #{self.class.name} method: #{__method__}"
           super.push(:title)
         end
       end

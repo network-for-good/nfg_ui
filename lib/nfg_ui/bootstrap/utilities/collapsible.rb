@@ -17,7 +17,6 @@ module NfgUi
         # end
 
         def collapse
-          p "====== Printed from: (Bootstrap::Utilities::Collapsible) self.class.name: #{self.class.name} method: #{__method__}"
           options.fetch(:collapse, nil)
         end
 
@@ -26,7 +25,7 @@ module NfgUi
         # end
 
         # def html_options
-        #   p "====== Printed from: (Bootstrap::Utilities::Collapsible) self.class.name: #{self.class.name} method: #{__method__}"
+      
         #   # return super unless collapse
         #   # component_data = options[:data] || {}
         #   # super.merge!(data: component_data.merge!(collapse_data_attributes))
@@ -41,7 +40,6 @@ module NfgUi
         # Buttons need to be able to to set a target on :buttons
         # and an href on links -- so this attribute is customizable if needed
         def collapse_data_attributes
-          p "====== Printed from: (Bootstrap::Utilities::Collapsible) self.class.name: #{self.class.name} method: #{__method__}"
           @collapse_data_attributes ||= { toggle: 'collapse', target: collapse }
         end
 
@@ -51,13 +49,12 @@ module NfgUi
         #
         # To solve: how to address aria-expanded to accurately reflect the expanded status
         def assistive_html_attributes
-          p "====== Printed from: (Bootstrap::Utilities::Collapsible) self.class.name: #{self.class.name} method: #{__method__}"
           return super unless collapse
           super.merge!(aria: { expanded: 'false', controls: collapse.tr('#','') }, role: 'button')
         end
 
         # def default_collapsed
-        #   p "====== Printed from: (Bootstrap::Utilities::Collapsible) self.class.name: #{self.class.name} method: #{__method__}"
+      
         #   NfgUi::Bootstrap::Components::Collapse.send(:default_collapsed)
         # end
 
@@ -130,7 +127,6 @@ module NfgUi
         # end
 
         def non_html_attribute_options
-          p "====== Printed from: (Bootstrap::Utilities::Collapsible) self.class.name: #{self.class.name} method: #{__method__}"
           super.push(:collapse)
         end
 
