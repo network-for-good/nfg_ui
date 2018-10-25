@@ -30,8 +30,8 @@ module NfgUi
         private
 
         def non_html_attribute_options
-          super.push(:active, 
-                     :count, 
+          super.push(:active,
+                     :count,
                      :carousel)
         end
       end

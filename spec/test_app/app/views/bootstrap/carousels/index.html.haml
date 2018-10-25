@@ -28,6 +28,18 @@
 %h2 Carousel with Controls
 %p Note: when using controls & indicators, you must apply an html ID to the carousel. Then you must refer to that carousel ID within the carousel controls / indicators
 
+%h3 Carousel automatically generated controls
+%p Pass in controls: true to the main carousel component.
+.row
+  .col-lg-8.col-12.mx-auto
+    = ui.bootstrap :carousel, id: 'carousel_with_controls_automatic', class: 'my-4', controls: true do
+      = ui.bootstrap :carousel_item, active: true, image: 'https://via.placeholder.com/600x400?text=Auto+Generated+Image+No.+1'
+      = ui.bootstrap :carousel_item, image: 'https://via.placeholder.com/600x400?text=Auto+Generated+Image+No.+2'
+      = ui.bootstrap :carousel_item, image: 'https://via.placeholder.com/600x400?text=Auto+Generated+Image+No.+3'
+      
+%hr
+
+%h3 Carousel with manually generated controls.
 .row
   .col-lg-8.col-12.mx-auto
     = ui.bootstrap :carousel, id: 'carousel_with_controls', class: 'my-4' do
@@ -40,11 +52,27 @@
 %hr
 
 %h2 Carousel with Controls & Indicators
+%p Note: by default, the first carousel indicator will be active. If you need to adjust the active carousel item, simply pass in active and a carousel indicator number (e.g.: active: 2)
 
+%h3 Automatically generated controls & indicators
+%p For controls: send in controls: true to the main carousel component options.
+%p For indicators: set indicators: [number] to the main component. The numbers need to match the amount of carousel items. This will automatically default slide 1 as active (for the indicators, thus no action is needed to identify an active indicator)
+%p Ex: 
+%code = ui.bootstrap :carousel, id: 'carousel_with_controls', class: 'my-4', controls: true, indicators: 3
+.row
+  .col-lg-8.col-12.mx-auto
+    = ui.bootstrap :carousel, id: 'carousel_with_controls_and_indicators_automatic', class: 'my-4', controls: true, indicators: 3 do
+      = ui.bootstrap :carousel_item, active: true, image: 'https://via.placeholder.com/600x400?text=Auto+Generated+Image+No.+1'
+      = ui.bootstrap :carousel_item, image: 'https://via.placeholder.com/600x400?text=Auto+Generated+Image+No.+2'
+      = ui.bootstrap :carousel_item, image: 'https://via.placeholder.com/600x400?text=Auto+Generated+Image+No.+3'
+
+%hr
+
+%h3 Manually generated controls & indicators
 .row
   .col-lg-8.col-12.mx-auto
     = ui.bootstrap :carousel, id: 'carousel_with_controls_and_indicators', class: 'my-4' do
-      = ui.bootstrap :carousel_indicators, active: 1, count: 3, carousel: '#carousel_with_controls_and_indicators'
+      = ui.bootstrap :carousel_indicators, count: 3, carousel: '#carousel_with_controls_and_indicators'
       = ui.bootstrap :carousel_item, active: true, image: 'https://via.placeholder.com/600x400?text=Auto+Generated+Image+No.+1'
       = ui.bootstrap :carousel_item, image: 'https://via.placeholder.com/600x400?text=Auto+Generated+Image+No.+2'
       = ui.bootstrap :carousel_item, image: 'https://via.placeholder.com/600x400?text=Auto+Generated+Image+No.+3'
@@ -55,32 +83,32 @@
 
 %h2 Carousel with Captions
 
-%h3 Carousel captions with manually generate carousel items
+%h3 Carousel captions with manually generate carousel items & captions
 .row
   .col-lg-8.col-12.mx-auto
-    = ui.bootstrap :carousel, id: 'manual_captions' class: 'my-4' do
+    = ui.bootstrap :carousel, id: 'manual_captions', class: 'my-4' do
       = ui.bootstrap :carousel_indicators, active: 1, count: 3, carousel: '#manual_captions'
       = ui.bootstrap :carousel_item, active: true do
         = image_tag 'https://via.placeholder.com/600x400?text=Carousel+Slide+No.+1', class: 'd-block w-100'
-        = ui.bootstrap :carousel_caption, body: 'Carousel 1 Caption'
+        = ui.bootstrap :carousel_caption, body: 'Carousel 1 Caption', label: 'Carousel 1 Label'
       = ui.bootstrap :carousel_item do
         = image_tag 'https://via.placeholder.com/600x400?text=Carousel+Slide+No.+2', class: 'd-block w-100'
-        = ui.bootstrap :carousel_caption, body: 'Carousel 2 Caption'
+        = ui.bootstrap :carousel_caption, body: 'Carousel 2 Caption', label: 'Carousel 2 Label'
       = ui.bootstrap :carousel_item do
         = image_tag 'https://via.placeholder.com/600x400?text=Carousel+Slide+No.+3', class: 'd-block w-100'
-        = ui.bootstrap :carousel_caption, body: 'Carousel 3 Caption'
+        = ui.bootstrap :carousel_caption, body: 'Carousel 3 Caption', label: 'Carousel 3 Label'
       = ui.bootstrap :carousel_control, control: :next, carousel: '#manual_captions'
       = ui.bootstrap :carousel_control, control: :prev, carousel: '#manual_captions'
 
 %hr
 
-%h3 Carousel captions with auto generated carousel items
+%h3 Carousel captions with auto generated carousel items & captions with labels
 .row
   .col-lg-8.col-12.mx-auto
     = ui.bootstrap :carousel, id: 'auto_captions', class: 'my-4' do
       = ui.bootstrap :carousel_indicators, active: 1, count: 3, carousel: '#auto_captions'
-      = ui.bootstrap :carousel_item, caption: 'Automatic Caption No. 1', active: true, image: 'https://via.placeholder.com/600x400?text=Auto+Generated+Image+No.+1'
-      = ui.bootstrap :carousel_item, caption: 'Automatic Caption No. 2', image: 'https://via.placeholder.com/600x400?text=Auto+Generated+Image+No.+2'
-      = ui.bootstrap :carousel_item, caption: 'Automatic Caption No. 3', image: 'https://via.placeholder.com/600x400?text=Auto+Generated+Image+No.+3'
+      = ui.bootstrap :carousel_item, caption: 'Automatic Caption No. 1', label: 'Automatic Label No. 1', active: true, image: 'https://via.placeholder.com/600x400?text=Auto+Generated+Image+No.+1'
+      = ui.bootstrap :carousel_item, caption: 'Automatic Caption No. 2', label: 'Automatic Label No. 2', image: 'https://via.placeholder.com/600x400?text=Auto+Generated+Image+No.+2'
+      = ui.bootstrap :carousel_item, caption: 'Automatic Caption No. 3', label: 'Automatic Label No. 3', image: 'https://via.placeholder.com/600x400?text=Auto+Generated+Image+No.+3'
       = ui.bootstrap :carousel_control, control: :next, carousel: '#auto_captions'
       = ui.bootstrap :carousel_control, control: :prev, carousel: '#auto_captions'

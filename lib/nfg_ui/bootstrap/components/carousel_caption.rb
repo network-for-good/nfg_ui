@@ -9,6 +9,16 @@ module NfgUi
         def component_family
           :carousel
         end
+
+        def label
+          options.fetch(:label, nil)
+        end
+
+        private
+
+        def non_html_attribute_options
+          super.push(:label)
+        end
       end
     end
   end

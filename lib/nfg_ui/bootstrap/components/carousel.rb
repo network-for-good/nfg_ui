@@ -10,8 +10,16 @@ module NfgUi
           :carousel
         end
 
+        def controls
+          options.fetch(:controls, false)
+        end
+
         def data
           super.merge!(ride: 'carousel')
+        end
+
+        def indicators
+          options[:indicators] || 0 # return 0 on nil
         end
 
         private
@@ -21,6 +29,10 @@ module NfgUi
             super,
             'slide'
           ].join(' ').squish
+        end
+
+        def non_html_attribute_options
+          super.push(:indicators, :controls)
         end
       end
     end
