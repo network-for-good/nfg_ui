@@ -588,6 +588,20 @@ FactoryBot.define do
     end
   end
 
+  factory :bootstrap_page_item, class: NfgUi::Bootstrap::Components::PageItem do
+    body { nil }
+    data { nil }
+    id { nil }
+
+    skip_create
+    initialize_with { new(attributes, ActionController::Base.new.view_context) }
+
+    trait :rendered do
+      initialize_with { NfgUi::UI::Base.new(ActionController::Base.new.view_context)
+                                       .bootstrap(:page_item, attributes) }
+    end
+  end
+
   factory :bootstrap_pagination, class: NfgUi::Bootstrap::Components::Pagination do
     body { nil }
     data { nil }

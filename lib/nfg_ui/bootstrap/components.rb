@@ -47,6 +47,7 @@ module NfgUi
       require_relative 'components/navbar_nav'
       require_relative 'components/navbar_text'
       require_relative 'components/navbar_toggler'
+      require_relative 'components/page_item'
       require_relative 'components/pagination'
       require_relative 'components/popover'
       require_relative 'components/progress'

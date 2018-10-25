@@ -13,10 +13,4 @@ RSpec.describe NfgUi::Bootstrap::Components::Pagination do
     subject { pagination.component_family }
     it { is_expected.to eq :pagination }
   end
-
-  describe 'private methods' do
-    describe '#css_classes' do
-      subject { nav.send(:css_classes) }
-    end
-  end
 end

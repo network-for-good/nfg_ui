@@ -59,6 +59,7 @@ RSpec.describe NfgUi do
                                                           navbar_nav
                                                           navbar_text
                                                           navbar_toggler
+                                                          page_item
                                                           pagination
                                                           popover
                                                           progress
