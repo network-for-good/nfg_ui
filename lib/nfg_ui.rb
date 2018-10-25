@@ -122,6 +122,7 @@ module NfgUi
                                   navbar_brand
                                   navbar_text
                                   navbar_toggler
+                                  page_item
                                   popover
                                   progress_bar
                                   slat
@@ -149,6 +150,7 @@ module NfgUi
                                   navbar
                                   navbar_nav
                                   page_header
+                                  pagination
                                   slat_list
                                   tab_content
                                   task_list

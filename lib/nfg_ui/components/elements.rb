@@ -36,6 +36,7 @@ module NfgUi
       require_relative 'elements/navbar_brand'
       require_relative 'elements/navbar_text'
       require_relative 'elements/navbar_toggler'
+      require_relative 'elements/page_item'
       require_relative 'elements/popover'
       require_relative 'elements/progress_bar'
       require_relative 'elements/slat'
