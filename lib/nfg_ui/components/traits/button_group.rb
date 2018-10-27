@@ -5,6 +5,7 @@ module NfgUi
     module Traits
       # Access to pre-designed traits
       module ButtonGroup
+        TRAITS = %i[].freeze
         # attr_reader :page_header_toolbar
 
         # def initialize(*)

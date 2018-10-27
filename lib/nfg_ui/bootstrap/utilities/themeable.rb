@@ -19,17 +19,7 @@ module NfgUi
           options.fetch(:outlined, false)
         end
 
-        # def initialize(*)
-        #   super
-        #   @theme = options.fetch(:theme, default_theme)
-        #   @outlined = options.fetch(:outlined, traits.include?(:outlined))
-        # end
-
         private
-
-        # def defaults
-        #   super.merge!(theme: default_theme)
-        # end
 
         def css_classes
           return super unless theme.present?
@@ -39,10 +29,6 @@ module NfgUi
         def non_html_attribute_options
           super.push(:theme, :outlined)
         end
-
-        # def bootstrap4_themes
-        #   NfgUi::BOOTSTRAP_THEMES
-        # end
 
         def theme_css_class_prefix
           @theme_css_class_prefix ||= "#{component_css_class}-"

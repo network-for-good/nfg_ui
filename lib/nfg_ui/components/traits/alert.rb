@@ -5,6 +5,9 @@ module NfgUi
     module Traits
       # Access to pre-designed Alert traits
       module Alert
+        TRAITS = [
+                    
+                  ].freeze
         # include NfgUi::Components::Traits
         # include NfgUi::Components::Traits::Theme
 

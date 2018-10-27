@@ -7,32 +7,11 @@ module NfgUi
       # Pass in :as -- only unique logic at the moment
       # is converting :link to :a for tag generation
       module Wrappable
-        # attr_reader :href
-        # attr_writer :as, :options
-
-        # def initialize(component_options, *)
-        #   super
-        #   self.as = options.fetch(:as, assigned_html_wrapper_element)
-        #   self.options = defaults.merge!(**defaults_for_link, **options) if link?
-        #   @href = options.try(:href, nil)
-        # end
-
         def as
           options.fetch(:as, automatic_as)
         end
 
-        # def html_options
-        #   as == :button ? super.merge!(type: 'button') : super
-        # end
-
-        # def href
-      
-        #   options.fetch(:href, nil)
-        # end
-
         private
-
-        
 
         def automatic_as
           if href.present?
@@ -48,37 +27,7 @@ module NfgUi
           super.push(:as)
         end
 
-        
-
-        # def defaults
-        #   return super unless options[:as] == :a
-        #   super.merge(href: '#')
-        # end
-
-        # # def html_wrapper_element
-        # #   # @
-        # # #   as_link? ? :a : as
-        # # end
-
-        # # private
-
-        # # def assistive_html_attributes
-        # #   as == :button ? super.merge(type: options.fetch(:type, 'button')) : super
-        # # end
-
-        # def non_html_attribute_options
-        #   super.push(:as)
-        # end
-
-        # # def as_link?
-        # #   as == :link
-        # # end
-
-        # # def assigned_html_wrapper_element
-        # #   href ? :a : default_html_wrapper_element
-        # # end
-
-        # # # Set default_html_wrapper_element on individual components as needed
+        # Set default_html_wrapper_element on individual components as needed
         def default_html_wrapper_element
           @default_html_wrapper_element ||= :span
         end
@@ -86,14 +35,6 @@ module NfgUi
         def assistive_html_attributes
           as == :button ? super.merge!(type: 'button') : super
         end
-
-        # def link?
-        #   html_wrapper_element == :a
-        # end
-
-        # def defaults_for_link
-        #   { href: '#' }
-        # end
       end
     end
   end

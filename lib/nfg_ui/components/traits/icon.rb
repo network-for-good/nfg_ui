@@ -5,6 +5,7 @@ module NfgUi
     module Traits
       # Access to pre-designed Button traits
       module Icon
+        TRAITS = %i[].freeze
         # include NfgUi::Components::Traits
         # include NfgUi::Components::Traits::Theme
 

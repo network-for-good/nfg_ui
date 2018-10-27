@@ -5,6 +5,7 @@ module NfgUi
     module Traits
       # Access to pre-designed Alert traits
       module PageHeader
+        TRAITS = %i[].freeze
         # include NfgUi::Components::Utilities::BrowserDetectable
         # attr_reader :sticky
 

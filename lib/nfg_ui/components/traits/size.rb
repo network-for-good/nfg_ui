@@ -3,7 +3,7 @@ module NfgUi
     module Traits
       # Shared Size traits
       module Size
-
+        TRAITS = %i[].freeze
         # def lg_trait
         #   @size = :lg
         # end

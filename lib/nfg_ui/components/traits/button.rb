@@ -7,6 +7,7 @@ module NfgUi
       # To do: this needs to be re-worked with the new concept for
       # traits.
       module Button
+        TRAITS = %i[].freeze
         # include NfgUi::Components::Traits
         # include NfgUi::Components::Traits::Theme
         # include NfgUi::Components::Traits::Size
