@@ -8,6 +8,7 @@ module NfgUi
       autoload :BrowserDetectable
       autoload :Iconable
       autoload :Titleable
+      autoload :Traitable
       autoload :ResourceThemeable
     end
   end
