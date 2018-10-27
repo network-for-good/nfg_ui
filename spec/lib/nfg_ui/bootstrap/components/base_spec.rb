@@ -126,6 +126,30 @@ RSpec.describe NfgUi::Bootstrap::Components::Base do
     end
   end
 
+  describe '#local_base_initialize' do
+    subject { bootstrap_base.local_base_initialize }
+    it { is_expected.to be_nil }
+  end
+
+  describe '#style' do
+    subject { bootstrap_base.style }
+    context 'when :style is present in options' do
+      let(:tested_style) { 'tested_style' }
+      let(:component_options) { { style: tested_style } }
+      it { is_expected.to eq tested_style }
+    end
+
+    context 'when :style is not present in options' do
+      let(:component_options) { {} }
+      it { is_expected.to be_nil }
+    end
+
+    context 'when :style is nil in options' do
+      let(:component_options) { { style: nil } }
+      it { is_expected.to be_nil }
+    end
+  end
+
   describe 'private methods' do
     describe '#assistive_html_attributes' do
       subject { bootstrap_base.send(:assistive_html_attributes) }
