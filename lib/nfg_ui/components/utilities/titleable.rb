@@ -6,18 +6,10 @@ module NfgUi
       # Allows NFG design system components to utilize the :title option
       module Titleable
         def title
-          options.fetch(:title, default_title)
+          options.fetch(:title, nil)
         end
 
         private
-
-        def default_title
-          ''
-        end
-
-        def defaults
-          super.merge!(title: '')
-        end
 
         def non_html_attribute_options
           super.push(:title)
