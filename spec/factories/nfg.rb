@@ -1,7 +1,7 @@
 # Additional info on using FactoryBot without an ORM
 # https://robots.thoughtbot.com/tips-for-using-factory-girl-without-an-orm
 FactoryBot.define do
-  factory :nfg_base, class: NfgUi::Components::Base do
+  factory :base, class: NfgUi::Components::Base do
     id { nil }
     data { nil }
     body { nil }
@@ -10,7 +10,7 @@ FactoryBot.define do
     initialize_with { new(attributes, ActionController::Base.new.view_context) }
   end
 
-  factory :nfg_icon, class: NfgUi::Components::Foundations::Icon do
+  factory :icon, class: NfgUi::Components::Foundations::Icon do
     text { nil }
     icon { nil }
     id { nil }
@@ -26,7 +26,7 @@ FactoryBot.define do
     end
   end
 
-  factory :nfg_modal, class: NfgUi::Components::Patterns::Modal do
+  factory :modal, class: NfgUi::Components::Patterns::Modal do
     body { nil }
     data { nil }
     id { nil }
@@ -38,6 +38,81 @@ FactoryBot.define do
     trait :rendered do
       initialize_with { NfgUi::UI::Base.new(ActionController::Base.new.view_context)
                                        .nfg(:modal, attributes) }
+    end
+  end
+
+  factory :tile, class: NfgUi::Components::Patterns::Tile do
+    body { nil }
+    data { nil }
+    id { nil }
+    traits { [] }
+
+    skip_create
+    initialize_with { new(attributes, ActionController::Base.new.view_context) }
+
+    trait :rendered do
+      initialize_with { NfgUi::UI::Base.new(ActionController::Base.new.view_context)
+                                       .nfg(:tile, attributes) }
+    end
+  end
+
+  factory :tile_body, class: NfgUi::Components::Patterns::TileBody do
+    body { nil }
+    data { nil }
+    id { nil }
+    traits { [] }
+
+    skip_create
+    initialize_with { new(attributes, ActionController::Base.new.view_context) }
+
+    trait :rendered do
+      initialize_with { NfgUi::UI::Base.new(ActionController::Base.new.view_context)
+                                       .nfg(:tile_body, attributes) }
+    end
+  end
+
+  factory :tile_header, class: NfgUi::Components::Patterns::TileHeader do
+    body { nil }
+    data { nil }
+    id { nil }
+    traits { [] }
+
+    skip_create
+    initialize_with { new(attributes, ActionController::Base.new.view_context) }
+
+    trait :rendered do
+      initialize_with { NfgUi::UI::Base.new(ActionController::Base.new.view_context)
+                                       .nfg(:tile_header, attributes) }
+    end
+  end
+
+  factory :tile_section, class: NfgUi::Components::Patterns::TileSection do
+    body { nil }
+    data { nil }
+    id { nil }
+    traits { [] }
+
+    skip_create
+    initialize_with { new(attributes, ActionController::Base.new.view_context) }
+
+    trait :rendered do
+      initialize_with { NfgUi::UI::Base.new(ActionController::Base.new.view_context)
+                                       .nfg(:tile_section, attributes) }
+    end
+  end
+
+  factory :typeface, class: NfgUi::Components::Foundations::Typeface do
+    body { nil }
+    data { nil }
+    id { nil }
+    traits { [] }
+
+    skip_create
+    initialize_with { new(attributes, ActionController::Base.new.view_context) }
+
+    trait :rendered do
+      initialize_with { NfgUi::UI::Base.new(ActionController::Base.new.view_context)
+                                       .nfg(:typeface, attributes) }
     end
   end
 end
