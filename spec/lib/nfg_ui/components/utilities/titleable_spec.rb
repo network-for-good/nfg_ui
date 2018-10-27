@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe NfgUi::Components::Utilities::Titleable do
   # Modal is a titleable component
   # let(:card) { FactoryBot.create(:bootstrap_modal, title: title) }
-  let(:modal) { FactoryBot.create(:nfg_modal, title: title) }
+  let(:modal) { FactoryBot.create(:modal, title: title) }
   let(:title) { nil }
   let(:tested_title) { 'tested title' }
 
