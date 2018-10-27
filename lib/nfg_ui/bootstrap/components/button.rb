@@ -12,7 +12,7 @@ module NfgUi
         include Bootstrap::Utilities::Activatable
         include Bootstrap::Utilities::Disableable
         include Bootstrap::Utilities::Tooltipable
-        include Bootstrap::Utilities::Collapsible
+        include Bootstrap::Utilities::CollapseToggleable
 
         def block
           options.fetch(:block, false)

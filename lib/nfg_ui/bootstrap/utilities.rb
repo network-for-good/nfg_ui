@@ -8,6 +8,7 @@ module NfgUi
       autoload :Activatable
       autoload :Alignable
       autoload :Collapsible
+      autoload :CollapseToggleable
       autoload :Disableable
       autoload :Dismissible
       autoload :DropdownDirectionable

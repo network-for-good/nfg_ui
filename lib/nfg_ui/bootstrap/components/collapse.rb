@@ -4,9 +4,10 @@ module NfgUi
       # Bootstrap Collapse Component
       # https://getbootstrap.com/docs/4.1/components/collapse/
       class Collapse < Bootstrap::Components::Base
-        def collapsed
-          options.fetch(:collapsed, true)
-        end
+        include Bootstrap::Utilities::Collapsible
+        # def collapsed
+        #   options.fetch(:collapsed, false)
+        # end
 
         def navbar
           options.fetch(:navbar, false)
