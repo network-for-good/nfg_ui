@@ -5,6 +5,7 @@ RSpec.describe NfgUi::Components::Patterns::TileBody do
   let(:options) { {} }
   it { expect(described_class).to be < NfgUi::Components::Base }
   it_behaves_like 'a component with a consistent initalized construction'
+  it_behaves_like 'a component that includes the Iconable utility module'
 
   pending 'TileBody specs needed'
 
