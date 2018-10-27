@@ -6,7 +6,7 @@ RSpec.describe NfgUi::Bootstrap::Components::NavbarToggler do
 
   it { expect(described_class).to be < NfgUi::Bootstrap::Components::Base }
   it_behaves_like 'a component with a consistent initalized construction'
-  it_behaves_like 'a component that includes the Collapsible utility module'
+  it_behaves_like 'a component that includes the CollapseToggleable utility module'
   
   describe '#component_family' do
     subject { navbar_toggler.component_family }
