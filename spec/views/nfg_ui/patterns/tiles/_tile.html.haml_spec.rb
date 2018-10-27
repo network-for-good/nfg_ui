@@ -1,12 +1,14 @@
 require 'rails_helper'
 
-RSpec.describe 'nfg_ui/foundations/tiles/_tile.html.haml', type: :view do
+RSpec.describe 'nfg_ui/patterns/tiles/_tile.html.haml', type: :view do
   let(:tile) { FactoryBot.create(:tile, *traits, **options) }
   let(:options) { {} }
   let(:traits) { [] }
-  subject { render 'nfg_ui/foundations/tiles/tile', tile: tile }
+  subject { render 'nfg_ui/patterns/tiles/tile', tile: tile }
 
   pending 'Tile spec needed'
+
+  it { is_expected.to have_css '.tile' }
 
   describe 'the tile output html' do
     it 'outputs the tile html' do
