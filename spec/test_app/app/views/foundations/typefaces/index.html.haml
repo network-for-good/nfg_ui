@@ -1,5 +1,7 @@
 %h1 Typefaces
 
+%h2 Without themes
+
 Title:
 = ui.nfg :typeface, title: 'Title'
 %br
@@ -15,3 +17,47 @@ With Icon:
 Body:
 = ui.nfg :typeface, body: 'Body'
 
+%hr
+
+%h2.mb-4 Themes
+
+
+= ui.nfg :typeface, body: 'Sample text without trait', theme: :primary, icon: 'rocket'
+= ui.nfg :typeface, :primary, body: 'Sample text with trait', icon: 'rocket'
+
+%hr
+
+= ui.nfg :typeface, body: 'Sample text without trait', theme: :secondary, icon: 'rocket'
+= ui.nfg :typeface, :secondary, body: 'Sample text with trait', icon: 'rocket'
+
+%hr
+
+= ui.nfg :typeface, body: 'Sample text without trait', theme: :success, icon: 'rocket'
+= ui.nfg :typeface, :success, body: 'Sample text with trait', icon: 'rocket'
+
+%hr
+
+= ui.nfg :typeface, body: 'Sample text without trait', theme: :danger, icon: 'rocket'
+= ui.nfg :typeface, :danger, body: 'Sample text with trait', icon: 'rocket'
+
+%hr
+
+= ui.nfg :typeface, body: 'Sample text without trait', theme: :warning, icon: 'rocket'
+= ui.nfg :typeface, :warning, body: 'Sample text with trait', icon: 'rocket'
+
+%hr
+
+= ui.nfg :typeface, body: 'Sample text without trait', theme: :info, icon: 'rocket'
+= ui.nfg :typeface, :info, body: 'Sample text with trait', icon: 'rocket'
+
+%hr
+
+.bg-dark.p-3
+  = ui.nfg :typeface, body: 'Sample text without trait', theme: :light, icon: 'rocket'
+  = ui.nfg :typeface, :light, body: 'Sample text with trait', icon: 'rocket'
+
+%hr
+
+= ui.nfg :typeface, body: 'Sample text without trait', theme: :dark, icon: 'rocket'
+= ui.nfg :typeface, :dark, body: 'Sample text with trait', icon: 'rocket'
+%hr
