@@ -1,12 +1,14 @@
 require 'rails_helper'
 
-RSpec.describe 'nfg_ui/foundations/icons/icon.html.haml', type: :view do
-  let(:icon) { FactoryBot.create(:nfg_icon, *traits, **options) }
+RSpec.describe 'nfg_ui/foundations/icons/_icon.html.haml', type: :view do
+  let(:icon) { FactoryBot.create(:icon, *traits, **options) }
   let(:options) { {} }
   let(:traits) { [] }
   subject { render 'nfg_ui/foundations/icons/icon', icon: icon }
 
   pending 'Icon spec needed'
+
+  it { is_expected.to have_css '.fa' }
 
   describe 'the icon output html' do
     it 'outputs the icon html' do
