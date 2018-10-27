@@ -12,7 +12,7 @@ RSpec.describe NfgUi::Bootstrap::Components::Button do
   it_behaves_like 'a component that includes the Sizable utility module'
   it_behaves_like 'a component that includes the Disableable utility module'
   it_behaves_like 'a component that includes the Tooltipable utility module'
-  it_behaves_like 'a component that includes the Collapsible utility module'
+  it_behaves_like 'a component that includes the CollapseToggleable utility module'
 
   describe '#block' do
     subject { button.block }
