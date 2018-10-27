@@ -3,7 +3,7 @@ shared_examples_for 'a component that includes the Collapsible utility module' d
     let(:component) { described_class.new({}, ActionController::Base.new.view_context) }
     it { expect(described_class.included_modules).to include NfgUi::Bootstrap::Utilities::Collapsible }
     it 'responds to the Collapsible public methods' do
-      expect(component).to respond_to :collapse
+      expect(component).to respond_to :collapse, :collapsed, :collapsible
     end
   end
 end
