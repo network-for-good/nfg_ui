@@ -25,7 +25,7 @@ module NfgUi
         end
 
         def disable_with
-          options.fetch(:disable_with, default_disable_with)
+          options.fetch(:disable_with, nil)
         end
 
         private

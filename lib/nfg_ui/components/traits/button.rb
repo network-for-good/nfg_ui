@@ -9,6 +9,7 @@ module NfgUi
       module Button
         TRAITS = %i[block
                     close
+                    disable_with
                     link
                     outlined
                     remote
@@ -48,6 +49,10 @@ module NfgUi
         #   @css_classes = 'close'
         #   @icon = 'times'
         #   build_aria(aria_key: :label, aria_value: 'Close')
+        end
+
+        def disable_with_trait
+          data[:disable_with] = default_disable_with
         end
 
         def remote_trait
