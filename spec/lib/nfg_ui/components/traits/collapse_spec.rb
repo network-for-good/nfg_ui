@@ -11,11 +11,11 @@ RSpec.describe NfgUi::Components::Traits::Collapse do
     subject { described_class::TRAITS }
   end
 
-  describe '#collapsible' do
-    subject { component_with_traits.send(:collapsible) }
+  describe '#collapsible_trait' do
+    subject { component_with_traits.send(:collapsible_trait) }
   end
 
-  describe '#collapsed' do
-    subject { component_with_traits.send(:collapsed) }
+  describe '#collapsed_trait' do
+    subject { component_with_traits.send(:collapsed_trait) }
   end
 end

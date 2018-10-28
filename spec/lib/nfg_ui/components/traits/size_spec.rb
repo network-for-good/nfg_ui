@@ -10,4 +10,12 @@ RSpec.describe NfgUi::Components::Traits::Size do
   describe 'registered traits' do
     subject { described_class::TRAITS }
   end
+
+  describe '#lg_trait' do
+    subject { component_with_traits.lg_trait }
+  end
+
+  describe '#sm_trait' do
+    subject { component_with_traits.sm_trait }
+  end
 end
