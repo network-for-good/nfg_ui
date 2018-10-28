@@ -7,6 +7,7 @@ module NfgUi
       # As such, the NFG UI badge is simply a bootstrap badge behind the scenes.
       # Traits will eventually be connected here.
       class Dropdown < Bootstrap::Components::Dropdown
+        include NfgUi::Components::Utilities::Traitable
       end
     end
   end

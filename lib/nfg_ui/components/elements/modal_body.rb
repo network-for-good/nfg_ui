@@ -5,6 +5,7 @@ module NfgUi
     module Elements
       # doc coming soon
       class ModalBody < Bootstrap::Components::ModalBody
+        include NfgUi::Components::Utilities::Traitable
       end
     end
   end

@@ -5,6 +5,7 @@ module NfgUi
     module Elements
       # Nav doc coming soon
       class NavbarBrand < Bootstrap::Components::NavbarBrand
+        include NfgUi::Components::Utilities::Traitable
       end
     end
   end

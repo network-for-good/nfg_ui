@@ -5,6 +5,7 @@ module NfgUi
     module Elements
       # doc coming soon
       class ModalHeader < Bootstrap::Components::ModalHeader
+        include NfgUi::Components::Utilities::Traitable
       end
     end
   end

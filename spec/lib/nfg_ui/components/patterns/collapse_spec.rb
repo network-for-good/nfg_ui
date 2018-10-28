@@ -5,4 +5,7 @@ RSpec.describe NfgUi::Components::Patterns::Collapse do
   let(:options) { {} }
   it { expect(described_class).to be < NfgUi::Bootstrap::Components::Collapse }
   it_behaves_like 'a component with a consistent initalized construction'
+  it_behaves_like 'a component that includes the Collapse trait module'
+
+  it { expect(described_class.included_modules).to include NfgUi::Components::Utilities::Traitable }
 end

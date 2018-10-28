@@ -5,4 +5,6 @@ RSpec.describe NfgUi::Components::Elements::DropdownToggle do
   let(:options) { {} }
   it { expect(described_class).to be < NfgUi::Bootstrap::Components::DropdownToggle }
   it_behaves_like 'a component with a consistent initalized construction'
+
+  it { expect(described_class.included_modules).to include NfgUi::Components::Utilities::Traitable }
 end

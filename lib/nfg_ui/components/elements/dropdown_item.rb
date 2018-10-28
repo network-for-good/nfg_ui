@@ -5,6 +5,7 @@ module NfgUi
     module Elements
       # Ino coming soon.
       class DropdownItem < Bootstrap::Components::DropdownItem
+        include NfgUi::Components::Utilities::Traitable
       end
     end
   end

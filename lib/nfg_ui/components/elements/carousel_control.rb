@@ -5,6 +5,7 @@ module NfgUi
     module Elements
       # Docs coming soon
       class CarouselControl < Bootstrap::Components::CarouselControl
+        include NfgUi::Components::Utilities::Traitable
       end
     end
   end

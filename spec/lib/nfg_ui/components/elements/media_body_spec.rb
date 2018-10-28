@@ -9,5 +9,7 @@ RSpec.describe NfgUi::Components::Elements::MediaBody do
   describe '#component_family' do
     subject { media_body.component_family }
     it { is_expected.to eq :media }
+
+    it { expect(described_class.included_modules).to include NfgUi::Components::Utilities::Traitable }
   end
 end

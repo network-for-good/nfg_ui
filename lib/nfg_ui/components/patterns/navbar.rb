@@ -5,6 +5,7 @@ module NfgUi
     module Patterns
       # Navbar docs coming soon
       class Navbar < Bootstrap::Components::Navbar
+        include NfgUi::Components::Utilities::Traitable
       end
     end
   end

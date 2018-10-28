@@ -7,6 +7,7 @@ module NfgUi
       # As such, the NFG UI carousel is simply a bootstrap carousel behind the scenes.
       # Traits will eventually be connected here.
       class Carousel < Bootstrap::Components::Carousel
+        include NfgUi::Components::Utilities::Traitable
       end
     end
   end

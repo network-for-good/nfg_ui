@@ -5,6 +5,7 @@ module NfgUi
     module Elements
       # InputGroup doc coming soon
       class InputGroup < Bootstrap::Components::InputGroup
+        include NfgUi::Components::Utilities::Traitable
       end
     end
   end
