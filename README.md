@@ -329,6 +329,10 @@ $ Collapsible? (Y/n):
 
 21. Consider moving component_css_class out of private so it can be manipulated in the component (instead of needing stuff like remove_component_css_classes methods)
 
+22. Author useful error notifications for missing traits (instead of 'something_trait' method error)
+
+23. need an overlay_blocker
+
 Component tooltip/icon auto list for backup
 
 FOUNDATION_COMPONENT_NAMES = %i[color
