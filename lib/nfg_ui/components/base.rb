@@ -7,14 +7,7 @@ module NfgUi
     # Bootstrap counterpart, tiles don't).
     class Base < Bootstrap::Components::Base
       include NfgUi::Components::Utilities::Traitable
-
-      def describe
-        options.fetch(:describe, nil)
-      end
-
-      def data
-        describe ? super.merge!(describe: describe) : super
-      end
+      include NfgUi::Components::Utilities::Describable
     end
   end
 end
