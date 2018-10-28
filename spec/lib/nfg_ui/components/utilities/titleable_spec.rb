@@ -20,11 +20,6 @@ RSpec.describe NfgUi::Components::Utilities::Titleable do
     end
   end
 
-  describe '#default_title' do
-    subject { modal.send(:default_title) }
-    it { is_expected.to eq '' }
-  end
-
   describe '#defaults' do
     subject { modal.send(:defaults) }
     it { is_expected.to include(title: '') }
