@@ -6,7 +6,8 @@ module NfgUi
     # Trait modules must have the same name as the component they represent.
     # This provides autoloading of traits.
     module Traits
-      TRAIT_MODULES = %i[Alert
+      TRAIT_MODULES = %i[Active
+                         Alert
                          Button
                          ButtonGroup
                          Card
