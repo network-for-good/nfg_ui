@@ -9,11 +9,11 @@ module NfgUi
       include NfgUi::Components::Utilities::Traitable
       
       def local_base_initialize
-        local_initialize # not sure if i need this yet. will allow custom initialize within components
-        initialize_traits # applies traits to the component
+        # local_initialize # not sure if i need this yet. will allow custom initialize within components
+        # initialize_traits # applies traits to the component
       end
 
-      def local_initialize; end
+      # def local_initialize; end
     end
   end
 end

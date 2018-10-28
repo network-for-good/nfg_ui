@@ -16,7 +16,8 @@ module NfgUi
           self.options = defaults.merge!(component_options)
           self.view_context = view_context
           @body = options.fetch(:body, '')
-          local_base_initialize
+          local_base_initialize # TODO: Determine if this is needed
+          local_initialize
         end
 
         # This is used to help identify where to find partials for rendering components.
@@ -59,6 +60,7 @@ module NfgUi
         # to initialize traits on design system components 
         # (which are not available on bootstrap)
         def local_base_initialize; end
+        def local_initialize; end
 
         def style
           options[:style]

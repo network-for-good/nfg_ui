@@ -131,6 +131,11 @@ RSpec.describe NfgUi::Bootstrap::Components::Base do
     it { is_expected.to be_nil }
   end
 
+  describe '#local_initialize' do
+    subject { bootstrap_base.local_initialize }
+    it { is_expected.to be_nil }
+  end
+
   describe '#style' do
     subject { bootstrap_base.style }
     context 'when :style is present in options' do
