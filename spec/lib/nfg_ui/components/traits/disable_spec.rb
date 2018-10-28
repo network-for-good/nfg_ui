@@ -11,7 +11,7 @@ RSpec.describe NfgUi::Components::Traits::Disable do
     subject { described_class::TRAITS }
   end
 
-  describe '#disable_trait' do
-    subject { component_with_traits.send(:disable_trait) }
+  describe '#disabled_trait' do
+    subject { component_with_traits.send(:disabled_trait) }
   end
 end

@@ -5,12 +5,12 @@ module NfgUi
     module Traits
       # Access to pre-designed Card traits
       module Disable
-        TRAITS = %i[disable].freeze
+        TRAITS = %i[disabled].freeze
 
         # private
 
         # Set component to collapse capable
-        def disable_trait
+        def disabled_trait
           options[:disabled] = true
         end
       end

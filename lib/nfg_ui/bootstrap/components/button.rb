@@ -32,18 +32,9 @@ module NfgUi
           return if options[:as] == :button
           if collapse
             collapse
-          # elsif modal
           else
             options.fetch(:href, '#')
           end
-          # elsif options[:href]
-          #   if
-          #   options[:href].nil? ? '#' : options[:href]
-          # elsif options[:as] == :a
-
-          # else
-          #   super
-          # end
         end
 
         def modal

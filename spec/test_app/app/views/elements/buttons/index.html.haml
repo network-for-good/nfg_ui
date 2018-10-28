@@ -155,14 +155,18 @@
 
 %h3 Disabled Buttons
 = ui.nfg :button, body: 'Disabled Button as Link', href: '#nogo', disabled: true
-= ui.nfg :button, as: :button, body: 'Disabled Button', disabled: true
+= ui.nfg :button, as: :button, body: 'Disabled Button, as: button not trait', disabled: true
+= ui.nfg :button, :disabled, as: :button, body: 'Disabled Button, as: button - Traited'
+= ui.nfg :button, :disabled, body: 'Disabled Button - Trait, no as'
 
 %hr
 
 %h3 Button with tooltip
 = ui.nfg :button, as: :button, body: "Tooltip'd Button", tooltip: 'Button with a tooltip'
 
-= ui.nfg :button, as: :button, disabled: true, body: "Disabled Tooltip'd Button", tooltip: 'Disabled button with a tooltip'
+= ui.nfg :button, :disabled, body: "Disabled Tooltip'd Link Button", tooltip: 'Disabled button with a tooltip'
+
+= ui.nfg :button, :disabled, as: :button, body: "Disabled Tooltip'd %Button", tooltip: 'Disabled button with a tooltip'
 
 %hr
 

@@ -22,7 +22,13 @@ module NfgUi
         end
 
         def assistive_html_attributes
-          disabled ? super.merge!(tabindex: '-1') : super
+          if disabled
+            super.merge!(tabindex: '-1', 
+                         **(options[:as] == :button) ? { disabled: true } : {})
+            
+          else
+            super
+          end
         end
       end
     end
