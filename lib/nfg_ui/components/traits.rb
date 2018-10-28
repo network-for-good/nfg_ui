@@ -15,6 +15,7 @@ module NfgUi
                          Collapse
                          Disable
                          Icon
+                         Nav
                          PageHeader
                          Size
                          Theme
