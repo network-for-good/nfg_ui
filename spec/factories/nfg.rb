@@ -41,6 +41,21 @@ FactoryBot.define do
     end
   end
 
+  factory :page_header, class: NfgUi::Components::Patterns::PageHeader do
+    body { nil }
+    data { nil }
+    id { nil }
+    traits { [] }
+
+    skip_create
+    initialize_with { new(attributes, ActionController::Base.new.view_context) }
+
+    trait :rendered do
+      initialize_with { NfgUi::UI::Base.new(ActionController::Base.new.view_context)
+                                       .nfg(:page_header, attributes) }
+    end
+  end
+
   factory :tile, class: NfgUi::Components::Patterns::Tile do
     body { nil }
     data { nil }

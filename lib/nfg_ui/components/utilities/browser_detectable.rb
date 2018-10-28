@@ -5,11 +5,11 @@ module NfgUi
     module Utilities
       # Add browser detection to the desired component
       module BrowserDetectable
-        # require 'browser'
+        require 'browser'
 
-        # def browser
-        #   Browser.new(user_agent: view_context.request.env['HTTP_USER_AGENT'])
-        # end
+        def browser
+          Browser.new(user_agent: view_context.request.env['HTTP_USER_AGENT'])
+        end
       end
     end
   end
