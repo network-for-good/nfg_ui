@@ -10,7 +10,7 @@ module NfgUi
         end
 
         def sm_trait
-          options[:size] = :lg
+          options[:size] = :sm
         end
       end
     end
