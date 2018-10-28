@@ -13,7 +13,8 @@ module NfgUi
                     warning
                     info
                     light
-                    dark].freeze
+                    dark
+                    outlined].freeze
 
         def primary_trait
           options[:theme] = :primary
@@ -45,6 +46,10 @@ module NfgUi
 
         def dark_trait
           options[:theme] = :dark
+        end
+
+        def outlined_trait
+          options[:outlined] = true
         end
       end
     end

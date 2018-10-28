@@ -16,7 +16,22 @@ module NfgUi
       end
 
       def nfg(component_name = nil, *traits, **options, &block)
+        return unless render_nfg_component?(options)
         NfgUi::UI::NetworkForGood.new(view_context, component_name, *traits, **options, &block).render_component
+      end
+
+      private
+
+      def render_nfg_component?(options)
+        render_if(options) || !render_unless(options)
+      end
+
+      def render_if(options)
+        options.fetch(:render_if, true)
+      end
+
+      def render_unless(options)
+        options.fetch(:render_unless, false)
       end
     end
   end

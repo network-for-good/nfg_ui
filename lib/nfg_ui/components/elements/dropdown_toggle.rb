@@ -8,6 +8,7 @@ module NfgUi
       # Traits will eventually be connected here.
       class DropdownToggle < Bootstrap::Components::DropdownToggle
         include NfgUi::Components::Utilities::Traitable
+        include NfgUi::Components::Traits::Size
       end
     end
   end

@@ -13,6 +13,7 @@ module NfgUi
         include Bootstrap::Utilities::Tooltipable
         include NfgUi::Components::Traits::Icon
         include NfgUi::Components::Traits::Theme
+        include NfgUi::Components::Traits::Alignment
 
         def icon
           traits.first.to_s || options[:icon]

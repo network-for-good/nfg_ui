@@ -1,9 +1,7 @@
 %h1 Buttons
 
 %h2 Default button
-%p
-  = ui.nfg :button, body: 'Default Button'
-  == ui.nfg :button, body: 'Default Button' 
+%p= ui.nfg :button, body: 'No Frills Button'
 %p
   = ui.nfg :button, :submit, :danger, body: 'Delete', icon: 'trash'
   == ui.nfg :button, :submit, :danger, body: 'Delete', icon: 'trash'
@@ -30,7 +28,8 @@
 %hr
 
 %h3 Buttons for Remote forms
-= ui.nfg :button, :submit, remote: true, body: 'Remote button without trait'
+= ui.nfg :button, :submit, remote: true, describe: 'test remote', tooltip: 'Heavy button!', body: 'Remote button without trait'
+= ui.nfg :button, :submit, :disabled, remote: true, describe: 'test remote', tooltip: 'Heavy button!', body: 'Insanity in a button' 
 = ui.nfg :button, :submit, :remote, body: 'Remote button with trait'
 
 %hr

@@ -6,6 +6,7 @@ module NfgUi
       # Information coming soon
       class DropdownMenu < Bootstrap::Components::DropdownMenu
         include NfgUi::Components::Utilities::Traitable
+        include NfgUi::Components::Traits::Alignment
       end
     end
   end

@@ -34,6 +34,7 @@ RSpec.describe NfgUi::UI::Base do
   end
 
   describe '#nfg' do
+    pending 'need spec for testing options render_if'
     subject { base_component.nfg(*component_args) }
     let(:body) { 'test' }
     let(:component_args) { [:button, [], { body: body}] }

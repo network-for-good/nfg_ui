@@ -8,10 +8,12 @@ module NfgUi
     module Traits
       TRAIT_MODULES = %i[Active
                          Alert
+                         Alignment
                          Button
                          ButtonGroup
                          Card
                          Collapse
+                         Disable
                          Icon
                          PageHeader
                          Size

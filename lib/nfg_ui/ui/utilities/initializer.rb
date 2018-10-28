@@ -22,11 +22,23 @@ module NfgUi
         include Haml::Helpers # add capture_haml support
 
         def render_component
-          view_context.render partial: partial_path, locals: { component_name => component }
+          # return unless render_if || render_unless
+          # raise options.inspect
+          # if render_if
+            view_context.render partial: partial_path, locals: { component_name => component }
+          # end
         end
 
         
         private
+
+        def render_if
+          options.fetch(:render_if, true)
+        end
+
+        def render_unless
+          options.fetch(:render_unless, true)
+        end
 
         # Provides a central initialization method for NfgUi::UI::Base child classes
         def initializer(component_name = nil, *traits, **options, &block)
@@ -58,15 +70,15 @@ module NfgUi
           component.component_family.presence
         end
 
+        def components_within_group(*)
+          []
+        end
+
         def grouping_folder
           ''
         end
 
         def group; end
-
-        def components_within_group(*)
-          []
-        end
 
         def partial_path
           [

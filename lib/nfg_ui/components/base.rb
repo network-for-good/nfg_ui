@@ -2,18 +2,19 @@
 
 module NfgUi
   module Components
-    # Base NFG UI component for compnoents that are not directly
-    # inherited from Bootstrap base components (e.g.: buttons do not
-    # inherit this Base class, but Tile does)
+    # Base NFG UI component for components that are not directly
+    # inherited from Bootstrap base components (e.g.: buttons inhert their 
+    # Bootstrap counterpart, tiles don't).
     class Base < Bootstrap::Components::Base
       include NfgUi::Components::Utilities::Traitable
-      
-      def local_base_initialize
-        # local_initialize # not sure if i need this yet. will allow custom initialize within components
-        # initialize_traits # applies traits to the component
+
+      def describe
+        options.fetch(:describe, nil)
       end
 
-      # def local_initialize; end
+      def data
+        describe ? super.merge!(describe: describe) : super
+      end
     end
   end
 end

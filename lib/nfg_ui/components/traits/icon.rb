@@ -8,14 +8,14 @@ module NfgUi
         TRAITS = %i[right
                     loader].freeze
         # include NfgUi::Components::Traits
-        # include NfgUi::Components::Traits::Theme
+        
 
         # private
 
-        def right_trait
-          options[:right] = true
-        #   @right = true
-        end
+        # def right_trait
+        #   options[:right] = true
+        # #   @right = true
+        # end
 
         def loader_trait
           options[:icon] = 'spinner spin fw'
