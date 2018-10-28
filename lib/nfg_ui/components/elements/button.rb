@@ -7,10 +7,25 @@ module NfgUi
       # As such, the NFG UI Button is simply a bootstrap Button behind the scenes.
       # Traits will eventually be connected here.
       class Button < Bootstrap::Components::Button
-        include NfgUi::Components::Utilities::Traitable
-        # include NfgUi::Components::Traits::Button
-        include NfgUi::Components::Utilities::Iconable
         # include Bootstrap::Utilities::Tooltipable
+        # attr_accessor :component_css_class
+
+        include NfgUi::Components::Utilities::Iconable
+        include NfgUi::Components::Utilities::Traitable
+
+        include NfgUi::Components::Traits::Active
+        include NfgUi::Components::Traits::Button
+        include NfgUi::Components::Traits::Size
+        include NfgUi::Components::Traits::Theme
+
+
+        # def local_initialize
+        #   @component_css_class = ''
+          
+        # end
+
+        
+        
 
         # attr_reader :disable_with, :data, :remote
 
@@ -36,7 +51,23 @@ module NfgUi
         #   update_data_attributes
         # end
 
-        # private
+        def disable_with
+          options.fetch(:disable_with, default_disable_with)
+        end
+
+        def data
+          if disable_with
+            super.merge!(disable_with: disable_with)
+          else
+            super
+          end
+        end
+
+        private
+
+        def default_disable_with
+          view_context.ui.nfg(:icon, :loader, text: 'Saving...')
+        end
 
         # def disable_with_text
         #   disable_with.present? ? disable_with : view_context.ui.nfg(:icon,
@@ -55,9 +86,9 @@ module NfgUi
         #   super.merge(disable_with: default_disable_with)
         # end
 
-        # def non_html_attribute_options
-        #   super.push(:disable_with, :remote)
-        # end
+        def non_html_attribute_options
+          super.push(:disable_with)
+        end
 
         # def default_disable_with
         #   false

@@ -33,7 +33,12 @@ module NfgUi
         end
 
         def assistive_html_attributes
-          as == :button ? super.merge!(type: 'button') : super
+          if as == :button
+            super.merge(type: options.fetch(:type, 'button')) # prefer type submit
+          else
+            super
+          end
+          # as == :button ? super.merge!(type: 'button') : super
         end
       end
     end

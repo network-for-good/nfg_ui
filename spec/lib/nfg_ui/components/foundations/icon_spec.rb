@@ -8,6 +8,8 @@ RSpec.describe NfgUi::Components::Foundations::Icon do
   it_behaves_like 'a component that includes the Themeable utility module'
   it_behaves_like 'a component that includes the Theme trait module'
 
+  it { expect(described_class).to include NfgUi::Components::Traits::Icon }
+
   pending 'Icon component needs specs'
 
   describe '#icon' do

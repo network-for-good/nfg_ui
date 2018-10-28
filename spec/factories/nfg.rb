@@ -10,6 +10,21 @@ FactoryBot.define do
     initialize_with { new(attributes, ActionController::Base.new.view_context) }
   end
 
+  factory :button, class: NfgUi::Components::Elements::Button do
+    body { nil }
+    data { nil }
+    id { nil }
+    traits { [] }
+
+    skip_create
+    initialize_with { new(attributes, ActionController::Base.new.view_context) }
+
+    trait :rendered do
+      initialize_with { NfgUi::UI::Base.new(ActionController::Base.new.view_context)
+                                       .nfg(:button, attributes) }
+    end
+  end
+
   factory :icon, class: NfgUi::Components::Foundations::Icon do
     text { nil }
     icon { nil }

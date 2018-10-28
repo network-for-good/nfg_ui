@@ -8,4 +8,6 @@ RSpec.describe NfgUi::Components::Elements::Button do
   it_behaves_like 'a component that includes the Iconable utility module'
 
   it { expect(described_class.included_modules).to include NfgUi::Components::Utilities::Traitable }
+
+  pending 'button spec needs specs'
 end

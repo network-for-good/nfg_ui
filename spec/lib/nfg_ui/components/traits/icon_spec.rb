@@ -10,4 +10,8 @@ RSpec.describe NfgUi::Components::Traits::Icon do
   describe 'registered traits' do
     subject { described_class::TRAITS }
   end
+
+  describe '#right_trait' do
+    subject { component_with_traits.right_trait }
+  end
 end

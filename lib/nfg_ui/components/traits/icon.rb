@@ -5,15 +5,21 @@ module NfgUi
     module Traits
       # Access to pre-designed Button traits
       module Icon
-        TRAITS = %i[].freeze
+        TRAITS = %i[right
+                    loader].freeze
         # include NfgUi::Components::Traits
         # include NfgUi::Components::Traits::Theme
 
         # private
 
-        # def right_trait
+        def right_trait
+          options[:right] = true
         #   @right = true
-        # end
+        end
+
+        def loader_trait
+          options[:icon] = 'spinner spin fw'
+        end
 
         # def allowed_traits
         #   super.push(:right)

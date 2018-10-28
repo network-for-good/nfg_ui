@@ -7,34 +7,52 @@ module NfgUi
       # To do: this needs to be re-worked with the new concept for
       # traits.
       module Button
-        TRAITS = %i[].freeze
+        TRAITS = %i[block
+                    close
+                    link
+                    outlined
+                    remote
+                    submit].freeze
         # include NfgUi::Components::Traits
         # include NfgUi::Components::Traits::Theme
         # include NfgUi::Components::Traits::Size
 
         # private
 
-        # def link_trait
+        # def local_initialize
+        #   @css_classes = 'asdf'
+        # end
+
+        def link_trait
+          options[:theme] = :link
         #   @theme = :link
-        # end
+        end
 
-        # def active_trait
-        #   @active = true
-        #   build_aria(aria_key: :pressed, aria_value: true)
-        # end
+        
 
-        # def block_trait
-        #   @block = true
-        # end
+        def block_trait
+          options[:block] = true
+        end
 
-        # def close_trait
+        def close_trait
+          options[:as] = :button
+          data[:dismiss] = options.delete(:dismiss)
+          options[:theme] = nil
+          # component_css_class = nil
+          @css_classes = 'close'
+          options[:icon] = 'times'
+          assistive_html_attributes.merge!(aria: { label: 'close' })
         #   @as = :button
         #   data[:dismiss] = options.delete(:dismiss)
         #   @theme = nil
         #   @css_classes = 'close'
         #   @icon = 'times'
         #   build_aria(aria_key: :label, aria_value: 'Close')
-        # end
+        end
+
+        def remote_trait
+          options[:remote] = true
+        end
 
         # def disable_with_trait
         #   @disable_with_text = view_context.ui.nfg(:icon, 'spinner spin fw', text: 'Saving...')
@@ -49,16 +67,18 @@ module NfgUi
         #   @data.merge!(remote: true)
         # end
 
-        # def submit_trait
-        #   @as = :button
+        def submit_trait
+          options[:as] = :button
+          options[:type] = 'submit'
         #   options.delete(:href)
         #   assistive_html_attributes.merge!(type: :submit)
         #   @default_html_wrapper_element = :button
-        # end
+        end
 
-        # def outlined_trait
+        def outlined_trait
+          options[:outlined] = true
         #   @outlined = true
-        # end
+        end
 
         # def allowed_traits
         #   super.push(:disable_with,

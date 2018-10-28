@@ -137,12 +137,17 @@
   = ui.nfg :button, as: :button do
     Large Right
 
-  = ui.nfg :button_group, :sm, aria: { 'test' => 'test2' } do
+  = ui.nfg :button_group, size: :sm, aria: { 'test' => 'test2' } do
     = ui.nfg :button, as: :button, body: 'Small Left'
     = ui.nfg :button, as: :button do
       Small Middle
     = ui.nfg :button, as: :button do
       Small Right
+
+  = ui.nfg :button_group, aria: { 'test' => 'test2' } do
+    = ui.nfg :button, as: :button, body: 'Small Left'
+    = ui.nfg :button, as: :button do
+      Small Middle
 
 %hr
 

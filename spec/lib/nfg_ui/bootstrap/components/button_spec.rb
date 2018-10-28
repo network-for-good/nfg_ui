@@ -43,6 +43,18 @@ RSpec.describe NfgUi::Bootstrap::Components::Button do
   describe '#data' do
     subject { button.data }
 
+    describe 'js rails :remote' do
+      pending ':remote spec needed'
+      context 'when remote is present in options' do
+      end
+
+      context 'when remote is not present in options' do
+      end
+
+      context 'when remote is nil in options' do
+      end
+    end
+
     describe 'modal implications on the component data attribute' do
       context 'when :modal is present in options' do
         let(:data_hash) { {} }
@@ -67,6 +79,7 @@ RSpec.describe NfgUi::Bootstrap::Components::Button do
   end
 
   describe '#href' do
+    pending 'button href spec needs updating'
     subject { button.href }
     context 'when :as is :button' do
       let(:options) { { as: :button } }
@@ -132,6 +145,11 @@ RSpec.describe NfgUi::Bootstrap::Components::Button do
       let(:options) { {} }
       it { is_expected.to be_nil }
     end
+  end
+
+  describe '#remote' do
+    subject { button.remote }
+    pending '#remote needs spec'
   end
 
   describe '#remove_component_css_classes' do
@@ -293,7 +311,7 @@ RSpec.describe NfgUi::Bootstrap::Components::Button do
 
     describe '#non_html_attribute_options' do
       subject { button.send(:non_html_attribute_options) }
-      it { is_expected.to include(:modal, :block) }
+      it { is_expected.to include(:modal, :block, :remote, :remove_component_css_classes) }
     end
   end
 end

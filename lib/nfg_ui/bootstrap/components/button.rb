@@ -19,22 +19,39 @@ module NfgUi
         end
 
         def data
-          modal ? super.merge!(toggle: 'modal', target: options[:modal]) : super
+          if modal
+            super.merge!(toggle: 'modal', target: options[:modal])
+          elsif !remote.nil?
+            super.merge(remote: remote)
+          else
+            super
+          end
         end
 
         def href
           return if options[:as] == :button
           if collapse
             collapse
-          elsif modal
-            options[:href].nil? ? '#' : options[:href]
+          # elsif modal
           else
-            super
+            options.fetch(:href, '#')
           end
+          # elsif options[:href]
+          #   if
+          #   options[:href].nil? ? '#' : options[:href]
+          # elsif options[:as] == :a
+
+          # else
+          #   super
+          # end
         end
 
         def modal
           options.fetch(:modal, nil)
+        end
+
+        def remote
+          options.fetch(:remote, nil)
         end
 
         def remove_component_css_classes
@@ -64,7 +81,7 @@ module NfgUi
         end
 
         def non_html_attribute_options
-          super.push(:modal, :block, :remove_component_css_classes)
+          super.push(:modal, :block, :remove_component_css_classes, :remote)
         end
       end
     end

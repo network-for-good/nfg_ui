@@ -19,18 +19,19 @@
 
 %p
 
-  = ui.nfg :button, as: :link, href: '#testURL' do
+  = ui.nfg :button, as: :a, href: '#testURL' do
     Link Button with HREF
 
 %br
-= ui.nfg :button, as: :link do
+= ui.nfg :button, as: :a do
   Link Button without HREF
 = ui.nfg :button, as: :button, body: 'Button'
 
 %hr
 
 %h3 Buttons for Remote forms
-= ui.nfg :button, remote: true, body: 'Remote button'
+= ui.nfg :button, :submit, remote: true, body: 'Remote button without trait'
+= ui.nfg :button, :submit, :remote, body: 'Remote button with trait'
 
 %hr
 
@@ -118,7 +119,7 @@
 %h3 Buttons with disable_with (for submitting)
 = ui.nfg :button, :submit, disable_with: 'Manual disable with text', body: 'Manual disable_with'
 = ui.nfg :button, :submit, :disable_with, body: 'Trait disable_with with default'
-
+= ui.nfg :button, :submit, :disable_with, :submit, body: 'Traited Disable With & Submit'
 %hr
 
 %h3 Block Buttons without traits
@@ -155,3 +156,8 @@
 = ui.nfg :button, as: :button, body: "Tooltip'd Button", tooltip: 'Button with a tooltip'
 
 = ui.nfg :button, as: :button, disabled: true, body: "Disabled Tooltip'd Button", tooltip: 'Disabled button with a tooltip'
+
+%hr
+
+%h3 Close button
+= ui.nfg :button, :close, dismiss: 'modal'
