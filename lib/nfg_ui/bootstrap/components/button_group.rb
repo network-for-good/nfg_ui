@@ -23,6 +23,13 @@ module NfgUi
         def component_css_class
           'btn-group'
         end
+
+        def css_classes
+          [
+            super,
+            ("#{component_css_class}-vertical" if vertical)
+          ].join(' ').squish
+        end
       end
     end
   end

@@ -47,5 +47,10 @@ RSpec.describe NfgUi::Bootstrap::Components::ButtonGroup do
       subject { button_group.send(:component_css_class) }
       it { is_expected.to eq 'btn-group' }
     end
+
+    describe '#css_classes' do
+      subject { button_group.send(:css_classes) }
+      pending 'spec needed for button_group#css_classes'
+    end
   end
 end

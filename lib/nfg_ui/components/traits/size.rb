@@ -3,24 +3,15 @@ module NfgUi
     module Traits
       # Shared Size traits
       module Size
-        TRAITS = %i[].freeze
-        # def lg_trait
-        #   @size = :lg
-        # end
-        # alias_method :large_trait, :lg_trait
+        TRAITS = %i[lg sm].freeze
 
-        # def sm_trait
-        #   @size = :sm
-        # end
-        # alias_method :small_trait, :sm_trait
+        def lg_trait
+          options[:size] = :lg
+        end
 
-        # def allowed_traits
-        #   super.push(:lg,
-        #              :large,
-        #              :sm,
-        #              :small)
-        # end
-
+        def sm_trait
+          options[:size] = :lg
+        end
       end
     end
   end

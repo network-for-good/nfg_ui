@@ -15,8 +15,6 @@ module NfgUi
                     light
                     dark].freeze
 
-        # private
-
         def primary_trait
           options[:theme] = :primary
         end

@@ -14,7 +14,8 @@ module NfgUi
                          Icon
                          PageHeader
                          Size
-                         Theme].freeze
+                         Theme
+                         Vertical].freeze
 
       extend ActiveSupport::Autoload
       TRAIT_MODULES.each { |trait_module| autoload trait_module }
