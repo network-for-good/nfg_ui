@@ -6,6 +6,7 @@ module NfgUi
       # Nav doc coming soon
       class Nav < Bootstrap::Components::Nav
         include NfgUi::Components::Utilities::Traitable
+        include NfgUi::Components::Utilities::Describable
         include NfgUi::Components::Traits::Nav
       end
     end

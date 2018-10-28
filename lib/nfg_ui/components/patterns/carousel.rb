@@ -8,6 +8,7 @@ module NfgUi
       # Traits will eventually be connected here.
       class Carousel < Bootstrap::Components::Carousel
         include NfgUi::Components::Utilities::Traitable
+        include NfgUi::Components::Utilities::Describable
       end
     end
   end

@@ -8,6 +8,7 @@ module NfgUi
       # Traits will eventually be connected here.
       class ButtonGroup < Bootstrap::Components::ButtonGroup
         include NfgUi::Components::Utilities::Traitable
+        include NfgUi::Components::Utilities::Describable
         include NfgUi::Components::Traits::Size
         include NfgUi::Components::Traits::Vertical
       end

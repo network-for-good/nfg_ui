@@ -8,6 +8,7 @@ module NfgUi
       # Traits will eventually be connected here.
       class Badge < Bootstrap::Components::Badge
         include NfgUi::Components::Utilities::Traitable
+        include NfgUi::Components::Utilities::Describable
         include NfgUi::Components::Traits::Theme
       end
     end

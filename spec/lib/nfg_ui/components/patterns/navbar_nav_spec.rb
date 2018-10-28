@@ -9,6 +9,7 @@ RSpec.describe NfgUi::Components::Patterns::NavbarNav do
   it_behaves_like 'a component that includes the Wrappable utility module'
 
   it { expect(described_class.included_modules).to include NfgUi::Components::Utilities::Traitable }
+  it { expect(described_class.included_modules).to include NfgUi::Components::Utilities::Describable }
 
   describe '#right' do
     subject { navbar_nav.right }

@@ -9,4 +9,5 @@ RSpec.describe NfgUi::Components::Patterns::ButtonGroup do
   it_behaves_like 'a component that includes the Vertical trait module'
 
   it { expect(described_class.included_modules).to include NfgUi::Components::Utilities::Traitable }
+  it { expect(described_class.included_modules).to include NfgUi::Components::Utilities::Describable }
 end

@@ -8,6 +8,7 @@ module NfgUi
       # Traits will eventually be connected here.
       class ButtonToolbar < Bootstrap::Components::ButtonToolbar
         include NfgUi::Components::Utilities::Traitable
+        include NfgUi::Components::Utilities::Describable
       end
     end
   end

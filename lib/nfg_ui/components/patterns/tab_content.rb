@@ -6,6 +6,7 @@ module NfgUi
       # Modal docs coming soon
       class TabContent < Bootstrap::Components::TabContent
         include NfgUi::Components::Utilities::Traitable
+        include NfgUi::Components::Utilities::Describable
       end
     end
   end

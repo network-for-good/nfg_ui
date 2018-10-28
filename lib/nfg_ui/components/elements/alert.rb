@@ -8,6 +8,7 @@ module NfgUi
       # Traits will eventually be connected here.
       class Alert < Bootstrap::Components::Alert
         include NfgUi::Components::Utilities::Traitable
+        include NfgUi::Components::Utilities::Describable
         # include NfgUi::Components::Traits::Alert
       end
     end

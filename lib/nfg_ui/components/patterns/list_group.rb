@@ -6,6 +6,7 @@ module NfgUi
       # ListGroup docs coming soon
       class ListGroup < Bootstrap::Components::ListGroup
         include NfgUi::Components::Utilities::Traitable
+        include NfgUi::Components::Utilities::Describable
       end
     end
   end

@@ -9,4 +9,5 @@ RSpec.describe NfgUi::Components::Elements::DropdownToggle do
   pending 'all specs needed'
 
   it { expect(described_class.included_modules).to include NfgUi::Components::Utilities::Traitable }
+  it { expect(described_class.included_modules).to include NfgUi::Components::Utilities::Describable }
 end

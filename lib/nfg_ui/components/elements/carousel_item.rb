@@ -6,6 +6,7 @@ module NfgUi
       # Docs coming soon
       class CarouselItem < Bootstrap::Components::CarouselItem
         include NfgUi::Components::Utilities::Traitable
+        include NfgUi::Components::Utilities::Describable
       end
     end
   end

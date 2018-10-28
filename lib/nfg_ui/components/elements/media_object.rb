@@ -6,6 +6,7 @@ module NfgUi
       # MediaObject doc coming soon
       class MediaObject < Bootstrap::Components::MediaObject
         include NfgUi::Components::Utilities::Traitable
+        include NfgUi::Components::Utilities::Describable
       end
     end
   end

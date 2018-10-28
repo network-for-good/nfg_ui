@@ -6,6 +6,7 @@ module NfgUi
       # MediaGroup doc coming soon
       class Media < Bootstrap::Components::Media
         include NfgUi::Components::Utilities::Traitable
+        include NfgUi::Components::Utilities::Describable
       end
     end
   end

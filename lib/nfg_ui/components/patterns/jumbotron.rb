@@ -6,6 +6,7 @@ module NfgUi
       # Jumbotron docs coming soon
       class Jumbotron < Bootstrap::Components::Jumbotron
         include NfgUi::Components::Utilities::Traitable
+        include NfgUi::Components::Utilities::Describable
       end
     end
   end
