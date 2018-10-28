@@ -7,6 +7,10 @@ RSpec.describe NfgUi::Components::Traits::Collapse do
 
   pending 'trait spec is needed'
 
+  describe 'registered traits' do
+    subject { described_class::TRAITS }
+  end
+
   describe '#collapsible' do
     subject { component_with_traits.send(:collapsible) }
   end

@@ -6,4 +6,8 @@ RSpec.describe NfgUi::Components::Traits::Alert do
   let(:traits) { [] }
 
   pending 'trait spec is needed'
+
+  describe 'registered traits' do
+    subject { described_class::TRAITS }
+  end
 end
