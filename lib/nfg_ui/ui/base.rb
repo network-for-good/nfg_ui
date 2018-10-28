@@ -23,7 +23,7 @@ module NfgUi
       private
 
       def render_nfg_component?(options)
-        render_if(options) || !render_unless(options)
+        render_if(options) || render_unless(options)
       end
 
       def render_if(options)
@@ -31,7 +31,7 @@ module NfgUi
       end
 
       def render_unless(options)
-        options.fetch(:render_unless, false)
+        options.fetch(:render_unless, true)
       end
     end
   end
