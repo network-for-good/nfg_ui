@@ -5,16 +5,25 @@ module NfgUi
     module Foundations
       # Typeface doc coming soon
       class Typeface < NfgUi::Components::Base
+        include NfgUi::Components::Utilities::Traitable
+        include NfgUi::Components::Utilities::Describable
+        
         include Bootstrap::Utilities::Wrappable
         include Bootstrap::Utilities::Themeable
+        include Bootstrap::Utilities::Tooltipable
 
         include NfgUi::Components::Utilities::Iconable
         include NfgUi::Components::Utilities::Titleable
 
         include NfgUi::Components::Traits::Theme
+        include NfgUi::Components::Traits::Typeface
 
         def heading
           options.fetch(:heading, nil)
+        end
+
+        def caption
+          options.fetch(:caption, nil)
         end
 
         def text_or_icon
@@ -27,12 +36,19 @@ module NfgUi
           'text-'
         end
 
+        def css_classes
+          [
+            super,
+            ('small font-size-sm' if caption)
+          ].join(' ').squish
+        end
+
         def default_theme
           nil
         end
 
         def text
-          body || heading || title
+          body || heading || title || caption
         end
 
         def automatic_as
@@ -42,6 +58,8 @@ module NfgUi
             heading_tag
           elsif title
             title_tag
+          elsif caption
+            caption_tag
           else
             super
           end
@@ -53,6 +71,10 @@ module NfgUi
 
         def non_html_attribute_options
           super.push(:heading, :body, :title)
+        end
+
+        def caption_tag
+          :p
         end
 
         def body_tag

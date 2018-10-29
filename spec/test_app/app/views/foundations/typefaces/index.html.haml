@@ -19,6 +19,47 @@ Body:
 
 %hr
 
+%h2.mb-4 Traited versions of the typeface <b>(specifically for utilizing a block)</b>.
+= ui.nfg :typeface, :title do 
+  Title via do block
+%br
+
+With Icon:
+= ui.nfg :typeface, :title, icon: 'rocket' do
+  Title via do block with icon attribute
+
+Heading:
+= ui.nfg :typeface, :heading do
+  Heading via do block
+%br
+With Icon:
+= ui.nfg :typeface, :heading, icon: 'rocket' do
+  Heading via do block with icon attribute
+Body:
+= ui.nfg :typeface, :body do
+  Body via block
+
+%hr
+
+%h2 Tooltips on typefaces
+
+Title:
+= ui.nfg :typeface, title: 'Title', tooltip: 'Test Tooltip'
+%br
+With Icon:
+= ui.nfg :typeface, title: 'Title with icon', icon: 'rocket', tooltip: 'Test Tooltip'
+
+Heading:
+= ui.nfg :typeface, heading: 'Heading', tooltip: 'Test Tooltip'
+%br
+With Icon:
+= ui.nfg :typeface, heading: 'Title with icon', icon: 'rocket', tooltip: 'Test Tooltip'
+
+Body:
+= ui.nfg :typeface, body: 'Body', tooltip: 'Test Tooltip'
+
+%hr
+
 %h2.mb-4 Themes
 
 

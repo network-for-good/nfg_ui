@@ -14,6 +14,10 @@ RSpec.describe NfgUi::Components::Foundations::Typeface do
 
   pending 'Typeface specs needed'
 
+  describe '#caption' do
+    subject { typeface.caption }
+  end
+
   describe '#heading' do
     subject { typeface.heading }
   end

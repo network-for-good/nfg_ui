@@ -20,6 +20,7 @@ module NfgUi
                          PageHeader
                          Size
                          Theme
+                         Typeface
                          Vertical].freeze
 
       extend ActiveSupport::Autoload
