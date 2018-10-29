@@ -7,6 +7,8 @@ RSpec.describe NfgUi::UI::Base do
 
   subject { base_component }
 
+  pending 'specs needed'
+
   describe '#initialize' do
     subject { base_component.view_context }
     it { is_expected.to eq action_controller_base_view_context }
