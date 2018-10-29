@@ -7,6 +7,7 @@ module NfgUi
       class ProgressBar < Bootstrap::Components::Progress
         include NfgUi::Components::Utilities::Traitable
         include NfgUi::Components::Utilities::Describable
+        include Bootstrap::Utilities::Tooltipable
       end
     end
   end
