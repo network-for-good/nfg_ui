@@ -1,4 +1,198 @@
 %h1 Dropdowns
 
+%h3 Default
+= ui.bootstrap :dropdown, id: 'test_id1', class: 'my-4' do
+  = ui.bootstrap :dropdown_toggle, body: 'Secondary Manual Toggle as Link', theme: :secondary, as: :a, data: { describe: 'test' }
+  = ui.bootstrap :dropdown_menu do
+    = ui.bootstrap :dropdown_header, heading: 'Dropdown Header'
+    = ui.bootstrap :dropdown_item, body: 'Dropdown Item 1 Disabled', disabled: true, href: '#'
+    = ui.bootstrap :dropdown_item, body: 'Dropdown Item 2 Tooltipped', tooltip: 'Tested tooltip', href: '#'
+    = ui.bootstrap :dropdown_divider
+    = ui.bootstrap :dropdown_item, body: 'Dropdown Item 3 Disabled with Tooltip', disabled: true, tooltip: 'Test tooltip', class: 'test-class', id: 'test_id', data: { test_data: 'response' }, href: '#test'
+    = ui.bootstrap :dropdown_item, body: 'Dropdown Item 4 - No href'
+    = ui.bootstrap :dropdown_item, body: 'Dropdown Item 5 - Active', active: true, href: '#'
+
+%hr
+
+%h3 Auto dropdown button
+= ui.bootstrap :dropdown, button: 'Auto Dropdown' do
+  = ui.bootstrap :dropdown_menu do
+    = ui.bootstrap :dropdown_item, body: 'Dropdown Item 1'
+    = ui.bootstrap :dropdown_item, body: 'Dropdown Item 2'
+    = ui.bootstrap :dropdown_item, body: 'Dropdown Item 3'
+    = ui.bootstrap :dropdown_item, body: 'Dropdown Item 4'
+
+%h4.mt-4 Thematic auto button
+= ui.bootstrap :dropdown, button: 'Auto Dropdown with Theme', theme: :warning do
+  = ui.bootstrap :dropdown_menu do
+    = ui.bootstrap :dropdown_item, body: 'Dropdown Item 1'
+    = ui.bootstrap :dropdown_item, body: 'Dropdown Item 2'
+    = ui.bootstrap :dropdown_item, body: 'Dropdown Item 3'
+    = ui.bootstrap :dropdown_item, body: 'Dropdown Item 4'
+
+%hr
+
+%h3 Disabled Dropdown 
+%p Disabled dropdown toggles can have tooltips
 = ui.bootstrap :dropdown, class: 'my-4' do
-  Coming Soon
+  = ui.bootstrap :dropdown_toggle, body: 'Disabled Dropdown Toggle', theme: :secondary, as: :a, disabled: true, tooltip: 'Disabled', id: 'tester'
+  = ui.bootstrap :dropdown_menu do
+    = ui.bootstrap :dropdown_item, body: 'Dropdown Item 1'
+    = ui.bootstrap :dropdown_item, body: 'Dropdown Item 2'
+    = ui.bootstrap :dropdown_item, body: 'Dropdown Item 3'
+    = ui.bootstrap :dropdown_item, body: 'Dropdown Item 4'
+
+%hr
+
+%h2 Split conventional (bottom) dropdown menus
+%p Note: according to docs, you do not need to wrap the component in a dropdown menu
+= ui.bootstrap :button_group do
+  = ui.bootstrap :button, theme: :secondary, body: 'Dropdown-less Split Button', href: '#test'
+  = ui.bootstrap :dropdown_toggle, theme: :secondary, split: true
+  = ui.bootstrap :dropdown_menu, right: true do
+    = ui.bootstrap :dropdown_item, body: 'Dropdown Item 1'
+    = ui.bootstrap :dropdown_item, body: 'Dropdown Item 2'
+    = ui.bootstrap :dropdown_item, body: 'Dropdown Item 3'
+    = ui.bootstrap :dropdown_item, body: 'Dropdown Item 4'
+
+%hr
+
+%h3 Dropdown menu locations
+%h4.mt-4 Right aligned menu
+= ui.bootstrap :dropdown, button: 'Right Aligned Menu' do
+  = ui.bootstrap :dropdown_menu, right: true do
+    = ui.bootstrap :dropdown_item, body: 'Dropdown Item 1'
+    = ui.bootstrap :dropdown_item, body: 'Dropdown Item 2'
+    = ui.bootstrap :dropdown_item, body: 'Dropdown Item 3'
+    = ui.bootstrap :dropdown_item, body: 'Dropdown Item 4'
+
+%h4.mt-4 Left Aligned Menu
+%p 
+  %i Left aligned by default
+= ui.bootstrap :dropdown, button: 'Left Aligned Menu' do
+  = ui.bootstrap :dropdown_menu do
+    = ui.bootstrap :dropdown_item, body: 'Dropdown Item 1'
+    = ui.bootstrap :dropdown_item, body: 'Dropdown Item 2'
+    = ui.bootstrap :dropdown_item, body: 'Dropdown Item 3'
+    = ui.bootstrap :dropdown_item, body: 'Dropdown Item 4'
+
+%h4.mt-4 Offset Menu
+%p Use coordinates per BS documentation; supply to the dropdown toggle component
+= ui.bootstrap :dropdown do
+  = ui.bootstrap :dropdown_toggle, body: 'Manual Offset Dropdown Toggle', offset: '10,20'
+  = ui.bootstrap :dropdown_menu do
+    = ui.bootstrap :dropdown_item, body: 'Dropdown Item 1'
+    = ui.bootstrap :dropdown_item, body: 'Dropdown Item 2'
+    = ui.bootstrap :dropdown_item, body: 'Dropdown Item 3'
+    = ui.bootstrap :dropdown_item, body: 'Dropdown Item 4'
+
+.mb-4
+
+= ui.bootstrap :dropdown, button: 'Auto Button with Offset', offset: '10,20' do
+  = ui.bootstrap :dropdown_menu do
+    = ui.bootstrap :dropdown_item, body: 'Dropdown Item 1'
+    = ui.bootstrap :dropdown_item, body: 'Dropdown Item 2'
+    = ui.bootstrap :dropdown_item, body: 'Dropdown Item 3'
+    = ui.bootstrap :dropdown_item, body: 'Dropdown Item 4'
+
+%hr
+
+%h2 Dropdown menu directions
+%p Note: If using a split menu, you have use a button group to wrap your dropdown menu (and not the dropdown component). See code examples. This is per docs.
+
+%h3 Dropup direction
+= ui.bootstrap :dropdown, dropup: true, button: 'Dropup Menu', class: 'mb-4' do
+  = ui.bootstrap :dropdown_menu do
+    = ui.bootstrap :dropdown_item, body: 'Dropdown Item 1'
+    = ui.bootstrap :dropdown_item, body: 'Dropdown Item 2'
+    = ui.bootstrap :dropdown_item, body: 'Dropdown Item 3'
+    = ui.bootstrap :dropdown_item, body: 'Dropdown Item 4'
+
+
+= ui.bootstrap :button_group, dropup: true do
+  = ui.bootstrap :button, theme: :secondary, body: 'Dropdown-less Split Button', href: '#test'
+  = ui.bootstrap :dropdown_toggle, theme: :secondary, split: true
+  = ui.bootstrap :dropdown_menu, right: true do
+    = ui.bootstrap :dropdown_item, body: 'Dropdown Item 1'
+    = ui.bootstrap :dropdown_item, body: 'Dropdown Item 2'
+    = ui.bootstrap :dropdown_item, body: 'Dropdown Item 3'
+    = ui.bootstrap :dropdown_item, body: 'Dropdown Item 4'
+
+
+%hr
+
+%h3 Dropright direction
+= ui.bootstrap :dropdown, dropright: true, class: 'mb-4', button: 'Dropright Menu' do
+  = ui.bootstrap :dropdown_menu do
+    = ui.bootstrap :dropdown_item, body: 'Dropdown Item 1'
+    = ui.bootstrap :dropdown_item, body: 'Dropdown Item 2'
+    = ui.bootstrap :dropdown_item, body: 'Dropdown Item 3'
+    = ui.bootstrap :dropdown_item, body: 'Dropdown Item 4'
+
+= ui.bootstrap :button_group, dropright: true do
+  = ui.bootstrap :button, theme: :secondary, body: 'Dropdown-less Split Button', href: '#test'
+  = ui.bootstrap :dropdown_toggle, theme: :secondary, split: true
+  = ui.bootstrap :dropdown_menu do
+    = ui.bootstrap :dropdown_item, body: 'Dropdown Item 1'
+    = ui.bootstrap :dropdown_item, body: 'Dropdown Item 2'
+    = ui.bootstrap :dropdown_item, body: 'Dropdown Item 3'
+    = ui.bootstrap :dropdown_item, body: 'Dropdown Item 4'
+
+%hr
+
+%h3 Dropleft direction
+
+.text-right
+  = ui.bootstrap :dropdown, dropleft: true, class: 'mb-4', button: 'Dropleft Menu' do
+    = ui.bootstrap :dropdown_menu do
+      = ui.bootstrap :dropdown_item, body: 'Dropdown Item 1'
+      = ui.bootstrap :dropdown_item, body: 'Dropdown Item 2'
+      = ui.bootstrap :dropdown_item, body: 'Dropdown Item 3'
+      = ui.bootstrap :dropdown_item, body: 'Dropdown Item 4'
+
+  %p 
+    Note: For dropleft, you must double wrap the button group. and place the non-split button as a child of the first button group. Per docs, see code reference.
+
+  = ui.bootstrap :button_group do
+    = ui.bootstrap :button_group, dropleft: true do
+      = ui.bootstrap :dropdown_toggle, theme: :secondary, split: true
+      = ui.bootstrap :dropdown_menu do
+        = ui.bootstrap :dropdown_item, body: 'Dropdown Item 1'
+        = ui.bootstrap :dropdown_item, body: 'Dropdown Item 2'
+        = ui.bootstrap :dropdown_item, body: 'Dropdown Item 3'
+        = ui.bootstrap :dropdown_item, body: 'Dropdown Item 4'
+    = ui.bootstrap :button, theme: :secondary, body: 'Dropdown-less Split Button', href: '#test'
+
+
+%hr
+
+%h2 Dropdown Toggle Sizing
+
+%h3 Manual Toggle Size Adjustments
+= ui.bootstrap :dropdown, class: 'mb-4' do
+  = ui.bootstrap :dropdown_toggle, body: 'Large Toggle', theme: :secondary, as: :a, size: :lg
+  = ui.bootstrap :dropdown_menu do
+    = ui.bootstrap :dropdown_item, body: 'Dropdown Item 1'
+    = ui.bootstrap :dropdown_item, body: 'Dropdown Item 2'
+    = ui.bootstrap :dropdown_item, body: 'Dropdown Item 3'
+    = ui.bootstrap :dropdown_item, body: 'Dropdown Item 4'
+
+= ui.bootstrap :dropdown, class: 'mb-4' do
+  = ui.bootstrap :dropdown_toggle, body: 'Normal Toggle', theme: :secondary, as: :a
+  = ui.bootstrap :dropdown_menu do
+    = ui.bootstrap :dropdown_item, body: 'Dropdown Item 1'
+    = ui.bootstrap :dropdown_item, body: 'Dropdown Item 2'
+    = ui.bootstrap :dropdown_item, body: 'Dropdown Item 3'
+    = ui.bootstrap :dropdown_item, body: 'Dropdown Item 4'
+
+= ui.bootstrap :dropdown, class: 'mb-4' do
+  = ui.bootstrap :dropdown_toggle, body: 'Small Toggle', theme: :secondary, as: :a, size: :sm
+  = ui.bootstrap :dropdown_menu do
+    = ui.bootstrap :dropdown_item, body: 'Dropdown Item 1'
+    = ui.bootstrap :dropdown_item, body: 'Dropdown Item 2'
+    = ui.bootstrap :dropdown_item, body: 'Dropdown Item 3'
+    = ui.bootstrap :dropdown_item, body: 'Dropdown Item 4'
+
+
+.mb-5.pb-5
+.mb-5.pb-5

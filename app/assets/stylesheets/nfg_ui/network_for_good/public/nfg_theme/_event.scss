@@ -1,0 +1,19 @@
+// Styles specific to the everyday default style
+.event {
+  .jumbotron {
+    height: auto;
+    @include border-radius(0);
+    background-repeat:no-repeat;
+    background-size: cover;
+    &:before {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 0;
+      background-color: transparentize(#000, 0.7);
+      content: '';
+    }
+  }
+}

@@ -5,57 +5,41 @@ module NfgUi
     module Utilities
       # Allows component to utilize the bootstrap4 theme color palette
       module Themeable
-        attr_reader :theme, :outlined
+        # attr_reader :theme, :outlined
+        # attr_accessor :theme
+        
+        # pass in options: { theme: nil } to disable themes or set default_theme to nil
+        # for components that are themeable that, for whatever reason,
+        # need a theme removed (example: the modal 'close' button)
+        def theme
+          options.fetch(:theme, default_theme)
+        end
 
-        def initialize(*)
-          super
-          @theme = options.fetch(:theme, default_theme)
-          @outlined = options.fetch(:outlined, traits.include?(:outlined))
+        def outlined
+          options.fetch(:outlined, false)
         end
 
         private
 
-        def defaults
-          super.merge!(theme: default_theme)
-        end
-
         def css_classes
-          [super, theme_css_class].join(' ')
+          return super unless theme.present?
+          super + " #{theme_css_class_prefix}#{outlined_css_class_prefix if outlined}#{theme}"
         end
 
         def non_html_attribute_options
-          super.push(:theme)
-        end
-
-        def theme_css_class
-          "#{theme_css_class_prefix}-#{outline_css_class_string}#{theme}"
-        end
-
-        def bootstrap4_themes
-          %i[primary
-             secondary
-             success
-             danger
-             warning
-             info
-             light
-             dark]
-        end
-
-        def outlined?
-          outlined
+          super.push(:theme, :outlined)
         end
 
         def theme_css_class_prefix
-          component_css_class
+          @theme_css_class_prefix ||= "#{component_css_class}-"
         end
 
         def default_theme
-          :primary
+          @default_theme ||= NfgUi::DEFAULT_BOOTSTRAP_THEME
         end
 
-        def outline_css_class_string
-          'outline-' if outlined?
+        def outlined_css_class_prefix
+          @outlined_css_class_prefix ||= 'outline-'
         end
       end
     end

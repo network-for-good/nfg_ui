@@ -1,11 +1,14 @@
-%div{ tile_header.html_options.merge!(id: ("tile_header_for_#{tile_header.id}" if tile_header.collapsible?)) }
-  - if tile_header.collapsible?
-    %a{ tile_header.collapsible_toggle_html_options }
+%div{ tile_header.html_options }
+  - if tile_header.collapsible && tile_header.title
+    = ui.nfg :button, collapse: tile_header.collapse, theme: :link, block: true, class: 'no-link-color p-0 m-0' do
       .row.align-items-center
-        .col-10
-          = ui.nfg :typeface, title: tile_header.title, icon: tile_header.icon, class: 'text-uppercase'
-
+        .col-10.text-left
+          = ui.nfg :typeface, title: tile_header.title, class: 'text-uppercase', icon: tile_header.icon
         .col-2.text-right
           = ui.nfg :icon, 'caret-down fw', tooltip: 'Show / hide additional information'
-  - else
-    = ui.nfg :typeface, title: tile_header.title, icon: tile_header.icon, class: 'text-uppercase'
+
+  - elsif tile_header.title
+    = ui.nfg :typeface, title: tile_header.title, class: 'text-uppercase', icon: tile_header.icon
+  
+  - if tile_header.body
+    = tile_header.body

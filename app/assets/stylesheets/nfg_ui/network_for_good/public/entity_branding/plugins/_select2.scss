@@ -2,6 +2,7 @@
 
 .select2-container--default {
   .select2-selection--single {
+    color: yiq-contrast-color($primary, $yiq-text-dark, $primary);
     background-image: $custom-select-indicator;
     &,
     .select2-selection__placeholder,

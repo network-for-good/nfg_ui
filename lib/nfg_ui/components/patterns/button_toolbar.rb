@@ -7,6 +7,8 @@ module NfgUi
       # As such, the NFG UI button group is simply a bootstrap button group behind the scenes.
       # Traits will eventually be connected here.
       class ButtonToolbar < Bootstrap::Components::ButtonToolbar
+        include NfgUi::Components::Utilities::Traitable
+        include NfgUi::Components::Utilities::Describable
       end
     end
   end

@@ -99,7 +99,6 @@ $yiq-text-light:            $white !default; // TODO: REMOVE AND RESOLVE
 //
 // Quickly modify global styling by enabling or disabling optional features.
 
-$enable-flex:               true; // TODO: REMOVE AND RESOLVE
 // $enable-caret:              true !default;
 // $enable-rounded:            true !default;
 $enable-shadows:            true;
@@ -622,12 +621,12 @@ $nav-tabs-border-color:             $border-color;
 // $nav-pills-link-active-bg:          $component-active-bg !default;
 
 $nav-divider-color:                 $border-color;
-// $nav-divider-margin-y:              ($spacer / 2) !default;
+$nav-divider-margin-y:              0;
 
 
 // Navbar
 
-$navbar-padding-y:                  $spacer;
+$navbar-padding-y:                  ($spacer * .5);
 // $navbar-padding-x:                  $spacer !default;
 
 $navbar-nav-link-padding-x:         ($spacer * .5);

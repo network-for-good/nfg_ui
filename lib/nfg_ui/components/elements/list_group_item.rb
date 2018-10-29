@@ -5,6 +5,13 @@ module NfgUi
     module Elements
       # ListGroupItem doc coming soon
       class ListGroupItem < Bootstrap::Components::ListGroupItem
+        include NfgUi::Components::Utilities::Traitable
+        include NfgUi::Components::Utilities::Describable
+        # private
+        
+        # def component_family
+        #   nil
+        # end
       end
     end
   end

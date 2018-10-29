@@ -1,4 +1,6 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
+require 'simplecov'
+SimpleCov.start 'rails'
 
 ENV['RAILS_ENV'] ||= 'test'
 ENGINE_ROOT = File.join(File.dirname(__FILE__), '../')
@@ -11,12 +13,21 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 
 require 'spec_helper'
 require 'rspec/rails'
+require 'selenium-webdriver'
+require 'capybara/rails'
+require 'factory_bot_rails'
+require 'support/factory_bot'
 
 # Load RSpec helpers.
 Dir[File.join(ENGINE_ROOT, 'spec/support/**/*.rb')].each { |f| require f }
+Dir[File.join(ENGINE_ROOT, 'spec/shared_examples/**/*.rb')].each { |f| require f }
 
-ActiveRecord::Migrator.migrations_paths = File.join(ENGINE_ROOT, 'spec/test_app/db/migrate')
-ActiveRecord::Migration.maintain_test_schema!
+Capybara.register_driver :selenium do |app|
+  Capybara::Selenium::Driver.new(app, browser: :chrome)
+end
+
+# ActiveRecord::Migrator.migrations_paths = File.join(ENGINE_ROOT, 'spec/test_app/db/migrate')
+# ActiveRecord::Migration.maintain_test_schema!
 
 # Add additional requires below this line. Rails is not loaded until this point!
 
@@ -37,7 +48,7 @@ ActiveRecord::Migration.maintain_test_schema!
 
 # Checks for pending migrations and applies them before tests are run.
 # If you are not using ActiveRecord, you can remove this line.
-ActiveRecord::Migration.maintain_test_schema!
+# ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
@@ -67,4 +78,8 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+
+  # config.before :suite do
+  #   (FactoryBot.lint traits: true) unless config.files_to_run.one?
+  # end
 end

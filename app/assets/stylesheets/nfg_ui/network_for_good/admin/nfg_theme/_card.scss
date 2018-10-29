@@ -8,11 +8,19 @@
 }
 .card-subtitle { margin-top: 0; }
 
+.card-header{
+  background-color: inherit;
+}
 
 //
 // Optional textual caps
 //
-.card-footer { border-top: none; }
+.card-footer { 
+  border-top: none; 
+  background-color: inherit;
+}
 
 // Card image
 .card-img-overlay { @include gradient-y(transparentize($black, 1), transparentize($black, .5)); }
+
+.card-img { @include border-radius(0); }

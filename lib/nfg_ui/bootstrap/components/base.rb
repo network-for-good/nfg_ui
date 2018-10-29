@@ -7,34 +7,16 @@ module NfgUi
       # Defines conventional, shared behavior across
       # Bootstrap components
       class Base
-        attr_reader :traits,
-                    :as,
-                    :id,
-                    :options,
-                    :view_context,
-                    :data,
-                    :heading,
-                    :body,
-                    :name
+        attr_reader   :body
+
+        attr_accessor :options,
+                      :view_context
 
         def initialize(component_options, view_context)
-          @options = defaults.merge!(component_options)
-          @view_context = view_context
-          @data = options.fetch(:data, {})
-          @name = component_class_name_string.underscore.downcase
+          self.options = defaults.merge!(component_options)
+          self.view_context = view_context
           @body = options.fetch(:body, '')
-          @heading = options.fetch(:heading, '')
-          @traits = options.fetch(:traits, [])
-          @id = options.fetch(:id, '')
-        end
-
-        def html_options
-          options.except(*non_html_attribute_options)
-                 .merge!(class: css_classes,
-                         data: data,
-                         **assistive_html_attributes)
-                 .reject { |_k, v| v.blank? } # prevent empty attributes from showing up
-                                              # Example: <div class>Text</div>
+          local_initialize
         end
 
         # This is used to help identify where to find partials for rendering components.
@@ -48,23 +30,41 @@ module NfgUi
           nil
         end
 
-        private
-
-        def defaults
-          {
-            # HTML Defaults
-            class: '',
-            id: ('' if id.present?),
-
-            # Content
-            heading: ('' if heading.present?),
-            body: ('' if body.present?),
-            data: {},
-
-            # Configuration
-            traits: ([] if traits.present?)
-          }
+        def data
+          options[:data] || {}
         end
+
+        def html_options
+          options.except(*non_html_attribute_options)
+                 .merge!(id: id,
+                         class: css_classes,
+                         data: data,
+                         href: href,
+                         style: style,
+                         **assistive_html_attributes)
+                 .reject { |_k, v| v.blank? } # prevent empty attributes from showing up
+                                              # Example: <div class>Text</div>
+        end
+
+        def href
+          options[:href]
+        end
+
+        def id
+          options[:id]
+        end
+
+        # For components that inherit bootstrap, provide a second
+        # layer of initialization, for example:
+        # to initialize traits on design system components 
+        # (which are not available on bootstrap)
+        def local_initialize; end
+
+        def style
+          options[:style]
+        end
+
+        private
 
         # Assigned on individual components as needed
         # Ex: { role: 'alert' }
@@ -73,7 +73,7 @@ module NfgUi
         # Bootstrap::Utilities::AriaAssistable
         # avoid passing aria to assistive_html_attributes directly
         def assistive_html_attributes
-          {}
+          @assistive_html_attributes ||= {}
         end
 
         # Fallback component css class name.
@@ -81,7 +81,7 @@ module NfgUi
         # Button's css class is 'btn'...
         # Example: returns 'alert' from NfgUi::Bootstrap::Components::Alert
         def component_css_class
-          component_class_name_string.underscore.dasherize.downcase
+          @component_css_class ||= component_class_name_string.underscore.dasherize.downcase
         end
 
         def component_class_name_string
@@ -92,19 +92,28 @@ module NfgUi
         # adding a new string of css classes to this method
         # ex: super.push('new-class')
         def css_classes
-          [component_css_class, trait_css_classes, options[:class]].join(' ').squish
+          @css_classes ||= [component_css_class, options[:class]].join(' ').squish
         end
 
+        def defaults
+          {
+            # HTML Defaults
+            class: '',
+            id: nil,
+
+            # Content
+            # heading: (nil if heading.present?),
+            body: nil,
+            data: {},
+
+            # Configuration
+            # traits: ([] if traits.present?)
+          }
+        end
         # Remove attributes from html_options that shouldn't show up in the
         # html element, ex: <div body='should not be here'>
         def non_html_attribute_options
-          %i[body heading traits]
-        end
-
-        # Avoid usage of this method, it will likely be
-        # phased out as traits mature
-        def trait_css_classes
-          ''
+          @non_html_attribute_options ||= %i[body heading traits]
         end
       end
     end

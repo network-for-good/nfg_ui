@@ -1,3 +1,5 @@
 class Elements::MediaObjectsController < ApplicationController
-  def index; end
+  def index
+    redirect_to patterns_media_path
+  end
 end

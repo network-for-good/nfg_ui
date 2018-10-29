@@ -1,0 +1,35 @@
+//** Browser Compatibility Styles **//
+
+// This document is powered by modernizr's detection of flexbox support
+// Read more here: http://zomigi.com/blog/using-modernizr-with-flexbox/
+
+// IE 10 & 11 Specific
+// Flexbox Tweener (only) Supported:
+html.flexboxtweener {
+
+  // Legacy browser support requreid variables
+  @import 'variables';
+
+  // NFG Theme
+  @import 'nfg_theme/mixins';
+  @import 'nfg_theme/grid';
+  @import 'nfg_theme/forms';
+  @import 'nfg_theme/button-group';
+  @import 'nfg_theme/input-group';
+  @import 'nfg_theme/custom-forms';
+  @import 'nfg_theme/nav';
+  @import 'nfg_theme/navbar';
+  @import 'nfg_theme/card';
+  @import 'nfg_theme/breadcrumb';
+  @import 'nfg_theme/pagination';
+  @import 'nfg_theme/progress';
+  @import 'nfg_theme/media';
+  @import 'nfg_theme/list-group';
+  @import 'nfg_theme/modal';
+  @import 'nfg_theme/carousel';
+  @import 'nfg_theme/utilities';
+  @import 'nfg_theme/custom';
+
+  // Plugins
+  @import 'plugins/sticky_div';
+}

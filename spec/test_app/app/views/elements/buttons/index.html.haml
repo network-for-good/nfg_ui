@@ -1,12 +1,23 @@
 %h1 Buttons
 
 %h2 Default button
-%p
-  = ui.nfg :button, body: 'Default Button'
-  == ui.nfg :button, body: 'Default Button' 
+%p= ui.nfg :button, body: 'No Frills Button'
 %p
   = ui.nfg :button, :submit, :danger, body: 'Delete', icon: 'trash'
   == ui.nfg :button, :submit, :danger, body: 'Delete', icon: 'trash'
+
+%h2 Render_if / Render_unless as exemplified through buttons
+= ui.nfg :button, body: 'I should not show (render_if: false)', render_if: (1!=1)
+= ui.nfg :button, body: 'I should show (render_if: true)', render_if: (1==1)
+
+= ui.nfg :button, body: 'I should not show because my render unless returned true', render_unless: (1==1)
+
+= ui.nfg :button, body: 'I should show because my unless returned false', render_unless: (1!=1)
+
+%hr
+
+%h2 Data describe as exemplified through buttons
+= ui.nfg :button, body: 'Data Described', describe: 'test-data-describe'
 
 %hr
 
@@ -19,13 +30,20 @@
 
 %p
 
-  = ui.nfg :button, as: :link, href: '#testURL' do
+  = ui.nfg :button, as: :a, href: '#testURL' do
     Link Button with HREF
 
 %br
-= ui.nfg :button, as: :link do
+= ui.nfg :button, as: :a do
   Link Button without HREF
 = ui.nfg :button, as: :button, body: 'Button'
+
+%hr
+
+%h3 Buttons for Remote forms
+= ui.nfg :button, :submit, remote: true, describe: 'test remote', tooltip: 'Heavy button!', body: 'Remote button without trait'
+= ui.nfg :button, :submit, :disabled, remote: true, describe: 'test remote', tooltip: 'Heavy button!', body: 'Insanity in a button' 
+= ui.nfg :button, :submit, :remote, body: 'Remote button with trait'
 
 %hr
 
@@ -53,6 +71,7 @@
 
 = ui.nfg :button, as: :button, body: 'Light', theme: :light, class: 'example-class' 
 = ui.nfg :button, as: :button, body: 'Dark', theme: :dark, class: 'example-class' 
+= ui.nfg :button, as: :button, body: 'Link', theme: :link, class: 'example-class' 
 
 %hr
 
@@ -66,6 +85,7 @@
   = ui.nfg :button, :info, body: 'Info trait'
   = ui.nfg :button, :light, body: 'Light trait'
   = ui.nfg :button, :dark, body: 'Dark trait'
+  = ui.nfg :button, :link, body: 'Link trait'
 %p
   = ui.nfg :button, :primary, :outlined, body: 'Primary trait'
   = ui.nfg :button, :secondary, :outlined, body: 'Secondary trait'
@@ -111,7 +131,7 @@
 %h3 Buttons with disable_with (for submitting)
 = ui.nfg :button, :submit, disable_with: 'Manual disable with text', body: 'Manual disable_with'
 = ui.nfg :button, :submit, :disable_with, body: 'Trait disable_with with default'
-
+= ui.nfg :button, :submit, :disable_with, :submit, body: 'Traited Disable With & Submit'
 %hr
 
 %h3 Block Buttons without traits
@@ -127,7 +147,8 @@
 
 %h4 Submit button
 = ui.nfg :button, :submit, body: 'Submit Button Via Trait'
-= ui.nfg :button, body: 'Submit Button via Type', type: 'submit'
+
+= ui.nfg :button, as: :button, body: 'Submit Button via Type', type: 'submit'
 %hr
 
 %h3 Activated Buttons
@@ -139,11 +160,20 @@
 
 %h3 Disabled Buttons
 = ui.nfg :button, body: 'Disabled Button as Link', href: '#nogo', disabled: true
-= ui.nfg :button, as: :button, body: 'Disabled Button', disabled: true
+= ui.nfg :button, as: :button, body: 'Disabled Button, as: button not trait', disabled: true
+= ui.nfg :button, :disabled, as: :button, body: 'Disabled Button, as: button - Traited'
+= ui.nfg :button, :disabled, body: 'Disabled Button - Trait, no as'
 
 %hr
 
 %h3 Button with tooltip
 = ui.nfg :button, as: :button, body: "Tooltip'd Button", tooltip: 'Button with a tooltip'
 
-= ui.nfg :button, as: :button, disabled: true, body: "Disabled Tooltip'd Button", tooltip: 'Disabled button with a tooltip'
+= ui.nfg :button, :disabled, body: "Disabled Tooltip'd Link Button", tooltip: 'Disabled button with a tooltip'
+
+= ui.nfg :button, :disabled, as: :button, body: "Disabled Tooltip'd %Button", tooltip: 'Disabled button with a tooltip'
+
+%hr
+
+%h3 Close button
+= ui.nfg :button, :close, dismiss: 'modal'

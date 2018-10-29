@@ -35,42 +35,75 @@ module NfgUi
       #   :right
       # end
       module Tooltipable
+        # require_relative '../utilities/disableable'
+        
         include Bootstrap::Utilities::Disableable
-        attr_reader :tooltip
-        attr_accessor :data
+        # attr_reader :tooltip
+        # attr_accessor :data
 
-        def initialize(*)
-          super
-          data_toggle_error if data_toggle_error?
+        # def initialize(*)
+        #   super
+        #   @tooltip = options.fetch(:tooltip, false)
+        #   self.data = data.merge!(tooltip_data_attributes) if tooltipable?
+        # end
 
-          @tooltip = options.fetch(:tooltip, '')
-          self.data = data.merge!(tooltip_data_attributes) if tooltipable?
+        def tooltip
+          options.fetch(:tooltip, nil)
         end
 
+        # There are a number of complex changes that need to be made to the html
+        # for disabled tooltipped buttons
+        # Read more:
+        # 
+        # https://getbootstrap.com/docs/4.1/components/tooltips/#disabled-elements
         def html_options
-          return super unless tooltip.present?
+          return super if options[:tooltip].nil? || options[:modal].present?
+          
+          # if 
+          #   raise ArgumentError.new("A data :toggle has already been set as: #{data[:toggle]}. Your tooltip was not addable.") 
+          # end
 
-          styles = options.fetch(:style, '') + (disabled? ? ' pointer-events: none;' : '')
-          super.merge!(title: tooltip, style: styles)
+          component_title = disabled ? options.fetch(:title, nil) : tooltip
+          # raise component_title.inspect
+          component_styles = (options[:style] || '') + (disabled ? ' pointer-events: none;' : '') if disabled
+          component_tabindex = nil if disabled
+          # raise options.inspect
+          # component_data = disabled ? {} : (options[:data] || {}).merge!(tooltip_data_attributes)
+          # tooltip_data_attributes unless disabled || options[:data].try(:toggle)
+          super.merge!(title: component_title,
+                       style: component_styles.try(:squish),
+                       tabindex: component_tabindex)
+
+          
+          # raise super.fetch(:data).inspect
+          # super
         end
 
-        def tooltipable?
-          tooltip.present? && !disabled?
+        def data
+          if tooltip
+            disabled || options[:modal] ? super : super.merge!(tooltip_data_attributes)
+          else
+            super
+          end
         end
 
-        def disabled_tooltipable?
-          tooltip.present? && disabled?
-        end
+        # def tooltipable?
+        #   tooltip.present? && !disabled?
+        # end
 
-        def tooltip?
-          tooltip.present?
-        end
+        # def disabled_tooltipable?
+        #   tooltip.present? && disabled?
+        # end
+
+        # def tooltip?
+        #   tooltip.present?
+        # end
 
         def disabled_component_tooltip_wrapper_html_options
           { data: tooltip_data_attributes,
             title: tooltip,
             class: 'd-inline-block',
-            tabindex: 0 }
+            tabindex: '0' }
         end
 
         private
@@ -78,16 +111,12 @@ module NfgUi
         def tooltip_data_attributes
           { toggle: 'tooltip',
             placement: tooltip_placement,
-            html: tooltip_html.to_s }
+            html: 'true'}
         end
 
-        def data_toggle_error?
-          data.key?(:toggle) && data[:toggle] != 'tooltip'
-        end
-
-        def defaults
-          super.merge!(tooltip: '')
-        end
+        # def defaults
+        #   super.merge!(tooltip: false)
+        # end
 
         def non_html_attribute_options
           super.push(:tooltip)
@@ -97,13 +126,9 @@ module NfgUi
           @tooltip_placement ||= :top
         end
 
-        def tooltip_html
-          true
-        end
-
-        def data_toggle_error
-          raise ArgumentError.new "#{self.class.name} passed in a data-toggle html attribute that is competing with the Tooltip module supplying a tooltip to this class.\nCurrent data attributes are: #{data}\n\nYou can certainly add your own data-toggle to your component... but you'll need to remove the :tooltip first."
-        end
+        # def tooltip_html
+        #   true
+        # end
       end
     end
   end

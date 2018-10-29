@@ -5,44 +5,29 @@ module NfgUi
     module Traits
       # Access to pre-designed Button traits
       module Icon
-        include NfgUi::Components::Traits::Theme
+        TRAITS = %i[right
+                    loader].freeze
+        # include NfgUi::Components::Traits
+        
 
-        attr_reader :right, :text
+        # private
 
-        def initialize(*)
-          super
-          @right = options[:right] || traits.include?(:right)
+        # def right_trait
+        #   options[:right] = true
+        # #   @right = true
+        # end
+
+        def loader_trait
+          options[:icon] = 'spinner spin fw'
         end
 
-        def right?
-          right && allow_right?
-        end
+        # def allowed_traits
+        #   super.push(:right)
+        # end
 
-        private
-
-        def allow_right?
-          text.present?
-        end
-
-        def allowed_traits
-          [:right, *bootstrap4_themes]
-        end
-
-        def default_right
-          false
-        end
-
-        def css_classes
-          right? ? super + ' ml-1' : super
-        end
-
-        def defaults
-          super.merge!(right: default_right)
-        end
-
-        def icon_non_html_attribute_options
-          super.push((:right if right?))
-        end
+        # def skipped_traits
+        #   super.push(icon)
+        # end
       end
     end
   end

@@ -1,4 +1,182 @@
 %h1 Navbars
+%p Navbars are complicated beasts. The thought here is that you're only going to build a couple of these (or only one) at any given time. So, customization and sub components are provided and... needed. 
+
+%h2 Standard Navbar
+%p 
+  Note: modify navbar expand breakpoint by passing in
+  %b expand: :size
+  to the component. It will automatically utilize expand: :lg by default per docs.
 
 = ui.bootstrap :navbar, class: 'my-4' do
-  Coming Soon
+  = ui.bootstrap :navbar_brand, body: 'Brand', href: '#test_url'
+  = ui.bootstrap :navbar_toggler, collapse: '#test_navbar'
+  = ui.bootstrap :collapse, id: 'test_navbar', navbar: true do
+    = ui.bootstrap :navbar_nav do
+      = ui.bootstrap :nav_item, body: 'Nav Item #1', href: '#', active: true
+      = ui.bootstrap :nav_item, body: 'Nav Item #2', href: '#'
+      = ui.bootstrap :nav_item, body: 'Nav Item #3', href: '#'
+      = ui.bootstrap :nav_item, button: 'Nav Item #4 with Dropdown', dropdown: true do
+        = ui.bootstrap :dropdown_menu do
+          = ui.bootstrap :dropdown_item, body: 'Dropdown Item 1', href: '#dd1'
+          = ui.bootstrap :dropdown_item, body: 'Dropdown Item 2', href: '#dd2'
+          = ui.bootstrap :dropdown_item, body: 'Dropdown Item 3', href: '#dd3'
+          = ui.bootstrap :dropdown_item, body: 'Dropdown Item 4', href: '#dd4'
+    = ui.bootstrap :navbar_text, body: 'Some Navbar Text'
+
+%href
+%h2 Thematic navbars
+%p navbar-light and navbar-dark are automatically added based on the selected theme. You can overwrite this by passing in either dark: true or light: true into the :navbar
+= ui.bootstrap :navbar, theme: :primary, class: 'my-4' do
+  = ui.bootstrap :navbar_brand, body: 'Brand', href: '#test_url'
+  = ui.bootstrap :navbar_toggler, collapse: '#test_navbar_primary'
+  = ui.bootstrap :collapse, id: 'test_navbar_primary', navbar: true do
+    = ui.bootstrap :navbar_nav do
+      = ui.bootstrap :nav_item, body: 'Nav Item #1', href: '#', active: true
+      = ui.bootstrap :nav_item, body: 'Nav Item #2', href: '#'
+      = ui.bootstrap :nav_item, body: 'Nav Item #3', href: '#'
+    = ui.bootstrap :navbar_text, body: 'Some Navbar Text'
+
+= ui.bootstrap :navbar, theme: :secondary, class: 'my-4' do
+  = ui.bootstrap :navbar_brand, body: 'Brand', href: '#test_url'
+  = ui.bootstrap :navbar_toggler, collapse: '#test_navbar_secondary'
+  = ui.bootstrap :collapse, id: 'test_navbar_secondary', navbar: true do
+    = ui.bootstrap :navbar_nav do
+      = ui.bootstrap :nav_item, body: 'Nav Item #1', href: '#', active: true
+      = ui.bootstrap :nav_item, body: 'Nav Item #2', href: '#'
+      = ui.bootstrap :nav_item, body: 'Nav Item #3', href: '#'
+    = ui.bootstrap :navbar_text, body: 'Some Navbar Text'
+
+= ui.bootstrap :navbar, theme: :success, class: 'my-4' do
+  = ui.bootstrap :navbar_brand, body: 'Brand', href: '#test_url'
+  = ui.bootstrap :navbar_toggler, collapse: '#test_navbar_success'
+  = ui.bootstrap :collapse, id: 'test_navbar_success', navbar: true do
+    = ui.bootstrap :navbar_nav do
+      = ui.bootstrap :nav_item, body: 'Nav Item #1', href: '#', active: true
+      = ui.bootstrap :nav_item, body: 'Nav Item #2', href: '#'
+      = ui.bootstrap :nav_item, body: 'Nav Item #3', href: '#'
+    = ui.bootstrap :navbar_text, body: 'Some Navbar Text'
+
+= ui.bootstrap :navbar, theme: :danger, class: 'my-4' do
+  = ui.bootstrap :navbar_brand, body: 'Brand', href: '#test_url'
+  = ui.bootstrap :navbar_toggler, collapse: '#test_navbar_danger'
+  = ui.bootstrap :collapse, id: 'test_navbar_danger', navbar: true do
+    = ui.bootstrap :navbar_nav do
+      = ui.bootstrap :nav_item, body: 'Nav Item #1', href: '#', active: true
+      = ui.bootstrap :nav_item, body: 'Nav Item #2', href: '#'
+      = ui.bootstrap :nav_item, body: 'Nav Item #3', href: '#'
+    = ui.bootstrap :navbar_text, body: 'Some Navbar Text'
+
+= ui.bootstrap :navbar, theme: :info, class: 'my-4' do
+  = ui.bootstrap :navbar_brand, body: 'Brand', href: '#test_url'
+  = ui.bootstrap :navbar_toggler, collapse: '#test_navbar_info'
+  = ui.bootstrap :collapse, id: 'test_navbar_info', navbar: true do
+    = ui.bootstrap :navbar_nav do
+      = ui.bootstrap :nav_item, body: 'Nav Item #1', href: '#', active: true
+      = ui.bootstrap :nav_item, body: 'Nav Item #2', href: '#'
+      = ui.bootstrap :nav_item, body: 'Nav Item #3', href: '#'
+    = ui.bootstrap :navbar_text, body: 'Some Navbar Text'
+
+= ui.bootstrap :navbar, theme: :light, class: 'my-4' do
+  = ui.bootstrap :navbar_brand, body: 'Brand', href: '#test_url'
+  = ui.bootstrap :navbar_toggler, collapse: '#test_navbar_light'
+  = ui.bootstrap :collapse, id: 'test_navbar_light', navbar: true do
+    = ui.bootstrap :navbar_nav do
+      = ui.bootstrap :nav_item, body: 'Nav Item #1', href: '#', active: true
+      = ui.bootstrap :nav_item, body: 'Nav Item #2', href: '#'
+      = ui.bootstrap :nav_item, body: 'Nav Item #3', href: '#'
+    = ui.bootstrap :navbar_text, body: 'Some Navbar Text'
+
+= ui.bootstrap :navbar, theme: :dark, class: 'my-4' do
+  = ui.bootstrap :navbar_brand, body: 'Brand', href: '#test_url'
+  = ui.bootstrap :navbar_toggler, collapse: '#test_navbar_dark'
+  = ui.bootstrap :collapse, id: 'test_navbar_dark', navbar: true do
+    = ui.bootstrap :navbar_nav do
+      = ui.bootstrap :nav_item, body: 'Nav Item #1', href: '#', active: true
+      = ui.bootstrap :nav_item, body: 'Nav Item #2', href: '#'
+      = ui.bootstrap :nav_item, body: 'Nav Item #3', href: '#'
+    = ui.bootstrap :navbar_text, body: 'Some Navbar Text'
+
+%hr
+
+%h2 Manually overridden dark/light
+= ui.bootstrap :navbar, theme: :dark, light: true, class: 'my-4' do
+  = ui.bootstrap :navbar_brand, body: 'Brand', href: '#test_url'
+  = ui.bootstrap :navbar_toggler, collapse: '#test_navbar_light_override'
+  = ui.bootstrap :collapse, id: 'test_navbar_light_override', navbar: true do
+    = ui.bootstrap :navbar_nav do
+      = ui.bootstrap :nav_item, body: 'Nav Item #1', href: '#', active: true
+      = ui.bootstrap :nav_item, body: 'Nav Item #2', href: '#'
+      = ui.bootstrap :nav_item, body: 'Nav Item #3', href: '#'
+    = ui.bootstrap :navbar_text, body: 'Some Navbar Text'
+
+= ui.bootstrap :navbar, theme: :light, dark: true, class: 'my-4' do
+  = ui.bootstrap :navbar_brand, body: 'Brand', href: '#test_url'
+  = ui.bootstrap :navbar_toggler, collapse: '#test_navbar_dark_override'
+  = ui.bootstrap :collapse, id: 'test_navbar_dark_override', navbar: true do
+    = ui.bootstrap :navbar_nav do
+      = ui.bootstrap :nav_item, body: 'Nav Item #1', href: '#', active: true
+      = ui.bootstrap :nav_item, body: 'Nav Item #2', href: '#'
+      = ui.bootstrap :nav_item, body: 'Nav Item #3', href: '#'
+    = ui.bootstrap :navbar_text, body: 'Some Navbar Text'
+
+%hr
+
+%h2 Horizontal Alignment
+
+%p Note, left is implemented by default
+
+= ui.bootstrap :navbar, class: 'my-4' do
+  = ui.bootstrap :navbar_brand, body: 'Brand', href: '#test_url'
+  = ui.bootstrap :navbar_toggler, collapse: '#test_navbar_horizontal_alignment'
+  = ui.bootstrap :collapse, id: 'test_navbar_horizontal_alignment', navbar: true do
+    = ui.bootstrap :navbar_text, body: 'Some Navbar Text'
+    = ui.bootstrap :navbar_nav, right: true do
+      = ui.bootstrap :nav_item, body: 'Nav Item #1', href: '#', active: true
+      = ui.bootstrap :nav_item, body: 'Nav Item #2', href: '#'
+      = ui.bootstrap :nav_item, body: 'Nav Item #3', href: '#'
+      = ui.bootstrap :nav_item, body: 'Nav Item #4', href: '#'
+
+
+%hr
+
+%h2 Affixed and Sticky
+
+%h3 Sticky Top
+%p See commented code :)
+  
+-# Commented Out
+  = ui.bootstrap :navbar, sticky: :top, class: 'my-4' do
+    = ui.bootstrap :navbar_brand, body: 'Brand', href: '#test_url'
+    = ui.bootstrap :navbar_toggler, collapse: '#test_navbar_horizontal_alignment'
+    = ui.bootstrap :collapse, id: 'test_navbar_horizontal_alignment', navbar: true do
+      = ui.bootstrap :navbar_nav, right: true do
+        = ui.bootstrap :nav_item, body: 'Nav Item #1', href: '#', active: true
+        = ui.bootstrap :nav_item, body: 'Nav Item #2', href: '#'
+        = ui.bootstrap :nav_item, body: 'Nav Item #3', href: '#'
+        = ui.bootstrap :nav_item, body: 'Nav Item #4', href: '#'
+
+%h3 Fixed Top
+%p See commented code :)
+-# Commented Out
+  = ui.bootstrap :navbar, fixed: :top, class: 'my-4' do
+    = ui.bootstrap :navbar_brand, body: 'Brand', href: '#test_url'
+    = ui.bootstrap :navbar_toggler, collapse: '#test_navbar_horizontal_alignment'
+    = ui.bootstrap :collapse, id: 'test_navbar_horizontal_alignment', navbar: true do
+      = ui.bootstrap :navbar_nav, right: true do
+        = ui.bootstrap :nav_item, body: 'Nav Item #1', href: '#', active: true
+        = ui.bootstrap :nav_item, body: 'Nav Item #2', href: '#'
+        = ui.bootstrap :nav_item, body: 'Nav Item #3', href: '#'
+        = ui.bootstrap :nav_item, body: 'Nav Item #4', href: '#'
+
+%h3 Fixed Bottom
+%p See commented code :)
+-# Commented Out
+  = ui.bootstrap :navbar, fixed: :bottom, class: 'my-4' do
+    = ui.bootstrap :navbar_brand, body: 'Brand', href: '#test_url'
+    = ui.bootstrap :navbar_toggler, collapse: '#test_navbar_horizontal_alignment'
+    = ui.bootstrap :collapse, id: 'test_navbar_horizontal_alignment', navbar: true do
+      = ui.bootstrap :navbar_nav, right: true do
+        = ui.bootstrap :nav_item, body: 'Nav Item #1', href: '#', active: true
+        = ui.bootstrap :nav_item, body: 'Nav Item #2', href: '#'
+        = ui.bootstrap :nav_item, body: 'Nav Item #3', href: '#'
+        = ui.bootstrap :nav_item, body: 'Nav Item #4', href: '#'

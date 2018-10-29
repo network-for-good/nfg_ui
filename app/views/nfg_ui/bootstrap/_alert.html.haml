@@ -1,10 +1,11 @@
 -# http://getbootstrap.com/docs/4.1/components/alerts/
 %div{ alert.html_options }
   - if alert.dismissible?
-    %button{ class: 'close', data: { dismiss: 'alert' }, aria: { label: 'Close' } }
-      &times;
-
-  - if alert.heading
-    %h4.alert-heading= alert.heading
+    = ui.bootstrap :button, as: :button, class: 'close', theme: nil, data: { dismiss: 'alert' }, aria: { label: 'Close' } do
+      %span{ aria: { hidden: 'true' } } 
+        &times;
+  -#
+    / - if alert.heading
+    /   %h4.alert-heading= alert.heading
   
   = alert.body

@@ -5,28 +5,10 @@ module NfgUi
     module Traits
       # Access to pre-designed Alert traits
       module PageHeader
-        include NfgUi::Components::Utilities::BrowserDetectable
-        attr_reader :sticky
+        TRAITS = %i[sticky].freeze
 
-        def initialize(*)
-          super
-          @sticky = traits.include?(:sticky) || options.fetch(:sticky, default_sticky)
-          @data = data.merge!(sticky_div_data_attributes) if sticky?
-        end
-
-        def sticky?
-          return unless sticky
-          Rails.env.test? ? false : !browser.mobile?
-        end
-
-        private
-
-        def default_sticky
-          true
-        end
-
-        def sticky_div_data_attributes
-          { toggle: 'sticky-div' }
+        def sticky_trait
+          options[:sticky] = true
         end
       end
     end

@@ -3,93 +3,38 @@
 module NfgUi
   module Bootstrap
     module Utilities
-      # Allows components to have a collapsed state when appropriate
+      # Allows components to carry collapse attributes
+      # to more easily pass collapse status to a collapsible target
+      #
+      # Example:
+      # Tile & TileHeader both include Collapsible
+      # because they both pass collapse attributes to
+      # a collapse button within TileHeader
+      #
+      # They do not, however need a collapse toggle
+      # unlike a NavbarToggle / Button, and thus they do not include
+      # The CollapseToggleable module
+      #
+      # CollapseToggleable components have this module included
+      # by default via the CollapseToggleable module.
       module Collapsible
-        include Bootstrap::Utilities::AriaAssistable
-        include NfgUi::Components::Utilities::Requireable
-        attr_reader :collapsed, :collapsible_target_id
-
-        def initialize(*)
-          super
-          @collapsed = options.fetch(:collapsed, nil)
-          @collapsible_target_id = collapsible_target_id unless collapsible_target_id.nil? && collapsible?
-          collapsible_target_id_error if collapsible_target_id.nil?
+        def collapse
+          options.fetch(:collapse, nil)
         end
 
-        def collapsible?
-          (traits & collapsible_traits).present? || collapsed
+        def collapsed
+          options.fetch(:collapsed, nil)
         end
 
-        def collapsed?
-          collapsed || traits.include?(:collapsed)
-        end
-
-        def collapsible_toggle_html_options
-          { href: "##{collapsible_target_id}",
-            data: data.merge!(toggle: 'collapse',
-                              collapse_icon: collapse_icon,
-                              collapsed_icon: collapsed_icon),
-            aria: aria.merge!(**build_aria(aria_key: :expanded, aria_value: collapsed?),
-                              **build_aria(aria_key: :controls, aria_value: collapsible_target_id)) }
+        # Collapsible checks if collapse is manually set true or false and thus, collapsible
+        def collapsible
+          options[:collapsible] || collapse || !collapsed.nil?
         end
 
         private
 
-        def required
-          [:id]
-        end
-
-        def collapse_icon
-          'caret-up'
-        end
-
-        def collapsed_icon
-          'caret-down'
-        end
-
-        def collapsible_wrapper_html
-          view_context.content_tag(:div,
-                                   collapsible_body_html,
-                                   id: collapsible_target_id,
-                                   class: collapsible_target_css_classes)
-        end
-
-        def collapsible_body_html
-          view_context.content_tag(:div,
-                                   options[:body],
-                                   html_options)
-        end
-
-        def collapsible_target_css_classes
-          ['collapse', expanded_collapse_css_class].reject(&:nil?).join(' ').squish
-        end
-
-        def collapsible_target_id
-          "target_collapsible_id_for_#{id}"
-        end
-
-        def expanded_collapse_css_class
-          'show' unless collapsed?
-        end
-
         def non_html_attribute_options
-          super.push(:collapsed)
-        end
-
-        def defaults
-          super.merge!(collapsed: default_collapsed)
-        end
-
-        def default_collapsed
-          false
-        end
-
-        def default_collapsible
-          false unless collapsible?
-        end
-
-        def collapsible_traits
-          %i[collapsible collapsed]
+          super.push(:collapse, :collapsed, :collapsible)
         end
       end
     end

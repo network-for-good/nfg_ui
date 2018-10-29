@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 module NfgUi
   module Components
     module Utilities
       # The library of dedicated theme resources in Evo & DMS
       module ResourceThemeable
-        attr_reader :view_context
+        # attr_reader :view_context
 
         def resource_theme_color(object = nil)
           resource_theme_name = resource_theme_name(object)

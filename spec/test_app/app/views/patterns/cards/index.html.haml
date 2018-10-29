@@ -7,13 +7,17 @@
 = ui.nfg :card do
   Default, no frills card
 
+= ui.nfg :card do
+  = ui.nfg :card_image_overlay, image: 'https://via.placeholder.com/600x400', title: 'Card Image Overlay Title' do
+    %p.card-text Some additional information
+
 %hr
 
 %h2 Themes
 
 %h3 Solid Card Themes
 
-= ui.nfg :card, :primary, heading: 'Card Headline', subtitle: 'Card Subtitle', class: 'my-4' do
+= ui.nfg :card, :primary, heading: 'Card Headline', subtitle: 'Card Subtitle', class: 'my-4', footer: 'Card Footer' do
   %p.card-text Card with primary theme
 
 = ui.nfg :card, :secondary, heading: 'Card Headline', subtitle: 'Card Subtitle', class: 'my-4', body: 'Card with secondary theme'
@@ -33,7 +37,7 @@
 %hr
 
 %h3 Outlined Card Themes
-= ui.nfg :card, :primary, :outlined, heading: 'Card Headline', subtitle: 'Card Subtitle', class: 'my-4' do
+= ui.nfg :card, :primary, :outlined, heading: 'Card Headline', subtitle: 'Card Subtitle', class: 'my-4', footer: 'Card Footer' do
   %p.card-text Card with primary theme
 
 = ui.nfg :card, :outlined, :secondary, heading: 'Card Headline', subtitle: 'Card Subtitle', class: 'my-4', body: 'Card with secondary theme'

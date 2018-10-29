@@ -8,44 +8,35 @@ module NfgUi
       # Traits will eventually be connected here.
       class Button < Bootstrap::Components::Button
         include NfgUi::Components::Utilities::Iconable
-        include Bootstrap::Utilities::Tooltipable
+        include NfgUi::Components::Utilities::Traitable
+        include NfgUi::Components::Utilities::Describable
+
+        include NfgUi::Components::Traits::Active
         include NfgUi::Components::Traits::Button
+        include NfgUi::Components::Traits::Size
+        include NfgUi::Components::Traits::Theme
+        include NfgUi::Components::Traits::Disable
 
-        attr_reader :disable_with, :data
-
-        def initialize(*)
-          super
-          @body = text_maybe_with_icon
-          @disable_with = options[:disable_with]
-          update_data_attributes if disable_with?
+        def data
+          if disable_with
+            super.merge!(disable_with: disable_with)
+          else
+            super
+          end
         end
 
-        def disable_with?
-          disable_with.present? || traits.include?(:disable_with)
+        def disable_with
+          options.fetch(:disable_with, nil)
         end
 
         private
 
-        def disable_with_text
-          disable_with.present? ? disable_with : view_context.ui.nfg(:icon,
-                                                                     'spinner spin fw',
-                                                                     text: 'Saving...')
-        end
-
-        def update_data_attributes
-          data.merge!(disable_with: disable_with_text)
-        end
-
-        def defaults
-          super.merge(disable_with: default_disable_with)
+        def default_disable_with
+          view_context.ui.nfg(:icon, :loader, text: 'Saving...')
         end
 
         def non_html_attribute_options
           super.push(:disable_with)
-        end
-
-        def default_disable_with
-          ''
         end
       end
     end

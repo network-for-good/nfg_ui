@@ -21,6 +21,7 @@ module NfgUi
       else
         ApplicationController.new.view_context
       end
+      @ui ||= NfgUi::UI::Base.new(controller.view_context)
     end
   end
 end

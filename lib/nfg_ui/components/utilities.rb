@@ -5,12 +5,12 @@ module NfgUi
     # Autoloads utilities unique for NFG design system components
     module Utilities
       extend ActiveSupport::Autoload
-
       autoload :BrowserDetectable
+      autoload :Describable
       autoload :Iconable
       autoload :Titleable
+      autoload :Traitable
       autoload :ResourceThemeable
-      autoload :Requireable
     end
   end
 end

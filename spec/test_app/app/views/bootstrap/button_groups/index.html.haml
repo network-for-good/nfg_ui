@@ -85,9 +85,9 @@
 %h4 Button Groups with links
 = ui.bootstrap :button_group, class: 'example-class' do
   / = ui.bootstrap :button, href: '#testURL', body: 'Link Btn W/O :as'
-  = ui.bootstrap :button, as: :link, active: true, href: '#testURL' do
+  = ui.bootstrap :button, as: :a, active: true, href: '#testURL' do
     Active Button
-  = ui.bootstrap :button, as: :link do
+  = ui.bootstrap :button, as: :a do
     Link Button without HREF
 
 %hr
@@ -148,7 +148,7 @@
 
 %h3 Vertical variation
 %h4 Button groups with buttons
-= ui.bootstrap :button_group, :vertical, aria: { 'test' => 'test2' } do
+= ui.bootstrap :button_group, vertical: true, aria: { 'test' => 'test2' } do
   = ui.bootstrap :button, as: :button, body: 'Button'
   = ui.bootstrap :button, as: :button do
     Button

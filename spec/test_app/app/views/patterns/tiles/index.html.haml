@@ -1,39 +1,57 @@
 %h1 Tiles
 
-%h2 Default tiles
-= ui.nfg :tile, title: 'Tile Title', icon: 'rocket', id: 'tile_1' do
-  Howdy
+%hr
 
-= ui.nfg :tile, :collapsible, title: 'Tile Title', icon: 'rocket', id: 'tile_2' do
-  Collapsible content!
+%h2 Collapse via different conventions (for testing)
+= ui.nfg :tile, title: 'Tile Title', icon: 'rocket', class: 'my-4' do
+  No collapse attributes or traits
+
+= ui.nfg :tile, title: 'Tile Title', icon: 'rocket', class: 'my-4', collapsed: false, id: 'tile1' do
+  Collaps<b class='text-success'>ed</b> <b class='text-danger'>False</b>
+  %p options[:collapsed] = false
+  %i Expected: Collapsible
+
+= ui.nfg :tile, title: 'Tile Title', icon: 'rocket', class: 'my-4', collapsed: true, id: 'tile2' do
+  Collaps<b class='text-success'>ed</b> <b class='text-success'>True</b>
+  %p options[:collapsed] = true
+  %i Expected: Collapsible
+
+= ui.nfg :tile, title: 'Tile Title', icon: 'rocket', class: 'my-4', collapsible: true, id: 'tile3' do
+  Collaps<b class='text-danger'>ible</b> <b class='text-success'>True</b>
+  %p options[:collapsible] = true
+  %i Expected: Collapsible
+
+= ui.nfg :tile, title: 'Tile Title', icon: 'rocket', class: 'my-4', collapsible: false, id: 'tile4' do
+  Collaps<b class='text-danger'>ible</b> <b class='text-danger'>False</b>
+  %p options[:collapsible] = false
+  %i Expected: <b>NOT</b> Collapsible
+
+%hr
+
+%h2.mb-4 Default tiles
+= ui.nfg :tile, title: 'Tile Title', icon: 'rocket', class: 'mb-4' do
+  %b Howdy no collapse attribute or trait
+
+%hr
+
+= ui.nfg :tile, :collapsed, title: 'Collapsed Tile via Traits', icon: 'rocket', id: 'tile_2', class: 'mb-4' do
+  %b Collapsed trait, content should be collapsed
 
 %hr
 
 %h2 Collapsible tiles
-= ui.nfg :tile, :collapsible, title: 'Collapsible Not-Auto-Collapsed Tile Title', icon: 'rocket', id: 'tile_3' do
+= ui.nfg :tile, :collapsible, title: 'Collapsible Not-Auto-Collapsed Tile', icon: 'rocket', id: 'tile_3', class: 'my-4' do
   %p Collapsible Tile Body
 
-= ui.nfg :tile, :collapsed, title: 'Collapsed Tile Title without Icon', body: 'Collapsed content for tile via :collapsed trait', id: 'tile_4'
+= ui.nfg :tile, :collapsed, title: 'Collapsed via Traits Without Icon', body: 'Collapsed content for tile via :collapsed trait', id: 'tile_4', class: 'mb-4'
 
-= ui.nfg :tile, :collapsible, title: 'Collapsed Tile Title without Icon', body: 'Collapsed content for tile via collapsed: true', collapsed: true, id: 'tile_5'
-
-%hr
-
-%h2 Loaded tile with sections
-
-%h3 Loaded Tile
-= ui.nfg :tile, title: 'Loaded Tile', icon: 'rocket', heading: 'Loaded Tile Heading', id: 'tile_6', sections: ['First section content', 'Second section content', 'Third section content'], footer: 'Loaded tile footer'
-
-= ui.nfg :tile, :collapsible, title: 'Loaded Tile', icon: 'rocket', heading: 'Loaded Tile Heading', id: 'tile_7', footer: 'Loaded tile footer', section: 'Test section' do
-  %p Test body
+= ui.nfg :tile, title: 'Collapsed via attributes - no icon', body: 'Collapsed content for tile via collapsed: true', collapsed: true, id: 'tile_5', class: 'mb-4'
 
 %hr
 
-%h3 Tile with one section
+%h3 Tile with sections
 
-= ui.nfg :tile, title: 'Loaded Tile', icon: 'rocket', heading: 'Loaded Tile Heading', id: 'tile_8', section: 'Section content', footer: 'Loaded tile footer'
-
-= ui.nfg :tile, title: 'Tile with block section', icon: 'rocket', heading: 'Tile with block section heading', id: 'tile_9', body: 'Locally assigned body' do
+= ui.nfg :tile, :collapsible, title: 'Tile with block section', icon: 'rocket', heading: 'Tile with block section heading', id: 'tile_9', class: 'my-4', body: 'Locally assigned body' do
   = ui.nfg :tile_section, body: 'Section body passed in locally'
   = ui.nfg :tile_section, heading: 'Tile heading', icon: 'dollar' do
     Block section written in

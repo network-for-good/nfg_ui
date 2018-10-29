@@ -9,18 +9,25 @@ module NfgUi
         include Bootstrap::Utilities::Themeable
         include Bootstrap::Utilities::Wrappable
 
-        def pill?
-          traits.include?(:pill)
+        def pill
+          options.fetch(:pill, false)
         end
 
         private
 
         def css_classes
-          pill? ? super + " #{component_css_class}-pill" : super
+          [
+            super,
+            ("#{component_css_class}-pill" if pill)
+          ].join(' ').squish
         end
 
         def default_html_wrapper_element
           :span
+        end
+
+        def non_html_attribute_options
+          super.push(:pill)
         end
       end
     end

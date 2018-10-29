@@ -7,49 +7,38 @@ module NfgUi
       # Pass in :as -- only unique logic at the moment
       # is converting :link to :a for tag generation
       module Wrappable
-        attr_reader :href
-        attr_writer :as, :options
-
-        def initialize(component_options, *)
-          super
-          self.as = options.fetch(:as, assigned_html_wrapper_element)
-          self.options = defaults.merge!(**defaults_for_link, **options) if link?
-          @href = options.try(:href, nil)
-        end
-
-        def html_wrapper_element
-          as_link? ? :a : as
+        def as
+          options.fetch(:as, automatic_as)
         end
 
         private
 
-        def assistive_html_attributes
-          as == :button ? super.merge(type: options.fetch(:type, 'button')) : super
+        def automatic_as
+          if href.present?
+            :a
+          elsif options[:type] == 'submit'
+            :button
+          else
+            default_html_wrapper_element
+          end
         end
 
         def non_html_attribute_options
           super.push(:as)
         end
 
-        def as_link?
-          as == :link
-        end
-
-        def assigned_html_wrapper_element
-          href ? :a : default_html_wrapper_element
-        end
-
         # Set default_html_wrapper_element on individual components as needed
         def default_html_wrapper_element
-          :span
+          @default_html_wrapper_element ||= :span
         end
 
-        def link?
-          html_wrapper_element == :a
-        end
-
-        def defaults_for_link
-          { href: 'javascript:;' }
+        def assistive_html_attributes
+          if as == :button
+            super.merge(type: options.fetch(:type, 'button')) # prefer type submit
+          else
+            super
+          end
+          # as == :button ? super.merge!(type: 'button') : super
         end
       end
     end

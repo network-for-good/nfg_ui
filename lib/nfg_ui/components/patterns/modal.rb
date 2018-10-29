@@ -5,6 +5,7 @@ module NfgUi
     module Patterns
       # Modal docs coming soon
       class Modal < Bootstrap::Components::Modal
+        include NfgUi::Components::Utilities::Titleable
       end
     end
   end

@@ -12,7 +12,16 @@ module NfgUi
         private
 
         def assistive_html_attributes
-          super.merge!(role: 'alert') unless options[:role]
+          super.merge!(role: 'alert')
+        end
+
+        def css_classes
+          [
+            super,
+            ("#{component_css_class}-dismissible" if dismissible),
+            ('fade' if dismissible),
+            ('show' if dismissible)
+          ].join(' ').squish
         end
       end
     end
