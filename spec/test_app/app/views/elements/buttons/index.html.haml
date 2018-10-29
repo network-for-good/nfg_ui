@@ -10,9 +10,9 @@
 = ui.nfg :button, body: 'I should not show (render_if: false)', render_if: (1!=1)
 = ui.nfg :button, body: 'I should show (render_if: true)', render_if: (1==1)
 
-= ui.nfg :button, body: 'I should show (render_unless: 1==1)', render_if: (1==1)
+= ui.nfg :button, body: 'I should not show because my render unless returned true', render_unless: (1==1)
 
-= ui.nfg :button, body: 'I should not show (render_unless: 1!=1)', render_if: (1!=1)
+= ui.nfg :button, body: 'I should show because my unless returned false', render_unless: (1!=1)
 
 %hr
 
