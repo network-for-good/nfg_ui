@@ -1,1 +1,2 @@
-= render 'nfg_ui/bootstrap/progress', progress: progress_bar
+- if NfgUi::UI::Base.new(controller.view_context).send(:render_nfg_component?, progress_bar.options)
+  = render 'nfg_ui/bootstrap/progress', progress: progress_bar

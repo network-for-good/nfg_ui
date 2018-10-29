@@ -29,14 +29,21 @@ module NfgUi
         # data is present in the default progress wrapper html options
         #
         # Explore generating an array and then turning into a hash instead of this nonsense
-        def progress_wrapper_html_options
-          return default_progress_wrapper_html_options unless wrapper_html.present?
+        # def progress_wrapper_html_options
+        #   wrapper_html.merge!(default_progress_wrapper_html_options)
+        #   # return default_progress_wrapper_html_options unless wrapper_html.present?
 
-          default_progress_wrapper_html_options.each_with_object({}) do |(k, v), combined_options|
-            combined_options[k] =
-              v.is_a?(String) ? [v, wrapper_html[k]].join(' ') : v.merge(wrapper_html[k])
-          end
+        #   # default_progress_wrapper_html_options.each_with_object({}) do |(k, v), combined_options|
+        #   #   combined_options[k] =
+        #   #     v.is_a?(String) ? [v, wrapper_html[k]].join(' ') : v.merge(wrapper_html[k])
+        #   # end
+        # end
+
+        def progress_wrapper_html_options
+          { class: ['progress', wrapper_html.fetch(:class, '')].join(' '),
+            **(height ? { style: "height: #{height}px;" } : {})}.merge!(**(wrapper_html ? wrapper_html.except(:class) : {}))
         end
+
 
         def striped
           options.fetch(:striped, false)
@@ -71,10 +78,11 @@ module NfgUi
           ].join(' ').squish
         end
 
-        def default_progress_wrapper_html_options
-          { class: 'progress',
-            **(height ? { style: "height: #{height}px;" } : {})}
-        end
+        # def default_progress_wrapper_html_options
+        #   { class: 'progress',
+        #     **(height ? { style: "height: #{height}px;" } : {}),
+        #     **(wrapper_html ? wrapper_html : {})}
+        # end
 
         def non_html_attribute_options
           super.push(:wrapper_html, :height, :progress, :label, :striped)

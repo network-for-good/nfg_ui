@@ -27,7 +27,14 @@ module NfgUi
         # end
 
         def css_classes
-          resized? ? super + " #{size_css_class_prefix}-#{size}" : super
+          [
+            super,
+            (size_css_class if resized?)
+          ].join(' ').squish
+        end
+
+        def size_css_class
+          "#{size_css_class_prefix}-#{size}"
         end
 
         # def size_css_class
