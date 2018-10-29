@@ -9,7 +9,8 @@ module NfgUi
       class Alert < Bootstrap::Components::Alert
         include NfgUi::Components::Utilities::Traitable
         include NfgUi::Components::Utilities::Describable
-        # include NfgUi::Components::Traits::Alert
+        include NfgUi::Components::Traits::Dismiss
+        include NfgUi::Components::Traits::Theme
       end
     end
   end

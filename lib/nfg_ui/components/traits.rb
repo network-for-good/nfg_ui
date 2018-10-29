@@ -14,6 +14,7 @@ module NfgUi
                          Card
                          Collapse
                          Disable
+                         Dismiss
                          Icon
                          Nav
                          PageHeader
