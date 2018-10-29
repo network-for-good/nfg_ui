@@ -1,8 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe NfgUi::Components::Utilities::Titleable do
-  # Modal is a titleable component
-  # let(:card) { FactoryBot.create(:bootstrap_modal, title: title) }
   let(:modal) { FactoryBot.create(:modal, title: title) }
   let(:title) { nil }
   let(:tested_title) { 'tested title' }
@@ -18,11 +16,6 @@ RSpec.describe NfgUi::Components::Utilities::Titleable do
       let(:title) { nil }
       it { is_expected.to be_nil }
     end
-  end
-
-  describe '#defaults' do
-    subject { modal.send(:defaults) }
-    it { is_expected.to include(title: '') }
   end
 
   describe '#non_html_attribute_options' do

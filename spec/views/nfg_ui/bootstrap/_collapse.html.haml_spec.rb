@@ -15,7 +15,7 @@ RSpec.describe 'nfg_ui/bootstrap/_collapse.html.haml', type: :view do
   describe 'a navbar collapse' do
     context 'when navbar is true in options' do
       let(:options) { { navbar: true } }
-      it { is_expected.to eq "<div class='collapse navbar-collapse' id='collapse_id'>\n\n</div>\n" }
+      it { is_expected.to eq "<div class='collapse show navbar-collapse' id='collapse_id'>\n\n</div>\n" }
     end
 
     context 'when navbar is not true in options' do

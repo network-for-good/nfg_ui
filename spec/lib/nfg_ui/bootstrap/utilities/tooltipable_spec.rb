@@ -36,7 +36,7 @@ RSpec.describe NfgUi::Bootstrap::Utilities::Tooltipable do
 
       context 'when component is disabled' do
         let(:tested_disabled) { true }
-        it { is_expected.to eq(class: 'btn btn-primary disabled', tabindex: nil, title: nil, style: 'pointer-events: none;') }
+        it { is_expected.to eq(class: 'btn btn-primary disabled', tabindex: nil, title: nil, style: 'pointer-events: none;', href: '#') }
 
         context 'when a component has :style applied in the options' do
           let(:tested_style) { 'background-color: purple;' }
@@ -51,7 +51,7 @@ RSpec.describe NfgUi::Bootstrap::Utilities::Tooltipable do
       context 'when component is not disabled' do
         let(:tested_disabled) { false }
         it { is_expected.not_to include(style: 'pointer-events: none;') }
-        it { is_expected.to eq(class: 'btn btn-primary', title: tested_tooltip, style: nil, data: { toggle: 'tooltip', placement: :top, html: 'true' }, tabindex: nil) }
+        it { is_expected.to eq(class: 'btn btn-primary', title: tested_tooltip, style: nil, data: { toggle: 'tooltip', placement: :top, html: 'true' }, tabindex: nil, href: '#') }
       end
 
       context 'when :modal is present in the options as well' do

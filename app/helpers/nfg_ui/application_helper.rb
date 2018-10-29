@@ -9,7 +9,7 @@ module NfgUi
     include FontAwesome::Rails::IconHelper
 
     def ui
-      NfgUi::UI::Base.new(get_view_context)
+      @ui ||= NfgUi::UI::Base.new(get_view_context)
     end
 
     private
@@ -21,7 +21,7 @@ module NfgUi
       else
         ApplicationController.new.view_context
       end
-      @ui ||= NfgUi::UI::Base.new(controller.view_context)
+      # @ui ||= NfgUi::UI::Base.new(controller.view_context)
     end
   end
 end

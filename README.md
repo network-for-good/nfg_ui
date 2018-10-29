@@ -333,8 +333,13 @@ $ Collapsible? (Y/n):
 
 23. need an overlay_blocker
 
-Component tooltip/icon auto list for backup
+24. should form-row be a (nfg?) component? see: Givecorps-site/app/views/bootstrap4/addresses/_address_form.html.haml
 
+25. card sub title and card title components?
+
+26. card image
+
+Component tooltip/icon auto list for backup
 FOUNDATION_COMPONENT_NAMES = %i[color
                                   icon
                                   image

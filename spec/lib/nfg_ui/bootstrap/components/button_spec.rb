@@ -99,7 +99,7 @@ RSpec.describe NfgUi::Bootstrap::Components::Button do
 
         context 'when collapse is falsey' do
           let(:options) { { collapse: false } }
-          it { is_expected.to be_nil }
+          it { is_expected.to eq '#' }
         end
       end
 
@@ -114,13 +114,13 @@ RSpec.describe NfgUi::Bootstrap::Components::Button do
 
           context 'when href is not present' do
             let(:tested_href) { nil }
-            it { is_expected.to eq '#' }
+            it { is_expected.to be_nil }
           end
         end
 
         context 'when modal is falsey' do
           let(:options) { { modal: false } }
-          it { is_expected.to be_nil }
+          it { is_expected.to eq '#' }
         end
       end
     end
@@ -291,7 +291,7 @@ RSpec.describe NfgUi::Bootstrap::Components::Button do
               end
 
               context 'when button does not have :href in options' do
-                let(:href) { nil }
+                let(:options) { {} }
                 it { is_expected.to include(href: '#') }
               end
             end

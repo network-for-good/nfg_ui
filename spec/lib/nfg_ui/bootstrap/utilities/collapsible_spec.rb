@@ -30,6 +30,18 @@ RSpec.describe NfgUi::Bootstrap::Utilities::Collapsible do
 
   describe '#collapsed' do
     subject { button.collapsed }
+    let(:test_id) { 'test_id' }
+
+    context 'when :collapsed is present within options' do
+      let(:test_collapsed) { false }
+      let(:options) { { id: test_id, collapsed: test_collapsed } }
+      it { is_expected.to eq test_collapsed }
+    end
+
+    context 'when :collapsed is not present within options' do
+      let(:options) { { id: test_id } }
+      it { is_expected.to be_nil }
+    end
   end
 
   describe '#collapsible' do

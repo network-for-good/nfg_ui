@@ -8,7 +8,7 @@ RSpec.describe NfgUi::Bootstrap::Components::CardImage do
   it_behaves_like 'a component with a consistent initalized construction'
 
   describe '#component_family' do
-    subject { card_footer.component_family }
+    subject { card_image.component_family }
     it { is_expected.to eq :card }
   end
 end

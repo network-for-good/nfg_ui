@@ -64,31 +64,31 @@ RSpec.describe NfgUi::Bootstrap::Utilities::Themeable do
       context 'when outlined is true' do
         let(:outlined) { true }
         let(:options) { options_with_themeable }
-        it { is_expected.to eq "alert alert-outline-#{tested_theme}" }
+        it { is_expected.to eq "alert alert-outline-#{tested_theme} alert-dismissible fade show" }
       end
 
       context 'when outlined is false / nil' do
-        it { is_expected.to eq "alert alert-#{tested_theme}" }
+        it { is_expected.to eq "alert alert-#{tested_theme} alert-dismissible fade show" }
       end
     end
 
     context 'when theme is manually set to nil' do
       let(:options) { { theme: nil } }
-      it { is_expected.to eq 'alert' }
+      it { is_expected.to eq 'alert alert-dismissible fade show' }
     end
 
     context 'when theme is not present' do
       let(:options) { {} }
-      it { is_expected.to eq 'alert alert-primary' }
+      it { is_expected.to eq 'alert alert-primary alert-dismissible fade show' }
 
       context 'when outlined is true' do
         let(:outlined) { true }
         let(:options) { options_with_outlined }
-        it { is_expected.to eq 'alert alert-outline-primary' }
+        it { is_expected.to eq 'alert alert-outline-primary alert-dismissible fade show' }
       end
 
       context 'when outlined is false / nil' do
-        it { is_expected.to eq 'alert alert-primary' }
+        it { is_expected.to eq 'alert alert-primary alert-dismissible fade show' }
       end
     end
   end

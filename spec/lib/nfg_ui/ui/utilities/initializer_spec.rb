@@ -24,7 +24,7 @@ RSpec.describe NfgUi::UI::Utilities::Initializer do
 
     context 'rendering #bootstrap components' do
       let(:component_suite) { 'Bootstrap' }
-      it { is_expected.to eq "<div class='alert alert-primary' role='alert'>\n<button class=\"btn close\" data-dismiss=\"alert\" aria-label=\"Close\" type=\"button\"><span aria-hidden='true'>\n&times;\n</span>\n\n</button>#{body}\n</div>\n" }
+      it { is_expected.to eq "<div class='alert alert-primary alert-dismissible fade show' role='alert'>\n<button class=\"btn close\" data-dismiss=\"alert\" aria-label=\"Close\" type=\"button\"><span aria-hidden='true'>\n&times;\n</span>\n\n</button>#{body}\n</div>\n" }
     end
 
     context 'rendering #nfg components' do

@@ -31,7 +31,7 @@ RSpec.describe NfgUi::UI::Base do
     let(:body) { 'test' }
     let(:component_args) { [:button, [], { body: body}] }
     it 'renders a bootstrap component' do
-      expect(subject).to eq "<a class=\"btn btn-primary\">#{body}\n</a>"
+      expect(subject).to eq "<a class=\"btn btn-primary\" href=\"#\">#{body}\n</a>"
     end
   end
 
@@ -41,7 +41,7 @@ RSpec.describe NfgUi::UI::Base do
     let(:body) { 'test' }
     let(:component_args) { [:button, [], { body: body}] }
     it 'renders an nfg component' do
-      expect(subject).to eq "<a class=\"btn btn-primary\">#{body}\n</a>\n"
+      expect(subject).to eq "<a class=\"btn btn-primary\" href=\"#\">#{body}\n</a>"
     end
   end
 end

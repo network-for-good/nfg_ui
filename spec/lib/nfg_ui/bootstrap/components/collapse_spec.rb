@@ -8,22 +8,6 @@ RSpec.describe NfgUi::Bootstrap::Components::Collapse do
   it { expect(described_class).to be < NfgUi::Bootstrap::Components::Base }
   it_behaves_like 'a component with a consistent initalized construction', required_options: { id: 'test_id' }
 
-  describe '#collapsed' do
-    pending 'this method may have been removed -- review spec'
-    subject { collapse.collapsed }
-
-    context 'when :collapsed is present within options' do
-      let(:test_collapsed) { false }
-      let(:options) { { id: test_id, collapsed: test_collapsed } }
-      it { is_expected.to eq test_collapsed }
-    end
-
-    context 'when :collapsed is not present within options' do
-      let(:options) { { id: test_id } }
-      it { is_expected.to be }
-    end
-  end
-
   describe '#navbar' do
     subject { collapse.navbar }
 
