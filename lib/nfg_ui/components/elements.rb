@@ -12,6 +12,8 @@ module NfgUi
       require_relative 'elements/button'
       require_relative 'elements/card_footer'
       require_relative 'elements/card_header'
+      require_relative 'elements/card_image'
+      require_relative 'elements/card_image_overlay'
       require_relative 'elements/carousel_caption'
       require_relative 'elements/carousel_control'
       require_relative 'elements/carousel_indicators'

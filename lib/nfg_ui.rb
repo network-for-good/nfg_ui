@@ -39,6 +39,8 @@ module NfgUi
                                   card
                                   card_footer
                                   card_header
+                                  card_image
+                                  card_image_overlay
                                   carousel
                                   carousel_caption
                                   carousel_control
@@ -99,6 +101,8 @@ module NfgUi
                                   button
                                   card_footer
                                   card_header
+                                  card_image
+                                  card_image_overlay
                                   carousel_caption
                                   carousel_control
                                   carousel_indicators

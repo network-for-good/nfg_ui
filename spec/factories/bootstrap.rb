@@ -151,6 +151,34 @@ FactoryBot.define do
     end
   end
 
+  factory :bootstrap_card_image, class: NfgUi::Bootstrap::Components::CardImage do
+    body { nil }
+    data { nil }
+    id { nil }
+
+    skip_create
+    initialize_with { new(attributes, ActionController::Base.new.view_context) }
+
+    trait :rendered do
+      initialize_with { NfgUi::UI::Base.new(ActionController::Base.new.view_context)
+                                       .bootstrap(:card_image, attributes) }
+    end
+  end
+
+  factory :bootstrap_card_image_overlay, class: NfgUi::Bootstrap::Components::CardImageOverlay do
+    body { nil }
+    data { nil }
+    id { nil }
+
+    skip_create
+    initialize_with { new(attributes, ActionController::Base.new.view_context) }
+
+    trait :rendered do
+      initialize_with { NfgUi::UI::Base.new(ActionController::Base.new.view_context)
+                                       .bootstrap(:card_image_overlay, attributes) }
+    end
+  end
+
   factory :bootstrap_carousel, class: NfgUi::Bootstrap::Components::Carousel do
     body { nil }
     data { nil }

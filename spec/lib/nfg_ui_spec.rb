@@ -27,6 +27,8 @@ RSpec.describe NfgUi do
                                                           card
                                                           card_footer
                                                           card_header
+                                                          card_image
+                                                          card_image_overlay
                                                           carousel
                                                           carousel_caption
                                                           carousel_control
@@ -100,6 +102,8 @@ RSpec.describe NfgUi do
                                                           button
                                                           card_footer
                                                           card_header
+                                                          card_image
+                                                          card_image_overlay
                                                           carousel_caption
                                                           carousel_control
                                                           carousel_indicators

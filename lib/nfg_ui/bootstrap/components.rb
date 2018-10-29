@@ -15,6 +15,8 @@ module NfgUi
       require_relative 'components/card'
       require_relative 'components/card_footer'
       require_relative 'components/card_header'
+      require_relative 'components/card_image'
+      require_relative 'components/card_image_overlay'
       require_relative 'components/carousel'
       require_relative 'components/carousel_caption'
       require_relative 'components/carousel_control'
