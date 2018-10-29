@@ -15,4 +15,9 @@ RSpec.describe NfgUi::Bootstrap::Components::Alert do
       it { is_expected.to eq(role: 'alert') }
     end
   end
+
+  describe '#css_classes' do
+    subject { alert.send(:css_classes) }
+    pending 'spec needed for css_classes'
+  end
 end
