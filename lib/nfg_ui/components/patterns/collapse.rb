@@ -11,6 +11,15 @@ module NfgUi
         include NfgUi::Components::Utilities::Describable
         include NfgUi::Components::Traits::Collapse
 
+        def heading
+          options.fetch(:heading, nil)
+        end
+
+        private
+
+        def non_html_attribute_options
+          super.push(:heading)
+        end
         # def initialize(*)
         #   super
         #   @body = collapsible_wrapper_html

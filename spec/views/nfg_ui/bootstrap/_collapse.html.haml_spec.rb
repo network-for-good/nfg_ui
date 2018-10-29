@@ -6,6 +6,8 @@ RSpec.describe 'nfg_ui/bootstrap/_collapse.html.haml', type: :view do
 
   subject { render 'nfg_ui/bootstrap/collapse', collapse: collapse }
 
+  pending 'needs spec updates'
+
   it 'outputs a collapse html' do
     "<div class='collapse' id='collapse_id'>\n\n</div>\n"
   end
