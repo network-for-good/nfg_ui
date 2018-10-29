@@ -18,7 +18,7 @@ module NfgUi
         def css_classes
           [
             super,
-            ("#{component_css_class}-dismissible" if dismissilbe),
+            ("#{component_css_class}-dismissible" if dismissible),
             ('fade' if dismissible),
             ('show' if dismissible)
           ].join(' ').squish
