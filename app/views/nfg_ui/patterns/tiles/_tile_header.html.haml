@@ -1,6 +1,6 @@
 %div{ tile_header.html_options }
   - if tile_header.collapsible && tile_header.title
-    = ui.nfg :button, collapse: tile_header.collapse, theme: :link, block: true, class: 'no-link-color p-0 m-0' do
+    = ui.nfg :button, :link, :block, collapse: tile_header.collapse, class: 'no-link-color p-0 m-0' do
       .row.align-items-center
         .col-10.text-left
           = ui.nfg :typeface, title: tile_header.title, class: 'text-uppercase', icon: tile_header.icon
