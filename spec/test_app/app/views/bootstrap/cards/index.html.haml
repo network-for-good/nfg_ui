@@ -13,7 +13,7 @@
 
 %h3 Solid Card Themes
 
-= ui.bootstrap :card, heading: 'Card Headline', subtitle: 'Card Subtitle', theme: :primary, class: 'my-4' do
+= ui.bootstrap :card, heading: 'Card Headline', subtitle: 'Card Subtitle', theme: :primary, footer: 'Card Footer' class: 'my-4' do
   %p.card-text Card with primary theme
 
 = ui.bootstrap :card, heading: 'Card Headline', subtitle: 'Card Subtitle', theme: :secondary, class: 'my-4', body: 'Card with secondary theme'
@@ -33,7 +33,7 @@
 %hr
 
 %h3 Outlined Card Themes
-= ui.bootstrap :card, outlined: true, heading: 'Card Headline', subtitle: 'Card Subtitle', theme: :primary, class: 'my-4' do
+= ui.bootstrap :card, outlined: true, heading: 'Card Headline', subtitle: 'Card Subtitle', theme: :primary, class: 'my-4', footer: 'Card Footer' do
   %p.card-text Card with primary theme
 
 = ui.bootstrap :card, outlined: true, heading: 'Card Headline', subtitle: 'Card Subtitle', theme: :secondary, class: 'my-4', body: 'Card with secondary theme'

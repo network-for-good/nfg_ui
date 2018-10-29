@@ -25,6 +25,7 @@ RSpec.describe NfgUi do
                                                           button_group
                                                           button_toolbar
                                                           card
+                                                          card_footer
                                                           card_header
                                                           carousel
                                                           carousel_caption
@@ -97,6 +98,8 @@ RSpec.describe NfgUi do
                                                           breadcrumb
                                                           breadcrumb_item
                                                           button
+                                                          card_footer
+                                                          card_header
                                                           carousel_caption
                                                           carousel_control
                                                           carousel_indicators

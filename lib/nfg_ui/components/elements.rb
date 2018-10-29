@@ -10,6 +10,8 @@ module NfgUi
       require_relative 'elements/breadcrumb'
       require_relative 'elements/breadcrumb_item'
       require_relative 'elements/button'
+      require_relative 'elements/card_footer'
+      require_relative 'elements/card_header'
       require_relative 'elements/carousel_caption'
       require_relative 'elements/carousel_control'
       require_relative 'elements/carousel_indicators'

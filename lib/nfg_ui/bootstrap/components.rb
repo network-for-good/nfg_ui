@@ -13,6 +13,7 @@ module NfgUi
       require_relative 'components/button_group'
       require_relative 'components/button_toolbar'
       require_relative 'components/card'
+      require_relative 'components/card_footer'
       require_relative 'components/card_header'
       require_relative 'components/carousel'
       require_relative 'components/carousel_caption'

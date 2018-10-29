@@ -15,7 +15,10 @@
 //
 // Optional textual caps
 //
-.card-footer { border-top: none; }
+.card-footer { 
+  border-top: none; 
+  background-color: inherit;
+}
 
 // Card image
 .card-img-overlay { @include gradient-y(transparentize($black, 1), transparentize($black, .5)); }

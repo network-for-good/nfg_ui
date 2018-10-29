@@ -37,6 +37,7 @@ module NfgUi
                                   button_group
                                   button_toolbar
                                   card
+                                  card_footer
                                   card_header
                                   carousel
                                   carousel_caption
@@ -96,6 +97,8 @@ module NfgUi
                                   breadcrumb
                                   breadcrumb_item
                                   button
+                                  card_footer
+                                  card_header
                                   carousel_caption
                                   carousel_control
                                   carousel_indicators

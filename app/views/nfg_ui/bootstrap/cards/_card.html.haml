@@ -9,5 +9,4 @@
       %h6.card-subtitle= card.subtitle
     = card.body
   - if card.footer.present?
-    .card-footer
-      = card.footer
+    = ui.nfg :card_footer, body: card.footer

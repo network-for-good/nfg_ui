@@ -13,7 +13,7 @@
 
 %h3 Solid Card Themes
 
-= ui.nfg :card, :primary, heading: 'Card Headline', subtitle: 'Card Subtitle', class: 'my-4' do
+= ui.nfg :card, :primary, heading: 'Card Headline', subtitle: 'Card Subtitle', class: 'my-4', footer: 'Card Footer' do
   %p.card-text Card with primary theme
 
 = ui.nfg :card, :secondary, heading: 'Card Headline', subtitle: 'Card Subtitle', class: 'my-4', body: 'Card with secondary theme'
@@ -33,7 +33,7 @@
 %hr
 
 %h3 Outlined Card Themes
-= ui.nfg :card, :primary, :outlined, heading: 'Card Headline', subtitle: 'Card Subtitle', class: 'my-4' do
+= ui.nfg :card, :primary, :outlined, heading: 'Card Headline', subtitle: 'Card Subtitle', class: 'my-4', footer: 'Card Footer' do
   %p.card-text Card with primary theme
 
 = ui.nfg :card, :outlined, :secondary, heading: 'Card Headline', subtitle: 'Card Subtitle', class: 'my-4', body: 'Card with secondary theme'

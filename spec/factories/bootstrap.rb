@@ -123,6 +123,34 @@ FactoryBot.define do
     end
   end
 
+  factory :bootstrap_card_footer, class: NfgUi::Bootstrap::Components::CardFooter do
+    body { nil }
+    data { nil }
+    id { nil }
+
+    skip_create
+    initialize_with { new(attributes, ActionController::Base.new.view_context) }
+
+    trait :rendered do
+      initialize_with { NfgUi::UI::Base.new(ActionController::Base.new.view_context)
+                                       .bootstrap(:card_footer, attributes) }
+    end
+  end
+
+  factory :bootstrap_card_header, class: NfgUi::Bootstrap::Components::CardHeader do
+    body { nil }
+    data { nil }
+    id { nil }
+
+    skip_create
+    initialize_with { new(attributes, ActionController::Base.new.view_context) }
+
+    trait :rendered do
+      initialize_with { NfgUi::UI::Base.new(ActionController::Base.new.view_context)
+                                       .bootstrap(:card_header, attributes) }
+    end
+  end
+
   factory :bootstrap_carousel, class: NfgUi::Bootstrap::Components::Carousel do
     body { nil }
     data { nil }
