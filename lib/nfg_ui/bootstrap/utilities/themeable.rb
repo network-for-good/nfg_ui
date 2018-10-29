@@ -22,8 +22,10 @@ module NfgUi
         private
 
         def css_classes
-          return super unless theme.present?
-          super + " #{theme_css_class_prefix}#{outlined_css_class_prefix if outlined}#{theme}"
+          [
+            super,
+            ("#{theme_css_class_prefix}#{outlined_css_class_prefix if outlined}#{theme}" if theme)
+          ].join(' ').squish
         end
 
         def non_html_attribute_options

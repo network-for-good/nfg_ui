@@ -158,6 +158,7 @@ module NfgUi
                                   navbar_nav
                                   page_header
                                   pagination
+                                  progress
                                   slat_list
                                   tab_content
                                   task_list

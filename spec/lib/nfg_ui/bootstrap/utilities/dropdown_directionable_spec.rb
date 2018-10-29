@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe NfgUi::Bootstrap::Components::Dropdown do
+RSpec.describe NfgUi::Bootstrap::Utilities::DropdownDirectionable do
   # Dropdown is DropdownDirectionable
   let(:dropdown) { described_class.new(options, ActionController::Base.new.view_context) }
   let(:options) { {} }

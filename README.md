@@ -337,7 +337,7 @@ $ Collapsible? (Y/n):
 
 25. card sub title and card title components?
 
-26. card image
+26. consider typeface for link_to so we can supply our luxuries to link_to.
 
 Component tooltip/icon auto list for backup
 FOUNDATION_COMPONENT_NAMES = %i[color

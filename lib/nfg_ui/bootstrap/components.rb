@@ -54,6 +54,7 @@ module NfgUi
       require_relative 'components/pagination'
       require_relative 'components/popover'
       require_relative 'components/progress'
+      require_relative 'components/progress_bar'
       require_relative 'components/tab_content'
       require_relative 'components/tab_pane'
       require_relative 'components/table'

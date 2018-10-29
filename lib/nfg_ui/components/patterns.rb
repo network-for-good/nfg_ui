@@ -24,6 +24,7 @@ module NfgUi
       require_relative 'patterns/navbar_nav'
       require_relative 'patterns/page_header'
       require_relative 'patterns/pagination'
+      require_relative 'patterns/progress'
       require_relative 'patterns/slat_list'
       require_relative 'patterns/tab_content'
       require_relative 'patterns/task_list'

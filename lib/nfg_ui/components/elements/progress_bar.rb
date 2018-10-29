@@ -5,11 +5,11 @@ module NfgUi
     module Elements
       # ProgressBar doc coming soon
       class ProgressBar < Bootstrap::Components::Progress
-        include Bootstrap::Utilities::Sizable
-        include Bootstrap::Utilities::Tooltipable
-
         include NfgUi::Components::Utilities::Traitable
         include NfgUi::Components::Utilities::Describable
+
+        include Bootstrap::Utilities::Sizable
+        include Bootstrap::Utilities::Tooltipable
 
         include NfgUi::Components::Traits::Theme
         include NfgUi::Components::Traits::Size
@@ -21,7 +21,6 @@ module NfgUi
 
         def html_options
           # return super unless tooltip || size
-          
           tooltip ? super.except(:title) : super
         end
 
@@ -36,13 +35,6 @@ module NfgUi
           # end
           super.merge!(**(tooltip ? { data: tooltip_data_attributes, title: tooltip } : {}),
                        **(resized? ? { class: ['progress', size_css_class].join(' ').squish } : {}))
-        end
-
-        def style
-          [
-            super,
-            "width: #{progress}%;"
-          ].join(' ').squish
         end
 
         private
