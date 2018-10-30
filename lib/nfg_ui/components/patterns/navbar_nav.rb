@@ -8,8 +8,10 @@ module NfgUi
         include NfgUi::Components::Utilities::Traitable
         include NfgUi::Components::Utilities::Describable
         include NfgUi::Components::Utilities::Renderable
-
+        include NfgUi::Components::Utilities::VerticallyAlignable
+        
         include NfgUi::Components::Traits::Alignment
+
       end
     end
   end

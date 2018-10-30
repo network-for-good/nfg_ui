@@ -11,7 +11,7 @@
   = ui.nfg :navbar_brand, body: 'Brand V. Centered', href: '#test_url', align_items: :center
   = ui.nfg :navbar_toggler, collapse: '#test_navbar'
   = ui.nfg :collapse, :navbar, id: 'test_navbar' do
-    = ui.nfg :navbar_nav do
+    = ui.nfg :navbar_nav, align_items: :center do
       = ui.nfg :nav_item, :remote, body: 'Nav Item #1', href: '#', active: true
       = ui.nfg :nav_item, :remote, body: 'Nav Item #2', href: '#'
       = ui.nfg :nav_item, :remote, body: 'Nav Item #3', href: '#'
