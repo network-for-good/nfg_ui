@@ -10,6 +10,7 @@ module NfgUi
       autoload :Iconable
       autoload :Titleable
       autoload :Traitable
+      autoload :Renderable
       autoload :ResourceThemeable
     end
   end
