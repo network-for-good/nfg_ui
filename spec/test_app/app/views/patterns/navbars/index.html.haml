@@ -8,7 +8,7 @@
   to the component. It will automatically utilize expand: :lg by default per docs.
 
 = ui.nfg :navbar, class: 'my-4' do
-  = ui.nfg :navbar_brand, body: 'Brand', href: '#test_url'
+  = ui.nfg :navbar_brand, :center, body: 'Brand V. Centered', href: '#test_url'
   = ui.nfg :navbar_toggler, collapse: '#test_navbar'
   = ui.nfg :collapse, id: 'test_navbar', navbar: true do
     = ui.nfg :navbar_nav do
