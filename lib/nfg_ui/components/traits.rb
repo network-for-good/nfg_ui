@@ -17,6 +17,7 @@ module NfgUi
                          Dismiss
                          Icon
                          Nav
+                         Navbar
                          PageHeader
                          ProgressBar
                          Size

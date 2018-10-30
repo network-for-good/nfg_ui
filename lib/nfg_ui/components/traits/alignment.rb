@@ -5,9 +5,14 @@ module NfgUi
     module Traits
       # Access to pre-designed Card traits
       module Alignment
-        TRAITS = %i[right].freeze
+        TRAITS = %i[right
+                    left].freeze
 
         def right_trait
+          options[:right] = true
+        end
+
+        def left_trait
           options[:right] = true
         end
       end
