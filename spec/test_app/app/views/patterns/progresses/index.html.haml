@@ -1,149 +1,106 @@
 %h1 Progresses
 
-/ %h1 Progresses
-/ %p
-/   %b 
-/     By default: option attributes passed into the :progress component are
-/     %span.text-danger applied to the .progress > .progress-bar div. 
+%p 
+  Pass in the progress attribute as an integer (or a string if you're feeling lucky... it'll convert the number to an integer regardless)
+  %br
+  %code
+    \= ui.nfg :progress, progress: 25
 
-/ .bg-warning.p-4
-/   %h4 
-/     %i Note: Not quite working yet
-/   %p If you want to adjust the html of the wrapping .progress div, pass in a <b>wrapper_html</b> hash. These will be non-destrutively combined with the default html attributes of the wrapping / parent .progress div. Example:
-/   %code
-/     \= ui.nfg :progress_bar, progress: 20, wrapper_html: { class: 'my-4', data: { describe: 'a nested data attribute' } }
+= ui.nfg :progress, progress: 25, class: 'my-4'
+= ui.nfg :progress, progress: 50, class: 'my-4'
+= ui.nfg :progress, progress: 75, class: 'my-4'
+= ui.nfg :progress, progress: 90, class: 'my-4'
+= ui.nfg :progress, progress: 100, class: 'my-4'
 
-/   %p Will output:
+%hr
 
-/   %p
-/     %b Component:
-/   = ui.nfg :progress_bar, progress: 20, wrapper_html: { class: 'my-4', data: { describe: 'a nested data attribute' } }
+%h2 Labels
 
-/   %p
-/     %b HTML
+%p Labels can be applied in 2 flavors when using the singular :progress component. (infinitely flexible if using the :progress > :progress_bar component setup.)
+%ol
+  %li 
+    As a boolean (true) on the label attribute which will output the '[:progress]%'
+    %br
+    %code = ui.nfg :progress, progress: 25, label: true
+    %br
+    %b Label will output 25%
+  %li
+    As a string
+    %br
+    %code = ui.nfg :progress, label: 'My label'
+  %li
+    As a built out component with a block passed into progress_bar
+    %br
+    %code 
+      %span = ui.nfg :progress, class: 'my-4' do
+      %br
+      %span.ml-3 = ui.nfg :progress_bar, progress: 90 do
+      %br
+      %span.d-inline-block.ml-5 Custom block label
 
-/   %code
-/     = "<div class='progress my-4' data-describe='a nested data attribute'>"
-/     %br
-/     %span.ml-4= "<div aria-valuemax='100' aria-valuemin='0' aria-valuenow='20' class='progress-bar bg-primary' role='progressbar' style='width: 20%;'></div>"
-/     %br
-/     = "</div>"
+= ui.nfg :progress, :label, progress: 60, class: 'my-4'
+= ui.nfg :progress, progress: 75, class: 'my-4', label: 'Custom string'
+= ui.nfg :progress, class: 'my-4' do
+  = ui.nfg :progress_bar, progress: 90 do
+    Custom block label
 
-/ %h2 Render_if / Render_unless
+%hr
 
-/ = ui.nfg :progress_bar, progress: 80, render_if: (1!=1), label: 'Should NOT Render_If', wrapper_html: { class: 'my-3' }
-/ = ui.nfg :progress_bar, progress: 80, render_if: (1==1), label: 'Should Render_If', wrapper_html: { class: 'my-3' }
+%h2 Height
+%h3 Manually set height
+%p leaving the :height option out will use the default heigh value from CSS
+= ui.nfg :progress, progress: 60, class: 'my-4', height: 1
+= ui.nfg :progress, progress: 60, class: 'my-4', label: 'No height set'
+= ui.nfg :progress, progress: 60, class: 'my-4', height: 50, label: 'height: 50'
 
-/ = ui.nfg :progress_bar, progress: 80, render_unless: (1==1), label: 'Should NOT Render_unless', wrapper_html: { class: 'my-3' }
+%hr
 
-/ = ui.nfg :progress_bar, progress: 80, render_unless: (1!=1), label: 'Should Render_unless', wrapper_html: { class: 'my-3' }
+%h3 Thematic size
+%h4 Traits
 
+= ui.nfg :progress, :sm, progress: 60, class: 'my-4'
+= ui.nfg :progress, :lg, progress: 60, class: 'my-4'
 
-/ %h2 Tooltipped
-/ = ui.nfg :progress_bar, progress: 20, tooltip: 'Tested tooltip', wrapper_html: { class: 'my-4' }
+%hr 
 
-/ %h2 Default progress bars
+%h4 Manual
+= ui.nfg :progress, size: :sm, progress: 60, class: 'my-4'
+= ui.nfg :progress, size: :lg, progress: 60, class: 'my-4'
 
-/ %p No attributes
-/ = ui.nfg :progress_bar
+%hr
 
-/ %hr
+%h2 Themes (backgrounds)
+= ui.nfg :progress, :primary, progress: 15, class: 'my-4', label: 'Primary'
+= ui.nfg :progress, :secondary, progress: 25, class: 'my-4', label: 'Secondary'
+= ui.nfg :progress, :success, progress: 50, class: 'my-4', label: 'Success'
+= ui.nfg :progress, :warning, progress: 75, class: 'my-4', label: 'Warning'
+= ui.nfg :progress, :danger, progress: 80, class: 'my-4', label: 'Danger'
+= ui.nfg :progress, :dark, progress: 90, class: 'my-4', label: 'Dark'
+= ui.nfg :progress, :light, progress: 95, class: 'my-4'
 
-/ %h2 Progress
-/ %p 
-/   Pass in the progress attribute as an integer.
-/   %br
-/   %code
-/     \= ui.nfg :progress_bar, progress: 25
+%hr
 
-/ = ui.nfg :progress_bar, progress: 25, wrapper_html: { class: 'my-4' }
-/ = ui.nfg :progress_bar, progress: 50, wrapper_html: { class: 'my-4' }
-/ = ui.nfg :progress_bar, progress: 75, wrapper_html: { class: 'my-4' }
-/ = ui.nfg :progress_bar, progress: 90, wrapper_html: { class: 'my-4' }
-/ = ui.nfg :progress_bar, progress: 100, wrapper_html: { class: 'my-4' }
+%h2 Multiple bars
+= ui.nfg :progress, class: 'my-4' do
+  = ui.nfg :progress_bar, :label, progress: 25
+  = ui.nfg :progress_bar, :success, :label, progress: 25
+  = ui.nfg :progress_bar, :warning, :label, progress: 25
 
-/ %hr
+%hr
 
-/ %h2 Labels
+%h2 Striped progress bars
+= ui.nfg :progress, :primary, :striped, progress: 15, class: 'my-4', label: 'Primary Striped'
+= ui.nfg :progress, :secondary, :striped, progress: 25, class: 'my-4', label: 'Secondary Striped'
+= ui.nfg :progress, :success, :striped, progress: 50, class: 'my-4', label: 'Success Striped'
+= ui.nfg :progress, :warning, :striped, progress: 75, class: 'my-4', label: 'Warning Striped'
+= ui.nfg :progress, :danger, :striped, progress: 80, class: 'my-4', label: 'Danger Striped'
+= ui.nfg :progress, :dark, :striped, progress: 90, class: 'my-4', label: 'Dark Striped'
+= ui.nfg :progress, :light, :striped, progress: 95, class: 'my-4'
 
-/ %p Labels can be applied in 3 flavors
-/ %ol
-/   %li 
-/     As a boolean (true) on the label attribute which will output the '[:progress]%'
-/     %br
-/     %code = ui.nfg :progress_bar, progress: 25, label: true
-/     %br
-/     %b Label will output 25%
-/   %li
-/     As a string
-/     %br
-/     %code = ui.nfg :progress_bar, label: 'My label'
-/   %li
-/     As a block
-/     %br
-/     %code 
-/       \= ui.nfg :progress_bar, progress: 30 do
-/       %br
-/       %span.ml-4 My custom block label
+%hr
 
-/ = ui.nfg :progress_bar, progress: 60, wrapper_html: { class: 'my-4' }, label: true
-/ = ui.nfg :progress_bar, progress: 75, wrapper_html: { class: 'my-4' }, label: 'Custom string'
-/ = ui.nfg :progress_bar, progress: 90, wrapper_html: { class: 'my-4' } do
-/   Label as a block
+%h2 Striped Animated
+%p.text-danger Avert your eyes... 
+%p Note: Animation only "works" when striped is enabled. For thematic purposes, the css class will be added to the component even if striped is not enabled.
 
-/ %hr
-
-/ %h2 Height
-/ %p leaving the :height option out will use the default heigh value from CSS
-/ = ui.nfg :progress_bar, progress: 60, wrapper_html: { class: 'my-4' }, height: 1
-/ = ui.nfg :progress_bar, progress: 60, wrapper_html: { class: 'my-4' }
-/ = ui.nfg :progress_bar, progress: 60, wrapper_html: { class: 'my-4' }, height: 100
-
-/ %hr
-
-/ %h3 Sized / height with attributes & traits
-/ = ui.nfg :progress_bar, progress: 20, tooltip: 'Tested tooltip', wrapper_html: { class: 'my-4' }, size: :lg, label: 'LG Via Options'
-
-/ = ui.nfg :progress_bar, :lg, progress: 40, tooltip: 'Tested tooltip', wrapper_html: { class: 'my-4' }, label: 'LG Via Traits'
-
-/ = ui.nfg :progress_bar, progress: 60, tooltip: 'Tested tooltip', wrapper_html: { class: 'my-4' }, size: :sm, label: 'SM Via Options'
-
-/ = ui.nfg :progress_bar, :sm, progress: 80, tooltip: 'Tested tooltip', wrapper_html: { class: 'my-4' }, label: 'SM Via Traits'
-
-
-
-/ %hr
-
-/ %h2 Themes (backgrounds)
-/ = ui.nfg :progress_bar, progress: 15, wrapper_html: { class: 'my-4' }, theme: :primary, label: 'Primary'
-/ = ui.nfg :progress_bar, progress: 25, wrapper_html: { class: 'my-4' }, theme: :secondary, label: 'Secondary'
-/ = ui.nfg :progress_bar, progress: 50, wrapper_html: { class: 'my-4' }, theme: :success, label: 'Success'
-/ = ui.nfg :progress_bar, progress: 75, wrapper_html: { class: 'my-4' }, theme: :warning, label: 'Warning'
-/ = ui.nfg :progress_bar, progress: 80, wrapper_html: { class: 'my-4' }, theme: :danger, label: 'Danger'
-/ = ui.nfg :progress_bar, progress: 90, wrapper_html: { class: 'my-4' }, theme: :dark, label: 'Dark'
-/ = ui.nfg :progress_bar, progress: 95, wrapper_html: { class: 'my-4' }, theme: :light do
-/   %span.text-dark Light
-
-/ %hr
-
-/ %h2.text-danger Multiple bars (not yet supported)
-
-/ %hr
-
-/ %h2 Striped progress bars
-/ = ui.nfg :progress_bar, progress: 15, wrapper_html: { class: 'my-4' }, theme: :primary, label: 'Primary Striped', striped: true
-/ = ui.nfg :progress_bar, progress: 25, wrapper_html: { class: 'my-4' }, theme: :secondary, label: 'Secondary Striped', striped: true
-/ = ui.nfg :progress_bar, progress: 50, wrapper_html: { class: 'my-4' }, theme: :success, label: 'Success Striped', striped: true
-/ = ui.nfg :progress_bar, progress: 75, wrapper_html: { class: 'my-4' }, theme: :warning, label: 'Warning Striped', striped: true
-/ = ui.nfg :progress_bar, progress: 80, wrapper_html: { class: 'my-4' }, theme: :danger, label: 'Danger Striped', striped: true
-/ = ui.nfg :progress_bar, progress: 90, wrapper_html: { class: 'my-4' }, theme: :dark, label: 'Dark Striped', striped: true
-/ = ui.nfg :progress_bar, progress: 95, wrapper_html: { class: 'my-4' }, theme: :light, striped: true do
-/   %span.text-dark Light Striped
-
-/ %hr
-
-/ %h2 Striped Animated
-/ %p.text-danger Avert your eyes... 
-/ %p Note: Animation only "works" when striped is enabled. For thematic purposes, the css class will be added to the component even if striped is not enabled.
-
-/ = ui.nfg :progress_bar, progress: 50, wrapper_html: { class: 'my-4' }, theme: :primary, label: 'Primary Striped - Animated', striped: true, animated: true
+= ui.nfg :progress, :striped, :animated, :primary, progress: 50, class: 'my-4', label: 'Primary Striped - Animated'

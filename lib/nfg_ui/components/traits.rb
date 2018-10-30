@@ -18,6 +18,7 @@ module NfgUi
                          Icon
                          Nav
                          PageHeader
+                         ProgressBar
                          Size
                          Theme
                          Typeface

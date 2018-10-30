@@ -39,7 +39,7 @@ module NfgUi
         def css_classes
           [
             super,
-            ('small font-size-sm' if caption)
+            ('font-size-sm' if caption)
           ].join(' ').squish
         end
 
