@@ -12,6 +12,7 @@ module NfgUi
       autoload :Traitable
       autoload :Renderable
       autoload :ResourceThemeable
+      autoload :VerticallyAlignable
     end
   end
 end
