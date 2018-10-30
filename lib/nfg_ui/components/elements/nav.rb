@@ -10,6 +10,7 @@ module NfgUi
         include NfgUi::Components::Utilities::Renderable
         
         include NfgUi::Components::Traits::Nav
+        include NfgUi::Components::Traits::Pill
       end
     end
   end

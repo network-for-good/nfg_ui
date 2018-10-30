@@ -19,6 +19,7 @@ module NfgUi
                          Nav
                          Navbar
                          PageHeader
+                         Pill
                          ProgressBar
                          Size
                          Theme
