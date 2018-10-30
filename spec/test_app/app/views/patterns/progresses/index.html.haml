@@ -10,7 +10,7 @@
 = ui.nfg :progress, progress: 50, class: 'my-4'
 = ui.nfg :progress, progress: 75, class: 'my-4'
 = ui.nfg :progress, progress: 90, class: 'my-4'
-= ui.nfg :progress, progress: 100, class: 'my-4'
+= ui.nfg :progress, progress: 100, class: 'my-4', describe: 'Tested data describe', tooltip: 'Tested tooltip'
 
 %hr
 
@@ -104,3 +104,8 @@
 %p Note: Animation only "works" when striped is enabled. For thematic purposes, the css class will be added to the component even if striped is not enabled.
 
 = ui.nfg :progress, :striped, :animated, :primary, progress: 50, class: 'my-4', label: 'Primary Striped - Animated'
+
+%hr
+
+%h2 Tooltipped
+= ui.nfg :progress, :label, :warning, class: 'my-4', progress: 80, tooltip: 'A tooltip'
