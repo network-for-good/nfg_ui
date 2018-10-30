@@ -39,16 +39,9 @@ module NfgUi
           options[:as] = :button
           data[:dismiss] = options.delete(:dismiss)
           options[:theme] = nil
-          # component_css_class = nil
           @css_classes = 'close'
           options[:icon] = 'times'
           assistive_html_attributes.merge!(aria: { label: 'close' })
-        #   @as = :button
-        #   data[:dismiss] = options.delete(:dismiss)
-        #   @theme = nil
-        #   @css_classes = 'close'
-        #   @icon = 'times'
-        #   build_aria(aria_key: :label, aria_value: 'Close')
         end
 
         def disable_with_trait

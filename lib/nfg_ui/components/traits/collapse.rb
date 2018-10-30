@@ -6,7 +6,8 @@ module NfgUi
       # Access to pre-designed Card traits
       module Collapse
         TRAITS = %i[collapsible
-                    collapsed].freeze
+                    collapsed
+                    navbar].freeze
 
         # private
 
@@ -17,6 +18,10 @@ module NfgUi
 
         def collapsed_trait
           options[:collapsed] = true
+        end
+
+        def navbar_trait
+          options[:navbar] = true
         end
       end
     end
