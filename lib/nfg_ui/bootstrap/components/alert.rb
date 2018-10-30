@@ -9,6 +9,10 @@ module NfgUi
         include Bootstrap::Utilities::Themeable
         include Bootstrap::Utilities::Dismissible
 
+        def heading
+          options.fetch(:heading)
+        end
+
         private
 
         def assistive_html_attributes

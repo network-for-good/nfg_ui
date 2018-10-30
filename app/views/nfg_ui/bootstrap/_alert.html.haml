@@ -4,8 +4,8 @@
     = ui.bootstrap :button, as: :button, class: 'close', theme: nil, data: { dismiss: 'alert' }, aria: { label: 'Close' } do
       %span{ aria: { hidden: 'true' } } 
         &times;
-  -#
-    / - if alert.heading
-    /   %h4.alert-heading= alert.heading
+  
+  - if alert.heading
+    %h4.alert-heading= alert.heading
   
   = alert.body
