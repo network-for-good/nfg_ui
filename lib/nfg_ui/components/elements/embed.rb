@@ -8,6 +8,7 @@ module NfgUi
       class Embed < Bootstrap::Components::Embed
         include NfgUi::Components::Utilities::Traitable
         include NfgUi::Components::Utilities::Describable
+        include NfgUi::Components::Utilities::Renderable
       end
     end
   end

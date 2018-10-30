@@ -9,6 +9,8 @@ module NfgUi
       class Dropdown < Bootstrap::Components::Dropdown
         include NfgUi::Components::Utilities::Traitable
         include NfgUi::Components::Utilities::Describable
+        include NfgUi::Components::Utilities::Renderable
+        
         include NfgUi::Components::Traits::Theme
       end
     end

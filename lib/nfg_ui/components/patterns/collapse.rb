@@ -9,6 +9,7 @@ module NfgUi
       class Collapse < Bootstrap::Components::Collapse
         include NfgUi::Components::Utilities::Traitable
         include NfgUi::Components::Utilities::Describable
+        include NfgUi::Components::Utilities::Renderable
         include NfgUi::Components::Traits::Collapse
 
         def heading

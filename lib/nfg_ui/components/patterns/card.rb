@@ -9,6 +9,8 @@ module NfgUi
       class Card < Bootstrap::Components::Card
         include NfgUi::Components::Utilities::Traitable
         include NfgUi::Components::Utilities::Describable
+        include NfgUi::Components::Utilities::Renderable
+        
         include NfgUi::Components::Traits::Theme
         # include NfgUi::Components::Traits::Outlined
 

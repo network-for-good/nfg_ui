@@ -7,6 +7,8 @@ module NfgUi
       class PageHeader < NfgUi::Components::Base
         include NfgUi::Components::Utilities::Titleable
         include NfgUi::Components::Utilities::BrowserDetectable
+        include NfgUi::Components::Utilities::Renderable
+        
         include NfgUi::Components::Traits::PageHeader
 
         def data

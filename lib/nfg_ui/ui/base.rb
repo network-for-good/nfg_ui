@@ -23,16 +23,6 @@ module NfgUi
       private
 
       def render_nfg_component?(options)
-        # if options[:render_if].nil?
-        #   !options[:render_unless] || true
-        # elsif options[:render_unless].nil?
-        #   options.fetch(:render_if, true)
-        # else
-        #   true
-        # end
-
-        # "render if this is false"
-
         if options[:render_if].nil? && options[:render_unless].nil?
           true
         elsif options[:render_if]
@@ -43,16 +33,6 @@ module NfgUi
           true
         end
       end
-
-      # def render_if(options)
-      #   options.fetch(:render_if, true)
-      # end
-
-      # def render_unless(options)
-      #   # options.fetch(:render_unless, nil)
-      #   options.fetch(:render_unless, true)
-
-      # end
     end
   end
 end

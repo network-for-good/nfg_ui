@@ -9,6 +9,7 @@ module NfgUi
       class ButtonToolbar < Bootstrap::Components::ButtonToolbar
         include NfgUi::Components::Utilities::Traitable
         include NfgUi::Components::Utilities::Describable
+        include NfgUi::Components::Utilities::Renderable
       end
     end
   end

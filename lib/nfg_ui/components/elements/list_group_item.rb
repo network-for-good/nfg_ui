@@ -7,6 +7,7 @@ module NfgUi
       class ListGroupItem < Bootstrap::Components::ListGroupItem
         include NfgUi::Components::Utilities::Traitable
         include NfgUi::Components::Utilities::Describable
+        include NfgUi::Components::Utilities::Renderable
         # private
         
         # def component_family

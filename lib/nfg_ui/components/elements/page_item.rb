@@ -7,6 +7,7 @@ module NfgUi
       class PageItem < Bootstrap::Components::PageItem
         include NfgUi::Components::Utilities::Traitable
         include NfgUi::Components::Utilities::Describable
+        include NfgUi::Components::Utilities::Renderable
       end
     end
   end

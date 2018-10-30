@@ -7,6 +7,7 @@ module NfgUi
       class CarouselIndicators < Bootstrap::Components::CarouselIndicators
         include NfgUi::Components::Utilities::Traitable
         include NfgUi::Components::Utilities::Describable
+        include NfgUi::Components::Utilities::Renderable
       end
     end
   end

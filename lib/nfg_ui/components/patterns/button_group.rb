@@ -9,6 +9,8 @@ module NfgUi
       class ButtonGroup < Bootstrap::Components::ButtonGroup
         include NfgUi::Components::Utilities::Traitable
         include NfgUi::Components::Utilities::Describable
+        include NfgUi::Components::Utilities::Renderable
+        
         include NfgUi::Components::Traits::Size
         include NfgUi::Components::Traits::Vertical
       end
