@@ -8,6 +8,7 @@ module NfgUi
       class NavLink < Bootstrap::Components::Base
         include Bootstrap::Utilities::Activatable
         include Bootstrap::Utilities::Disableable
+        include Bootstrap::Utilities::Remotable
 
         def component_family
           :nav

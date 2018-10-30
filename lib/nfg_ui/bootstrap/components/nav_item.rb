@@ -8,6 +8,7 @@ module NfgUi
       class NavItem < Bootstrap::Components::Base
         include Bootstrap::Utilities::Wrappable
 
+
         # For passing through to nav_link
         # bypass module since active / disabled is applied
         # on the nav_link
@@ -21,6 +22,10 @@ module NfgUi
 
         def component_family
           :nav
+        end
+
+        def remote
+          options.fetch(:remote, nil)
         end
 
         # For passing through to nav_link
@@ -73,7 +78,8 @@ module NfgUi
                      :disabled,
                      :dropdown,
                      :button,
-                     :tab)
+                     :tab,
+                     :remote)
         end
       end
     end

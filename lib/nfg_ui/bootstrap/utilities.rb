@@ -13,6 +13,7 @@ module NfgUi
       autoload :Dismissible
       autoload :DropdownDirectionable
       autoload :Progressable
+      autoload :Remotable
       autoload :Sizable
       autoload :Themeable
       autoload :Tooltipable

@@ -7,20 +7,20 @@
   %b expand: :size
   to the component. It will automatically utilize expand: :lg by default per docs.
 
-= ui.bootstrap :navbar, class: 'my-4' do
+= ui.bootstrap :navbar, theme: :secondary, class: 'my-4' do
   = ui.bootstrap :navbar_brand, body: 'Brand', href: '#test_url'
   = ui.bootstrap :navbar_toggler, collapse: '#test_navbar'
   = ui.bootstrap :collapse, id: 'test_navbar', navbar: true do
     = ui.bootstrap :navbar_nav do
-      = ui.bootstrap :nav_item, body: 'Nav Item #1', href: '#', active: true
-      = ui.bootstrap :nav_item, body: 'Nav Item #2', href: '#'
-      = ui.bootstrap :nav_item, body: 'Nav Item #3', href: '#'
+      = ui.bootstrap :nav_item, body: 'Nav Item #1', href: '#', active: true, remote: true
+      = ui.bootstrap :nav_item, body: 'Nav Item #2', href: '#', remote: true
+      = ui.bootstrap :nav_item, body: 'Nav Item #3', href: '#', remote: true
       = ui.bootstrap :nav_item, button: 'Nav Item #4 with Dropdown', dropdown: true do
         = ui.bootstrap :dropdown_menu do
-          = ui.bootstrap :dropdown_item, body: 'Dropdown Item 1', href: '#dd1'
-          = ui.bootstrap :dropdown_item, body: 'Dropdown Item 2', href: '#dd2'
-          = ui.bootstrap :dropdown_item, body: 'Dropdown Item 3', href: '#dd3'
-          = ui.bootstrap :dropdown_item, body: 'Dropdown Item 4', href: '#dd4'
+          = ui.bootstrap :dropdown_item, body: 'Dropdown Item 1', href: '#dd1', remote: true
+          = ui.bootstrap :dropdown_item, body: 'Dropdown Item 2', href: '#dd2', remote: true
+          = ui.bootstrap :dropdown_item, body: 'Dropdown Item 3', href: '#dd3', remote: true
+          = ui.bootstrap :dropdown_item, body: 'Dropdown Item 4', href: '#dd4', remote: true
     = ui.bootstrap :navbar_text, body: 'Some Navbar Text'
 
 %href

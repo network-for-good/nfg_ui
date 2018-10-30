@@ -12,15 +12,15 @@
   = ui.nfg :navbar_toggler, collapse: '#test_navbar'
   = ui.nfg :collapse, id: 'test_navbar', navbar: true do
     = ui.nfg :navbar_nav do
-      = ui.nfg :nav_item, body: 'Nav Item #1', href: '#', active: true
-      = ui.nfg :nav_item, body: 'Nav Item #2', href: '#'
-      = ui.nfg :nav_item, body: 'Nav Item #3', href: '#'
+      = ui.nfg :nav_item, :remote, body: 'Nav Item #1', href: '#', active: true
+      = ui.nfg :nav_item, :remote, body: 'Nav Item #2', href: '#'
+      = ui.nfg :nav_item, :remote, body: 'Nav Item #3', href: '#'
       = ui.nfg :nav_item, button: 'Nav Item #4 with Dropdown', dropdown: true do
         = ui.nfg :dropdown_menu do
-          = ui.nfg :dropdown_item, body: 'Dropdown Item 1', href: '#dd1'
-          = ui.nfg :dropdown_item, body: 'Dropdown Item 2', href: '#dd2'
-          = ui.nfg :dropdown_item, body: 'Dropdown Item 3', href: '#dd3'
-          = ui.nfg :dropdown_item, body: 'Dropdown Item 4', href: '#dd4'
+          = ui.nfg :dropdown_item, :remote, body: 'Dropdown Item 1', href: '#dd1'
+          = ui.nfg :dropdown_item, :remote, body: 'Dropdown Item 2', href: '#dd2'
+          = ui.nfg :dropdown_item, :remote, body: 'Dropdown Item 3', href: '#dd3'
+          = ui.nfg :dropdown_item, :remote, body: 'Dropdown Item 4', href: '#dd4'
     = ui.nfg :navbar_text, body: 'Some Navbar Text'
 
 %href

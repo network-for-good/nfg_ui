@@ -17,6 +17,7 @@ module NfgUi
         include NfgUi::Components::Traits::Size
         include NfgUi::Components::Traits::Theme
         include NfgUi::Components::Traits::Disable
+        include NfgUi::Components::Traits::Remote
 
         def data
           if disable_with

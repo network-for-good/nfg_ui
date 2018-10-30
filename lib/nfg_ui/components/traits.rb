@@ -21,6 +21,7 @@ module NfgUi
                          PageHeader
                          Pill
                          ProgressBar
+                         Remote
                          Size
                          Theme
                          Typeface

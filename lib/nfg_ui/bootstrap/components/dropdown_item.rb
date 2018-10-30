@@ -10,6 +10,7 @@ module NfgUi
         include Bootstrap::Utilities::Activatable
         include Bootstrap::Utilities::Disableable
         include Bootstrap::Utilities::Tooltipable
+        include Bootstrap::Utilities::Remotable
 
         def component_family
           :dropdown

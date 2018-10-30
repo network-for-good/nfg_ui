@@ -10,6 +10,7 @@ module NfgUi
         include NfgUi::Components::Utilities::Renderable
         
         include NfgUi::Components::Traits::Active
+        include NfgUi::Components::Traits::Remote
       end
     end
   end
