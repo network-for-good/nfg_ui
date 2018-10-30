@@ -22,21 +22,21 @@ module NfgUi
 
       private
 
-      def render_nfg_component?(options)
-        options[:render_if].present? || (options[:render_if].nil? && !options[:render_unless].present?)
-      end
-
       # def render_nfg_component?(options)
-      #   if options[:render_if].nil? && options[:render_unless].nil?
-      #     true
-      #   elsif options[:render_if]
-      #     options[:render_if]
-      #   elsif options[:render_unless] == true
-      #     false
-      #   elsif options[:render_unless] == false
-      #     true
-      #   end
+      #   options[:render_if].present? || (options[:render_if].nil? && !options[:render_unless].present?)
       # end
+
+      def render_nfg_component?(options)
+        if options[:render_if].nil? && options[:render_unless].nil?
+          true
+        elsif options[:render_if]
+          options[:render_if]
+        elsif options[:render_unless] == true
+          false
+        elsif options[:render_unless] == false
+          true
+        end
+      end
     end
   end
 end
