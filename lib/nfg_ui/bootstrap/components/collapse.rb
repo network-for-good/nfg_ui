@@ -18,7 +18,7 @@ module NfgUi
         def css_classes
           [
             super,
-            ('show' unless collapsed),
+            ('show' unless collapsed || navbar),
             ('navbar-collapse' if navbar)
           ].join(' ').squish
         end
