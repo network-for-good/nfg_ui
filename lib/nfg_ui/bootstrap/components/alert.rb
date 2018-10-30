@@ -10,7 +10,7 @@ module NfgUi
         include Bootstrap::Utilities::Dismissible
 
         def heading
-          options.fetch(:heading)
+          options.fetch(:heading, nil)
         end
 
         private
