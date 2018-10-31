@@ -2,7 +2,7 @@
 %div{ card.html_options }
   - if card.heading.present?
     = ui.bootstrap :card_header, heading: card.heading
-  .card-body
+  = ui.nfg :card_body do
     - if card.title.present?
       %h5.card-title= card.title
     - if card.subtitle.present?

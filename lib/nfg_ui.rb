@@ -37,6 +37,7 @@ module NfgUi
                                   button_group
                                   button_toolbar
                                   card
+                                  card_body
                                   card_footer
                                   card_header
                                   card_image
@@ -99,6 +100,7 @@ module NfgUi
                                   breadcrumb
                                   breadcrumb_item
                                   button
+                                  card_body
                                   card_footer
                                   card_header
                                   card_image

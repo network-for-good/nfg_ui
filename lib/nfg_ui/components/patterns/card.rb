@@ -12,9 +12,16 @@ module NfgUi
         include NfgUi::Components::Utilities::Renderable
         
         include NfgUi::Components::Traits::Theme
-        # include NfgUi::Components::Traits::Outlined
+        
+        def render_in_body
+          options.fetch(:render_in_body, true)
+        end
 
-        # include NfgUi::Components::Traits::Card
+        private
+
+        def non_html_attribute_options
+          super.push(:render_in_body)
+        end
       end
     end
   end
