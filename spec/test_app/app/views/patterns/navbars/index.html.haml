@@ -12,9 +12,9 @@
   = ui.nfg :navbar_toggler, collapse: '#test_navbar'
   = ui.nfg :collapse, :navbar, id: 'test_navbar' do
     = ui.nfg :navbar_nav, align_items: :center do
-      = ui.nfg :nav_item, :remote, body: 'Nav Item #1', href: '#', active: true
-      = ui.nfg :nav_item, :remote, body: 'Nav Item #2', href: '#'
-      = ui.nfg :nav_item, :remote, body: 'Nav Item #3', href: '#'
+      = ui.nfg :nav_item, :remote, body: 'Nav Item #1', href: '#', active: true, tooltip: 'Nav Item 1 Tooltip'
+      = ui.nfg :nav_item, :remote, body: 'Nav Item #2', href: '#', tooltip: 'Nav Item 2 Tooltip'
+      = ui.nfg :nav_item, :remote, body: 'Nav Item #3', href: '#', tooltip: 'Nav Item 3 Tooltip'
       = ui.nfg :nav_item, button: 'Nav Item #4 with Dropdown', dropdown: true do
         = ui.nfg :dropdown_menu do
           = ui.nfg :dropdown_item, :remote, body: 'Dropdown Item 1', href: '#dd1'
