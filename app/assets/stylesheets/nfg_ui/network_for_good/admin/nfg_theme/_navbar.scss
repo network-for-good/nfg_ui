@@ -5,6 +5,7 @@
 #admin-nav {
   background-color: #444444;
   .navbar {
+    background: transparent !important;
     .navbar-nav {
       .nav-item {
         @include media-breakpoint-up(lg) {
@@ -77,6 +78,7 @@
     z-index: 5;
     content: '';
   }
+  .navbar { background: transparent !important; }
   .navbar-brand {
     font-size: 11px;
     font-weight: $font-weight-bold;
