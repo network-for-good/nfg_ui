@@ -13,7 +13,7 @@ module NfgUi
           when 'Project'
             'primary'
           when 'Campaign'
-            'success'
+            'primary'
           else
             'primary'
           end
