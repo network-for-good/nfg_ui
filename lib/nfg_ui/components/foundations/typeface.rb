@@ -71,7 +71,7 @@ module NfgUi
         end
 
         def non_html_attribute_options
-          super.push(:heading, :body, :title)
+          super.push(:heading, :body, :title, :caption)
         end
 
         def caption_tag

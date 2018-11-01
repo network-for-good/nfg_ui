@@ -8,7 +8,8 @@ module NfgUi
         TRAITS = %i[body
                     caption
                     heading
-                    title].freeze
+                    title
+                    muted].freeze
 
         def body_trait
           options[:as] = body_tag
@@ -16,16 +17,22 @@ module NfgUi
 
         def caption_trait
           options[:as] = caption_tag
+          options[:caption] = body
         end
 
         def heading_trait
           options[:as] = heading_tag
+          options[:heading] = body
         end
 
         def title_trait
           options[:as] = title_tag
+          options[:title] = body
         end
-        
+
+        def muted_trait
+          options[:class] += ' text-muted'
+        end
       end
     end
   end
