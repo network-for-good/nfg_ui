@@ -83,7 +83,7 @@ module NfgUi
         end
 
         def heading_tag
-          :h4
+          :h5
         end
 
         def title_tag
