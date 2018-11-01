@@ -10,11 +10,6 @@ test_exclude_pattern:
   - none
 skip_package:
   - ruby
-hooks:
-  pre_setup: gem install capybara-screenshot && gem install bundler -v 1.13.6 && bundle install --path=$HOME/bundle --no-deployment
-  worker_setup: cd spec/test_app && bundle exec rake db:create db:schema:load
-rerun_list:
-  - spec/features/mapping_spec.rb
 notify:
 - channel: slack
   trigger-on: status-changed
