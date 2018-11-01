@@ -1,7 +1,6 @@
 require_relative 'boot'
 
 require 'rails'
-require "active_storage/engine"
 
 Bundler.require(*Rails.groups)
 require 'nfg_ui'
