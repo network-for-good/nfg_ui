@@ -10,6 +10,8 @@ test_exclude_pattern:
   - none
 skip_package:
   - ruby
+hooks:
+  pre_setup: gem install bundler -v 1.16.3 && bundle install --path=$HOME/bundle --no-deployment
 notify:
 - channel: slack
   trigger-on: status-changed
