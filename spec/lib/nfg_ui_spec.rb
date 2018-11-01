@@ -25,6 +25,7 @@ RSpec.describe NfgUi do
                                                           button_group
                                                           button_toolbar
                                                           card
+                                                          card_body
                                                           card_footer
                                                           card_header
                                                           card_image
@@ -100,6 +101,7 @@ RSpec.describe NfgUi do
                                                           breadcrumb
                                                           breadcrumb_item
                                                           button
+                                                          card_body
                                                           card_footer
                                                           card_header
                                                           card_image

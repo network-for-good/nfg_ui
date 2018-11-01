@@ -16,6 +16,17 @@
 
 %hr
 
+%h2 Card with render in body false
+= ui.nfg :card, title: 'Tile without body', render_in_body: false do
+  = ui.nfg :card_body, body: 'Manual card body'
+  = ui.nfg :card_body do
+    %p Some content for the second card body
+  = ui.nfg :card_footer, body: 'the card footer'
+
+%hr
+
+%hr
+
 %h2 Themes
 
 %h3 Solid Card Themes

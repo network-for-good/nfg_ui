@@ -2,6 +2,16 @@
 
 %hr
 
+%h2 Tile without rendered body (for super custom)
+
+= ui.nfg :tile, title: 'Tile without body', render_in_body: false do
+  = ui.nfg :tile_body, body: 'Manual tile body'
+  = ui.nfg :tile_body do
+    %p Some content for the second tile body
+    = ui.nfg :tile_section, body: 'Tile Section!', heading: 'Section heading'
+
+%hr
+
 %h2 Collapse via different conventions (for testing)
 = ui.nfg :tile, title: 'Tile Title', icon: 'rocket', class: 'my-4' do
   No collapse attributes or traits

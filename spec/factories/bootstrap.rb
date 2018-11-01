@@ -123,6 +123,20 @@ FactoryBot.define do
     end
   end
 
+  factory :bootstrap_card_body, class: NfgUi::Bootstrap::Components::CardBody do
+    body { nil }
+    data { nil }
+    id { nil }
+
+    skip_create
+    initialize_with { new(attributes, ActionController::Base.new.view_context) }
+
+    trait :rendered do
+      initialize_with { NfgUi::UI::Base.new(ActionController::Base.new.view_context)
+                                       .bootstrap(:card_body, attributes) }
+    end
+  end
+  
   factory :bootstrap_card_footer, class: NfgUi::Bootstrap::Components::CardFooter do
     body { nil }
     data { nil }

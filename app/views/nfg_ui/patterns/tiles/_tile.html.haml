@@ -1,16 +1,19 @@
 %div{ tile.html_options }
-  - if tile.title.present?
-    -# Pass collapse options to the TileHeader.
-    -# TileHeader will pass along the collapse attributes
-    -# to the Collapse component that is conditionally rendered 
-    -# within the TileHeader
-    = ui.nfg :tile_header, title: tile.title, icon: tile.icon, collapsible: tile.collapsible, collapse: ("#collapse_#{tile.id}" if tile.collapsible)
-  
-  - if tile.collapsible
-    = ui.nfg :collapse, id: "collapse_#{tile.id}", collapsed: tile.collapsed do
+  - if tile.render_in_body
+    - if tile.title.present?
+      -# Pass collapse options to the TileHeader.
+      -# TileHeader will pass along the collapse attributes
+      -# to the Collapse component that is conditionally rendered 
+      -# within the TileHeader
+      = ui.nfg :tile_header, title: tile.title, icon: tile.icon, collapsible: tile.collapsible, collapse: ("#collapse_#{tile.id}" if tile.collapsible)
+    
+    - if tile.collapsible
+      = ui.nfg :collapse, id: "collapse_#{tile.id}", collapsed: tile.collapsed do
+        = ui.nfg :tile_body, heading: tile.heading do
+          = tile.body
+        
+    - else
       = ui.nfg :tile_body, heading: tile.heading do
         = tile.body
-      
   - else
-    = ui.nfg :tile_body, heading: tile.heading do
-      = tile.body
+    = tile.body

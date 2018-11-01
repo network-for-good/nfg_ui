@@ -20,10 +20,14 @@ module NfgUi
           :tile
         end
 
+        def render_in_body
+          options.fetch(:render_in_body, true)
+        end
+
         private
 
         def non_html_attribute_options
-          super.push(:heading)
+          super.push(:heading, :render_in_body)
         end
       end
     end
