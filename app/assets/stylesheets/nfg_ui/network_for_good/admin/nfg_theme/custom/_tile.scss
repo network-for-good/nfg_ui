@@ -19,6 +19,7 @@
     border-right: $border-width solid $border-color;
     border-left: $border-width solid $border-color;
   }
+  + .tile { margin-top: $spacer; }
 }
 
 .tile-body {

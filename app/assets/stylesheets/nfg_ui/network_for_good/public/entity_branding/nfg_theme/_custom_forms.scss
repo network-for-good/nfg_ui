@@ -24,3 +24,13 @@
     }
   }
 }
+
+
+// Styles needed to override :valid success styles provided by bootstrap... this is for server side forms only
+.custom-control-input {
+  .was-validated &:valid {
+    &:checked {
+      ~ .custom-control-label::before { background-color: $primary; }
+    }
+  }
+}
