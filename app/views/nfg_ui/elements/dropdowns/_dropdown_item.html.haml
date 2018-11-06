@@ -1,1 +1,9 @@
-= render 'nfg_ui/bootstrap/dropdowns/dropdown_item', dropdown_item: dropdown_item
+- if dropdown_item.tooltip && dropdown_item.disabled
+  = render 'nfg_ui/bootstrap/dropdowns/dropdown_item', dropdown_item: dropdown_item
+
+- else
+  = ui.bootstrap :dropdown_item, **dropdown_item.html_options do
+    - if dropdown_item.icon
+      = ui.nfg :icon, "#{dropdown_item.icon} fw", text: dropdown_item.body
+    - else
+      = dropdown_item.body

@@ -14,13 +14,13 @@
 
 %hr
 
-%h3 Auto dropdown button
+%h3 Auto dropdown button with Icons on items
 = ui.nfg :dropdown, button: 'Auto Dropdown' do
   = ui.nfg :dropdown_menu do
-    = ui.nfg :dropdown_item, body: 'Dropdown Item 1'
-    = ui.nfg :dropdown_item, body: 'Dropdown Item 2'
-    = ui.nfg :dropdown_item, body: 'Dropdown Item 3'
-    = ui.nfg :dropdown_item, body: 'Dropdown Item 4'
+    = ui.nfg :dropdown_item, body: 'Dropdown Item 1', icon: 'rocket'
+    = ui.nfg :dropdown_item, body: 'Dropdown Item 2', icon: 'rocket'
+    = ui.nfg :dropdown_item, body: 'Dropdown Item 3', icon: 'rocket'
+    = ui.nfg :dropdown_item, body: 'Dropdown Item 4', icon: 'rocket'
 
 %h4.mt-4 Thematic auto button
 = ui.nfg :dropdown, button: 'Auto Dropdown with Theme', theme: :warning do
