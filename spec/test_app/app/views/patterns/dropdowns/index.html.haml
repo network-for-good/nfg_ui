@@ -48,7 +48,7 @@
 %p Note: according to docs, you do not need to wrap the component in a dropdown menu
 = ui.nfg :button_group do
   = ui.nfg :button, theme: :secondary, body: 'Dropdown-less Split Button', href: '#test'
-  = ui.nfg :dropdown_toggle, theme: :secondary, split: true
+  = ui.nfg :dropdown_toggle, :split, :secondary
   = ui.nfg :dropdown_menu, right: true do
     = ui.nfg :dropdown_item, body: 'Dropdown Item 1'
     = ui.nfg :dropdown_item, body: 'Dropdown Item 2'

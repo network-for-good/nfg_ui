@@ -15,6 +15,7 @@ module NfgUi
                          Collapse
                          Disable
                          Dismiss
+                         DropdownToggle
                          Icon
                          Nav
                          Navbar

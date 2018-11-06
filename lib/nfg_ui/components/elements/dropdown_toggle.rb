@@ -11,6 +11,7 @@ module NfgUi
         include NfgUi::Components::Utilities::Describable
         include NfgUi::Components::Utilities::Renderable
         
+        include NfgUi::Components::Traits::DropdownToggle
         include NfgUi::Components::Traits::Size
         include NfgUi::Components::Traits::Theme
       end
