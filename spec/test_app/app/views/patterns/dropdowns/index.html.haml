@@ -2,7 +2,7 @@
 
 %h3 Default
 = ui.nfg :dropdown, id: 'test_id1', class: 'my-4' do
-  = ui.nfg :dropdown_toggle, body: 'Secondary Manual Toggle as Link', theme: :secondary, as: :a, data: { describe: 'test' }
+  = ui.nfg :dropdown_toggle, body: 'Secondary Manual Toggle as Link', theme: :secondary, as: :a, describe: 'test-describe', left_icon: 'rocket', icon: 'chevron-up'
   = ui.nfg :dropdown_menu do
     = ui.nfg :dropdown_header, heading: 'Dropdown Header'
     = ui.nfg :dropdown_item, body: 'Dropdown Item 1 Disabled', disabled: true, href: '#'
@@ -48,7 +48,7 @@
 %p Note: according to docs, you do not need to wrap the component in a dropdown menu
 = ui.nfg :button_group do
   = ui.nfg :button, theme: :secondary, body: 'Dropdown-less Split Button', href: '#test'
-  = ui.nfg :dropdown_toggle, :split, :secondary
+  = ui.nfg :dropdown_toggle, :split, :secondary, icon: 'chevron-down'
   = ui.nfg :dropdown_menu, right: true do
     = ui.nfg :dropdown_item, body: 'Dropdown Item 1'
     = ui.nfg :dropdown_item, body: 'Dropdown Item 2'

@@ -1,1 +1,4 @@
-= render 'nfg_ui/bootstrap/dropdowns/dropdown', dropdown: dropdown
+%div{ dropdown.html_options }
+  - if dropdown.button.present?
+    = ui.nfg :dropdown_toggle, body: dropdown.button, theme: dropdown.theme, as: :button, offset: dropdown.offset
+  = dropdown.body
