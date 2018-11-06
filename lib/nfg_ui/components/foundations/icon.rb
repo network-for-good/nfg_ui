@@ -42,12 +42,16 @@ module NfgUi
           'text-'
         end
 
+        def component_css_class
+          ''
+        end
+
         def default_theme
           nil
         end
 
         def non_html_attribute_options
-          super.push(:right, :text)
+          super.push(:right, :text, :icon)
         end
       end
     end
