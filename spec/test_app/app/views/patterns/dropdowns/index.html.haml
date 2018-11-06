@@ -35,7 +35,7 @@
 %h3 Disabled Dropdown 
 %p Disabled dropdown toggles can have tooltips
 = ui.nfg :dropdown, class: 'my-4' do
-  = ui.nfg :dropdown_toggle, body: 'Disabled Dropdown Toggle', theme: :secondary, as: :a, disabled: true, tooltip: 'Disabled', id: 'tester'
+  = ui.nfg :dropdown_toggle, :secondary, :outlined, body: 'Disabled Dropdown Toggle', theme: :secondary, as: :a, disabled: true, tooltip: 'Disabled', id: 'tester'
   = ui.nfg :dropdown_menu do
     = ui.nfg :dropdown_item, body: 'Dropdown Item 1'
     = ui.nfg :dropdown_item, body: 'Dropdown Item 2'

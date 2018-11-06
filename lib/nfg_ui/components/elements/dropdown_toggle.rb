@@ -12,6 +12,7 @@ module NfgUi
         include NfgUi::Components::Utilities::Renderable
         
         include NfgUi::Components::Traits::Size
+        include NfgUi::Components::Traits::Theme
       end
     end
   end
