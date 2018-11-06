@@ -31,6 +31,7 @@ module NfgUi
         private
 
         def css_classes
+          return super unless text
           [
             super,
             ('mr-1' unless right),
