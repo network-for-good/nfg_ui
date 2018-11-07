@@ -6,12 +6,9 @@ module NfgUi
       # Bootstrap Alert Component
       # https://getbootstrap.com/docs/4.1/components/alerts/
       class Alert < Bootstrap::Components::Base
-        include Bootstrap::Utilities::Themeable
         include Bootstrap::Utilities::Dismissible
-
-        def heading
-          options.fetch(:heading, nil)
-        end
+        include Bootstrap::Utilities::Headable
+        include Bootstrap::Utilities::Themeable
 
         private
 

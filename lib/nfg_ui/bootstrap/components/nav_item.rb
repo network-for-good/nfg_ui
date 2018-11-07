@@ -8,7 +8,6 @@ module NfgUi
       class NavItem < Bootstrap::Components::Base
         include Bootstrap::Utilities::Wrappable
 
-
         # For passing through to nav_link
         # bypass module since active / disabled is applied
         # on the nav_link
@@ -37,12 +36,8 @@ module NfgUi
           options.fetch(:dropdown, false)
         end
 
-        # def href
-        #   options.fetch(:href, nil)
-        # end
-
         def include_nav_link?
-          (href.present? && options[:as].nil?) || dropdown || tab
+          href.present? || dropdown || tab
         end
 
         def tab

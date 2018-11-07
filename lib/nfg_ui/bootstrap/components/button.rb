@@ -6,45 +6,31 @@ module NfgUi
       # Bootstrap Button Component
       # https://getbootstrap.com/docs/4.1/components/buttons/
       class Button < Bootstrap::Components::Base
-        include Bootstrap::Utilities::Themeable
-        include Bootstrap::Utilities::Sizable
-        include Bootstrap::Utilities::Wrappable
         include Bootstrap::Utilities::Activatable
-        include Bootstrap::Utilities::Disableable
-        include Bootstrap::Utilities::Tooltipable
         include Bootstrap::Utilities::CollapseToggleable
+        include Bootstrap::Utilities::Disableable
         include Bootstrap::Utilities::Remotable
+        include Bootstrap::Utilities::Sizable
+        include Bootstrap::Utilities::Themeable
+        include Bootstrap::Utilities::Tooltipable
+        include Bootstrap::Utilities::Wrappable
 
         def block
           options.fetch(:block, false)
         end
 
         def data
-          if modal
-            super.merge!(toggle: 'modal', target: options[:modal])
-          # elsif !remote.nil?
-          #   super.merge(remote: remote)
-          else
-            super
-          end
+          modal ? super.merge!(toggle: 'modal', target: options[:modal]) : super
         end
 
         def href
-          return if options[:as] == :button
-          if collapse
-            collapse
-          else
-            options.fetch(:href, '#')
-          end
+          return if as != :a
+          collapse ? collapse : (options[:href] || '#')
         end
 
         def modal
           options.fetch(:modal, nil)
         end
-
-        # def remote
-        #   options.fetch(:remote, nil)
-        # end
 
         def remove_component_css_classes
           options.fetch(:remove_component_css_classes, false)

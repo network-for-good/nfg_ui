@@ -7,8 +7,10 @@ module NfgUi
       # Pass in :as -- only unique logic at the moment
       # is converting :link to :a for tag generation
       module Wrappable
-        def as
-          options.fetch(:as, automatic_as)
+        attr_accessor :as
+
+        def local_initialize
+          self.as = options.fetch(:as, automatic_as)
         end
 
         private

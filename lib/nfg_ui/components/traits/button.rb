@@ -36,7 +36,7 @@ module NfgUi
         end
 
         def close_trait
-          options[:as] = :button
+          self.as = :button
           data[:dismiss] = options.delete(:dismiss)
           options[:theme] = nil
           @css_classes = 'close'
@@ -66,7 +66,7 @@ module NfgUi
         # end
 
         def submit_trait
-          options[:as] = :button
+          self.as = :button
           options[:type] = 'submit'
         #   options.delete(:href)
         #   assistive_html_attributes.merge!(type: :submit)

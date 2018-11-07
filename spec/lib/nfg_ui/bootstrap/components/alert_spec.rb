@@ -7,8 +7,9 @@ RSpec.describe NfgUi::Bootstrap::Components::Alert do
   it { expect(described_class).to be < NfgUi::Bootstrap::Components::Base }
   it_behaves_like 'a component with a consistent initalized construction'
   it_behaves_like 'a component that includes the Dismissible utility module'
+  it_behaves_like 'a component that includes the Headable utility module'
   it_behaves_like 'a component that includes the Themeable utility module'
-  
+
   describe 'private themes' do
     describe '#assistive_html_attributes' do
       subject { alert.send(:assistive_html_attributes) }
@@ -18,6 +19,14 @@ RSpec.describe NfgUi::Bootstrap::Components::Alert do
 
   describe '#css_classes' do
     subject { alert.send(:css_classes) }
-    pending 'spec needed for css_classes'
+    context 'when dismissible' do
+      let(:options) { { dismissible: true } }
+      it { is_expected.to eq 'alert alert-primary alert-dismissible fade show' }
+    end
+
+    context 'when not dismissible' do
+      let(:options) { { dismissible: false } }
+      it { is_expected.to eq 'alert alert-primary' }
+    end
   end
 end

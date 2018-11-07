@@ -6,13 +6,14 @@ RSpec.describe NfgUi::Bootstrap::Components::Button do
 
   it { expect(described_class).to be < NfgUi::Bootstrap::Components::Base }
   it_behaves_like 'a component with a consistent initalized construction'
-  it_behaves_like 'a component that includes the Themeable utility module'
-  it_behaves_like 'a component that includes the Wrappable utility module'
   it_behaves_like 'a component that includes the Activatable utility module'
-  it_behaves_like 'a component that includes the Sizable utility module'
-  it_behaves_like 'a component that includes the Disableable utility module'
-  it_behaves_like 'a component that includes the Tooltipable utility module'
   it_behaves_like 'a component that includes the CollapseToggleable utility module'
+  it_behaves_like 'a component that includes the Disableable utility module'
+  it_behaves_like 'a component that includes the Remotable utility module'
+  it_behaves_like 'a component that includes the Sizable utility module'
+  it_behaves_like 'a component that includes the Themeable utility module'
+  it_behaves_like 'a component that includes the Tooltipable utility module'
+  it_behaves_like 'a component that includes the Wrappable utility module'
 
   describe '#block' do
     subject { button.block }
@@ -43,18 +44,6 @@ RSpec.describe NfgUi::Bootstrap::Components::Button do
   describe '#data' do
     subject { button.data }
 
-    describe 'js rails :remote' do
-      pending ':remote spec needed'
-      context 'when remote is present in options' do
-      end
-
-      context 'when remote is not present in options' do
-      end
-
-      context 'when remote is nil in options' do
-      end
-    end
-
     describe 'modal implications on the component data attribute' do
       context 'when :modal is present in options' do
         let(:data_hash) { {} }
@@ -79,7 +68,6 @@ RSpec.describe NfgUi::Bootstrap::Components::Button do
   end
 
   describe '#href' do
-    pending 'button href spec needs updating'
     subject { button.href }
     context 'when :as is :button' do
       let(:options) { { as: :button } }
@@ -99,27 +87,6 @@ RSpec.describe NfgUi::Bootstrap::Components::Button do
 
         context 'when collapse is falsey' do
           let(:options) { { collapse: false } }
-          it { is_expected.to eq '#' }
-        end
-      end
-
-      context 'href with modal' do
-        context 'when modal is truthy' do
-          let(:options) { { modal: tested_modal, href: tested_href } }
-          let(:tested_href) { nil }
-          context 'when href is present' do
-            let(:tested_href) { '#tested_href' }
-            it { is_expected.to eq tested_href }
-          end
-
-          context 'when href is not present' do
-            let(:tested_href) { nil }
-            it { is_expected.to be_nil }
-          end
-        end
-
-        context 'when modal is falsey' do
-          let(:options) { { modal: false } }
           it { is_expected.to eq '#' }
         end
       end
@@ -145,11 +112,6 @@ RSpec.describe NfgUi::Bootstrap::Components::Button do
       let(:options) { {} }
       it { is_expected.to be_nil }
     end
-  end
-
-  describe '#remote' do
-    subject { button.remote }
-    pending '#remote needs spec'
   end
 
   describe '#remove_component_css_classes' do
@@ -256,57 +218,6 @@ RSpec.describe NfgUi::Bootstrap::Components::Button do
     describe '#default_html_wrapper_element' do
       subject { button.send(:default_html_wrapper_element) }
       it { is_expected.to eq :a }
-    end
-
-    describe '#html_options' do
-      let(:collapse_options) { {} }
-      let(:modal_options) { {} }
-      let(:as) { :a }
-      let(:options) { { **collapse_options, **modal_options, as: as, href: href } }
-      let(:href) { nil }
-
-      subject { button.html_options }
-      describe 'component options that result in a specific :href attribute' do
-        context 'when button is an <a> tag' do
-          describe 'button for a collapse' do
-            let(:collapse_options) { { collapse: collapse_target } }
-            let(:collapse_target) { nil }
-            context 'when collapse is present in options' do
-              let(:collapse_target) { '#test' }
-              it { is_expected.to include(href: collapse_target) }
-            end
-
-            context 'when collapse is not present in options' do
-              it { is_expected.not_to include(:href) }
-            end
-          end
-
-          describe 'button for modal' do
-            context 'when button has :modal in options' do
-              let(:modal_options) { { modal: 'test_modal' } }
-              context 'when button has :href in options' do
-                let(:href) { 'test_href' }
-                it { is_expected.to include(href: href) }
-                it { is_expected.not_to include(href: '#') }
-              end
-
-              context 'when button does not have :href in options' do
-                let(:options) { {} }
-                it { is_expected.to include(href: '#') }
-              end
-            end
-
-            context 'when button does not have :modal in options' do
-              it { is_expected.not_to include :href }
-            end
-          end
-        end
-
-        context 'when button is not <a> tag' do
-          let(:as) { :blockquote }
-          it { is_expected.not_to include :href }
-        end
-      end
     end
 
     describe '#non_html_attribute_options' do

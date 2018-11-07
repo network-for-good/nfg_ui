@@ -36,7 +36,7 @@ RSpec.describe NfgUi::Bootstrap::Utilities::Tooltipable do
 
       context 'when component is disabled' do
         let(:tested_disabled) { true }
-        it { is_expected.to eq(class: 'btn btn-primary disabled', tabindex: nil, title: nil, style: 'pointer-events: none;', href: '#') }
+        it { is_expected.to eq(class: 'btn disabled btn-primary', tabindex: nil, title: nil, style: 'pointer-events: none;', href: '#') }
 
         context 'when a component has :style applied in the options' do
           let(:tested_style) { 'background-color: purple;' }

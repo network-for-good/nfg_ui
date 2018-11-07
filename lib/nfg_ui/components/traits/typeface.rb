@@ -12,7 +12,7 @@ module NfgUi
                     muted].freeze
 
         def body_trait
-          options[:as] = body_tag
+          self.as = body_tag
         end
 
         # TODO: this was a tricky one and needs specs (as well as other traits need this spec)
@@ -22,17 +22,17 @@ module NfgUi
         # after some exploring it turned out the component didn't understand that it
         # was actually a caption... it just looked like one.
         def caption_trait
-          options[:as] = caption_tag
+          self.as = caption_tag
           options[:caption] = body
         end
 
         def heading_trait
-          options[:as] = heading_tag
+          self.as = heading_tag
           options[:heading] = body
         end
 
         def title_trait
-          options[:as] = title_tag
+          self.as = title_tag
           options[:title] = body
         end
 
