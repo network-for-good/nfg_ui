@@ -47,12 +47,12 @@ RSpec.describe NfgUi::Bootstrap::Utilities::Sizable do
     context 'when size is a valid size' do
       context 'when size is :lg' do
         let(:tested_size) { :lg }
-        it { is_expected.to eq 'btn btn-primary btn-lg' }
+        it { is_expected.to eq 'btn btn-lg btn-primary' }
       end
 
       context 'when size is :sm' do
         let(:tested_size) { :sm }
-        it { is_expected.to eq 'btn btn-primary btn-sm' }
+        it { is_expected.to eq 'btn btn-sm btn-primary' }
       end
     end
 

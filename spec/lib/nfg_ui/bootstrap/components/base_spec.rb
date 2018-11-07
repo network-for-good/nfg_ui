@@ -105,7 +105,7 @@ RSpec.describe NfgUi::Bootstrap::Components::Base do
       let(:component_options) { { href: nil } }
       it { is_expected.to be_nil }
     end
-  end  
+  end
 
   describe '#id' do
     subject { bootstrap_base.id }
