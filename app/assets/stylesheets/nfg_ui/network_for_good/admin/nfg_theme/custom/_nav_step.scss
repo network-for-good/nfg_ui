@@ -1,0 +1,93 @@
+//
+// Steps
+//
+.nav-steps {
+  .nav-item {
+    position: relative;
+
+
+    // Background connector bar between items
+    &::after {
+      position: absolute;
+      top: (($spacer * .5) - .1rem);
+      left: 50%;
+      width: 100%;
+      height: ($border-width + 1px);
+      background-color: $border-color;
+      content: '';
+      z-index: 0;
+    }
+
+
+    // Removes the background connector bar on the last item
+    &:last-child {
+      &::after { display: none; }
+    }
+
+
+    // Various states
+    &.visited, &.active {
+      .step-indicator {
+        color: $white;
+        background-color: $primary;
+        border-color: $primary;
+      }
+    }
+    &.visited::after { background-color: $primary; }
+    &.disabled {
+      cursor: default;
+      pointer-events: none;
+    }
+
+
+    // Nav-link overrides
+    .nav-link {
+      position: relative;
+      display: inline-block;
+      padding: 0 ($spacer * .25);
+      z-index: 10;
+      @include hover-focus {
+        .step-indicator::after { opacity: 1; }
+      }
+    }
+
+
+    // Circle step indicator uses either integeer or icon
+    .step-indicator {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto;
+      width: $spacer;
+      height: $spacer;
+      font-size: $font-size-sm;
+      font-weight: $font-weight-bold;
+      line-height: 100%;
+      color: $text-muted;
+      background-color: $white;
+      border: ($border-width + 1px) solid $border-color;
+      border-radius: 50%;
+
+
+      // Provides smooth transition for box-shadow
+      &::after {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        box-shadow: 0 0 0 ($spacer * .25) transparentize($primary, 0.5);
+        transition: $transition-fade;
+        opacity: 0;
+        content: '';
+      }
+    }
+  }
+
+
+  // Flex fix for equal width items
+  &.nav-fill .nav-item { flex-basis: 0; }
+}

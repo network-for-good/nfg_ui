@@ -8,17 +8,8 @@
   margin-left: auto;
   word-wrap: break-word;
   background-color: $white;
-  border-top: $border-width solid $border-color;
-  border-bottom: $border-width solid $border-color;
+  border-radius: $border-radius;
   box-shadow: $box-shadow-sm;
-  @include media-breakpoint-down(sm) {
-    margin-right: -($grid-gutter-width / 2);
-    margin-left: -($grid-gutter-width / 2);
-  }
-  @include media-breakpoint-up(sm) {
-    border-right: $border-width solid $border-color;
-    border-left: $border-width solid $border-color;
-  }
   + .tile { margin-top: $spacer; }
 }
 
