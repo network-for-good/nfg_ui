@@ -5,10 +5,6 @@ module NfgUi
     module Foundations
       # Typeface doc coming soon
       class Typeface < NfgUi::Components::Base
-        include NfgUi::Components::Utilities::Traitable
-        include NfgUi::Components::Utilities::Describable
-        include NfgUi::Components::Utilities::Renderable
-        
         include Bootstrap::Utilities::Wrappable
         include Bootstrap::Utilities::Themeable
         include Bootstrap::Utilities::Tooltipable
