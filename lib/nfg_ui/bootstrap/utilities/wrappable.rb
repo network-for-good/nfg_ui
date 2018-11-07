@@ -9,8 +9,9 @@ module NfgUi
       module Wrappable
         attr_accessor :as
 
-        def local_initialize
+        def utility_initialize
           self.as = options.fetch(:as, automatic_as)
+          super
         end
 
         private

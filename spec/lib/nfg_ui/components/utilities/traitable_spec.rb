@@ -7,8 +7,8 @@ RSpec.describe NfgUi::Components::Utilities::Traitable do
 
   pending 'traitable spec is needed'
 
-  describe '#local_initialize' do
-    subject { traitable_component.local_initialize }
+  describe '#component_initialize' do
+    subject { traitable_component.component_initialize }
   end
 
   describe '#traits' do

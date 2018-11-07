@@ -126,8 +126,8 @@ RSpec.describe NfgUi::Bootstrap::Components::Base do
     end
   end
 
-  describe '#local_initialize' do
-    subject { bootstrap_base.local_initialize }
+  describe '#component_initialize' do
+    subject { bootstrap_base.component_initialize }
     it { is_expected.to be_nil }
   end
 

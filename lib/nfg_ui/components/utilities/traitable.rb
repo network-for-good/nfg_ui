@@ -7,7 +7,7 @@ module NfgUi
       module Traitable
         include NfgUi::Components::Traits
 
-        def local_initialize
+        def utility_initialize
           super
           initialize_traits
         end
