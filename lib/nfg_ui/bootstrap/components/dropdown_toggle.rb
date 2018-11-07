@@ -19,7 +19,7 @@ module NfgUi
         end
 
         def href
-          options[:as] == :a ? '#' : super
+          as == :a ? '#' : super
         end
 
         def nav_link

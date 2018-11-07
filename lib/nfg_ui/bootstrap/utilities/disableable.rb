@@ -5,6 +5,7 @@ module NfgUi
     module Utilities
       # Allows components to have a disabled state when appropriate
       module Disableable
+        attr_reader :as
 
         def disabled
           options.fetch(:disabled, false)
@@ -13,18 +14,18 @@ module NfgUi
         private
 
         def css_classes
-          return super if options[:as] == :button
+          return super if as == :button
           disabled ? super + ' disabled' : super
         end
 
         def non_html_attribute_options
-          options[:as] == :button ? super : super.push(:disabled)
+          as == :button ? super : super.push(:disabled)
         end
 
         def assistive_html_attributes
           if disabled
-            super.merge!(tabindex: '-1', 
-                         **(options[:as] == :button) ? { disabled: true } : {})
+            super.merge!(tabindex: '-1',
+                         **(as == :button) ? { disabled: true } : {})
             
           else
             super
