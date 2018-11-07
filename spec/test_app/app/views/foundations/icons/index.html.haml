@@ -5,10 +5,13 @@
 
 %hr
 
+%h2 Icons with custom traits
+= ui.nfg :icon, :loader
+
 %h2 Icon with text, right & left
 = ui.nfg :icon, 'rocket', text: 'Icon on the left'
 %br
-= ui.nfg :icon, 'rocket', :right, text: 'Icon on the right with trait'
+= ui.nfg :icon, 'rocket', :right, :warning, text: 'Icon on the right with trait'
 %br
 = ui.nfg :icon, 'rocket', text: 'Icon on the right with option', right: true
 

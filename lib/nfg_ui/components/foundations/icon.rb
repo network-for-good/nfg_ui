@@ -17,7 +17,7 @@ module NfgUi
         include NfgUi::Components::Traits::Alignment
 
         def icon
-          traits.first.to_s || options[:icon]
+          traits.first.is_a?(String) ? traits.first.to_s : options[:icon]
         end
 
         def text

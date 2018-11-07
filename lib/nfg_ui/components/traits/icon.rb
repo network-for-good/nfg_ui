@@ -3,31 +3,13 @@
 module NfgUi
   module Components
     module Traits
-      # Access to pre-designed Button traits
+      # Access to pre-designed Icon traits
       module Icon
-        TRAITS = %i[right
-                    loader].freeze
-        # include NfgUi::Components::Traits
-        
-
-        # private
-
-        # def right_trait
-        #   options[:right] = true
-        # #   @right = true
-        # end
+        TRAITS = %i[loader].freeze
 
         def loader_trait
           options[:icon] = 'spinner spin fw'
         end
-
-        # def allowed_traits
-        #   super.push(:right)
-        # end
-
-        # def skipped_traits
-        #   super.push(icon)
-        # end
       end
     end
   end
