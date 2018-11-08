@@ -10,4 +10,5 @@ RSpec.describe NfgUi::Components::Elements::Alert do
 
   it { expect(described_class.included_modules).to include NfgUi::Components::Utilities::Traitable }
   it { expect(described_class.included_modules).to include NfgUi::Components::Utilities::Describable }
+  it { expect(described_class.included_modules).to include NfgUi::Components::Utilities::Renderable }
 end
