@@ -23,9 +23,8 @@ RSpec.describe NfgUi::Components::Utilities::Traitable do
   describe 'private methods' do
     # Sanity check
     describe '#initialize_traits' do
-      subject { traitable_component }
-      let(:traitable_component) { view_context.ui.nfg(:alert, *traits) }
-      subject { traitable_component }
+      let(:rendered_traitable_component) { view_context.ui.nfg(:alert, *traits) }
+      subject { rendered_traitable_component }
 
       context 'when traits are present' do
         let(:traits) { [:warning] }
