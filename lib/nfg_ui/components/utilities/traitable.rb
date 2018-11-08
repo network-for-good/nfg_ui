@@ -7,19 +7,19 @@ module NfgUi
       module Traitable
         include NfgUi::Components::Traits
 
-        def local_initialize
+        def utility_initialize
           super
           initialize_traits
         end
 
         def traits
-          options[:traits]
+          options[:traits] || []
         end
 
         private
 
         def initialize_traits
-          return unless traits
+          return unless traits.any?
 
           traits.each do |trait|
             next unless NfgUi::Components::Traits::REGISTERED_TRAITS.include?(trait)

@@ -5,10 +5,6 @@ module NfgUi
     module Foundations
       # Typeface doc coming soon
       class Typeface < NfgUi::Components::Base
-        include NfgUi::Components::Utilities::Traitable
-        include NfgUi::Components::Utilities::Describable
-        include NfgUi::Components::Utilities::Renderable
-        
         include Bootstrap::Utilities::Wrappable
         include Bootstrap::Utilities::Themeable
         include Bootstrap::Utilities::Tooltipable
@@ -19,6 +15,18 @@ module NfgUi
         include NfgUi::Components::Traits::Theme
         include NfgUi::Components::Traits::Typeface
 
+        def as
+          if heading
+            heading_tag
+          elsif title
+            title_tag
+          elsif caption
+            caption_tag
+          else
+            super
+          end
+        end
+
         def heading
           options.fetch(:heading, nil)
         end
@@ -27,9 +35,13 @@ module NfgUi
           options.fetch(:caption, nil)
         end
 
-        def text_or_icon
-          icon ? view_context.ui.nfg(:icon, icon, text: text) : text
+        def body
+          super || heading || title || caption
         end
+
+        # def text_or_icon
+        #   icon ? view_context.ui.nfg(:icon, icon, text: text) : text
+        # end
 
         private
 
@@ -48,23 +60,7 @@ module NfgUi
           nil
         end
 
-        def text
-          body || heading || title || caption
-        end
-
-        def automatic_as
-          if body
-            body_tag
-          elsif heading
-            heading_tag
-          elsif title
-            title_tag
-          elsif caption
-            caption_tag
-          else
-            super
-          end
-        end
+        
 
         def component_css_class
           ''
@@ -88,6 +84,10 @@ module NfgUi
 
         def title_tag
           :h6
+        end
+
+        def default_html_wrapper_element
+          body_tag
         end
       end
     end

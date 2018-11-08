@@ -32,6 +32,7 @@ module NfgUi
         end
 
         def title_trait
+
           self.as = title_tag
           options[:title] = body
         end
