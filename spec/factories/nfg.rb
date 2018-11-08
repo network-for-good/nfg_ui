@@ -12,12 +12,10 @@ FactoryBot.define do
 
   factory :alert, class: NfgUi::Components::Elements::Alert do
     body { nil }
-    data { nil }
-    id { nil }
-    # traits { [:secondary] }
+    traits { [] }
 
     skip_create
-    initialize_with { new(attributes, ActionController::Base.new.view_context) }
+    initialize_with { new(attributes.merge!(traits: traits), ActionController::Base.new.view_context) }
 
     trait :rendered do
       initialize_with { NfgUi::UI::Base.new(ActionController::Base.new.view_context)
@@ -27,12 +25,10 @@ FactoryBot.define do
   
   factory :button, class: NfgUi::Components::Elements::Button do
     body { nil }
-    data { nil }
-    id { nil }
     traits { [] }
 
     skip_create
-    initialize_with { new(attributes, ActionController::Base.new.view_context) }
+    initialize_with { new(attributes.merge!(traits: traits), ActionController::Base.new.view_context) }
 
     trait :rendered do
       initialize_with { NfgUi::UI::Base.new(ActionController::Base.new.view_context)
@@ -48,7 +44,7 @@ FactoryBot.define do
     traits { [] }
 
     skip_create
-    initialize_with { new(attributes, ActionController::Base.new.view_context) }
+    initialize_with { new(attributes.merge!(traits: traits), ActionController::Base.new.view_context) }
 
     trait :rendered do
       initialize_with { NfgUi::UI::Base.new(ActionController::Base.new.view_context)
@@ -58,12 +54,10 @@ FactoryBot.define do
 
   factory :modal, class: NfgUi::Components::Patterns::Modal do
     body { nil }
-    data { nil }
-    id { nil }
     traits { [] }
 
     skip_create
-    initialize_with { new(attributes, ActionController::Base.new.view_context) }
+    initialize_with { new(attributes.merge!(traits: traits), ActionController::Base.new.view_context) }
 
     trait :rendered do
       initialize_with { NfgUi::UI::Base.new(ActionController::Base.new.view_context)
@@ -73,12 +67,10 @@ FactoryBot.define do
 
   factory :page_header, class: NfgUi::Components::Patterns::PageHeader do
     body { nil }
-    data { nil }
-    id { nil }
     traits { [] }
 
     skip_create
-    initialize_with { new(attributes, ActionController::Base.new.view_context) }
+    initialize_with { new(attributes.merge!(traits: traits), ActionController::Base.new.view_context) }
 
     trait :rendered do
       initialize_with { NfgUi::UI::Base.new(ActionController::Base.new.view_context)
@@ -88,12 +80,10 @@ FactoryBot.define do
 
   factory :tile, class: NfgUi::Components::Patterns::Tile do
     body { nil }
-    data { nil }
-    id { nil }
     traits { [] }
 
     skip_create
-    initialize_with { new(attributes, ActionController::Base.new.view_context) }
+    initialize_with { new(attributes.merge!(traits: traits), ActionController::Base.new.view_context) }
 
     trait :rendered do
       initialize_with { NfgUi::UI::Base.new(ActionController::Base.new.view_context)
@@ -103,12 +93,10 @@ FactoryBot.define do
 
   factory :tile_body, class: NfgUi::Components::Patterns::TileBody do
     body { nil }
-    data { nil }
-    id { nil }
     traits { [] }
 
     skip_create
-    initialize_with { new(attributes, ActionController::Base.new.view_context) }
+    initialize_with { new(attributes.merge!(traits: traits), ActionController::Base.new.view_context) }
 
     trait :rendered do
       initialize_with { NfgUi::UI::Base.new(ActionController::Base.new.view_context)
@@ -118,12 +106,10 @@ FactoryBot.define do
 
   factory :tile_header, class: NfgUi::Components::Patterns::TileHeader do
     body { nil }
-    data { nil }
-    id { nil }
     traits { [] }
 
     skip_create
-    initialize_with { new(attributes, ActionController::Base.new.view_context) }
+    initialize_with { new(attributes.merge!(traits: traits), ActionController::Base.new.view_context) }
 
     trait :rendered do
       initialize_with { NfgUi::UI::Base.new(ActionController::Base.new.view_context)
@@ -133,12 +119,10 @@ FactoryBot.define do
 
   factory :tile_section, class: NfgUi::Components::Patterns::TileSection do
     body { nil }
-    data { nil }
-    id { nil }
     traits { [] }
 
     skip_create
-    initialize_with { new(attributes, ActionController::Base.new.view_context) }
+    initialize_with { new(attributes.merge!(traits: traits), ActionController::Base.new.view_context) }
 
     trait :rendered do
       initialize_with { NfgUi::UI::Base.new(ActionController::Base.new.view_context)
@@ -148,12 +132,10 @@ FactoryBot.define do
 
   factory :typeface, class: NfgUi::Components::Foundations::Typeface do
     body { nil }
-    data { nil }
-    id { nil }
     traits { [] }
 
     skip_create
-    initialize_with { new(attributes, ActionController::Base.new.view_context) }
+    initialize_with { new(attributes.merge!(traits: traits), ActionController::Base.new.view_context) }
 
     trait :rendered do
       initialize_with { NfgUi::UI::Base.new(ActionController::Base.new.view_context)
