@@ -44,6 +44,10 @@ module NfgUi
         def non_html_attribute_options
           super.push(:action, :badge)
         end
+
+        def outlineable?
+          false
+        end
       end
     end
   end

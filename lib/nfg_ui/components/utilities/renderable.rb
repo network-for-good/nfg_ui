@@ -9,7 +9,7 @@ module NfgUi
         end
 
         def render_unless
-          options.fetch(:render_if, nil)
+          options.fetch(:render_unless, nil)
         end
 
         private

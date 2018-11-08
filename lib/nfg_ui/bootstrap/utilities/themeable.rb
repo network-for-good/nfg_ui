@@ -21,7 +21,7 @@ module NfgUi
         def css_classes
           [
             super,
-            ("#{theme_css_class_prefix}#{outlined_css_class_prefix if outlined}#{theme}" if theme)
+            ("#{theme_css_class_prefix}#{outlined_css_class_prefix if outlined && outlineable?}#{theme}" if theme)
           ].join(' ').squish
         end
 
@@ -39,6 +39,11 @@ module NfgUi
 
         def theme_css_class_prefix
           @theme_css_class_prefix ||= "#{component_css_class}-"
+        end
+
+        # Explicitly turn off outlineable on components that should not allow outline
+        def outlineable?
+          true
         end
       end
     end

@@ -24,6 +24,10 @@ module NfgUi
             ('show' if dismissible)
           ].join(' ').squish
         end
+
+        def outlineable?
+          false
+        end
       end
     end
   end

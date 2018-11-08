@@ -83,6 +83,10 @@ module NfgUi
         def dark_themes
           %i[primary secondary success danger warning info dark]
         end
+
+        def outlineable?
+          false
+        end
       end
     end
   end

@@ -89,6 +89,10 @@ module NfgUi
         def default_html_wrapper_element
           body_tag
         end
+
+        def outlineable?
+          false
+        end
       end
     end
   end

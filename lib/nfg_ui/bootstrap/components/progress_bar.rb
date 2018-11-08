@@ -37,6 +37,10 @@ module NfgUi
         def theme_css_class_prefix
           'bg-'
         end
+
+        def outlineable?
+          false
+        end
       end
     end
   end

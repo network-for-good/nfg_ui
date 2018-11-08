@@ -6,7 +6,7 @@ RSpec.describe NfgUi::Bootstrap::Components::Card do
 
   it { expect(described_class).to be < NfgUi::Bootstrap::Components::Base }
   it_behaves_like 'a component with a consistent initalized construction'
-  it_behaves_like 'a component that includes the Themeable utility module'
+  it_behaves_like 'a component that includes the Themeable utility module', component_suite: :bootstrap
 
   describe '#component_family' do
     subject { card.component_family }

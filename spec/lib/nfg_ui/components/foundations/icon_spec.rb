@@ -5,7 +5,7 @@ RSpec.describe NfgUi::Components::Foundations::Icon do
   let(:options) { {} }
   it { expect(described_class).to be < NfgUi::Components::Base }
   it_behaves_like 'a component with a consistent initalized construction'
-  it_behaves_like 'a component that includes the Themeable utility module'
+  it_behaves_like 'a component that includes the Themeable utility module', component_suite: :nfg
   it_behaves_like 'a component that includes the Theme trait module'
 
   it { expect(described_class).to include NfgUi::Components::Traits::Icon }
@@ -39,6 +39,11 @@ RSpec.describe NfgUi::Components::Foundations::Icon do
 
     describe '#non_html_attribute_options' do
       subject { icon.send(:non_html_attribute_options) }
+    end
+
+    describe '#outlineable?' do
+      subject { icon.send(:outlineable?) }
+      it { is_expected.not_to be }
     end
   end
 end

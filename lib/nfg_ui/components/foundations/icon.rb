@@ -54,6 +54,10 @@ module NfgUi
         def non_html_attribute_options
           super.push(:right, :text, :icon)
         end
+
+        def outlineable?
+          false
+        end
       end
     end
   end

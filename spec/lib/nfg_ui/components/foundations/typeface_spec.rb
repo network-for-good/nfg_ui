@@ -6,7 +6,7 @@ RSpec.describe NfgUi::Components::Foundations::Typeface do
   let(:traits) { [] }
   it { expect(described_class).to be < NfgUi::Components::Base }
   it_behaves_like 'a component with a consistent initalized construction'
-  it_behaves_like 'a component that includes the Themeable utility module'
+  it_behaves_like 'a component that includes the Themeable utility module', component_suite: :nfg
   it_behaves_like 'a component that includes the Wrappable utility module'
   it_behaves_like 'a component that includes the Iconable utility module'
   it_behaves_like 'a component that includes the Titleable utility module'
@@ -61,6 +61,11 @@ RSpec.describe NfgUi::Components::Foundations::Typeface do
 
     describe '#title_tag' do
       subject { typeface.send(:title_tag) }
+    end
+
+    describe '#outlineable?' do
+      subject { typeface.send(:outlineable?) }
+      it { is_expected.not_to be }
     end
   end
 end
