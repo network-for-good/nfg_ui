@@ -5,18 +5,15 @@ module NfgUi
     module Utilities
       # Allows component to utilize the bootstrap4 theme color palette
       module Themeable
-        # attr_reader :theme, :outlined
-        # attr_accessor :theme
-        
-        # pass in options: { theme: nil } to disable themes or set default_theme to nil
-        # for components that are themeable that, for whatever reason,
-        # need a theme removed (example: the modal 'close' button)
-        def theme
-          options.fetch(:theme, default_theme)
-        end
-
         def outlined
           options.fetch(:outlined, false)
+        end
+
+        # To disable theme on a case by case basis, pass in { theme: nil } to options.
+        # or
+        # To disable a default theme for a component set default_theme to nil
+        def theme
+          options.fetch(:theme, default_theme)
         end
 
         private
@@ -28,20 +25,20 @@ module NfgUi
           ].join(' ').squish
         end
 
-        def non_html_attribute_options
-          super.push(:theme, :outlined)
-        end
-
-        def theme_css_class_prefix
-          @theme_css_class_prefix ||= "#{component_css_class}-"
-        end
-
         def default_theme
           @default_theme ||= NfgUi::DEFAULT_BOOTSTRAP_THEME
         end
 
+        def non_html_attribute_options
+          super.push(:theme, :outlined)
+        end
+
         def outlined_css_class_prefix
           @outlined_css_class_prefix ||= 'outline-'
+        end
+
+        def theme_css_class_prefix
+          @theme_css_class_prefix ||= "#{component_css_class}-"
         end
       end
     end
