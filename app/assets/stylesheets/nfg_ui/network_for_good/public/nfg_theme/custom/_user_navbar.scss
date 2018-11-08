@@ -21,6 +21,7 @@ $navbar-logo-height: (($spacer * 4.5) - ($navbar-padding-y * 2));
   border-left: $border-width solid $border-color;
 }
 .sticky-div {
+  box-shadow: $box-shadow-sm;
   .btn-header-donate {
     opacity: 0;
     transition: $transition-base;

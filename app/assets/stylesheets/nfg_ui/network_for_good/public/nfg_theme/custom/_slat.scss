@@ -61,12 +61,10 @@
 
 // Slat list layout
 .slat-list {
-  border-top: $border-width solid $border-color;
   .slat {
     padding-top: $spacer;
     padding-bottom: $spacer;
     background-color: $white;
-    + .slat { border-top: $border-width solid $border-color; }
 
 
     // Various states
