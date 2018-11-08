@@ -13,6 +13,15 @@ RSpec.describe 'nfg_ui/bootstrap/_alert.html.haml', type: :view do
     expect(subject).to eq "<div class='alert alert-primary alert-dismissible fade show' role='alert'>\n<button class=\"btn close\" data-dismiss=\"alert\" aria-label=\"Close\" type=\"button\"><span aria-hidden='true'>\n&times;\n</span>\n\n</button>#{body}\n</div>\n"
   end
 
+  describe 'alert with heading' do
+    let(:tested_heading) { 'Tested Heading' }
+    let(:options) { { heading: tested_heading } }
+    it 'outputs an alert with an alert heading' do
+      expect(subject).to have_css 'h4.alert-heading'
+      expect(subject).to include "<h4 class='alert-heading'>#{tested_heading}</h4>"
+    end
+  end
+
   describe 'themes on alerts' do
     context 'when a theme is supplied' do
       let(:options) { { theme: tested_theme } }
