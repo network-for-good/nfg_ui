@@ -107,14 +107,13 @@ shared_examples_for 'a component that includes the Themeable utility module' do 
         let(:options) { { theme: nil } }
 
         it 'renders the component with no themes' do
-          
           if subject.match('class')
             by "when the component has classes in its html" do
               expect(substring_present?(string: subject.tr("\"", "'"),
                                         starting_substring: "class='",
                                         ending_substring: "'",
                                         sought_substring: "#{ruby_component.send(:component_css_class)}")).to be
-              
+
               expect(substring_present?(string: subject.tr("\"", "'"),
                                         starting_substring: "class='",
                                         ending_substring: "'",

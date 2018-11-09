@@ -16,6 +16,8 @@ module NfgUi
         include NfgUi::Components::Traits::Theme
         include NfgUi::Components::Traits::Size
         include NfgUi::Components::Traits::ProgressBar
+
+        private
       end
     end
   end

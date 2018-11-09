@@ -8,7 +8,7 @@ RSpec.describe NfgUi::Components::Patterns::Dropdown do
   it_behaves_like 'a component that includes the Describable utility module'
   it_behaves_like 'a component that includes the Renderable utility module'
 
-  it_behaves_like 'a component that includes the Theme trait module'
+  it_behaves_like 'a component that includes the Theme trait module', test_html: false
 
   it { expect(described_class.included_modules).to include NfgUi::Components::Utilities::Traitable }
 end

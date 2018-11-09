@@ -10,7 +10,7 @@ RSpec.describe NfgUi::Components::Patterns::Progress do
   it_behaves_like 'a component that includes the Sizable utility module'
   it_behaves_like 'a component that includes the Tooltipable utility module'
 
-  it_behaves_like 'a component that includes the Theme trait module'
+  it_behaves_like 'a component that includes the Theme trait module', test_html: false
   it_behaves_like 'a component that includes the Size trait module'
 
   it { expect(described_class.included_modules).to include NfgUi::Components::Utilities::Traitable }

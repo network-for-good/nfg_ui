@@ -8,7 +8,7 @@ RSpec.describe NfgUi::Components::Elements::Alert do
   it_behaves_like 'a component that includes the Describable utility module'
   it_behaves_like 'a component that includes the Dismissible utility module', component_suite: :nfg
   it_behaves_like 'a component that includes the Renderable utility module'
-  
+
   it_behaves_like 'a component that includes the Theme trait module'
   it_behaves_like 'a component that includes the Dismiss trait module'
 

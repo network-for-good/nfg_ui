@@ -9,7 +9,7 @@ module NfgUi
         include NfgUi::Components::Utilities::Describable
         include NfgUi::Components::Utilities::Renderable
 
-        # include Bootstrap::Utilities::Sizable
+
         # include Bootstrap::Utilities::Tooltipable
 
         include NfgUi::Components::Traits::Theme
