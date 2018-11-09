@@ -6,9 +6,13 @@ RSpec.describe NfgUi::Components::Elements::Button do
   it { expect(described_class).to be < NfgUi::Bootstrap::Components::Button }
   it_behaves_like 'a component with a consistent initalized construction'
   it_behaves_like 'a component that includes the Iconable utility module'
+  it_behaves_like 'a component that includes the Describable utility module'
+  it_behaves_like 'a component that includes the Renderable utility module'
+
+  it_behaves_like 'a component that includes the Size trait module'
+  it_behaves_like 'a component that includes the Theme trait module'
 
   it { expect(described_class.included_modules).to include NfgUi::Components::Utilities::Traitable }
-  it { expect(described_class.included_modules).to include NfgUi::Components::Utilities::Describable }
 
   pending 'button spec needs specs'
 end

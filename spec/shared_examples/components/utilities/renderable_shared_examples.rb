@@ -8,12 +8,14 @@ shared_examples_for 'a component that includes the Renderable utility module' do
   end
 
   describe 'A renderable (rendered) component' do
-    let(:component_symbolic_name) { described_class.to_s.split('::').last.downcase.to_sym }
+    let(:component_symbolic_name) { described_class.to_s.split('::').last.underscore.downcase.to_sym }
     let(:view_context) { ActionController::Base.new.view_context }
-    let(:component) { NfgUi::UI::Base.new(view_context).nfg(component_symbolic_name, options) }
+    let(:ruby_component) { described_class.new(options.merge(secondary_options), ActionController::Base.new.view_context) }
+    let(:rendered_component) { view_context.ui.nfg(component_symbolic_name, ruby_component.options) }
     let(:options) { {} }
+    let(:secondary_options) { { body: 'must be here for components that only output a body without html' } }
 
-    subject { component }
+    subject { rendered_component }
 
     describe 'render_if' do
       context 'when render_if is true' do

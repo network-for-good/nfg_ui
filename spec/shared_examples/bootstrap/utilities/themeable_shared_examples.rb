@@ -15,7 +15,6 @@ shared_examples_for 'a component that includes the Themeable utility module' do 
     let(:ruby_component) { described_class.new(options, ActionController::Base.new.view_context) }
     let(:rendered_component) { view_context.ui.send(component_suite, component_symbolic_name, ruby_component.options) }
     let(:options) { {} }
-    let(:tested_heading) { 'Tested heading' }
 
     subject { rendered_component }
 
