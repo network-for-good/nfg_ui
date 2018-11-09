@@ -148,12 +148,12 @@ shared_examples_for 'a component without outlined themes' do
   NfgUi::BOOTSTRAP_THEMES.each do |theme|
     it 'applies a theme that is not outlined' do
       @theme = theme
-      expect(substring_present?(string: rendered_component.gsub("\"", "'"),
+      expect(substring_present?(string: rendered_component.tr("\"", "'"),
                                 starting_substring: "class='",
                                 ending_substring: "'",
                                 sought_substring: "#{ruby_component.send(:theme_css_class_prefix)}#{ruby_component.send(:outlined_css_class_prefix)}#{theme}")).not_to be
 
-      expect(substring_present?(string: rendered_component.gsub("\"", "'"),
+      expect(substring_present?(string: rendered_component.tr("\"", "'"),
                                 starting_substring: "class='",
                                 ending_substring: "'",
                                 sought_substring: "#{ruby_component.send(:theme_css_class_prefix)}#{theme}")).to be
