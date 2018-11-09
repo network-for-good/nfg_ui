@@ -7,7 +7,7 @@ RSpec.describe NfgUi::Bootstrap::Components::BreadcrumbItem do
 
   it { is_expected.to be < NfgUi::Bootstrap::Components::Base }
   it_behaves_like 'a component with a consistent initalized construction'
-  it_behaves_like 'a component that includes the Activatable utility module'
+  it_behaves_like 'a component that includes the Activatable utility module', component_suite: :bootstrap
 
   describe '#component_family' do
     subject { breadcrumb_item.component_family }

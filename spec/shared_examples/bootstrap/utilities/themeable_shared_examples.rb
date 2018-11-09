@@ -26,10 +26,21 @@ shared_examples_for 'a component that includes the Themeable utility module' do 
           it 'applies a theme that is outlined' do
             @theme = theme
             if ruby_component.send(:outlineable?)
-              expect(subject).to include "#{ruby_component.send(:theme_css_class_prefix)}#{ruby_component.send(:outlined_css_class_prefix)}#{theme}"
+              expect(substring_present?(string: subject.tr("\"", "'"),
+                                        starting_substring: "class='",
+                                        ending_substring: "'",
+                                        sought_substring: "#{ruby_component.send(:theme_css_class_prefix)}#{ruby_component.send(:outlined_css_class_prefix)}#{theme}")).to be
+
             else
-              expect(subject).not_to include "#{ruby_component.send(:theme_css_class_prefix)}#{ruby_component.send(:outlined_css_class_prefix)}#{theme}"
-              expect(subject).to include "#{ruby_component.send(:theme_css_class_prefix)}#{theme}"
+              expect(substring_present?(string: subject.tr("\"", "'"),
+                                        starting_substring: "class='",
+                                        ending_substring: "'",
+                                        sought_substring: "#{ruby_component.send(:theme_css_class_prefix)}#{ruby_component.send(:outlined_css_class_prefix)}#{theme}")).not_to be
+
+              expect(substring_present?(string: subject.tr("\"", "'"),
+                                        starting_substring: "class='",
+                                        ending_substring: "'",
+                                        sought_substring: "#{ruby_component.send(:theme_css_class_prefix)}#{theme}")).to be
             end
           end
         end
@@ -58,7 +69,11 @@ shared_examples_for 'a component that includes the Themeable utility module' do 
         
         it 'renders the component with the alternative default theme' do
           unless component_default_theme.nil?
-            expect(subject).to include "#{ruby_component.send(:theme_css_class_prefix)}#{component_default_theme}"
+            expect(substring_present?(string: subject.tr("\"", "'"),
+                                      starting_substring: "class='",
+                                      ending_substring: "'",
+                                      sought_substring: "#{ruby_component.send(:theme_css_class_prefix)}#{component_default_theme}")).to be
+            
           end
         end
       end
@@ -66,7 +81,14 @@ shared_examples_for 'a component that includes the Themeable utility module' do 
       context 'when the default theme is set to nil in the component' do
         it 'renders the component with no theme' do
           if component_default_theme.nil?
-            expect(subject).not_to include "#{ruby_component.send(:theme_css_class_prefix)}#{default_theme}"
+            if subject.match('class')
+              expect(substring_present?(string: subject.tr("\"", "'"),
+                                        starting_substring: "class='",
+                                        ending_substring: "'",
+                                        sought_substring: "#{ruby_component.send(:theme_css_class_prefix)}#{default_theme}")).not_to be
+            else
+              expect(subject).not_to include "#{ruby_component.send(:theme_css_class_prefix)}#{default_theme}"
+            end
           end
         end
       end
@@ -74,7 +96,10 @@ shared_examples_for 'a component that includes the Themeable utility module' do 
       context 'when a default theme is not established in the component' do
         it 'renders the component with the themeable default theme' do
           unless component_default_theme.nil?
-            expect(subject).to include "#{ruby_component.send(:theme_css_class_prefix)}#{component_default_theme}"
+            expect(substring_present?(string: subject.tr("\"", "'"),
+                                      starting_substring: "class='",
+                                      ending_substring: "'",
+                                      sought_substring: "#{ruby_component.send(:theme_css_class_prefix)}#{component_default_theme}")).to be
           end
         end
       end
@@ -83,15 +108,35 @@ shared_examples_for 'a component that includes the Themeable utility module' do 
         let(:options) { { theme: nil } }
 
         it 'renders the component with no themes' do
-          expect(subject).to include "#{ruby_component.send(:component_css_class)}"
-          expect(subject).not_to include "#{ruby_component.send(:theme_css_class_prefix)}#{component_default_theme}"
+          
+          if subject.match('class')
+            by "when the component has classes in its html" do
+              expect(substring_present?(string: subject.tr("\"", "'"),
+                                        starting_substring: "class='",
+                                        ending_substring: "'",
+                                        sought_substring: "#{ruby_component.send(:component_css_class)}")).to be
+              
+              expect(substring_present?(string: subject.tr("\"", "'"),
+                                        starting_substring: "class='",
+                                        ending_substring: "'",
+                                        sought_substring: "#{ruby_component.send(:theme_css_class_prefix)}#{component_default_theme}")).not_to be
+            end
+          else
+            by 'when the component does not have the class attribute in its html' do
+              expect(subject).to include "#{ruby_component.send(:component_css_class)}"
+              expect(subject).not_to include "#{ruby_component.send(:theme_css_class_prefix)}#{component_default_theme}"
+            end
+          end
         end
 
         context 'and when a theme is present in options' do
           let(:tested_theme) { NfgUi::BOOTSTRAP_THEMES.sample(1).first }
           let(:options) { { theme: tested_theme } }
           it 'renders the component with a theme' do
-            expect(subject).to include "#{ruby_component.send(:theme_css_class_prefix)}#{tested_theme}"
+            expect(substring_present?(string: subject.tr("\"", "'"),
+                                      starting_substring: "class='",
+                                      ending_substring: "'",
+                                      sought_substring: "#{ruby_component.send(:theme_css_class_prefix)}#{tested_theme}")).to be
           end
         end
       end
@@ -103,8 +148,15 @@ shared_examples_for 'a component without outlined themes' do
   NfgUi::BOOTSTRAP_THEMES.each do |theme|
     it 'applies a theme that is not outlined' do
       @theme = theme
-      expect(rendered_component).not_to include "#{ruby_component.send(:theme_css_class_prefix)}#{ruby_component.send(:outlined_css_class_prefix)}#{theme}"
-      expect(rendered_component).to include "#{ruby_component.send(:theme_css_class_prefix)}#{theme}"
+      expect(substring_present?(string: rendered_component.gsub("\"", "'"),
+                                starting_substring: "class='",
+                                ending_substring: "'",
+                                sought_substring: "#{ruby_component.send(:theme_css_class_prefix)}#{ruby_component.send(:outlined_css_class_prefix)}#{theme}")).not_to be
+
+      expect(substring_present?(string: rendered_component.gsub("\"", "'"),
+                                starting_substring: "class='",
+                                ending_substring: "'",
+                                sought_substring: "#{ruby_component.send(:theme_css_class_prefix)}#{theme}")).to be
     end
   end
 end

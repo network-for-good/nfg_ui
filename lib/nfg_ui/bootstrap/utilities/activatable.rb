@@ -10,14 +10,6 @@ module NfgUi
           options.fetch(:active, default_active)
         end
 
-        # def active?
-        #   active
-        # end
-
-        # def defaults
-        #   super.merge(active: default_active)
-        # end
-
         private
 
         def css_classes
