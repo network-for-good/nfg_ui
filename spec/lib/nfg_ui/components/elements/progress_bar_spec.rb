@@ -13,6 +13,4 @@ RSpec.describe NfgUi::Components::Elements::ProgressBar do
   it { expect(described_class.included_modules).to include NfgUi::Components::Utilities::Describable }
 
   pending 'need spec updates'
-
-  
 end

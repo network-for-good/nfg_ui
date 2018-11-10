@@ -6,11 +6,7 @@ module NfgUi
       # Access to pre-designed Alert traits
       module Dismiss
         TRAITS = %i[dismissible].freeze
-        # include NfgUi::Components::Traits
-        # include NfgUi::Components::Traits::Theme
-
-        # private
-
+        
         def dismissible_trait
           options[:dismissible] = true
         end
