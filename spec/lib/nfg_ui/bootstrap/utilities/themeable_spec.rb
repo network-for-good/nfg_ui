@@ -149,5 +149,10 @@ RSpec.describe NfgUi::Bootstrap::Utilities::Themeable do
         it { is_expected.to eq test_theme_class }
       end
     end
+
+    describe '#outlineable?' do
+      subject { button.send(:outlineable?) }
+      it { is_expected.to be }
+    end
   end
 end
