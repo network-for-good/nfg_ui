@@ -26,16 +26,23 @@ shared_examples_for 'a component that includes the Activatable utility module' d
 
       context 'and when active is false in options' do
         let(:options) { { active: false } }
-
+        it 'does not render the component with the _active_ css class' do
+          expect(substring_present?(string: subject.tr('\"', "'"), starting_substring: "class='", ending_substring: "'", sought_substring: 'active')).not_to be
+        end
       end
 
       context 'and when active is not present in options' do
         let(:options) { {} }
-
+        it 'does not render the component with the _active_ css class' do
+          expect(substring_present?(string: subject.tr('\"', "'"), starting_substring: "class='", ending_substring: "'", sought_substring: 'active')).not_to be
+        end
       end
 
       context 'and when active is nil in options' do
         let(:options) { { active: nil } }
+        it 'does not render the component with the _active_ css class' do
+          expect(substring_present?(string: subject.tr('\"', "'"), starting_substring: "class='", ending_substring: "'", sought_substring: 'active')).not_to be
+        end
       end
     end
   end

@@ -13,7 +13,10 @@ module NfgUi
         private
 
         def css_classes
-          active ? super + ' active' : super
+          [
+            super,
+            ('active' if active)
+          ].join(' ').squish
         end
 
         def non_html_attribute_options
