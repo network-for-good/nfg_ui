@@ -11,4 +11,5 @@ end
 
 group :test do
   gem 'spring-commands-rspec'
+  gem 'rails-controller-testing'
 end
