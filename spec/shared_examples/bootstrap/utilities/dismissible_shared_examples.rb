@@ -19,7 +19,7 @@ shared_examples_for 'a component that includes the Dismissible utility module' d
     context 'when dismissible is true' do
       let(:options) { { dismissible: true } }
       it 'includes dismissible keywords in the html' do
-        expect(substring_present?(string: subject.tr("\"", "'"),
+        expect(substring_present?(string: subject.tr('\"', "'"),
                                   starting_substring: "class='",
                                   ending_substring: "'",
                                   sought_substring: %w[dismissible show fade])).to be
@@ -29,7 +29,7 @@ shared_examples_for 'a component that includes the Dismissible utility module' d
     context 'when dismissible is false' do
       let(:options) { { dismissible: false } }
       it 'does not include dismissible keywords in the html' do
-        expect(substring_present?(string: subject.tr("\"", "'"),
+        expect(substring_present?(string: subject.tr('\"', "'"),
                                   starting_substring: "class='",
                                   ending_substring: "'",
                                   sought_substring: %w[dismissible show fade])).not_to be

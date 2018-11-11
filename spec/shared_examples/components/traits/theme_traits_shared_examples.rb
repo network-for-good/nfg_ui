@@ -164,7 +164,7 @@ shared_examples_for 'a component that includes the Theme trait module' do |test_
             let(:tested_trait) { :non_registered_trait }
             it 'renders does not add an unregistered theme to the html' do
               if subject.match('class')
-                expect(substring_present?(string: subject.tr("\"", "'"),
+                expect(substring_present?(string: subject.tr('\"', "'"),
                                         starting_substring: "class='",
                                         ending_substring: "'",
                                         sought_substring: "#{ruby_component.send(:theme_css_class_prefix)}#{tested_trait}")).not_to be
@@ -181,7 +181,7 @@ end
 
 shared_examples_for 'a thematic color trait' do
   it 'renders the component with the intended theme applied' do
-    expect(substring_present?(string: subject.tr("\"", "'"),
+    expect(substring_present?(string: subject.tr('\"', "'"),
                               starting_substring: "class='",
                               ending_substring: "'",
                               sought_substring: "#{ruby_component.send(:theme_css_class_prefix)}#{tested_trait}")).to be

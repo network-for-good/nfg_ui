@@ -36,7 +36,7 @@ shared_examples_for 'a component that includes the Dismiss trait module' do
           context 'when dismissible trait is applied' do
             let(:tested_trait) { :dismissible }
             it 'applies the dismissible css class to the html' do
-              expect(substring_present?(string: subject.tr("\"", "'"),
+              expect(substring_present?(string: subject.tr('\"', "'"),
                                         starting_substring: "class='",
                                         ending_substring: "'",
                                         sought_substring: 'dismissible')).to be
@@ -48,7 +48,7 @@ shared_examples_for 'a component that includes the Dismiss trait module' do
           let(:tested_trait) { nil }
           before { ruby_component.options[:dismissible] = false } # dismissible may be on by default
           it 'does not apply the dismissible css class to the html' do
-            expect(substring_present?(string: subject.tr("\"", "'"),
+            expect(substring_present?(string: subject.tr('\"', "'"),
                                       starting_substring: "class='",
                                       ending_substring: "'",
                                       sought_substring: 'dismissible')).not_to be

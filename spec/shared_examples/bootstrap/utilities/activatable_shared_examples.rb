@@ -20,7 +20,7 @@ shared_examples_for 'a component that includes the Activatable utility module' d
       context 'and when active is true in options' do
         let(:options) { { active: true } }
         it 'renders the component with the _active_ css class' do
-          expect(substring_present?(string: subject.tr("\"", "'"), starting_substring: "class='", ending_substring: "'", sought_substring: 'active')).to be
+          expect(substring_present?(string: subject.tr('\"', "'"), starting_substring: "class='", ending_substring: "'", sought_substring: 'active')).to be
         end
       end
 
