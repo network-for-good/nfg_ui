@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe NfgUi::Bootstrap::Utilities::Wrappable do
@@ -7,7 +9,6 @@ RSpec.describe NfgUi::Bootstrap::Utilities::Wrappable do
 
   describe '#as' do
     subject { badge.as }
-
     context 'when :as is provided in the options' do
       let(:options) { { as: :strong } }
       it { is_expected.to eq :strong }
@@ -15,10 +16,26 @@ RSpec.describe NfgUi::Bootstrap::Utilities::Wrappable do
 
     context 'when :as is not provided in the options' do
       let(:options) { {} }
-      context 'when :href within options is not present' do
-        it { is_expected.to eq :span }
+      it { is_expected.to eq :span }
+    end
+  end
+
+  describe 'private methods' do
+    describe '#assistive_html_attributes' do
+      subject { badge.send(:assistive_html_attributes) }
+      context 'when as is :button' do
+        let(:options) { { as: :button } }
+        it { is_expected.to include(type: 'button') }
       end
 
+      context 'when as is not button' do
+        let(:options) { { as: :p } }
+        it { is_expected.not_to include(type: 'button') }
+      end
+    end
+
+    describe '#automatic_as' do
+      subject { badge.send(:automatic_as) }
       context 'when href is included within the options' do
         let(:options) { { href: 'test_href' } }
         it { is_expected.to eq :a }
@@ -28,62 +45,38 @@ RSpec.describe NfgUi::Bootstrap::Utilities::Wrappable do
         let(:options) { { type: 'submit' } }
         it { is_expected.to eq :button }
       end
-    end
-  end
 
-  describe '#href' do
-    subject { badge.href }
-    let(:options) { { href: tested_href } }
-    let(:tested_href) { nil }
+      context 'when neither href or submit type are present in options' do
+        let(:options) { {} }
+        it { is_expected.to eq :span }
+      end
 
-    context 'when :href is present within the options' do
-      let(:tested_href) { 'test_href' }
-      it { is_expected.to eq tested_href }
-    end
-
-    context 'when :href is nil within the options' do
-      let(:tested_href) { nil }
-      it { is_expected.to be_nil }
-    end
-
-    context 'when :href is not present within the options' do
-      let(:options) { {} }
-      it { is_expected.to be_nil }
-    end
-  end
-
-  describe '#default_html_wrapper_element' do
-    let(:test_class) { Class.new { include NfgUi::Bootstrap::Utilities::Wrappable }.new }
-    subject { test_class.send(:default_html_wrapper_element) }
-
-    context 'when default_html_wrapper_element is not overwritten' do
-      it { is_expected.to eq :span }
-    end
-
-    context 'when default_html_wrapper_element has been overwritten' do
-      before { test_class.instance_variable_set(:@default_html_wrapper_element, :a) }
-
-      it 'accepts the redefined value as set by the component' do
-        expect(subject).to eq :a
+      context 'when href is nil' do
+        let(:options) { { href: nil } }
+        it { is_expected.to eq :span }
       end
     end
-  end
 
-  describe '#non_html_attribute_options' do
-    subject { badge.send(:non_html_attribute_options) }
-    it { is_expected.to include :as }
-  end
+    describe '#default_html_wrapper_element' do
+      let(:test_class) { Class.new { include NfgUi::Bootstrap::Utilities::Wrappable }.new }
+      subject { test_class.send(:default_html_wrapper_element) }
 
-  describe '#assistive_html_attributes' do
-    subject { badge.send(:assistive_html_attributes) }
-    context 'when as is :button' do
-      let(:options) { { as: :button } }
-      it { is_expected.to include(type: 'button') }
+      context 'when default_html_wrapper_element is not overwritten' do
+        it { is_expected.to eq :span }
+      end
+
+      context 'when default_html_wrapper_element has been overwritten' do
+        before { test_class.instance_variable_set(:@default_html_wrapper_element, :a) }
+
+        it 'accepts the redefined value as set by the component' do
+          expect(subject).to eq :a
+        end
+      end
     end
 
-    context 'when as is not button' do
-      let(:options) { { as: :p } }
-      it { is_expected.not_to include(type: 'button') }
+    describe '#non_html_attribute_options' do
+      subject { badge.send(:non_html_attribute_options) }
+      it { is_expected.to include :as }
     end
   end
 end

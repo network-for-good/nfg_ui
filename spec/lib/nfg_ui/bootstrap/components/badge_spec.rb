@@ -8,7 +8,7 @@ RSpec.describe NfgUi::Bootstrap::Components::Badge do
   it { expect(described_class).to be < NfgUi::Bootstrap::Components::Base }
   it_behaves_like 'a component with a consistent initalized construction'
   it_behaves_like 'a component that includes the Themeable utility module', component_suite: :bootstrap
-  it_behaves_like 'a component that includes the Wrappable utility module'
+  it_behaves_like 'a component that includes the Wrappable utility module', component_suite: :bootstrap
 
   describe '#pill' do
     context 'when pill is true' do

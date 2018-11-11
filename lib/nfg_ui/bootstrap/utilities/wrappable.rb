@@ -16,8 +16,16 @@ module NfgUi
 
         private
 
+        def assistive_html_attributes
+          if as == :button
+            super.merge(type: options.fetch(:type, 'button')) # prefer type submit
+          else
+            super
+          end
+        end
+
         def automatic_as
-          if href.present?
+          if href
             :a
           elsif options[:type] == 'submit'
             :button
@@ -26,22 +34,13 @@ module NfgUi
           end
         end
 
-        def non_html_attribute_options
-          super.push(:as)
-        end
-
         # Set default_html_wrapper_element on individual components as needed
         def default_html_wrapper_element
           @default_html_wrapper_element ||= :span
         end
 
-        def assistive_html_attributes
-          if as == :button
-            super.merge(type: options.fetch(:type, 'button')) # prefer type submit
-          else
-            super
-          end
-          # as == :button ? super.merge!(type: 'button') : super
+        def non_html_attribute_options
+          super.push(:as)
         end
       end
     end

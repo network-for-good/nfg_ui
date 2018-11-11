@@ -7,7 +7,7 @@ RSpec.describe NfgUi::Components::Foundations::Typeface do
   it { expect(described_class).to be < NfgUi::Components::Base }
   it_behaves_like 'a component with a consistent initalized construction'
   it_behaves_like 'a component that includes the Themeable utility module', component_suite: :nfg
-  it_behaves_like 'a component that includes the Wrappable utility module'
+  it_behaves_like 'a component that includes the Wrappable utility module', component_suite: :nfg
   it_behaves_like 'a component that includes the Iconable utility module'
   it_behaves_like 'a component that includes the Titleable utility module'
   it_behaves_like 'a component that includes the Theme trait module'
