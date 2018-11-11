@@ -22,6 +22,19 @@ FactoryBot.define do
                                        .nfg(:alert, attributes) }
     end
   end
+
+  factory :badge, class: NfgUi::Components::Elements::Badge do
+    body { nil }
+    traits { [] }
+
+    skip_create
+    initialize_with { new(attributes.merge!(traits: traits), ActionController::Base.new.view_context) }
+
+    trait :rendered do
+      initialize_with { NfgUi::UI::Base.new(ActionController::Base.new.view_context)
+                                       .nfg(:badge, attributes) }
+    end
+  end
   
   factory :button, class: NfgUi::Components::Elements::Button do
     body { nil }
