@@ -6,7 +6,7 @@ require 'rails_helper'
 # TODO: Return to this.
 
 RSpec.describe 'nfg_ui/elements/buttons/_button.html.haml', type: :view do
-  let(:button) { FactoryBot.create(:button, *traits, **options) }
+  let(:button) { FactoryBot.create(:button, traits: traits, **options) }
   let(:options) { {} }
   let(:traits) { [] }
   let(:tested_href) { 'test_href' }
