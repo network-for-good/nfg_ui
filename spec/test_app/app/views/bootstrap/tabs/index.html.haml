@@ -22,22 +22,22 @@
 
 %hr
 
-%h2 Tab Pane - using pills
-= ui.bootstrap :nav, pills: true do
-  = ui.bootstrap :nav_item, tab: '#test_pills1', body: 'Pill Tab 1', active: true
-  = ui.bootstrap :nav_item, tab: '#test_pills2', body: 'Pill Tab 2'
-  = ui.bootstrap :nav_item, tab: '#test_pills3', body: 'Pill Tab 3'
+%h2 Tab Pane - using pill (keyword `pill`)
+= ui.bootstrap :nav, pill: true do
+  = ui.bootstrap :nav_item, tab: '#test_pill1', body: 'Pill Tab 1', active: true
+  = ui.bootstrap :nav_item, tab: '#test_pill2', body: 'Pill Tab 2'
+  = ui.bootstrap :nav_item, tab: '#test_pill3', body: 'Pill Tab 3'
 
 = ui.bootstrap :tab_content, class: 'p-4' do
-  = ui.bootstrap :tab_pane, tab: '#test_pills1', active: true do
+  = ui.bootstrap :tab_pane, tab: '#test_pill1', active: true do
     %h3.h5 Tab Pane #1
     %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nibh ex, consectetur ultricies consectetur eu, efficitur ac odio. Cras venenatis elit a volutpat sagittis
   
-  = ui.bootstrap :tab_pane, tab: '#test_pills2' do
+  = ui.bootstrap :tab_pane, tab: '#test_pill2' do
     %h3.h5 Tab Pane #2
     %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nibh ex, consectetur ultricies consectetur eu, efficitur ac odio. Cras venenatis elit a volutpat sagittis
   
-  = ui.bootstrap :tab_pane, tab: '#test_pills3' do
+  = ui.bootstrap :tab_pane, tab: '#test_pill3' do
     %h3.h5 Tab Pane #3
     %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nibh ex, consectetur ultricies consectetur eu, efficitur ac odio. Cras venenatis elit a volutpat sagittis
 
@@ -46,21 +46,21 @@
 %h2 Vertical pill tabs
 .row
   .col-3
-    = ui.bootstrap :nav, pills: true, vertical: true do
-      = ui.bootstrap :nav_item, tab: '#test_vertical_pills1', body: 'Pill Tab 1', active: true
-      = ui.bootstrap :nav_item, tab: '#test_vertical_pills2', body: 'Pill Tab 2'
-      = ui.bootstrap :nav_item, tab: '#test_vertical_pills3', body: 'Pill Tab 3'
+    = ui.bootstrap :nav, pill: true, vertical: true do
+      = ui.bootstrap :nav_item, tab: '#test_vertical_pill1', body: 'Pill Tab 1', active: true
+      = ui.bootstrap :nav_item, tab: '#test_vertical_pill2', body: 'Pill Tab 2'
+      = ui.bootstrap :nav_item, tab: '#test_vertical_pill3', body: 'Pill Tab 3'
   .col-9
     = ui.bootstrap :tab_content, class: 'p-4' do
-      = ui.bootstrap :tab_pane, tab: '#test_vertical_pills1', active: true do
+      = ui.bootstrap :tab_pane, tab: '#test_vertical_pill1', active: true do
         %h3.h5 Tab Pane #1
         %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nibh ex, consectetur ultricies consectetur eu, efficitur ac odio. Cras venenatis elit a volutpat sagittis
       
-      = ui.bootstrap :tab_pane, tab: '#test_vertical_pills2' do
+      = ui.bootstrap :tab_pane, tab: '#test_vertical_pill2' do
         %h3.h5 Tab Pane #2
         %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nibh ex, consectetur ultricies consectetur eu, efficitur ac odio. Cras venenatis elit a volutpat sagittis
       
-      = ui.bootstrap :tab_pane, tab: '#test_vertical_pills3' do
+      = ui.bootstrap :tab_pane, tab: '#test_vertical_pill3' do
         %h3.h5 Tab Pane #3
         %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nibh ex, consectetur ultricies consectetur eu, efficitur ac odio. Cras venenatis elit a volutpat sagittis
 

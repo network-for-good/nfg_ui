@@ -50,19 +50,19 @@ RSpec.describe NfgUi::Bootstrap::Components::Nav do
     end
   end
 
-  describe '#pills' do
-    subject { nav.pills }
-    context 'when pills is true' do
-      let(:options) { { pills: true } }
+  describe '#pill' do
+    subject { nav.pill }
+    context 'when pill is true' do
+      let(:options) { { pill: true } }
       it { is_expected.to be }
     end
 
-    context 'when pills is false' do
-      let(:options) { { pills: false } }
+    context 'when pill is false' do
+      let(:options) { { pill: false } }
       it { is_expected.not_to be }
     end
 
-    context 'when pills is not set' do
+    context 'when pill is not set' do
       let(:options) { {} }
       it { is_expected.not_to be }
     end
@@ -142,20 +142,20 @@ RSpec.describe NfgUi::Bootstrap::Components::Nav do
         end
       end
 
-      describe ':pills option' do
+      describe ':pill option' do
         context 'when pill is true' do
-          let(:options) { { pills: true } }
-          it { is_expected.to include 'nav-pills' }
+          let(:options) { { pill: true } }
+          it { is_expected.to include 'nav-pill' }
         end
 
         context 'when pill is false' do
-          let(:options) { { pills: false } }
-          it { is_expected.not_to include 'nav-pills' }
+          let(:options) { { pill: false } }
+          it { is_expected.not_to include 'nav-pill' }
         end
 
         context 'when pill is not set' do
           let(:options) { {} }
-          it { is_expected.not_to include 'nav-pills' }
+          it { is_expected.not_to include 'nav-pill' }
         end
       end
 
@@ -204,7 +204,7 @@ RSpec.describe NfgUi::Bootstrap::Components::Nav do
       it { is_expected.to include(:fill,
                                   :justified,
                                   :tabs,
-                                  :pills,
+                                  :pill,
                                   :vertical) }
     end
   end

@@ -47,7 +47,7 @@
 %h3 Complex nav using as: :nav 
 %p Per documentation on nav-fill / justified, etc, add 'nav-item' class to nav_link:
 
-= ui.bootstrap :nav, as: :nav, fill: true, pills: true, class: 'bg-light p-3' do
+= ui.bootstrap :nav, as: :nav, fill: true, pill: true, class: 'bg-light p-3' do
   = ui.bootstrap :nav_link, active: true, body: 'Nav Link #1 - Active', href: '#', class: 'nav-item'
   = ui.bootstrap :nav_link, body: 'Nav Link #2', href: '#', class: 'nav-item'
   = ui.bootstrap :nav_link, body: 'Nav Link #3', href: '#', class: 'nav-item'
@@ -97,7 +97,7 @@
 
 %h2 Pills
 
-= ui.bootstrap :nav, pills: true, class: 'bg-light p-3' do
+= ui.bootstrap :nav, pill: true, class: 'bg-light p-3' do
   = ui.bootstrap :nav_item, body: 'Nav Item #1', href: '#', active: true
   = ui.bootstrap :nav_item, body: 'Nav Item #2', href: '#'
   = ui.bootstrap :nav_item, body: 'Nav Item #3', href: '#'
@@ -127,7 +127,7 @@
 
 %h2 Nav Items / links: States
 
-= ui.bootstrap :nav, pills: true ,class: 'bg-light p-3' do
+= ui.bootstrap :nav, pill: true ,class: 'bg-light p-3' do
   = ui.bootstrap :nav_item, body: 'Nav Item #1 - Active', href: '#', active: true
   = ui.bootstrap :nav_item, body: 'Nav Item #2 - Disabled', href: '#', disabled: true
   = ui.bootstrap :nav_item, body: 'Nav Item #3', href: '#'
@@ -154,7 +154,7 @@
 %hr
 
 %h3 Pills with dropdowns
-= ui.bootstrap :nav, pills: true, class: 'bg-light p-3' do
+= ui.bootstrap :nav, pill: true, class: 'bg-light p-3' do
   = ui.bootstrap :nav_item, body: 'Nav Item #1', href: '#', active: true
   = ui.bootstrap :nav_item, body: 'Nav Item #2', href: '#'
   = ui.bootstrap :nav_item, body: 'Nav Item #3', href: '#'

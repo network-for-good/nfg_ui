@@ -21,8 +21,8 @@ module NfgUi
           options.fetch(:justified, false)
         end
 
-        def pills
-          options.fetch(:pills, false)
+        def pill
+          options.fetch(:pill, false)
         end
 
         def tabs
@@ -40,7 +40,7 @@ module NfgUi
             super,
             ('nav-fill' if fill),
             ('nav-justified' if justified),
-            ('nav-pills' if pills),
+            ('nav-pills' if pill),
             ('nav-tabs' if tabs),
             ('flex-column' if vertical)
           ].join(' ').squish
@@ -54,7 +54,7 @@ module NfgUi
           super.push(:fill,
                      :justified,
                      :tabs,
-                     :pills,
+                     :pill,
                      :vertical)
         end
       end
