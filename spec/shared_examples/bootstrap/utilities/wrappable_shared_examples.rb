@@ -7,7 +7,7 @@ shared_examples_for 'a component that includes the Wrappable utility module' do 
     end
   end
 
-  describe 'a themeable (rendered) component' do
+  describe 'a wrappable (rendered) component' do
     let(:component_symbolic_name) { described_class.to_s.split('::').last.underscore.downcase.to_sym }
     let(:view_context) { ActionController::Base.new.view_context }
     let(:ruby_component) { described_class.new(options, ActionController::Base.new.view_context) }
