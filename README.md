@@ -339,6 +339,8 @@ $ Collapsible? (Y/n):
 
 26. consider typeface for link_to so we can supply our luxuries to link_to.
 
+27. Add a trait for dropdown items where we pass in a "not_deletable" type of attribute that shows when a can't delete condition is present -- or make it more generic and have it be embedded dropdown text that we conditionalize on the component.
+
 Component tooltip/icon auto list for backup
 FOUNDATION_COMPONENT_NAMES = %i[color
                                   icon

@@ -5,9 +5,12 @@ module NfgUi
     module Traits
       # Access to pre-designed Alert traits
       module Alert
-        TRAITS = [
-                    
-                  ].freeze
+        TRAITS = %i[tip].freeze
+
+        def tip_trait
+          options[:icon] = 'lightbulb-o'
+          options[:theme] = :info
+        end
         # include NfgUi::Components::Traits
         # include NfgUi::Components::Traits::Theme
 

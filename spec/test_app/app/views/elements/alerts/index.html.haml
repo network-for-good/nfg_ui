@@ -3,10 +3,17 @@
 %hr
 
 %h2 Special traited alerts
-%p Coming soon
+%h3 Tip Alert
+= ui.nfg :alert, :tip, body: 'This is a tip', heading: 'The tip heading'
+
 / %b== ui.nfg :alert, :error
 / %br
 / = ui.nfg :alert, :error
+
+%hr
+
+%h2 Alert with icons
+= ui.nfg :alert, icon: 'rocket', body: 'A rocket! Alert with an icon', heading: 'A heading!'
 
 %hr
 
