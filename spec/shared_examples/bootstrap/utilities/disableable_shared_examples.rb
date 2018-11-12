@@ -7,14 +7,14 @@ shared_examples_for 'a component that includes the Disableable utility module' d
     end
   end
 
-  describe 'a themeable (rendered) component' do
+  describe 'a disableable (rendered) component' do
     let(:component_symbolic_name) { described_class.to_s.split('::').last.underscore.downcase.to_sym }
     let(:view_context) { ActionController::Base.new.view_context }
     let(:ruby_component) { described_class.new(options, ActionController::Base.new.view_context) }
     let(:rendered_component) { view_context.ui.send(component_suite, component_symbolic_name, ruby_component.options) }
     let(:options) { {} }
 
-    subject { rendered_component.tr('\"', "'").tr("\n", '') }
+    subject { uniform_rendered_component(rendered_component) }
 
     context 'when :disabled is present in options' do
       describe 'the disabled css class' do

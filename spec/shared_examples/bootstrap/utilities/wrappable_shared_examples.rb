@@ -14,7 +14,7 @@ shared_examples_for 'a component that includes the Wrappable utility module' do 
     let(:rendered_component) { view_context.ui.send(component_suite, component_symbolic_name, ruby_component.options) }
     let(:options) { {} }
 
-    subject { rendered_component.tr('\"', "'").tr("\n", '') }
+    subject { uniform_rendered_component(rendered_component) }
 
     context 'when :as is present in options' do
       let(:tested_as) { :span }
