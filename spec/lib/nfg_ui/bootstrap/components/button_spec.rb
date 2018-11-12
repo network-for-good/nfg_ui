@@ -10,7 +10,7 @@ RSpec.describe NfgUi::Bootstrap::Components::Button do
   it_behaves_like 'a component that includes the CollapseToggleable utility module', component_suite: :bootstrap
   it_behaves_like 'a component that includes the Disableable utility module', component_suite: :bootstrap
   it_behaves_like 'a component that includes the Remotable utility module', component_suite: :bootstrap
-  it_behaves_like 'a component that includes the Sizable utility module'
+  it_behaves_like 'a component that includes the Sizable utility module', component_suite: :bootstrap
   it_behaves_like 'a component that includes the Themeable utility module', component_suite: :bootstrap
   it_behaves_like 'a component that includes the Tooltipable utility module'
   it_behaves_like 'a component that includes the Wrappable utility module', component_suite: :bootstrap

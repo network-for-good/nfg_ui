@@ -7,7 +7,7 @@ RSpec.describe NfgUi::Components::Patterns::Progress do
   it_behaves_like 'a component with a consistent initalized construction'
   it_behaves_like 'a component that includes the Describable utility module'
   it_behaves_like 'a component that includes the Renderable utility module'
-  it_behaves_like 'a component that includes the Sizable utility module'
+  it_behaves_like 'a component that includes the Sizable utility module', component_suite: :nfg
   it_behaves_like 'a component that includes the Tooltipable utility module'
 
   it_behaves_like 'a component that includes the Theme trait module', test_html: false

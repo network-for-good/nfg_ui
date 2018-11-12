@@ -7,7 +7,7 @@ RSpec.describe NfgUi::Bootstrap::Components::Pagination do
   it { expect(described_class).to be < NfgUi::Bootstrap::Components::Base }
   it_behaves_like 'a component with a consistent initalized construction'
   it_behaves_like 'a component that includes the Alignable utility module'
-  it_behaves_like 'a component that includes the Sizable utility module'
+  it_behaves_like 'a component that includes the Sizable utility module', component_suite: :bootstrap
 
   describe '#component_family' do
     subject { pagination.component_family }
