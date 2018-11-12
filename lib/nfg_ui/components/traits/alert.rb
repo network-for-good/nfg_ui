@@ -10,6 +10,7 @@ module NfgUi
         def tip_trait
           options[:icon] = 'lightbulb-o'
           options[:theme] = :info
+          options[:dismissible] = false
         end
         # include NfgUi::Components::Traits
         # include NfgUi::Components::Traits::Theme

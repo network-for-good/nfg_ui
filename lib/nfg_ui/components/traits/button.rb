@@ -26,7 +26,7 @@ module NfgUi
           data[:dismiss] = options.delete(:dismiss)
           options[:theme] = nil
           @css_classes = 'close'
-          options[:icon] = 'times'
+          @body = '&times;'.html_safe
           assistive_html_attributes.merge!(aria: { label: 'close' })
         end
 

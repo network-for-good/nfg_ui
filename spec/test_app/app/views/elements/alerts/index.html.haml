@@ -4,7 +4,8 @@
 
 %h2 Special traited alerts
 %h3 Tip Alert
-= ui.nfg :alert, :tip, body: 'This is a tip', heading: 'The tip heading'
+= ui.nfg :alert, :tip, body: 'This is a tip, not dismissible by default', heading: 'The tip heading'
+= ui.nfg :alert, :tip, :dismissible, body: 'This is a tip, not dismissible by default', heading: 'The tip heading'
 
 / %b== ui.nfg :alert, :error
 / %br
