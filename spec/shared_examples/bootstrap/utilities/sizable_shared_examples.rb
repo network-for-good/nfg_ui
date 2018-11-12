@@ -27,7 +27,7 @@ shared_examples_for 'a component that includes the Sizable utility module' do |c
                                       ending_substring: "'",
                                       sought_substring: "#{ruby_component.send(:size_css_class_prefix)}-#{size}")).to be
           end
-          
+
           and_by 'not adding the large size' do
             expect(substring_present?(string: subject,
                                       starting_substring: "class='",
@@ -46,7 +46,7 @@ shared_examples_for 'a component that includes the Sizable utility module' do |c
                                       ending_substring: "'",
                                       sought_substring: "#{ruby_component.send(:size_css_class_prefix)}-#{size}")).to be
           end
-          
+
           and_by 'not adding the small size' do
             expect(substring_present?(string: subject,
                                       starting_substring: "class='",
@@ -58,6 +58,7 @@ shared_examples_for 'a component that includes the Sizable utility module' do |c
     end
 
     context 'when size is not present in options' do
+      let(:options) { {} }
       it 'does not apply a size css class to the html' do
         by 'not applying the small css class' do
           expect(substring_present?(string: subject,
@@ -76,6 +77,7 @@ shared_examples_for 'a component that includes the Sizable utility module' do |c
     end
 
     context 'when size is not a white listed size (:sm / :lg)' do
+      let(:size) { :arbitrary }
       it 'does not apply a size css class to the html' do
         by 'not applying the small css class' do
           expect(substring_present?(string: subject,
