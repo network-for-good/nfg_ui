@@ -29,13 +29,6 @@ module NfgUi
 
         private
 
-        def css_classes
-          [
-            super,
-            'pt-3'
-          ].join(' ').squish
-        end
-
         def non_html_attribute_options
           super.push(:active,
                      :count,

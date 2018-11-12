@@ -8,6 +8,15 @@ module NfgUi
         include NfgUi::Components::Utilities::Traitable
         include NfgUi::Components::Utilities::Describable
         include NfgUi::Components::Utilities::Renderable
+
+        private
+
+        def css_classes
+          [
+            super,
+            'mb-0'
+          ].join(' ').squish
+        end
       end
     end
   end
