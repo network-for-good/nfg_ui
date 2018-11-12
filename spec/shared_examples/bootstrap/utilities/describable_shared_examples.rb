@@ -16,7 +16,7 @@ shared_examples_for 'a component that includes the Describable utility module' d
     let(:arbitrary_data_key) { 'test-key' }
     let(:arbitrary_data_value) { 'test-value' }
 
-    subject { rendered_component }
+    subject { uniform_rendered_component(rendered_component) }
 
     context 'when :describe is present in options' do
       let(:tested_describe) { 'tested-describe' }
@@ -24,7 +24,7 @@ shared_examples_for 'a component that includes the Describable utility module' d
         let(:options) { { describe: tested_describe, data: { arbitrary_data_key => arbitrary_data_value } } }
 
         it 'outputs the component with the data-describe in addition to the original data attributes' do
-          expect(subject.tr('\"', "'")).to include "data-describe='#{tested_describe}'", "data-#{arbitrary_data_key}='#{arbitrary_data_value}'"
+          expect(subject).to include "data-describe='#{tested_describe}'", "data-#{arbitrary_data_key}='#{arbitrary_data_value}'"
         end
       end
 
@@ -32,7 +32,7 @@ shared_examples_for 'a component that includes the Describable utility module' d
         before { ruby_component.options[:data] = {} }
         let(:options) { { describe: tested_describe } }
         it 'adds the data describe to the component' do
-          expect(subject.tr('\"', "'")).to include "data-describe='#{tested_describe}'"
+          expect(subject).to include "data-describe='#{tested_describe}'"
         end
       end
     end
@@ -41,7 +41,7 @@ shared_examples_for 'a component that includes the Describable utility module' d
       context 'when the component has a data attribute' do
         let(:options) { { data: { arbitrary_data_key => arbitrary_data_value } } }
         it 'does not interfere with the components data attributes' do
-          expect(subject.tr('\"', "'")).to include "data-#{arbitrary_data_key}='#{arbitrary_data_value}'"
+          expect(subject).to include "data-#{arbitrary_data_key}='#{arbitrary_data_value}'"
           expect(subject).not_to include 'data-describe'
         end
       end

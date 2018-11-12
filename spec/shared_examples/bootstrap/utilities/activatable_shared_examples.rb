@@ -14,34 +14,34 @@ shared_examples_for 'a component that includes the Activatable utility module' d
     let(:rendered_component) { view_context.ui.send(component_suite, component_symbolic_name, ruby_component.options) }
     let(:options) { {} }
 
-    subject { rendered_component }
+    subject { uniform_rendered_component(rendered_component) }
 
     context 'when active is present in options' do
       context 'and when active is true in options' do
         let(:options) { { active: true } }
         it 'renders the component with the _active_ css class' do
-          expect(substring_present?(string: subject.tr('\"', "'"), starting_substring: "class='", ending_substring: "'", sought_substring: 'active')).to be
+          expect(substring_present?(string: subject, starting_substring: "class='", ending_substring: "'", sought_substring: 'active')).to be
         end
       end
 
       context 'and when active is false in options' do
         let(:options) { { active: false } }
         it 'does not render the component with the _active_ css class' do
-          expect(substring_present?(string: subject.tr('\"', "'"), starting_substring: "class='", ending_substring: "'", sought_substring: 'active')).not_to be
+          expect(substring_present?(string: subject, starting_substring: "class='", ending_substring: "'", sought_substring: 'active')).not_to be
         end
       end
 
       context 'and when active is not present in options' do
         let(:options) { {} }
         it 'does not render the component with the _active_ css class' do
-          expect(substring_present?(string: subject.tr('\"', "'"), starting_substring: "class='", ending_substring: "'", sought_substring: 'active')).not_to be
+          expect(substring_present?(string: subject, starting_substring: "class='", ending_substring: "'", sought_substring: 'active')).not_to be
         end
       end
 
       context 'and when active is nil in options' do
         let(:options) { { active: nil } }
         it 'does not render the component with the _active_ css class' do
-          expect(substring_present?(string: subject.tr('\"', "'"), starting_substring: "class='", ending_substring: "'", sought_substring: 'active')).not_to be
+          expect(substring_present?(string: subject, starting_substring: "class='", ending_substring: "'", sought_substring: 'active')).not_to be
         end
       end
     end

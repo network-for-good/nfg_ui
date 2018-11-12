@@ -9,17 +9,18 @@ shared_examples_for 'a component that includes the Dismissible utility module' d
   end
 
   describe 'A dismissible (rendered) component' do
-    let(:component_symbolic_name) { described_class.to_s.split('::').last.downcase.to_sym }
+    let(:component_symbolic_name) { described_class.to_s.split('::').last.underscore.downcase.to_sym }
     let(:view_context) { ActionController::Base.new.view_context }
-    let(:component) { NfgUi::UI::Base.new(view_context).send(component_suite, component_symbolic_name, options) }
+    let(:ruby_component) { described_class.new(options, ActionController::Base.new.view_context) }
+    let(:rendered_component) { view_context.ui.send(component_suite, component_symbolic_name, ruby_component.options) }
     let(:options) { {} }
 
-    subject { component }
+    subject { uniform_rendered_component(rendered_component) }
 
     context 'when dismissible is true' do
       let(:options) { { dismissible: true } }
       it 'includes dismissible keywords in the html' do
-        expect(substring_present?(string: subject.tr('\"', "'"),
+        expect(substring_present?(string: subject,
                                   starting_substring: "class='",
                                   ending_substring: "'",
                                   sought_substring: %w[dismissible show fade])).to be
@@ -29,7 +30,7 @@ shared_examples_for 'a component that includes the Dismissible utility module' d
     context 'when dismissible is false' do
       let(:options) { { dismissible: false } }
       it 'does not include dismissible keywords in the html' do
-        expect(substring_present?(string: subject.tr('\"', "'"),
+        expect(substring_present?(string: subject,
                                   starting_substring: "class='",
                                   ending_substring: "'",
                                   sought_substring: %w[dismissible show fade])).not_to be
