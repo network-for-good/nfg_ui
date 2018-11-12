@@ -26,7 +26,8 @@ module NfgUi
         # To solve: how to address aria-expanded to accurately reflect the expanded status
         def assistive_html_attributes
           return super unless collapse
-          super.merge!(aria: { expanded: 'false', controls: collapse.tr('#','') }, role: 'button')
+          super.merge!(aria: (options[:aria] || {}).merge!(expanded: 'false', controls: collapse.tr('#','')),
+                       role: 'button')
         end
       end
     end
