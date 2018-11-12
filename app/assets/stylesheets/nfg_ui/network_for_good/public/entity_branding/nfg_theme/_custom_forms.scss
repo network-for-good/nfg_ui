@@ -16,6 +16,13 @@
   }
 }
 
+.custom-file-input {
+  &:focus ~ .custom-file-label {
+    border-color: $primary;
+    &::after { border-color: $primary; }
+  }
+}
+
 .custom-control-toggle {
   .custom-control-input:checked {
     ~ .custom-control-label {

@@ -4,3 +4,5 @@
   color: yiq-contrast-color($primary, $yiq-text-dark, $yiq-text-light) !important;
   background-color: $primary !important;
 }
+
+.border-primary { border-color: $primary !important; }
