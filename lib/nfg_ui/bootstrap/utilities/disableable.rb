@@ -14,8 +14,10 @@ module NfgUi
         private
 
         def css_classes
-          return super if as == :button
-          disabled ? super + ' disabled' : super
+          [
+            super,
+            ('disabled' if disabled && as != :button)
+          ].join(' ').squish
         end
 
         def non_html_attribute_options
@@ -26,7 +28,6 @@ module NfgUi
           if disabled
             super.merge!(tabindex: '-1',
                          **(as == :button) ? { disabled: true } : {})
-            
           else
             super
           end

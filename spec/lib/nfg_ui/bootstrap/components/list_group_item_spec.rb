@@ -8,7 +8,7 @@ RSpec.describe NfgUi::Bootstrap::Components::ListGroupItem do
   it_behaves_like 'a component with a consistent initalized construction'
   it_behaves_like 'a component that includes the Wrappable utility module', component_suite: :bootstrap
   it_behaves_like 'a component that includes the Activatable utility module', component_suite: :bootstrap
-  it_behaves_like 'a component that includes the Disableable utility module'
+  it_behaves_like 'a component that includes the Disableable utility module', component_suite: :bootstrap
   it_behaves_like 'a component that includes the Themeable utility module', component_suite: :bootstrap
 
   describe '#component_family' do

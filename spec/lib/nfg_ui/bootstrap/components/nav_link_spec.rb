@@ -7,7 +7,7 @@ RSpec.describe NfgUi::Bootstrap::Components::NavLink do
   it { expect(described_class).to be < NfgUi::Bootstrap::Components::Base }
   it_behaves_like 'a component with a consistent initalized construction'
   it_behaves_like 'a component that includes the Activatable utility module', component_suite: :bootstrap
-  it_behaves_like 'a component that includes the Disableable utility module'
+  it_behaves_like 'a component that includes the Disableable utility module', component_suite: :bootstrap
 
   describe '#component_family' do
     subject { nav_link.component_family }
