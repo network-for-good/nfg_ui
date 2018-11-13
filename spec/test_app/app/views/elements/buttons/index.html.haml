@@ -187,3 +187,7 @@
   = ui.nfg :button, method: :delete, body: 'Method: :Delete button', describe: 'a description'
   %br
   = ui.nfg :button, method: :delete, body: 'Method: :Delete button with data', describe: 'a description', data: { something: 'else' }
+%p
+  confirm: 'Are you sure you want to delete?'
+  %br
+  = ui.nfg :button, method: :delete, body: 'Method: :Delete button', describe: 'a description', confirm: 'Are you sure you?'
