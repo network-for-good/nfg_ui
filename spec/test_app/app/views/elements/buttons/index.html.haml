@@ -177,3 +177,11 @@
 
 %h3 Close button
 = ui.nfg :button, :close, dismiss: 'modal'
+
+
+%hr
+%h3 Additional rails-y buttons
+%p 
+  method: :delete
+  %br
+  = ui.nfg :button, method: :delete, body: 'Method: :Delete button'

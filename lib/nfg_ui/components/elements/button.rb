@@ -20,11 +20,22 @@ module NfgUi
         include NfgUi::Components::Traits::Remote
 
         def data
-          if disable_with
-            super.merge!(disable_with: disable_with)
+          if disable_with || dismiss || send(:method)
+            super.merge!(**(disable_with ? { disable_with: disable_with } : {}),
+                         **(dismiss_component? ? { dismiss: dismiss } : {}),
+                         **(send(:method) ? { method: send(:method) } : {}))
           else
             super
           end
+        end
+
+
+        def method
+          options.fetch(:method, nil)
+        end
+
+        def dismiss
+          options.fetch(:dismiss, nil)
         end
 
         def disable_with
@@ -33,12 +44,16 @@ module NfgUi
 
         private
 
+        def dismiss_component?
+          dismiss == :alert || dismiss == :modal
+        end
+
         def default_disable_with
           view_context.ui.nfg(:icon, :loader, text: 'Saving...')
         end
 
         def non_html_attribute_options
-          super.push(:disable_with)
+          super.push(:disable_with, :dismiss, :method)
         end
       end
     end
