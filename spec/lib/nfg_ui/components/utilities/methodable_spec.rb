@@ -5,6 +5,8 @@ RSpec.describe NfgUi::Components::Utilities::Methodable do
   let(:options) { {} }
   let(:traits) { [] }
 
+  pending 'needs spec for #data'
+
   describe '#method' do
     subject { button.send(:method) }
     let(:options) { { method: tested_method } }

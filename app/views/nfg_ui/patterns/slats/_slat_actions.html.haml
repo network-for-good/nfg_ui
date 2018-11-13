@@ -1,0 +1,8 @@
+%div{ slat_actions.html_options }
+  - if slat_actions.slat_header
+    %h6.display-4 &nbsp;
+  - else
+    = ui.nfg :dropdown do
+      = ui.nfg :dropdown_toggle, :outlined, :secondary, icon: nil, body: 'Actions'
+      = ui.nfg :dropdown_menu, :right do
+        = slat_actions.body

@@ -2,9 +2,12 @@
 
 module NfgUi
   module Components
-    module Elements
-      # Slat doc coming soon
+    module Patterns
+      # Main slats
       class Slat < NfgUi::Components::Base
+        def component_family
+          :slats
+        end
       end
     end
   end
