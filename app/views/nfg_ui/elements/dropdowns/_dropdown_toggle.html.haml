@@ -1,4 +1,4 @@
-= ui.nfg :button, as: dropdown_toggle.as, theme: dropdown_toggle.theme, **dropdown_toggle.html_options, remove_component_css_classes: dropdown_toggle.nav_link do
+= ui.nfg :button, as: dropdown_toggle.as, theme: dropdown_toggle.theme, **dropdown_toggle.html_options, remove_component_css_classes: dropdown_toggle.nav_link, icon: dropdown_toggle.icon do
   - if dropdown_toggle.left_icon
     = ui.nfg :icon, dropdown_toggle.left_icon, class: 'mr-1'
   = dropdown_toggle.body
