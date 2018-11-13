@@ -184,4 +184,6 @@
 %p 
   method: :delete
   %br
-  = ui.nfg :button, method: :delete, body: 'Method: :Delete button'
+  = ui.nfg :button, method: :delete, body: 'Method: :Delete button', describe: 'a description'
+  %br
+  = ui.nfg :button, method: :delete, body: 'Method: :Delete button with data', describe: 'a description', data: { something: 'else' }

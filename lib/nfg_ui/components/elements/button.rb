@@ -10,6 +10,7 @@ module NfgUi
         include NfgUi::Components::Utilities::Iconable
         include NfgUi::Components::Utilities::Traitable
         include NfgUi::Components::Utilities::Describable
+        include NfgUi::Components::Utilities::Methodable
         include NfgUi::Components::Utilities::Renderable
 
         include NfgUi::Components::Traits::Active
@@ -20,10 +21,9 @@ module NfgUi
         include NfgUi::Components::Traits::Remote
 
         def data
-          if disable_with || dismiss || send(:method)
+          if disable_with || dismiss
             super.merge!(**(disable_with ? { disable_with: disable_with } : {}),
-                         **(dismiss_component? ? { dismiss: dismiss } : {}),
-                         **(send(:method) ? { method: send(:method) } : {}))
+                         **(dismiss_component? ? { dismiss: dismiss } : {}))
           else
             super
           end
@@ -53,7 +53,7 @@ module NfgUi
         end
 
         def non_html_attribute_options
-          super.push(:disable_with, :dismiss, :method)
+          super.push(:disable_with, :dismiss)
         end
       end
     end
