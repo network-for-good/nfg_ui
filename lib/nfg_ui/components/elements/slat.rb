@@ -5,6 +5,11 @@ module NfgUi
     module Elements
       # Slat doc coming soon
       class Slat < NfgUi::Components::Base
+        private
+        
+        def component_css_class
+          'slats'
+        end
       end
     end
   end
