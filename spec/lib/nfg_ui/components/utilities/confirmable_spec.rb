@@ -38,7 +38,7 @@ RSpec.describe NfgUi::Components::Utilities::Confirmable do
   end
 
   describe 'private methods' do
-    confirm '#non_html_attribute_options' do
+    describe '#non_html_attribute_options' do
       subject { tested_component.send(:non_html_attribute_options) }
       it { is_expected.to include :confirm }
     end
