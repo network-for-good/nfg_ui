@@ -4,9 +4,18 @@ module NfgUi
   module Components
     module Patterns
       # SlatList doc coming soon
-      class SlatList < NfgUi::Components::Base
+      class SlatHeader < NfgUi::Components::Base
         def component_family
           :slats
+        end
+
+        private
+
+        def css_classes
+          [
+            super,
+            'd-none d-md-block'
+          ].join(' ').squish
         end
       end
     end

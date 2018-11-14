@@ -134,7 +134,9 @@ module NfgUi
                                   page_item
                                   popover
                                   progress_bar
-                                  slat
+                                  slat_action
+                                  slat_body
+                                  slat_item
                                   stat
                                   tab_pane
                                   table
@@ -161,7 +163,11 @@ module NfgUi
                                   page_header
                                   pagination
                                   progress
+                                  slat
+                                  slat_actions
+                                  slat_header
                                   slat_list
+                                  slats
                                   tab_content
                                   task_list
                                   tile

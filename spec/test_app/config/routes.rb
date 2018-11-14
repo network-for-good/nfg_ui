@@ -24,6 +24,7 @@ Rails.application.routes.draw do
 
   namespace :patterns do
     NfgUi::PATTERN_COMPONENT_NAMES.each do |resource|
+      next if resource == :slat
       resources resource.to_s.pluralize.to_sym, only: [:index]
     end
     get 'tabs', to: 'tabs#index', as: 'tabs'

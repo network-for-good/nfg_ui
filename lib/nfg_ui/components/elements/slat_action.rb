@@ -4,7 +4,10 @@ module NfgUi
   module Components
     module Elements
       # Slat doc coming soon
-      class Slat < NfgUi::Components::Base
+      class SlatAction < NfgUi::Components::Elements::DropdownItem
+        def component_family
+          :slats
+        end
       end
     end
   end

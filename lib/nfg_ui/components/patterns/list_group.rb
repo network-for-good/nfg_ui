@@ -8,6 +8,8 @@ module NfgUi
         include NfgUi::Components::Utilities::Traitable
         include NfgUi::Components::Utilities::Describable
         include NfgUi::Components::Utilities::Renderable
+
+        include NfgUi::Components::Traits::ListGroup
       end
     end
   end

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe NfgUi::Components::Elements::Slat do
+RSpec.describe NfgUi::Components::Patterns::Slat do
   let(:slat) { described_class.new(options, ActionController::Base.new.view_context) }
   let(:options) { {} }
   it { expect(described_class).to be < NfgUi::Components::Base }
