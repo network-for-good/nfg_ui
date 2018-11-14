@@ -18,6 +18,8 @@ module NfgUi
         def as
           if heading
             heading_tag
+          elsif subheading
+            subheading_tag
           elsif title
             title_tag
           elsif caption
@@ -31,12 +33,16 @@ module NfgUi
           options.fetch(:heading, nil)
         end
 
+        def subheading
+          options.fetch(:subheading, nil)
+        end
+
         def caption
           options.fetch(:caption, nil)
         end
 
         def body
-          super || heading || title || caption
+          super || heading || title || caption || subheading
         end
 
         # def text_or_icon
@@ -60,14 +66,12 @@ module NfgUi
           nil
         end
 
-        
-
         def component_css_class
           ''
         end
 
         def non_html_attribute_options
-          super.push(:heading, :body, :title, :caption)
+          super.push(:heading, :body, :title, :caption, :subheading)
         end
 
         def caption_tag
@@ -83,6 +87,10 @@ module NfgUi
         end
 
         def title_tag
+          :h6
+        end
+
+        def subheading_tag
           :h6
         end
 

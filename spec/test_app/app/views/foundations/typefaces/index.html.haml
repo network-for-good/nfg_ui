@@ -17,6 +17,16 @@ With Icon:
 = ui.nfg :typeface, heading: 'Heading with icon', icon: 'rocket'
 
 %hr
+Subheading
+= ui.nfg :typeface, subheading: 'Subheading'
+%br
+With Icon:
+= ui.nfg :typeface, subheading: 'Subheading with icon', icon: 'rocket'
+%br 
+With Trait
+= ui.nfg :typeface, :subheading, icon: 'rocket' do
+  Subheading via do
+%hr
 
 Body:
 = ui.nfg :typeface, body: 'Body'
@@ -62,11 +72,17 @@ Heading:
 = ui.nfg :typeface, heading: 'Heading', tooltip: 'Test Tooltip'
 %br
 With Icon:
-= ui.nfg :typeface, heading: 'Title with icon', icon: 'rocket', tooltip: 'Test Tooltip'
+= ui.nfg :typeface, heading: 'Heading with icon', icon: 'rocket', tooltip: 'Test Tooltip'
 
 Body:
 = ui.nfg :typeface, body: 'Body', tooltip: 'Test Tooltip'
 
+%p
+  Subheading:
+  = ui.nfg :typeface, subheading: 'Subheading', tooltip: 'Test Tooltip'
+  %br
+  With Icon:
+  = ui.nfg :typeface, subheading: 'Subheading with icon', icon: 'rocket', tooltip: 'Test Tooltip'
 %hr
 
 %h2.mb-4 Themes
