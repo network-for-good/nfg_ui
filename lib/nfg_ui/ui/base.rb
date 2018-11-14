@@ -29,7 +29,7 @@ module NfgUi
       def render_nfg_component?(options)
         if options[:render_if].nil? && options[:render_unless].nil?
           true
-        elsif options[:render_if]
+        elsif !options[:render_if].nil?
           options[:render_if]
         elsif options[:render_unless] == true
           false
