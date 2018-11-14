@@ -20,7 +20,7 @@
     width: 100%;
     max-width: 100%;
     min-height: 1px;
-    &:first-child(not(.slat-item-lg)), &:first-child(not(.slat-item-sm)) {
+    &:first-child:not(.slat-item-lg), &:first-child:not(.slat-item-sm) {
       @include media-breakpoint-down(sm) {
         flex-basis: 100%;
         margin-bottom: $spacer;
