@@ -32,6 +32,10 @@ module NfgUi
         def outlineable?
           false
         end
+
+        def component_css_class
+          'dropdown-item'
+        end
       end
     end
   end

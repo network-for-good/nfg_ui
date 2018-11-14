@@ -8,12 +8,6 @@ module NfgUi
         def component_family
           :slats
         end
-
-        private
-
-        def component_css_class
-          'dropdown-item'
-        end
       end
     end
   end
