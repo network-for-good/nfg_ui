@@ -12,7 +12,9 @@
     = ui.nfg :dropdown_item, body: 'Dropdown Item 4 - No href'
     = ui.nfg :dropdown_item, body: 'Dropdown Item 5 - Active with method: :delete', active: true, href: '#', method: :delete
     = ui.nfg :dropdown_item, :danger, body: 'Dropdown Item 6 - Thematic via trait', href: '#', icon: 'trash-o'
-    = ui.nfg :dropdown_item, theme: :warning, body: 'Dropdown Item 6 - Thematic via option', href: '#', icon: 'exclamation'
+    = ui.nfg :dropdown_item, :warning, body: 'Dropdown Item 6 - Thematic via option', href: '#', icon: 'exclamation'
+    = ui.nfg :dropdown_item, :primary, body: 'Dropdown Item 6 - Disable_withable - option', href: '#', icon: 'exclamation', disable_with: 'Something unique'
+    = ui.nfg :dropdown_item, :disable_with, :primary, body: 'Dropdown Item 6 - Disable_withable', href: '#', icon: 'exclamation'
 
 %hr
 

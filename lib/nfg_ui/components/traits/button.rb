@@ -7,7 +7,6 @@ module NfgUi
       module Button
         TRAITS = %i[block
                     close
-                    disable_with
                     link
                     outlined
                     remote
@@ -28,10 +27,6 @@ module NfgUi
           @css_classes = 'close'
           @body = '&times;'.html_safe
           assistive_html_attributes.merge!(aria: { label: 'close' })
-        end
-
-        def disable_with_trait
-          data[:disable_with] = default_disable_with
         end
 
         def remote_trait

@@ -8,6 +8,7 @@ module NfgUi
       # Traits will eventually be connected here.
       class Button < Bootstrap::Components::Button
         include NfgUi::Components::Utilities::Confirmable
+        include NfgUi::Components::Utilities::DisableWithable
         include NfgUi::Components::Utilities::Iconable
         include NfgUi::Components::Utilities::Traitable
         include NfgUi::Components::Utilities::Describable
@@ -16,18 +17,14 @@ module NfgUi
 
         include NfgUi::Components::Traits::Active
         include NfgUi::Components::Traits::Button
+        include NfgUi::Components::Traits::DisableWith
         include NfgUi::Components::Traits::Size
         include NfgUi::Components::Traits::Theme
         include NfgUi::Components::Traits::Disable
         include NfgUi::Components::Traits::Remote
 
         def data
-          if disable_with || dismiss
-            super.merge!(**(disable_with ? { disable_with: disable_with } : {}),
-                         **(dismiss_component? ? { dismiss: dismiss } : {}))
-          else
-            super
-          end
+          dismiss ? super.merge!(dismiss: dismiss) : super
         end
 
         def close
@@ -43,22 +40,14 @@ module NfgUi
           options.fetch(:dismiss, nil)
         end
 
-        def disable_with
-          options.fetch(:disable_with, nil)
-        end
-
         private
 
         def dismiss_component?
           dismiss == :alert || dismiss == :modal
         end
 
-        def default_disable_with
-          view_context.ui.nfg(:icon, :loader, text: 'Saving...')
-        end
-
         def non_html_attribute_options
-          super.push(:disable_with, :dismiss)
+          super.push(:dismiss)
         end
       end
     end

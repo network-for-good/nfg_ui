@@ -9,6 +9,7 @@ module NfgUi
 
         include NfgUi::Components::Utilities::Confirmable
         include NfgUi::Components::Utilities::Describable
+        include NfgUi::Components::Utilities::DisableWithable
         include NfgUi::Components::Utilities::Iconable
         include NfgUi::Components::Utilities::Methodable
         include NfgUi::Components::Utilities::Renderable
@@ -16,6 +17,7 @@ module NfgUi
         
         include NfgUi::Components::Traits::Remote
         include NfgUi::Components::Traits::Active
+        include NfgUi::Components::Traits::DisableWith
         include NfgUi::Components::Traits::Disable
         include NfgUi::Components::Traits::Theme
 
@@ -33,6 +35,7 @@ module NfgUi
           false
         end
 
+        # Other classes inherit DropdownItem (ex: SlatAction)
         def component_css_class
           'dropdown-item'
         end
