@@ -6,9 +6,5 @@ RSpec.describe 'nfg_ui/elements/badges/_badge.html.haml', type: :view do
   let(:traits) { [] }
   subject { render 'nfg_ui/elements/badges/badge', badge: badge }
 
-  describe 'the badge html component' do
-    it 'renders the bootstrap badge' do
-      expect(subject).to render_template(partial: 'nfg_ui/bootstrap/_badge')
-    end
-  end
+  pending 'specs needed after icon update'
 end
