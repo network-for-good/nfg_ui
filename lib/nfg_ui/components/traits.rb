@@ -18,6 +18,7 @@ module NfgUi
                          Dismiss
                          DropdownToggle
                          Icon
+                         ListGroup
                          Nav
                          Navbar
                          PageHeader

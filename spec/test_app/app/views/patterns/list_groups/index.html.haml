@@ -29,12 +29,20 @@
 
 %hr
 
-%h2 Flush list group
-= ui.nfg :list_group, flush: true do
-  = ui.nfg :list_group_item, body: 'List Group Item #1'
+%h2.mb-2 Flush list group with / without trait
+= ui.nfg :list_group, flush: true, class: 'mb-4' do
+  = ui.nfg :list_group_item, body: 'Optioned Flush List Group Item #1'
   = ui.nfg :list_group_item, body: 'List Group Item #2'
   = ui.nfg :list_group_item, body: 'List Group Item #3'
   = ui.nfg :list_group_item, body: 'List Group Item #4'
+
+= ui.nfg :list_group, :flush do
+  = ui.nfg :list_group_item, body: 'Flush Traited List Group Item #1'
+  = ui.nfg :list_group_item, body: 'List Group Item #2'
+  = ui.nfg :list_group_item, body: 'List Group Item #3'
+  = ui.nfg :list_group_item, body: 'List Group Item #4'
+
+%hr
 
 %h2 List groups with themeable list group items
 

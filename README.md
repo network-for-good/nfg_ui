@@ -343,6 +343,8 @@ $ Collapsible? (Y/n):
 
 28. Examine how theme css prefix class is being worked out... looks like we'd be better off having some kind of value that's shared / accessible... somethign like "type of theme" ... :text (text-success). right now, we're doing it by setting the prefix to 'text-'
 
+29. Slat list sm ...
+
 Component tooltip/icon auto list for backup
 FOUNDATION_COMPONENT_NAMES = %i[color
                                   icon
