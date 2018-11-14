@@ -17,7 +17,7 @@
     -ms-flex-positive: 1;
     -ms-flex-negative: 0;
     -ms-flex-preferred-size: 0;
-    &:first-child(not(.slat-item-lg)), &:first-child(not(.slat-item-sm)) {
+    &:first-child:not(.slat-item-lg), &:first-child:not(.slat-item-sm) {
       @include media-breakpoint-down(sm) { -ms-flex-preferred-size: 100%; }
       @include media-breakpoint-up(md) { -ms-flex-positive: 2; }
     }
