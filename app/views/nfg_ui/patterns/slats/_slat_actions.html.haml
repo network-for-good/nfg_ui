@@ -3,6 +3,6 @@
     %h6.display-4 &nbsp;
   - else
     = ui.nfg :dropdown do
-      = ui.nfg :dropdown_toggle, :outlined, :secondary, icon: 'caret-down', body: 'Actions'
+      = ui.nfg :dropdown_toggle, :outlined, :secondary, body: ('Actions' if slat_actions.wide)
       = ui.nfg :dropdown_menu, :right do
         = slat_actions.body

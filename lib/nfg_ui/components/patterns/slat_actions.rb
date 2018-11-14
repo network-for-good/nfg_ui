@@ -13,11 +13,15 @@ module NfgUi
           options.fetch(:slat_header, false)
         end
 
+        def wide
+          options.fetch(:wide, true)
+        end
+
         private
 
         def non_html_attribute_options
-          super.push(:slat_header)
-        end   
+          super.push(:slat_header, :wide)
+        end
       end
     end
   end
