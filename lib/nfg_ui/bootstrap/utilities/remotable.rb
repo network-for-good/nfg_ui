@@ -6,11 +6,11 @@ module NfgUi
       # Turns remote: true functionality on for components that need it.
       module Remotable
         def data
-          remote ? super.merge!(remote: 'true') : super
+          remote ? super.merge!(remote: remote.to_s) : super
         end
 
         def remote
-          options.fetch(:remote, false)
+          options.fetch(:remote, nil)
         end
 
         private
