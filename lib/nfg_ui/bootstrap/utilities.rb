@@ -5,12 +5,16 @@ module NfgUi
     # Manifest for Bootstrap utility modules
     module Utilities
       extend ActiveSupport::Autoload
-
       autoload :Activatable
-      autoload :AriaAssistable
+      autoload :Alignable
       autoload :Collapsible
+      autoload :CollapseToggleable
       autoload :Disableable
       autoload :Dismissible
+      autoload :DropdownDirectionable
+      autoload :Headable
+      autoload :Progressable
+      autoload :Remotable
       autoload :Sizable
       autoload :Themeable
       autoload :Tooltipable

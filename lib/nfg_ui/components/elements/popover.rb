@@ -5,6 +5,9 @@ module NfgUi
     module Elements
       # Popover doc coming soon
       class Popover < Bootstrap::Components::Popover
+        include NfgUi::Components::Utilities::Traitable
+        include NfgUi::Components::Utilities::Describable
+        include NfgUi::Components::Utilities::Renderable
       end
     end
   end

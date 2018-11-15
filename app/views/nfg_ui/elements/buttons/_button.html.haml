@@ -1,1 +1,16 @@
-= render 'nfg_ui/bootstrap/button', button: button
+-# https://getbootstrap.com/docs/4.1/components/buttons/
+
+- if button.tooltip && button.disabled
+  %span{ button.disabled_component_tooltip_wrapper_html_options }
+    = content_tag button.as, button.html_options do
+      - if button.icon
+        = ui.nfg :icon, button.icon, :right, text: button.body.presence
+      - else
+        = button.body
+
+- else
+  = content_tag button.as, button.html_options do
+    - if button.icon
+      = ui.nfg :icon, button.icon, :right, text: button.body.presence
+    - else
+      = button.body

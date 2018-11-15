@@ -1,0 +1,66 @@
+%h1 Javascript Tabs
+
+%h2 Tab Pane - using tabs
+= ui.nfg :nav, tabs: true do
+  = ui.nfg :nav_item, tab: '#test_tabs1', body: 'Tab 1', active: true
+  = ui.nfg :nav_item, tab: '#test_tabs2', body: 'Tab 2'
+  = ui.nfg :nav_item, tab: '#test_tabs3', body: 'Tab 3'
+
+= ui.nfg :tab_content, class: 'p-4' do
+  = ui.nfg :tab_pane, tab: '#test_tabs1', active: true do
+    %h3.h5 Tab Pane #1
+    %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nibh ex, consectetur ultricies consectetur eu, efficitur ac odio. Cras venenatis elit a volutpat sagittis
+  
+  = ui.nfg :tab_pane, tab: '#test_tabs2' do
+    %h3.h5 Tab Pane #2
+    %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nibh ex, consectetur ultricies consectetur eu, efficitur ac odio. Cras venenatis elit a volutpat sagittis
+  
+  = ui.nfg :tab_pane, tab: '#test_tabs3' do
+    %h3.h5 Tab Pane #3
+    %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nibh ex, consectetur ultricies consectetur eu, efficitur ac odio. Cras venenatis elit a volutpat sagittis
+
+
+%hr
+
+%h2 Tab Pane - using pills
+= ui.nfg :nav, pill: true do
+  = ui.nfg :nav_item, tab: '#test_pill1', body: 'Pill Tab 1', active: true
+  = ui.nfg :nav_item, tab: '#test_pill2', body: 'Pill Tab 2'
+  = ui.nfg :nav_item, tab: '#test_pill3', body: 'Pill Tab 3'
+
+= ui.nfg :tab_content, class: 'p-4' do
+  = ui.nfg :tab_pane, tab: '#test_pill1', active: true do
+    %h3.h5 Tab Pane #1
+    %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nibh ex, consectetur ultricies consectetur eu, efficitur ac odio. Cras venenatis elit a volutpat sagittis
+  
+  = ui.nfg :tab_pane, tab: '#test_pill2' do
+    %h3.h5 Tab Pane #2
+    %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nibh ex, consectetur ultricies consectetur eu, efficitur ac odio. Cras venenatis elit a volutpat sagittis
+  
+  = ui.nfg :tab_pane, tab: '#test_pill3' do
+    %h3.h5 Tab Pane #3
+    %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nibh ex, consectetur ultricies consectetur eu, efficitur ac odio. Cras venenatis elit a volutpat sagittis
+
+%hr
+
+%h2 Vertical pill tabs
+.row
+  .col-3
+    = ui.nfg :nav, pill: true, vertical: true do
+      = ui.nfg :nav_item, tab: '#test_vertical_pill1', body: 'Pill Tab 1', active: true
+      = ui.nfg :nav_item, tab: '#test_vertical_pill2', body: 'Pill Tab 2'
+      = ui.nfg :nav_item, tab: '#test_vertical_pill3', body: 'Pill Tab 3'
+  .col-9
+    = ui.nfg :tab_content, class: 'p-4' do
+      = ui.nfg :tab_pane, tab: '#test_vertical_pill1', active: true do
+        %h3.h5 Tab Pane #1
+        %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nibh ex, consectetur ultricies consectetur eu, efficitur ac odio. Cras venenatis elit a volutpat sagittis
+      
+      = ui.nfg :tab_pane, tab: '#test_vertical_pill2' do
+        %h3.h5 Tab Pane #2
+        %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nibh ex, consectetur ultricies consectetur eu, efficitur ac odio. Cras venenatis elit a volutpat sagittis
+      
+      = ui.nfg :tab_pane, tab: '#test_vertical_pill3' do
+        %h3.h5 Tab Pane #3
+        %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nibh ex, consectetur ultricies consectetur eu, efficitur ac odio. Cras venenatis elit a volutpat sagittis
+

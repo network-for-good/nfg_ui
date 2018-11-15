@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
 module NfgUi
-  VERSION = '0.1.2.3'.freeze
+  VERSION = '0.8.9'.freeze
 end

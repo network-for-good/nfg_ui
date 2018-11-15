@@ -1,1 +1,5 @@
-= typeface.typeface_html
+= content_tag typeface.as, **typeface.html_options do
+  - if typeface.icon
+    = ui.nfg :icon, typeface.icon, text: typeface.body
+  - else
+    = typeface.body

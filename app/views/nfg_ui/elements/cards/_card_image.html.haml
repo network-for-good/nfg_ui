@@ -1,0 +1,6 @@
+- if card_image.image.present?
+  = render 'nfg_ui/bootstrap/cards/card_header', card_header: card_header
+
+- else
+  %div{ card_image.html_options }
+    = card_image.body

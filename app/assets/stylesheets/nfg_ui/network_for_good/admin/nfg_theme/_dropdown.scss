@@ -1,5 +1,23 @@
-// Custom dropdown styles
+.dropdown-toggle::after { content: none; }
+
+
+// Links, buttons, and more within the dropdown menu
 .dropdown-item {
   + .dropdown-item { border-top: $border-width solid $border-color; }
-  &.disabled, &:disabled { background-color: $body-bg; }
+  &.disabled, &:disabled {
+    background-color: $body-bg;
+    cursor: not-allowed;
+  }
 }
+
+
+// Dropdown section headers
+.dropdown-header {
+  padding-top: ($spacer * .5);
+  padding-bottom: ($spacer * .5);
+  + .dropdown-item { border-top: $border-width solid $border-color; }
+}
+
+
+// Sizing
+.dropdown-menu-md { min-width: ($spacer * 12); }

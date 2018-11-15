@@ -1,0 +1,9 @@
+%div{ modal.html_options }
+  .modal-dialog{ role: 'document' }
+    .modal-content      
+      = ui.bootstrap :modal_header, title: modal.title
+      = ui.bootstrap :modal_body, body: modal.body
+      - if modal.footer
+        = ui.bootstrap :modal_footer, body: modal.footer
+      
+      

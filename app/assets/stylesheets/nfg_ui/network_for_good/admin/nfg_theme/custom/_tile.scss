@@ -10,7 +10,6 @@
   background-color: $white;
   border-top: $border-width solid $border-color;
   border-bottom: $border-width solid $border-color;
-  // box-shadow: $box-shadow;
   @include media-breakpoint-down(sm) {
     margin-right: -($grid-gutter-width / 2);
     margin-left: -($grid-gutter-width / 2);
@@ -19,6 +18,7 @@
     border-right: $border-width solid $border-color;
     border-left: $border-width solid $border-color;
   }
+  + .tile { margin-top: $spacer; }
 }
 
 .tile-body {
@@ -50,9 +50,13 @@
   background-color: $white;
   @include media-breakpoint-up(sm) { padding: $grid-gutter-width; }
 }
-.tile-header { border-bottom: $border-width solid $border-color; }
-.tile-footer { border-top: $border-width solid $border-color; }
-
+.tile-header {
+  + .collapse,
+  + .collapsing,
+  + .tile-body,
+  + .tile-footer { border-top: $border-width solid $border-color; }
+}
+.tile-body + .tile-footer { border-top: $border-width solid $border-color; }
 
 //
 // Header navs

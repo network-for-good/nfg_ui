@@ -1,5 +1,8 @@
 %h1 Cards
 
+= ui.nfg :card, heading: 'stuff', title: 'title!', describe: 'donor-scroll' do
+  Howdy
+
 = ui.nfg :card, heading: 'Card heading', subtitle: 'Card subtitle', body: 'Card body', class: 'my-4'
 = ui.nfg :card, heading: 'Card heading', class: 'my-4' do
   %p.card-text Card body from a block
@@ -7,13 +10,30 @@
 = ui.nfg :card do
   Default, no frills card
 
+= ui.nfg :card, render_in_body: false do
+  = ui.nfg :card_image_overlay, image: 'https://via.placeholder.com/600x400', title: 'Card Image Overlay Title' do
+    %p.card-text Some additional information
+  = ui.nfg :card_body do
+    %p.card-text Some body content
+
+%hr
+
+%h2 Card with render in body false
+= ui.nfg :card, title: 'Tile without body', render_in_body: false do
+  = ui.nfg :card_body, body: 'Manual card body'
+  = ui.nfg :card_body do
+    %p Some content for the second card body
+  = ui.nfg :card_footer, body: 'the card footer'
+
+%hr
+
 %hr
 
 %h2 Themes
 
 %h3 Solid Card Themes
 
-= ui.nfg :card, :primary, heading: 'Card Headline', subtitle: 'Card Subtitle', class: 'my-4' do
+= ui.nfg :card, :primary, heading: 'Card Headline', subtitle: 'Card Subtitle', class: 'my-4', footer: 'Card Footer' do
   %p.card-text Card with primary theme
 
 = ui.nfg :card, :secondary, heading: 'Card Headline', subtitle: 'Card Subtitle', class: 'my-4', body: 'Card with secondary theme'
@@ -33,7 +53,7 @@
 %hr
 
 %h3 Outlined Card Themes
-= ui.nfg :card, :primary, :outlined, heading: 'Card Headline', subtitle: 'Card Subtitle', class: 'my-4' do
+= ui.nfg :card, :primary, :outlined, heading: 'Card Headline', subtitle: 'Card Subtitle', class: 'my-4', footer: 'Card Footer' do
   %p.card-text Card with primary theme
 
 = ui.nfg :card, :outlined, :secondary, heading: 'Card Headline', subtitle: 'Card Subtitle', class: 'my-4', body: 'Card with secondary theme'

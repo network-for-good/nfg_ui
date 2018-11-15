@@ -1,0 +1,13 @@
+//
+// Steps
+//
+.nav-steps {
+  .nav-item {
+    .step-indicator {
+      display: -ms-flexbox;
+      -ms-flex-align: center;
+      -ms-flex-pack: center;
+    }
+  }
+  &.nav-fill .nav-item { -ms-flex-preferred-size: 0; }
+}

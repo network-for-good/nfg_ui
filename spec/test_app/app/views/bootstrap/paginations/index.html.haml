@@ -1,4 +1,82 @@
 %h1 Paginations
 
+%h2 Standard pagination
 = ui.bootstrap :pagination, class: 'my-4' do
-  Coming Soon
+  = ui.bootstrap :page_item, body: 'Previous', href: '#test'
+  = ui.bootstrap :page_item, body: '1', href: '#test'
+  = ui.bootstrap :page_item, body: '2', href: '#test'
+  = ui.bootstrap :page_item, body: '3', href: '#test'
+  = ui.bootstrap :page_item, body: '4', href: '#test'
+  = ui.bootstrap :page_item, body: 'Next', href: '#test'
+
+%hr
+
+%h2 Pagination with active page items
+= ui.bootstrap :pagination, class: 'my-4' do
+  = ui.bootstrap :page_item, body: 'Previous'
+  = ui.bootstrap :page_item, body: '1', active: true
+  = ui.bootstrap :page_item, body: '2'
+  = ui.bootstrap :page_item, body: '3'
+  = ui.bootstrap :page_item, body: '4'
+  = ui.bootstrap :page_item, body: 'Next'
+
+%hr
+
+%h2 Pagination with disabled page items
+= ui.bootstrap :pagination, class: 'my-4' do
+  = ui.bootstrap :page_item, body: 'Previous'
+  = ui.bootstrap :page_item, body: '1'
+  = ui.bootstrap :page_item, body: '2', active: true
+  = ui.bootstrap :page_item, body: '3', disabled: true
+  = ui.bootstrap :page_item, body: '4', disabled: true
+  = ui.bootstrap :page_item, body: 'Next', disabled: true
+
+%hr
+
+%h2 Pagination with sizing
+= ui.bootstrap :pagination, size: :sm, class: 'my-4' do
+  = ui.bootstrap :page_item, body: 'Previous'
+  = ui.bootstrap :page_item, body: '1', active: true
+  = ui.bootstrap :page_item, body: '2'
+  = ui.bootstrap :page_item, body: '3'
+  = ui.bootstrap :page_item, body: '4'
+  = ui.bootstrap :page_item, body: 'Next', disabled: true
+
+= ui.bootstrap :pagination, class: 'my-4' do
+  = ui.bootstrap :page_item, body: 'Previous'
+  = ui.bootstrap :page_item, body: '1', active: true
+  = ui.bootstrap :page_item, body: '2'
+  = ui.bootstrap :page_item, body: '3'
+  = ui.bootstrap :page_item, body: '4'
+  = ui.bootstrap :page_item, body: 'Next', disabled: true
+
+= ui.bootstrap :pagination, size: :lg, class: 'my-4' do
+  = ui.bootstrap :page_item, body: 'Previous'
+  = ui.bootstrap :page_item, body: '1', active: true
+  = ui.bootstrap :page_item, body: '2'
+  = ui.bootstrap :page_item, body: '3'
+  = ui.bootstrap :page_item, body: '4'
+  = ui.bootstrap :page_item, body: 'Next', disabled: true
+
+%hr
+
+%h2 Pagination with alignment
+%h3 Right alignment
+= ui.bootstrap :pagination, right: true, class: 'my-4' do
+  = ui.bootstrap :page_item, body: 'Previous'
+  = ui.bootstrap :page_item, body: '1', active: true
+  = ui.bootstrap :page_item, body: '2'
+  = ui.bootstrap :page_item, body: '3'
+  = ui.bootstrap :page_item, body: '4'
+  = ui.bootstrap :page_item, body: 'Next', disabled: true
+
+%hr
+
+%h3 Center alignment
+= ui.bootstrap :pagination, center: true, class: 'my-4' do
+  = ui.bootstrap :page_item, body: 'Previous'
+  = ui.bootstrap :page_item, body: '1', active: true
+  = ui.bootstrap :page_item, body: '2'
+  = ui.bootstrap :page_item, body: '3'
+  = ui.bootstrap :page_item, body: '4'
+  = ui.bootstrap :page_item, body: 'Next', disabled: true

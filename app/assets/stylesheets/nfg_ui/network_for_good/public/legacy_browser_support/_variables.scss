@@ -1,0 +1,13 @@
+// These variables are neeeded to ensure the grid and breakpoints work within the legacy_browser_support directory
+$spacer: 2.4rem;
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+);
+
+$grid-columns:                12;
+$grid-gutter-width:           $spacer;

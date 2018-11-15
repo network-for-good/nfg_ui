@@ -6,8 +6,10 @@ gemspec
 group :development do
   gem 'spring'
   gem 'spring-watcher-listen'
+  gem 'byebug'
 end
 
 group :test do
   gem 'spring-commands-rspec'
+  gem 'rails-controller-testing'
 end

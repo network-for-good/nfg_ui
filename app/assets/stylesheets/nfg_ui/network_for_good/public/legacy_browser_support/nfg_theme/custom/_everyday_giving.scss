@@ -1,0 +1,8 @@
+// IE 10 & 11 suppport styles for EDGP public pages
+// located in _custom.scss which is called in legacy_browser_support/application.css
+.everyday_default,
+.everyday_story {
+  &.preview {
+    .jumbotron::before { top: 0; }
+  }
+}

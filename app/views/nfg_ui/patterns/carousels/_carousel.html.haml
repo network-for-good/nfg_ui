@@ -1,1 +1,11 @@
-= render 'nfg_ui/bootstrap/carousel', carousel: carousel
+/ = render 'nfg_ui/bootstrap/carousels/carousel', carousel: carousel
+
+%div{ carousel.html_options }
+  .carousel-inner
+    = carousel.body
+    - if carousel.controls
+      = ui.nfg :carousel_control, control: :next, carousel: "##{carousel.id}"
+      = ui.nfg :carousel_control, control: :prev, carousel: "##{carousel.id}"
+    -# Must be below body due to design system specifications and the impact of .pt-3
+    - if carousel.indicators > 0
+      = ui.nfg :carousel_indicators, count: carousel.indicators, carousel: "##{carousel.id}"

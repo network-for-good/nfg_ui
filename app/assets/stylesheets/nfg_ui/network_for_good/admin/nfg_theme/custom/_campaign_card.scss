@@ -1,0 +1,6 @@
+// Campaign card specific styles to ensure same height images
+#campaign_image {
+  height: ($spacer * 8);
+  overflow: hidden;
+  .card-img { min-height: 100%; }
+}

@@ -1,8 +1,9 @@
+//** Public Styles **//
+
 // App Vendors
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,700);
 @import 'font-awesome';
 @import 'select2';
-// @import 'zebra-datepicker';
 
 // Our Variables
 @import 'variables';
@@ -16,3 +17,6 @@
 // Plugins
 @import 'plugins/sticky_div';
 @import 'plugins/select2';
+
+// // Legacy browser support
+// @import 'bootstrap4/legacy_browser_support/application';

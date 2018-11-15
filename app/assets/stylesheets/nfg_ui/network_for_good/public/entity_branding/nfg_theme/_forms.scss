@@ -1,3 +1,12 @@
 // Specific styles for entity branding
 
 .form-control:focus { border-color: $primary; }
+
+
+// Styles needed to override :valid success styles provided by bootstrap... this is for server side forms only
+.form-control,
+.custom-select {
+  .was-validated &:valid {
+    &:focus { border-color: $primary; }
+  }
+}

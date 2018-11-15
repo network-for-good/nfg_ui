@@ -5,57 +5,45 @@ module NfgUi
     module Utilities
       # Allows component to utilize the bootstrap4 theme color palette
       module Themeable
-        attr_reader :theme, :outlined
+        def outlined
+          options.fetch(:outlined, false)
+        end
 
-        def initialize(*)
-          super
-          @theme = options.fetch(:theme, default_theme)
-          @outlined = options.fetch(:outlined, traits.include?(:outlined))
+        # To disable theme on a case by case basis, pass in { theme: nil } to options.
+        # or
+        # To disable a default theme for a component set default_theme to nil
+        def theme
+          options.fetch(:theme, default_theme)
         end
 
         private
 
-        def defaults
-          super.merge!(theme: default_theme)
-        end
-
         def css_classes
-          [super, theme_css_class].join(' ')
-        end
-
-        def non_html_attribute_options
-          super.push(:theme)
-        end
-
-        def theme_css_class
-          "#{theme_css_class_prefix}-#{outline_css_class_string}#{theme}"
-        end
-
-        def bootstrap4_themes
-          %i[primary
-             secondary
-             success
-             danger
-             warning
-             info
-             light
-             dark]
-        end
-
-        def outlined?
-          outlined
-        end
-
-        def theme_css_class_prefix
-          component_css_class
+          [
+            super,
+            ("#{theme_css_class_prefix}#{outlined_css_class_prefix if outlined && outlineable?}#{theme}" if theme)
+          ].join(' ').squish
         end
 
         def default_theme
-          :primary
+          @default_theme ||= NfgUi::DEFAULT_BOOTSTRAP_THEME
         end
 
-        def outline_css_class_string
-          'outline-' if outlined?
+        def non_html_attribute_options
+          super.push(:theme, :outlined)
+        end
+
+        def outlined_css_class_prefix
+          @outlined_css_class_prefix ||= 'outline-'
+        end
+
+        def theme_css_class_prefix
+          @theme_css_class_prefix ||= "#{component_css_class}-"
+        end
+
+        # Explicitly turn off outlineable on components that should not allow outline
+        def outlineable?
+          true
         end
       end
     end

@@ -6,40 +6,52 @@ module NfgUi
       # Bootstrap Button Component
       # https://getbootstrap.com/docs/4.1/components/buttons/
       class Button < Bootstrap::Components::Base
-        include Bootstrap::Utilities::Themeable
-        include Bootstrap::Utilities::Sizable
-        include Bootstrap::Utilities::Wrappable
         include Bootstrap::Utilities::Activatable
+        include Bootstrap::Utilities::CollapseToggleable
         include Bootstrap::Utilities::Disableable
-        include Bootstrap::Utilities::AriaAssistable
+        include Bootstrap::Utilities::Remotable
+        include Bootstrap::Utilities::Sizable
+        include Bootstrap::Utilities::Themeable
         include Bootstrap::Utilities::Tooltipable
+        include Bootstrap::Utilities::Wrappable
 
-        attr_reader :block, :modal
-
-        def initialize(*)
-          super
-          @modal = options.fetch(:modal, nil)
-          @block = options.fetch(:block, default_block)
-          data.merge!(toggle: 'modal', target: "##{modal}") if modal
-          build_aria(aria_key: :pressed, aria_value: true) if active?
+        def block
+          options.fetch(:block, false)
         end
 
-        def block?
-          block
+        def data
+          modal ? super.merge!(toggle: 'modal', target: options[:modal]) : super
+        end
+
+        def href
+          return if as != :a
+          collapse ? collapse : (options[:href] || '#')
+        end
+
+        def modal
+          options.fetch(:modal, nil)
+        end
+
+        def remove_component_css_classes
+          options.fetch(:remove_component_css_classes, false)
         end
 
         private
 
-        def component_css_class
-          'btn'
+        def assistive_html_attributes
+          active ? super.merge(aria: { pressed: true }) : super
         end
 
         def css_classes
-          block? ? super + " #{component_css_class}-block" : super
+          block ? super + " #{component_css_class}-block" : super
         end
 
-        def default_block
-          false
+        def collapse_data_attributes
+          as == :a ? super.except!(:target) : super
+        end
+
+        def component_css_class
+          remove_component_css_classes ? '' : 'btn'
         end
 
         def default_html_wrapper_element
@@ -47,7 +59,7 @@ module NfgUi
         end
 
         def non_html_attribute_options
-          super.push((:modal if modal.present?))
+          super.push(:modal, :block, :remove_component_css_classes)
         end
       end
     end

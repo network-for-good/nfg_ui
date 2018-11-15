@@ -11,27 +11,23 @@ module NfgUi
   require 'sass-rails'
   require 'select2-rails'
 
-  # Autoloading inspired by simple_form methodology
-  # and the fact that this is a significantly sized library.
-  # It seems to make sense to not try to pre-load the dozens and dozens
-  # of assets that comprise this library.
-  #
-  # Reference article:
-  # http://blog.plataformatec.com.br/2012/08/eager-loading-for-greater-good/
-  extend ActiveSupport::Autoload
+  # Require_relative required order:
+  # Utilities -> UI -> Bootstrap -> Components
+  require_relative 'nfg_ui/utilities'
+  require_relative 'nfg_ui/ui'
+  require_relative 'nfg_ui/bootstrap'
+  require_relative 'nfg_ui/components'
 
-  autoload :UI
+  DEFAULT_BOOTSTRAP_THEME    = :primary
 
-  eager_autoload do
-    autoload :Bootstrap
-    autoload :Components
-  end
-
-  def self.eager_load!
-    super
-    NfgUi::Bootstrap.eager_load!
-    NfgUi::Components.eager_load!
-  end
+  BOOTSTRAP_THEMES           = %i[primary
+                                  secondary
+                                  success
+                                  danger
+                                  warning
+                                  info
+                                  light
+                                  dark].freeze
 
   BOOTSTRAP_COMPONENT_NAMES  = %i[alert
                                   badge
@@ -41,21 +37,50 @@ module NfgUi
                                   button_group
                                   button_toolbar
                                   card
+                                  card_body
+                                  card_footer
+                                  card_header
+                                  card_image
+                                  card_image_overlay
                                   carousel
+                                  carousel_caption
+                                  carousel_control
+                                  carousel_indicators
+                                  carousel_item
+                                  collapse
                                   dropdown
+                                  dropdown_divider
+                                  dropdown_header
+                                  dropdown_item
+                                  dropdown_menu
+                                  dropdown_toggle
                                   embed
                                   form
                                   input_group
                                   jumbotron
                                   list_group
                                   list_group_item
+                                  media
+                                  media_body
                                   media_object
                                   modal
+                                  modal_body
+                                  modal_footer
+                                  modal_header
                                   nav
+                                  nav_item
+                                  nav_link
                                   navbar
+                                  navbar_brand
+                                  navbar_nav
+                                  navbar_text
+                                  navbar_toggler
+                                  page_item
                                   pagination
                                   popover
                                   progress
+                                  tab_content
+                                  tab_pane
                                   table].freeze
 
   GROUPING_NAMES             = %i[foundations
@@ -75,20 +100,45 @@ module NfgUi
                                   breadcrumb
                                   breadcrumb_item
                                   button
+                                  card_body
+                                  card_footer
+                                  card_header
+                                  card_image
+                                  card_image_overlay
+                                  carousel_caption
+                                  carousel_control
+                                  carousel_indicators
+                                  carousel_item
                                   chart
-                                  dropdown
+                                  dropdown_divider
+                                  dropdown_header
+                                  dropdown_item
+                                  dropdown_toggle
                                   embed
                                   form_control
                                   input_group
                                   key
                                   list_group_item
                                   loader
+                                  media_body
                                   media_object
+                                  modal_body
+                                  modal_footer
+                                  modal_header
                                   nav
+                                  nav_item
+                                  nav_link
+                                  navbar_brand
+                                  navbar_text
+                                  navbar_toggler
+                                  page_item
                                   popover
                                   progress_bar
-                                  slat
+                                  slat_action
+                                  slat_body
+                                  slat_item
                                   stat
+                                  tab_pane
                                   table
                                   task].freeze
 
@@ -98,22 +148,30 @@ module NfgUi
                                   card
                                   carousel
                                   collapse
+                                  dropdown
+                                  dropdown_menu
                                   empty_state
                                   filter_bar
                                   form_group
                                   graph
                                   jumbotron
                                   list_group
-                                  media_group
+                                  media
                                   modal
                                   navbar
+                                  navbar_nav
                                   page_header
+                                  pagination
+                                  progress
+                                  slat
+                                  slat_actions
+                                  slat_header
                                   slat_list
+                                  slats
+                                  tab_content
                                   task_list
                                   tile
                                   tile_body
                                   tile_header
                                   tile_section].freeze
 end
-
-require 'nfg_ui/railtie' if defined?(Rails)

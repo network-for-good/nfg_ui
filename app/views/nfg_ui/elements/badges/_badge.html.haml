@@ -1,1 +1,6 @@
-= render 'nfg_ui/bootstrap/badge', badge: badge
+-# https://getbootstrap.com/docs/4.1/components/badge/
+= content_tag badge.as, badge.html_options do
+  - if badge.icon
+    = ui.nfg :icon, badge.icon, text: badge.body
+  - else
+    = badge.body

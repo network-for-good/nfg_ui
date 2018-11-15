@@ -4,14 +4,8 @@ module NfgUi
   module Bootstrap
     module Components
       # Bootstrap Button Toolbar Component
+      # https://getbootstrap.com/docs/4.1/components/button-group/#button-toolbar
       class ButtonToolbar < Bootstrap::Components::Base
-        include Bootstrap::Utilities::AriaAssistable
-
-        def initialize(*)
-          super
-          build_aria(aria_key: :label, aria_value: 'toolbar with action buttons')
-        end
-
         private
 
         def component_css_class
@@ -19,7 +13,7 @@ module NfgUi
         end
 
         def assistive_html_attributes
-          super.merge!(role: options.fetch(:role, 'toolbar'))
+          super.merge!(role: 'toolbar')
         end
       end
     end

@@ -39,6 +39,7 @@
 .custom-select {
   font-weight: $btn-font-weight;
   cursor: pointer;
+  box-shadow: none;
 }
 
 // File
@@ -121,7 +122,7 @@
         content: "";
         background-repeat: no-repeat;
         background-size: 30%;
-        background-position: 6px 2px;
+        background-position: 6px 1px;
         background-image: $custom-checkbox-indicator-icon-checked;
         background-color: $custom-control-indicator-checked-bg;
       }
@@ -130,5 +131,33 @@
         border-color: $input-focus-border-color;
       }
     }
+  }
+}
+
+
+// Styles needed to override :valid success styles provided by bootstrap... this is for server side forms only
+.custom-control-input {
+  .was-validated &:valid {
+    ~ .custom-control-label {
+      color: inherit;
+      &::before { background-color: inherit; }
+    }
+    &:checked {
+      ~ .custom-control-label::before {
+        background-color: $custom-control-indicator-checked-bg;
+      }
+    }
+  }
+}
+
+.was-validated .custom-control-toggle .custom-control-input:valid {
+  ~ .custom-control-label {
+    &::before { background-color: $body-bg; }
+  }
+}
+
+.custom-file-input {
+  .was-validated &:valid {
+    ~ .custom-file-label { border-color: $custom-file-border-color; }
   }
 }
