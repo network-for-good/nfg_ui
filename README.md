@@ -345,6 +345,8 @@ $ Collapsible? (Y/n):
 
 29. Slat list sm ...
 
+30. Render_if doesn't see nil as falsy. Fix that.
+
 Component tooltip/icon auto list for backup
 FOUNDATION_COMPONENT_NAMES = %i[color
                                   icon
