@@ -19,6 +19,13 @@ module NfgUi
 
         private
 
+        def css_classes
+          [
+            super,
+            ("#{component_css_class}-sm" unless wide)
+          ]
+        end
+
         def non_html_attribute_options
           super.push(:slat_header, :wide)
         end
