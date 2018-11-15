@@ -3,7 +3,7 @@
   .redactor-editor, .redactor-box, .redactor-box textarea { z-index: 0 !important; }
 }
 .redactor-box {
-  margin-bottom: 0;
+  margin-bottom: 0 !important;
   border: $border-width solid $border-color;
 }
 .redactor-toolbar {

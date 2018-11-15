@@ -6,7 +6,8 @@
   + .dropdown-item { border-top: $border-width solid $border-color; }
   &.disabled, &:disabled {
     background-color: $body-bg;
-    cursor: not-allowed;
+    cursor: default;
+    pointer-events: none;
   }
 }
 
