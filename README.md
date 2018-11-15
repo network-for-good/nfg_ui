@@ -179,7 +179,7 @@ Groupings of elements to create rich interfaces. For example, an `:activity_feed
 * `:graph`
 * `:jumbotron`
 * `:list_group`
-* `:media_group`
+* `:media`
 * `:modal`
 * `:navbar`
 * `:slat_list`
@@ -316,3 +316,105 @@ $ Collapsible? (Y/n):
 14. Design tokens
 
 15. need a better way to define and create / map traits. I am not enjoying the bloat in attr_readers...
+
+16. Generator for customizable components with commented out class methods (like devise's generated controllers) for easy customization (reference that kicked this off was the modal title ... allowing an icon on the bs version might be what you want to do if you're a gem consumer...)
+
+17. Consider implementing a universal catch all "content" attribute when there's only one region so that users don't need to guess if a something like the dropdown header uses `heading` or `body` or `content` for passing in the content.
+
+18. Create a registered list ... for things like tooltippable nfg components (all? some?) -- that way can mass add modules for nfg side as needed.
+
+19. Look into collapsible toggle / collapse toggle, There are lots of buttons that have their classes removed so they can behave as a "link" 
+
+20. Trait specs
+
+21. Consider moving component_css_class out of private so it can be manipulated in the component (instead of needing stuff like remove_component_css_classes methods)
+
+22. Author useful error notifications for missing traits (instead of 'something_trait' method error)
+
+23. need an overlay_blocker
+
+24. should form-row be a (nfg?) component? see: Givecorps-site/app/views/bootstrap4/addresses/_address_form.html.haml
+
+25. card sub title and card title components?
+
+26. consider typeface for link_to so we can supply our luxuries to link_to.
+
+27. Add a trait for dropdown items where we pass in a "not_deletable" type of attribute that shows when a can't delete condition is present -- or make it more generic and have it be embedded dropdown text that we conditionalize on the component.
+
+28. Examine how theme css prefix class is being worked out... looks like we'd be better off having some kind of value that's shared / accessible... somethign like "type of theme" ... :text (text-success). right now, we're doing it by setting the prefix to 'text-'
+
+29. Slat list sm ...
+
+30. Render_if doesn't see nil as falsy. Fix that.
+
+Component tooltip/icon auto list for backup
+FOUNDATION_COMPONENT_NAMES = %i[color
+                                  icon
+                                  image
+                                  input
+                                  grid
+                                  typeface].freeze
+
+  ELEMENT_COMPONENT_NAMES    = %i[activity
+                                  alert [icon, tooltip]
+                                  badge [icon, tooltip]
+                                  breadcrumb
+                                  breadcrumb_item [icon, tooltip]
+                                  button [icon, tooltip]
+                                  chart
+                                  dropdown_divider
+                                  dropdown_header [icon, tooltip]
+                                  dropdown_item [icon, tooltip]
+                                  dropdown_toggle [icon, tooltip]
+                                  embed
+                                  form_control [icon, tooltip]
+                                  input_group [icon, tooltip]
+                                  key
+                                  list_group_item [icon, tooltip]
+                                  loader [icon]
+                                  media_body [icon, tooltip]
+                                  media_object [icon, tooltip]
+                                  modal_body [icon, tooltip]
+                                  modal_footer
+                                  modal_header [icon]
+                                  nav
+                                  nav_item [icon, tooltip]
+                                  nav_link
+                                  navbar_brand [icon]
+                                  navbar_text
+                                  navbar_toggler [icon]
+                                  popover [icon]
+                                  progress_bar [tooltip]
+                                  slat [icon, tooltip]
+                                  stat [icon, tooltip]
+                                  tab_pane
+                                  table [icon, tooltip]
+                                  task [icon, tooltip]
+
+  PATTERN_COMPONENT_NAMES    = %i[activity_feed [icon, tooltip]
+                                  button_group [tooltip]
+                                  button_toolbar [tooltip]
+                                  card [icon, tooltip]
+                                  carousel [icon, tooltip]
+                                  collapse [icon, tooltip]
+                                  dropdown [icon, tooltip]
+                                  dropdown_menu
+                                  empty_state [icon, tooltip]
+                                  filter_bar [tooltip]
+                                  form_group [tooltip]
+                                  graph
+                                  jumbotron
+                                  list_group
+                                  media [tooltip]
+                                  modal [icon]
+                                  navbar
+                                  navbar_nav
+                                  page_header
+                                  slat_list [tooltip]
+                                  tab_content
+                                  task_list
+                                  tile [icon, tooltip]
+                                  tile_body [icon, tooltip]
+                                  tile_header [icon, tooltip]
+                                  tile_section [icon]
+

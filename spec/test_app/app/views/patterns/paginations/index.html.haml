@@ -1,0 +1,82 @@
+%h1 Paginations
+
+%h2 Standard pagination
+= ui.nfg :pagination, class: 'my-4' do
+  = ui.nfg :page_item, body: 'Previous', href: '#test'
+  = ui.nfg :page_item, body: '1', href: '#test'
+  = ui.nfg :page_item, body: '2', href: '#test'
+  = ui.nfg :page_item, body: '3', href: '#test'
+  = ui.nfg :page_item, body: '4', href: '#test'
+  = ui.nfg :page_item, body: 'Next', href: '#test'
+
+%hr
+
+%h2 Pagination with active page items
+= ui.nfg :pagination, class: 'my-4' do
+  = ui.nfg :page_item, body: 'Previous'
+  = ui.nfg :page_item, body: '1', active: true
+  = ui.nfg :page_item, body: '2'
+  = ui.nfg :page_item, body: '3'
+  = ui.nfg :page_item, body: '4'
+  = ui.nfg :page_item, body: 'Next'
+
+%hr
+
+%h2 Pagination with disabled page items
+= ui.nfg :pagination, class: 'my-4' do
+  = ui.nfg :page_item, body: 'Previous'
+  = ui.nfg :page_item, body: '1'
+  = ui.nfg :page_item, body: '2', active: true
+  = ui.nfg :page_item, body: '3', disabled: true
+  = ui.nfg :page_item, body: '4', disabled: true
+  = ui.nfg :page_item, body: 'Next', disabled: true
+
+%hr
+
+%h2 Pagination with sizing
+= ui.nfg :pagination, size: :sm, class: 'my-4' do
+  = ui.nfg :page_item, body: 'Previous'
+  = ui.nfg :page_item, body: '1', active: true
+  = ui.nfg :page_item, body: '2'
+  = ui.nfg :page_item, body: '3'
+  = ui.nfg :page_item, body: '4'
+  = ui.nfg :page_item, body: 'Next', disabled: true
+
+= ui.nfg :pagination, class: 'my-4' do
+  = ui.nfg :page_item, body: 'Previous'
+  = ui.nfg :page_item, body: '1', active: true
+  = ui.nfg :page_item, body: '2'
+  = ui.nfg :page_item, body: '3'
+  = ui.nfg :page_item, body: '4'
+  = ui.nfg :page_item, body: 'Next', disabled: true
+
+= ui.nfg :pagination, size: :lg, class: 'my-4' do
+  = ui.nfg :page_item, body: 'Previous'
+  = ui.nfg :page_item, body: '1', active: true
+  = ui.nfg :page_item, body: '2'
+  = ui.nfg :page_item, body: '3'
+  = ui.nfg :page_item, body: '4'
+  = ui.nfg :page_item, body: 'Next', disabled: true
+
+%hr
+
+%h2 Pagination with alignment
+%h3 Right alignment
+= ui.nfg :pagination, right: true, class: 'my-4' do
+  = ui.nfg :page_item, body: 'Previous'
+  = ui.nfg :page_item, body: '1', active: true
+  = ui.nfg :page_item, body: '2'
+  = ui.nfg :page_item, body: '3'
+  = ui.nfg :page_item, body: '4'
+  = ui.nfg :page_item, body: 'Next', disabled: true
+
+%hr
+
+%h3 Center alignment
+= ui.nfg :pagination, center: true, class: 'my-4' do
+  = ui.nfg :page_item, body: 'Previous'
+  = ui.nfg :page_item, body: '1', active: true
+  = ui.nfg :page_item, body: '2'
+  = ui.nfg :page_item, body: '3'
+  = ui.nfg :page_item, body: '4'
+  = ui.nfg :page_item, body: 'Next', disabled: true

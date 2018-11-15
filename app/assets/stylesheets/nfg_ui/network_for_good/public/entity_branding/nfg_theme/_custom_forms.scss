@@ -8,11 +8,18 @@
 }
 
 .custom-select {
-  color: $primary;
+  color: yiq-contrast-color($primary, $yiq-text-dark, $primary);
   background-image: $custom-select-indicator;
   &:focus {
     border-color: $primary;
     &::-ms-value { color: $primary; }
+  }
+}
+
+.custom-file-input {
+  &:focus ~ .custom-file-label {
+    border-color: $primary;
+    &::after { border-color: $primary; }
   }
 }
 
@@ -21,6 +28,16 @@
     ~ .custom-control-label {
       &::before { background-color: $primary; }
       &::after { border-color: $primary; }
+    }
+  }
+}
+
+
+// Styles needed to override :valid success styles provided by bootstrap... this is for server side forms only
+.custom-control-input {
+  .was-validated &:valid {
+    &:checked {
+      ~ .custom-control-label::before { background-color: $primary; }
     }
   }
 }

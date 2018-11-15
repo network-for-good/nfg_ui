@@ -7,7 +7,9 @@ module NfgUi
       class TileSection < NfgUi::Components::Base
         include NfgUi::Components::Utilities::Iconable
 
-        private
+        def heading
+          options.fetch(:heading, nil)
+        end
 
         def component_family
           :tile

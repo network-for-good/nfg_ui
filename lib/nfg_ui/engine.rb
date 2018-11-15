@@ -8,6 +8,7 @@ module NfgUi
       ActiveSupport.on_load :action_controller do
         helper NfgUi::ApplicationHelper
         helper NfgUi::Components::ResourceThemesHelper
+        helper NfgUi::Components::TooltipHelper
       end
     end
   end

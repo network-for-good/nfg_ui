@@ -15,7 +15,7 @@ $gray-200: #e5e5e5;
 $gray-300: #d8d8d8;
 // $gray-400: #ced4da !default; // not used in our theme
 // $gray-500: #adb5bd !default; // not used in our theme
-$gray-600: #9a9a9a;
+$gray-600: #959595;
 // $gray-700: #495057 !default; // not used in our theme
 $gray-800: #4d4d4d;
 // $gray-900: #212529 !default; // not used in our theme
@@ -586,7 +586,7 @@ $dropdown-link-disabled-color:      $text-muted;
 $dropdown-item-padding-y:           ($spacer * .5);
 $dropdown-item-padding-x:           ($spacer * .5);
 
-$dropdown-header-color:             $body-color;
+$dropdown-header-color:             $text-muted;
 
 
 // Z-index master list
@@ -621,7 +621,7 @@ $nav-tabs-link-active-border-color: $primary;
 // $nav-pills-link-active-bg:          $component-active-bg !default;
 
 $nav-divider-color:                 $border-color;
-$nav-divider-margin-y:              ($spacer * .5);
+$nav-divider-margin-y:              0;
 
 
 // Navbar

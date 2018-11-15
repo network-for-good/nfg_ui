@@ -16,3 +16,5 @@
 
 // Card image
 .card-img-overlay { @include gradient-y(transparentize($black, 1), transparentize($black, .5)); }
+
+.card-img { @include border-radius(0); }

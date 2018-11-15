@@ -1,0 +1,6 @@
+- if card_image_overlay.image
+  = ui.bootstrap :card_image, image: card_image_overlay.image
+%div{ card_image_overlay.html_options }
+  - if card_image_overlay.title
+    %h5.card-title= card_image_overlay.title
+  = card_image_overlay.body

@@ -1,7 +1,4 @@
-%a{ collapse.collapsible_toggle_html_options }
-  .row.align-items-center
-    .col-auto
-      %strong{ data: { describe: 'toggle-tag-strong' } }= collapse.heading
-    .col-auto.pl-0
-      = ui.nfg :icon, 'caret-down', tooltip: 'Show / hide additional information'
-= collapse.body
+- if collapse.heading
+  = ui.nfg :button, :link, collapse: "##{collapse.id}", body: collapse.heading, icon: 'caret-down', class: 'p-0 text-left'
+
+= render 'nfg_ui/bootstrap/collapse', collapse: collapse

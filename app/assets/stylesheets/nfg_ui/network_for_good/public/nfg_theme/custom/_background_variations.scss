@@ -5,4 +5,8 @@
   }
   h1, h2, h3, h4, h5, h6, p, label { color: $white; }
   .progress { background-color: $gray-600; }
+
+
+  // Styles needed to override :valid success styles provided by bootstrap... this is for server side forms only
+  .was-validated .form-check-input:valid ~ .form-check-label { color: $white; }
 }

@@ -1,17 +1,149 @@
 %h1 Typefaces
 
+%h2 Without themes
+
 Title:
 = ui.nfg :typeface, title: 'Title'
 %br
 With Icon:
 = ui.nfg :typeface, title: 'Title with icon', icon: 'rocket'
 
+%hr
+
 Heading:
 = ui.nfg :typeface, heading: 'Heading'
 %br
 With Icon:
-= ui.nfg :typeface, heading: 'Title with icon', icon: 'rocket'
+= ui.nfg :typeface, heading: 'Heading with icon', icon: 'rocket'
+
+%hr
+Subheading
+= ui.nfg :typeface, subheading: 'Subheading'
+%br
+With Icon:
+= ui.nfg :typeface, subheading: 'Subheading with icon', icon: 'rocket'
+%br 
+With Trait
+= ui.nfg :typeface, :subheading, icon: 'rocket' do
+  Subheading via do
+%hr
 
 Body:
 = ui.nfg :typeface, body: 'Body'
+= ui.nfg :typeface, body: 'Body with icon', icon: 'paper-plane'
+%hr
 
+%h2.mb-4 Traited versions of the typeface <b>(specifically for utilizing a block)</b>.
+= ui.nfg :typeface, :title do 
+  Title via do block
+%br
+
+With Icon:
+= ui.nfg :typeface, :title, icon: 'rocket' do
+  Title via do block with icon attribute
+
+Heading:
+= ui.nfg :typeface, :heading do
+  Heading via do block
+%br
+With Icon:
+= ui.nfg :typeface, :heading, icon: 'rocket' do
+  Heading via do block with icon attribute
+Body:
+= ui.nfg :typeface, :body do
+  Body via block
+
+%br
+Caption:
+= ui.nfg :typeface, :caption, :muted, class: 'mb-0' do
+  %strong Status: No donations yet...
+
+%hr
+
+%h2 Tooltips on typefaces
+
+Title:
+= ui.nfg :typeface, title: 'Title', tooltip: 'Test Tooltip'
+%br
+With Icon:
+= ui.nfg :typeface, title: 'Title with icon', icon: 'rocket', tooltip: 'Test Tooltip'
+
+Heading:
+= ui.nfg :typeface, heading: 'Heading', tooltip: 'Test Tooltip'
+%br
+With Icon:
+= ui.nfg :typeface, heading: 'Heading with icon', icon: 'rocket', tooltip: 'Test Tooltip'
+
+Body:
+= ui.nfg :typeface, body: 'Body', tooltip: 'Test Tooltip'
+
+%p
+  Subheading:
+  = ui.nfg :typeface, subheading: 'Subheading', tooltip: 'Test Tooltip'
+  %br
+  With Icon:
+  = ui.nfg :typeface, subheading: 'Subheading with icon', icon: 'rocket', tooltip: 'Test Tooltip'
+%hr
+
+%h2.mb-4 Themes
+
+= ui.nfg :typeface, :body, :primary, icon: 'circle-o' do
+  Body via do block with primary theme trait & circle icon.
+
+= ui.nfg :typeface, :body, theme: :primary, icon: 'circle' do
+  Body via do block with primary theme option & circle icon.
+
+
+= ui.nfg :typeface, body: 'Body text without trait', theme: :primary, icon: 'rocket'
+= ui.nfg :typeface, :primary, body: 'Body text with trait', icon: 'heart'
+
+%hr
+
+
+= ui.nfg :typeface, :caption, :primary, icon: 'circle-o' do
+  Caption via do block with primary theme trait & circle icon.
+
+= ui.nfg :typeface, :caption, theme: :primary, icon: 'circle' do
+  Caption via do block with primary theme option & circle icon.
+
+= ui.nfg :typeface, caption: 'Caption text without trait', theme: :secondary, icon: 'rocket'
+= ui.nfg :typeface, :secondary, caption: 'Caption text with trait', icon: 'heart'
+
+%hr
+
+= ui.nfg :typeface, :heading, :primary, icon: 'circle-o' do
+  Heading via do block with primary theme trait & circle icon.
+
+= ui.nfg :typeface, :heading, theme: :primary, icon: 'circle' do
+  Heading via do block with primary theme option & circle icon.
+
+
+= ui.nfg :typeface, heading: 'Heading text without trait', theme: :success, icon: 'rocket'
+= ui.nfg :typeface, :success, heading: 'Heading text with trait', icon: 'rocket'
+
+%hr
+
+= ui.nfg :typeface, body: 'Sample text without trait', theme: :danger, icon: 'rocket'
+= ui.nfg :typeface, :danger, body: 'Sample text with trait', icon: 'heart'
+
+%hr
+
+= ui.nfg :typeface, body: 'Sample text without trait', theme: :warning, icon: 'rocket'
+= ui.nfg :typeface, :warning, body: 'Sample text with trait', icon: 'heart'
+
+%hr
+
+= ui.nfg :typeface, body: 'Sample text without trait', theme: :info, icon: 'rocket'
+= ui.nfg :typeface, :info, body: 'Sample text with trait', icon: 'heart'
+
+%hr
+
+.bg-dark.p-3
+  = ui.nfg :typeface, body: 'Sample text without trait', theme: :light, icon: 'rocket'
+  = ui.nfg :typeface, :light, body: 'Sample text with trait', icon: 'rocket'
+
+%hr
+
+= ui.nfg :typeface, body: 'Sample text without trait', theme: :dark, icon: 'rocket'
+= ui.nfg :typeface, :dark, body: 'Sample text with trait', icon: 'rocket'
+%hr

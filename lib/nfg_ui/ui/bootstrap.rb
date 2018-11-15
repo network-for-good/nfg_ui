@@ -1,24 +1,27 @@
+# frozen_string_literal: true
+
 module NfgUi
   module UI
     # The class that yields the component for the view
-    class Bootstrap < NfgUi::UI::Base
-      def initialize(view_context, component_name = nil, *traits, **options, &block)
-        super
-        if NfgUi::BOOTSTRAP_COMPONENT_NAMES.include?(component_name)
-          initializer(component_name, *traits, **options, &block)
-        else
-          raise NameError.new(":#{component_name} isn't a registered bootstrap component.\nDid you mean to use `= ui.bootstrap :#{component_name}`? Perhaps you meant `= ui.nfg :#{component_name}`? \n\nCheck your spelling. Registered bootstrap component_names include:\n#{NfgUi::BOOTSTRAP_COMPONENT_NAMES.join("\n")}")
-        end
-      end
+    class Bootstrap
+      include NfgUi::UI::Utilities::Initializer
 
-      def bootstrap?
-        true
+      attr_accessor :view_context
+      # attr_reader :component_name_folder
+
+      def initialize(view_context, component_name = nil, *traits, **options, &block)
+        self.view_context = view_context
+        initializer(component_name, *traits, **options, &block)
+        # @component_name_folder = component.component_family.to_s.pluralize if component.component_family.present?
+        # raise component.send(:component_family).inspect
       end
 
       private
 
       def component_name_folder
-        component.component_family.try(:to_s).try(:pluralize)
+        # component.component_family.to_s.pluralize if component.component_family.present?
+        component.component_family.to_s.pluralize
+        # ''
       end
 
       def group

@@ -44,3 +44,39 @@ a.no-link-color {
 @each $color, $value in $colors {
   @include text-emphasis-variant(".text-#{$color}", $value);
 }
+
+
+// Adds a background divider to word
+.text-divider {
+  position: relative;
+  &:after {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 0;
+    border-top: $border-width solid $border-color;
+    content: '';
+    z-index: 0;
+  }
+  .text-center, .btn-center { z-index: 10; }
+  .text-center {
+    position: relative;
+    text-align: center;
+    line-height: 1;
+    span {
+      display: inline-block;
+      padding: ($spacer * .25) ($spacer * .5);
+      background-color: $white;
+    }
+  }
+  .btn-center {
+    position: absolute;
+    top: -18px;
+    left: 50%;
+    .btn {
+      position: relative;
+      left: -50%;
+    }
+  }
+}

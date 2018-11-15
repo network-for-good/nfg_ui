@@ -3,7 +3,7 @@
 //*****************************//
 
 .select2-container {
-  display: block;
+  display: block !important;
   width: auto !important;
   max-width: 100% !important;
 }
@@ -27,8 +27,8 @@ body:not(.modal-open) {
   .select2-selection--single {
     display: inline-block;
     width: 100%;
-    height: $custom-select-height;
-    padding: $custom-select-padding-y ($custom-select-padding-x + $custom-select-indicator-padding) $custom-select-padding-y $custom-select-padding-x;
+    height: $custom-select-height !important;
+    padding: $custom-select-padding-y ($custom-select-padding-x + $custom-select-indicator-padding) $custom-select-padding-y $custom-select-padding-x !important;
     font-weight: $btn-font-weight;
     line-height: $custom-select-line-height;
     color: $custom-select-color;
@@ -45,9 +45,9 @@ body:not(.modal-open) {
       .select2-selection__rendered { color: $body-color; }
     }
     .select2-selection__rendered {
-      padding: 0;
-      color: $primary;
-      line-height: $spacer;
+      padding: 0 !important;
+      color: $primary !important;
+      line-height: $spacer !important;
       transition: $transition-base;
     }
     .select2-selection__arrow { display: none; }
@@ -74,7 +74,7 @@ body:not(.modal-open) {
     }
     .select2-selection__rendered {
       margin: 0;
-      padding: 0;
+      padding: 0 !important;
       @include clearfix();
       .select2-selection__choice {
         margin: 0 3px 3px 0;
@@ -146,7 +146,7 @@ body:not(.modal-open) {
     border-top: $border-width solid $border-color;
     z-index: 1;
     transition: $transition-base;
-    &.select2-results__option--highlighted {
+    &.select2-results__option--highlighted, &.select2-results__option--highlighted[aria-selected] {
       color: $body-color;
       background-color: transparent;
       &:hover, &:active {
@@ -156,7 +156,7 @@ body:not(.modal-open) {
     }
     &[aria-selected='true'] {
       padding-right: ($spacer * 2);
-      color: $body-color;
+      color: $body-color !important;
       background-color: transparent !important;
       cursor: default;
       &:after {
@@ -167,12 +167,17 @@ body:not(.modal-open) {
         height: 100%;
         font-family: "FontAwesome";
         font-size: $font-size-base;
-        line-height: 1;
+        line-height: 1.5;
         color: theme-color("success");
         text-align: center;
         content: '\f00c';
         z-index: 5;
       }
+    }
+    &[aria-disabled='true'] {
+      color: $text-muted;
+      font-weight: $font-weight-bold;
+      text-transform: uppercase;
     }
   }
   .select2-results__group {

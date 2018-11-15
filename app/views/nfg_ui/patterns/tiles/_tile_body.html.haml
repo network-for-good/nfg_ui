@@ -1,6 +1,4 @@
--# Details about what's passed into tile_body.body can be found
--# on lib/nfg_ui/components/patterns/tile_body.rb
--#
--# Thanks to collapsible options, tile_body's html structure
--# is built inside of the NfgUi::Components::Patterns::TileBody class.
-= tile_body.body
+%div{ tile_body.html_options }
+  - if tile_body.heading
+    = ui.nfg :typeface, heading: tile_body.heading, icon: tile_body.icon
+  = tile_body.body

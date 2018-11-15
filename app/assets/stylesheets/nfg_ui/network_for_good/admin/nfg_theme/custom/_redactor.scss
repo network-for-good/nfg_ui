@@ -6,17 +6,17 @@
   margin-bottom: 0;
   border: $border-width solid $border-color;
 }
-.redactor-toolbar{
+.redactor-toolbar {
   background-color: $body-bg;
   box-shadow: none;
   border-bottom: $border-width solid $border-color;
 }
 .redactor-editor, .redactor-box, .redactor-box textarea { z-index: auto; }
-.redactor-toolbar { z-index: $zindex-dropdown - 10 !important; }
+.redactor-box .redactor-toolbar { z-index: $zindex-dropdown - 10 !important; }
 
 body.modal-open  {
-  .redactor-toolbar{ z-index: $zindex-modal-backdrop - 1 !important; }
-  .modal .redactor-toolbar{ z-index: $zindex-modal + 1 !important; }
+  .redactor-toolbar { z-index: $zindex-modal-backdrop - 1 !important; }
+  .modal .redactor-toolbar { z-index: $zindex-modal + 1 !important; }
 }
 .redactor-dropdown {
   // z-index was upped from 999 to 1 more than the modal...

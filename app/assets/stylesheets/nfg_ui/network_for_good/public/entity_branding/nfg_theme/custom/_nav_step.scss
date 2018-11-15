@@ -1,0 +1,19 @@
+//
+// Steps
+//
+.nav-steps {
+  .nav-item {
+
+    &.visited, &.active {
+      .step-indicator {
+        background-color: $primary;
+        border-color: $primary;
+      }
+    }
+    &.visited::after { background-color: $primary; }
+
+    .step-indicator {
+      &::after { box-shadow: 0 0 0 ($spacer * .25) transparentize($primary, 0.5); }
+    }
+  }
+}

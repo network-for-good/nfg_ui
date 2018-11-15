@@ -4,52 +4,42 @@ module NfgUi
   module Components
     module Traits
       # Access to pre-designed Button traits
-      # To do: this needs to be re-worked with the new concept for
-      # traits.
       module Button
-        include NfgUi::Components::Traits::Theme
+        TRAITS = %i[block
+                    close
+                    link
+                    outlined
+                    remote
+                    submit].freeze
 
-        attr_reader   :type, :close
-        attr_writer   :block, :default_html_wrapper_element, :size
-        attr_accessor :submit, :as
-
-        def initialize(*)
-          super
-          @type = options.fetch(:type, nil)
-          self.submit = traits.include?(:submit) || type == 'submit'
-          self.block = traits.include?(:block) || block
-          self.size = (traits & bootstrap4_size_options).first || size
-          @default_html_wrapper_element = submit? ? :button : as
-          @close = traits.include?(:close)
-          self.as = :button if submit? || close
-          options[:href] = nil if submit? || close
+        def link_trait
+          options[:theme] = :link
         end
 
-        def submit?
-          submit
+        def block_trait
+          options[:block] = true
         end
 
-        def html_options
-          return super unless close
-
-          super.merge!(aria: { label: 'Clase' },
-                       data: { dismiss: 'modal' },
-                       class: 'close')
+        def close_trait
+          self.as = :button
+          data[:dismiss] = options.delete(:dismiss)
+          options[:theme] = nil
+          @css_classes = 'close'
+          @body = '&times;'.html_safe
+          assistive_html_attributes.merge!(aria: { label: 'close' })
         end
 
-        def icon
-          return super unless close
-          'times'
+        def remote_trait
+          options[:remote] = true
         end
 
-        private
+        def submit_trait
+          self.as = :button
+          options[:type] = 'submit'
+        end
 
-        def assistive_html_attributes
-          if traits.include?(:submit) && type != 'submit'
-            super.merge!(type: 'submit')
-          else
-            super
-          end
+        def outlined_trait
+          options[:outlined] = true
         end
       end
     end

@@ -6,6 +6,12 @@ module NfgUi
       # Bootstrap Pagination Component
       # https://getbootstrap.com/docs/4.1/components/pagination/
       class Pagination < Bootstrap::Components::Base
+        include Bootstrap::Utilities::Alignable
+        include Bootstrap::Utilities::Sizable
+
+        def component_family
+          :pagination
+        end
       end
     end
   end

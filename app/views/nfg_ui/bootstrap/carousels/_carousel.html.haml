@@ -1,0 +1,8 @@
+%div{ carousel.html_options }
+  .carousel-inner
+    - if carousel.indicators > 0
+      = ui.bootstrap :carousel_indicators, count: carousel.indicators, carousel: "##{carousel.id}"
+    = carousel.body
+    - if carousel.controls
+      = ui.bootstrap :carousel_control, control: :next, carousel: "##{carousel.id}"
+      = ui.bootstrap :carousel_control, control: :prev, carousel: "##{carousel.id}"

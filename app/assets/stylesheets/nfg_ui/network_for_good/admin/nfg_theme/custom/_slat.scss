@@ -1,0 +1,105 @@
+// Slat and its child elements
+.slat {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+
+// Body Column
+.slat-body {
+  display: flex;
+  flex-flow: row wrap;
+  flex: 1 0 0;
+  margin-right: -($grid-gutter-width * .5);
+  margin-left: -($grid-gutter-width * .5);
+  width: 100%;
+  .slat-item {
+    flex: 1 0 0;
+    padding-right: ($grid-gutter-width * .5);
+    padding-left: ($grid-gutter-width * .5);
+    width: 100%;
+    max-width: 100%;
+    min-height: 1px;
+    &:first-child:not(.slat-item-lg), &:first-child:not(.slat-item-sm) {
+      @include media-breakpoint-down(sm) {
+        flex-basis: 100%;
+        margin-bottom: $spacer;
+      }
+      @include media-breakpoint-up(md) { flex-grow: 2; }
+    }
+
+
+    // Sizing options
+    &.slat-item-sm { flex-grow: 0; }
+    &.slat-item-lg { flex-grow: 6; }
+  }
+}
+
+
+// Action Column
+.slat-actions {
+  padding-left: ($grid-gutter-width * .5);
+  flex: 0 0 ($spacer * 1.5);
+  width: auto;
+  max-width: none;
+  text-align: right;
+  @include media-breakpoint-up(sm) { flex-basis: ($spacer * 6); }
+
+
+  // Sizing options
+  &.slat-actions-sm { flex-basis: ($spacer * 1.5); }
+  &.slat-actions-lg { flex-basis: ($spacer * 12); }
+}
+
+
+// Slat header
+.slat-header {
+  padding-bottom: ($spacer * .5);
+  .slat-body { align-items: center; }
+}
+
+
+// Slat list layout
+.slat-list {
+  border-top: $border-width solid $border-color;
+  .slat {
+    padding-top: $spacer;
+    padding-bottom: $spacer;
+    background-color: $white;
+    + .slat { border-top: $border-width solid $border-color; }
+
+
+    // Various states
+    &.ui-sortable-placeholder {
+      visibility: visible !important;
+      background: theme-color("light");
+      border: $border-width dashed $border-color;
+      + .slat { border-top: none; }
+      + &.ui-sortable-helper {
+        border-top-style: dashed;
+        + &.slat { border-top: none; }
+      }
+    }
+    &.ui-sortable-helper {
+      border-top: none;
+      opacity: .5;
+      border-top: none;
+      + &.ui-sortable-placeholder { border-top: $border-width dashed $border-color; }
+    }
+  }
+
+
+  // Sizing options
+  &.slat-list-sm {
+    .slat {
+      padding-top: ($spacer * .5);
+      padding-bottom: ($spacer * .5);
+    }
+  }
+  &.slat-list-lg {
+    .slat {
+      padding-top: ($spacer * 1.5);
+      padding-bottom: ($spacer * 1.5);
+    }
+  }
+}

@@ -3,52 +3,30 @@
 module NfgUi
   module Bootstrap
     module Components
-      # Bootstrap Progress Component
+      # Bootstrap Parent Progress Component
       # https://getbootstrap.com/docs/4.1/components/progress/
       class Progress < Bootstrap::Components::Base
-        include Bootstrap::Utilities::Themeable
-        include Bootstrap::Utilities::AriaAssistable
+        include Bootstrap::Utilities::Progressable
 
-        attr_reader :progress, :height, :label
-
-        def initialize(*)
-          super
-          @progress = options.fetch(:progress, default_progress)
-          @height = options.fetch(:height, nil)
-          @label = view_context.number_to_percentage(progress, precision: 0) if traits.include?(:label)
-          build_aria(aria_key: :valuemin, aria_value: 0)
-          build_aria(aria_key: :valuenow, aria_value: progress)
-          build_aria(aria_key: :valuemax, aria_value: 100)
+        def component_family
+          :progress
         end
 
-        def html_options
-          super.merge(style: "width: #{progress}%")
+        def height
+          options.fetch(:height, nil)
         end
 
-        def progress_bar_wrapper_html_options
-          { class: 'progress', style: ("height: #{height}" if height.present?) }
+        def style
+          [
+            super,
+            ("height: #{height}px;" if height)
+          ].join(' ').squish
         end
 
         private
 
-        def assistive_html_attributes
-          super.merge!(role: 'progressbar')
-        end
-
-        def component_css_class
-          'progress-bar'
-        end
-
-        def default_progress
-          0
-        end
-
-        def theme_css_class_prefix
-          'bg'
-        end
-
         def non_html_attribute_options
-          super.push(:progress)
+          super.push(:height)
         end
       end
     end

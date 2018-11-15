@@ -1,6 +1,18 @@
 %h1 Collapses
 
-= ui.nfg :collapse, heading: 'Collapse heading', body: 'Collapse body', id: 'test_id'
+= ui.nfg :button, as: :button, collapse: '#required_id1', body: 'Collapse Toggle Button Element'
 
-= ui.nfg :collapse, heading: 'Collapse heading', id: 'test_id2' do
-  Collapse body
+= ui.nfg :collapse, id: 'required_id1' do
+  Hello collapse, I should not be collapsed by default
+
+%hr
+
+= ui.nfg :button, collapse: '#required_id2', body: 'Collapse Toggle Link Element'
+
+= ui.nfg :collapse, id: 'required_id2', body: 'Body implemented via options and is collapsed. Collapse is not collapsed by default', collapsed: true
+
+%hr
+
+%h2 collapse with heading
+
+= ui.nfg :collapse, id: 'required_id3', body: 'Body implemented via options and is collapsed. Collapse is not collapsed by default', heading: 'Collapse heading link', collapsed: true

@@ -1,0 +1,111 @@
+%h1 Progresses
+
+%p 
+  Pass in the progress attribute as an integer (or a string if you're feeling lucky... it'll convert the number to an integer regardless)
+  %br
+  %code
+    \= ui.nfg :progress, progress: 25
+
+= ui.nfg :progress, progress: 25, class: 'my-4'
+= ui.nfg :progress, progress: 50, class: 'my-4'
+= ui.nfg :progress, progress: 75, class: 'my-4'
+= ui.nfg :progress, progress: 90, class: 'my-4'
+= ui.nfg :progress, progress: 100, class: 'my-4', describe: 'Tested data describe', tooltip: 'Tested tooltip'
+
+%hr
+
+%h2 Labels
+
+%p Labels can be applied in 2 flavors when using the singular :progress component. (infinitely flexible if using the :progress > :progress_bar component setup.)
+%ol
+  %li 
+    As a boolean (true) on the label attribute which will output the '[:progress]%'
+    %br
+    %code = ui.nfg :progress, progress: 25, label: true
+    %br
+    %b Label will output 25%
+  %li
+    As a string
+    %br
+    %code = ui.nfg :progress, label: 'My label'
+  %li
+    As a built out component with a block passed into progress_bar
+    %br
+    %code 
+      %span = ui.nfg :progress, class: 'my-4' do
+      %br
+      %span.ml-3 = ui.nfg :progress_bar, progress: 90 do
+      %br
+      %span.d-inline-block.ml-5 Custom block label
+
+= ui.nfg :progress, :label, progress: 60, class: 'my-4'
+= ui.nfg :progress, progress: 75, class: 'my-4', label: 'Custom string'
+= ui.nfg :progress, class: 'my-4' do
+  = ui.nfg :progress_bar, progress: 90 do
+    Custom block label
+
+%hr
+
+%h2 Height
+%h3 Manually set height
+%p leaving the :height option out will use the default heigh value from CSS
+= ui.nfg :progress, progress: 60, class: 'my-4', height: 1
+= ui.nfg :progress, progress: 60, class: 'my-4', label: 'No height set'
+= ui.nfg :progress, progress: 60, class: 'my-4', height: 50, label: 'height: 50'
+
+%hr
+
+%h3 Thematic size
+%h4 Traits
+
+= ui.nfg :progress, :sm, progress: 60, class: 'my-4'
+= ui.nfg :progress, :lg, progress: 60, class: 'my-4'
+
+%hr 
+
+%h4 Manual
+= ui.nfg :progress, size: :sm, progress: 60, class: 'my-4'
+= ui.nfg :progress, size: :lg, progress: 60, class: 'my-4'
+
+%hr
+
+%h2 Themes (backgrounds)
+= ui.nfg :progress, :primary, progress: 15, class: 'my-4', label: 'Primary'
+= ui.nfg :progress, :secondary, progress: 25, class: 'my-4', label: 'Secondary'
+= ui.nfg :progress, :success, progress: 50, class: 'my-4', label: 'Success'
+= ui.nfg :progress, :warning, progress: 75, class: 'my-4', label: 'Warning'
+= ui.nfg :progress, :danger, progress: 80, class: 'my-4', label: 'Danger'
+= ui.nfg :progress, :dark, progress: 90, class: 'my-4', label: 'Dark'
+= ui.nfg :progress, :light, progress: 95, class: 'my-4'
+
+%hr
+
+%h2 Multiple bars
+= ui.nfg :progress, class: 'my-4' do
+  = ui.nfg :progress_bar, :label, progress: 25
+  = ui.nfg :progress_bar, :success, :label, progress: 25
+  = ui.nfg :progress_bar, :warning, :label, progress: 25
+
+%hr
+
+%h2 Striped progress bars
+= ui.nfg :progress, :primary, :striped, progress: 15, class: 'my-4', label: 'Primary Striped'
+= ui.nfg :progress, :secondary, :striped, progress: 25, class: 'my-4', label: 'Secondary Striped'
+= ui.nfg :progress, :success, :striped, progress: 50, class: 'my-4', label: 'Success Striped'
+= ui.nfg :progress, :warning, :striped, progress: 75, class: 'my-4', label: 'Warning Striped'
+= ui.nfg :progress, :danger, :striped, progress: 80, class: 'my-4', label: 'Danger Striped'
+= ui.nfg :progress, :dark, :striped, progress: 90, class: 'my-4', label: 'Dark Striped'
+= ui.nfg :progress, :light, :striped, progress: 95, class: 'my-4'
+
+%hr
+
+%h2 Striped Animated
+%p.text-danger Avert your eyes... 
+%p Note: Animation only "works" when striped is enabled. For thematic purposes, the css class will be added to the component even if striped is not enabled.
+
+= ui.nfg :progress, :striped, :animated, :primary, progress: 50, class: 'my-4', label: 'Primary Striped - Animated'
+
+%hr
+
+%h2 Tooltipped
+= ui.nfg :progress, :label, :warning, class: 'my-4', progress: 80, tooltip: 'A tooltip'

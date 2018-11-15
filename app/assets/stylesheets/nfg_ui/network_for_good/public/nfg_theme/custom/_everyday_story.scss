@@ -7,8 +7,8 @@
     background-size: cover;
     @include media-breakpoint-down(md) {
       background-image: none !important;
-      padding: 0;
       .card { box-shadow: none; }
+      .card-body { padding: 0; }
     }
     @include media-breakpoint-up(lg) { min-height: 500px; }
   }

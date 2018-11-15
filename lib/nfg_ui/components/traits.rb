@@ -6,15 +6,34 @@ module NfgUi
     # Trait modules must have the same name as the component they represent.
     # This provides autoloading of traits.
     module Traits
-      extend ActiveSupport::Autoload
+      TRAIT_MODULES = %i[Active
+                         Alert
+                         Alignment
+                         Button
+                         ButtonGroup
+                         Card
+                         Collapse
+                         Disable
+                         DisableWith
+                         Dismiss
+                         DropdownToggle
+                         Icon
+                         ListGroup
+                         Nav
+                         Navbar
+                         PageHeader
+                         Pill
+                         ProgressBar
+                         Remote
+                         Size
+                         Theme
+                         Typeface
+                         Vertical].freeze
 
-      autoload :Alert
-      autoload :Button
-      autoload :Card
-      autoload :Icon
-      autoload :PageHeader
-      autoload :Theme
-      autoload :Typeface
+      extend ActiveSupport::Autoload
+      TRAIT_MODULES.each { |trait_module| autoload trait_module }
+
+      REGISTERED_TRAITS = TRAIT_MODULES.collect { |trait| "NfgUi::Components::Traits::#{trait}::TRAITS".constantize }.reject(&:empty?).flatten
     end
   end
 end

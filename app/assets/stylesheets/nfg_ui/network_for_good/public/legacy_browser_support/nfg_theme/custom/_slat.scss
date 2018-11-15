@@ -1,0 +1,52 @@
+// Slat and its child elements
+.slat {
+  display: -ms-flexbox;
+  -ms-flex-direction: row;
+  -ms-flex-wrap: wrap;
+}
+
+.slat-body {
+  display: -ms-flexbox;
+  -ms-flex-direction: row;
+  -ms-flex-wrap: wrap;
+  -ms-flex-positive: 1;
+  -ms-flex-negative: 0;
+  -ms-flex-preferred-size: 0;
+
+  .slat-item {
+    -ms-flex-positive: 1;
+    -ms-flex-negative: 0;
+    -ms-flex-preferred-size: 0;
+    &:first-child:not(.slat-item-lg), &:first-child:not(.slat-item-sm) {
+      @include media-breakpoint-down(sm) { -ms-flex-preferred-size: 100%; }
+      @include media-breakpoint-up(md) { -ms-flex-positive: 2; }
+    }
+
+
+    // Sizing options
+    &.slat-item-sm { -ms-flex-positive: 0; }
+    &.slat-item-lg { -ms-flex-positive: 6; }
+  }
+}
+
+.slat-actions {
+  -ms-flex-positive: 0;
+  -ms-flex-negative: 0;
+  -ms-flex-preferred-size: ($spacer * 1.5);
+  min-width: ($spacer * 1.5);
+  @include media-breakpoint-up(sm) {
+    -ms-flex-preferred-size: ($spacer * 6);
+    min-width: ($spacer * 6);
+  }
+
+
+  // Sizing options
+  &.slat-actions-sm { -ms-flex-preferred-size: ($spacer * 1.5); }
+  &.slat-actions-lg { -ms-flex-preferred-size: ($spacer * 12); }
+}
+
+
+// Slat header
+.slat-header {
+  .slat-body { -ms-flex-align: center; }
+}

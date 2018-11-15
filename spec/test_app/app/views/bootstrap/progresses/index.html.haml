@@ -1,5 +1,91 @@
 %h1 Progresses
 
-= ui.bootstrap :progress, progress: 20, theme: :primary, class: 'my-4'
+%p 
+  Pass in the progress attribute as an integer (or a string if you're feeling lucky... it'll convert the number to an integer regardless)
+  %br
+  %code
+    \= ui.bootstrap :progress, progress: 25
 
-= ui.bootstrap :progress, :label, progress: 50, theme: :danger, class: 'my-4'
+= ui.bootstrap :progress, progress: 25, class: 'my-4'
+= ui.bootstrap :progress, progress: 50, class: 'my-4'
+= ui.bootstrap :progress, progress: 75, class: 'my-4'
+= ui.bootstrap :progress, progress: 90, class: 'my-4'
+= ui.bootstrap :progress, progress: 100, class: 'my-4'
+
+%hr
+
+%h2 Labels
+
+%p Labels can be applied in 2 flavors when using the singular :progress component. (infinitely flexible if using the :progress > :progress_bar component setup.)
+%ol
+  %li 
+    As a boolean (true) on the label attribute which will output the '[:progress]%'
+    %br
+    %code = ui.bootstrap :progress, progress: 25, label: true
+    %br
+    %b Label will output 25%
+  %li
+    As a string
+    %br
+    %code = ui.bootstrap :progress, label: 'My label'
+  %li
+    As a built out component with a block passed into progress_bar
+    %br
+    %code 
+      %span = ui.bootstrap :progress, class: 'my-4' do
+      %br
+      %span.ml-3 = ui.bootstrap :progress_bar, progress: 90 do
+      %br
+      %span.d-inline-block.ml-5 Custom block label
+
+= ui.bootstrap :progress, progress: 60, class: 'my-4', label: true
+= ui.bootstrap :progress, progress: 75, class: 'my-4', label: 'Custom string'
+= ui.bootstrap :progress, class: 'my-4' do
+  = ui.bootstrap :progress_bar, progress: 90 do
+    Custom block label
+
+%hr
+
+%h2 Height
+%p leaving the :height option out will use the default heigh value from CSS
+= ui.bootstrap :progress, progress: 60, class: 'my-4', height: 1
+= ui.bootstrap :progress, progress: 60, class: 'my-4', label: 'No height set'
+= ui.bootstrap :progress, progress: 60, class: 'my-4', height: 50, label: 'height: 50'
+
+%hr
+
+%h2 Themes (backgrounds)
+= ui.bootstrap :progress, progress: 15, class: 'my-4', theme: :primary, label: 'Primary'
+= ui.bootstrap :progress, progress: 25, class: 'my-4', theme: :secondary, label: 'Secondary'
+= ui.bootstrap :progress, progress: 50, class: 'my-4', theme: :success, label: 'Success'
+= ui.bootstrap :progress, progress: 75, class: 'my-4', theme: :warning, label: 'Warning'
+= ui.bootstrap :progress, progress: 80, class: 'my-4', theme: :danger, label: 'Danger'
+= ui.bootstrap :progress, progress: 90, class: 'my-4', theme: :dark, label: 'Dark'
+= ui.bootstrap :progress, progress: 95, class: 'my-4', theme: :light
+
+%hr
+
+%h2 Multiple bars
+= ui.bootstrap :progress, class: 'my-4' do
+  = ui.bootstrap :progress_bar, progress: 25, label: true
+  = ui.bootstrap :progress_bar, progress: 25, theme: :success, label: true
+  = ui.bootstrap :progress_bar, progress: 25, theme: :warning, label: true
+
+%hr
+
+%h2 Striped progress bars
+= ui.bootstrap :progress, progress: 15, class: 'my-4', theme: :primary, label: 'Primary Striped', striped: true
+= ui.bootstrap :progress, progress: 25, class: 'my-4', theme: :secondary, label: 'Secondary Striped', striped: true
+= ui.bootstrap :progress, progress: 50, class: 'my-4', theme: :success, label: 'Success Striped', striped: true
+= ui.bootstrap :progress, progress: 75, class: 'my-4', theme: :warning, label: 'Warning Striped', striped: true
+= ui.bootstrap :progress, progress: 80, class: 'my-4', theme: :danger, label: 'Danger Striped', striped: true
+= ui.bootstrap :progress, progress: 90, class: 'my-4', theme: :dark, label: 'Dark Striped', striped: true
+= ui.bootstrap :progress, progress: 95, class: 'my-4', theme: :light, striped: true
+
+%hr
+
+%h2 Striped Animated
+%p.text-danger Avert your eyes... 
+%p Note: Animation only "works" when striped is enabled. For thematic purposes, the css class will be added to the component even if striped is not enabled.
+
+= ui.bootstrap :progress, progress: 50, class: 'my-4', theme: :primary, label: 'Primary Striped - Animated', striped: true, animated: true

@@ -1,1 +1,20 @@
-= render 'nfg_ui/bootstrap/alert', alert: alert
+-# http://getbootstrap.com/docs/4.1/components/alerts/
+%div{ alert.html_options }
+  - if alert.dismissible
+    = ui.nfg :button, :close, dismiss: :alert
+
+  - if alert.icon
+    = ui.nfg :media do
+      = ui.nfg :media_object do
+        .mr-2
+          = ui.nfg :icon, alert.icon
+      = ui.nfg :media_body do
+        - if alert.heading
+          = ui.nfg :typeface, heading: alert.heading, class: 'alert-heading'
+        = alert.body
+  
+  - else
+    - if alert.heading
+      = ui.nfg :typeface, heading: alert.heading, class: 'alert-heading'
+    = alert.body
+

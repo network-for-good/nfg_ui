@@ -2,13 +2,13 @@
 
 = ui.bootstrap :alert, heading: "Oh Snap! There's a major problem here", class: 'my-4' do
   Yielded from captured block: You forgot to fill out an important field, notice my nifty
-  = link_to 'link without class or classes', 'javascript:;'
+  = link_to 'link without class or classes', '#'
   and
-  = link_to 'link with classes but not alert-link', 'javascript:;', class: 'h6 small'
-  = link_to 'link with classes and alert-link', 'javascript:;', class: 'test-class alert-link'
-  = link_to 'link with only alert-link class', 'javascript:;', class: 'alert-link'
+  = link_to 'link with classes but not alert-link', '#', class: 'h6 small'
+  = link_to 'link with classes and alert-link', '#', class: 'test-class alert-link'
+  = link_to 'link with only alert-link class', '#', class: 'alert-link'
 
-= ui.bootstrap :alert, body: 'Passed in as a local and skipped the heading: This is a crazy cool alert!', theme: :primary, dismissible: true, class: 'my-4' 
+= ui.bootstrap :alert, body: 'Passed in as a local and skipped the heading: This is a crazy cool alert!', theme: :primary, dismissible: true, class: 'my-4', heading: 'Hello Alert!'
 
 = ui.bootstrap :alert, heading: "Oh snap! there's a major problem here", body: 'Passed in as a local: This is a crazy cool alert!', theme: :secondary, class: 'my-4' 
 
