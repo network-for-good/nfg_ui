@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    nfg_ui (0.8.2)
+    nfg_ui (0.8.9)
       bootstrap (~> 4.1)
       browser (~> 1.1)
       coffee-script
@@ -126,7 +126,7 @@ GEM
     nio4r (2.3.1)
     nokogiri (1.8.5)
       mini_portile2 (~> 2.3.0)
-    popper_js (1.14.3)
+    popper_js (1.14.5)
     public_suffix (3.0.3)
     puma (3.12.0)
     rack (2.0.5)
