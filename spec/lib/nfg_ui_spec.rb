@@ -140,6 +140,7 @@ RSpec.describe NfgUi do
                                                           slat_item
                                                           stat
                                                           step
+                                                          step_indicator
                                                           tab_pane
                                                           table
                                                           task]

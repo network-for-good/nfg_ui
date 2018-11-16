@@ -53,6 +53,10 @@ module NfgUi
 
         private
 
+        def component_css_class
+          'nav-item'
+        end
+
         def automatic_as
           include_nav_link? ? :li : super
         end

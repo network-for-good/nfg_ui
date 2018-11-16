@@ -1,0 +1,8 @@
+%a{ step_indicator.html_options }
+  .step-indicator
+    - if step_indicator.icon
+      = ui.nfg :icon, step_indicator.icon
+    - else
+      = step_indicator.step
+
+  = ui.nfg :typeface, :muted, caption: step_indicator.body, class: 'mt-1 mb-0 step-text'

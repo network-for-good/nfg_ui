@@ -1,2 +1,2 @@
-%div{ step.html_options }
-  = step.body
+= content_tag step.as, step.html_options do
+  = ui.nfg :step_indicator, step: step.step.to_s, body: step.body, icon: step.icon, href: step.href

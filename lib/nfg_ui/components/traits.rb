@@ -27,6 +27,7 @@ module NfgUi
                          ProgressBar
                          Remote
                          Size
+                         Step
                          Theme
                          Typeface
                          Vertical].freeze

@@ -35,6 +35,10 @@ module NfgUi
 
         private
 
+        def component_css_class
+          'nav'
+        end
+
         def css_classes
           [
             super,
