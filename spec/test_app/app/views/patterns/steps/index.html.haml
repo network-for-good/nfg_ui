@@ -1,29 +1,9 @@
 %h1 Steps
 %h2 Component
+%p Note: upcoming steps that are neither :visited nor :active are :disabled by default
+
 = ui.nfg :steps do
   = ui.nfg :step, :visited, step: 1, body: 'Donation', href: '#back'
   = ui.nfg :step, :active, step: 2, body: 'Your Info'
   = ui.nfg :step, step: 3, body: 'Payment'
   = ui.nfg :step, icon: 'check', body: 'Receipt'
-
-%hr
-
-%h3 Reference, manually built without components
-= ui.nfg :nav, fill: true, class: 'nav-steps' do
-  = ui.nfg :nav_item, class: 'visited' do
-    = ui.nfg :nav_link, href: '#' do
-      .step-indicator 1
-      = ui.nfg :typeface, :muted, caption: 'Donation', class: 'mt-1 mb-0 step-text'
-  = ui.nfg :nav_item, class: 'active' do
-    = ui.nfg :nav_link, href: '#' do
-      .step-indicator 2
-      = ui.nfg :typeface, :muted, caption: 'Your Info', class: 'mt-1 mb-0 step-text'
-  = ui.nfg :nav_item, class: 'disabled' do
-    = ui.nfg :nav_link, href: '#' do
-      .step-indicator 3
-      = ui.nfg :typeface, :muted, caption: 'Payment', class: 'mt-1 mb-0 step-text'
-  = ui.nfg :nav_item, class: 'disabled' do
-    = ui.nfg :nav_link, href: '#' do
-      .step-indicator
-        = ui.nfg :icon, 'check'
-      = ui.nfg :typeface, :muted, caption: 'Receipt', class: 'mt-1 mb-0 step-text'
