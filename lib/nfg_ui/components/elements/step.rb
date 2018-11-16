@@ -24,7 +24,7 @@ module NfgUi
         end
 
         def disabled
-          !visited && !active
+          options[:disabled] || (!visited && !active)
         end
 
         private
