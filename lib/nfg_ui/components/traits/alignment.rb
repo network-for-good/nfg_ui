@@ -16,6 +16,10 @@ module NfgUi
         def left_trait
           options[:right] = true
         end
+
+        def center_trait
+          options[:center] = true
+        end
       end
     end
   end

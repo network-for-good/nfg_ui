@@ -10,9 +10,6 @@ module NfgUi
                       :traits,
                       :component_name,
                       :class_name
-                      
-
-        # attr_reader :ancestry_string
 
         # Protect the component from outside manipulation
         # after initialization
@@ -22,14 +19,9 @@ module NfgUi
         include Haml::Helpers # add capture_haml support
 
         def render_component
-          # return unless render_if || render_unless
-          # raise options.inspect
-          # if render_if
-            view_context.render partial: partial_path, locals: { component_name => component }
-          # end
+          view_context.render partial: partial_path, locals: { component_name => component }
         end
 
-        
         private
 
         def render_if

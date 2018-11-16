@@ -21,6 +21,7 @@ module NfgUi
                          ListGroup
                          Nav
                          Navbar
+                         NavItem
                          PageHeader
                          Pill
                          ProgressBar

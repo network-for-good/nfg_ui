@@ -1,1 +1,9 @@
-= render 'nfg_ui/bootstrap/navs/nav_link', nav_link: nav_link
+- if nav_link.dropdown
+  = ui.nfg :dropdown_toggle, body: nav_link.body, as: :a, **nav_link.html_options, theme: nil, nav_link: true
+
+- else
+  %a{ nav_link.html_options }
+    - if nav_link.icon
+      = ui.nfg :icon, nav_link.icon, text: nav_link.body
+    - else
+      = nav_link.body

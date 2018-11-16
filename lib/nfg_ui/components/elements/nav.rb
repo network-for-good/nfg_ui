@@ -9,8 +9,10 @@ module NfgUi
         include NfgUi::Components::Utilities::Describable
         include NfgUi::Components::Utilities::Renderable
         
+        include NfgUi::Components::Traits::Alignment
         include NfgUi::Components::Traits::Nav
         include NfgUi::Components::Traits::Pill
+        include NfgUi::Components::Traits::Vertical
       end
     end
   end
