@@ -30,6 +30,7 @@ module NfgUi
       require_relative 'patterns/slat_header'
       require_relative 'patterns/slat_list'
       require_relative 'patterns/slats'
+      require_relative 'patterns/steps'
       require_relative 'patterns/tab_content'
       require_relative 'patterns/task_list'
       require_relative 'patterns/tile'

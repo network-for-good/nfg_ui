@@ -48,6 +48,7 @@ module NfgUi
       require_relative 'elements/slat_body'
       require_relative 'elements/slat_item'
       require_relative 'elements/stat'
+      require_relative 'elements/step'
       require_relative 'elements/tab_pane'
       require_relative 'elements/table'
       require_relative 'elements/task'
