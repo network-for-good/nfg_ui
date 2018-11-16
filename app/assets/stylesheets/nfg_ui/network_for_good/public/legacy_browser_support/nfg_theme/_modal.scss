@@ -5,8 +5,9 @@
 
 // Actual modal
 .modal-content {
+  // display: block;
   display: -ms-flexbox;
-  -ms-flex-direction: column;
+  -ms-flex-direction: row;
 }
 
 // Modal header
