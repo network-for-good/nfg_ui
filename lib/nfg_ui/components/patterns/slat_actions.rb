@@ -63,7 +63,7 @@ module NfgUi
           [
             super,
             ("#{component_css_class}-sm" unless wide),
-
+            ('line-height-sm' if href.present?)
           ].join(' ').squish
         end
 
