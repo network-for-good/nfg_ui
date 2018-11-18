@@ -129,3 +129,24 @@
       = ui.nfg :slat_actions, menu: false, icon: 'trash', href: '#nogo'
 
 
+.mt-5
+%hr
+.mb-5
+
+%h3.my-4 Slat with slat-items lg
+= ui.nfg :slats do
+  = ui.nfg :slat_header do
+    = ui.nfg :slat do
+      = ui.nfg :slat_body do
+        = ui.nfg :slat_item, slat_header: 'First Column'
+        = ui.nfg :slat_item, slat_header: 'Second Column'
+      = ui.nfg :slat_actions, slat_header: true
+
+  = ui.nfg :slat_list do
+    = ui.nfg :slat do
+      = ui.nfg :slat_body do
+        
+        = ui.nfg :slat_item, :lg, heading: 'Slat information (:lg)'
+        = ui.nfg :slat_item, heading: '$5000', caption: 'An amount caption'
+
+      = ui.nfg :slat_actions, menu: false, icon: 'trash', href: '#nogo'
