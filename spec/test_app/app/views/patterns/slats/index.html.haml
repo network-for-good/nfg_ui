@@ -95,7 +95,7 @@
         = ui.nfg :slat_item, heading: 'Slat information'
         = ui.nfg :slat_item, heading: '$5000', caption: 'An amount caption'
 
-      = ui.nfg :slat_actions, menu: false, icon: 'trash', body: 'Delete', href: '#nogo'
+      = ui.nfg :slat_actions, :danger, menu: false, icon: 'trash', body: 'Delete', href: '#nogo', remote: true, method: :get
 
 .mt-5
 %hr
@@ -126,7 +126,7 @@
         = ui.nfg :slat_item, heading: 'Slat information'
         = ui.nfg :slat_item, heading: '$5000', caption: 'An amount caption'
 
-      = ui.nfg :slat_actions, menu: false, icon: 'trash', href: '#nogo'
+      = ui.nfg :slat_actions, menu: false, icon: 'trash', href: '#nogo', method: :get, disable_with: 'Disabler', confirm: 'Are you sure?'
 
 
 .mt-5
@@ -149,4 +149,4 @@
         = ui.nfg :slat_item, :lg, heading: 'Slat information (:lg)'
         = ui.nfg :slat_item, heading: '$5000', caption: 'An amount caption'
 
-      = ui.nfg :slat_actions, menu: false, icon: 'trash', href: '#nogo'
+      = ui.nfg :slat_actions, :warning, menu: false, icon: 'trash', href: '#nogo'

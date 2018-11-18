@@ -9,7 +9,7 @@
           = slat_actions.body
   - else
     - if slat_actions.href.present?
-      = link_to slat_actions.href, class: slat_actions.theme do
+      = link_to slat_actions.href, **slat_actions.action_link_html_options  do
         - if slat_actions.icon
           = ui.nfg :icon, slat_actions.icon, text: slat_actions.body, theme: slat_actions.theme
         - else
