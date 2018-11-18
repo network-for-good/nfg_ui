@@ -43,7 +43,10 @@ module NfgUi
 
         def action_link_html_options
           { href: href,
-            class: (theme ? "text-#{theme}" : ''),
+            class: [
+                     (theme ? "text-#{theme}" : ''),
+                     'd-block'
+                   ].join(' ').squish,
             method: send(:method),
             remote: remote,
             data: { disable_with: disable_with,
