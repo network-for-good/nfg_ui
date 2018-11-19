@@ -19,6 +19,7 @@ module NfgUi
                          DropdownToggle
                          Icon
                          ListGroup
+                         Muted
                          Nav
                          Navbar
                          NavItem

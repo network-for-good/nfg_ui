@@ -12,6 +12,7 @@ module NfgUi
         include NfgUi::Components::Utilities::Iconable
         include NfgUi::Components::Utilities::Titleable
 
+        include NfgUi::Components::Traits::Muted
         include NfgUi::Components::Traits::Theme
         include NfgUi::Components::Traits::Typeface
 

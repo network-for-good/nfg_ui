@@ -178,3 +178,20 @@
         = ui.nfg :slat_item, heading: '$5000', caption: 'An amount caption'
 
       = ui.nfg :slat_actions, :warning, menu: false, icon: 'trash', href: '#nogo'
+
+.mt-5
+%hr
+.mb-5
+
+%h3.my-4 Slat with slat-list sm
+
+= ui.nfg :slats do
+  = ui.nfg :slat_header do
+    = ui.nfg :slat do
+      = ui.nfg :slat_body do
+        = ui.nfg :slat_item, slat_header: 'First Column'
+
+  = ui.nfg :slat_list, :sm do
+    = ui.nfg :slat do
+      = ui.nfg :slat_body do
+        = ui.nfg :slat_item, heading: 'Your shopping cart'
