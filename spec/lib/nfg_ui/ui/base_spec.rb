@@ -36,25 +36,34 @@ RSpec.describe NfgUi::UI::Base do
   end
 
   describe '#nfg' do
+    shared_examples 'a rendered nfg button component' do
+      it 'renders an nfg button component' do
+        expect(subject).to eq "<a class=\"btn btn-primary\" href=\"#\">#{body}\n</a>"
+      end
+    end
+
     subject { base_component.nfg(*component_args) }
     let(:body) { 'test' }
     let(:options) {{ body: body }}
     let(:component_args) { [:button, [], options] }
-    it 'renders an nfg component' do
-      expect(subject).to eq "<a class=\"btn btn-primary\" href=\"#\">#{body}\n</a>"
-    end
+    it_behaves_like 'a rendered nfg button component'
 
     context 'when render_if is used' do
       let(:options) {{ body: body, render_if: render_if }}
       context 'when render_if is true' do
         let(:render_if) { true }
-        it 'renders an nfg component' do
-          expect(subject).to eq "<a class=\"btn btn-primary\" href=\"#\">#{body}\n</a>"
-        end
+        it_behaves_like 'a rendered nfg button component'
       end
 
       context 'when render_if is false' do
         let(:render_if) { false }
+        it 'returns nil' do
+          expect(subject).to eq nil
+        end
+      end
+
+      context 'when render_if is nil' do
+        let(:render_if) { nil }
         it 'returns nil' do
           expect(subject).to eq nil
         end
@@ -72,9 +81,12 @@ RSpec.describe NfgUi::UI::Base do
 
       context 'when render_if is false' do
         let(:render_unless) { false }
-        it 'renders an nfg component' do
-          expect(subject).to eq "<a class=\"btn btn-primary\" href=\"#\">#{body}\n</a>"
-        end
+        it_behaves_like 'a rendered nfg button component'
+      end
+
+      context 'when render_if is nil' do
+        let(:render_unless) { nil }
+        it_behaves_like 'a rendered nfg button component'
       end
     end
   end
