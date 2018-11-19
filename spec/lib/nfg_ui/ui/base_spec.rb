@@ -36,12 +36,46 @@ RSpec.describe NfgUi::UI::Base do
   end
 
   describe '#nfg' do
-    pending 'need spec for testing options render_if'
     subject { base_component.nfg(*component_args) }
     let(:body) { 'test' }
-    let(:component_args) { [:button, [], { body: body}] }
+    let(:options) {{ body: body }}
+    let(:component_args) { [:button, [], options] }
     it 'renders an nfg component' do
       expect(subject).to eq "<a class=\"btn btn-primary\" href=\"#\">#{body}\n</a>"
+    end
+
+    context 'when render_if is used' do
+      let(:options) {{ body: body, render_if: render_if }}
+      context 'when render_if is true' do
+        let(:render_if) { true }
+        it 'renders an nfg component' do
+          expect(subject).to eq "<a class=\"btn btn-primary\" href=\"#\">#{body}\n</a>"
+        end
+      end
+
+      context 'when render_if is false' do
+        let(:render_if) { false }
+        it 'returns nil' do
+          expect(subject).to eq nil
+        end
+      end
+    end
+
+    context 'when render_unless is used' do
+      let(:options) {{ body: body, render_unless: render_unless }}
+      context 'when render_if is true' do
+        let(:render_unless) { true }
+        it 'returns nil' do
+          expect(subject).to eq nil
+        end
+      end
+
+      context 'when render_if is false' do
+        let(:render_unless) { false }
+        it 'renders an nfg component' do
+          expect(subject).to eq "<a class=\"btn btn-primary\" href=\"#\">#{body}\n</a>"
+        end
+      end
     end
   end
 end
