@@ -42,7 +42,7 @@ shared_examples_for 'a component that includes the Renderable utility module' do
       context 'when render_if is nil' do
         let(:options) { { render_if: nil } }
         it 'renders the component' do
-          expect(subject).to be_present
+          expect(subject).not_to be_present
         end
       end
     end
