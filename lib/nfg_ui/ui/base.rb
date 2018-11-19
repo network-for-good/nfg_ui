@@ -25,9 +25,9 @@ module NfgUi
       def render_nfg_component?(options)
         return true unless options.key?(:render_if) || options.key?(:render_unless)
         if options.key?(:render_if)
-          options[:render_if].present?
+          options[:render_if]
         else
-          options[:render_unless].blank?
+          !options[:render_unless]
         end
       end
     end
