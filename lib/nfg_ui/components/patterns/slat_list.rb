@@ -5,6 +5,10 @@ module NfgUi
     module Patterns
       # SlatList doc coming soon
       class SlatList < NfgUi::Components::Base
+        include Bootstrap::Utilities::Sizable
+
+        include NfgUi::Components::Traits::Size
+        
         def component_family
           :slats
         end
