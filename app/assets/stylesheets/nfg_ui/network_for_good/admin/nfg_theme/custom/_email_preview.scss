@@ -1,0 +1,33 @@
+// Wrap an email preview in .email-preview to overwrite the necessary bs4 css classes
+// with the email's look and feel.
+.email-preview {
+  color: black;
+
+  .spacer-tr { display: none; }
+
+  p { 
+    line-height: 1.25;
+    color: black;
+    margin-bottom: 16px;
+  }
+
+  h3 {
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+
+  .order_details {
+    margin-bottom: 16px;
+    
+    thead th[align],
+    thead th.amount { 
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .amount{
+      text-align: right;
+    }
+  }
+}
+
