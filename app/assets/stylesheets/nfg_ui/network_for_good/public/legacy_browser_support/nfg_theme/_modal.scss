@@ -5,7 +5,9 @@
 
 // Actual modal
 .modal-content {
-  display: block;
+  display: block; // using display block because "-ms-flex-direction: column;" doesn't work in IE10
+  // display: -ms-flexbox;
+  // -ms-flex-direction: column;
 }
 
 // Modal header
