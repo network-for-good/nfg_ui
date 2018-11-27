@@ -8,7 +8,7 @@ module NfgUi
         include NfgUi::Components::Utilities::Titleable
         include NfgUi::Components::Utilities::BrowserDetectable
         include NfgUi::Components::Utilities::Renderable
-        
+
         include NfgUi::Components::Traits::PageHeader
 
         def data
@@ -27,8 +27,7 @@ module NfgUi
         def title_column_classes
           [
             'py-2',
-            'col-12',
-            ('col-lg-7' if body)
+            'col'
           ].join(' ').squish
         end
 
