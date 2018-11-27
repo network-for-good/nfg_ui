@@ -19,7 +19,7 @@ body:not(.modal-open) {
   &.select2-container--focus .select2-selection--multiple { border-color: $primary; }
   &.select2-container--open {
     .select2-selection--single {
-      background-color: theme-color("light");
+      border-color: $custom-select-focus-border-color !important;
     }
   }
 
@@ -40,10 +40,6 @@ body:not(.modal-open) {
     outline: none;
     cursor: pointer;
     transition: $transition-base;
-    &:hover {
-      background-color: theme-color("light");
-      .select2-selection__rendered { color: $body-color; }
-    }
     .select2-selection__rendered {
       padding: 0 !important;
       color: $primary !important;
