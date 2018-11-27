@@ -24,13 +24,6 @@ module NfgUi
           options.fetch(:subtitle, nil)
         end
 
-        def title_column_classes
-          [
-            'py-2',
-            'col'
-          ].join(' ').squish
-        end
-
         private
 
         def non_html_attribute_options
