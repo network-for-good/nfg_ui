@@ -3,10 +3,15 @@
     .col.col-xl-11.mx-auto
       .row.align-items-center
         %div{ class: page_header.title_column_classes }
-          %h2
-            = ui.nfg :icon, resource_theme_icon, class: "text-#{resource_theme_color} mr-1", text: page_header.title
-            - if page_header.subtitle
-              %small.text-muted= page_header.subtitle
+          = ui.nfg :media do
+            = ui.nfg :media_object do
+              .mr-2.h2
+                = ui.nfg :icon, resource_theme_icon, class: "text-#{resource_theme_color} mr-0"
+            = ui.nfg :media_body do
+              %h2
+                = page_header.title
+                - if page_header.subtitle
+                  %small.text-muted= page_header.subtitle
 
         - if page_header.body
           .col-12.col-md-auto.py-2
