@@ -1,0 +1,7 @@
+//
+// Basic Bootstrap table
+//
+.table {
+  thead th { border-bottom-width: $table-border-width; }
+  tbody + tbody { border-top-width: $table-border-width; }
+}
