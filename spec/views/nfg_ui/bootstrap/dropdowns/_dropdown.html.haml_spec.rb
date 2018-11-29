@@ -24,7 +24,7 @@ RSpec.describe 'nfg_ui/bootstrap/dropdowns/_dropdown.html.haml', type: :view do
       context 'and when only button text is present in options' do
         it 'adds a dropdown toggle button to the component in HTML' do
           expect(subject).to have_css '.btn.dropdown-toggle.btn-primary'
-          expect(subject).to eq "<div class='dropdown'>\n<button class=\"btn dropdown-toggle btn-primary\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\" type=\"button\">#{button_text}\n\n</button>\n#{body}\n</div>\n"
+          expect(subject).to eq "<div class='dropdown'>\n<button class=\"btn dropdown-toggle btn-primary\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\" type=\"button\">#{button_text}\n</button>\n#{body}\n</div>\n"
         end
       end
 

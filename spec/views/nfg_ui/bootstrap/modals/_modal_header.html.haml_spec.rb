@@ -10,7 +10,7 @@ RSpec.describe 'nfg_ui/bootstrap/modals/_modal_header.html.haml', type: :view do
   subject { render 'nfg_ui/bootstrap/modals/modal_header', modal_header: modal_header }
 
   it 'accurately renders the modal header HTML' do
-    expect(subject).to eq "<div class='modal-header'>\n<h5 class='modal-title'>#{tested_title}</h5>\n<button class=\"btn close\" data-dismiss=\"modal\" aria-label=\"Close\" type=\"button\"><span aria-hidden='true'>\n&times;\n</span>\n\n</button></div>\n"
+    expect(subject).to eq "<div class='modal-header'>\n<h5 class='modal-title'>#{tested_title}</h5>\n<button class=\"btn close\" data-dismiss=\"modal\" aria-label=\"Close\" type=\"button\"><span aria-hidden='true'>\n&times;\n</span>\n</button></div>\n"
   end
 
   it 'renders the close button' do

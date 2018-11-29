@@ -10,6 +10,21 @@ module NfgUi
         include Bootstrap::Utilities::Headable
         include Bootstrap::Utilities::Themeable
 
+        def render
+          content_tag(:div, html_options) do
+            if dismissible
+              content << NfgUi::Bootstrap::Components::Button.new({ as: :button, class: 'close', theme: nil, data: { dismiss: 'alert' }, aria: { label: 'Close' } }, view_context).render do
+                content_tag(:span, "&times;".html_safe, aria: { hidden: 'true' } )
+              end
+            end
+            if heading
+              content << content_tag(:h4, heading, class: 'alert-heading')
+            end
+            content << (block_given? ? yield : body)
+            content.join.html_safe
+          end
+        end
+
         private
 
         def assistive_html_attributes

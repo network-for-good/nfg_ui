@@ -10,7 +10,7 @@ RSpec.describe 'nfg_ui/bootstrap/_alert.html.haml', type: :view do
     expect(subject).to have_css '.alert'
     expect(subject).to have_css ".alert[role='alert']"
     expect(subject).to have_selector '.alert', text: body
-    expect(subject).to eq "<div class='alert alert-primary alert-dismissible fade show' role='alert'>\n<button class=\"btn close\" data-dismiss=\"alert\" aria-label=\"Close\" type=\"button\"><span aria-hidden='true'>\n&times;\n</span>\n\n</button>#{body}\n</div>\n"
+    expect(subject).to eq "<div class='alert alert-primary alert-dismissible fade show' role='alert'>\n<button class=\"btn close\" data-dismiss=\"alert\" aria-label=\"Close\" type=\"button\"><span aria-hidden='true'>\n&times;\n</span>\n</button>#{body}\n</div>\n"
   end
 
   describe 'alert with heading' do

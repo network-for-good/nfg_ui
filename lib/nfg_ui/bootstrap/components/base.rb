@@ -7,6 +7,9 @@ module NfgUi
       # Defines conventional, shared behavior across
       # Bootstrap components
       class Base
+        include ActionView::Helpers::TagHelper
+        include ActionView::Context
+
         attr_reader   :body
 
         attr_accessor :options,
@@ -21,7 +24,13 @@ module NfgUi
         end
 
         def render
-          "<p>Hello 11</p>".html_safe
+          # Until a component has it's own render method, this NotImplemented
+          # error will be raised, and the components related partial will be rendered
+          #
+          # Remember to always include  (block_given? ? yield : body) where the original
+          # component.body was rendered, so each componenets render method can accept
+          # a block, or continue to accept the body value
+          raise NotImplementedError.new("a subclass must implement this")
         end
 
         # This is used to help identify where to find partials for rendering components.
@@ -120,6 +129,10 @@ module NfgUi
         # html element, ex: <div body='should not be here'>
         def non_html_attribute_options
           @non_html_attribute_options ||= %i[body heading traits]
+        end
+
+        def content
+          @content ||= []
         end
       end
     end
