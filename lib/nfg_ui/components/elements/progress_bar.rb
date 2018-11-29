@@ -4,7 +4,7 @@ module NfgUi
   module Components
     module Elements
       # ProgressBar doc coming soon
-      class ProgressBar < Bootstrap::Components::ProgressBar
+      class ProgressBar < NfgUi::Bootstrap::Components::ProgressBar
         include NfgUi::Components::Utilities::Traitable
         include NfgUi::Components::Utilities::Describable
         include NfgUi::Components::Utilities::Renderable

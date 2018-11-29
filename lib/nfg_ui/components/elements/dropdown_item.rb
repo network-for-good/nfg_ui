@@ -4,7 +4,7 @@ module NfgUi
   module Components
     module Elements
       # Ino coming soon.
-      class DropdownItem < Bootstrap::Components::DropdownItem
+      class DropdownItem < NfgUi::Bootstrap::Components::DropdownItem
         include Bootstrap::Utilities::Themeable
 
         include NfgUi::Components::Utilities::Confirmable
@@ -14,7 +14,7 @@ module NfgUi
         include NfgUi::Components::Utilities::Methodable
         include NfgUi::Components::Utilities::Renderable
         include NfgUi::Components::Utilities::Traitable
-        
+
         include NfgUi::Components::Traits::Remote
         include NfgUi::Components::Traits::Active
         include NfgUi::Components::Traits::DisableWith

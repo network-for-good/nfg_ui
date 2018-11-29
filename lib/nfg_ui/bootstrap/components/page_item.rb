@@ -5,7 +5,7 @@ module NfgUi
     module Components
       # Bootstrap Pagination - Page Item Component
       # https://getbootstrap.com/docs/4.1/components/pagination/
-      class PageItem < Bootstrap::Components::Base
+      class PageItem < NfgUi::Bootstrap::Components::Base
         # include Bootstrap::Utilities::Disableable
         include Bootstrap::Utilities::Activatable
 

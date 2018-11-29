@@ -5,7 +5,7 @@ module NfgUi
     module Components
       # Bootstrap Navbar Component
       # https://getbootstrap.com/docs/4.1/components/navbar/
-      class Navbar < Bootstrap::Components::Base
+      class Navbar < NfgUi::Bootstrap::Components::Base
         include Bootstrap::Utilities::Wrappable
         include Bootstrap::Utilities::Themeable
 

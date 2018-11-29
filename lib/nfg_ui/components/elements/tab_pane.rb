@@ -3,7 +3,7 @@
 module NfgUi
   module Components
     module Elements
-      class TabPane < Bootstrap::Components::TabPane
+      class TabPane < NfgUi::Bootstrap::Components::TabPane
         include NfgUi::Components::Utilities::Traitable
         include NfgUi::Components::Utilities::Describable
         include NfgUi::Components::Utilities::Renderable

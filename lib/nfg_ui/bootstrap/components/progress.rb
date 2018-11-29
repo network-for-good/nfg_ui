@@ -5,7 +5,7 @@ module NfgUi
     module Components
       # Bootstrap Parent Progress Component
       # https://getbootstrap.com/docs/4.1/components/progress/
-      class Progress < Bootstrap::Components::Base
+      class Progress < NfgUi::Bootstrap::Components::Base
         include Bootstrap::Utilities::Progressable
 
         def component_family

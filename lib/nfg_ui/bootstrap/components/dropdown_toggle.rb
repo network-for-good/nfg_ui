@@ -5,7 +5,7 @@ module NfgUi
     module Components
       # Bootstrap Dropdown Component
       # https://getbootstrap.com/docs/4.1/components/dropdowns/
-      class DropdownToggle < Bootstrap::Components::Base
+      class DropdownToggle < NfgUi::Bootstrap::Components::Base
         include Bootstrap::Utilities::Wrappable
         include Bootstrap::Utilities::Sizable
 

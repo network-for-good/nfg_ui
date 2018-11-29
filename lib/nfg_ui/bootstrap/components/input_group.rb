@@ -5,7 +5,7 @@ module NfgUi
     module Components
       # Bootstrap Input Group Component
       # https://getbootstrap.com/docs/4.1/components/input-group/
-      class InputGroup < Bootstrap::Components::Base
+      class InputGroup < NfgUi::Bootstrap::Components::Base
       end
     end
   end

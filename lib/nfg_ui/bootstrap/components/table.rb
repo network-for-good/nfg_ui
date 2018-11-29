@@ -5,7 +5,7 @@ module NfgUi
     module Components
       # Bootstrap Table Component
       # https://getbootstrap.com/docs/4.1/content/tables/
-      class Table < Bootstrap::Components::Base
+      class Table < NfgUi::Bootstrap::Components::Base
       end
     end
   end

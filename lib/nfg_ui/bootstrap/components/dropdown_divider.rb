@@ -5,7 +5,7 @@ module NfgUi
     module Components
       # Bootstrap Dropdown Component
       # https://getbootstrap.com/docs/4.1/components/dropdowns/
-      class DropdownDivider < Bootstrap::Components::Base
+      class DropdownDivider < NfgUi::Bootstrap::Components::Base
         def component_family
           :dropdown
         end

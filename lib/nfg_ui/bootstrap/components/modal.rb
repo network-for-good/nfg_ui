@@ -5,8 +5,8 @@ module NfgUi
     module Components
       # Bootstrap Modal Component
       # https://getbootstrap.com/docs/4.1/components/modal/
-      class Modal < Bootstrap::Components::Base
-        
+      class Modal < NfgUi::Bootstrap::Components::Base
+
         # NOTE: ARIALABELLEDBY has not been introduced on speed modals.
         # ex: aria-labelledby="exampleModalLabel"
         # which is then the ID of the modal title element

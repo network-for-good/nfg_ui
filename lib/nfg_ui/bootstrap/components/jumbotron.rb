@@ -5,7 +5,7 @@ module NfgUi
     module Components
       # Bootstrap Jumbotron Component
       # https://getbootstrap.com/docs/4.1/components/jumbotron/
-      class Jumbotron < Bootstrap::Components::Base
+      class Jumbotron < NfgUi::Bootstrap::Components::Base
       end
     end
   end

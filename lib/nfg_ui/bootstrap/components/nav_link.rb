@@ -5,7 +5,7 @@ module NfgUi
     module Components
       # Bootstrap Nav Component
       # https://getbootstrap.com/docs/4.1/components/navs/
-      class NavLink < Bootstrap::Components::Base
+      class NavLink < NfgUi::Bootstrap::Components::Base
         include Bootstrap::Utilities::Activatable
         include Bootstrap::Utilities::Disableable
         include Bootstrap::Utilities::Remotable

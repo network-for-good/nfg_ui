@@ -5,7 +5,7 @@ module NfgUi
     module Components
       # Bootstrap Modal Component
       # https://getbootstrap.com/docs/4.1/components/modal/
-      class ModalHeader < Bootstrap::Components::Base
+      class ModalHeader < NfgUi::Bootstrap::Components::Base
 
         def component_family
           :modal

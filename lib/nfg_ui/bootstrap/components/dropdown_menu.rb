@@ -5,7 +5,7 @@ module NfgUi
     module Components
       # Bootstrap Dropdown Component
       # https://getbootstrap.com/docs/4.1/components/dropdowns/
-      class DropdownMenu < Bootstrap::Components::Base
+      class DropdownMenu < NfgUi::Bootstrap::Components::Base
         def component_family
           :dropdown
         end

@@ -5,7 +5,7 @@ module NfgUi
     module Components
       # Bootstrap Nav Component
       # https://getbootstrap.com/docs/4.1/components/navs/
-      class NavItem < Bootstrap::Components::Base
+      class NavItem < NfgUi::Bootstrap::Components::Base
         include Bootstrap::Utilities::Wrappable
 
         # For passing through to nav_link

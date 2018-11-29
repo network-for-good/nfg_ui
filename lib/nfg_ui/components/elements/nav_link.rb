@@ -4,7 +4,7 @@ module NfgUi
   module Components
     module Elements
       # Nav doc coming soon
-      class NavLink < Bootstrap::Components::NavLink
+      class NavLink < NfgUi::Bootstrap::Components::NavLink
         include NfgUi::Components::Utilities::Traitable
         include NfgUi::Components::Utilities::Describable
         include NfgUi::Components::Utilities::Iconable

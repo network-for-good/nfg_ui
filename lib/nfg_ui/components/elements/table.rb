@@ -4,7 +4,7 @@ module NfgUi
   module Components
     module Elements
       # Table doc coming soon
-      class Table < Bootstrap::Components::Table
+      class Table < NfgUi::Bootstrap::Components::Table
         include NfgUi::Components::Utilities::Traitable
         include NfgUi::Components::Utilities::Describable
         include NfgUi::Components::Utilities::Renderable

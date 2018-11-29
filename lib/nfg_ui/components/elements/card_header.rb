@@ -4,7 +4,7 @@ module NfgUi
   module Components
     module Elements
       # doc coming soon
-      class CardHeader < Bootstrap::Components::CardHeader
+      class CardHeader < NfgUi::Bootstrap::Components::CardHeader
         include NfgUi::Components::Utilities::Traitable
         include NfgUi::Components::Utilities::Describable
         include NfgUi::Components::Utilities::Renderable

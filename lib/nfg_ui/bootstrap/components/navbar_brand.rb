@@ -5,7 +5,7 @@ module NfgUi
     module Components
       # Bootstrap Navbar Component
       # https://getbootstrap.com/docs/4.1/components/navbar/
-      class NavbarBrand < Bootstrap::Components::Base
+      class NavbarBrand < NfgUi::Bootstrap::Components::Base
         def component_family
           :navbar
         end

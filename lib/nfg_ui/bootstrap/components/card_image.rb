@@ -5,7 +5,7 @@ module NfgUi
     module Components
       # Bootstrap Card Header
       # https://getbootstrap.com/docs/4.1/components/card/#header-and-footer
-      class CardImage < Bootstrap::Components::Base
+      class CardImage < NfgUi::Bootstrap::Components::Base
         def component_family
           :card
         end

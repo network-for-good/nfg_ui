@@ -5,7 +5,7 @@ module NfgUi
     module Components
       # Bootstrap Card Header
       # https://getbootstrap.com/docs/4.1/components/card/#header-and-footer
-      class CardImageOverlay < Bootstrap::Components::Base
+      class CardImageOverlay < NfgUi::Bootstrap::Components::Base
         include NfgUi::Components::Utilities::Titleable
 
         def component_family

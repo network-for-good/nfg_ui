@@ -5,7 +5,7 @@ module NfgUi
     module Components
       # Bootstrap Progress Component
       # https://getbootstrap.com/docs/4.1/components/progress/
-      class TabContent < Bootstrap::Components::Base
+      class TabContent < NfgUi::Bootstrap::Components::Base
         def component_family
           :tab
         end

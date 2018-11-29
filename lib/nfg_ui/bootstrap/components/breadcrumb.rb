@@ -5,7 +5,7 @@ module NfgUi
     module Components
       # Bootstrap Breadcrumb Component
       # https://getbootstrap.com/docs/4.1/components/breadcrumb/
-      class Breadcrumb < Bootstrap::Components::Base
+      class Breadcrumb < NfgUi::Bootstrap::Components::Base
         def component_family
           :breadcrumb
         end

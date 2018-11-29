@@ -5,7 +5,7 @@ module NfgUi
     module Components
       # Media Object Layout Component
       # https://getbootstrap.com/docs/4.1/layout/media-object/
-      class MediaBody < Bootstrap::Components::Base
+      class MediaBody < NfgUi::Bootstrap::Components::Base
         def component_family
           :media
         end

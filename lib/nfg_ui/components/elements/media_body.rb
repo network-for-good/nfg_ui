@@ -4,7 +4,7 @@ module NfgUi
   module Components
     module Elements
       # MediaObject doc coming soon
-      class MediaBody < Bootstrap::Components::MediaBody
+      class MediaBody < NfgUi::Bootstrap::Components::MediaBody
         include NfgUi::Components::Utilities::Traitable
         include NfgUi::Components::Utilities::Describable
         include NfgUi::Components::Utilities::Renderable

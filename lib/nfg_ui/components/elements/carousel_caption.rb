@@ -4,7 +4,7 @@ module NfgUi
   module Components
     module Elements
       # Docs coming soon
-      class CarouselCaption < Bootstrap::Components::CarouselCaption
+      class CarouselCaption < NfgUi::Bootstrap::Components::CarouselCaption
         include NfgUi::Components::Utilities::Traitable
         include NfgUi::Components::Utilities::Describable
         include NfgUi::Components::Utilities::Renderable

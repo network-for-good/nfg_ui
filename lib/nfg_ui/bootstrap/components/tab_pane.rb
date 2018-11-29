@@ -5,7 +5,7 @@ module NfgUi
     module Components
       # Bootstrap Progress Component
       # https://getbootstrap.com/docs/4.1/components/progress/
-      class TabPane < Bootstrap::Components::Base
+      class TabPane < NfgUi::Bootstrap::Components::Base
         include Bootstrap::Utilities::Activatable
 
         def component_family

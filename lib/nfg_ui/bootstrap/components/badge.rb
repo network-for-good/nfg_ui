@@ -5,7 +5,7 @@ module NfgUi
     module Components
       # Bootstrap Badge Component
       # https://getbootstrap.com/docs/4.1/components/badge/
-      class Badge < Bootstrap::Components::Base
+      class Badge < NfgUi::Bootstrap::Components::Base
         include Bootstrap::Utilities::Themeable
         include Bootstrap::Utilities::Wrappable
 

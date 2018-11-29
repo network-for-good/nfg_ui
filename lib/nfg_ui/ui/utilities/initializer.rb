@@ -19,7 +19,12 @@ module NfgUi
         include Haml::Helpers # add capture_haml support
 
         def render_component
-          view_context.render partial: partial_path, locals: { component_name => component }
+          if options[:use_render_not_partial]
+            component.render
+          else
+            p options
+            view_context.render partial: partial_path, locals: { component_name => component }
+          end
         end
 
         private
@@ -42,10 +47,10 @@ module NfgUi
           @class_name = component_name.to_s.camelize
           @traits = traits
           @options = options
-          
+
           options[:body] = capture(&block) if block_given?
           options[:traits] = traits.present? ? traits : []
-          
+
           # self.view_context = view_context
           self.component = ancestry_string.constantize.new(options, view_context)
         end

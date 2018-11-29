@@ -5,7 +5,7 @@ module NfgUi
     module Components
       # Bootstrap Button Component
       # https://getbootstrap.com/docs/4.1/components/buttons/
-      class Button < Bootstrap::Components::Base
+      class Button < NfgUi::Bootstrap::Components::Base
         include Bootstrap::Utilities::Activatable
         include Bootstrap::Utilities::CollapseToggleable
         include Bootstrap::Utilities::Disableable

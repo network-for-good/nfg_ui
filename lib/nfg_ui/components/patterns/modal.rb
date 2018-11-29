@@ -4,7 +4,7 @@ module NfgUi
   module Components
     module Patterns
       # Modal docs coming soon
-      class Modal < Bootstrap::Components::Modal
+      class Modal < NfgUi::Bootstrap::Components::Modal
         include NfgUi::Components::Utilities::Traitable
         include NfgUi::Components::Utilities::Describable
         include NfgUi::Components::Utilities::Renderable

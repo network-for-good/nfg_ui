@@ -20,6 +20,10 @@ module NfgUi
           component_initialize
         end
 
+        def render
+          "<p>Hello 11</p>".html_safe
+        end
+
         # This is used to help identify where to find partials for rendering components.
         #
         # Set the component family, e.g.: :breadcrumb
@@ -57,7 +61,7 @@ module NfgUi
 
         # For components that inherit bootstrap, provide a second
         # layer of initialization, for example:
-        # to initialize traits on design system components 
+        # to initialize traits on design system components
         # (which are not available on bootstrap)
         def component_initialize; end
         def utility_initialize; end

@@ -5,7 +5,7 @@ module NfgUi
     module Components
       # Bootstrap Responsive Embed Component
       # https://getbootstrap.com/docs/4.1/utilities/embed/
-      class Embed < Bootstrap::Components::Base
+      class Embed < NfgUi::Bootstrap::Components::Base
         def aspect_ratio
           options.fetch(:aspect_ratio, default_aspect_ratio) || default_aspect_ratio
         end

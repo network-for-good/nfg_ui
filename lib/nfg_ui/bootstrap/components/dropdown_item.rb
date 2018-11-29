@@ -5,7 +5,7 @@ module NfgUi
     module Components
       # Bootstrap Dropdown Items Component
       # https://getbootstrap.com/docs/4.1/components/dropdowns/#menu-items
-      class DropdownItem < Bootstrap::Components::Base
+      class DropdownItem < NfgUi::Bootstrap::Components::Base
         include Bootstrap::Utilities::Wrappable
         include Bootstrap::Utilities::Activatable
         include Bootstrap::Utilities::Disableable

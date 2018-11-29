@@ -5,7 +5,7 @@ module NfgUi
     module Components
       # Bootstrap Navbar Component
       # https://getbootstrap.com/docs/4.1/components/navbar/
-      class NavbarToggler < Bootstrap::Components::Base
+      class NavbarToggler < NfgUi::Bootstrap::Components::Base
         include Bootstrap::Utilities::CollapseToggleable
 
         # Pass through to collapse component

@@ -5,7 +5,7 @@ module NfgUi
     module Components
       # Bootstrap Popover Component
       # https://getbootstrap.com/docs/4.1/components/popovers/
-      class Popover < Bootstrap::Components::Base
+      class Popover < NfgUi::Bootstrap::Components::Base
       end
     end
   end

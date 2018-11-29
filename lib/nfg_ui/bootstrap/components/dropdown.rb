@@ -5,7 +5,7 @@ module NfgUi
     module Components
       # Bootstrap Dropdown Component
       # https://getbootstrap.com/docs/4.1/components/dropdowns/
-      class Dropdown < Bootstrap::Components::Base
+      class Dropdown < NfgUi::Bootstrap::Components::Base
         include Bootstrap::Utilities::DropdownDirectionable
 
         def button

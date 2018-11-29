@@ -5,7 +5,7 @@ module NfgUi
     module Components
       # Bootstrap Carousel Caption Component
       # https://getbootstrap.com/docs/4.1/components/carousel/#with-captions
-      class CarouselCaption < Bootstrap::Components::Base
+      class CarouselCaption < NfgUi::Bootstrap::Components::Base
         def component_family
           :carousel
         end

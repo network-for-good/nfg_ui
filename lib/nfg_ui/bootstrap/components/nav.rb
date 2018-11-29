@@ -5,7 +5,7 @@ module NfgUi
     module Components
       # Bootstrap Nav Component
       # https://getbootstrap.com/docs/4.1/components/navs/
-      class Nav < Bootstrap::Components::Base
+      class Nav < NfgUi::Bootstrap::Components::Base
         include Bootstrap::Utilities::Alignable
         include Bootstrap::Utilities::Wrappable
 

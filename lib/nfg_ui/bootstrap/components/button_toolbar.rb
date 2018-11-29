@@ -5,7 +5,7 @@ module NfgUi
     module Components
       # Bootstrap Button Toolbar Component
       # https://getbootstrap.com/docs/4.1/components/button-group/#button-toolbar
-      class ButtonToolbar < Bootstrap::Components::Base
+      class ButtonToolbar < NfgUi::Bootstrap::Components::Base
         private
 
         def component_css_class

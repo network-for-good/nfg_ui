@@ -4,7 +4,7 @@ module NfgUi
   module Components
     module Elements
       # doc coming soon
-      class CardImage < Bootstrap::Components::CardImage
+      class CardImage < NfgUi::Bootstrap::Components::CardImage
         include NfgUi::Components::Utilities::Traitable
         include NfgUi::Components::Utilities::Describable
         include NfgUi::Components::Utilities::Renderable

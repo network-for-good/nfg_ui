@@ -5,7 +5,7 @@ module NfgUi
     module Components
       # Bootstrap List Group Item Component
       # https://getbootstrap.com/docs/4.1/components/list-group/
-      class ListGroupItem < Bootstrap::Components::Base
+      class ListGroupItem < NfgUi::Bootstrap::Components::Base
         include Bootstrap::Utilities::Wrappable
         include Bootstrap::Utilities::Activatable
         include Bootstrap::Utilities::Disableable

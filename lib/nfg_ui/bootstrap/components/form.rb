@@ -5,7 +5,7 @@ module NfgUi
     module Components
       # Bootstrap Forms Component
       # https://getbootstrap.com/docs/4.1/components/forms/
-      class Form < Bootstrap::Components::Base
+      class Form < NfgUi::Bootstrap::Components::Base
       end
     end
   end

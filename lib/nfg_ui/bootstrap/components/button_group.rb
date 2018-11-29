@@ -6,7 +6,7 @@ module NfgUi
       # Bootstrap Button Group Component
       # An optional parent of the Button component
       # https://getbootstrap.com/docs/4.1/components/breadcrumb/
-      class ButtonGroup < Bootstrap::Components::Base
+      class ButtonGroup < NfgUi::Bootstrap::Components::Base
         include Bootstrap::Utilities::DropdownDirectionable
         include Bootstrap::Utilities::Sizable
 

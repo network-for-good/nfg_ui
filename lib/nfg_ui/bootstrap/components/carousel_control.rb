@@ -5,7 +5,7 @@ module NfgUi
     module Components
       # Bootstrap Carousel Control Component
       # https://getbootstrap.com/docs/4.1/components/carousel/#with-controls
-      class CarouselControl < Bootstrap::Components::Base
+      class CarouselControl < NfgUi::Bootstrap::Components::Base
         # CarouselControl does not get adjustable body content
         def body
           nil
