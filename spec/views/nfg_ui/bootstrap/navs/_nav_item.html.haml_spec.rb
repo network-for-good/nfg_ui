@@ -36,7 +36,7 @@ RSpec.describe 'nfg_ui/bootstrap/navs/_nav_item.html.haml', type: :view do
     let(:options) { { dropdown: true } }
     it 'outputs a nav with a dropdown toggle and dropdown menu' do
       expect(subject).to have_css '.nav-item.dropdown .dropdown-toggle + .dropdown-menu'
-      expect(subject).to eq "<li class=\"nav-item dropdown\"><a class=\"dropdown-toggle nav-link\" data-toggle=\"dropdown\" href=\"#\" aria-haspopup=\"true\" aria-expanded=\"false\">#{body}\n\n</a>\n\n<div class='dropdown-menu'>\n\n</div>\n\n</li>"
+      expect(subject).to eq "<li class=\"nav-item dropdown\"><a class=\"dropdown-toggle nav-link\" data-toggle=\"dropdown\" href=\"#\" aria-haspopup=\"true\" aria-expanded=\"false\">#{body}\n</a>\n\n<div class='dropdown-menu'>\n\n</div>\n\n</li>"
     end
   end
 
