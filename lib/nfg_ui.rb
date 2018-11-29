@@ -11,13 +11,6 @@ module NfgUi
   require 'sass-rails'
   require 'select2-rails'
 
-  # Require_relative required order:
-  # Utilities -> UI -> Bootstrap -> Components
-  require_relative 'nfg_ui/utilities'
-  require_relative 'nfg_ui/ui'
-  require_relative 'nfg_ui/bootstrap'
-  require_relative 'nfg_ui/components'
-
   DEFAULT_BOOTSTRAP_THEME    = :primary
 
   BOOTSTRAP_THEMES           = %i[primary
