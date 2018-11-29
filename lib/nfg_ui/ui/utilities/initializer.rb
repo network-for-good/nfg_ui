@@ -19,12 +19,9 @@ module NfgUi
         include Haml::Helpers # add capture_haml support
 
         def render_component
-          if options[:use_render_not_partial]
-            component.render
-          else
-            p options
-            view_context.render partial: partial_path, locals: { component_name => component }
-          end
+          component.render
+        rescue NotImplementedError
+          view_context.render partial: partial_path, locals: { component_name => component }
         end
 
         private
