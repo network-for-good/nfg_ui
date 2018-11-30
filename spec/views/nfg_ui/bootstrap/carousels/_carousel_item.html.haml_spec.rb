@@ -65,7 +65,7 @@ RSpec.describe 'nfg_ui/bootstrap/carousels/_carousel_item.html.haml', type: :vie
       let(:tested_label) { 'Tested label' }
       let(:options) { { label: tested_label } }
       it 'outputs a caption label within the caption html' do
-        expect(subject).to eq "<div class='carousel-item'>\n<div class='carousel-caption'>\n<h5>#{tested_label}</h5>\n\n</div>\n\n\n</div>\n"
+        expect(subject).to eq "<div class='carousel-item'>\n<div class=\"carousel-caption\"><h5>#{tested_label}</h5></div>\n\n</div>\n"
       end
     end
 
@@ -75,14 +75,14 @@ RSpec.describe 'nfg_ui/bootstrap/carousels/_carousel_item.html.haml', type: :vie
 
       it 'outputs a carousel item with a caption' do
         expect(subject).to have_css '.carousel-item .carousel-caption', text: tested_caption
-        expect(subject).to eq "<div class='carousel-item'>\n<div class='carousel-caption'>\n#{tested_caption}\n</div>\n\n\n</div>\n"
+        expect(subject).to eq "<div class='carousel-item'>\n<div class=\"carousel-caption\">#{tested_caption}</div>\n\n</div>\n"
       end
 
       context 'when an image is supplied for the carousel item' do
         let(:tested_image) { 'https://via.placeholder.com/600x400' }
         let(:options) { { caption: tested_caption, image: tested_image } }
         it 'supplies the caption under the image' do
-          expect(subject).to eq "<div class='carousel-item'>\n<img class=\"d-block w-100\" src=\"#{tested_image}\" />\n<div class='carousel-caption'>\n#{tested_caption}\n</div>\n\n\n</div>\n"
+          expect(subject).to eq "<div class='carousel-item'>\n<img class=\"d-block w-100\" src=\"#{tested_image}\" />\n<div class=\"carousel-caption\">#{tested_caption}</div>\n\n</div>\n"
         end
       end
 
@@ -90,7 +90,7 @@ RSpec.describe 'nfg_ui/bootstrap/carousels/_carousel_item.html.haml', type: :vie
         let(:tested_body) { 'tested body' }
         let(:options) { { caption: tested_caption, body: tested_body } }
         it 'outputs the body after the caption' do
-          expect(subject).to eq "<div class='carousel-item'>\n<div class='carousel-caption'>\n#{tested_caption}\n</div>\n\n#{tested_body}\n</div>\n"
+          expect(subject).to eq "<div class='carousel-item'>\n<div class=\"carousel-caption\">#{tested_caption}</div>\n#{tested_body}\n</div>\n"
         end
       end
     end
