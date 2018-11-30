@@ -14,6 +14,16 @@ module NfgUi
           options.fetch(:heading, nil)
         end
 
+        def render
+          content_tag(:div, html_options) do
+            if heading.present?
+              heading
+            else
+              (block_given? ? yield : body)
+            end
+          end
+        end
+
         private
 
         def non_html_attribute_options

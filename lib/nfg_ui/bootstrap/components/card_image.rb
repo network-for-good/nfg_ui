@@ -14,6 +14,10 @@ module NfgUi
           options.fetch(:image, '')
         end
 
+        def render
+          image_tag image, **html_options
+        end
+
         private
 
         def component_css_class

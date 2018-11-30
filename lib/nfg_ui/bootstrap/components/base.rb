@@ -8,6 +8,8 @@ module NfgUi
       # Bootstrap components
       class Base
         include ActionView::Helpers::TagHelper
+        include ActionView::Helpers::TextHelper
+        include ActionView::Helpers::AssetTagHelper
         include ActionView::Context
 
         attr_reader   :body

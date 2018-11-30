@@ -16,6 +16,19 @@ module NfgUi
           options.fetch(:image, '')
         end
 
+        def render
+          capture do
+            if image
+              concat(NfgUi::Bootstrap::Components::CardImage.new({ image: image }, view_context).render)
+            end
+
+            concat(content_tag(:div, html_options) {
+              concat(content_tag(:h5, title, class: 'card-title')) if title
+              concat(block_given? ? yield : body)
+            })
+          end
+        end
+
         private
 
         def component_css_class
