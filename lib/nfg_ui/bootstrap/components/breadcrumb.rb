@@ -9,6 +9,14 @@ module NfgUi
         def component_family
           :breadcrumb
         end
+
+        def render
+          content_tag(:nav, label: 'breadcrumb') do
+            content_tag(:ol, html_options) do
+              (block_given? ? yield : body)
+            end
+          end
+        end
       end
     end
   end
