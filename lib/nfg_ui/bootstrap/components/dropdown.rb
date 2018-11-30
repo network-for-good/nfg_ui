@@ -24,6 +24,15 @@ module NfgUi
           options.fetch(:theme, NfgUi::DEFAULT_BOOTSTRAP_THEME)
         end
 
+        def render
+          content_tag(:div, html_options) do
+            if button.present?
+              concat(NfgUi::Bootstrap::Components::DropdownToggle.new({ body: button, theme: theme, as: :button, offset: offset }, view_context).render)
+            end
+            concat(block_given? ? yield : body)
+          end
+        end
+
         private
 
         def non_html_attribute_options

@@ -13,6 +13,10 @@ module NfgUi
         def component_family
           :dropdown
         end
+
+        def render
+          content_tag(:h6, heading, html_options)
+        end
       end
     end
   end

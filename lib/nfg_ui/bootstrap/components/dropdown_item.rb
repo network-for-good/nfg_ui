@@ -16,6 +16,20 @@ module NfgUi
           :dropdown
         end
 
+        def render
+          if tooltip && disabled
+            content_tag(:span, disabled_component_tooltip_wrapper_html_options.merge!(class: 'dropdown-item disabled')) do
+              content_tag(as, html_options.except(:href)) do
+                (block_given? ? yield : body)
+              end
+            end
+          else
+            content_tag(as, html_options) do
+              (block_given? ? yield : body)
+            end
+          end
+        end
+
         private
 
         # When a dropdown item is both disabled AND given a tooltip

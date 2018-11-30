@@ -9,6 +9,10 @@ module NfgUi
         def component_family
           :dropdown
         end
+
+        def render
+          content_tag(:div, nil, html_options)
+        end
       end
     end
   end

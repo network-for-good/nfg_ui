@@ -43,6 +43,12 @@ module NfgUi
           options.fetch(:theme, NfgUi::DEFAULT_BOOTSTRAP_THEME)
         end
 
+        def render
+          NfgUi::Bootstrap::Components::Button.new({ as: as, theme: theme, **html_options, remove_component_css_classes: nav_link }, view_context).render do
+            (block_given? ? yield : body)
+          end
+        end
+
         private
 
         def css_classes
