@@ -13,6 +13,10 @@ module NfgUi
         def component_family
           :media
         end
+
+        def render
+          (block_given? ? yield : body)
+        end
       end
     end
   end
