@@ -110,7 +110,7 @@ RSpec.describe 'nfg_ui/bootstrap/list_groups/_list_group_item.html.haml', type: 
       context 'when no theme is supplied to the list group item' do
         it 'renders a primary theme badge' do
           expect(subject).to have_css '.list-group-item .badge.badge-pill.badge-primary'
-          expect(subject).to eq "<li class=\"list-group-item d-flex justify-content-between align-items-center\">#{body}\n<span class=\"badge badge-primary badge-pill\">#{tested_badge}\n</span>\n</li>"
+          expect(subject).to eq "<li class=\"list-group-item d-flex justify-content-between align-items-center\">#{body}\n<span class=\"badge badge-primary badge-pill\">#{tested_badge}</span>\n</li>"
         end
       end
 
