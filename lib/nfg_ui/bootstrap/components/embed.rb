@@ -23,6 +23,16 @@ module NfgUi
           options.fetch(:autoplay, default_autoplay)
         end
 
+        def render
+          content_tag(:div, html_options) do
+            if iframe?
+              iframe
+            else
+              (block_given? ? yield : body)
+            end
+          end
+        end
+
         private
 
         def component_css_class
