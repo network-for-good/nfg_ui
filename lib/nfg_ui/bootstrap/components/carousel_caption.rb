@@ -14,6 +14,13 @@ module NfgUi
           options.fetch(:label, nil)
         end
 
+        def render
+          content_tag(:div, html_options) do
+            concat(content_tag(:h5, label)) if label
+            concat(block_given? ? yield : body)
+          end
+        end
+
         private
 
         def non_html_attribute_options

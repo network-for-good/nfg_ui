@@ -22,6 +22,21 @@ module NfgUi
           options[:indicators] || 0 # return 0 on nil
         end
 
+        def render
+          content_tag(:div, html_options) do
+            content_tag(:div, class: 'carousel-inner') do
+              if indicators > 0
+                concat(NfgUi::Bootstrap::Components::CarouselIndicators.new({ count: indicators, carousel: "##{id}" }, view_context).render)
+              end
+              concat(block_given? ? yield : body)
+              if controls
+                concat(NfgUi::Bootstrap::Components::CarouselControl.new({ control: :next, carousel: "##{id}" }, view_context).render)
+                concat(NfgUi::Bootstrap::Components::CarouselControl.new({ control: :prev, carousel: "##{id}" }, view_context).render)
+              end
+            end
+          end
+        end
+
         private
 
         def css_classes

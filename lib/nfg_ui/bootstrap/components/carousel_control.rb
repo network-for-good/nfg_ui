@@ -38,6 +38,15 @@ module NfgUi
           { class: "carousel-control-#{control}-icon", aria: { hidden: true } }
         end
 
+        def render
+          content_tag(:a, html_options) do
+            if control
+              concat(content_tag(:span, nil, icon_html_options))
+              concat(content_tag(:span, control.to_s, class: 'sr-only'))
+            end
+          end
+        end
+
         private
 
         def assistive_html_attributes
