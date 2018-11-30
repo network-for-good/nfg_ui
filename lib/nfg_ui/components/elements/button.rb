@@ -40,6 +40,12 @@ module NfgUi
           options.fetch(:dismiss, nil)
         end
 
+        def render
+          content_tag(:a, html_options) do
+            (block_given? ? yield : body)
+          end
+        end
+
         private
 
         def dismiss_component?
