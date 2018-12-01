@@ -16,17 +16,16 @@ module NfgUi
         include Bootstrap::Utilities::Wrappable
 
         def render
-          alert_tag = content_tag as, html_options do
-                        (block_given? ? yield : body)
-                      end
           if tooltip && disabled
             content_tag(:span, disabled_component_tooltip_wrapper_html_options) do
-              content_tag as, html_options do
-                alert_tag
+              content_tag(as, html_options) do
+                (block_given? ? yield : body)
               end
             end
           else
-            alert_tag
+            content_tag(as, html_options) do
+              (block_given? ? yield : body)
+            end
           end
         end
 
