@@ -14,6 +14,16 @@ module NfgUi
         include NfgUi::Components::Utilities::Renderable
 
         include NfgUi::Components::Traits::Collapse
+
+        def render
+          if heading
+            opts = { collapse: "##{id}", body: heading, icon: 'caret-down', class: 'pl-0 text-left' }
+            opts.merge!(traits: [:link, :block])
+            content << NfgUi::Bootstrap::Components::Button.new(opts, view_context).render
+          end
+          content << super
+          content.join.html_safe
+        end
       end
     end
   end
