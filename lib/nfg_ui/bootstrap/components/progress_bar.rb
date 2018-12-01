@@ -20,6 +20,10 @@ module NfgUi
           ].join(' ').squish
         end
 
+        def render
+          content_tag(:div, label, html_options)
+        end
+
         private
 
         def css_classes
