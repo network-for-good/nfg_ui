@@ -16,6 +16,16 @@ module NfgUi
         include NfgUi::Components::Traits::Theme
         include NfgUi::Components::Traits::Typeface
 
+        def render
+          content_tag(as, **html_options) do
+            if icon
+              NfgUi::Components::Foundations::Icon.new({ icon: icon, text: body }, view_context).render
+            else
+              body
+            end
+          end
+        end
+
         def as
           if heading
             heading_tag
