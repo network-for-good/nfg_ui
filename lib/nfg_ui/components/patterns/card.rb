@@ -13,6 +13,7 @@ module NfgUi
 
         include NfgUi::Components::Traits::Theme
 
+        # TODO: Confirm that the image overlays are correct. The tops are not being rounded. Should they be?
         def render
           if render_in_body
             super
