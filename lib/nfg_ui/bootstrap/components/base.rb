@@ -132,10 +132,6 @@ module NfgUi
         def non_html_attribute_options
           @non_html_attribute_options ||= %i[body heading traits]
         end
-
-        def content
-          @content ||= []
-        end
       end
     end
   end
