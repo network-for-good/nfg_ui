@@ -29,7 +29,7 @@ module NfgUi
             end
             if heading
               if href
-                concat(link_to slat_item.href {
+                concat(content_tag(:a, href: href) {
                   NfgUi::Components::Foundations::Typeface.new({ subheading: heading }, view_context).render
                 })
               else
