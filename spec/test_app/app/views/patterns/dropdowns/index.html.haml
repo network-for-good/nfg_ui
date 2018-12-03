@@ -36,7 +36,7 @@
 
 %hr
 
-%h3 Disabled Dropdown 
+%h3 Disabled Dropdown
 %p Disabled dropdown toggles can have tooltips
 = ui.nfg :dropdown, class: 'my-4' do
   = ui.nfg :dropdown_toggle, :secondary, :outlined, body: 'Disabled Dropdown Toggle', theme: :secondary, as: :a, disabled: true, tooltip: 'Disabled', id: 'tester'
@@ -71,7 +71,7 @@
     = ui.nfg :dropdown_item, body: 'Dropdown Item 4'
 
 %h4.mt-4 Left Aligned Menu
-%p 
+%p
   %i Left aligned by default
 = ui.nfg :dropdown, button: 'Left Aligned Menu' do
   = ui.nfg :dropdown_menu do
@@ -154,7 +154,7 @@
       = ui.nfg :dropdown_item, body: 'Dropdown Item 3'
       = ui.nfg :dropdown_item, body: 'Dropdown Item 4'
 
-  %p 
+  %p
     Note: For dropleft, you must double wrap the button group. and place the non-split button as a child of the first button group. Per docs, see code reference.
 
   = ui.nfg :button_group do
