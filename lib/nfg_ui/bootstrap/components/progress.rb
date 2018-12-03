@@ -23,6 +23,16 @@ module NfgUi
           ].join(' ').squish
         end
 
+        def render
+          content_tag(:div, html_options) do
+            if body
+              (block_given? ? yield : body)
+            else
+              NfgUi::Bootstrap::Components::ProgressBar.new({ theme: theme, label: label, progress: progress, striped: striped, animated: animated }, view_context).render
+            end
+          end
+        end
+
         private
 
         def non_html_attribute_options

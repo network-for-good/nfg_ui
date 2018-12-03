@@ -12,6 +12,14 @@ module NfgUi
         def component_family
           :pagination
         end
+
+        def render
+          content_tag(:nav) do
+            content_tag(:ul, html_options) do
+              (block_given? ? yield : body)
+            end
+          end
+        end
       end
     end
   end

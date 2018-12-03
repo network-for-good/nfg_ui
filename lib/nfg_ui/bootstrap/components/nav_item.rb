@@ -51,6 +51,17 @@ module NfgUi
           super.except!(:href)
         end
 
+        def render
+          content_tag(as, html_options) do
+            if include_nav_link?
+              concat(NfgUi::Bootstrap::Components::NavLink.new({ body: (button ? button : (block_given? ? yield : body)), active: active, disabled: disabled, dropdown: dropdown, tab: tab, remote: remote, href: (tab || href) }, view_context).render)
+              concat(block_given? ? yield : body) if dropdown
+            else
+              (block_given? ? yield : body)
+            end
+          end
+        end
+
         private
 
         def component_css_class

@@ -30,6 +30,16 @@ module NfgUi
           tab ? super.merge!(toggle: 'tab') : super
         end
 
+        def render
+          if dropdown
+            NfgUi::Bootstrap::Components::DropdownToggle.new({ body: (block_given? ? yield : body), as: :a, **html_options, theme: nil, nav_link: true }, view_context).render
+          else
+            content_tag(:a, html_options) do
+              (block_given? ? yield : body)
+            end
+          end
+        end
+
         private
 
         def component_css_class

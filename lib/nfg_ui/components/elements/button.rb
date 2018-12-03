@@ -41,8 +41,24 @@ module NfgUi
         end
 
         def render
-          content_tag(:a, html_options) do
-            (block_given? ? yield : body)
+          if tooltip && disabled
+            content_tag(:span, disabled_component_tooltip_wrapper_html_options) do
+              content_tag(as, html_options) do
+                if icon
+                  NfgUi::Components::Foundations::Icon.new({ traits: [icon, :right], text: (block_given? ? yield : body).presence }, view_context).render
+                else
+                  (block_given? ? yield : body)
+                end
+              end
+            end
+          else
+            content_tag(as, html_options) do
+              if icon
+                NfgUi::Components::Foundations::Icon.new({ traits: [icon, :right], text: (block_given? ? yield : body).presence }, view_context).render
+              else
+                (block_given? ? yield : body)
+              end
+            end
           end
         end
 

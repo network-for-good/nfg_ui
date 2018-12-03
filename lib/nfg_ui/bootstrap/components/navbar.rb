@@ -33,6 +33,12 @@ module NfgUi
           options.fetch(:fixed, nil)
         end
 
+        def render
+          content_tag(as, html_options) do
+            (block_given? ? yield : body)
+          end
+        end
+
         private
 
         def css_classes

@@ -17,6 +17,16 @@ module NfgUi
           :navbar
         end
 
+        def render
+          content_tag(:button, html_options) do
+            if body
+              (block_given? ? yield : body)
+            else
+              content_tag(:span, nil, class: 'navbar-toggler-icon')
+            end
+          end
+        end
+
         # private
 
         # def assistive_html_attributes
