@@ -21,6 +21,20 @@ module NfgUi
         include NfgUi::Components::Traits::Disable
         include NfgUi::Components::Traits::Theme
 
+        def render
+          if tooltip && disabled
+            super
+          else
+            content_tag(as, html_options) do
+              if icon
+                NfgUi::Components::Foundations::Icon.new({ traits: ["#{icon} fw"], text: (block_given? ? yield : body), class: 'text-center' }, view_context).render
+              else
+                (block_given? ? yield : body)
+              end
+            end
+          end
+        end
+
         private
 
         def default_theme
