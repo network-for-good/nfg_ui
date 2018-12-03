@@ -57,6 +57,41 @@ module NfgUi
           options.fetch(:theme, nil)
         end
 
+        def render
+          content_tag(:div, html_options) do
+            if menu
+              if slat_header
+                content_tag(:h6, "&nbsp;".html_safe, class: 'display-4')
+              else
+                NfgUi::Components::Patterns::Dropdown.new({ }, view_context).render do
+                  capture do
+                    concat(NfgUi::Components::Elements::DropdownToggle.new({ traits: [:outlined, :secondary], body: ('Actions' if wide)}, view_context).render)
+                    concat(NfgUi::Components::Patterns::DropdownMenu.new({ traits: [:right] }, view_context).render {
+                      (block_given? ? yield : body)
+                    })
+                  end
+                end
+              end
+            else
+              if href.present?
+                content_tag(:a, href: href, **action_link_html_options) do
+                  if icon
+                    NfgUi::Components::Foundations::Icon.new({ traits: [icon], text: (block_given? ? yield : body), theme: theme }, view_context).render
+                  else
+                    (block_given? ? yield : body)
+                  end
+                end
+              else
+                if icon
+                  NfgUi::Components::Foundations::Icon.new({ traits: [icon], text: (block_given? ? yield : body), theme: theme }, view_context).render
+                else
+                  (block_given? ? yield : body)
+                end
+              end
+            end
+          end
+        end
+
         private
 
         def css_classes
