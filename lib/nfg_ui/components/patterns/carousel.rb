@@ -10,6 +10,21 @@ module NfgUi
         include NfgUi::Components::Utilities::Traitable
         include NfgUi::Components::Utilities::Describable
         include NfgUi::Components::Utilities::Renderable
+
+        def render
+          content_tag(:div, html_options) do
+            content_tag(:div, class: 'carousel-inner') do
+              concat((block_given? ? yield : body))
+              if controls
+                concat(NfgUi::Components::Elements::CarouselControl.new({ control: :next, carousel: "##{id}" }, view_context).render)
+                concat(NfgUi::Components::Elements::CarouselControl.new({ control: :prev, carousel: "##{id}" }, view_context).render)
+              end
+              if indicators > 0
+                concat(NfgUi::Components::Elements::CarouselIndicators.new({ count: indicators, carousel: "##{id}" }, view_context).render)
+              end
+            end
+          end
+        end
       end
     end
   end
