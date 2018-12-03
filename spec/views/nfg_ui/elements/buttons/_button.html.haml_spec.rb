@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 # Note this is a copy of the bootstrap button. This component has enough going on
-# that it needs its own complete build.  it matching very closely to 
-# the BS version. 
+# that it needs its own complete build.  it matching very closely to
+# the BS version.
 # TODO: Return to this.
 
 RSpec.describe 'nfg_ui/elements/buttons/_button.html.haml', type: :view do
@@ -10,7 +10,7 @@ RSpec.describe 'nfg_ui/elements/buttons/_button.html.haml', type: :view do
   let(:options) { {} }
   let(:traits) { [] }
   let(:tested_href) { 'test_href' }
-  subject { render 'nfg_ui/elements/buttons/button', button: button }
+  subject { button.render }
 
   describe 'a disabled button' do
     let(:options) { { disabled: true, as: option_as } }
@@ -56,7 +56,7 @@ RSpec.describe 'nfg_ui/elements/buttons/_button.html.haml', type: :view do
 
         it 'outputs a button with a tooltip' do
           expect(subject).to have_css ".btn[data-toggle='tooltip'][title='#{tested_tooltip}']"
-          expect(subject).to eq "<a class=\"btn btn-primary\" data-toggle=\"tooltip\" data-placement=\"top\" data-html=\"true\" href=\"#\" title=\"tested tooltip\">\n</a>"
+          expect(subject).to eq "<a class=\"btn btn-primary\" data-toggle=\"tooltip\" data-placement=\"top\" data-html=\"true\" href=\"#\" title=\"tested tooltip\"></a>"
         end
 
         it 'does not output disabled button tooltip html' do
@@ -71,7 +71,7 @@ RSpec.describe 'nfg_ui/elements/buttons/_button.html.haml', type: :view do
           it 'prioritizes the :tooltip value and overwrites the :title option' do
             expect(subject).to have_css "[title='#{tested_tooltip}']"
             expect(subject).not_to have_css "[title='#{tested_title}']"
-            expect(subject).to eq   "<a class=\"btn btn-primary\" data-toggle=\"tooltip\" data-placement=\"top\" data-html=\"true\" title=\"tested tooltip\" href=\"#\">\n</a>"
+            expect(subject).to eq "<a class=\"btn btn-primary\" data-toggle=\"tooltip\" data-placement=\"top\" data-html=\"true\" title=\"tested tooltip\" href=\"#\"></a>"
           end
         end
 
@@ -80,7 +80,7 @@ RSpec.describe 'nfg_ui/elements/buttons/_button.html.haml', type: :view do
           let(:add_on_options) { { modal: tested_modal } }
           it 'prioritizes :modal html over :tooltip html which excludes the tooltip html' do
             expect(subject).not_to have_css ".btn[data-toggle='tooltip']"
-            expect(subject).to eq "<a class=\"btn btn-primary\" data-toggle=\"modal\" data-target=\"#{tested_modal}\" href=\"#\">\n</a>"
+            expect(subject).to eq "<a class=\"btn btn-primary\" data-toggle=\"modal\" data-target=\"#{tested_modal}\" href=\"#\"></a>"
           end
 
           describe 'the title html attribute output' do
@@ -112,7 +112,7 @@ RSpec.describe 'nfg_ui/elements/buttons/_button.html.haml', type: :view do
               it 'prioritizes :modal over both data toggles' do
                 expect(subject).not_to have_css "[data-toggle='a-plugin']"
                 expect(subject).to have_css "[data-toggle='modal']"
-                expect(subject).to eq "<a class=\"btn btn-primary\" data-test-key=\"data_test_value\" data-toggle=\"modal\" data-target=\"#{tested_modal}\" href=\"#\">\n</a>"
+                expect(subject).to eq "<a class=\"btn btn-primary\" data-test-key=\"data_test_value\" data-toggle=\"modal\" data-target=\"#{tested_modal}\" href=\"#\"></a>"
               end
             end
           end
@@ -124,7 +124,7 @@ RSpec.describe 'nfg_ui/elements/buttons/_button.html.haml', type: :view do
         it 'outputs a disabled button wrapped in an element that contains the tooltip html' do
           expect(subject).to have_css "span.d-inline-block[data-html='true'][data-placement='top'][data-toggle='tooltip'][tabindex='0'][title='#{tested_tooltip}']"
           expect(subject).to have_css "span.d-inline-block[data-toggle='tooltip'] a.btn"
-          expect(subject).to eq "<span class='d-inline-block' data-html='true' data-placement='top' data-toggle='tooltip' tabindex='0' title='tested tooltip'>\n<a class=\"btn disabled btn-primary\" href=\"#\" style=\"pointer-events: none;\">\n</a></span>\n"
+          expect(subject).to eq "<span data-toggle=\"tooltip\" data-placement=\"top\" data-html=\"true\" title=\"tested tooltip\" class=\"d-inline-block\" tabindex=\"0\"><a class=\"btn disabled btn-primary\" href=\"#\" style=\"pointer-events: none;\"></a></span>"
         end
 
         context 'and when (in addition to being disabled) it has :modal set in the options' do
@@ -132,8 +132,9 @@ RSpec.describe 'nfg_ui/elements/buttons/_button.html.haml', type: :view do
           let(:add_on_options) { { modal: tested_modal } }
 
           it 'outputs the modal html on the button and wraps the button with the disabled tooltip wrapper html' do
+            puts subject.gsub('"', '\"').gsub("\n", "\\n")
             expect(subject).to have_css "[data-toggle='tooltip'][title='#{tested_tooltip}'] [data-toggle='modal'][data-target='#{tested_modal}']"
-            expect(subject).to eq "<span class='d-inline-block' data-html='true' data-placement='top' data-toggle='tooltip' tabindex='0' title='tested tooltip'>\n<a class=\"btn disabled btn-primary\" data-toggle=\"modal\" data-target=\"#{tested_modal}\" href=\"#\" tabindex=\"-1\">\n</a></span>\n"
+            expect(subject).to eq "<span data-toggle=\"tooltip\" data-placement=\"top\" data-html=\"true\" title=\"tested tooltip\" class=\"d-inline-block\" tabindex=\"0\"><a class=\"btn disabled btn-primary\" data-toggle=\"modal\" data-target=\"#{tested_modal}\" href=\"#\" tabindex=\"-1\"></a></span>"
           end
         end
       end
@@ -156,7 +157,7 @@ RSpec.describe 'nfg_ui/elements/buttons/_button.html.haml', type: :view do
       let(:tested_collapse) { '#tested_collapse_id' }
       let(:tested_as) { :button }
 
-      it { is_expected.to include "data-toggle=\"collapse\"" } 
+      it { is_expected.to include "data-toggle=\"collapse\"" }
 
       it 'removes the hash symbol from the collapse option for the aria-controls attribute' do
         expect(subject).to include 'aria-controls="tested_collapse_id"'
@@ -173,7 +174,7 @@ RSpec.describe 'nfg_ui/elements/buttons/_button.html.haml', type: :view do
           expect(subject).not_to include "href=\"#{tested_collapse}\""
         end
 
-        it { is_expected.to eq "<button class=\"btn btn-primary\" data-toggle=\"collapse\" data-target=\"#{tested_collapse}\" aria-expanded=\"false\" aria-controls=\"#{tested_collapse.gsub('#', '')}\" role=\"button\" type=\"button\">\n</button>" }
+        it { is_expected.to eq "<button class=\"btn btn-primary\" data-toggle=\"collapse\" data-target=\"#{tested_collapse}\" aria-expanded=\"false\" aria-controls=\"#{tested_collapse.gsub('#', '')}\" role=\"button\" type=\"button\"></button>" }
       end
 
       context 'and when a button component is an :a element' do
@@ -185,8 +186,8 @@ RSpec.describe 'nfg_ui/elements/buttons/_button.html.haml', type: :view do
         it 'does not use a data-target attribute to identify its collapse target' do
           expect(subject).not_to include "data-target=\"#{tested_collapse}\""
         end
-        it { is_expected.to eq "<a class=\"btn btn-primary\" data-toggle=\"collapse\" href=\"#{tested_collapse}\" aria-expanded=\"false\" aria-controls=\"#{tested_collapse.tr('#', '')}\" role=\"button\">\n</a>" }
-        
+        it { is_expected.to eq "<a class=\"btn btn-primary\" data-toggle=\"collapse\" href=\"#{tested_collapse}\" aria-expanded=\"false\" aria-controls=\"#{tested_collapse.tr('#', '')}\" role=\"button\"></a>" }
+
       end
     end
 
@@ -201,7 +202,7 @@ RSpec.describe 'nfg_ui/elements/buttons/_button.html.haml', type: :view do
       let(:tested_size) { :sm }
       it 'outputs a small button' do
         expect(subject).to have_css '.btn-sm'
-        expect(subject).to eq "<a class=\"btn btn-sm btn-primary\" href=\"#\">\n</a>"
+        expect(subject).to eq "<a class=\"btn btn-sm btn-primary\" href=\"#\"></a>"
       end
     end
 
@@ -209,7 +210,7 @@ RSpec.describe 'nfg_ui/elements/buttons/_button.html.haml', type: :view do
       let(:tested_size) { :lg }
       it 'outputs a large button' do
         expect(subject).to have_css '.btn-lg'
-        expect(subject).to eq "<a class=\"btn btn-lg btn-primary\" href=\"#\">\n</a>"
+        expect(subject).to eq "<a class=\"btn btn-lg btn-primary\" href=\"#\"></a>"
       end
     end
 
@@ -217,14 +218,14 @@ RSpec.describe 'nfg_ui/elements/buttons/_button.html.haml', type: :view do
       let(:tested_size) { :not_sm_or_lg }
       it 'does not output a resized button' do
         expect(subject).not_to have_css ".btn-#{tested_size}"
-        expect(subject).to eq "<a class=\"btn btn-primary\" href=\"#\">\n</a>"
+        expect(subject).to eq "<a class=\"btn btn-primary\" href=\"#\"></a>"
       end
     end
 
     context 'when size is not present in the options' do
       let(:options) { {} }
       it 'does not output a resized button' do
-        expect(subject).to eq "<a class=\"btn btn-primary\" href=\"#\">\n</a>"
+        expect(subject).to eq "<a class=\"btn btn-primary\" href=\"#\"></a>"
       end
     end
   end
