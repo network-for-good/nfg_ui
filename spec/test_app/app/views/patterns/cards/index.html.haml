@@ -16,6 +16,12 @@
   = ui.nfg :card_body do
     %p.card-text Some body content
 
+
+= ui.nfg :card, render_in_body: false do
+  = ui.nfg :card_image, image: 'https://via.placeholder.com/600x400', title: 'Card Image Overlay Title'
+  = ui.nfg :card_body do
+    %p.card-text card image version without overlay
+
 %hr
 
 %h2 Card with render in body false
