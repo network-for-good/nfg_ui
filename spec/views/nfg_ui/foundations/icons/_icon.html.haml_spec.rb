@@ -4,7 +4,7 @@ RSpec.describe 'nfg_ui/foundations/icons/_icon.html.haml', type: :view do
   let(:icon) { FactoryBot.create(:icon, *traits, **options) }
   let(:options) { {} }
   let(:traits) { [] }
-  subject { render 'nfg_ui/foundations/icons/icon', icon: icon }
+  subject { icon.render }
 
   pending 'Icon spec needed'
 

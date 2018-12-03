@@ -4,7 +4,7 @@ RSpec.describe 'nfg_ui/foundations/typefaces/_typeface.html.haml', type: :view d
   let(:typeface) { FactoryBot.create(:typeface, *traits, **options) }
   let(:options) { {} }
   let(:traits) { [] }
-  subject { render 'nfg_ui/foundations/typefaces/typeface', typeface: typeface }
+  subject { typeface.render }
 
   pending 'Typeface spec needed'
 

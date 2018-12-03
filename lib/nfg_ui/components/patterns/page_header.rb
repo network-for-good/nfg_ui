@@ -35,7 +35,10 @@ module NfgUi
         end
 
         def render
-          content_tag(:div, class: 'container-fluid', **html_options) do
+          html_options[:class] ||= ''
+          html_options[:class] << ' container-fluid'
+
+          content_tag(:div, html_options) do
             content_tag(:div, class: 'row') do
               content_tag(:div, class: 'col col-xl-11 mx-auto') do
                 content_tag(:div, class: 'row align-items-center') do

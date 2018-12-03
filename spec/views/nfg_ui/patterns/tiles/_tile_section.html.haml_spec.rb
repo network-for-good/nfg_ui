@@ -4,7 +4,7 @@ RSpec.describe 'nfg_ui/patterns/tiles/_tile_section.html.haml', type: :view do
   let(:tile_section) { FactoryBot.create(:tile_section, *traits, **options) }
   let(:options) { {} }
   let(:traits) { [] }
-  subject { render 'nfg_ui/patterns/tiles/tile_section', tile_section: tile_section }
+  subject { tile_section.render }
 
   pending 'Tile section spec needed'
 
