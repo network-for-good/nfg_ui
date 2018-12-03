@@ -13,6 +13,16 @@ module NfgUi
 
         include NfgUi::Components::Traits::Theme
 
+        def render
+          if render_in_body
+            super
+          else
+            content_tag(:div, html_options) do
+              body
+            end
+          end
+        end
+
         def render_in_body
           options.fetch(:render_in_body, true)
         end
