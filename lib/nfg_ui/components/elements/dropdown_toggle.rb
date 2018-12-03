@@ -23,6 +23,17 @@ module NfgUi
         def left_icon
           options.fetch(:left_icon, nil)
         end
+
+        def render
+          NfgUi::Components::Elements::Button.new({ as: as, theme: theme, **html_options, remove_component_css_classes: nav_link, icon: icon }, view_context).render do
+            capture do
+              if left_icon
+                concat(NfgUi::Components::Foundations::Icon.new({ traits: [left_icon], class: 'mr-1' }, view_context).render)
+              end
+              concat(block_given? ? yield : body)
+            end
+          end
+        end
       end
     end
   end
