@@ -11,7 +11,7 @@ module NfgUi
         end
 
         def render
-          content_tag(:nav, label: 'breadcrumb') do
+          content_tag(:nav, aria: { label: 'breadcrumb' }) do
             content_tag(:ol, html_options) do
               (block_given? ? yield : body)
             end
