@@ -4,7 +4,7 @@ RSpec.describe 'nfg_ui/patterns/page_headers/_page_header.html.haml', type: :vie
   let(:page_header) { FactoryBot.create(:page_header, *traits, **options) }
   let(:options) { {} }
   let(:traits) { [] }
-  subject { render 'nfg_ui/patterns/page_headers/page_header', page_header: page_header }
+  subject { page_header.render }
 
   pending 'Page header specs needed'
 
