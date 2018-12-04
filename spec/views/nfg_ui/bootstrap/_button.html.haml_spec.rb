@@ -113,7 +113,6 @@ RSpec.describe 'nfg_ui/bootstrap/_button.html.haml', type: :view do
           let(:add_on_options) { { modal: tested_modal } }
 
           it 'outputs the modal html on the button and wraps the button with the disabled tooltip wrapper html' do
-            puts subject.gsub('"', '\"').gsub("\n", "\\n")
             expect(subject).to have_css "[data-toggle='tooltip'][title='#{tested_tooltip}'] [data-toggle='modal'][data-target='#{tested_modal}']"
             expect(subject).to eq "<span data-toggle=\"tooltip\" data-placement=\"top\" data-html=\"true\" title=\"#{tested_tooltip}\" class=\"d-inline-block\" tabindex=\"0\"><a class=\"btn disabled btn-primary\" data-toggle=\"modal\" data-target=\"#{tested_modal}\" href=\"#\" tabindex=\"-1\"></a></span>"
           end
