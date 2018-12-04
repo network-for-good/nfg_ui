@@ -1,6 +1,0 @@
-%div{ carousel_item.html_options }
-  - if carousel_item.image
-    = image_tag carousel_item.image, class: 'd-block w-100'
-  - if carousel_item.caption || carousel_item.label
-    = ui.bootstrap :carousel_caption, body: carousel_item.caption, label: carousel_item.label
-  = carousel_item.body
