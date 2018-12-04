@@ -4,11 +4,11 @@ RSpec.describe 'nfg_ui/bootstrap/navbars/_navbar.html.haml', type: :view do
   let(:body) { 'test body content' }
   let(:navbar) { FactoryBot.create(:bootstrap_navbar, body: body, **options) }
   let(:options) { {} }
-  subject { render 'nfg_ui/bootstrap/navbars/navbar', navbar: navbar }
+  subject { navbar.render }
 
   it 'outputs a default bootstrap navbar component in html' do
     expect(subject).to have_selector '.navbar', text: body
-    expect(subject).to eq "<nav class=\"navbar bg-light navbar-expand-lg navbar-light\">#{body}\n</nav>"
+    expect(subject).to eq "<nav class=\"navbar bg-light navbar-expand-lg navbar-light\">#{body}</nav>"
   end
 
   describe 'a custom wrapper element applied to the navbar' do
@@ -17,7 +17,7 @@ RSpec.describe 'nfg_ui/bootstrap/navbars/_navbar.html.haml', type: :view do
       let(:options) { { as: tested_element } }
       it 'applies the custom wrapper element and adds the navigation role' do
         expect(subject).to have_css "#{tested_element}.navbar[role='navigation']"
-        expect(subject).to eq "<#{tested_element} class=\"navbar bg-light navbar-expand-lg navbar-light\" role=\"navigation\">#{body}\n</#{tested_element}>"
+        expect(subject).to eq "<#{tested_element} class=\"navbar bg-light navbar-expand-lg navbar-light\" role=\"navigation\">#{body}</#{tested_element}>"
       end
     end
 
@@ -25,7 +25,7 @@ RSpec.describe 'nfg_ui/bootstrap/navbars/_navbar.html.haml', type: :view do
       let(:options) { {} }
       it 'does not apply a navigation roll and utilizes the nav fallback element' do
         expect(subject).not_to have_css "navbar[role='navigation']"
-        expect(subject).to eq "<nav class=\"navbar bg-light navbar-expand-lg navbar-light\">#{body}\n</nav>"
+        expect(subject).to eq "<nav class=\"navbar bg-light navbar-expand-lg navbar-light\">#{body}</nav>"
       end
     end
   end
@@ -36,7 +36,7 @@ RSpec.describe 'nfg_ui/bootstrap/navbars/_navbar.html.haml', type: :view do
       let(:options) { { expand: tested_expand } }
       it 'outputs a navbar with a custom expand option' do
         expect(subject).to have_css '.navbar-expand-sm'
-        expect(subject).to eq "<nav class=\"navbar bg-light navbar-expand-#{tested_expand} navbar-light\">#{body}\n</nav>"
+        expect(subject).to eq "<nav class=\"navbar bg-light navbar-expand-#{tested_expand} navbar-light\">#{body}</nav>"
       end
 
       it 'does not utilize the default expand setting' do
@@ -48,7 +48,7 @@ RSpec.describe 'nfg_ui/bootstrap/navbars/_navbar.html.haml', type: :view do
       let(:options) { {} }
       it 'outputs a navbar with the default expand in html' do
         expect(subject).to have_css '.navbar-expand-lg'
-        expect(subject).to eq "<nav class=\"navbar bg-light navbar-expand-lg navbar-light\">#{body}\n</nav>"
+        expect(subject).to eq "<nav class=\"navbar bg-light navbar-expand-lg navbar-light\">#{body}</nav>"
       end
     end
 
@@ -56,7 +56,7 @@ RSpec.describe 'nfg_ui/bootstrap/navbars/_navbar.html.haml', type: :view do
       let(:options) { { expand: nil } }
       it 'removes the navbar-expand-* class from the component html' do
         expect(subject).not_to have_css "[class*='navbar-expand']"
-        expect(subject).to eq "<nav class=\"navbar bg-light navbar-light\">#{body}\n</nav>"
+        expect(subject).to eq "<nav class=\"navbar bg-light navbar-light\">#{body}</nav>"
       end
     end
   end
@@ -70,7 +70,7 @@ RSpec.describe 'nfg_ui/bootstrap/navbars/_navbar.html.haml', type: :view do
     context 'when supplying a custom dark theme' do
       let(:dark_themes) { NfgUi::Bootstrap::Components::Navbar.new({}, ActionController::Base.new.view_context).send(:dark_themes) }
       let(:options) { { theme: tested_theme } }
-      
+
       context 'when primary' do
         let(:tested_theme) { :primary }
         it { is_expected.to have_css '.bg-primary.navbar-dark' }
