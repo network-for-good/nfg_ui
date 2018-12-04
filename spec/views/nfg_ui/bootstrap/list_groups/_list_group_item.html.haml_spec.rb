@@ -5,13 +5,13 @@ RSpec.describe 'nfg_ui/bootstrap/list_groups/_list_group_item.html.haml', type: 
   let(:list_group_item) { FactoryBot.create(:bootstrap_list_group_item, **options, body: body) }
   let(:options) { {} }
 
-  subject { render 'nfg_ui/bootstrap/list_groups/list_group_item', list_group_item: list_group_item }
+  subject { list_group_item.render }
 
   describe 'a standard list-group-item with no additional options' do
     let(:options) { {} }
     it 'outputs a conventional list-group-item as an <li>' do
       expect(subject).to have_css 'li.list-group-item'
-      expect(subject).to eq "<li class=\"list-group-item\">#{body}\n</li>"
+      expect(subject).to eq "<li class=\"list-group-item\">#{body}</li>"
     end
   end
 
@@ -20,7 +20,7 @@ RSpec.describe 'nfg_ui/bootstrap/list_groups/_list_group_item.html.haml', type: 
       let(:options) { { disabled: true } }
       it 'outputs a disabled list-group-item' do
         expect(subject).to have_css 'li.list-group-item.disabled'
-        expect(subject).to eq  "<li class=\"list-group-item disabled\" tabindex=\"-1\">#{body}\n</li>"
+        expect(subject).to eq  "<li class=\"list-group-item disabled\" tabindex=\"-1\">#{body}</li>"
       end
     end
 
@@ -45,7 +45,7 @@ RSpec.describe 'nfg_ui/bootstrap/list_groups/_list_group_item.html.haml', type: 
 
       it 'outputs a thematic list-group-item' do
         expect(subject).to have_css "li.list-group-item-#{test_theme.to_s}"
-        expect(subject).to eq "<li class=\"list-group-item list-group-item-#{test_theme.to_s}\">#{body}\n</li>"
+        expect(subject).to eq "<li class=\"list-group-item list-group-item-#{test_theme.to_s}\">#{body}</li>"
       end
     end
   end
@@ -55,7 +55,7 @@ RSpec.describe 'nfg_ui/bootstrap/list_groups/_list_group_item.html.haml', type: 
       let(:options) { { action: true } }
       it 'outputs an actionable list-group-item' do
         expect(subject).to have_css 'li.list-group-item-action'
-        expect(subject).to eq "<li class=\"list-group-item list-group-item-action\">#{body}\n</li>"
+        expect(subject).to eq "<li class=\"list-group-item list-group-item-action\">#{body}</li>"
       end
     end
 
@@ -72,7 +72,7 @@ RSpec.describe 'nfg_ui/bootstrap/list_groups/_list_group_item.html.haml', type: 
       let(:options) { { active: true } }
       it 'outputs an active list-group-item' do
         expect(subject).to have_css 'li.active'
-        expect(subject).to eq "<li class=\"list-group-item active\">#{body}\n</li>"
+        expect(subject).to eq "<li class=\"list-group-item active\">#{body}</li>"
       end
     end
 
@@ -89,14 +89,14 @@ RSpec.describe 'nfg_ui/bootstrap/list_groups/_list_group_item.html.haml', type: 
       let(:options) { { as: :a } }
       it 'outputs a list-group-item as an <a> tag' do
         expect(subject).to have_css 'a.list-group-item'
-        expect(subject).to eq "<a class=\"list-group-item\">#{body}\n</a>"
+        expect(subject).to eq "<a class=\"list-group-item\">#{body}</a>"
       end
     end
 
     context 'and when the list group item is not passed an :as option' do
       let(:options) { {} }
       it 'outputs the default list group item as an <li>' do
-        expect(subject).to eq "<li class=\"list-group-item\">#{body}\n</li>"
+        expect(subject).to eq "<li class=\"list-group-item\">#{body}</li>"
       end
     end
   end
@@ -110,7 +110,7 @@ RSpec.describe 'nfg_ui/bootstrap/list_groups/_list_group_item.html.haml', type: 
       context 'when no theme is supplied to the list group item' do
         it 'renders a primary theme badge' do
           expect(subject).to have_css '.list-group-item .badge.badge-pill.badge-primary'
-          expect(subject).to eq "<li class=\"list-group-item d-flex justify-content-between align-items-center\">#{body}\n<span class=\"badge badge-primary badge-pill\">#{tested_badge}</span>\n</li>"
+          expect(subject).to eq "<li class=\"list-group-item d-flex justify-content-between align-items-center\">#{body}<span class=\"badge badge-primary badge-pill\">#{tested_badge}</span></li>"
         end
       end
 
