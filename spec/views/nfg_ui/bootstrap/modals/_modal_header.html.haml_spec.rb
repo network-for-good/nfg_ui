@@ -7,10 +7,10 @@ RSpec.describe 'nfg_ui/bootstrap/modals/_modal_header.html.haml', type: :view do
   let(:title) { tested_title }
   let(:tested_title) { 'Test title' }
 
-  subject { render 'nfg_ui/bootstrap/modals/modal_header', modal_header: modal_header }
+  subject { modal_header.render }
 
   it 'accurately renders the modal header HTML' do
-    expect(subject).to eq "<div class='modal-header'>\n<h5 class='modal-title'>#{tested_title}</h5>\n<button class=\"btn close\" data-dismiss=\"modal\" aria-label=\"Close\" type=\"button\"><span aria-hidden='true'>\n&times;\n</span>\n</button></div>\n"
+    expect(subject).to eq "<div class=\"modal-header\"><h5 class=\"modal-title\">#{tested_title}</h5><button class=\"btn close\" data-dismiss=\"modal\" aria-label=\"Close\" type=\"button\"><span aria-hidden=\"true\">&times;</span></button></div>"
   end
 
   it 'renders the close button' do
@@ -24,7 +24,7 @@ RSpec.describe 'nfg_ui/bootstrap/modals/_modal_header.html.haml', type: :view do
       let(:title) { tested_title }
       it 'renders the modal title with text' do
         expect(subject).to have_selector '.modal-header h5.modal-title', text: tested_title
-        expect(subject).to include "<h5 class='modal-title'>#{tested_title}</h5>"
+        expect(subject).to include "<h5 class=\"modal-title\">#{tested_title}</h5>"
       end
     end
 
@@ -32,7 +32,7 @@ RSpec.describe 'nfg_ui/bootstrap/modals/_modal_header.html.haml', type: :view do
       let(:title) { nil }
       it 'does not render the modal title with text' do
         expect(subject).not_to have_css '.modal-header h5.modal-title'
-        expect(subject).not_to include "<h5 class='modal-title'>"
+        expect(subject).not_to include "<h5 class=\"modal-title\">"
       end
     end
   end
