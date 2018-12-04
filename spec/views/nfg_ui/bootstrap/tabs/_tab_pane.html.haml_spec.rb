@@ -4,13 +4,13 @@ RSpec.describe 'nfg_ui/bootstrap/tabs/_tab_pane.html.haml', type: :view do
   let(:tab_pane) { FactoryBot.create(:bootstrap_tab_pane, **options, body: body) }
   let(:options) { {} }
   let(:body) { 'test body pane' }
-  subject { render 'nfg_ui/bootstrap/tabs/tab_pane', tab_pane: tab_pane }
+  subject { tab_pane.render }
 
   describe 'html output for the bootstrap tab_pane' do
     let(:options) { {} }
     it 'outputs a default bootstrap tab_pane component in html' do
       expect(subject).to have_selector '.tab-pane.fade', text: body
-      expect(subject).to eq "<div class='tab-pane fade' role='tabpanel'>\n#{body}\n</div>\n"
+      expect(subject).to eq "<div class=\"tab-pane fade\" role=\"tabpanel\">#{body}</div>"
     end
   end
 
@@ -23,7 +23,7 @@ RSpec.describe 'nfg_ui/bootstrap/tabs/_tab_pane.html.haml', type: :view do
       it 'utilizes the tab attribute for the ID' do
         expect(subject).to have_css '.tab-pane[id]'
         expect(subject).to have_css "#{tested_tab}.tab-pane"
-        expect(subject).to eq "<div class='tab-pane fade' id='#{tested_tab.tr('#', '')}' role='tabpanel'>\n#{body}\n</div>\n"
+        expect(subject).to eq "<div class=\"tab-pane fade\" id=\"#{tested_tab.tr('#', '')}\" role=\"tabpanel\">#{body}</div>"
       end
     end
 
@@ -46,7 +46,7 @@ RSpec.describe 'nfg_ui/bootstrap/tabs/_tab_pane.html.haml', type: :view do
   end
 
   describe 'tab_pane with fade attributes' do
-    
+
 
     context 'when fade is true for the tab_pane' do
       let(:options) { { fade: true } }
@@ -76,7 +76,7 @@ RSpec.describe 'nfg_ui/bootstrap/tabs/_tab_pane.html.haml', type: :view do
       let(:options) { { active: true } }
       it 'activates and shows the tab pane' do
         expect(subject).to have_css '.tab-pane.active.show'
-        expect(subject).to eq "<div class='tab-pane active fade show' role='tabpanel'>\n#{body}\n</div>\n"
+        expect(subject).to eq "<div class=\"tab-pane active fade show\" role=\"tabpanel\">#{body}</div>"
       end
     end
 
