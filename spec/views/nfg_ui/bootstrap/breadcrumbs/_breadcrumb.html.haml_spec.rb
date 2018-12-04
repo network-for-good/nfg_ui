@@ -10,7 +10,6 @@ RSpec.describe 'nfg_ui/bootstrap/breadcrumbs/_breadcrumb.html.haml', type: :view
     let(:body) { 'test body content' }
 
     it 'outputs a bootstrap breadcrumb component in html' do
-      p subject
       expect(subject).to have_css "nav[aria-label='breadcrumb'] .breadcrumb"
       expect(subject).to have_selector '.breadcrumb', text: body
       expect(subject).to eq "<nav aria-label=\"breadcrumb\"><ol class=\"breadcrumb\">#{body}</ol></nav>"
