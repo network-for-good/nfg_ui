@@ -28,7 +28,7 @@ module NfgUi
         end
 
         def render
-          content_tag(:ol, html_options) do
+          super do
             count.times do |i|
               concat(content_tag(:li, nil, class: ('active' if active == i + 1), data: { target: carousel, slide_to: i }))
             end
@@ -36,6 +36,10 @@ module NfgUi
         end
 
         private
+
+        def base_element
+          :ol
+        end
 
         def non_html_attribute_options
           super.push(:active,

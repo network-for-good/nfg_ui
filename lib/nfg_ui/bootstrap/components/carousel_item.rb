@@ -25,7 +25,7 @@ module NfgUi
         end
 
         def render
-          content_tag(:div, html_options) do
+          super do
             concat(image_tag(image, class: 'd-block w-100')) if image
             if caption || label
               concat(NfgUi::Bootstrap::Components::CarouselCaption.new({ body: caption, label: label }, view_context).render)

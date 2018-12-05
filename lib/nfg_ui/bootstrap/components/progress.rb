@@ -24,7 +24,7 @@ module NfgUi
         end
 
         def render
-          content_tag(:div, html_options) do
+          super do
             if body
               (block_given? ? yield : body)
             else

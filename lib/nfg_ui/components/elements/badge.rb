@@ -16,7 +16,7 @@ module NfgUi
         include NfgUi::Components::Traits::Pill
 
         def render
-          content_tag(as, html_options) do
+          super do
             if icon
               NfgUi::Components::Foundations::Icon.new({ traits: [icon], text: body }, view_context).render
             else

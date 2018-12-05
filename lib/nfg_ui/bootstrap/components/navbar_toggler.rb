@@ -18,7 +18,7 @@ module NfgUi
         end
 
         def render
-          content_tag(:button, html_options) do
+          super do
             if body
               (block_given? ? yield : body)
             else
@@ -27,14 +27,11 @@ module NfgUi
           end
         end
 
-        # private
+        private
 
-        # def assistive_html_attributes
-        #   # raise super.inspect
-        #   tester = collapse ? super.merge!(aria: { controls: collapse.tr('#', '') }) : super
-        #   # collapse ? super.merge!(aria: { controls: collapse.tr('#', '') }) : super
-        #   raise tester.inspect
-        # end
+        def base_element
+          :button
+        end
       end
     end
   end

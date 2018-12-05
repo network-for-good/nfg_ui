@@ -39,7 +39,7 @@ module NfgUi
         end
 
         def render
-          content_tag(:a, html_options) do
+          super do
             if control
               concat(content_tag(:span, nil, icon_html_options))
               concat(content_tag(:span, control.to_s, class: 'sr-only'))
@@ -48,6 +48,10 @@ module NfgUi
         end
 
         private
+
+        def base_element
+          :a
+        end
 
         def assistive_html_attributes
           super.merge!(role: 'button')

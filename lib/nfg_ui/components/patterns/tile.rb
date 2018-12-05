@@ -25,7 +25,7 @@ module NfgUi
         end
 
         def render
-          content_tag(:div, html_options) do
+          super do
             if render_in_body
               if title.present?
                 concat(NfgUi::Components::Patterns::TileHeader.new({ title: title, icon: icon, collapsible: collapsible, collapse: ("#collapse_#{id}" if collapsible) }, view_context).render)

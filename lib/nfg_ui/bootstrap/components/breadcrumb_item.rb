@@ -13,13 +13,11 @@ module NfgUi
           :breadcrumb
         end
 
-        def render
-          content_tag(:li, html_options) do
-            (block_given? ? yield : body)
-          end
-        end
-
         private
+
+        def base_element
+          :li
+        end
 
         def assistive_html_attributes
           active ? super.merge!(aria: { current: 'page' }) : super
