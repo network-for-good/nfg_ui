@@ -23,8 +23,10 @@ module NfgUi
             end
 
             concat(content_tag(:div, html_options) {
-              concat(content_tag(:h5, title, class: 'card-title')) if title
-              concat(block_given? ? yield : body)
+              capture do
+                concat(content_tag(:h5, title, class: 'card-title')) if title
+                concat(block_given? ? yield : body)
+              end
             })
           end
         end

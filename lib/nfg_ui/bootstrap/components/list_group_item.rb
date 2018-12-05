@@ -25,9 +25,11 @@ module NfgUi
 
         def render
           super do
-            concat(block_given? ? yield : body)
-            if badge
-              concat(NfgUi::Bootstrap::Components::Badge.new({ pill: true, theme: (theme || NfgUi::DEFAULT_BOOTSTRAP_THEME), body: badge }, view_context).render)
+            capture do
+              concat(block_given? ? yield : body)
+              if badge
+                concat(NfgUi::Bootstrap::Components::Badge.new({ pill: true, theme: (theme || NfgUi::DEFAULT_BOOTSTRAP_THEME), body: badge }, view_context).render)
+              end
             end
           end
         end

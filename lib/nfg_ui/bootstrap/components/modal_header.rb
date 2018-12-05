@@ -17,10 +17,12 @@ module NfgUi
 
         def render
           super do
-            concat(content_tag(:h5, title, class: 'modal-title')) if title
-            concat(NfgUi::Bootstrap::Components::Button.new({ as: :button, class: 'close', theme: nil, data: { dismiss: 'modal' }, aria: { label: 'Close' } }, view_context).render {
-              content_tag(:span, "&times;".html_safe, { aria: { hidden: 'true' } })
-            })
+            capture do
+              concat(content_tag(:h5, title, class: 'modal-title')) if title
+              concat(NfgUi::Bootstrap::Components::Button.new({ as: :button, class: 'close', theme: nil, data: { dismiss: 'modal' }, aria: { label: 'Close' } }, view_context).render {
+                content_tag(:span, "&times;".html_safe, { aria: { hidden: 'true' } })
+              })
+            end
           end
         end
 

@@ -26,11 +26,13 @@ module NfgUi
 
         def render
           super do
-            concat(image_tag(image, class: 'd-block w-100')) if image
-            if caption || label
-              concat(NfgUi::Bootstrap::Components::CarouselCaption.new({ body: caption, label: label }, view_context).render)
+            capture do
+              concat(image_tag(image, class: 'd-block w-100')) if image
+              if caption || label
+                concat(NfgUi::Bootstrap::Components::CarouselCaption.new({ body: caption, label: label }, view_context).render)
+              end
+              concat(block_given? ? yield : body)
             end
-            concat(block_given? ? yield : body)
           end
         end
 

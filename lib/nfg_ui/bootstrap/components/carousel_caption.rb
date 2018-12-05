@@ -16,8 +16,10 @@ module NfgUi
 
         def render
           super do
-            concat(content_tag(:h5, label)) if label
-            concat(block_given? ? yield : body)
+            capture do
+              concat(content_tag(:h5, label)) if label
+              concat(block_given? ? yield : body)
+            end
           end
         end
 

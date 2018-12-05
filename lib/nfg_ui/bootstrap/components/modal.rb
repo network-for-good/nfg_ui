@@ -27,10 +27,12 @@ module NfgUi
           super do
             content_tag(:div, class: 'modal-dialog', role: 'document') do
               content_tag(:div, class: 'modal-content') do
-                concat(NfgUi::Bootstrap::Components::ModalHeader.new({ title: title }, view_context).render)
-                concat(NfgUi::Bootstrap::Components::ModalBody.new({ body: (block_given? ? yield : body) }, view_context).render)
-                if footer
-                  concat(NfgUi::Bootstrap::Components::ModalFooter.new({ body: footer }, view_context).render)
+                capture do
+                  concat(NfgUi::Bootstrap::Components::ModalHeader.new({ title: title }, view_context).render)
+                  concat(NfgUi::Bootstrap::Components::ModalBody.new({ body: (block_given? ? yield : body) }, view_context).render)
+                  if footer
+                    concat(NfgUi::Bootstrap::Components::ModalFooter.new({ body: footer }, view_context).render)
+                  end
                 end
               end
             end

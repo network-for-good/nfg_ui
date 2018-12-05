@@ -17,31 +17,43 @@ module NfgUi
         include NfgUi::Components::Traits::Theme
 
         def render
-          super do
-            if dismissible
-              concat(NfgUi::Components::Elements::Button.new({ traits: [:close], dismiss: :alert }, view_context).render)
-            end
-
-            if icon
-              concat(NfgUi::Components::Patterns::Media.new({}, view_context).render {
-                concat(NfgUi::Components::Elements::MediaObject.new({}, view_context).render {
-                  content_tag(:div, class: 'mr-2') do
-                    NfgUi::Components::Foundations::Icon.new({ traits: [icon] }, view_context).render
-                  end
-                })
-                concat(NfgUi::Components::Elements::MediaBody.new({}, view_context).render {
-                  if heading
-                    concat(NfgUi::Components::Foundations::Typeface.new({ heading: heading, class: 'alert-heading' }, view_context).render)
-                  end
-                  concat(block_given? ? yield : body)
-                })
-              })
-            else
-              if heading
-                concat(NfgUi::Components::Foundations::Typeface.new({ heading: heading, class: 'alert-heading' }, view_context).render)
+          # NOTE: concat statement must be surrounded by capture blocks.
+          # If you see duplication of content, it is likely because that
+          # a concat has been called outside of a capture block.
+          # This is specifically true when some of those concats are nested
+          # or are within a block defined within the capture block
+          content_tag(:div, html_options) do
+            capture do
+              if dismissible
+                concat(NfgUi::Components::Elements::Button.new({ traits: [:close], dismiss: :alert }, view_context).render)
               end
 
-              concat(block_given? ? yield : body)
+              if icon
+                concat(NfgUi::Components::Patterns::Media.new({}, view_context).render {
+                  capture do
+
+                    concat(NfgUi::Components::Elements::MediaObject.new({}, view_context).render {
+                      content_tag(:div, class: 'mr-2') do
+                        NfgUi::Components::Foundations::Icon.new({ traits: [icon] }, view_context).render
+                      end
+                    })
+                    concat(NfgUi::Components::Elements::MediaBody.new({}, view_context).render {
+                      capture do
+                        if heading
+                          concat(NfgUi::Components::Foundations::Typeface.new({ heading: heading, class: 'alert-heading' }, view_context).render)
+                        end
+                        concat(block_given? ? yield : body)
+                      end
+                    })
+                  end
+                })
+              else
+                if heading
+                  concat(NfgUi::Components::Foundations::Typeface.new({ heading: heading, class: 'alert-heading' }, view_context).render)
+                end
+
+                concat(block_given? ? yield : body)
+              end
             end
           end
         end

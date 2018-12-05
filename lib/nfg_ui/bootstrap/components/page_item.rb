@@ -36,8 +36,10 @@ module NfgUi
         def render
           super do
             content_tag(:a, page_link_html_options) do
-              concat(block_given? ? yield : body)
-              concat(content_tag(:span, '(current)', class: 'sr-only')) if active
+              capture do
+                concat(block_given? ? yield : body)
+                concat(content_tag(:span, '(current)', class: 'sr-only')) if active
+              end
             end
           end
         end
