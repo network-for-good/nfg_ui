@@ -17,7 +17,7 @@ module NfgUi
         include NfgUi::Components::Traits::Theme
 
         def render
-          content_tag(:div, html_options) do
+          super do
             if dismissible
               concat(NfgUi::Components::Elements::Button.new({ traits: [:close], dismiss: :alert }, view_context).render)
             end

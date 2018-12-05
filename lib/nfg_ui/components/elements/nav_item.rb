@@ -18,7 +18,7 @@ module NfgUi
         include NfgUi::Components::Traits::Remote
 
         def render
-          content_tag(as, html_options) do
+          super do
             if include_nav_link?
               concat(NfgUi::Components::Elements::NavLink.new({ body: (button ? button : (block_given? ? yield : body)), active: active, disabled: disabled, dropdown: dropdown, tab: tab, remote: remote, href: (tab || href), icon: icon }, view_context).render)
               if dropdown
