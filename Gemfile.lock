@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    nfg_ui (0.9)
+    nfg_ui (0.9.1)
       bootstrap (~> 4.1)
       browser (~> 1.1)
       coffee-script
