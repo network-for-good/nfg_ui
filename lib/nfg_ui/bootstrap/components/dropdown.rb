@@ -25,7 +25,7 @@ module NfgUi
         end
 
         def render
-          content_tag(:div, html_options) do
+          super do
             if button.present?
               concat(NfgUi::Bootstrap::Components::DropdownToggle.new({ body: button, theme: theme, as: :button, offset: offset }, view_context).render)
             end
