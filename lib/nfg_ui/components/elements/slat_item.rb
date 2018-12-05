@@ -23,7 +23,7 @@ module NfgUi
         end
 
         def render
-          content_tag(:div, html_options) do
+          super do
             if slat_header
               concat(content_tag(:h6, slat_header, class: 'display-4'))
             end

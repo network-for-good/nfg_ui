@@ -33,13 +33,11 @@ module NfgUi
           options.fetch(:vertical, false)
         end
 
-        def render
-          content_tag(as, html_options) do
-            (block_given? ? yield : body)
-          end
-        end
-
         private
+
+        def base_element
+          as
+        end
 
         def component_css_class
           'nav'

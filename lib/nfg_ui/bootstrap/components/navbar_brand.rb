@@ -14,10 +14,10 @@ module NfgUi
           options.fetch(:href, '#')
         end
 
-        def render
-          content_tag(:a, **html_options, href: href) do
-            (block_given? ? yield : body)
-          end
+        private
+
+        def base_element
+          :a
         end
       end
     end

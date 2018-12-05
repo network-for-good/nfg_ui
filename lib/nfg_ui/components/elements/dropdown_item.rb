@@ -25,7 +25,7 @@ module NfgUi
           if tooltip && disabled
             super
           else
-            content_tag(as, html_options) do
+            super do
               if icon
                 NfgUi::Components::Foundations::Icon.new({ traits: ["#{icon} fw"], text: (block_given? ? yield : body), class: 'text-center' }, view_context).render
               else
@@ -36,6 +36,10 @@ module NfgUi
         end
 
         private
+
+        def base_element
+          as
+        end
 
         def default_theme
           nil

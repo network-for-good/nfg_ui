@@ -15,7 +15,7 @@ module NfgUi
         end
 
         def render
-          content_tag(:div, html_options) do
+          super do
             concat(content_tag(:h5, label)) if label
             concat(block_given? ? yield : body)
           end

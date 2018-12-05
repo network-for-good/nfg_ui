@@ -34,7 +34,7 @@ module NfgUi
         end
 
         def render
-          content_tag(:li, html_options) do
+          super do
             content_tag(:a, page_link_html_options) do
               concat(block_given? ? yield : body)
               concat(content_tag(:span, '(current)', class: 'sr-only')) if active
@@ -43,6 +43,10 @@ module NfgUi
         end
 
         private
+
+        def base_element
+          :li
+        end
 
         def css_classes
           [

@@ -16,7 +16,7 @@ module NfgUi
         end
 
         def render
-          content_tag(:div, html_options) do
+          super do
             if heading
               concat(NfgUi::Components::Foundations::Typeface.new({ heading: heading, icon: icon }, view_context).render)
             end

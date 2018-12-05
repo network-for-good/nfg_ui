@@ -17,7 +17,7 @@ module NfgUi
         include NfgUi::Components::Traits::Typeface
 
         def render
-          content_tag(as, **html_options) do
+          super do
             if icon
               NfgUi::Components::Foundations::Icon.new({ icon: icon, text: body }, view_context).render
             else
@@ -61,6 +61,10 @@ module NfgUi
         # end
 
         private
+
+        def base_element
+          as
+        end
 
         def theme_css_class_prefix
           'text-'

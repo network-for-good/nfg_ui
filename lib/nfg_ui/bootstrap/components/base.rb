@@ -25,14 +25,17 @@ module NfgUi
           component_initialize
         end
 
+
+        # This base render handles many of the components and
+        # can be changed to have a different base element by
+        # overriding the base_element.
+        # in some cases, the child component can also call
+        # super with a block to have this render as the wrapping
+        # element.
         def render
-          # Until a component has it's own render method, this NotImplemented
-          # error will be raised, and the components related partial will be rendered
-          #
-          # Remember to always include  (block_given? ? yield : body) where the original
-          # component.body was rendered, so each componenets render method can accept
-          # a block, or continue to accept the body value
-          raise NotImplementedError.new("a subclass must implement this")
+          content_tag(base_element, html_options) do
+            (block_given? ? yield : body)
+          end
         end
 
         # This is used to help identify where to find partials for rendering components.
@@ -91,6 +94,16 @@ module NfgUi
         # avoid passing aria to assistive_html_attributes directly
         def assistive_html_attributes
           @assistive_html_attributes ||= {}
+        end
+
+        # the base_element is used in the default render for all components
+        # as the outer wrapping element. Typically, this is a div, but
+        # can be overriddent as a different static element in a child class
+        # or as a dynamic element in the child class.
+        # this allows most child components to not have to have their
+        # own render statement if their wrapping element is not a div
+        def base_element
+          :div
         end
 
         # Fallback component css class name.

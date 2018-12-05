@@ -24,7 +24,7 @@ module NfgUi
         end
 
         def render
-          content_tag as, html_options do
+          super do
             concat(block_given? ? yield : body)
             if badge
               concat(NfgUi::Bootstrap::Components::Badge.new({ pill: true, theme: (theme || NfgUi::DEFAULT_BOOTSTRAP_THEME), body: badge }, view_context).render)
@@ -33,6 +33,10 @@ module NfgUi
         end
 
         private
+
+        def base_element
+          as
+        end
 
         def default_theme
           nil

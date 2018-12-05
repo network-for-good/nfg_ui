@@ -14,12 +14,6 @@ module NfgUi
           options.fetch(:vertical, false)
         end
 
-        def render
-          content_tag(:div, html_options) do
-            (block_given? ? yield : body)
-          end
-        end
-
         private
 
         def assistive_html_attributes

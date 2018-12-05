@@ -10,10 +10,10 @@ module NfgUi
           :navbar
         end
 
-        def render
-          content_tag(:span, html_options) do
-            (block_given? ? yield : body)
-          end
+        private
+
+        def base_element
+          :span
         end
       end
     end

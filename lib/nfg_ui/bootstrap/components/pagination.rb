@@ -15,10 +15,14 @@ module NfgUi
 
         def render
           content_tag(:nav) do
-            content_tag(:ul, html_options) do
-              (block_given? ? yield : body)
-            end
+            super
           end
+        end
+
+        private
+
+        def base_element
+          :ul
         end
       end
     end
