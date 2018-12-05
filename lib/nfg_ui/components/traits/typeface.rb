@@ -41,10 +41,6 @@ module NfgUi
           self.as = title_tag
           options[:title] = body
         end
-
-        def muted_trait
-          options[:class] += ' text-muted'
-        end
       end
     end
   end

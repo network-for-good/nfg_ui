@@ -5,7 +5,7 @@ module NfgUi
     module Components
       # Bootstrap Nav Component
       # https://getbootstrap.com/docs/4.1/components/navs/
-      class Nav < Bootstrap::Components::Base
+      class Nav < NfgUi::Bootstrap::Components::Base
         include Bootstrap::Utilities::Alignable
         include Bootstrap::Utilities::Wrappable
 
@@ -33,7 +33,17 @@ module NfgUi
           options.fetch(:vertical, false)
         end
 
+        def render
+          content_tag(as, html_options) do
+            (block_given? ? yield : body)
+          end
+        end
+
         private
+
+        def component_css_class
+          'nav'
+        end
 
         def css_classes
           [

@@ -5,7 +5,7 @@ module NfgUi
     module Components
       # Bootstrap Navbar Component
       # https://getbootstrap.com/docs/4.1/components/navbar/
-      class NavbarToggler < Bootstrap::Components::Base
+      class NavbarToggler < NfgUi::Bootstrap::Components::Base
         include Bootstrap::Utilities::CollapseToggleable
 
         # Pass through to collapse component
@@ -15,6 +15,16 @@ module NfgUi
 
         def component_family
           :navbar
+        end
+
+        def render
+          content_tag(:button, html_options) do
+            if body
+              (block_given? ? yield : body)
+            else
+              content_tag(:span, nil, class: 'navbar-toggler-icon')
+            end
+          end
         end
 
         # private

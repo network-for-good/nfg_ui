@@ -11,13 +11,18 @@ module NfgUi
       class Icon < NfgUi::Components::Base
         include Bootstrap::Utilities::Themeable
         include Bootstrap::Utilities::Tooltipable
-        
+
         include NfgUi::Components::Traits::Icon
+        include NfgUi::Components::Traits::Muted
         include NfgUi::Components::Traits::Theme
         include NfgUi::Components::Traits::Alignment
 
+        def render
+          view_context.fa_icon icon, **html_options, text: text, right: right
+        end
+
         def icon
-          options[:icon] = options[:icon] || (traits.slice!(0).to_s if traits.first.is_a?(String))
+          options[:icon] || (traits.slice!(0).to_s if traits.first.is_a?(String))
         end
 
         def text

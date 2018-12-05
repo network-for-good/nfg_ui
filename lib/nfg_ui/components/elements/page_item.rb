@@ -4,7 +4,7 @@ module NfgUi
   module Components
     module Elements
       # Pagination sub component (page items)
-      class PageItem < Bootstrap::Components::PageItem
+      class PageItem < NfgUi::Bootstrap::Components::PageItem
         include NfgUi::Components::Utilities::Traitable
         include NfgUi::Components::Utilities::Describable
         include NfgUi::Components::Utilities::Renderable

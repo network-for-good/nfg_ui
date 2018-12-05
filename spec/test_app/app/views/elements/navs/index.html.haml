@@ -1,3 +1,193 @@
 %h1 Navs
 
-= ui.nfg :nav
+%h2 Standard, default nav
+%p 
+  Note: to generate a nav item that utilizes the :nav_link component, simply pass an :href option into the :nav_item. This will automatically generate the .nav-item > .nav-link syntax and supply the href to the nav_link for you.
+%p
+  %b Example:
+  ui.nfg :nav_item, body: 'Nav Item #1', href: '#'
+
+%p :nav_link component is available and is usable if you need to build a more complex or complicated nav item. See examples below
+
+= ui.nfg :nav, class: 'bg-light p-3' do
+  = ui.nfg :nav_item, :active, body: 'Nav Item #1', href: '#', icon: 'home'
+  = ui.nfg :nav_item, body: 'Nav Item #2', href: '#', icon: 'rocket'
+  = ui.nfg :nav_item, body: 'Nav Item #3', href: '#', icon: 'rocket'
+  = ui.nfg :nav_item, body: 'Nav Item #4', href: '#', icon: 'heart'
+
+%hr
+
+%h3 Nav with :nav_items and manually added :nav_links
+= ui.nfg :nav, class: 'bg-light p-3' do
+  = ui.nfg :nav_item do
+    = ui.nfg :nav_link, :active, body: 'Nav Link #1', href: '#', icon: 'home'
+  = ui.nfg :nav_item do
+    = ui.nfg :nav_link, body: 'Nav Link #2', href: '#', icon: 'rocket'
+  = ui.nfg :nav_item do
+    = ui.nfg :nav_link, body: 'Nav Link #3', href: '#', icon: 'heart'
+  = ui.nfg :nav_item do
+    = ui.nfg :nav_link, :disabled, body: 'Nav Link #4 (disabled)', href: '#', icon: 'usd'
+  
+
+
+%hr
+
+%h2 <nav> element based Nav
+%p Docs show that when using nav element, utilize :nav_link (a tag) component
+
+%h3 Standard nav using as: :nav (thus, nav element)
+= ui.nfg :nav, as: :nav, class: 'bg-light p-3' do
+  = ui.nfg :nav_link, body: 'Nav Link #1', href: '#'
+  = ui.nfg :nav_link, body: 'Nav Link #2', href: '#'
+  = ui.nfg :nav_link, body: 'Nav Link #3', href: '#'
+  = ui.nfg :nav_link, body: 'Nav Link #4', href: '#'
+
+%hr
+
+%h3 Complex nav using as: :nav 
+%p Per documentation on nav-fill / justified, etc, add 'nav-item' class to nav_link:
+
+= ui.nfg :nav, :fill, :pill, as: :nav, class: 'bg-light p-3' do
+  = ui.nfg :nav_link, :active, body: 'Nav Link #1 - Active', href: '#', class: 'nav-item'
+  = ui.nfg :nav_link, body: 'Nav Link #2', href: '#', class: 'nav-item'
+  = ui.nfg :nav_link, body: 'Nav Link #3', href: '#', class: 'nav-item'
+  = ui.nfg :nav_link, body: 'Nav Link #4', href: '#', class: 'nav-item'
+
+
+
+  
+
+%hr
+
+%h2 Horizontal positioning of nav
+
+%h3.h4 Right
+= ui.nfg :nav, :right, class: 'bg-light p-3' do
+  = ui.nfg :nav_item, body: 'Nav Item #1', href: '#'
+  = ui.nfg :nav_item, body: 'Nav Item #2', href: '#'
+  = ui.nfg :nav_item, body: 'Nav Item #3', href: '#'
+  = ui.nfg :nav_item, body: 'Nav Item #4' , href: '#'
+
+%h3.h4 Center
+= ui.nfg :nav, :center, class: 'bg-light p-3' do
+  = ui.nfg :nav_item, body: 'Nav Item #1', href: '#'
+  = ui.nfg :nav_item, body: 'Nav Item #2', href: '#'
+  = ui.nfg :nav_item, body: 'Nav Item #3', href: '#'
+  = ui.nfg :nav_item, body: 'Nav Item #4', href: '#'
+
+%hr
+
+%h2 Vertical
+
+= ui.nfg :nav, :vertical, class: 'bg-light p-3' do
+  = ui.nfg :nav_item, body: 'Nav Item #1', href: '#'
+  = ui.nfg :nav_item, body: 'Nav Item #2', href: '#'
+  = ui.nfg :nav_item, body: 'Nav Item #3', href: '#'
+  = ui.nfg :nav_item, body: 'Nav Item #4', href: '#'
+
+%hr
+
+%h2 Tabs
+
+= ui.nfg :nav, :tabs, class: 'bg-light px-3 pt-3' do
+  = ui.nfg :nav_item, :active, body: 'Nav Item #1', href: '#'
+  = ui.nfg :nav_item, body: 'Nav Item #2', href: '#'
+  = ui.nfg :nav_item, body: 'Nav Item #3', href: '#'
+  = ui.nfg :nav_item, body: 'Nav Item #4', href: '#'
+
+%h2 Pills
+
+= ui.nfg :nav, :pill, class: 'bg-light p-3' do
+  = ui.nfg :nav_item, :active, body: 'Nav Item #1', href: '#'
+  = ui.nfg :nav_item, body: 'Nav Item #2', href: '#'
+  = ui.nfg :nav_item, body: 'Nav Item #3', href: '#'
+  = ui.nfg :nav_item, body: 'Nav Item #4', href: '#'
+
+%hr
+
+%h2 Fill
+
+= ui.nfg :nav, :fill, class: 'bg-light p-3' do
+  = ui.nfg :nav_item, body: 'Nav Item #1', href: '#'
+  = ui.nfg :nav_item, body: 'Nav Item #2', href: '#'
+  = ui.nfg :nav_item, body: 'Nav Item #3', href: '#'
+  = ui.nfg :nav_item, body: 'Nav Item #4', href: '#'
+
+%hr
+
+%h2 Justify
+
+= ui.nfg :nav, :justify, class: 'bg-light p-3' do
+  = ui.nfg :nav_item, body: 'Nav Item #1', href: '#'
+  = ui.nfg :nav_item, body: 'Nav Item #2', href: '#'
+  = ui.nfg :nav_item, body: 'Nav Item #3', href: '#'
+  = ui.nfg :nav_item, body: 'Nav Item #4', href: '#'
+
+= ui.nfg :nav, :justify, :pill, class: 'bg-light p-3' do
+  = ui.nfg :nav_item, body: 'Nav Item #1', href: '#'
+  = ui.nfg :nav_item, body: 'Nav Item #2', href: '#'
+  = ui.nfg :nav_item, body: 'Nav Item #3', href: '#'
+  = ui.nfg :nav_item, body: 'Nav Item #4', href: '#'
+
+= ui.nfg :nav, :justify, :tabs, class: 'bg-light p-3' do
+  = ui.nfg :nav_item, body: 'Nav Item #1', href: '#'
+  = ui.nfg :nav_item, body: 'Nav Item #2', href: '#'
+  = ui.nfg :nav_item, body: 'Nav Item #3', href: '#'
+  = ui.nfg :nav_item, body: 'Nav Item #4', href: '#'
+
+%hr
+
+%h2 Nav Items / links: States
+
+= ui.nfg :nav, :pill ,class: 'bg-light p-3' do
+  = ui.nfg :nav_item, :active, body: 'Nav Item #1 - Active', href: '#', icon: 'check'
+  = ui.nfg :nav_item, :disabled, body: 'Nav Item #2 - Disabled', href: '#'
+  = ui.nfg :nav_item, body: 'Nav Item #3', href: '#'
+  = ui.nfg :nav_item, body: 'Nav Item #4', href: '#'
+
+%hr
+
+%h2 Nav items with dropdowns
+%p Note: to create an automatic dropdown toggle to power your dropdown, you need to pass in :button instead of :body
+%p Example: = ui.nfg :nav_item, button: 'Nav Item #4 - Dropdown', dropdown: true do ...
+
+%h3 Standard Nav with dropdown
+= ui.nfg :nav, class: 'bg-light p-3' do
+  = ui.nfg :nav_item, body: 'Nav Item #1', href: '#'
+  = ui.nfg :nav_item, body: 'Nav Item #2', href: '#'
+  = ui.nfg :nav_item, body: 'Nav Item #3', href: '#'
+  = ui.nfg :nav_item, :dropdown, button: 'Nav Item #4 - Dropdown' do
+    = ui.nfg :dropdown_menu do
+      = ui.nfg :dropdown_item, :primary, body: 'Dropdown Item 1', href: '#', icon: 'pencil'
+      = ui.nfg :dropdown_item, :secondary, body: 'Dropdown Item 2', href: '#', icon: 'trash'
+      = ui.nfg :dropdown_item, :danger, body: 'Dropdown Item 3', href: '#', icon: 'ban'
+      = ui.nfg :dropdown_item, :dark, body: 'Dropdown Item 4', href: '#', icon: 'envelope'
+
+%hr
+
+%h3 Pills with dropdowns
+= ui.nfg :nav, :pill, class: 'bg-light p-3' do
+  = ui.nfg :nav_item, :active, body: 'Nav Item #1', href: '#'
+  = ui.nfg :nav_item, body: 'Nav Item #2', href: '#'
+  = ui.nfg :nav_item, body: 'Nav Item #3', href: '#'
+  = ui.nfg :nav_item, :dropdown, button: 'Nav Item #4 - Dropdown' do
+    = ui.nfg :dropdown_menu do
+      = ui.nfg :dropdown_item, :primary, body: 'Dropdown Item 1', href: '#'
+      = ui.nfg :dropdown_item, :secondary, body: 'Dropdown Item 2', href: '#'
+      = ui.nfg :dropdown_item, :danger, body: 'Dropdown Item 3', href: '#'
+      = ui.nfg :dropdown_item, :warning, body: 'Dropdown Item 4', href: '#'
+
+%hr
+
+%h3 Tabs with dropdowns
+= ui.nfg :nav, :tabs, class: 'bg-light px-3 pt-3' do
+  = ui.nfg :nav_item, body: 'Nav Item #1', href: '#'
+  = ui.nfg :nav_item, body: 'Nav Item #2', href: '#'
+  = ui.nfg :nav_item, body: 'Nav Item #3', href: '#'
+  = ui.nfg :nav_item, :dropdown, button: 'Nav Item #4 with Dropdown' do
+    = ui.nfg :dropdown_menu do
+      = ui.nfg :dropdown_item, body: 'Dropdown Item 1', href: '#dd1'
+      = ui.nfg :dropdown_item, body: 'Dropdown Item 2', href: '#dd2'
+      = ui.nfg :dropdown_item, body: 'Dropdown Item 3', href: '#dd3'
+      = ui.nfg :dropdown_item, body: 'Dropdown Item 4', href: '#dd4'
+

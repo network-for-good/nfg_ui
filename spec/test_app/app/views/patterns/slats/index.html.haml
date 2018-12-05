@@ -33,8 +33,11 @@
         = ui.nfg :slat_action, href: '#', body: 'Edit', icon: 'pencil'
         = ui.nfg :slat_action, :danger, href: '#', body: 'Delete', icon: 'trash-o', method: :delete, confirm: 'Are you sure you want to delete?'
 
-
+.mt-5
 %hr
+.mb-5
+
+%h3.mb-4 Non-wide slat rows (action dropdowns without text)
 
 = ui.nfg :slats do
   = ui.nfg :slat_header do
@@ -62,3 +65,133 @@
       = ui.nfg :slat_actions, wide: false do
         = ui.nfg :slat_action, href: '#', body: 'Edit', icon: 'pencil'
         = ui.nfg :slat_action, :danger, href: '#', body: 'Delete', icon: 'trash-o', method: :delete, confirm: 'Are you sure you want to delete?'
+
+
+.mt-5
+%hr
+.mb-5
+
+%h3.mb-4 Slats without action menus but with action column
+
+= ui.nfg :slats do
+  = ui.nfg :slat_header do
+    = ui.nfg :slat do
+      = ui.nfg :slat_body do
+        = ui.nfg :slat_item, slat_header: 'First Column'
+        = ui.nfg :slat_item, slat_header: 'Second Column'
+      = ui.nfg :slat_actions, slat_header: true
+
+  = ui.nfg :slat_list do
+    = ui.nfg :slat do
+      = ui.nfg :slat_body do
+        
+        = ui.nfg :slat_item, heading: 'Slat information'
+        = ui.nfg :slat_item, heading: '$5000', caption: 'An amount caption'
+
+      = ui.nfg :slat_actions, menu: false, icon: 'trash', body: 'Delete', href: '#nogo'
+    = ui.nfg :slat do
+      = ui.nfg :slat_body do
+        
+        = ui.nfg :slat_item, heading: 'Slat information'
+        = ui.nfg :slat_item, heading: '$5000', caption: 'An amount caption'
+
+      = ui.nfg :slat_actions, :danger, menu: false, icon: 'trash', body: 'Delete', href: '#nogo', remote: true, method: :get
+
+.mt-5
+%hr
+.mb-5
+
+%h3.my-4 Slats without action menus but with action column, icon only (not wide)
+
+= ui.nfg :slats do
+  = ui.nfg :slat_header do
+    = ui.nfg :slat do
+      = ui.nfg :slat_body do
+        = ui.nfg :slat_item, slat_header: 'First Column'
+        = ui.nfg :slat_item, slat_header: 'Second Column'
+      = ui.nfg :slat_actions, slat_header: true
+
+  = ui.nfg :slat_list do
+    = ui.nfg :slat do
+      = ui.nfg :slat_body do
+        
+        = ui.nfg :slat_item, heading: 'Slat information'
+        = ui.nfg :slat_item, heading: '$5000', caption: 'An amount caption'
+
+      = ui.nfg :slat_actions, menu: false, icon: 'trash', href: '#nogo'
+
+    = ui.nfg :slat do
+      = ui.nfg :slat_body do
+        
+        = ui.nfg :slat_item, heading: 'Slat information'
+        = ui.nfg :slat_item, heading: '$5000', caption: 'An amount caption'
+
+      = ui.nfg :slat_actions, menu: false, icon: 'trash', href: '#nogo', method: :get, disable_with: 'Disabler', confirm: 'Are you sure?'
+
+.row
+  .col-md-6.col-8.mx-auto
+    = ui.nfg :slats do
+      = ui.nfg :slat_header do
+        = ui.nfg :slat do
+          = ui.nfg :slat_body do
+            = ui.nfg :slat_item, slat_header: 'First Column'
+            = ui.nfg :slat_item, slat_header: 'Second Column', class: 'text-right'
+          = ui.nfg :slat_actions, slat_header: true
+
+      = ui.nfg :slat_list do
+        = ui.nfg :slat do
+          = ui.nfg :slat_body do
+            
+            = ui.nfg :slat_item, heading: 'Slat information'
+            = ui.nfg :slat_item, heading: '$5000', class: 'text-right', caption: 'An amount caption'
+
+          = ui.nfg :slat_actions, :danger, menu: false, icon: 'trash', href: '#nogo', confirm: 'Test', method: :delete, wide: false
+
+        = ui.nfg :slat do
+          = ui.nfg :slat_body do
+            
+            = ui.nfg :slat_item, heading: 'Slat information'
+            = ui.nfg :slat_item, heading: '$5000', caption: 'An amount caption'
+
+          = ui.nfg :slat_actions, menu: false, icon: 'trash', href: '#nogo', method: :get, disable_with: 'Disabler', confirm: 'Are you sure?'
+
+  
+
+.mt-5
+%hr
+.mb-5
+
+%h3.my-4 Slat with slat-items lg
+= ui.nfg :slats do
+  = ui.nfg :slat_header do
+    = ui.nfg :slat do
+      = ui.nfg :slat_body do
+        = ui.nfg :slat_item, slat_header: 'First Column'
+        = ui.nfg :slat_item, slat_header: 'Second Column'
+      = ui.nfg :slat_actions, slat_header: true
+
+  = ui.nfg :slat_list do
+    = ui.nfg :slat do
+      = ui.nfg :slat_body do
+        
+        = ui.nfg :slat_item, :lg, heading: 'Slat information (:lg)'
+        = ui.nfg :slat_item, heading: '$5000', caption: 'An amount caption'
+
+      = ui.nfg :slat_actions, :warning, menu: false, icon: 'trash', href: '#nogo'
+
+.mt-5
+%hr
+.mb-5
+
+%h3.my-4 Slat with slat-list sm
+
+= ui.nfg :slats do
+  = ui.nfg :slat_header do
+    = ui.nfg :slat do
+      = ui.nfg :slat_body do
+        = ui.nfg :slat_item, slat_header: 'First Column'
+
+  = ui.nfg :slat_list, :sm do
+    = ui.nfg :slat do
+      = ui.nfg :slat_body do
+        = ui.nfg :slat_item, heading: 'Your shopping cart'

@@ -5,10 +5,10 @@ module NfgUi
     module Components
       # Bootstrap Progress Bar Component
       # https://getbootstrap.com/docs/4.1/components/progress/
-      class ProgressBar < Bootstrap::Components::Progress
+      class ProgressBar < NfgUi::Bootstrap::Components::Progress
         include Bootstrap::Utilities::Progressable
         include Bootstrap::Utilities::Themeable
-        
+
         def component_family
           :progress
         end
@@ -18,6 +18,10 @@ module NfgUi
             options[:style],
             ("width: #{progress.to_i}%;" if progress)
           ].join(' ').squish
+        end
+
+        def render
+          content_tag(:div, label, html_options)
         end
 
         private

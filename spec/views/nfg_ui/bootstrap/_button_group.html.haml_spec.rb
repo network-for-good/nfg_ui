@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'nfg_ui/bootstrap/_button_group.html.haml', type: :view do
   let(:button_group) { FactoryBot.create(:bootstrap_button_group, **options) }
   let(:options) { {} }
-  subject { render 'nfg_ui/bootstrap/button_group', button_group: button_group }
+  subject { button_group.render }
 
   describe 'html output for the bootstrap button_group' do
     let(:options) { { body: body } }
@@ -12,7 +12,7 @@ RSpec.describe 'nfg_ui/bootstrap/_button_group.html.haml', type: :view do
     it 'outputs a bootstrap button_group component in html' do
       expect(subject).to have_css '.btn-group'
       expect(subject).to have_selector '.btn-group', text: body
-      expect(subject).to eq "<div aria-label='action buttons' class='btn-group' role='group'>\n#{body}\n</div>\n"
+      expect(subject).to eq "<div class=\"btn-group\" role=\"group\" aria-label=\"action buttons\">#{body}</div>"
     end
   end
 
@@ -20,10 +20,10 @@ RSpec.describe 'nfg_ui/bootstrap/_button_group.html.haml', type: :view do
     describe 'dropdown menu with dropleft direction' do
       context 'when dropleft is true in options' do
         let(:options) { { dropleft: true } }
-        
+
         it 'outputs a dropdown component with dropleft html in place' do
           expect(subject).to have_css '.btn-group.dropleft'
-          expect(subject).to eq "<div aria-label='action buttons' class='btn-group dropleft' role='group'>\n\n</div>\n"
+          expect(subject).to eq "<div class=\"btn-group dropleft\" role=\"group\" aria-label=\"action buttons\"></div>"
         end
       end
 
@@ -32,7 +32,7 @@ RSpec.describe 'nfg_ui/bootstrap/_button_group.html.haml', type: :view do
         it 'outputs a dropdown component without dropleft html in place' do
           expect(subject).not_to have_css '.btn-group.dropleft'
           expect(subject).to have_css '.btn-group'
-          expect(subject).to eq "<div aria-label='action buttons' class='btn-group' role='group'>\n\n</div>\n"
+          expect(subject).to eq "<div class=\"btn-group\" role=\"group\" aria-label=\"action buttons\"></div>"
         end
       end
 
@@ -48,7 +48,7 @@ RSpec.describe 'nfg_ui/bootstrap/_button_group.html.haml', type: :view do
         let(:options) { { dropright: true } }
         it 'outputs a dropdown component with dropright html in place' do
           expect(subject).to have_css '.btn-group.dropright'
-          expect(subject).to eq "<div aria-label='action buttons' class='btn-group dropright' role='group'>\n\n</div>\n"
+          expect(subject).to eq "<div class=\"btn-group dropright\" role=\"group\" aria-label=\"action buttons\"></div>"
         end
       end
 
@@ -57,7 +57,7 @@ RSpec.describe 'nfg_ui/bootstrap/_button_group.html.haml', type: :view do
         it 'outputs a dropdown component without dropright html in place' do
           expect(subject).not_to have_css '.btn-group.dropright'
           expect(subject).to have_css '.btn-group'
-          expect(subject).to eq "<div aria-label='action buttons' class='btn-group' role='group'>\n\n</div>\n"
+          expect(subject).to eq "<div class=\"btn-group\" role=\"group\" aria-label=\"action buttons\"></div>"
         end
       end
 
@@ -73,7 +73,7 @@ RSpec.describe 'nfg_ui/bootstrap/_button_group.html.haml', type: :view do
         let(:options) { { dropup: true } }
         it 'outputs a dropdown component with dropup html in place' do
           expect(subject).to have_css '.btn-group.dropup'
-          expect(subject).to eq "<div aria-label='action buttons' class='btn-group dropup' role='group'>\n\n</div>\n"
+          expect(subject).to eq "<div class=\"btn-group dropup\" role=\"group\" aria-label=\"action buttons\"></div>"
         end
       end
 
@@ -82,7 +82,7 @@ RSpec.describe 'nfg_ui/bootstrap/_button_group.html.haml', type: :view do
         it 'outputs a dropdown component without dropup html in place' do
           expect(subject).not_to have_css '.btn-group.dropup'
           expect(subject).to have_css '.btn-group'
-          expect(subject).to eq "<div aria-label='action buttons' class='btn-group' role='group'>\n\n</div>\n"
+          expect(subject).to eq "<div class=\"btn-group\" role=\"group\" aria-label=\"action buttons\"></div>"
         end
       end
 

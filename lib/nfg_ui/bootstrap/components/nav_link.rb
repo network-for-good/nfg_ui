@@ -5,7 +5,7 @@ module NfgUi
     module Components
       # Bootstrap Nav Component
       # https://getbootstrap.com/docs/4.1/components/navs/
-      class NavLink < Bootstrap::Components::Base
+      class NavLink < NfgUi::Bootstrap::Components::Base
         include Bootstrap::Utilities::Activatable
         include Bootstrap::Utilities::Disableable
         include Bootstrap::Utilities::Remotable
@@ -30,7 +30,21 @@ module NfgUi
           tab ? super.merge!(toggle: 'tab') : super
         end
 
+        def render
+          if dropdown
+            NfgUi::Bootstrap::Components::DropdownToggle.new({ body: (block_given? ? yield : body), as: :a, **html_options, theme: nil, nav_link: true }, view_context).render
+          else
+            content_tag(:a, html_options) do
+              (block_given? ? yield : body)
+            end
+          end
+        end
+
         private
+
+        def component_css_class
+          'nav-link'
+        end
 
         def non_html_attribute_options
           super.push(:tab, :dropdown)

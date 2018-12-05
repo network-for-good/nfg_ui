@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'nfg_ui/bootstrap/dropdowns/_dropdown_toggle.html.haml', type: :view do
   let(:dropdown_toggle) { FactoryBot.create(:bootstrap_dropdown_toggle, **options) }
   let(:options) { {} }
-  subject { render 'nfg_ui/bootstrap/dropdowns/dropdown_toggle', dropdown_toggle: dropdown_toggle }
+  subject { dropdown_toggle.render }
 
   describe 'html output for the bootstrap dropdown' do
     let(:options) { { body: body } }
@@ -12,7 +12,7 @@ RSpec.describe 'nfg_ui/bootstrap/dropdowns/_dropdown_toggle.html.haml', type: :v
     it 'outputs a bootstrap dropdown component in html' do
       expect(subject).to have_css '.dropdown-toggle'
       expect(subject).to have_selector '.dropdown-toggle', text: body
-      expect(subject).to eq "<button class=\"btn dropdown-toggle btn-primary\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\" type=\"button\">#{body}\n\n</button>"
+      expect(subject).to eq "<button class=\"btn dropdown-toggle btn-primary\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\" type=\"button\">#{body}</button>"
     end
 
     context 'when the dropdown toggle is given a unique :as wrapper element' do
@@ -43,21 +43,21 @@ RSpec.describe 'nfg_ui/bootstrap/dropdowns/_dropdown_toggle.html.haml', type: :v
       let(:options) { { size: tested_size } }
       it 'outputs a dropdown component with size html in place' do
         expect(subject).to have_css ".dropdown-toggle.btn-#{tested_size}"
-        expect(subject).to eq "<button class=\"btn dropdown-toggle btn-#{tested_size} btn-primary\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\" type=\"button\">\n\n</button>"
+        expect(subject).to eq "<button class=\"btn dropdown-toggle btn-#{tested_size} btn-primary\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\" type=\"button\"></button>"
       end
     end
 
     context 'when size is not present in options' do
       let(:options) { {} }
       it 'outputs a dropdown component with no size html in place' do
-        expect(subject).to eq "<button class=\"btn dropdown-toggle btn-primary\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\" type=\"button\">\n\n</button>"
+        expect(subject).to eq "<button class=\"btn dropdown-toggle btn-primary\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\" type=\"button\"></button>"
       end
     end
 
     context 'when size is not present in options' do
       let(:options) { { size: nil } }
       it 'outputs a dropdown component with no size html in place' do
-        expect(subject).to eq "<button class=\"btn dropdown-toggle btn-primary\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\" type=\"button\">\n\n</button>"
+        expect(subject).to eq "<button class=\"btn dropdown-toggle btn-primary\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\" type=\"button\"></button>"
       end
     end
   end

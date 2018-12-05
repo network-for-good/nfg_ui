@@ -2,12 +2,12 @@ RSpec.describe 'nfg_ui/bootstrap/paginations/_page_item.html.haml', type: :view 
   let(:page_item) { FactoryBot.create(:bootstrap_page_item, body: tested_body, **options) }
   let(:tested_body) { 'tested body' }
   let(:options) { {} }
-  subject { render 'nfg_ui/bootstrap/paginations/page_item', page_item: page_item }
+  subject { page_item.render }
 
   describe 'component html' do
     it 'outputs a bootstrap page item component in html' do
       expect(subject).to have_selector "li.page-item a.page-link[href='#']", text: tested_body
-      expect(subject).to eq "<li class='page-item'>\n<a class='page-link' href='#'>\n#{tested_body}\n</a>\n</li>\n"
+      expect(subject).to eq "<li class=\"page-item\"><a class=\"page-link\" href=\"#\">#{tested_body}</a></li>"
     end
   end
 
@@ -18,7 +18,7 @@ RSpec.describe 'nfg_ui/bootstrap/paginations/_page_item.html.haml', type: :view 
       let(:tested_disabled) { true }
       it 'outputs a disabled page item' do
         expect(subject).to have_css "li.page-item.disabled .page-link[tabindex='-1']"
-        expect(subject).to eq "<li class='page-item disabled'>\n<a class='page-link' href='#' tabindex='-1'>\n#{tested_body}\n</a>\n</li>\n"
+        expect(subject).to eq "<li class=\"page-item disabled\"><a class=\"page-link\" tabindex=\"-1\" href=\"#\">#{tested_body}</a></li>"
       end
     end
 
@@ -26,7 +26,7 @@ RSpec.describe 'nfg_ui/bootstrap/paginations/_page_item.html.haml', type: :view 
       let(:tested_disabled) { false }
       it 'does not output a disabled page item' do
         expect(subject).not_to have_css "li.page-item.disabled .page-link[tabindex='-1']"
-        expect(subject).to eq "<li class='page-item'>\n<a class='page-link' href='#'>\n#{tested_body}\n</a>\n</li>\n"
+        expect(subject).to eq "<li class=\"page-item\"><a class=\"page-link\" href=\"#\">#{tested_body}</a></li>"
       end
     end
   end
@@ -38,7 +38,7 @@ RSpec.describe 'nfg_ui/bootstrap/paginations/_page_item.html.haml', type: :view 
       let(:tested_active) { true }
       it 'outputs a active page item' do
         expect(subject).to have_css "li.page-item.active span.sr-only"
-        expect(subject).to eq "<li class='page-item active'>\n<a class='page-link' href='#'>\ntested body\n<span class='sr-only'>(current)</span>\n</a>\n</li>\n"
+        expect(subject).to eq "<li class=\"page-item active\"><a class=\"page-link\" href=\"#\">tested body<span class=\"sr-only\">(current)</span></a></li>"
       end
     end
 
@@ -46,7 +46,7 @@ RSpec.describe 'nfg_ui/bootstrap/paginations/_page_item.html.haml', type: :view 
       let(:tested_active) { false }
       it 'does not output a active page item' do
         expect(subject).not_to have_css "li.page-item.active"
-        expect(subject).to eq "<li class='page-item'>\n<a class='page-link' href='#'>\n#{tested_body}\n</a>\n</li>\n"
+        expect(subject).to eq "<li class=\"page-item\"><a class=\"page-link\" href=\"#\">#{tested_body}</a></li>"
       end
     end
   end

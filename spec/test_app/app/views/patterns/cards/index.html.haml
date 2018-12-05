@@ -4,17 +4,24 @@
   Howdy
 
 = ui.nfg :card, heading: 'Card heading', subtitle: 'Card subtitle', body: 'Card body', class: 'my-4'
+
 = ui.nfg :card, heading: 'Card heading', class: 'my-4' do
   %p.card-text Card body from a block
 
-= ui.nfg :card do
+= ui.nfg :card, class: 'my-4' do
   Default, no frills card
 
-= ui.nfg :card, render_in_body: false do
+= ui.nfg :card, render_in_body: false, class: 'my-4' do
   = ui.nfg :card_image_overlay, image: 'https://via.placeholder.com/600x400', title: 'Card Image Overlay Title' do
     %p.card-text Some additional information
   = ui.nfg :card_body do
     %p.card-text Some body content
+
+
+= ui.nfg :card, render_in_body: false, class: 'my-4' do
+  = ui.nfg :card_image, image: 'https://via.placeholder.com/600x400', title: 'Card Image Overlay Title'
+  = ui.nfg :card_body do
+    %p.card-text card image version without overlay
 
 %hr
 
@@ -24,8 +31,6 @@
   = ui.nfg :card_body do
     %p Some content for the second card body
   = ui.nfg :card_footer, body: 'the card footer'
-
-%hr
 
 %hr
 
@@ -66,6 +71,6 @@
 
 = ui.nfg :card, :outlined, :info, heading: 'Card Headline', subtitle: 'Card Subtitle', class: 'my-4', body: 'Card with info theme'
 
-= ui.nfg :card, :outlined, :light, heading: 'Card Headline', subtitle: 'Card Subtitle', class: 'my-4', body: 'Card with light theme'
+= ui.nfg :card, :outlined, :light, heading: 'Card Headline', subtitle: 'Card Subtitle', class: 'my-4', body: "Card with light theme. Since this is an outline card, the light theme won't have any affect, otherwise it would be white text on a white background."
 
 = ui.nfg :card, :outlined, :dark, heading: 'Card Headline', subtitle: 'Card Subtitle', class: 'my-4', body: 'Card with dark theme'

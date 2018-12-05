@@ -5,7 +5,7 @@ module NfgUi
     module Components
       # Bootstrap Pagination - Page Item Component
       # https://getbootstrap.com/docs/4.1/components/pagination/
-      class PageItem < Bootstrap::Components::Base
+      class PageItem < NfgUi::Bootstrap::Components::Base
         # include Bootstrap::Utilities::Disableable
         include Bootstrap::Utilities::Activatable
 
@@ -31,6 +31,15 @@ module NfgUi
           { class: 'page-link',
             **(disabled ? { tabindex: '-1' } : {}),
             href: href }
+        end
+
+        def render
+          content_tag(:li, html_options) do
+            content_tag(:a, page_link_html_options) do
+              concat(block_given? ? yield : body)
+              concat(content_tag(:span, '(current)', class: 'sr-only')) if active
+            end
+          end
         end
 
         private

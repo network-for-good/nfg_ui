@@ -22,26 +22,26 @@
   = link_to 'link with classes and alert-link', '#', class: 'test-class alert-link'
   = link_to 'link with only alert-link class', '#', class: 'alert-link'
 
-= ui.nfg :alert, body: 'Passed in as a local and skipped the heading: This is a crazy cool alert!', theme: :primary, dismissible: true, class: 'my-4' 
+= ui.nfg :alert, body: 'Passed in as a local and skipped the heading: This is a crazy cool alert!', theme: :primary, dismissible: true, class: 'my-4'
 
-= ui.nfg :alert, :dismissible, body: 'Passed in as a local and skipped the heading: This is a crazy cool alert!', theme: :dark, class: 'my-4' 
+= ui.nfg :alert, :dismissible, body: 'Passed in as a local and skipped the heading: This is a crazy cool alert!', theme: :dark, class: 'my-4'
 
-= ui.nfg :alert, heading: "Oh snap! there's a major problem here", body: 'Passed in as a local: This is a crazy cool alert!', theme: :secondary, class: 'my-4' 
+= ui.nfg :alert, heading: "Oh snap! there's a major problem here", body: 'Passed in as a local: This is a crazy cool alert!', theme: :secondary, class: 'my-4'
 
-= ui.nfg :alert, heading: "Oh snap! there's a major problem here", body: 'Passed in as a local: This is a crazy cool alert!', theme: :success, class: 'my-4' 
+= ui.nfg :alert, heading: "Oh snap! there's a major problem here", body: 'Passed in as a local: This is a crazy cool alert!', theme: :success, class: 'my-4'
 
-= ui.nfg :alert, heading: "Oh snap! there's a major problem here", body: 'Passed in as a local: This is a crazy cool alert!', theme: :danger, class: 'my-4' 
+= ui.nfg :alert, heading: "Oh snap! there's a major problem here", body: 'Passed in as a local: This is a crazy cool alert!', theme: :danger, class: 'my-4'
 
-= ui.nfg :alert, heading: "Oh snap! there's a major problem here", body: 'Passed in as a local: This is a crazy cool alert!', theme: :warning, class: 'my-4' 
+= ui.nfg :alert, heading: "Oh snap! there's a major problem here", body: 'Passed in as a local: This is a crazy cool alert!', theme: :warning, class: 'my-4'
 
-= ui.nfg :alert, heading: "Oh snap! there's a major problem here", body: 'Passed in as a local: This is a crazy cool alert!', theme: :info, class: 'my-4' 
+= ui.nfg :alert, heading: "Oh snap! there's a major problem here", body: 'Passed in as a local: This is a crazy cool alert!', theme: :info, class: 'my-4'
 
-= ui.nfg :alert, heading: "Oh snap! there's a major problem here", body: 'Passed in as a local: This is a crazy cool alert!', theme: :light, class: 'my-4' 
+= ui.nfg :alert, heading: "Oh snap! there's a major problem here", body: 'Passed in as a local: This is a crazy cool alert!', theme: :light, class: 'my-4'
 
-= ui.nfg :alert, heading: "Oh snap! there's a major problem here", body: 'Passed in as a local: This is a crazy cool alert!', theme: :dark, class: 'my-4' 
+= ui.nfg :alert, heading: "Oh snap! there's a major problem here", body: 'Passed in as a local: This is a crazy cool alert 2!', theme: :dark, class: 'my-4', use_render_not_partial: true
 
 %h2 Alerts via :traits
-= ui.nfg :alert, :primary, body: 'Primary alert with trait', class: 'my-4' 
+= ui.nfg :alert, :primary, body: 'Primary alert with trait', class: 'my-4'
 = ui.nfg :alert, :secondary, body: 'Secondary alert with trait', class: 'my-4'
 = ui.nfg :alert, :success, body: 'Success alert with trait', class: 'my-4'
 = ui.nfg :alert, :danger, body: 'Danger alert with trait', class: 'my-4'

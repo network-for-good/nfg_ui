@@ -5,7 +5,7 @@ module NfgUi
     module Components
       # Bootstrap Responsive Embed Component
       # https://getbootstrap.com/docs/4.1/utilities/embed/
-      class Embed < Bootstrap::Components::Base
+      class Embed < NfgUi::Bootstrap::Components::Base
         def aspect_ratio
           options.fetch(:aspect_ratio, default_aspect_ratio) || default_aspect_ratio
         end
@@ -21,6 +21,16 @@ module NfgUi
 
         def autoplay
           options.fetch(:autoplay, default_autoplay)
+        end
+
+        def render
+          content_tag(:div, html_options) do
+            if iframe?
+              iframe
+            else
+              (block_given? ? yield : body)
+            end
+          end
         end
 
         private

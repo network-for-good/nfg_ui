@@ -139,6 +139,8 @@ RSpec.describe NfgUi do
                                                           slat_body
                                                           slat_item
                                                           stat
+                                                          step
+                                                          step_indicator
                                                           tab_pane
                                                           table
                                                           task]
@@ -173,6 +175,7 @@ RSpec.describe NfgUi do
                                                           slat_header
                                                           slat_list
                                                           slats
+                                                          steps
                                                           tab_content
                                                           task_list
                                                           tile

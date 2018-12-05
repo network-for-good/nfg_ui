@@ -5,7 +5,7 @@ module NfgUi
     module Components
       # Bootstrap Navbar Component
       # https://getbootstrap.com/docs/4.1/components/navbar/
-      class NavbarNav < Bootstrap::Components::Base
+      class NavbarNav < NfgUi::Bootstrap::Components::Base
         include Bootstrap::Utilities::Wrappable
 
         def component_family
@@ -19,6 +19,12 @@ module NfgUi
         # Left by default
         def left
           options.fetch(:left, default_left)
+        end
+
+        def render
+          content_tag(as, html_options) do
+            (block_given? ? yield : body)
+          end
         end
 
         private

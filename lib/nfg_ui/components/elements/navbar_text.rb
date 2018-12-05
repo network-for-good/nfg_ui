@@ -4,7 +4,7 @@ module NfgUi
   module Components
     module Elements
       # Nav doc coming soon
-      class NavbarText < Bootstrap::Components::NavbarText
+      class NavbarText < NfgUi::Bootstrap::Components::NavbarText
         include NfgUi::Components::Utilities::Traitable
         include NfgUi::Components::Utilities::Describable
         include NfgUi::Components::Utilities::Renderable

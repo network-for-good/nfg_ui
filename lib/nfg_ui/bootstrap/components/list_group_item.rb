@@ -5,7 +5,7 @@ module NfgUi
     module Components
       # Bootstrap List Group Item Component
       # https://getbootstrap.com/docs/4.1/components/list-group/
-      class ListGroupItem < Bootstrap::Components::Base
+      class ListGroupItem < NfgUi::Bootstrap::Components::Base
         include Bootstrap::Utilities::Wrappable
         include Bootstrap::Utilities::Activatable
         include Bootstrap::Utilities::Disableable
@@ -21,6 +21,15 @@ module NfgUi
 
         def badge
           options.fetch(:badge, nil)
+        end
+
+        def render
+          content_tag as, html_options do
+            concat(block_given? ? yield : body)
+            if badge
+              concat(NfgUi::Bootstrap::Components::Badge.new({ pill: true, theme: (theme || NfgUi::DEFAULT_BOOTSTRAP_THEME), body: badge }, view_context).render)
+            end
+          end
         end
 
         private

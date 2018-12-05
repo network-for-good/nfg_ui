@@ -6,7 +6,7 @@ module NfgUi
       # Breadcrumb doesn't have any customizations unique to the design system yet
       # As such, the NFG UI Breadcrumb is simply a bootstrap Breadcrumb behind the scenes.
       # Traits will eventually be connected here.
-      class Breadcrumb < Bootstrap::Components::Breadcrumb
+      class Breadcrumb < NfgUi::Bootstrap::Components::Breadcrumb
         include NfgUi::Components::Utilities::Traitable
         include NfgUi::Components::Utilities::Describable
         include NfgUi::Components::Utilities::Renderable

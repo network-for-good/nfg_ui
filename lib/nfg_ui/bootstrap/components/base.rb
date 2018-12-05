@@ -7,6 +7,11 @@ module NfgUi
       # Defines conventional, shared behavior across
       # Bootstrap components
       class Base
+        include ActionView::Helpers::TagHelper
+        include ActionView::Helpers::TextHelper
+        include ActionView::Helpers::AssetTagHelper
+        include ActionView::Context
+
         attr_reader   :body
 
         attr_accessor :options,
@@ -18,6 +23,16 @@ module NfgUi
           @body = options.fetch(:body, '')
           utility_initialize
           component_initialize
+        end
+
+        def render
+          # Until a component has it's own render method, this NotImplemented
+          # error will be raised, and the components related partial will be rendered
+          #
+          # Remember to always include  (block_given? ? yield : body) where the original
+          # component.body was rendered, so each componenets render method can accept
+          # a block, or continue to accept the body value
+          raise NotImplementedError.new("a subclass must implement this")
         end
 
         # This is used to help identify where to find partials for rendering components.
@@ -57,7 +72,7 @@ module NfgUi
 
         # For components that inherit bootstrap, provide a second
         # layer of initialization, for example:
-        # to initialize traits on design system components 
+        # to initialize traits on design system components
         # (which are not available on bootstrap)
         def component_initialize; end
         def utility_initialize; end

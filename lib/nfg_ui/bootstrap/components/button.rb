@@ -5,7 +5,7 @@ module NfgUi
     module Components
       # Bootstrap Button Component
       # https://getbootstrap.com/docs/4.1/components/buttons/
-      class Button < Bootstrap::Components::Base
+      class Button < NfgUi::Bootstrap::Components::Base
         include Bootstrap::Utilities::Activatable
         include Bootstrap::Utilities::CollapseToggleable
         include Bootstrap::Utilities::Disableable
@@ -14,6 +14,20 @@ module NfgUi
         include Bootstrap::Utilities::Themeable
         include Bootstrap::Utilities::Tooltipable
         include Bootstrap::Utilities::Wrappable
+
+        def render
+          if tooltip && disabled
+            content_tag(:span, disabled_component_tooltip_wrapper_html_options) do
+              content_tag(as, html_options) do
+                (block_given? ? yield : body)
+              end
+            end
+          else
+            content_tag(as, html_options) do
+              (block_given? ? yield : body)
+            end
+          end
+        end
 
         def block
           options.fetch(:block, false)

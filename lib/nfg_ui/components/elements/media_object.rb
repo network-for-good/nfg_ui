@@ -4,7 +4,7 @@ module NfgUi
   module Components
     module Elements
       # MediaObject doc coming soon
-      class MediaObject < Bootstrap::Components::MediaObject
+      class MediaObject < NfgUi::Bootstrap::Components::MediaObject
         include NfgUi::Components::Utilities::Renderable
       end
     end

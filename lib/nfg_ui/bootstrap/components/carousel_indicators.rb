@@ -5,7 +5,7 @@ module NfgUi
     module Components
       # Bootstrap Carousel Indicators Component
       # https://getbootstrap.com/docs/4.1/components/carousel/#with-indicators
-      class CarouselIndicators < Bootstrap::Components::Base
+      class CarouselIndicators < NfgUi::Bootstrap::Components::Base
         def active
           options.fetch(:active, 1) # allow nil so that no indicator is active if desired
         end
@@ -25,6 +25,14 @@ module NfgUi
 
         def carousel
           options.fetch(:carousel, nil)
+        end
+
+        def render
+          content_tag(:ol, html_options) do
+            count.times do |i|
+              concat(content_tag(:li, nil, class: ('active' if active == i + 1), data: { target: carousel, slide_to: i }))
+            end
+          end
         end
 
         private

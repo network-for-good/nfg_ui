@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'nfg_ui/bootstrap/carousels/_carousel.html.haml', type: :view do
   let(:carousel) { FactoryBot.create(:bootstrap_carousel, **options) }
   let(:options) { {} }
-  subject { render 'nfg_ui/bootstrap/carousels/carousel', carousel: carousel }
+  subject { carousel.render }
 
   describe 'html output for the bootstrap carousel' do
     let(:options) { { body: body } }
@@ -12,7 +12,7 @@ RSpec.describe 'nfg_ui/bootstrap/carousels/_carousel.html.haml', type: :view do
     it 'outputs a bootstrap carousel component in html' do
       expect(subject).to have_css '.carousel .carousel-inner'
       expect(subject).to have_selector '.carousel.slide .carousel-inner', text: body
-      expect(subject).to eq "<div class='carousel slide' data-ride='carousel'>\n<div class='carousel-inner'>\n#{body}\n</div>\n</div>\n"
+      expect(subject).to eq "<div class=\"carousel slide\" data-ride=\"carousel\"><div class=\"carousel-inner\">#{body}</div></div>"
     end
   end
 
@@ -22,7 +22,7 @@ RSpec.describe 'nfg_ui/bootstrap/carousels/_carousel.html.haml', type: :view do
       let(:options) { { indicators: tested_indicators } }
       it 'outputs the requested amount of indicators' do
         expect(subject).to have_css "[data-slide-to]", count: tested_indicators
-        expect(subject).to eq "<div class='carousel slide' data-ride='carousel'>\n<div class='carousel-inner'>\n<ol class='carousel-indicators'>\n<li class='active' data-slide-to='0' data-target='#'></li>\n<li data-slide-to='1' data-target='#'></li>\n<li data-slide-to='2' data-target='#'></li>\n</ol>\n\n\n</div>\n</div>\n"
+        expect(subject).to eq "<div class=\"carousel slide\" data-ride=\"carousel\"><div class=\"carousel-inner\"><ol class=\"carousel-indicators\"><li class=\"active\" data-target=\"#\" data-slide-to=\"0\"></li><li data-target=\"#\" data-slide-to=\"1\"></li><li data-target=\"#\" data-slide-to=\"2\"></li></ol></div></div>"
       end
     end
 
@@ -43,7 +43,7 @@ RSpec.describe 'nfg_ui/bootstrap/carousels/_carousel.html.haml', type: :view do
       it 'outputs the next and previous controls for the carousel' do
         expect(subject).to have_css '.carousel-control-next'
         expect(subject).to have_css '.carousel-control-prev'
-        expect(subject).to eq "<div class='carousel slide' data-ride='carousel'>\n<div class='carousel-inner'>\n\n<a class='carousel-control-next' data-slide='next' href='#' role='button'>\n<span aria-hidden class='carousel-control-next-icon'></span>\n<span class='sr-only'>next</span>\n</a>\n\n<a class='carousel-control-prev' data-slide='prev' href='#' role='button'>\n<span aria-hidden class='carousel-control-prev-icon'></span>\n<span class='sr-only'>prev</span>\n</a>\n\n</div>\n</div>\n"
+        expect(subject).to eq "<div class=\"carousel slide\" data-ride=\"carousel\"><div class=\"carousel-inner\"><a class=\"carousel-control-next\" data-slide=\"next\" href=\"#\" role=\"button\"><span class=\"carousel-control-next-icon\" aria-hidden=\"true\"></span><span class=\"sr-only\">next</span></a><a class=\"carousel-control-prev\" data-slide=\"prev\" href=\"#\" role=\"button\"><span class=\"carousel-control-prev-icon\" aria-hidden=\"true\"></span><span class=\"sr-only\">prev</span></a></div></div>"
       end
     end
 

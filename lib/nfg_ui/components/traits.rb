@@ -19,13 +19,16 @@ module NfgUi
                          DropdownToggle
                          Icon
                          ListGroup
+                         Muted
                          Nav
                          Navbar
+                         NavItem
                          PageHeader
                          Pill
                          ProgressBar
                          Remote
                          Size
+                         Step
                          Theme
                          Typeface
                          Vertical].freeze

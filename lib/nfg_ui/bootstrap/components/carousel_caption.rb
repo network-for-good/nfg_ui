@@ -5,13 +5,20 @@ module NfgUi
     module Components
       # Bootstrap Carousel Caption Component
       # https://getbootstrap.com/docs/4.1/components/carousel/#with-captions
-      class CarouselCaption < Bootstrap::Components::Base
+      class CarouselCaption < NfgUi::Bootstrap::Components::Base
         def component_family
           :carousel
         end
 
         def label
           options.fetch(:label, nil)
+        end
+
+        def render
+          content_tag(:div, html_options) do
+            concat(content_tag(:h5, label)) if label
+            concat(block_given? ? yield : body)
+          end
         end
 
         private

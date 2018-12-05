@@ -5,10 +5,16 @@ module NfgUi
     module Components
       # Bootstrap Modal Component
       # https://getbootstrap.com/docs/4.1/components/modal/
-      class ModalBody < Bootstrap::Components::Base
+      class ModalBody < NfgUi::Bootstrap::Components::Base
 
         def component_family
           :modal
+        end
+
+        def render
+          content_tag(:div, html_options) do
+            (block_given? ? yield : body)
+          end
         end
       end
     end

@@ -31,14 +31,14 @@ RSpec.describe NfgUi::UI::Base do
     let(:body) { 'test' }
     let(:component_args) { [:button, [], { body: body}] }
     it 'renders a bootstrap component' do
-      expect(subject).to eq "<a class=\"btn btn-primary\" href=\"#\">#{body}\n</a>"
+      expect(subject).to eq "<a class=\"btn btn-primary\" href=\"#\">#{body}</a>"
     end
   end
 
   describe '#nfg' do
     shared_examples 'a rendered nfg button component' do
       it 'renders an nfg button component' do
-        expect(subject).to eq "<a class=\"btn btn-primary\" href=\"#\">#{body}\n</a>"
+        expect(subject).to eq "<a class=\"btn btn-primary\" href=\"#\">#{body}</a>"
       end
     end
 

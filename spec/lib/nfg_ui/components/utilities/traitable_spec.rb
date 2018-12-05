@@ -31,11 +31,11 @@ RSpec.describe NfgUi::Components::Utilities::Traitable do
 
         it 'outputs an alert with a warning theme trait applied' do
           by 'not rendering the alert with the default theme of primary' do
-            expect(subject).not_to include "<div class='alert alert-primary"
+            expect(subject).not_to match '<div class="alert alert-primary'
           end
 
           and_by 'applying the warning theme trait to the alert' do
-            expect(subject).to include "<div class='alert alert-warning"
+            expect(subject).to match '<div class="alert alert-warning'
           end
         end
       end
@@ -43,7 +43,7 @@ RSpec.describe NfgUi::Components::Utilities::Traitable do
       context 'when traits are not present' do
         let(:traits) { [] }
         it 'outputs an alert with a the default theme unmodified by a trait' do
-          expect(subject).to include "<div class='alert alert-primary"
+          expect(subject).to match '<div class="alert alert-primary'
         end
       end
     end

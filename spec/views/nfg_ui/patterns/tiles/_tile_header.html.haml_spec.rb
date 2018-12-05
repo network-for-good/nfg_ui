@@ -4,7 +4,7 @@ RSpec.describe 'nfg_ui/patterns/tiles/_tile_header.html.haml', type: :view do
   let(:tile_header) { FactoryBot.create(:tile_header, *traits, **options) }
   let(:options) { {} }
   let(:traits) { [] }
-  subject { render 'nfg_ui/patterns/tiles/tile_header', tile_header: tile_header }
+  subject { tile_header.render }
 
   pending 'Tile header spec needed'
 

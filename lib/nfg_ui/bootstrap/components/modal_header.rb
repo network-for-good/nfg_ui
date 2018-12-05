@@ -5,7 +5,7 @@ module NfgUi
     module Components
       # Bootstrap Modal Component
       # https://getbootstrap.com/docs/4.1/components/modal/
-      class ModalHeader < Bootstrap::Components::Base
+      class ModalHeader < NfgUi::Bootstrap::Components::Base
 
         def component_family
           :modal
@@ -13,6 +13,15 @@ module NfgUi
 
         def title
           options.fetch(:title, nil)
+        end
+
+        def render
+          content_tag(:div, html_options) do
+            concat(content_tag(:h5, title, class: 'modal-title')) if title
+            concat(NfgUi::Bootstrap::Components::Button.new({ as: :button, class: 'close', theme: nil, data: { dismiss: 'modal' }, aria: { label: 'Close' } }, view_context).render {
+              content_tag(:span, "&times;".html_safe, { aria: { hidden: 'true' } })
+            })
+          end
         end
 
         private

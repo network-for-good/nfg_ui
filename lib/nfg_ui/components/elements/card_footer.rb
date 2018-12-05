@@ -4,7 +4,7 @@ module NfgUi
   module Components
     module Elements
       # doc coming soon
-      class CardFooter < Bootstrap::Components::CardFooter
+      class CardFooter < NfgUi::Bootstrap::Components::CardFooter
         include NfgUi::Components::Utilities::Traitable
         include NfgUi::Components::Utilities::Describable
         include NfgUi::Components::Utilities::Renderable

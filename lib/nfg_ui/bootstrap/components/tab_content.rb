@@ -5,9 +5,15 @@ module NfgUi
     module Components
       # Bootstrap Progress Component
       # https://getbootstrap.com/docs/4.1/components/progress/
-      class TabContent < Bootstrap::Components::Base
+      class TabContent < NfgUi::Bootstrap::Components::Base
         def component_family
           :tab
+        end
+
+        def render
+          content_tag(:div, html_options) do
+            (block_given? ? yield : body)
+          end
         end
       end
     end

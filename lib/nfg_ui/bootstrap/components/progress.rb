@@ -5,7 +5,7 @@ module NfgUi
     module Components
       # Bootstrap Parent Progress Component
       # https://getbootstrap.com/docs/4.1/components/progress/
-      class Progress < Bootstrap::Components::Base
+      class Progress < NfgUi::Bootstrap::Components::Base
         include Bootstrap::Utilities::Progressable
 
         def component_family
@@ -21,6 +21,16 @@ module NfgUi
             super,
             ("height: #{height}px;" if height)
           ].join(' ').squish
+        end
+
+        def render
+          content_tag(:div, html_options) do
+            if body
+              (block_given? ? yield : body)
+            else
+              NfgUi::Bootstrap::Components::ProgressBar.new({ theme: theme, label: label, progress: progress, striped: striped, animated: animated }, view_context).render
+            end
+          end
         end
 
         private

@@ -5,8 +5,8 @@ module NfgUi
     module Components
       # Bootstrap Modal Component
       # https://getbootstrap.com/docs/4.1/components/modal/
-      class Modal < Bootstrap::Components::Base
-        
+      class Modal < NfgUi::Bootstrap::Components::Base
+
         # NOTE: ARIALABELLEDBY has not been introduced on speed modals.
         # ex: aria-labelledby="exampleModalLabel"
         # which is then the ID of the modal title element
@@ -21,6 +21,20 @@ module NfgUi
 
         def footer
           options.fetch(:footer, nil)
+        end
+
+        def render
+          content_tag(:div, html_options) do
+            content_tag(:div, class: 'modal-dialog', role: 'document') do
+              content_tag(:div, class: 'modal-content') do
+                concat(NfgUi::Bootstrap::Components::ModalHeader.new({ title: title }, view_context).render)
+                concat(NfgUi::Bootstrap::Components::ModalBody.new({ body: (block_given? ? yield : body) }, view_context).render)
+                if footer
+                  concat(NfgUi::Bootstrap::Components::ModalFooter.new({ body: footer }, view_context).render)
+                end
+              end
+            end
+          end
         end
 
         private
