@@ -16,7 +16,7 @@ module NfgUi
         end
 
         def render
-          content_tag(:div, html_options) do
+          super do
             concat(content_tag(:h5, title, class: 'modal-title')) if title
             concat(NfgUi::Bootstrap::Components::Button.new({ as: :button, class: 'close', theme: nil, data: { dismiss: 'modal' }, aria: { label: 'Close' } }, view_context).render {
               content_tag(:span, "&times;".html_safe, { aria: { hidden: 'true' } })

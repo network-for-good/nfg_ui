@@ -64,6 +64,10 @@ module NfgUi
 
         private
 
+        def base_element
+          as
+        end
+
         def component_css_class
           'nav-item'
         end

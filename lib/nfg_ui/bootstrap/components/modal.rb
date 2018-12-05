@@ -24,7 +24,7 @@ module NfgUi
         end
 
         def render
-          content_tag(:div, html_options) do
+          super do
             content_tag(:div, class: 'modal-dialog', role: 'document') do
               content_tag(:div, class: 'modal-content') do
                 concat(NfgUi::Bootstrap::Components::ModalHeader.new({ title: title }, view_context).render)

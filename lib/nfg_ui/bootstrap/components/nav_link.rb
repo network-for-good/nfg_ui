@@ -34,13 +34,15 @@ module NfgUi
           if dropdown
             NfgUi::Bootstrap::Components::DropdownToggle.new({ body: (block_given? ? yield : body), as: :a, **html_options, theme: nil, nav_link: true }, view_context).render
           else
-            content_tag(:a, html_options) do
-              (block_given? ? yield : body)
-            end
+            super
           end
         end
 
         private
+
+        def base_element
+          :a
+        end
 
         def component_css_class
           'nav-link'
