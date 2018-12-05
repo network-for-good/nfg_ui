@@ -5,7 +5,7 @@ module NfgUi
     module Components
       # Bootstrap Progress Component
       # https://getbootstrap.com/docs/4.1/components/progress/
-      class TabPane < Bootstrap::Components::Base
+      class TabPane < NfgUi::Bootstrap::Components::Base
         include Bootstrap::Utilities::Activatable
 
         def component_family
@@ -24,6 +24,12 @@ module NfgUi
         # This should probably be a global setting
         def fade
           options.fetch(:fade, true)
+        end
+
+        def render
+          content_tag(:div, html_options) do
+            (block_given? ? yield : body)
+          end
         end
 
         private

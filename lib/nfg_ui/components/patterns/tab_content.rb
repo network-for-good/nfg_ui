@@ -4,7 +4,7 @@ module NfgUi
   module Components
     module Patterns
       # Modal docs coming soon
-      class TabContent < Bootstrap::Components::TabContent
+      class TabContent < NfgUi::Bootstrap::Components::TabContent
         include NfgUi::Components::Utilities::Traitable
         include NfgUi::Components::Utilities::Describable
         include NfgUi::Components::Utilities::Renderable

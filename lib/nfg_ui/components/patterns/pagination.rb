@@ -4,7 +4,7 @@ module NfgUi
   module Components
     module Patterns
       # Docs coming soon
-      class Pagination < Bootstrap::Components::Pagination
+      class Pagination < NfgUi::Bootstrap::Components::Pagination
         include NfgUi::Components::Utilities::Traitable
         include NfgUi::Components::Utilities::Describable
         include NfgUi::Components::Utilities::Renderable

@@ -5,7 +5,7 @@ module NfgUi
     module Components
       # Bootstrap Card Component
       # https://getbootstrap.com/docs/4.1/components/cards/
-      class Card < Bootstrap::Components::Base
+      class Card < NfgUi::Bootstrap::Components::Base
         include Bootstrap::Utilities::Themeable
 
         def component_family
@@ -26,6 +26,26 @@ module NfgUi
 
         def title
           options.fetch(:title, '')
+        end
+
+        def render
+          content_tag(:div, html_options) do
+            if heading.present?
+              concat(NfgUi::Bootstrap::Components::CardHeader.new({ heading: heading }, view_context).render)
+            end
+
+            concat(NfgUi::Bootstrap::Components::CardBody.new({}, view_context).render {
+              capture do
+                concat(content_tag(:h5, title, class: 'card-title')) if title.present?
+                concat(content_tag(:h6, subtitle, class: 'card-subtitle')) if subtitle.present?
+                concat(block_given? ? yield : body)
+              end
+            })
+
+            if footer.present?
+              concat(NfgUi::Bootstrap::Components::CardFooter.new({ body: footer }, view_context).render)
+            end
+          end
         end
 
         private

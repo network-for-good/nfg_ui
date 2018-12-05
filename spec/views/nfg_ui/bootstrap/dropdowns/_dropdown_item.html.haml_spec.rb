@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'nfg_ui/bootstrap/dropdowns/_dropdown_item.html.haml', type: :view do
   let(:dropdown_item) { FactoryBot.create(:bootstrap_dropdown_item, **options) }
   let(:options) { {} }
-  subject { render 'nfg_ui/bootstrap/dropdowns/dropdown_item', dropdown_item: dropdown_item }
+  subject { dropdown_item.render }
 
   describe 'html output for the bootstrap dropdown item' do
     let(:options) { { body: body } }
@@ -13,7 +13,7 @@ RSpec.describe 'nfg_ui/bootstrap/dropdowns/_dropdown_item.html.haml', type: :vie
       it 'outputs a bootstrap dropdown component in html' do
         expect(subject).to have_css '.dropdown-item'
         expect(subject).to have_selector '.dropdown-item', text: body
-        expect(subject).to eq "<a class=\"dropdown-item\">#{body}\n</a>"
+        expect(subject).to eq "<a class=\"dropdown-item\">#{body}</a>"
       end
     end
 
@@ -22,7 +22,7 @@ RSpec.describe 'nfg_ui/bootstrap/dropdowns/_dropdown_item.html.haml', type: :vie
       let(:options) { { body: body, tooltip: tested_tooltip, disabled: true  } }
       it 'outputs a unique dropdown item that accounts for disabled & tooltip needs' do
         expect(subject).to have_css "span.dropdown-item.disabled[data-toggle='tooltip'][title='#{tested_tooltip}'] a", text: body
-        expect(subject).to eq "<span class='dropdown-item disabled' data-html='true' data-placement='top' data-toggle='tooltip' tabindex='0' title='tested tooltip'>\n<a style=\"pointer-events: none;\">test body content\n</a></span>\n" 
+        expect(subject).to eq "<span data-toggle=\"tooltip\" data-placement=\"top\" data-html=\"true\" title=\"tested tooltip\" class=\"dropdown-item disabled\" tabindex=\"0\"><a style=\"pointer-events: none;\">test body content</a></span>"
       end
 
     end

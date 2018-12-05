@@ -5,10 +5,28 @@ module NfgUi
     module Components
       # Bootstrap Alert Component
       # https://getbootstrap.com/docs/4.1/components/alerts/
-      class Alert < Bootstrap::Components::Base
+      class Alert < NfgUi::Bootstrap::Components::Base
         include Bootstrap::Utilities::Dismissible
         include Bootstrap::Utilities::Headable
         include Bootstrap::Utilities::Themeable
+
+        def render
+          content_tag(:div, html_options) do
+            capture do
+              if dismissible
+                concat(
+                  NfgUi::Bootstrap::Components::Button.new({ as: :button, class: 'close', theme: nil, data: { dismiss: 'alert' }, aria: { label: 'Close' } }, view_context).render do
+                    content_tag(:span, "&times;".html_safe, aria: { hidden: 'true' } )
+                  end
+                )
+              end
+              if heading
+                concat(content_tag(:h4, heading, class: 'alert-heading'))
+              end
+              concat(block_given? ? yield : body)
+            end
+          end
+        end
 
         private
 

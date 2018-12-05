@@ -5,7 +5,7 @@ module NfgUi
     module Components
       # Bootstrap Dropdown Component
       # https://getbootstrap.com/docs/4.1/components/dropdowns/
-      class DropdownToggle < Bootstrap::Components::Base
+      class DropdownToggle < NfgUi::Bootstrap::Components::Base
         include Bootstrap::Utilities::Wrappable
         include Bootstrap::Utilities::Sizable
 
@@ -41,6 +41,12 @@ module NfgUi
         # ex: <button class='btn-danger btn-danger'...>
         def theme
           options.fetch(:theme, NfgUi::DEFAULT_BOOTSTRAP_THEME)
+        end
+
+        def render
+          NfgUi::Bootstrap::Components::Button.new({ as: as, theme: theme, **html_options, remove_component_css_classes: nav_link }, view_context).render do
+            (block_given? ? yield : body)
+          end
         end
 
         private

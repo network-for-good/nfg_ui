@@ -3,12 +3,12 @@ require 'rails_helper'
 RSpec.describe 'nfg_ui/bootstrap/carousels/_carousel_indicators.html.haml', type: :view do
   let(:carousel_indicators) { FactoryBot.create(:bootstrap_carousel_indicators, **options) }
   let(:options) { {} }
-  subject { render 'nfg_ui/bootstrap/carousels/carousel_indicators', carousel_indicators: carousel_indicators }
+  subject { carousel_indicators.render }
 
   describe 'html output for the bootstrap carousel-indicators' do
     it 'outputs a bootstrap carousel-indicators component in html' do
       expect(subject).to have_selector '.carousel-indicators'
-      expect(subject).to eq "<ol class='carousel-indicators'>\n</ol>\n"
+      expect(subject).to eq "<ol class=\"carousel-indicators\"></ol>"
     end
   end
 
@@ -44,7 +44,7 @@ RSpec.describe 'nfg_ui/bootstrap/carousels/_carousel_indicators.html.haml', type
       let(:options) { { count: 1, carousel: tested_carousel } }
       it 'applies the carousel target as the data-target of the indicator' do
         expect(subject).to have_css ".carousel-indicators [data-target='#{tested_carousel}'][data-slide-to]"
-        expect(subject).to eq "<ol class='carousel-indicators'>\n<li class='active' data-slide-to='0' data-target='#test_carousel'></li>\n</ol>\n"
+        expect(subject).to eq "<ol class=\"carousel-indicators\"><li class=\"active\" data-target=\"#test_carousel\" data-slide-to=\"0\"></li></ol>"
       end
     end
 
@@ -52,7 +52,7 @@ RSpec.describe 'nfg_ui/bootstrap/carousels/_carousel_indicators.html.haml', type
       let(:options) { { count: 1 } }
       it 'outputs a target-less indicator' do
         expect(subject).not_to have_css ".carousel-indicators [data-target]"
-        expect(subject).to eq "<ol class='carousel-indicators'>\n<li class='active' data-slide-to='0'></li>\n</ol>\n"
+        expect(subject).to eq "<ol class=\"carousel-indicators\"><li class=\"active\" data-slide-to=\"0\"></li></ol>"
       end
     end
   end

@@ -10,9 +10,6 @@ module NfgUi
                       :traits,
                       :component_name,
                       :class_name
-                      
-
-        # attr_reader :ancestry_string
 
         # Protect the component from outside manipulation
         # after initialization
@@ -22,14 +19,11 @@ module NfgUi
         include Haml::Helpers # add capture_haml support
 
         def render_component
-          # return unless render_if || render_unless
-          # raise options.inspect
-          # if render_if
-            view_context.render partial: partial_path, locals: { component_name => component }
-          # end
+          component.render
+        rescue NotImplementedError
+          view_context.render partial: partial_path, locals: { component_name => component }
         end
 
-        
         private
 
         def render_if
@@ -50,10 +44,10 @@ module NfgUi
           @class_name = component_name.to_s.camelize
           @traits = traits
           @options = options
-          
+
           options[:body] = capture(&block) if block_given?
           options[:traits] = traits.present? ? traits : []
-          
+
           # self.view_context = view_context
           self.component = ancestry_string.constantize.new(options, view_context)
         end

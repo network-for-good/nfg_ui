@@ -1,0 +1,9 @@
+%h1 Steps
+%h2 Component
+%p Note: upcoming steps that are neither :visited nor :active are :disabled by default
+
+= ui.nfg :steps do
+  = ui.nfg :step, :visited, step: 1, body: 'Donation', href: '#back'
+  = ui.nfg :step, :active, step: 2, body: 'Your Info'
+  = ui.nfg :step, step: 3, body: 'Payment'
+  = ui.nfg :step, icon: 'check', body: 'Receipt'

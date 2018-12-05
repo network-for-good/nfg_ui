@@ -4,7 +4,7 @@ module NfgUi
   module Components
     module Patterns
       # ListGroup docs coming soon
-      class ListGroup < Bootstrap::Components::ListGroup
+      class ListGroup < NfgUi::Bootstrap::Components::ListGroup
         include NfgUi::Components::Utilities::Traitable
         include NfgUi::Components::Utilities::Describable
         include NfgUi::Components::Utilities::Renderable

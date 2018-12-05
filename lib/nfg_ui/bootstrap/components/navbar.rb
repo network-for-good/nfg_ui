@@ -5,7 +5,7 @@ module NfgUi
     module Components
       # Bootstrap Navbar Component
       # https://getbootstrap.com/docs/4.1/components/navbar/
-      class Navbar < Bootstrap::Components::Base
+      class Navbar < NfgUi::Bootstrap::Components::Base
         include Bootstrap::Utilities::Wrappable
         include Bootstrap::Utilities::Themeable
 
@@ -31,6 +31,12 @@ module NfgUi
 
         def fixed
           options.fetch(:fixed, nil)
+        end
+
+        def render
+          content_tag(as, html_options) do
+            (block_given? ? yield : body)
+          end
         end
 
         private

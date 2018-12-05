@@ -4,7 +4,7 @@ module NfgUi
   module Components
     module Patterns
       # Nav doc coming soon
-      class NavbarNav < Bootstrap::Components::NavbarNav
+      class NavbarNav < NfgUi::Bootstrap::Components::NavbarNav
         include NfgUi::Components::Utilities::Traitable
         include NfgUi::Components::Utilities::Describable
         include NfgUi::Components::Utilities::Renderable

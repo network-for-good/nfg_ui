@@ -4,11 +4,11 @@ RSpec.describe 'nfg_ui/bootstrap/navbars/_navbar_nav.html.haml', type: :view do
   let(:body) { 'test body content' }
   let(:navbar_nav) { FactoryBot.create(:bootstrap_navbar_nav, body: body, **options) }
   let(:options) { {} }
-  subject { render 'nfg_ui/bootstrap/navbars/navbar_nav', navbar_nav: navbar_nav }
+  subject { navbar_nav.render }
 
   it 'outputs a bootstrap navbar component in html' do
     expect(subject).to have_selector '.navbar-nav', text: body
-    expect(subject).to eq "<ul class=\"navbar-nav mr-auto\">#{body}\n</ul>"
+    expect(subject).to eq "<ul class=\"navbar-nav mr-auto\">#{body}</ul>"
   end
 
   describe 'horizontal alignment of navbar nav' do

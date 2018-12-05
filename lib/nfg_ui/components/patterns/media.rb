@@ -4,7 +4,7 @@ module NfgUi
   module Components
     module Patterns
       # MediaGroup doc coming soon
-      class Media < Bootstrap::Components::Media
+      class Media < NfgUi::Bootstrap::Components::Media
         include NfgUi::Components::Utilities::Traitable
         include NfgUi::Components::Utilities::Describable
         include NfgUi::Components::Utilities::Renderable

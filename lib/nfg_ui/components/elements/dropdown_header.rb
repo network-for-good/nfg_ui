@@ -4,7 +4,7 @@ module NfgUi
   module Components
     module Elements
       # Ino coming soon.
-      class DropdownHeader < Bootstrap::Components::DropdownHeader
+      class DropdownHeader < NfgUi::Bootstrap::Components::DropdownHeader
         include NfgUi::Components::Utilities::Traitable
         include NfgUi::Components::Utilities::Describable
         include NfgUi::Components::Utilities::Renderable

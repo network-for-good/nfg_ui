@@ -4,7 +4,7 @@ RSpec.describe 'nfg_ui/bootstrap/_collapse.html.haml', type: :view do
   let(:collapse) { FactoryBot.create(:bootstrap_collapse, **options) }
   let(:options) { {} }
 
-  subject { render 'nfg_ui/bootstrap/collapse', collapse: collapse }
+  subject { collapse.render }
 
   pending 'needs spec updates'
 
@@ -15,7 +15,7 @@ RSpec.describe 'nfg_ui/bootstrap/_collapse.html.haml', type: :view do
   describe 'a navbar collapse' do
     context 'when navbar is true in options' do
       let(:options) { { navbar: true } }
-      
+
       # it { is_expected.to eq "<div class='collapse show navbar-collapse' id='collapse_id'>\n\n</div>\n" }
     end
 

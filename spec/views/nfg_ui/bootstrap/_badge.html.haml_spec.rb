@@ -4,7 +4,7 @@ RSpec.describe 'nfg_ui/bootstrap/_badge.html.haml', type: :view do
   let(:badge) { FactoryBot.create(:bootstrap_badge, **options) }
   let(:options) { {} }
   let(:tested_href) { 'test_href' }
-  subject { render 'nfg_ui/bootstrap/badge', badge: badge }
+  subject { badge.render }
 
   describe 'html output for the bootstrap badge' do
     let(:options) { { body: body } }
@@ -13,7 +13,7 @@ RSpec.describe 'nfg_ui/bootstrap/_badge.html.haml', type: :view do
     it 'outputs a bootstrap badge component in html' do
       expect(subject).to have_css '.badge'
       expect(subject).to have_selector '.badge', text: body
-      expect(subject).to eq "<span class=\"badge badge-primary\">#{body}\n</span>"
+      expect(subject).to eq "<span class=\"badge badge-primary\">#{body}</span>"
     end
   end
 
@@ -27,7 +27,7 @@ RSpec.describe 'nfg_ui/bootstrap/_badge.html.haml', type: :view do
         it 'outputs a badge as a link' do
           expect(subject).to have_css "a.badge[href='#{tested_href}']"
           expect(subject).not_to have_css "#{tested_default_wrapper_element}.badge"
-          expect(subject).to eq "<a class=\"badge badge-primary\" href=\"#{tested_href}\">\n</a>"
+          expect(subject).to eq "<a class=\"badge badge-primary\" href=\"#{tested_href}\"></a>"
         end
       end
 
@@ -51,7 +51,7 @@ RSpec.describe 'nfg_ui/bootstrap/_badge.html.haml', type: :view do
       it 'outputs a linkless badge with the default wrapper element' do
         expect(subject).to have_css "span.badge"
         expect(subject).not_to have_css "a.badge"
-        expect(subject).to eq "<span class=\"badge badge-primary\">\n</span>"
+        expect(subject).to eq "<span class=\"badge badge-primary\"></span>"
       end
     end
   end

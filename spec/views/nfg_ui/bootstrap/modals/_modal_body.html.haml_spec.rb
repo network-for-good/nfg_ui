@@ -6,10 +6,10 @@ RSpec.describe 'nfg_ui/bootstrap/modals/_modal_body.html.haml', type: :view do
   let(:options) { { body: tested_body} }
   let(:tested_body) { 'Test body' }
 
-  subject { render 'nfg_ui/bootstrap/modals/modal_body', modal_body: modal_body }
+  subject { modal_body.render }
 
   it 'renders the modal body' do
     expect(subject).to have_selector '.modal-body', text: tested_body
-    expect(subject).to include "<div class='modal-body'>\n#{tested_body}\n</div>"
+    expect(subject).to include "<div class=\"modal-body\">#{tested_body}</div>"
   end
 end

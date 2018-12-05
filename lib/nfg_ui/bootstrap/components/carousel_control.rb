@@ -5,7 +5,7 @@ module NfgUi
     module Components
       # Bootstrap Carousel Control Component
       # https://getbootstrap.com/docs/4.1/components/carousel/#with-controls
-      class CarouselControl < Bootstrap::Components::Base
+      class CarouselControl < NfgUi::Bootstrap::Components::Base
         # CarouselControl does not get adjustable body content
         def body
           nil
@@ -36,6 +36,15 @@ module NfgUi
         def icon_html_options
           return {} unless control
           { class: "carousel-control-#{control}-icon", aria: { hidden: true } }
+        end
+
+        def render
+          content_tag(:a, html_options) do
+            if control
+              concat(content_tag(:span, nil, icon_html_options))
+              concat(content_tag(:span, control.to_s, class: 'sr-only'))
+            end
+          end
         end
 
         private

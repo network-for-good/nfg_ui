@@ -5,15 +5,21 @@ module NfgUi
     module Components
       # Bootstrap List Group Component
       # https://getbootstrap.com/docs/4.1/components/list-group/
-      class ListGroup < Bootstrap::Components::Base
+      class ListGroup < NfgUi::Bootstrap::Components::Base
         include Bootstrap::Utilities::Wrappable
-        
+
         def component_family
           :list_group
         end
 
         def flush
           options.fetch(:flush, false)
+        end
+
+        def render
+          content_tag as, html_options do
+            (block_given? ? yield : body)
+          end
         end
 
         private

@@ -3,7 +3,7 @@ module NfgUi
     module Components
       # Bootstrap Collapse Component
       # https://getbootstrap.com/docs/4.1/components/collapse/
-      class Collapse < Bootstrap::Components::Base
+      class Collapse < NfgUi::Bootstrap::Components::Base
         include Bootstrap::Utilities::Collapsible
         # def collapsed
         #   options.fetch(:collapsed, false)
@@ -11,6 +11,12 @@ module NfgUi
 
         def navbar
           options.fetch(:navbar, false)
+        end
+
+        def render
+          content_tag(:div, html_options) do
+            (block_given? ? yield : body)
+          end
         end
 
         private

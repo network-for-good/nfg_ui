@@ -5,12 +5,18 @@ module NfgUi
     module Components
       # Bootstrap Badge Component
       # https://getbootstrap.com/docs/4.1/components/badge/
-      class Badge < Bootstrap::Components::Base
+      class Badge < NfgUi::Bootstrap::Components::Base
         include Bootstrap::Utilities::Themeable
         include Bootstrap::Utilities::Wrappable
 
         def pill
           options.fetch(:pill, false)
+        end
+
+        def render
+          content_tag(as, html_options) do
+            (block_given? ? yield : body)
+          end
         end
 
         private
