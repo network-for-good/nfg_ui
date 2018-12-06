@@ -28,7 +28,7 @@ module NfgUi
         end
 
         def render
-          super do
+          content_tag(as, html_options) do
             NfgUi::Components::Elements::StepIndicator.new({ step: step.to_s, body: (block_given? ? yield : body), icon: icon, href: href, disabled: disabled }, view_context).render
           end
         end
