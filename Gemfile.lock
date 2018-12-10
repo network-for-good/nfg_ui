@@ -6,6 +6,7 @@ PATH
       browser (~> 1.1)
       coffee-script
       font-awesome-rails
+      haml
       jquery-rails
       rails (>= 4.2.0)
       sass-rails
@@ -237,7 +238,6 @@ DEPENDENCIES
   byebug
   capybara
   factory_bot_rails
-  haml
   nfg_ui!
   puma
   rails-controller-testing

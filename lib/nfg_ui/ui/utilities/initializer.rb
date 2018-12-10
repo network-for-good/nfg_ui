@@ -15,6 +15,9 @@ module NfgUi
         # after initialization
         private :component=
 
+        include ActionView::Helpers::CaptureHelper # add capture support, required for Haml
+        include Haml::Helpers # add capture_haml support
+
         def render_component
           component.render
         rescue NotImplementedError
@@ -33,6 +36,10 @@ module NfgUi
 
         # Provides a central initialization method for NfgUi::UI::Base child classes
         def initializer(component_name = nil, *traits, **options, &block)
+          # #init_haml_helpers is required when utilizing #capture with HAML
+          # (when outside of Rails)
+          # https://www.rubydoc.info/github/haml/haml/Haml%2FHelpers:init_haml_helpers
+          init_haml_helpers
           @component_name = component_name
           @class_name = component_name.to_s.camelize
           @traits = traits

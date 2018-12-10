@@ -6,6 +6,7 @@ module NfgUi
   require 'bootstrap'
   require 'coffee-script'
   require 'font-awesome-rails'
+  require 'haml'
   require 'jquery-rails'
   require 'sass-rails'
   require 'select2-rails'
