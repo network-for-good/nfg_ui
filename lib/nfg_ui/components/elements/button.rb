@@ -52,7 +52,7 @@ module NfgUi
               end
             end
           else
-            super do
+            content_tag(as, html_options) do
               if icon
                 NfgUi::Components::Foundations::Icon.new({ traits: [icon, :right], text: (block_given? ? yield : body).presence }, view_context).render
               else
