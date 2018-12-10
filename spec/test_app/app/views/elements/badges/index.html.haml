@@ -7,18 +7,18 @@
 
 = ui.nfg :badge, body: 'Primary', theme: :primary, class: 'example-class'
 
-= ui.nfg :badge, body: 'Secondary', theme: :secondary, class: 'example-class' 
+= ui.nfg :badge, body: 'Secondary', theme: :secondary, class: 'example-class'
 
-= ui.nfg :badge, body: 'Success', theme: :success, class: 'example-class' 
+= ui.nfg :badge, body: 'Success', theme: :success, class: 'example-class'
 
-= ui.nfg :badge, body: 'Danger', theme: :danger, class: 'example-class' 
+= ui.nfg :badge, body: 'Danger', theme: :danger, class: 'example-class'
 
-= ui.nfg :badge, body: 'Warning', theme: :warning, class: 'example-class' 
+= ui.nfg :badge, body: 'Warning', theme: :warning, class: 'example-class'
 
-= ui.nfg :badge, body: 'Info', theme: :info, class: 'example-class' 
+= ui.nfg :badge, body: 'Info', theme: :info, class: 'example-class'
 
-= ui.nfg :badge, body: 'Light', theme: :light, class: 'example-class' 
-= ui.nfg :badge, body: 'Dark', theme: :dark, class: 'example-class' 
+= ui.nfg :badge, body: 'Light', theme: :light, class: 'example-class'
+= ui.nfg :badge, body: 'Dark', theme: :dark, class: 'example-class'
 
 %hr
 
@@ -26,18 +26,18 @@
 
 = ui.nfg :badge, :primary, icon: 'rocket', body: 'Primary', class: 'example-class'
 
-= ui.nfg :badge, :secondary, icon: 'rocket', body: 'Secondary', class: 'example-class' 
+= ui.nfg :badge, :secondary, icon: 'rocket', body: 'Secondary', class: 'example-class'
 
-= ui.nfg :badge, :success, icon: 'rocket', body: 'Success', class: 'example-class' 
+= ui.nfg :badge, :success, icon: 'rocket', body: 'Success', class: 'example-class'
 
-= ui.nfg :badge, :danger, icon: 'rocket', body: 'Danger', class: 'example-class' 
+= ui.nfg :badge, :danger, icon: 'rocket', body: 'Danger', class: 'example-class'
 
-= ui.nfg :badge, :warning, icon: 'rocket', body: 'Warning', class: 'example-class' 
+= ui.nfg :badge, :warning, icon: 'rocket', body: 'Warning', class: 'example-class'
 
-= ui.nfg :badge, :info, icon: 'rocket', body: 'Info', class: 'example-class' 
+= ui.nfg :badge, :info, icon: 'rocket', body: 'Info', class: 'example-class'
 
-= ui.nfg :badge, :light, icon: 'rocket', body: 'Light', class: 'example-class' 
-= ui.nfg :badge, :dark, icon: 'rocket', body: 'Dark', class: 'example-class' 
+= ui.nfg :badge, :light, icon: 'rocket', body: 'Light', class: 'example-class'
+= ui.nfg :badge, :dark, icon: 'rocket', body: 'Dark', class: 'example-class'
 %hr
 
 
@@ -48,18 +48,26 @@
 
 = ui.nfg :badge, :pill, body: 'Primary', theme: :primary, class: 'example-class'
 
-= ui.nfg :badge, :pill, body: 'Secondary', theme: :secondary, class: 'example-class' 
+= ui.nfg :badge, :pill, body: 'Secondary', theme: :secondary, class: 'example-class'
 
-= ui.nfg :badge, :pill, body: 'Success', theme: :success, class: 'example-class' 
+= ui.nfg :badge, :pill, body: 'Success', theme: :success, class: 'example-class'
 
-= ui.nfg :badge, :pill, body: 'Danger', theme: :danger, class: 'example-class' 
+= ui.nfg :badge, :pill, body: 'Danger', theme: :danger, class: 'example-class'
 
-= ui.nfg :badge, :pill, body: 'Warning', theme: :warning, class: 'example-class' 
+= ui.nfg :badge, :pill, body: 'Warning', theme: :warning, class: 'example-class'
 
-= ui.nfg :badge, :pill, body: 'Info', theme: :info, class: 'example-class' 
+= ui.nfg :badge, :pill, body: 'Info', theme: :info, class: 'example-class'
 
-= ui.nfg :badge, :pill, body: 'Light', theme: :light, class: 'example-class' 
-= ui.nfg :badge, :pill, body: 'Dark', theme: :dark, class: 'example-class' 
+= ui.nfg :badge, :pill, body: 'Light', theme: :light, class: 'example-class'
+= ui.nfg :badge, :pill, body: 'Dark', theme: :dark, class: 'example-class'
+
+%hr
+
+%h2 Simple badges with numbers
+-# anything passed to the component must be a string or it will be dropped
+-# this is expected behavior for content_tag (https://github.com/rails/rails/pull/18024#commitcomment-8975180)
+
+= ui.nfg :badge, :pill, body: 12.to_s, theme: :primary, class: 'example-class'
 
 %hr
 
@@ -70,16 +78,16 @@
 
 = ui.nfg :badge, body: 'Primary no :as with href', href: '#nogo2', theme: :primary, class: 'example-class'
 
-= ui.nfg :badge, as: :a, body: 'Secondary', href: '#nogo', theme: :secondary, class: 'example-class' 
+= ui.nfg :badge, as: :a, body: 'Secondary', href: '#nogo', theme: :secondary, class: 'example-class'
 
-= ui.nfg :badge, as: :a, body: 'Success', href: '#nogo', theme: :success, class: 'example-class' 
+= ui.nfg :badge, as: :a, body: 'Success', href: '#nogo', theme: :success, class: 'example-class'
 
-= ui.nfg :badge, as: :a, body: 'Danger', href: '#nogo', theme: :danger, class: 'example-class' 
+= ui.nfg :badge, as: :a, body: 'Danger', href: '#nogo', theme: :danger, class: 'example-class'
 
-= ui.nfg :badge, as: :a, body: 'Warning', href: '#nogo', theme: :warning, class: 'example-class' 
+= ui.nfg :badge, as: :a, body: 'Warning', href: '#nogo', theme: :warning, class: 'example-class'
 
-= ui.nfg :badge, as: :a, body: 'Info', href: '#nogo', theme: :info, class: 'example-class' 
+= ui.nfg :badge, as: :a, body: 'Info', href: '#nogo', theme: :info, class: 'example-class'
 
-= ui.nfg :badge, as: :a, body: 'Light', href: '#nogo', theme: :light, class: 'example-class' 
-= ui.nfg :badge, as: :a, body: 'Dark', href: '#nogo', theme: :dark, class: 'example-class' 
+= ui.nfg :badge, as: :a, body: 'Light', href: '#nogo', theme: :light, class: 'example-class'
+= ui.nfg :badge, as: :a, body: 'Dark', href: '#nogo', theme: :dark, class: 'example-class'
 
