@@ -22,7 +22,12 @@ module NfgUi
         end
 
         def method
+          return if delete_link?
           options.fetch(:method, nil)
+        end
+
+        def delete_link?
+          @delete_link ||= options.fetch(:method, nil) == :delete
         end
 
         def slat_header
@@ -50,7 +55,7 @@ module NfgUi
             method: send(:method),
             remote: remote,
             data: { disable_with: disable_with,
-                    confirm: confirm } }
+                    confirm: confirm }.merge(delete_link? ? { method: :delete } : {}) }
         end
 
         def theme
