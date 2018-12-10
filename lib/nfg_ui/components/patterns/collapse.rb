@@ -20,7 +20,7 @@ module NfgUi
             if heading
               opts = { collapse: "##{id}", body: heading, icon: 'caret-down', class: 'pl-0 text-left' }
               opts.merge!(traits: [:link, :block])
-              concat(NfgUi::Bootstrap::Components::Button.new(opts, view_context).render)
+              concat(NfgUi::Components::Elements::Button.new(opts, view_context).render)
             end
             concat(super)
           end
