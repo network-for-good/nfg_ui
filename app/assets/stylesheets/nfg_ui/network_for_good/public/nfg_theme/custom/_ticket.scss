@@ -1,0 +1,12 @@
+// Styles specific to the ticket experience
+.ticket-guest {
+  padding: $spacer ($spacer * .5);
+  border-radius: $border-radius;
+  box-shadow: $box-shadow-sm;
+  @include transition(box-shadow .4s ease-in-out, padding .3s ease-in-out); // animation for active/inactive ticket guest rows
+  &.disabled {
+    opacity: .4;
+    pointer-events: none;
+  }
+}
+.ticket-guest-row { @include transition(box-shadow .1s ease-in-out, padding .3s ease-in-out); } // corresponding animation for active/inactive ticket guest rows
