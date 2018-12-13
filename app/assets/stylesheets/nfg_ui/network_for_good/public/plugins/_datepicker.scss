@@ -1,0 +1,2 @@
+// fixes z-index issue for default datepicker
+.ui-datepicker { z-index: $zindex-popover !important; }
