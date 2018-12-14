@@ -102,8 +102,7 @@ module NfgUi
         def css_classes
           [
             super,
-            ("#{component_css_class}-sm" unless wide),
-            ('line-height-sm' if href.present?)
+            ("#{component_css_class}-sm" unless wide)
           ].join(' ').squish
         end
 
