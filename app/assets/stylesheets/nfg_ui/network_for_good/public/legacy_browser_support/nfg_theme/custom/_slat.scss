@@ -17,15 +17,13 @@
     -ms-flex-positive: 1;
     -ms-flex-negative: 0;
     -ms-flex-preferred-size: 0;
-    &:first-child:not(.slat-item-lg), &:first-child:not(.slat-item-sm) {
-      @include media-breakpoint-down(sm) { -ms-flex-preferred-size: 100%; }
-      @include media-breakpoint-up(md) { -ms-flex-positive: 2; }
+    &:first-child {
+      -ms-flex-positive: 2;
+
+      // Sizing options
+      &.slat-item-sm { -ms-flex-positive: 0; }
+      &.slat-item-lg { -ms-flex-positive: 6; }
     }
-
-
-    // Sizing options
-    &.slat-item-sm { -ms-flex-positive: 0; }
-    &.slat-item-lg { -ms-flex-positive: 6; }
   }
 }
 
@@ -49,4 +47,20 @@
 // Slat header
 .slat-header {
   .slat-body { -ms-flex-align: center; }
+}
+
+
+// Slat list layout
+.slat-list {
+
+  // Non-breaked version -- used when the goal is to have all slat-item columns on the same line in smaller screens
+  &:not(.slat-list-no-break) {
+    .slat-item {
+      &:first-child {
+        @include media-breakpoint-down(sm) {
+          -ms-flex-preferred-size: 100%;
+        }
+      }
+    }
+  }
 }

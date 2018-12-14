@@ -20,18 +20,13 @@
     width: 100%;
     max-width: 100%;
     min-height: 1px;
-    &:first-child:not(.slat-item-lg), &:first-child:not(.slat-item-sm) {
-      @include media-breakpoint-down(sm) {
-        flex-basis: 100%;
-        margin-bottom: $spacer;
-      }
-      @include media-breakpoint-up(md) { flex-grow: 2; }
+    &:first-child {
+      flex-grow: 2;
+
+      // Sizing options
+      &.slat-item-sm { flex-grow: 0; }
+      &.slat-item-lg { flex-grow: 6; }
     }
-
-
-    // Sizing options
-    &.slat-item-sm { flex-grow: 0; }
-    &.slat-item-lg { flex-grow: 6; }
   }
 }
 
@@ -62,8 +57,9 @@
 // Slat list layout
 .slat-list {
   .slat {
-    padding-top: $spacer;
-    padding-bottom: $spacer;
+    padding-top: ($spacer * .5);
+    padding-bottom: ($spacer * .5);
+    background-color: $white;
 
 
     // Various states
@@ -89,14 +85,27 @@
   // Sizing options
   &.slat-list-sm {
     .slat {
-      padding-top: ($spacer * .5);
-      padding-bottom: ($spacer * .5);
+      padding-top: ($spacer * .25);
+      padding-bottom: ($spacer * .25);
     }
   }
   &.slat-list-lg {
     .slat {
-      padding-top: ($spacer * 1.5);
-      padding-bottom: ($spacer * 1.5);
+      padding-top: $spacer;
+      padding-bottom: $spacer;
+    }
+  }
+
+
+  // Non-breaked version -- used when the goal is to have all slat-item columns on the same line in smaller screens
+  &:not(.slat-list-no-break) {
+    .slat-item {
+      &:first-child {
+        @include media-breakpoint-down(sm) {
+          flex-basis: 100%;
+          margin-bottom: $spacer;
+        }
+      }
     }
   }
 }
