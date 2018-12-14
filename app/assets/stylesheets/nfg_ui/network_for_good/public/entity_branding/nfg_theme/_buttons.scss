@@ -28,6 +28,11 @@
   .show > &.dropdown-toggle { color: yiq-contrast-color($primary, $yiq-text-dark, $primary); }
 }
 
+.btn-link {
+  color: yiq-contrast-color($primary, $yiq-text-dark, $primary);
+  &:hover { color: yiq-contrast-color(darken($primary, 15%), $yiq-text-dark, darken($primary, 15%)); }
+}
+
 .bg-dark {
   .btn-primary {
     h1, h2, h3, h4, h5, h6, p, label { color: yiq-contrast-color($primary, $yiq-text-dark, $yiq-text-light); }
