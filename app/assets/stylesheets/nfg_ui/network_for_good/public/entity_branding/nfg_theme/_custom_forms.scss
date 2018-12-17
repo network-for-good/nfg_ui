@@ -26,8 +26,10 @@
 .custom-control-toggle {
   .custom-control-input:checked {
     ~ .custom-control-label {
-      &::before { background-color: $primary; }
-      &::after { border-color: $primary; }
+      &::after {
+        background-color: $primary;
+        border-color: $primary;
+      }
     }
   }
 }

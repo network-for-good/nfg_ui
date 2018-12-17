@@ -26,10 +26,12 @@ module NfgUi
 
         def render
           super do
-            if button.present?
-              concat(NfgUi::Bootstrap::Components::DropdownToggle.new({ body: button, theme: theme, as: :button, offset: offset }, view_context).render)
+            capture do
+              if button.present?
+                concat(NfgUi::Bootstrap::Components::DropdownToggle.new({ body: button, theme: theme, as: :button, offset: offset }, view_context).render)
+              end
+              concat(block_given? ? yield : body)
             end
-            concat(block_given? ? yield : body)
           end
         end
 

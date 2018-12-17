@@ -98,6 +98,15 @@
       transition: $transition-base;
     }
     &::before {
+      top: 0;
+      width: $spacer;
+      height: $spacer;
+      background-color: $white;
+      border: $border-width solid $border-color;
+      border-radius: $custom-radio-indicator-border-radius;
+      z-index: 10;
+    }
+    &::after {
       padding-left: 28px;
       width: ($spacer * 2);
       font-size: 12px;
@@ -106,29 +115,25 @@
       font-family: "FontAwesome";
       content: "\f00d";
       background-color: $body-bg;
-      border-radius: ($custom-control-indicator-size * .5);
-    }
-    &::after {
-      top: 0;
-      width: $spacer;
-      height: $spacer;
-      background-color: $white;
       border: $border-width solid $border-color;
-      border-radius: $custom-radio-indicator-border-radius;
+      border-radius: ($custom-control-indicator-size * .5);
+      z-index: 0;
     }
   }
   .custom-control-input:checked {
     ~ .custom-control-label {
       &::before {
+        left: -($spacer * 1.5);
+        background-color: $white !important;
+        border-color: $input-focus-border-color;
+      }
+      &::after {
         content: "";
         background-repeat: no-repeat;
         background-size: 30%;
         background-position: 6px 1px;
         background-image: $custom-checkbox-indicator-icon-checked;
         background-color: $custom-control-indicator-checked-bg;
-      }
-      &::after {
-        left: -($spacer * 1.5);
         border-color: $input-focus-border-color;
       }
     }

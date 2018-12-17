@@ -20,20 +20,16 @@
     width: 100%;
     max-width: 100%;
     min-height: 1px;
-    &:first-child:not(.slat-item-lg), &:first-child:not(.slat-item-sm) {
-      @include media-breakpoint-down(sm) {
-        flex-basis: 100%;
-        margin-bottom: $spacer;
-      }
-      @include media-breakpoint-up(md) { flex-grow: 2; }
+    &:first-child {
+      flex-grow: 2;
+
+      // Sizing options
+      &.slat-item-sm { flex-grow: 0; }
+      &.slat-item-lg { flex-grow: 6; }
     }
-
-
-    // Sizing options
-    &.slat-item-sm { flex-grow: 0; }
-    &.slat-item-lg { flex-grow: 6; }
   }
 }
+
 
 
 // Action Column
@@ -65,7 +61,6 @@
   .slat {
     padding-top: $spacer;
     padding-bottom: $spacer;
-    background-color: $white;
     + .slat { border-top: $border-width solid $border-color; }
 
 
@@ -100,6 +95,19 @@
     .slat {
       padding-top: ($spacer * 1.5);
       padding-bottom: ($spacer * 1.5);
+    }
+  }
+
+
+  // Non-breaked version -- used when the goal is to have all slat-item columns on the same line in smaller screens
+  &:not(.slat-list-no-break) {
+    .slat-item {
+      &:first-child {
+        @include media-breakpoint-down(sm) {
+          flex-basis: 100%;
+          margin-bottom: $spacer;
+        }
+      }
     }
   }
 }

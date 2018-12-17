@@ -29,8 +29,10 @@ module NfgUi
 
         def render
           super do
-            count.times do |i|
-              concat(content_tag(:li, nil, class: ('active' if active == i + 1), data: { target: carousel, slide_to: i }))
+            capture do
+              count.times do |i|
+                concat(content_tag(:li, nil, class: ('active' if active == i + 1), data: { target: carousel, slide_to: i }))
+              end
             end
           end
         end

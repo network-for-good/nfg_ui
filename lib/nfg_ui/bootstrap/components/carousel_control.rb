@@ -40,9 +40,11 @@ module NfgUi
 
         def render
           super do
-            if control
-              concat(content_tag(:span, nil, icon_html_options))
-              concat(content_tag(:span, control.to_s, class: 'sr-only'))
+            capture do
+              if control
+                concat(content_tag(:span, nil, icon_html_options))
+                concat(content_tag(:span, control.to_s, class: 'sr-only'))
+              end
             end
           end
         end
