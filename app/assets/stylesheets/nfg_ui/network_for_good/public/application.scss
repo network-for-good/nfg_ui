@@ -11,6 +11,9 @@
 // Bootstrap Vendor Base
 @import 'bootstrap';
 
+// Patches
+@import 'nfg_ui/patches/patches';
+
 // NFG Theme
 @import 'nfg_theme/*';
 
