@@ -3,9 +3,12 @@
 // Base class takes care of all the key behavioral aspects.
 
 .custom-control {
-  .custom-control-input:checked {
-    ~ .custom-control-label,
-    ~ .custom-control-label::before { border-color: $input-focus-border-color; }
+  .custom-control-input {
+    &:checked {
+      ~ .custom-control-label,
+      ~ .custom-control-label::before { border-color: $input-focus-border-color; }
+    }
+    &:focus:not(:checked) ~ .custom-control-label::before { border-color: $input-border-color; }
   }
 }
 
@@ -86,55 +89,45 @@
   }
 }
 
-// Custom toggle
+
+// switches
 //
-// Used in yes/no situations
-.custom-control-toggle {
-  padding-left: ($spacer * 2.5);
+// Tweak a few things for switches
+
+.custom-switch {
   .custom-control-label {
-    &::before, &::after {
-      left: -($spacer * 2.5);
-      transition: $transition-base;
-    }
     &::before {
-      top: 0;
-      width: $spacer;
-      height: $spacer;
-      background-color: $white;
-      border: $border-width solid $border-color;
-      border-radius: $custom-radio-indicator-border-radius;
-      z-index: 10;
-    }
-    &::after {
       padding-left: 28px;
-      width: ($spacer * 2);
       font-size: 12px;
       line-height: 16px;
       color: $text-muted;
       font-family: "FontAwesome";
       content: "\f00d";
       background-color: $body-bg;
+    }
+    &::after {
+      top: 0;
+      left: -($custom-switch-width + $custom-control-gutter);
+      background-color: $white;
       border: $border-width solid $border-color;
-      border-radius: ($custom-control-indicator-size * .5);
-      z-index: 0;
+      border-radius: 50%;
+      @include transition(transform .15s ease-in-out, $custom-forms-transition);
     }
   }
-  .custom-control-input:checked {
-    ~ .custom-control-label {
-      &::before {
-        left: -($spacer * 1.5);
-        background-color: $white;
-        border-color: $input-focus-border-color;
-      }
-      &::after {
-        content: "";
-        background-repeat: no-repeat;
-        background-size: 30%;
-        background-position: 6px 1px;
-        background-image: $custom-checkbox-indicator-icon-checked;
-        background-color: $custom-control-indicator-checked-bg;
-        border-color: $input-focus-border-color;
-      }
+
+  .custom-control-input:checked ~ .custom-control-label {
+    &::after {
+      border-color: $input-focus-border-color;
+      transform: translateX($custom-switch-width - $custom-switch-indicator-size);
+    }
+    &::before {
+      content: "";
+      background-repeat: no-repeat;
+      background-size: 30%;
+      background-position: 6px 1px;
+      background-image: $custom-checkbox-indicator-icon-checked;
+      background-color: $custom-control-indicator-checked-bg;
+      border-color: $input-focus-border-color;
     }
   }
 }

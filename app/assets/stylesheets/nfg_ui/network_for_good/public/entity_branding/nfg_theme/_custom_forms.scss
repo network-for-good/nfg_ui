@@ -1,9 +1,15 @@
 // Specific styles for entity branding
 
 .custom-control {
-  .custom-control-input:checked {
-    ~ .custom-control-label, ~ .custom-control-label::before { border-color: $primary; }
-    ~ .custom-control-label::before { background-color: $primary; }
+  .custom-control-input {
+    &:checked {
+      ~ .custom-control-label, ~ .custom-control-label::before { border-color: $primary; }
+      ~ .custom-control-label::before { background-color: $primary; }
+    }
+    &:not(:disabled):active ~ .custom-control-label::before {
+      background-color: lighten($primary, 35%);
+      border-color: lighten($primary, 35%);
+    }
   }
 }
 
@@ -23,13 +29,12 @@
   }
 }
 
-.custom-control-toggle {
-  .custom-control-input:checked {
-    ~ .custom-control-label {
-      &::after {
-        background-color: $primary;
-        border-color: $primary;
-      }
+.custom-switch {
+  .custom-control-input:checked ~ .custom-control-label {
+    &::after { border-color: $primary; }
+    &::before {
+      background-color: $primary;
+      border-color: $primary;
     }
   }
 }
