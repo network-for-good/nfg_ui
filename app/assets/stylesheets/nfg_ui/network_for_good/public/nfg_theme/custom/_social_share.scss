@@ -1,0 +1,44 @@
+// Helper colors used for social media links, text, and backgrounds
+
+$facebook:      #3b5998 !default;
+$twitter:       #1da1f2 !default;
+$linkedin:      #0077b5 !default;
+$pinterest:     #bd081c !default;
+
+$social-media-colors: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$social-media-colors: map-merge(
+  (
+    "facebook":     $facebook,
+    "twitter":      $twitter,
+    "linkedin":     $linkedin,
+    "pinterest":    $pinterest
+  ),
+  $social-media-colors
+);
+
+
+// Buttons
+@each $color, $value in $social-media-colors {
+  .btn-#{$color} {
+    @include button-variant($value, $value);
+  }
+}
+
+@each $color, $value in $social-media-colors {
+  .btn-outline-#{$color} {
+    @include button-outline-variant($value);
+  }
+}
+
+
+// Text
+@each $color, $value in $social-media-colors {
+  @include text-emphasis-variant(".text-#{$color}", $value);
+}
+
+
+// Backgrounds
+@each $color, $value in $social-media-colors {
+  @include bg-variant(".bg-#{$color}", $value);
+}
