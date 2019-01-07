@@ -148,12 +148,6 @@
   }
 }
 
-.was-validated .custom-control-toggle .custom-control-input:valid {
-  ~ .custom-control-label {
-    &::before { background-color: $body-bg; }
-  }
-}
-
 .custom-file-input {
   .was-validated &:valid {
     ~ .custom-file-label { border-color: $custom-file-border-color; }
