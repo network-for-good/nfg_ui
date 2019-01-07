@@ -22,3 +22,6 @@ dl {
 }
 
 img { max-width: 100%; }
+
+// in Bootstrap 4.1, disabled elements, such as links, do not get pointer-events: none; This patches that, and excludes components that have wrapping tooltips that end up with the .disabled class added on them, like a tooltipped, disabled dropdown-item.
+.disabled:not([data-toggle='tooltip']) { pointer-events: none; }

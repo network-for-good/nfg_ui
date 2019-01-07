@@ -11,9 +11,6 @@
 // Bootstrap Vendor Base
 @import 'bootstrap';
 
-// Patches
-@import 'nfg_ui/patches/patches';
-
 // NFG Theme
 @import 'nfg_theme/*';
 @import 'nfg_theme/custom/email_preview'; // TODO: Figure out why this isn't loading by the import nfg/theme/*
