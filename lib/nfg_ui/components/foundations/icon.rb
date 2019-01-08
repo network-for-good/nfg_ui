@@ -17,6 +17,12 @@ module NfgUi
         include NfgUi::Components::Traits::Theme
         include NfgUi::Components::Traits::Alignment
 
+        # Officially declare the icon spacer classes
+        # so that other iconable components that have more than one icon
+        # e.g.: :left_icon & :icon can use the spacer class manually
+        LEFT_ICON_SPACER_CSS_CLASS  = 'mr-1'
+        RIGHT_ICON_SPACER_CSS_CLASS = 'ml-1'
+
         def render
           view_context.fa_icon icon, **html_options, text: text, right: right
         end
@@ -39,8 +45,8 @@ module NfgUi
           return super unless text
           [
             super,
-            ('mr-1' unless right),
-            ('ml-1' if right)
+            (LEFT_ICON_SPACER_CSS_CLASS unless right),
+            (RIGHT_ICON_SPACER_CSS_CLASS if right)
           ].join(' ').squish
         end
 
