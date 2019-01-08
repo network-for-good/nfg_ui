@@ -10,6 +10,7 @@ module NfgUi
         include NfgUi::Components::Utilities::Confirmable
         include NfgUi::Components::Utilities::DisableWithable
         include NfgUi::Components::Utilities::Iconable
+        include NfgUi::Components::Utilities::LeftIconable
         include NfgUi::Components::Utilities::Traitable
         include NfgUi::Components::Utilities::Describable
         include NfgUi::Components::Utilities::Methodable
@@ -27,6 +28,7 @@ module NfgUi
           dismiss ? super.merge!(dismiss: dismiss) : super
         end
 
+        # TODO
         def close
           # convert :close trait to
           # close: :alert
@@ -44,25 +46,33 @@ module NfgUi
           if tooltip && disabled
             content_tag(:span, disabled_component_tooltip_wrapper_html_options) do
               content_tag(as, html_options) do
-                if icon
-                  NfgUi::Components::Foundations::Icon.new({ traits: [icon, :right], text: (block_given? ? yield : body).presence }, view_context).render
-                else
-                  (block_given? ? yield : body)
-                end
+                button_body_maybe_with_icons
               end
             end
           else
             content_tag(as, html_options) do
-              if icon
-                NfgUi::Components::Foundations::Icon.new({ traits: [icon, :right], text: (block_given? ? yield : body).presence }, view_context).render
-              else
-                (block_given? ? yield : body)
-              end
+              button_body_maybe_with_icons
             end
           end
         end
 
         private
+
+        def button_body_maybe_with_icons
+          capture do
+            if left_icon
+              concat(NfgUi::Components::Foundations::Icon.new({ traits: [left_icon],
+                                                                class: NfgUi::Components::Foundations::Icon::LEFT_ICON_SPACER_CSS_CLASS },
+                                                              view_context).render)
+            end
+            concat(block_given? ? yield : body)
+            if icon
+              concat(NfgUi::Components::Foundations::Icon.new({ traits: [icon],
+                                                                class: (NfgUi::Components::Foundations::Icon::RIGHT_ICON_SPACER_CSS_CLASS if body.present?) },
+                                                              view_context).render)
+            end
+          end
+        end
 
         def base_element
           as
