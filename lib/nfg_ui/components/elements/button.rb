@@ -46,32 +46,37 @@ module NfgUi
           if tooltip && disabled
             content_tag(:span, disabled_component_tooltip_wrapper_html_options) do
               content_tag(as, html_options) do
-                button_body_maybe_with_icons
+                capture do
+                  concat(left_icon_component) if left_icon
+                  concat(block_given? ? yield : body)
+                  concat(right_icon_component) if icon
+                end
               end
             end
+
           else
             content_tag(as, html_options) do
-              button_body_maybe_with_icons
+              capture do
+                concat(left_icon_component) if left_icon
+                concat(block_given? ? yield : body)
+                concat(right_icon_component) if icon
+              end
             end
           end
         end
 
         private
 
-        def button_body_maybe_with_icons
-          capture do
-            if left_icon
-              concat(NfgUi::Components::Foundations::Icon.new({ traits: [left_icon],
-                                                                class: NfgUi::Components::Foundations::Icon::LEFT_ICON_SPACER_CSS_CLASS },
-                                                              view_context).render)
-            end
-            concat(block_given? ? yield : body)
-            if icon
-              concat(NfgUi::Components::Foundations::Icon.new({ traits: [icon],
-                                                                class: (NfgUi::Components::Foundations::Icon::RIGHT_ICON_SPACER_CSS_CLASS if body.present?) },
-                                                              view_context).render)
-            end
-          end
+        def left_icon_component
+          NfgUi::Components::Foundations::Icon.new({ traits: [left_icon],
+                                                     class: NfgUi::Components::Foundations::Icon::LEFT_ICON_SPACER_CSS_CLASS },
+                                                   view_context).render
+        end
+
+        def right_icon_component
+          NfgUi::Components::Foundations::Icon.new({ traits: [icon],
+                                                     class: (NfgUi::Components::Foundations::Icon::RIGHT_ICON_SPACER_CSS_CLASS if body.present?) },
+                                                   view_context).render
         end
 
         def base_element

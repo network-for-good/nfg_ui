@@ -50,22 +50,31 @@
 %h3 Buttons with icons
 %h4 Icons on the right (default)
 = ui.nfg :button, icon: 'rocket', body: 'Button with icon'
+= ui.nfg :button, :disabled, icon: 'rocket', body: 'Button with icon disabled'
+= ui.nfg :button, :disabled, icon: 'rocket', body: 'Button with icon disabled - tooltip', tooltip: 'Disabled button tooltip'
 %hr
 
 %h4 Icons on the left
 = ui.nfg :button, left_icon: 'rocket', body: 'Button with left icon (option)'
 = ui.nfg :button, left_icon: 'rocket' do 
   Button with left icon (block)
+= ui.nfg :button, :disabled, left_icon: 'rocket', body: 'Button with left icon disabled'
+= ui.nfg :button, :disabled, left_icon: 'rocket', body: 'Button with left icon disabled - tooltip', tooltip: 'Disabled button tooltip'
 %hr
 
 %h4 Icons on both sides
 = ui.nfg :button, left_icon: 'plus', icon: 'rocket', body: 'Button with 2 Icons (option)'
 = ui.nfg :button, left_icon: 'plus', icon: 'rocket' do
   Button with 2 Icons (block)
+= ui.nfg :button, :disabled, left_icon: 'plus', icon: 'rocket', body: 'Button with 2 Icons Disabled'
+= ui.nfg :button, :disabled, left_icon: 'plus', icon: 'rocket', body: 'Button with 2 Icons Disabled - tooltip', tooltip: 'Disabled button tooltip'
+ 
 %hr
 
 %h4 Button with no body, but with icon
 = ui.nfg :button, icon: 'check'
+= ui.nfg :button, :disabled, icon: 'close'
+= ui.nfg :button, :disabled, icon: 'info-circle', tooltip: 'Disabled button tooltip'
 
 %hr
 

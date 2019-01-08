@@ -45,8 +45,8 @@ module NfgUi
           return super unless text
           [
             super,
-            (LEFT_ICON_SPACER_CSS_CLASS unless right),
-            (RIGHT_ICON_SPACER_CSS_CLASS if right)
+            (NfgUi::Components::Foundations::Icon::LEFT_ICON_SPACER_CSS_CLASS unless right),
+            (NfgUi::Components::Foundations::Icon::RIGHT_ICON_SPACER_CSS_CLASS if right)
           ].join(' ').squish
         end
 
