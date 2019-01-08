@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    nfg_ui (0.9.8.1)
+    nfg_ui (0.9.8.2)
       bootstrap (~> 4.1)
       browser (~> 1.1)
       coffee-script
@@ -185,7 +185,7 @@ GEM
       rspec-core (>= 2, < 4, != 2.12.0)
     ruby_dep (1.5.0)
     rubyzip (1.2.2)
-    sass (3.7.2)
+    sass (3.7.3)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
       rb-fsevent (~> 0.9, >= 0.9.4)
