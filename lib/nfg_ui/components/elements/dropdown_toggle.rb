@@ -8,6 +8,7 @@ module NfgUi
       # Traits will eventually be connected here.
       class DropdownToggle < NfgUi::Bootstrap::Components::DropdownToggle
         include NfgUi::Components::Utilities::Iconable
+        include NfgUi::Components::Utilities::LeftIconable
         include NfgUi::Components::Utilities::Traitable
         include NfgUi::Components::Utilities::Describable
         include NfgUi::Components::Utilities::Renderable
@@ -20,15 +21,11 @@ module NfgUi
           options.fetch(:icon, 'caret-down')
         end
 
-        def left_icon
-          options.fetch(:left_icon, nil)
-        end
-
         def render
           NfgUi::Components::Elements::Button.new({ as: as, theme: theme, **html_options, remove_component_css_classes: nav_link, icon: icon }, view_context).render do
             capture do
               if left_icon
-                concat(NfgUi::Components::Foundations::Icon.new({ traits: [left_icon], class: 'mr-1' }, view_context).render)
+                concat(NfgUi::Components::Foundations::Icon.new({ traits: [left_icon], class: NfgUi::Components::Foundations::Icon::LEFT_ICON_SPACER_CSS_CLASS }, view_context).render)
               end
               concat(block_given? ? yield : body)
             end
