@@ -42,7 +42,7 @@ module NfgUi
         private
 
         def css_classes
-          return super unless text
+          return super unless update_css_classes?
           [
             super,
             (NfgUi::Components::Foundations::Icon::LEFT_ICON_SPACER_CSS_CLASS unless right),
@@ -68,6 +68,13 @@ module NfgUi
 
         def outlineable?
           false
+        end
+
+        # Several components need to utilize the icon with a spacer css class
+        # where text is supplied in the #render, and not passed to the icon
+        # thus, icons with :right trait are allowed through
+        def update_css_classes?
+          text || right
         end
       end
     end

@@ -28,6 +28,8 @@ module NfgUi
           dismiss ? super.merge!(dismiss: dismiss) : super
         end
 
+
+
         # TODO
         def close
           # convert :close trait to
@@ -71,11 +73,12 @@ module NfgUi
           NfgUi::Components::Foundations::Icon.new({ traits: [left_icon],
                                                      class: NfgUi::Components::Foundations::Icon::LEFT_ICON_SPACER_CSS_CLASS },
                                                    view_context).render
+
         end
 
         def right_icon_component
-          NfgUi::Components::Foundations::Icon.new({ traits: [icon],
-                                                     class: (NfgUi::Components::Foundations::Icon::RIGHT_ICON_SPACER_CSS_CLASS if body.present?) },
+          NfgUi::Components::Foundations::Icon.new({ traits: [icon, :right],
+                                                     class: NfgUi::Components::Foundations::Icon::RIGHT_ICON_SPACER_CSS_CLASS },
                                                    view_context).render
         end
 
