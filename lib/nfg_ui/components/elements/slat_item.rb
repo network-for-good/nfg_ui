@@ -9,6 +9,7 @@ module NfgUi
         include Bootstrap::Utilities::Sizable
 
         include NfgUi::Components::Traits::Size
+        include NfgUi::Components::Traits::SlatItem
 
         def component_family
           :slats

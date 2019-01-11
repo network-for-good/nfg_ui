@@ -29,6 +29,7 @@ module NfgUi
                          Remote
                          Size
                          Step
+                         SlatItem
                          Theme
                          Typeface
                          Vertical].freeze
