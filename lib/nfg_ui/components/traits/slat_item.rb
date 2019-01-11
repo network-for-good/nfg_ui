@@ -3,7 +3,7 @@ module NfgUi
     module Traits
       # Step traits
       module SlatItem
-        TRAITS = %i[:truncate].freeze
+        TRAITS = %i[truncate].freeze
 
         # truncated_trait is added to a slat_item when a slat_item typeface child
         # needs to have truncated text with ellipses.
