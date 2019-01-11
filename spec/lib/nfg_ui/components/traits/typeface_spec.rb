@@ -26,4 +26,8 @@ RSpec.describe NfgUi::Components::Traits::Typeface do
   describe '#title_trait' do
     subject { component_with_traits.title_trait }
   end
+
+  describe '#truncate_trait' do
+    subject { component_with_traits.truncate_trait }
+  end
 end

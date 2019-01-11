@@ -10,7 +10,8 @@ module NfgUi
                     heading
                     subheading
                     title
-                    muted].freeze
+                    muted
+                    truncate].freeze
 
         def body_trait
           self.as = body_tag
@@ -40,6 +41,11 @@ module NfgUi
         def title_trait
           self.as = title_tag
           options[:title] = body
+        end
+
+        # Add the css class 'text-truncate' to a typeface component
+        def truncate_trait
+          @css_classes += ' text-truncate'
         end
       end
     end

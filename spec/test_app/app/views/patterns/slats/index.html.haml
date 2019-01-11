@@ -13,7 +13,9 @@
     = ui.nfg :slat do
       = ui.nfg :slat_body do
         = ui.nfg :slat_item, heading: 'Karl Fergood live here at this column', caption: 'A caption about this contact'
-        = ui.nfg :slat_item, heading: '$5000', caption: 'An amount caption'
+        = ui.nfg :slat_item, :truncate do
+          = ui.nfg :typeface, :truncate, body: 'a.really.long.string.for.truncation.exapmle'
+
 
       = ui.nfg :slat_actions do
         = ui.nfg :slat_action, href: '#', body: 'Edit', icon: 'pencil'
