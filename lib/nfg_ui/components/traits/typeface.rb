@@ -45,7 +45,7 @@ module NfgUi
 
         # Add the css class 'text-truncate' to a typeface component
         def truncate_trait
-          @css_classes += ' text-truncate'
+          options[:class] = [options.try(:[], :class), 'text-truncate'].join(' ').squish
         end
       end
     end
