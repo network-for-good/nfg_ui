@@ -13,7 +13,7 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 
 require 'spec_helper'
 require 'rspec/rails'
-require 'selenium-webdriver'
+require 'selenium/webdriver'
 require 'capybara/rails'
 require 'factory_bot_rails'
 require 'support/factory_bot'
