@@ -6,9 +6,12 @@
 
 %hr
 
-= ui.bootstrap :button, body: 'Modal Trigger Button', modal: '#test_modal'
-= ui.bootstrap :modal, id: 'test_modal', title: 'Test Modal', footer: 'Modal footer (as a component option only)' do
-  Modal body goes here
+%h2 Button modal action that opens a modal with a custom footer
+= ui.bootstrap :button, body: 'Modal Trigger Button', modal: '#test_modal_with_footer'
+= ui.bootstrap :modal, id: 'test_modal_with_footer', title: 'Test Modal', render_in_body: false do
+  = ui.bootstrap :modal_body, body: 'Modal body goes here'
+  = ui.bootstrap :modal_footer do
+    = ui.bootstrap :button, body: 'Close Modal', icon: 'times', data: { dismiss: 'modal' }
 
 %hr
 
