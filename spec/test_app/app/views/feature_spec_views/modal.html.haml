@@ -1,25 +1,29 @@
 -# As a link
-= link_to 'Test Modal Link', '#test_href', data: { toggle: 'modal', target: '#test_modal', describe: 'modal-link' }
+%p= link_to 'Test Modal Link', '#test_href', data: { toggle: 'modal', target: '#test_modal', describe: 'modal-link' }
+
+%hr
 
 -# Standard modal button
-= ui.nfg :button, as: :button, body: 'Modal Trigger Button', modal: '#test_modal', describe: 'modal-button-as-button'
+%p= ui.nfg :button, as: :button, body: 'Modal Trigger Button', modal: '#test_modal', describe: 'modal-button-as-button'
 
 -# Modal button as a link
-= ui.nfg :button, as: :a, body: 'Modal Trigger Button', modal: '#test_modal', describe: 'modal-button-as-link'
+%p= ui.nfg :button, as: :a, body: 'Modal Trigger Button as Link', modal: '#test_modal', describe: 'modal-button-as-link'
 
 -# Modal button as a link with a pre-supplied href
-= ui.nfg :button, as: :a, body: 'Modal Trigger Button', modal: '#test_modal', describe: 'modal-button-as-link-with-href', href: '#included_href'
+%p= ui.nfg :button, as: :a, body: 'Modal Trigger Button with href', modal: '#test_modal', describe: 'modal-button-as-link-with-href', href: '#included_href'
 
 -# Disabled modal button
-%span{ data: { describe: 'disabled-button-wrapper' } }
-  = ui.nfg :button, :disabled, body: 'Disabled Modal Trigger Button', modal: '#test_modal', describe: 'disabled-modal-button', id: 'disabled_modal_button'
+%p
+  %span{ data: { describe: 'disabled-button-wrapper' } }
+    = ui.nfg :button, :disabled, body: 'Disabled Modal Trigger Button', modal: '#test_modal', describe: 'disabled-modal-button', id: 'disabled_modal_button'
 
 -# Modal button with a competing data enriching tooltip
-= ui.nfg :button, body: 'Modal Button with Competing Tooltip', modal: '#test_modal', tooltip: 'Test tooltip', describe: 'modal-button-with-tooltip'
+%p= ui.nfg :button, body: 'Modal Button with Competing Tooltip', modal: '#test_modal', tooltip: 'Test tooltip', describe: 'modal-button-with-tooltip'
 
--# Modal button that fires the modal with the footer
+%hr
 
 -# Modal dropdown items
+
 = ui.nfg :dropdown do
   = ui.nfg :dropdown_toggle, body: 'Modalable Dropdown Items', describe: 'dropdown-menu'
   
