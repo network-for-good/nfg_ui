@@ -2,10 +2,11 @@
 
 %h3 Default
 = ui.nfg :dropdown, id: 'test_id1', class: 'my-4' do
-  = ui.nfg :dropdown_toggle, body: 'Secondary Manual Toggle as Link', theme: :secondary, as: :a, describe: 'test-describe', left_icon: 'rocket', icon: 'chevron-up'
+  = ui.nfg :dropdown_toggle, body: 'Secondary Manual Toggle as Link', theme: :secondary, as: :a, describe: 'test-describe', icon: 'chevron-up'
   = ui.nfg :dropdown_menu do
     = ui.nfg :dropdown_header, heading: 'Dropdown Header'
     = ui.nfg :dropdown_item, body: 'Dropdown Item 1 Disabled', disabled: true, href: '#'
+    = ui.nfg :dropdown_item, body: 'Dropdown Item - Fires Modal', modal: '#test_modal'
     = ui.nfg :dropdown_item, body: 'Dropdown Item 2 Tooltipped', tooltip: 'Tested tooltip', href: '#'
     = ui.nfg :dropdown_divider
     = ui.nfg :dropdown_item, body: 'Dropdown Item 3 Disabled with Tooltip', disabled: true, tooltip: 'Test tooltip', class: 'test-class', id: 'test_id', data: { test_data: 'response' }, href: '#test'
@@ -15,6 +16,10 @@
     = ui.nfg :dropdown_item, :warning, body: 'Dropdown Item 6 - Thematic via option', href: '#', icon: 'exclamation'
     = ui.nfg :dropdown_item, :primary, body: 'Dropdown Item 6 - Disable_withable - option', href: '#', icon: 'exclamation', disable_with: 'Something unique'
     = ui.nfg :dropdown_item, :disable_with, :primary, body: 'Dropdown Item 6 - Disable_withable', href: '#', icon: 'exclamation'
+
+
+= ui.nfg :modal, id: 'test_modal', title: 'Test Modal', footer: 'Modal footer (as a component option only)' do
+  Modal body goes here
 
 %hr
 
