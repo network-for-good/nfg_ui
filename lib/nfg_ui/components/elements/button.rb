@@ -28,8 +28,6 @@ module NfgUi
           dismiss ? super.merge!(dismiss: dismiss) : super
         end
 
-
-
         # TODO
         def close
           # convert :close trait to
