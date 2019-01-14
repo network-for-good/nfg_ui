@@ -30,7 +30,7 @@ Rails.application.routes.draw do
     get 'tabs', to: 'tabs#index', as: 'tabs'
   end
 
-  resource :feature_spec_views, only: [] do
+  resource :feature_spec_views do
     get :modal
   end
 end
