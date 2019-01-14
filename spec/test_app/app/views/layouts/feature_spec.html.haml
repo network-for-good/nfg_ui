@@ -1,0 +1,16 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title TestApp
+    = csrf_meta_tags
+    = csp_meta_tag
+    -# Allows #feature_spec_stylesheet_interface to be overwritten via stubbing in feature specs
+    = stylesheet_link_tag    feature_spec_stylesheet_file(interface: feature_spec_stylesheet_interface), media: 'all'
+    = javascript_include_tag 'application'
+  %body{ class: body_css_classes }
+    .container-fluid.mb-5
+      .row
+        .col-lg-11.col-12.mx-auto
+          .p-4.bg-white.border
+            = yield

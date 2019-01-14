@@ -29,4 +29,8 @@ Rails.application.routes.draw do
     end
     get 'tabs', to: 'tabs#index', as: 'tabs'
   end
+
+  resource :feature_spec_views, only: [] do
+    get :modal
+  end
 end

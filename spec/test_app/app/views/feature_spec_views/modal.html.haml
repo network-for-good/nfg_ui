@@ -1,0 +1,45 @@
+-# As a link
+= link_to 'Test Modal Link', '#test_href', data: { toggle: 'modal', target: '#test_modal', describe: 'modal-link' }
+
+-# Standard modal button
+= ui.nfg :button, as: :button, body: 'Modal Trigger Button', modal: '#test_modal', describe: 'modal-button-as-button'
+
+-# Modal button as a link
+= ui.nfg :button, as: :a, body: 'Modal Trigger Button', modal: '#test_modal', describe: 'modal-button-as-link'
+
+-# Modal button as a link with a pre-supplied href
+= ui.nfg :button, as: :a, body: 'Modal Trigger Button', modal: '#test_modal', describe: 'modal-button-as-link-with-href', href: '#included_href'
+
+-# Disabled modal button
+%span{ data: { describe: 'disabled-button-wrapper' } }
+  = ui.nfg :button, :disabled, body: 'Disabled Modal Trigger Button', modal: '#test_modal', describe: 'disabled-modal-button', id: 'disabled_modal_button'
+
+-# Modal button with a competing data enriching tooltip
+= ui.nfg :button, body: 'Modal Button with Competing Tooltip', modal: '#test_modal', tooltip: 'Test tooltip', describe: 'modal-button-with-tooltip'
+
+-# Modal button that fires the modal with the footer
+
+-# Modal dropdown items
+= ui.nfg :dropdown do
+  = ui.nfg :dropdown_toggle, body: 'Modalable Dropdown Items', describe: 'dropdown-menu'
+  
+  = ui.nfg :dropdown_menu do
+    
+    -# Dropdown item without href
+    = ui.nfg :dropdown_item, body: 'Modal Dropdown Item - No Href', icon: 'rocket', modal: '#test_modal', describe: 'modal-dropdown-item'
+    
+    -# Dropdown item with href
+    = ui.nfg :dropdown_item, body: 'Modal Dropdown Item - With Href', icon: 'rocket', modal: '#test_modal', href: '#included_href', describe: 'modal-dropdown-item-with-href'
+    
+    -# Dropdown item with modal & competing data enriching tooltip
+    = ui.nfg :dropdown_item, body: 'Modal Dropdown Item - With Href', icon: 'rocket', modal: '#test_modal', describe: 'modal-dropdown-item-with-tooltip', tooltip: 'Test tooltip'
+
+    -# Disabled dropdown item
+    %span{ data: { describe: 'disabled-dropdown-item-wrapper' } }
+      = ui.nfg :dropdown_item, :disabled, body: 'Modal Dropdown Item - No Href', icon: 'rocket', modal: '#test_modal', describe: 'disabled-modal-dropdown-item'
+
+-# The modal
+= ui.nfg :modal, id: 'test_modal', title: 'Test Modal', describe: 'modal', render_in_body: false do
+  = ui.nfg :modal_body, body: 'Test modal content'
+  = ui.nfg :modal_footer do
+    = ui.nfg :button, dismiss: :modal, body: 'Close Modal', describe: 'modal-footer-close-button'
