@@ -5,9 +5,41 @@ RSpec.describe NfgUi::Bootstrap::Components::Modal do
   let(:options) { { body: body, footer: footer_text } }
   let(:body) { 'test body' }
   let(:footer_text) { nil }
+  let(:rendered) { modal.render }
 
   it { expect(described_class).to be < NfgUi::Bootstrap::Components::Base }
   it_behaves_like 'a component with a consistent initalized construction'
+
+  describe '#render' do
+    subject { Capybara.string(rendered) }
+
+    context 'when render_in_body is true' do
+      let(:options) { { render_in_body: true, body: body } }
+      it 'renders the body content within .modal-body' do
+        expect(subject).to have_selector '.modal-body', text: body
+      end
+    end
+
+    context 'when render_in_body is false' do
+      let(:options) { { render_in_body: false, body: body } }
+      it 'renders the body content within .modal' do
+        by 'not rendering .modal-body' do
+          expect(subject).not_to have_css '.modal-body'
+        end
+
+        and_by 'rendering the body content directly within .modal-content' do
+          expect(subject).to have_selector '.modal-content', text: body
+        end
+      end
+    end
+
+    context 'when render_in_body is not present' do
+      let(:options) { { body: body } }
+      it 'renders the body content within .modal-body' do
+        expect(subject).to have_selector '.modal-body', text: body
+      end
+    end
+  end
 
   describe '#component_family' do
     subject { modal.component_family }
@@ -43,6 +75,30 @@ RSpec.describe NfgUi::Bootstrap::Components::Modal do
     context 'when footer is nil' do
       let(:options) { { footer: nil } }
       it { is_expected.to be_nil }
+    end
+  end
+
+  describe '#render_in_body' do
+    subject { modal.render_in_body }
+
+    context 'when render_in_body is true' do
+      let(:options) { { render_in_body: true } }
+      it { is_expected.to be }
+    end
+
+    context 'when render_in_body is false' do
+      let(:options) { { render_in_body: false } }
+      it { is_expected.not_to be }
+    end
+
+    context 'when render_in_body is nil' do
+      let(:options) { { render_in_body: nil } }
+      it { is_expected.to be_nil }
+    end
+
+    context 'when render_in_body is not present in options' do
+      let(:options) { {} }
+      it { is_expected.to be }
     end
   end
 
