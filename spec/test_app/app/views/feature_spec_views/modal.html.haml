@@ -18,6 +18,8 @@
     = ui.nfg :button, :disabled, body: 'Disabled Modal Trigger Button', modal: '#test_modal', describe: 'disabled-modal-button', id: 'disabled_modal_button'
 
 -# Modal button with a competing data enriching tooltip
+-# Note: the tooltip should not show, nor its data attributes be present
+-# Modal will always take precedence over tooltip
 %p= ui.nfg :button, body: 'Modal Button with Competing Tooltip', modal: '#test_modal', tooltip: 'Test tooltip', describe: 'modal-button-with-tooltip'
 
 %hr
@@ -36,6 +38,8 @@
     = ui.nfg :dropdown_item, body: 'Modal Dropdown Item - With Href', icon: 'rocket', modal: '#test_modal', href: '#included_href', describe: 'modal-dropdown-item-with-href'
     
     -# Dropdown item with modal & competing data enriching tooltip
+    -# Note: the tooltip should not show, nor its data attributes be present
+    -# Modal will always take precedence over tooltip
     = ui.nfg :dropdown_item, body: 'Modal Dropdown Item - With Href', icon: 'rocket', modal: '#test_modal', describe: 'modal-dropdown-item-with-tooltip', tooltip: 'Test tooltip'
 
     -# Disabled dropdown item
