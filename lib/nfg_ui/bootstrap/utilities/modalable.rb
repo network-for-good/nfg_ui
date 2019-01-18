@@ -3,6 +3,7 @@
 module NfgUi
   module Bootstrap
     module Utilities
+      attr_reader :remote
       # Allows a component to utilize the :modal option
       # Which then automatically formats the component's data attributes
       # to connect to the desired modal. Note the modal option requires the '#'
@@ -39,6 +40,7 @@ module NfgUi
         # For example: ui.nfg(:button, modal: '#the_target_modal', tooltip: 'The Tooltip')
         # will ignore the tooltip (since tooltip is initialized via a competing data-toggle)
         def data
+          return super if remote
           modal ? super.merge!(toggle: 'modal', target: options[:modal]) : super
         end
 

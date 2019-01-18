@@ -81,6 +81,39 @@ shared_examples_for 'modalable components without an href' do
 end
 
 # Required :let examples
+# let(:describe) { 'modal-button' }
+# let(:modal_id) { '#test_modal' }
+# let(:dropdown) { false }
+shared_examples_for 'a modalable component with remote: true in its options' do
+  it 'does not add the modal data attributes' do
+    maybe_open_dropdown_menu(dropdown: dropdown)
+
+    by 'not adding modal data attributes' do
+      expect(page).not_to have_css "[data-describe='#{describe}'][data-toggle='modal']" # sanity check
+      expect(page).not_to have_css "[data-describe='#{describe}'][data-toggle='modal'][data-target='#{modal_id}']"
+    end
+
+    and_it 'includes the data remote attribute' do
+      expect(page).to have_css "[data-describe='#{describe}'][data-remote='true']"
+    end
+  end
+
+  it 'does not activate the modal' do
+    maybe_open_dropdown_menu(dropdown: dropdown)
+
+    by 'attempting to activate the modal' do
+      activate_modal(data_describe: describe)
+    end
+
+    and_it 'does not activate the modal' do
+      expect(page).to have_css modal_id, visible: false
+      expect(page).not_to have_css '.body.modal-open'
+      expect(page).not_to have_css modal_id, visible: true
+    end
+  end
+end
+
+# Required :let examples
 # let(:dropdown) { true }
 # let(:describe) { 'modal-button' }
 # let(:modal_id) { '#test_modal' }
@@ -100,9 +133,18 @@ RSpec.describe 'Opening and closing a modal from various modalable components', 
 
   describe 'opening and closing a modal from a regular rails `link_to`' do
     let(:dropdown) { false }
-    let(:describe) { 'modal-link' }
 
-    it_behaves_like 'a modalable component that kicks off a modal'
+    context 'when the link does not have remote: true in its options' do
+      let(:describe) { 'modal-link' }
+      it_behaves_like 'a modalable component that kicks off a modal'
+    end
+
+    context 'when the link does have remote: true in its options' do
+      let(:describe) { 'modal-link-with-remote' }
+      # Because this is not an nfg_ui component, it acts as a control
+      # despite having remote: true, it will still fire the modal
+      it_behaves_like 'a modalable component that kicks off a modal'
+    end
   end
 
   describe 'opening and closing the modal with buttons' do
@@ -118,12 +160,18 @@ RSpec.describe 'Opening and closing a modal from various modalable components', 
     end
 
     context 'a standard modal button (as a link element)' do
-      let(:describe) { 'modal-button-as-link' }
       let(:element) { 'a' }
       let(:anchorable_component) { true }
 
-      it_behaves_like 'a modalable component that kicks off a modal'
-      it_behaves_like 'modalable components without an href'
+      context 'when the component does not include remote: true in its options' do
+        let(:describe) { 'modal-button-as-link' }
+        it_behaves_like 'a modalable component that kicks off a modal'
+      end
+
+      context 'when the component includes remote: true in its options' do
+        let(:describe) { 'modal-button-as-link-with-remote' }
+        it_behaves_like 'a modalable component with remote: true in its options'
+      end
     end
 
     context 'a modal button link with a pre-supplied href' do
@@ -180,15 +228,25 @@ RSpec.describe 'Opening and closing a modal from various modalable components', 
       
       it_behaves_like 'a disabled modalable component'
     end
+
+    context 'when the component does not include remote: true in its options' do
+      let(:describe) { 'modal-dropdown-item' }
+      it_behaves_like 'a modalable component that kicks off a modal'
+    end
+
+    context 'when the component includes remote: true in its options' do
+      let(:describe) { 'modal-dropdown-item-with-remote' }
+      it_behaves_like 'a modalable component with remote: true in its options'
+    end
   end
 
-  describe 'closing the modal from the footer button' do
-    it 'closes the modal when the footer button is clicked' do
+  describe 'closing the modal from the modal footer button' do
+    it 'closes the modal when the modal footer button is clicked' do
       by 'activating the modal' do
         activate_modal(data_describe: 'modal-link')
       end
 
-      and_by 'closing the modal from the footer button' do
+      and_by 'closing the modal from the modal footer button' do
         page.find("[data-describe='modal-footer-close-button']").click
       end
 
@@ -209,13 +267,12 @@ def wait_for_modal_animation
 end
 
 def activate_modal(data_describe:, element: '', dropdown: false)
+  return if page.has_css?('.dropdown-menu.show')
   maybe_open_dropdown_menu(dropdown: dropdown)
   page.find("#{element}[data-describe='#{data_describe}']").click
   wait_for_modal_animation
 end
 
 def maybe_open_dropdown_menu(dropdown:)
-  if dropdown
-    page.find("[data-describe='dropdown-menu']").click
-  end
+  page.find("[data-describe='dropdown-menu']").click if dropdown
 end
