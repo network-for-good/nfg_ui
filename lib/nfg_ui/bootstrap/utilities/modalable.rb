@@ -18,21 +18,15 @@ module NfgUi
       #
       # Do not set a modal option on a remote link in Rails
       # Setting a component to remote: true in addition to suppling a modal
-      # will result in an ArgumentError.
+      # will result in an ArgumentError. This is due to remotely re-rendering a
+      # modal that is already on the page (resulting in the target modal being animated twice)
       module Modalable
-        # attr_reader :remote
-
         def modal
           options.fetch(:modal, nil)
         end
 
-        # Only overwrite data-toggle and data-target
-        # The operating assumption is that activating a modal is more important
-        # and thus, will take precedence over less valuable competing data toggles
-        #
-        # For example: ui.nfg(:button, modal: '#the_target_modal', tooltip: 'The Tooltip')
-        # will ignore the tooltip (since tooltip is initialized via a competing data-toggle)
         def data
+          # Do not allow a :remote component to utilize a modal as well
           if options.fetch(:remote, nil) && modal.present?
             raise ArgumentError.new(I18n.t('nfg_ui.errors.argument_error.modalable.remote',
                                      modal: modal,
@@ -42,6 +36,12 @@ module NfgUi
                                      method: __method__))
           end
 
+          # Only overwrite data-toggle and data-target
+          # The operating assumption is that activating a modal is more important
+          # and thus, will take precedence over less valuable competing data toggles
+          #
+          # For example: ui.nfg(:button, modal: '#the_target_modal', tooltip: 'The Tooltip')
+          # will ignore the tooltip (since tooltip is initialized via a competing data-toggle)
           modal ? super.merge!(toggle: 'modal', target: options[:modal]) : super
         end
 
