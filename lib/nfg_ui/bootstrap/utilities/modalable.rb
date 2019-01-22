@@ -3,32 +3,25 @@
 module NfgUi
   module Bootstrap
     module Utilities
-      attr_reader :remote
       # Allows a component to utilize the :modal option
-      # Which then automatically formats the component's data attributes
+      # Which then formats the component's HTML data attributes
       # to connect to the desired modal. Note the modal option requires the '#'
-      # preceding the ID per bootstrap docs ('#the_modal_id' not 'the_modal_id')
-      # 
-      # Usage notes:
-      # 1. When to use:
-      # The :modal option should only be used when calling to a modal
-      # that has been embedded on the page (not for remote links, more below).
-      # There are no detrimental effects to using the modal option on a 
-      # component that does not have a corresponding modal, however it
-      # does add useless data attributes to your component.
-      # 
-      # 2. Regarding ajax remotely rendered modals
-      # When leveraging a :remote link that renders a modal remotely,
-      # the component does _not_ need the modal option. Your action's js.erb
-      # will/should render the partial within the modal as part of its javascript.
-      # 
-      # Example usage for (non-remote) embedded modal:
-      # The modalable component:
-      # ui.bootstrap(:button, body: 'Modal Button', modal: '#the_target_modal_id')
+      # preceding the ID per bootstrap docs
       #
-      # The actual modal to be activated, embedded on the page:
-      # ui.bootstrap(:modal, body: 'The modal', id: 'the_target_modal_id')
+      # Correct: { modal: '#the_modal_id' }
+      # Not correct: { modal: 'the_modal_id' }
+      #
+      # When to use the :modal option on a component:
+      # The :modal option should only be used when activating a modal
+      # that has been embedded on the HTML page and is not being injected
+      # from a remote ajax request via remote: true.
+      #
+      # Do not set a modal option on a remote link in Rails
+      # Setting a component to remote: true in addition to suppling a modal
+      # will result in an ArgumentError.
       module Modalable
+        # attr_reader :remote
+
         def modal
           options.fetch(:modal, nil)
         end
@@ -40,7 +33,15 @@ module NfgUi
         # For example: ui.nfg(:button, modal: '#the_target_modal', tooltip: 'The Tooltip')
         # will ignore the tooltip (since tooltip is initialized via a competing data-toggle)
         def data
-          return super if remote
+          if options.fetch(:remote, nil) && modal.present?
+            raise ArgumentError.new(I18n.t('nfg_ui.errors.argument_error.modalable.remote',
+                                     modal: modal,
+                                     class_name: self.class.name,
+                                     options: options,
+                                     file: __FILE__,
+                                     method: __method__))
+          end
+
           modal ? super.merge!(toggle: 'modal', target: options[:modal]) : super
         end
 

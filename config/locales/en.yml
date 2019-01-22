@@ -1,0 +1,31 @@
+en:
+  nfg_ui:
+    errors:
+      argument_error:
+        modalable:
+          # required keys -- :modal, :class_name, :options, :file, :method
+          remote: |
+                    ArgumentError: :modal & remote: true may not both be present in :options hash
+                    Raise from file: %{file}
+                    Raised from method: #%{method}
+
+                    To fix this error:
+                    Remove `remote: true` or `modal: '%{modal}'` from your component's :options hash
+
+                    Component Reference:
+                    Your component: %{class_name}
+                    Component options: %{options}
+
+                    About:
+                    Components may not include both `modal: %{modal}` and `remote: true` in their options because modalable components 
+                    that fire remote actions can result in undesirable modal activation behavior.
+
+                    This tends to occur when a modal is injected into the page from a remote action, is subsequently dismissed
+                    and then opened again from the same remote link.
+
+                    The previously dismissed modal appears (because it's still on the page, and referenced in the component's html) 
+                    and the modal is then, visibly to the user, re-animated (overwritten) by the newly injected modal from the remote ajax action.
+
+                    
+
+                    
