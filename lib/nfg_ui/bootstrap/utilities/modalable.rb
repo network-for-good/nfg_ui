@@ -42,10 +42,6 @@ module NfgUi
       # Extra care is taken with the modal and competing options given its typical wide-ranging
       # use in rails applications.
       module Modalable
-        def modal
-          options.fetch(:modal, nil)
-        end
-
         def data
           # Do not allow a :remote component to utilize a modal as well
           if options.fetch(:remote, nil) && modal.present?
@@ -61,6 +57,10 @@ module NfgUi
           # forcing the modal to take precedence.
           # If a tooltip is present in the options, an ArgumentError is raised
           modal ? super.merge!(toggle: 'modal', target: options[:modal]) : super
+        end
+
+        def modal
+          options.fetch(:modal, nil)
         end
 
         private
