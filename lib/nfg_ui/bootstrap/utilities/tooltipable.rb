@@ -77,18 +77,6 @@ module NfgUi
           end
         end
 
-        # def tooltipable?
-        #   tooltip.present? && !disabled?
-        # end
-
-        # def disabled_tooltipable?
-        #   tooltip.present? && disabled?
-        # end
-
-        # def tooltip?
-        #   tooltip.present?
-        # end
-
         def disabled_component_tooltip_wrapper_html_options
           { data: tooltip_data_attributes,
             title: tooltip,
@@ -104,10 +92,6 @@ module NfgUi
             html: 'true'}
         end
 
-        # def defaults
-        #   super.merge!(tooltip: false)
-        # end
-
         def non_html_attribute_options
           super.push(:tooltip)
         end
@@ -115,10 +99,6 @@ module NfgUi
         def tooltip_placement
           @tooltip_placement ||= :top
         end
-
-        # def tooltip_html
-        #   true
-        # end
       end
     end
   end
