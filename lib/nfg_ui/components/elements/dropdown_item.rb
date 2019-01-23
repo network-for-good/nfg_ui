@@ -24,7 +24,15 @@ module NfgUi
 
         def render
           if tooltip && disabled
-            super
+            content_tag(:span, disabled_component_tooltip_wrapper_html_options) do
+              content_tag(as, html_options.except(:href)) do
+                if icon
+                  NfgUi::Components::Foundations::Icon.new({ traits: ["#{icon} fw"], text: (block_given? ? yield : body), class: 'text-center' }, view_context).render
+                else
+                  (block_given? ? yield : body)
+                end
+              end
+            end
           else
             super do
               if icon
