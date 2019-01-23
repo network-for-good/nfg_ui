@@ -54,14 +54,10 @@ module NfgUi
         # There are a number of complex changes that need to be made to the html
         # for disabled tooltipped buttons
         # Read more:
-        # 
+        #
         # https://getbootstrap.com/docs/4.1/components/tooltips/#disabled-elements
         def html_options
-          return super if options[:tooltip].nil? || options[:modal].present?
-          
-          # if 
-          #   raise ArgumentError.new("A data :toggle has already been set as: #{data[:toggle]}. Your tooltip was not addable.") 
-          # end
+          return super if options[:tooltip].nil?
 
           component_title = disabled ? options.fetch(:title, nil) : tooltip
           # raise component_title.inspect
@@ -81,7 +77,7 @@ module NfgUi
 
         def data
           if tooltip
-            disabled || options[:modal] ? super : super.merge!(tooltip_data_attributes)
+            disabled ? super : super.merge!(tooltip_data_attributes)
           else
             super
           end
