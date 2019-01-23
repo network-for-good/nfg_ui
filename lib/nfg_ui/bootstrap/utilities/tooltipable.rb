@@ -35,18 +35,12 @@ module NfgUi
       #   :right
       # end
       module Tooltipable
-        # require_relative '../utilities/disableable'
-        
+        # TODO: This include should be removed and then anything with Tooltipable
+        # needs to be evaluated that this doesn't break it.
+        # It is undesirable that every Tooltipable component also received
+        # the disableable functionality as well.
         include Bootstrap::Utilities::Disableable
-        # attr_reader :tooltip
-        # attr_accessor :data
-
-        # def initialize(*)
-        #   super
-        #   @tooltip = options.fetch(:tooltip, false)
-        #   self.data = data.merge!(tooltip_data_attributes) if tooltipable?
-        # end
-
+        
         def tooltip
           options.fetch(:tooltip, nil)
         end
