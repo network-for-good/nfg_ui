@@ -30,7 +30,7 @@ end
 # let(:dropdown) { true }
 # let(:disabled_button_wrapper_describe) { 'modal-button-wrapper' }
 # let(:modal_id) { '#test_modal' }
-shared_examples_for 'a disabled modalable component' do
+shared_examples_for 'a disabled modalable component' do |tooltip: false|
   it 'does not enable a modal' do
     by 'attempting to activate the modal' do
       activate_modal(data_describe: disabled_button_wrapper_describe, element: element, dropdown: dropdown)
@@ -38,6 +38,31 @@ shared_examples_for 'a disabled modalable component' do
 
     and_it 'does not activate the modal' do
       expect(page).not_to have_css 'body.modal-open'
+    end
+
+    if tooltip
+      and_it 'allows the tooltip to be passed through to the component without raising an ArgumentError' do
+        page.find('body').click # reset tooltips
+
+        # Restart dropdown if needed
+        maybe_open_dropdown_menu(dropdown: dropdown)
+
+        by 'not having the tooltip html present on the page' do
+          expect(page).not_to have_css '.tooltip'
+        end
+        and_by 'hovering the component' do
+          find("[data-describe='#{disabled_button_wrapper_describe}']").hover
+        end
+
+        and_it 'activates the component tooltip' do
+          expect(page).to have_css "[data-describe='#{disabled_button_wrapper_describe}'] [data-toggle='tooltip'][aria-describedby*='tooltip']"
+        end
+
+        and_it 'renders the tooltip on the page' do
+          tooltip_id = page.find("[data-describe='#{disabled_button_wrapper_describe}'] [data-toggle='tooltip']")['aria-describedby']
+          expect(page).to have_css ".tooltip[id='#{tooltip_id}']"
+        end
+      end
     end
   end
 end
@@ -81,44 +106,11 @@ shared_examples_for 'modalable components without an href' do
 end
 
 # Required :let examples
-# let(:describe) { 'modal-button' }
-# let(:modal_id) { '#test_modal' }
-# let(:dropdown) { false }
-shared_examples_for 'a modalable component with remote: true in its options' do
-  it 'does not add the modal data attributes' do
-    maybe_open_dropdown_menu(dropdown: dropdown)
-
-    by 'not adding modal data attributes' do
-      expect(page).not_to have_css "[data-describe='#{describe}'][data-toggle='modal']" # sanity check
-      expect(page).not_to have_css "[data-describe='#{describe}'][data-toggle='modal'][data-target='#{modal_id}']"
-    end
-
-    and_it 'includes the data remote attribute' do
-      expect(page).to have_css "[data-describe='#{describe}'][data-remote='true']"
-    end
-  end
-
-  it 'does not activate the modal' do
-    maybe_open_dropdown_menu(dropdown: dropdown)
-
-    by 'attempting to activate the modal' do
-      activate_modal(data_describe: describe)
-    end
-
-    and_it 'does not activate the modal' do
-      expect(page).to have_css modal_id, visible: false
-      expect(page).not_to have_css '.body.modal-open'
-      expect(page).not_to have_css modal_id, visible: true
-    end
-  end
-end
-
-# Required :let examples
 # let(:dropdown) { true }
 # let(:describe) { 'modal-button' }
 # let(:modal_id) { '#test_modal' }
-shared_examples_for 'modalable components with a competing data enriching tooltip' do
-  it 'prefers the modal data toggle and ignores the tooltip' do
+shared_examples_for 'modalable components with a tooltip option in html that yields a nil tooltip' do
+  it 'does not raise an ArgumentError when the tooltip is nil within the component options' do
     maybe_open_dropdown_menu(dropdown: dropdown)
     expect(page).to have_css "[data-describe='#{describe}'][data-toggle='modal'][data-target='#{modal_id}']"
     expect(page).not_to have_css "[data-describe='#{describe}'][data-toggle='tooltip']"
@@ -134,15 +126,8 @@ RSpec.describe 'Opening and closing a modal from various modalable components', 
   describe 'opening and closing a modal from a regular rails `link_to`' do
     let(:dropdown) { false }
 
-    context 'when the link does not have remote: true in its options' do
+    context 'when the link has remote: true in its options' do
       let(:describe) { 'modal-link' }
-      it_behaves_like 'a modalable component that kicks off a modal'
-    end
-
-    context 'when the link does have remote: true in its options' do
-      let(:describe) { 'modal-link-with-remote' }
-      # Because this is not an nfg_ui component, it acts as a control
-      # despite having remote: true, it will still fire the modal
       it_behaves_like 'a modalable component that kicks off a modal'
     end
   end
@@ -162,16 +147,10 @@ RSpec.describe 'Opening and closing a modal from various modalable components', 
     context 'a standard modal button (as a link element)' do
       let(:element) { 'a' }
       let(:anchorable_component) { true }
+      let(:describe) { 'modal-button-as-link' }
 
-      context 'when the component does not include remote: true in its options' do
-        let(:describe) { 'modal-button-as-link' }
-        it_behaves_like 'a modalable component that kicks off a modal'
-      end
-
-      context 'when the component includes remote: true in its options' do
-        let(:describe) { 'modal-button-as-link-with-remote' }
-        it_behaves_like 'a modalable component with remote: true in its options'
-      end
+      it_behaves_like 'a modalable component that kicks off a modal'
+      it_behaves_like 'modalable components without an href'
     end
 
     context 'a modal button link with a pre-supplied href' do
@@ -186,14 +165,14 @@ RSpec.describe 'Opening and closing a modal from various modalable components', 
     context 'a disabled modal button' do
       let(:disabled_button_wrapper_describe) { 'disabled-button-wrapper' }
       
-      it_behaves_like 'a disabled modalable component'
+      it_behaves_like 'a disabled modalable component', tooltip: true
     end
 
     context 'a modal button with a competing data enriching tooltip in its ui.nfg options' do
       let(:describe) { 'modal-button-with-tooltip' }
       
       it_behaves_like 'a modalable component that kicks off a modal'
-      it_behaves_like 'modalable components with a competing data enriching tooltip'
+      it_behaves_like 'modalable components with a tooltip option in html that yields a nil tooltip'
     end
   end
 
@@ -220,13 +199,13 @@ RSpec.describe 'Opening and closing a modal from various modalable components', 
       let(:describe) { 'modal-dropdown-item-with-tooltip' }
 
       it_behaves_like 'a modalable component that kicks off a modal'
-      it_behaves_like 'modalable components with a competing data enriching tooltip'
+      it_behaves_like 'modalable components with a tooltip option in html that yields a nil tooltip'
     end
 
     context 'a disabled modalable dropdown item' do
       let(:disabled_button_wrapper_describe) { 'disabled-dropdown-item-wrapper' }
       
-      it_behaves_like 'a disabled modalable component'
+      it_behaves_like 'a disabled modalable component', tooltip: true
     end
 
     context 'when the component does not include remote: true in its options' do
@@ -236,7 +215,6 @@ RSpec.describe 'Opening and closing a modal from various modalable components', 
 
     context 'when the component includes remote: true in its options' do
       let(:describe) { 'modal-dropdown-item-with-remote' }
-      it_behaves_like 'a modalable component with remote: true in its options'
     end
   end
 

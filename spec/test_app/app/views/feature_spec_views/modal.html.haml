@@ -1,12 +1,12 @@
 - modal_id = 'test_modal'
 - modal_target = "##{modal_id}"
+- maybe_show_tooltip = 1!=1 # don't show tooltip
 
 -# As a link
 %p= link_to 'Test Modal Link', '#test_href', data: { toggle: 'modal', target: modal_target, describe: 'modal-link' }
 
 -# As a link with remote: true
 -# Note: since this is not a nfg_ui component, it will fire the modal.
--# For links, when data attributes are present, the `remote: true` must be inside the data hash
 %p= link_to 'Test Modal Link with Remote True', '#test_href', data: { toggle: 'modal', target: modal_target, describe: 'modal-link-with-remote', remote: true }
 
 %hr
@@ -17,22 +17,26 @@
 -# Modal button as a link
 %p= ui.nfg :button, as: :a, body: 'Modal Trigger Button as Link', modal: modal_target, describe: 'modal-button-as-link'
 
--# Modal button as a link with remote true
--# Note: When remote: true, it should not supply the modal data attributes (modal is ignored)
-%p= ui.nfg :button, :remote, as: :a, body: 'Modal Trigger Button as Link with :Remote trait', modal: modal_target, describe: 'modal-button-as-link-with-remote'
-
 -# Modal button as a link with a pre-supplied href
 %p= ui.nfg :button, as: :a, body: 'Modal Trigger Button with href', modal: modal_target, describe: 'modal-button-as-link-with-href', href: '#included_href'
 
 -# Disabled modal button
+-# This component also utilizes the complex pattern of a disabled component that 
+-# 1) Calls a modal
+-# 2) has a tooltip (not normally allowed when modal is also present)
+-# 3) is in a disabled state.
+-#
+-# When a component has all 3 of those conditions present, the tooltip is allowed and
+-# An argument error is not raised
 %p
   %span{ data: { describe: 'disabled-button-wrapper' } }
-    = ui.nfg :button, :disabled, body: 'Disabled Modal Trigger Button', modal: modal_target, describe: 'disabled-modal-button', id: 'disabled_modal_button'
+    = ui.nfg :button, :disabled, body: 'Disabled Modal Trigger Button with Tooltip', modal: modal_target, describe: 'disabled-modal-button', id: 'disabled_modal_button', tooltip: 'Viable tooltip'
 
--# Modal button with a competing data enriching tooltip
--# Note: the tooltip should not show, nor its data attributes be present
--# Modal will always take precedence over tooltip
-%p= ui.nfg :button, body: 'Modal Button with Competing Tooltip', modal: modal_target, tooltip: 'Test tooltip', describe: 'modal-button-with-tooltip'
+-# Dropdown item with modal & competing data enriching tooltip
+-# Note: this component tests that tooltip _can_ be present in the HTML, so long as
+-# it is empty (nil) while the modal option is present.
+-# Otherwise, when tooltip and modal coexist in the component options, an ArgumentError is raised
+%p= ui.nfg :button, body: 'Modal Button with Nil Tooltip', modal: modal_target, tooltip: ('Test tooltip' if maybe_show_tooltip), describe: 'modal-button-with-tooltip'
 
 %hr
 
@@ -48,19 +52,23 @@
     
     -# Dropdown item with href
     = ui.nfg :dropdown_item, body: 'Modal Dropdown Item - With Href', icon: 'rocket', modal: modal_target, href: '#included_href', describe: 'modal-dropdown-item-with-href'
-
-    -# Dropdown item with href and remote: true
-    -# Note: When remote: true, it should not supply the modal data attributes (modal is ignored)
-    = ui.nfg :dropdown_item, :remote, body: 'Modal Dropdown Item - With Href and :remote trait', icon: 'rocket', modal: modal_target, href: '#included_href', describe: 'modal-dropdown-item-with-remote'
     
     -# Dropdown item with modal & competing data enriching tooltip
-    -# Note: the tooltip should not show, nor its data attributes be present
-    -# Modal will always take precedence over tooltip
-    = ui.nfg :dropdown_item, body: 'Modal Dropdown Item - With Tooltip', icon: 'rocket', modal: modal_target, describe: 'modal-dropdown-item-with-tooltip', tooltip: 'Test tooltip'
+    -# Note: this component tests that tooltip _can_ be present in the HTML, so long as
+    -# it is empty while the modal option is present.
+    -# Otherwise, when tooltip and modal coexist in the component options, an ArgumentError is raised
+    = ui.nfg :dropdown_item, body: 'Modal Dropdown Item - With Nil Tooltip', icon: 'rocket', modal: modal_target, describe: 'modal-dropdown-item-with-tooltip', tooltip: ('Test tooltip' if maybe_show_tooltip)
 
     -# Disabled dropdown item
+    -# This component also utilizes the complex pattern of a disabled component that 
+    -# 1) Calls a modal
+    -# 2) has a tooltip (not normally allowed)
+    -# 3) is disabled. 
+    -#
+    -# When a component has all 3 of those conditions present, the tooltip is allowed and
+    -# An argument error is not raised
     %span{ data: { describe: 'disabled-dropdown-item-wrapper' } }
-      = ui.nfg :dropdown_item, :disabled, body: 'Disabled Modal Dropdown Item - No Href', icon: 'rocket', modal: modal_target, describe: 'disabled-modal-dropdown-item'
+      = ui.nfg :dropdown_item, :disabled, body: 'Disabled Modal Dropdown Item - No Href - with Tooltip', icon: 'rocket', modal: modal_target, describe: 'disabled-modal-dropdown-item', tooltip: 'Viable tooltip'
 
 -# The modal
 = ui.nfg :modal, id: modal_id, title: 'Test Modal', describe: 'modal', render_in_body: false do
