@@ -43,9 +43,11 @@ module NfgUi
       # use in rails applications.
       module Modalable
         def data
-          # Do not allow a :remote component to utilize a modal as well
-          if options.fetch(:remote, nil) && modal.present?
-            raise ArgumentError.new(I18n.t('nfg_ui.errors.argument_error.modalable.remote',
+          # Raise an error when a component utilizes 'illegal' options (which are options that
+          # result in silent failures and/or directly compete with a 
+          # modalable component's necessary HTML)
+          if component_includes_problematic_options_for_modal?
+            raise ArgumentError.new(I18n.t("nfg_ui.errors.argument_error.modalable.#{error_message_i18n_path}",
                                      modal: modal,
                                      class_name: self.class.name,
                                      options: options,
