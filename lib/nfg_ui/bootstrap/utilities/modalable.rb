@@ -44,7 +44,7 @@ module NfgUi
       module Modalable
         def data
           # Raise an error when a component utilizes 'illegal' options (which are options that
-          # result in silent failures and/or directly compete with a 
+          # result in silent failures and/or directly compete with a
           # modalable component's necessary HTML)
           if component_includes_problematic_options_for_modal?
             raise ArgumentError.new(I18n.t("nfg_ui.errors.argument_error.modalable.#{error_message_i18n_path}",
@@ -82,6 +82,8 @@ module NfgUi
         # When a tooltip is present, the data-toggle would be overwritten with
         # the modal data attributes (given the `data.merge!`) causing a silent failure
         # of the tooltip (it doesn't get added to the component)
+        #
+        # Exception: when tooltip is not "illegal" (the component has a tooltip *and* is disabled)
         def component_includes_problematic_options_for_modal?
           modal.present? && (options.fetch(:remote, nil) || illegal_tooltip?)
         end
