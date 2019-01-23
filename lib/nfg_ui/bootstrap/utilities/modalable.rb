@@ -65,6 +65,32 @@ module NfgUi
 
         private
 
+        # Corresponds to i18n locale: config/locales/en.yml
+        # Remote is checked first, given its importance and impact on the application
+        # Then, check for tooltip.
+        def error_message_i18n_path
+          return 'remote' if options[:remote]
+          return 'tooltip' if options[:tooltip]
+        end
+
+        # Force an error when:
+        # 1. The component includes remote: true (and the modal option is present)
+        # 2. The component includes a :tooltip in the options
+        #
+        # When a tooltip is present, the data-toggle would be overwritten with
+        # the modal data attributes (given the `data.merge!`) causing a silent failure
+        # of the tooltip (it doesn't get added to the component)
+        def component_includes_problematic_options_for_modal?
+          modal.present? && (options.fetch(:remote, nil) || illegal_tooltip?)
+        end
+
+        # When a modalable component is disabled
+        # the tooltip is applied to a wrapping element
+        # and will not compete with the modal's data attributes.
+        def illegal_tooltip?
+          options[:tooltip].present? && !options[:disabled]
+        end
+
         def non_html_attribute_options
           super.push(:modal)
         end
