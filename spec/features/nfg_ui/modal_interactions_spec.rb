@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-include ComponentRespondsHelper
+
 
 # Required :let examples
 # let(:dropdown) { false }
@@ -126,18 +126,11 @@ end
 RSpec.describe 'Opening and closing a modal from various modalable components', type: :feature, js: true do
   let(:modal_id) { '#test_modal' }
 
-  before do
-    visit modal_feature_spec_views_path
-  end
+  before { visit modal_feature_spec_views_path }
 
-  describe 'modalable components are present on the page for testing modalability' do
-    let(:component_css_classes) { components_that_respond_to_method(component_suite: :nfg, tested_method: :modal, css_class: true) }
-    it 'includes all of the modalable component elements on the page' do
-      component_css_classes.each do |css_class|
-        expect(page).to have_css ".#{css_class}", visible: :all
-      end
-    end
-  end
+  # Do what we can to ensure we're not missing some 
+  # new modalable components along the way.
+  it_behaves_like 'a page that contains all of the enhanced components', tested_method: :modal
 
   describe 'activating the modal' do
     let(:element) { '' }
