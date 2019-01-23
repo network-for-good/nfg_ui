@@ -59,43 +59,8 @@ RSpec.describe 'nfg_ui/bootstrap/_button.html.haml', type: :view do
         context 'when :modal is also present in the options' do
           let(:tested_modal) { '#tested_modal' }
           let(:add_on_options) { { modal: tested_modal } }
-          it 'prioritizes :modal html over :tooltip html which excludes the tooltip html' do
-            expect(subject).not_to have_css ".btn[data-toggle='tooltip']"
-            expect(subject).to eq "<a class=\"btn btn-primary\" data-toggle=\"modal\" data-target=\"#{tested_modal}\" href=\"#\"></a>"
-          end
-
-          describe 'the title html attribute output' do
-            context 'and when a title is not present in options' do
-              it 'does not add the :title html attribute with the tooltip text to the component html' do
-                expect(subject).not_to have_css ".btn[title='#{tested_tooltip}']"
-              end
-            end
-
-            context 'and when a title is present in the options' do
-              let(:tested_title) { 'tested title' }
-              before { add_on_options.merge!(title: tested_title) }
-
-              it 'ignores the tooltip value and adds the options[:title] as an html attribute' do
-                expect(subject).to have_css "[title='#{tested_title}']"
-                expect(subject).not_to have_css "[title='#{tested_tooltip}']"
-              end
-            end
-          end
-
-          context 'and when an arbitrary data attribute and data key are present' do
-            let(:add_on_options) { { modal: tested_modal, data: tested_data } }
-            let(:tested_data) { { test_key: :data_test_value } }
-
-            it { is_expected.to have_css "[data-test-key='data_test_value'][data-toggle='modal'][data-target='#{tested_modal}']" }
-
-            context 'and when there is another manually set data toggle within the options hash' do
-              before { tested_data.merge!(toggle: 'a-plugin') }
-              it 'prioritizes :modal over both data toggles' do
-                expect(subject).not_to have_css "[data-toggle='a-plugin']"
-                expect(subject).to have_css "[data-toggle='modal']"
-                expect(subject).to eq "<a class=\"btn btn-primary\" data-test-key=\"data_test_value\" data-toggle=\"modal\" data-target=\"#{tested_modal}\" href=\"#\"></a>"
-              end
-            end
+          it 'raises an argument error because a tooltip and modal may not both be present in options' do
+            expect { subject }.to raise_error ArgumentError
           end
         end
       end
@@ -105,7 +70,7 @@ RSpec.describe 'nfg_ui/bootstrap/_button.html.haml', type: :view do
         it 'outputs a disabled button wrapped in an element that contains the tooltip html' do
           expect(subject).to have_css "span.d-inline-block[data-html='true'][data-placement='top'][data-toggle='tooltip'][tabindex='0'][title='#{tested_tooltip}']"
           expect(subject).to have_css "span.d-inline-block[data-toggle='tooltip'] a.btn"
-          expect(subject).to eq "<span data-toggle=\"tooltip\" data-placement=\"top\" data-html=\"true\" title=\"#{tested_tooltip}\" class=\"d-inline-block\" tabindex=\"0\"><a class=\"btn disabled btn-primary\" href=\"#\" style=\"pointer-events: none;\"></a></span>"
+          expect(subject).to eq "<span data-toggle=\"tooltip\" data-placement=\"top\" data-html=\"true\" title=\"#{tested_tooltip}\" class=\"d-inline-block\" tabindex=\"0\"><a class=\"btn disabled btn-primary\" href=\"#\" tabindex=\"-1\" style=\"pointer-events: none;\"></a></span>"
         end
 
         context 'and when (in addition to being disabled) it has :modal set in the options' do
@@ -114,7 +79,19 @@ RSpec.describe 'nfg_ui/bootstrap/_button.html.haml', type: :view do
 
           it 'outputs the modal html on the button and wraps the button with the disabled tooltip wrapper html' do
             expect(subject).to have_css "[data-toggle='tooltip'][title='#{tested_tooltip}'] [data-toggle='modal'][data-target='#{tested_modal}']"
-            expect(subject).to eq "<span data-toggle=\"tooltip\" data-placement=\"top\" data-html=\"true\" title=\"#{tested_tooltip}\" class=\"d-inline-block\" tabindex=\"0\"><a class=\"btn disabled btn-primary\" data-toggle=\"modal\" data-target=\"#{tested_modal}\" href=\"#\" tabindex=\"-1\"></a></span>"
+            expect(subject).to eq "<span data-toggle=\"tooltip\" data-placement=\"top\" data-html=\"true\" title=\"#{tested_tooltip}\" class=\"d-inline-block\" tabindex=\"0\"><a class=\"btn disabled btn-primary\" data-toggle=\"modal\" data-target=\"#{tested_modal}\" href=\"#\" tabindex=\"-1\" style=\"pointer-events: none;\"></a></span>"
+          end
+
+          describe 'error-free rendering of a disabled button with a :modal & :tooltip' do
+            # Setting options manually to ensure the scenario unfolds exactly as described
+            let(:options) { { disabled: true, modal: '#test_modal', tooltip: 'test tooltip' } }
+
+            # the modal'd button is wrapped in a disabled component html wrapper 
+            # where the tooltip is subsequently applied -- and not on the button.
+            # thus, the data-toggles do not compete and there is no issue of an ArgumentError
+            it 'does not raise an argument error because the component is allowed to be disabled, include a modal AND and a tooltip' do
+              expect { subject }.not_to raise_error
+            end
           end
         end
       end
