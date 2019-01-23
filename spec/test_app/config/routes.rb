@@ -32,5 +32,6 @@ Rails.application.routes.draw do
 
   resource :feature_spec_views do
     get :modal
+    get :tooltip
   end
 end

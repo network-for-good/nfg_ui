@@ -1,0 +1,72 @@
+= ui.nfg :alert, :info, heading: 'Tooltipable components' do
+  = ui.nfg :typeface, body: 'Help ensure that each component on this list is represented on this feature spec:'
+  = components_that_respond_to_method(component_suite: :nfg, tested_method: :tooltip)
+
+- tooltip_text = 'Valid tooltip'
+
+= ui.nfg :typeface, heading: 'Tooltip Interactions', class: 'mb-3'
+
+%hr
+
+= ui.nfg :typeface, subheading: 'Typeface Tooltips', class: 'mb-1'
+
+%p= ui.nfg :typeface, title: 'Typeface title with tooltip', tooltip: tooltip_text
+%p= ui.nfg :typeface, heading: 'Typeface heading with tooltip', tooltip: tooltip_text
+%p= ui.nfg :typeface, subheading: 'Typeface subheading with tooltip', tooltip: tooltip_text
+%p= ui.nfg :typeface, caption: 'Typeface caption with tooltip', tooltip: tooltip_text
+%p= ui.nfg :typeface, body: 'Typeface body with tooltip', tooltip: tooltip_text
+
+%hr
+
+= ui.nfg :typeface, subheading: 'Icon Tooltips', class: 'mb-1'
+%p= ui.nfg :icon, 'rocket', tooltip: tooltip_text
+%p= ui.nfg :icon, 'rocket', text: 'Tooltip with text', tooltip: tooltip_text
+
+%hr
+
+= ui.nfg :typeface, subheading: 'Buttons', class: 'mb-1'
+
+-# Enabled buttons
+%p= ui.nfg :button, as: :button, tooltip: tooltip_text, body: '<button> with Tooltip', describe: 'button-with-tooltip'
+
+%p= ui.nfg :button, tooltip: tooltip_text, body: '<a> with Tooltip', describe: 'button-link-with-tooltip'
+
+-# Disabled buttons
+/ Not sure if this wrapper is needed yet. remove if not.
+/ %span{ data: { describe: 'disabled-button-wrapper' } }
+%p= ui.nfg :button, :disabled, tooltip: tooltip_text, body: 'Disabled button with tooltip', describe: 'button-link-with-tooltip'
+
+%hr
+
+= ui.nfg :typeface, subheading: 'Dropdown Items', class: 'mb-1'
+
+= ui.nfg :dropdown do
+  = ui.nfg :dropdown_toggle, body: 'Tooltipped Dropdown Items', describe: 'dropdown-menu'
+  
+  = ui.nfg :dropdown_menu do
+    -# Dropdown item with tooltip
+    = ui.nfg :dropdown_item, body: 'Dropdown item with tooltip', icon: 'rocket', tooltip: tooltip_text, href: '#'
+
+    -# Disabled dropdown item with tooltip
+    = ui.nfg :dropdown_item, :disabled, body: 'Dropdown item with tooltip', icon: 'rocket', tooltip: tooltip_text
+
+%hr
+
+= ui.nfg :typeface, subheading: 'Nav Items', class: 'mb-1'
+
+= ui.bootstrap :nav, class: 'bg-light p-3' do
+  = ui.nfg :nav_item, body: 'Nav Item with Tooltip', href: '#', tooltip: tooltip_text
+  = ui.nfg :nav_item, :disabled, body: 'Disabled Nav Item with Tooltip', href: '#', tooltip: tooltip_text
+  = ui.nfg :nav_item, :active, body: 'Active Nav Item with Tooltip', href: '#', tooltip: tooltip_text
+
+%hr
+
+= ui.nfg :typeface, subheading: 'Slat Actions', class: 'mb-1'
+
+%hr
+
+= ui.nfg :typeface, subheading: 'Steps', class: 'mb-1'
+
+%hr
+
+= ui.nfg :typeface, subheading: 'Progress', class: 'mb-1'

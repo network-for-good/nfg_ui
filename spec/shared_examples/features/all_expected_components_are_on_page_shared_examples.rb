@@ -2,7 +2,7 @@ include ComponentRespondsHelper
 
 # Ensure that you are visiting the targeted page
 # before running this shared example
-# 
+#
 # Ex: before { visit modal_feature_spec_views_path }
 shared_examples_for 'a page that contains all of the enhanced components' do |tested_method: |
   describe 'modalable components are present on the page for testing modalability' do
