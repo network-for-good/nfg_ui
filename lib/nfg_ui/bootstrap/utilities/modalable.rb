@@ -5,21 +5,42 @@ module NfgUi
     module Utilities
       # Allows a component to utilize the :modal option
       # Which then formats the component's HTML data attributes
-      # to connect to the desired modal. Note the modal option requires the '#'
-      # preceding the ID per bootstrap docs
+      # to connect to the desired modal. Note the :modal option requires the '#'
+      # preceding the CSS ID per bootstrap docs
       #
-      # Correct: { modal: '#the_modal_id' }
-      # Not correct: { modal: 'the_modal_id' }
+      # Correct:   { modal: '#the_modal_id' } <-- note the '#'
+      # Incorrect: { modal: 'the_modal_id' }
       #
+      # USAGE:
       # When to use the :modal option on a component:
       # The :modal option should only be used when activating a modal
       # that has been embedded on the HTML page and is not being injected
       # from a remote ajax request via remote: true.
       #
+      # INVALID USAGE:
       # Do not set a modal option on a remote link in Rails
       # Setting a component to remote: true in addition to suppling a modal
-      # will result in an ArgumentError. This is due to remotely re-rendering a
-      # modal that is already on the page (resulting in the target modal being animated twice)
+      # will result in an ArgumentError. This is due to poor / buggy behavior resulting from
+      # remotely re-rendering a modal that is already on the page
+      #
+      # (basically: there's a high likelihood that the targeted modal will
+      # be shown / animated twice)
+      #
+      # Like when remote: true, components that contain tooltips
+      # Will also raise an ArgumentError due to the competing data-toggles
+      # and the subsequent silent failure of the tooltip.
+      #
+      # EXCEPTIONS:
+      # Exception for a modalable component with a tooltip:
+      # *Disabled* components may use a modal and a tooltip in its options
+      # (thanks to how disabled components are wrapped with an html element & the tooltip
+      # is applied to the wrapping element, not the component itself)
+      #
+      # Valid example:
+      # = ui.bootstrap :button, disabled: true, tooltip: 'The tooltip', modal: '#the_modal', ...
+      #
+      # Extra care is taken with the modal and competing options given its typical wide-ranging
+      # use in rails applications.
       module Modalable
         def modal
           options.fetch(:modal, nil)
@@ -36,12 +57,9 @@ module NfgUi
                                      method: __method__))
           end
 
-          # Only overwrite data-toggle and data-target
-          # The operating assumption is that activating a modal is more important
-          # and thus, will take precedence over less valuable competing data toggles
-          #
-          # For example: ui.nfg(:button, modal: '#the_target_modal', tooltip: 'The Tooltip')
-          # will ignore the tooltip (since tooltip is initialized via a competing data-toggle)
+          # Overwrites data-toggle and data-target
+          # forcing the modal to take precedence.
+          # If a tooltip is present in the options, an ArgumentError is raised
           modal ? super.merge!(toggle: 'modal', target: options[:modal]) : super
         end
 
