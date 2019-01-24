@@ -1,11 +1,11 @@
-= ui.nfg :alert, :info, heading: 'Modalable components' do
-  = ui.nfg :typeface, body: 'Help ensure that each component on this list is represented on this feature spec:'
-  = components_that_respond_to_method(component_suite: :nfg, tested_method: :modal)
-
 - modal_id = 'test_modal'
 - modal_target = "##{modal_id}"
 - maybe_show_tooltip = 1!=1 # don't show tooltip
 - test_href = '#included_href'
+
+= ui.nfg :alert, :info, heading: 'Modalable components' do
+  = ui.nfg :typeface, body: 'Help ensure that each component on this list is represented on this feature spec:'
+  = components_that_respond_to_method(component_suite: :nfg, tested_method: :modal)
 
 = ui.nfg :typeface, heading: 'Modal Interactions', class: 'mb-3'
 
