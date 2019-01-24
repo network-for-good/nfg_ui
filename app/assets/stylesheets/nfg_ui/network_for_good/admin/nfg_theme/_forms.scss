@@ -64,7 +64,9 @@ label {
 // Sometimes rails likes to say a form control is valid even when it isn't... this helps ensure that
 // When simple_form (accurately) detects an error on the field...
 // that the invalid version wins ... avoiding false readings
-.is-invalid { border-color: $form-feedback-invalid-color !important; }
+.is-invalid { 
+  &, .custom-select{ border-color: $form-feedback-invalid-color !important; }
+}
 
 
 // Styles needed to override :valid success styles provided by bootstrap... this is for server side forms only
