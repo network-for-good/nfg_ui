@@ -1,11 +1,6 @@
-- modal_id = 'test_modal'
-- modal_target = "##{modal_id}"
-- maybe_show_tooltip = 1!=1 # don't show tooltip
-- test_href = '#included_href'
-
 = ui.nfg :alert, :info, heading: 'Modalable components' do
   = ui.nfg :typeface, body: 'Help ensure that each component on this list is represented on this feature spec:'
-  = components_that_respond_to_method(component_suite: :nfg, tested_method: :modal)
+  = components_that_have_defined_method(component_suite: :nfg, tested_method: :modal)
 
 = ui.nfg :typeface, heading: 'Modal Interactions', class: 'mb-3'
 
@@ -14,12 +9,12 @@
 = ui.nfg :typeface, subheading: 'link_to', class: 'mb-1'
 -# As a link
 %p
-  = link_to 'Test Modal Link', '#test_href', data: { toggle: 'modal', target: modal_target, describe: 'modal-link' }
+  = link_to 'Test Modal Link', href, data: { toggle: 'modal', target: modal_target, describe: 'modal-link' }
   %br
   
   -# As a link with remote: true
   -# Note: since this is not a nfg_ui component, it will fire the modal.
-  = link_to 'Test Modal Link with Remote True', '#test_href', data: { toggle: 'modal', target: modal_target, describe: 'modal-link-with-remote', remote: true }
+  = link_to 'Test Modal Link with Remote True', href, data: { toggle: 'modal', target: modal_target, describe: 'modal-link-with-remote', remote: true }
 
 %hr
 
@@ -32,7 +27,7 @@
 %p= ui.nfg :button, as: :a, body: 'Modal Trigger Button as Link', modal: modal_target, describe: 'modal-button-as-link'
 
 -# Modal button as a link with a pre-supplied href
-%p= ui.nfg :button, as: :a, body: 'Modal Trigger Button with href', modal: modal_target, describe: 'modal-button-as-link-with-href', href: test_href
+%p= ui.nfg :button, as: :a, body: 'Modal Trigger Button with href', modal: modal_target, describe: 'modal-button-as-link-with-href', href: href
 
 -# Disabled modal button
 -# This component also utilizes the complex pattern of a disabled component that 
@@ -50,7 +45,7 @@
 -# Note: this component tests that tooltip _can_ be present in the HTML, so long as
 -# it is empty (nil) while the modal option is present.
 -# Otherwise, when tooltip and modal coexist in the component options, an ArgumentError is raised
-%p= ui.nfg :button, body: 'Modal Button with Nil Tooltip', modal: modal_target, tooltip: ('Test tooltip' if maybe_show_tooltip), describe: 'modal-button-with-tooltip'
+%p= ui.nfg :button, body: 'Modal Button with Nil Tooltip', modal: modal_target, tooltip: ('Test tooltip' if is_true?), describe: 'modal-button-with-tooltip'
 
 %hr
 
@@ -66,13 +61,13 @@
     = ui.nfg :dropdown_item, body: 'Modal Dropdown Item - No Href', icon: 'rocket', modal: modal_target, describe: 'modal-dropdown-item'
     
     -# Dropdown item with href
-    = ui.nfg :dropdown_item, body: 'Modal Dropdown Item - With Href', icon: 'rocket', modal: modal_target, href: test_href, describe: 'modal-dropdown-item-with-href'
+    = ui.nfg :dropdown_item, body: 'Modal Dropdown Item - With Href', icon: 'rocket', modal: modal_target, href: href, describe: 'modal-dropdown-item-with-href'
     
     -# Dropdown item with modal & competing data enriching tooltip
     -# Note: this component tests that tooltip _can_ be present in the HTML, so long as
     -# it is empty while the modal option is present.
     -# Otherwise, when tooltip and modal coexist in the component options, an ArgumentError is raised
-    = ui.nfg :dropdown_item, body: 'Modal Dropdown Item - With Nil Tooltip', icon: 'rocket', modal: modal_target, describe: 'modal-dropdown-item-with-tooltip', tooltip: ('Test tooltip' if maybe_show_tooltip)
+    = ui.nfg :dropdown_item, body: 'Modal Dropdown Item - With Nil Tooltip', icon: 'rocket', modal: modal_target, describe: 'modal-dropdown-item-with-tooltip', tooltip: ('Test tooltip' if is_true?)
 
     -# Disabled dropdown item
     -# This component also utilizes the complex pattern of a disabled component that 
@@ -96,13 +91,13 @@
   = ui.nfg :slat_action, body: 'Modal Slat Action - No Href', icon: 'rocket', modal: modal_target, describe: 'modal-slat-action'
 
   -# Slat action with href
-  = ui.nfg :slat_action, body: 'Modal Slat Action - With Href', icon: 'rocket', modal: modal_target, href: test_href, describe: 'modal-slat-action-with-href'
+  = ui.nfg :slat_action, body: 'Modal Slat Action - With Href', icon: 'rocket', modal: modal_target, href: href, describe: 'modal-slat-action-with-href'
   
   -# Slat action with modal & competing data enriching tooltip
   -# Note: this component tests that tooltip _can_ be present in the HTML, so long as
   -# it is empty while the modal option is present.
   -# Otherwise, when tooltip and modal coexist in the component options, an ArgumentError is raised
-  = ui.nfg :slat_action, body: 'Modal Slat Action - With Nil Tooltip', icon: 'rocket', modal: modal_target, describe: 'modal-slat-action-with-tooltip', tooltip: ('Test tooltip' if maybe_show_tooltip)
+  = ui.nfg :slat_action, body: 'Modal Slat Action - With Nil Tooltip', icon: 'rocket', modal: modal_target, describe: 'modal-slat-action-with-tooltip', tooltip: ('Test tooltip' if is_true?)
 
   -# Disabled slat action
   -# This component also utilizes the complex pattern of a disabled component that 

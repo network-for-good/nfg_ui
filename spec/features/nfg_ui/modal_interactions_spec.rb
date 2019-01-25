@@ -1,7 +1,5 @@
 require 'rails_helper'
 
-
-
 # Required :let examples
 # let(:dropdown) { false }
 # let(:describe) { 'modal-button' }
@@ -130,7 +128,7 @@ RSpec.describe 'Opening and closing a modal from various modalable components', 
 
   # Do what we can to ensure we're not missing some 
   # new modalable components along the way.
-  it_behaves_like 'a page that contains all of the enhanced components', tested_method: :modal
+  it_behaves_like 'a page that contains all of the utility enhanced components', tested_method: :modal
 
   describe 'activating the modal' do
     let(:element) { '' }

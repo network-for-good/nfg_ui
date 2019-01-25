@@ -18,6 +18,10 @@ require 'capybara/rails'
 require 'factory_bot_rails'
 require 'support/factory_bot'
 
+# Supporting helpers used on feature specs
+require 'support/helpers/feature_spec_helpers'
+include FeatureSpecHelpers
+
 # Load RSpec helpers.
 Dir[File.join(ENGINE_ROOT, 'spec/support/**/*.rb')].each { |f| require f }
 Dir[File.join(ENGINE_ROOT, 'spec/shared_examples/**/*.rb')].each { |f| require f }

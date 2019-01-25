@@ -1,0 +1,3 @@
+module FeatureSpecHelpers
+  include UtilityEnhancedComponentCollectorHelper
+end
