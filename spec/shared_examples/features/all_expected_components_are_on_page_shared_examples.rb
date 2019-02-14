@@ -2,11 +2,11 @@
 # before running this shared example
 #
 # Ex: before { visit modal_feature_spec_views_path }
-shared_examples_for 'a page that contains all of the utility enhanced components' do |tested_method: |
+shared_examples_for 'a page that contains all of the utility enhanced components' do |tested_method:, component_suite: :nfg, additional_component_css_classes: []|
   describe 'modalable components are present on the page for testing modalability' do
-    let(:component_css_classes) { components_that_have_defined_method(component_suite: :nfg, tested_method: tested_method, css_class: true) }
+    let(:component_css_classes) { components_that_have_defined_method(component_suite: component_suite, tested_method: tested_method, css_class: true) }
     it 'includes all of the modalable component elements on the page' do
-      component_css_classes.each do |css_class|
+      [component_css_classes, *additional_component_css_classes].reject(&:blank?).each do |css_class|
         expect(page).to have_css ".#{css_class}", visible: :all
       end
     end

@@ -1,5 +1,7 @@
 require 'rails_helper'
 
+# 1. Shared examples
+
 # Required :let examples
 # let(:dropdown) { false }
 # let(:describe) { 'modal-button' }
@@ -52,7 +54,7 @@ shared_examples_for 'a disabled modalable component' do |tooltip: false|
           expect(page).not_to have_css '.tooltip'
         end
         and_by 'hovering the component' do
-          find("[data-describe='#{disabled_button_wrapper_describe}']").hover
+          find("[data-describe='#{disabled_button_wrapper_describe}'] [data-toggle='tooltip']").hover
           sleep 0.5
         end
 
@@ -72,7 +74,7 @@ end
 # Required :let examples
 # let(:dropdown) { true }
 # let(:describe) { 'modal-button' }
-# let(:href) { '#included_href' }
+# let(:href) { ComponentAttributeDefaultsHelper::feature_spec_href }
 # let(:dropdown_data_describe) { 'the-toggle' }
 shared_examples_for 'modalable components with a pre-supplied href' do
   it 'does not overwrite the pre-supplied href' do
@@ -121,8 +123,10 @@ shared_examples_for 'modalable components with a tooltip option in html that yie
   end
 end
 
+
+# 2. Specs:
 RSpec.describe 'Opening and closing a modal from various modalable components', type: :feature, js: true do
-  let(:modal_id) { '#test_modal' }
+  let(:modal_id) { ComponentAttributeDefaultsHelper::feature_spec_modal_target }
 
   before { visit modal_feature_spec_views_path }
 
@@ -137,7 +141,7 @@ RSpec.describe 'Opening and closing a modal from various modalable components', 
     let(:describe) { nil }
     let(:slat_action) { false }
     let(:scroll_to_target) { dropdown ? dropdown_data_describe : (describe || disabled_button_wrapper_describe) }
-    
+
     before { scroll_to_element "[data-describe=\'#{scroll_to_target}\']" }
 
     describe 'opening and closing a modal from a regular rails `link_to`' do
@@ -173,7 +177,7 @@ RSpec.describe 'Opening and closing a modal from various modalable components', 
       context 'a modal button link with a pre-supplied href' do
         let(:describe) { 'modal-button-as-link-with-href' }
         let(:element) { 'a' }
-        let(:href) { '#included_href' }
+        let(:href) { ComponentAttributeDefaultsHelper::feature_spec_href }
 
         it_behaves_like 'a modalable component that kicks off a modal'
         it_behaves_like 'modalable components with a pre-supplied href'
@@ -207,7 +211,7 @@ RSpec.describe 'Opening and closing a modal from various modalable components', 
 
       context 'a modalable dropdown item with a pre-supplied href' do
         let(:describe) { 'modal-dropdown-item-with-href' }
-        let(:href) { '#included_href' }
+        let(:href) { ComponentAttributeDefaultsHelper::feature_spec_href }
 
         it_behaves_like 'a modalable component that kicks off a modal'
         it_behaves_like 'modalable components with a pre-supplied href'
@@ -244,7 +248,7 @@ RSpec.describe 'Opening and closing a modal from various modalable components', 
 
       context 'a modalable slat action with a pre-supplied href' do
         let(:describe) { 'modal-slat-action-with-href' }
-        let(:href) { '#included_href' }
+        let(:href) { ComponentAttributeDefaultsHelper::feature_spec_href }
 
         it_behaves_like 'a modalable component that kicks off a modal'
         it_behaves_like 'modalable components with a pre-supplied href'

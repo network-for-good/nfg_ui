@@ -1,3 +1,4 @@
 module FeatureSpecHelpers
+  include ComponentAttributeDefaultsHelper
   include UtilityEnhancedComponentCollectorHelper
 end
