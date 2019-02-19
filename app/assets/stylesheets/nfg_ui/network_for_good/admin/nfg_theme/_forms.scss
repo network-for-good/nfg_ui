@@ -81,3 +81,11 @@ label {
     ~ .form-check-label { color: inherit; }
   }
 }
+
+// Make sure that plain-text-input is uneditable
+.plain-text-input{
+  &, &.disabled, &:disabled{
+    cursor: default;
+    pointer-events: none;  
+  }
+}
