@@ -53,6 +53,7 @@
   font-weight: $font-weight-normal;
   cursor: pointer;
   border-radius: 0 $btn-border-radius $btn-border-radius 0;
+  overflow: hidden;
   &::after {
     font-weight: $btn-font-weight;
     border-radius: 0 $btn-border-radius $btn-border-radius 0;
