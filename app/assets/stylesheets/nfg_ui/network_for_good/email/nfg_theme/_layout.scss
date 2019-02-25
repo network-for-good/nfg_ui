@@ -1,0 +1,33 @@
+// Extra layout styles
+
+
+// Inner wrapper styles that Foundation adds inside wrapper classes
+.wrapper-inner {
+  padding: 24px;
+  @media only screen and (max-width: #{$global-breakpoint}) { padding: 24px 0px !important; }
+}
+.collapse {
+  .wrapper-inner {
+    @media only screen and (max-width: #{$global-breakpoint}) { padding: 24px !important; }
+  }
+}
+
+
+// Table with borders separating rows
+.border-item {
+  td.columns,
+  td.column,
+  th.columns,
+  th.column {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    border-top: 1px solid $medium-gray;
+  }
+}
+
+
+// Specific footer styles
+.footer {
+  p { color: $secondary-color; }
+  a { color: $secondary-color !important; }
+}
