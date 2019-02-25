@@ -18,7 +18,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'coffee-script'
   s.add_dependency 'font-awesome-rails'
   s.add_dependency 'haml'
-  s.add_dependency 'inky-rb', '~> 1.3.7', require: 'inky'
+  s.add_dependency 'inky-rb', '~> 1.3.7'
   s.add_dependency 'jquery-rails'
   s.add_dependency 'rails', '>= 4.2.0'
   s.add_dependency 'sass-rails'
