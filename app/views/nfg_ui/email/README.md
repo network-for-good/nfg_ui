@@ -5,4 +5,8 @@ as needed.
 
 For now, these views must be manually rendered as partials / templates on your views
 There are no ui.nfg methods available for emails at this point.
+
+Example:
+= render "nfg_ui/email/rainbow_bar"
+
 - JR: 2/24/2019
