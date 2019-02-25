@@ -1,0 +1,7 @@
+- image = local_assigns[:image]
+- theme_color = local_assigns[:theme_color]
+- image_size = local_assigns[:image_size]
+
+%columns{ class: "bg-image bg-image-#{theme_color}", large: "4", valign: "middle" }
+  %center.p-y-base
+    %img{ src: image_path(image), width: image_size, style: "width:#{image_size}px;" }

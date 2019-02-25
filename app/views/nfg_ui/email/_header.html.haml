@@ -1,0 +1,6 @@
+- heading = nil if local_assigns[:heading].nil?
+%row
+  %columns
+    - if heading
+      %h2= heading
+    = yield

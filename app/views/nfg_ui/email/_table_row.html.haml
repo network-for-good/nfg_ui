@@ -1,0 +1,13 @@
+- left_column = local_assigns[:left_column]
+- right_column = nil if local_assigns[:right_column].nil?
+- theme_color = nil if local_assigns[:theme_color].nil?
+
+%row.border-item
+  %columns{ small: "5" }
+    %b= left_column
+  %columns{ small: "7" }
+    .text-right
+      - if right_column
+        %span{ class: ("text-#{theme_color}" if theme_color) }= right_column
+      - else
+        = yield

@@ -1,0 +1,18 @@
+
+%wrapper.footer
+  %row
+    %columns
+      %center
+        %menu
+          = render partial: "atomic_components/molecules/social_network_link", locals: { social_network: :facebook, icon_size: 15 }
+          = render partial: "atomic_components/molecules/social_network_link", locals: { social_network: :twitter, icon_size: 16 }
+          = render partial: "atomic_components/molecules/social_network_link", locals: { social_network: :linkedin, icon_size: 16 }
+          = render partial: "atomic_components/molecules/social_network_link", locals: { social_network: :youtube, icon_size: 18 }
+          = render partial: "atomic_components/molecules/social_network_link", locals: { social_network: :google_plus, icon_size: 22 }
+  %row
+    %columns
+      %center
+        %p
+          %small
+            = t 'mailers.company.address'
+      %spacer{ size: spacer(:quadruple) }
