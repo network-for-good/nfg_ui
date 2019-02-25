@@ -9,6 +9,7 @@ module NfgUi
       autoload :Confirmable
       autoload :Describable
       autoload :DisableWithable
+      autoload :Emailable
       autoload :Iconable
       autoload :Methodable
       autoload :Titleable
