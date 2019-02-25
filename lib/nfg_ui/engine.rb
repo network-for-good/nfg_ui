@@ -13,6 +13,10 @@ module NfgUi
         helper NfgUi::Components::TooltipHelper
         helper NfgUi::Components::EmailHelpers
       end
+
+      ActiveSupport.on_load :action_mailer do
+        helper NfgUi::Components::EmailHelpers
+      end
     end
   end
 end
