@@ -4,9 +4,6 @@ en:
       company:
         name: "Network for Good"
         address: "Network for Good | 1140 Connecticut Avenue NW, Suite 700, Washington, District of Columbia 20036"
-        legal:
-          opt_in: "You are receiving this email because you opted-in to Network for Good email communication."
-          services_agreement: "As before, your service continues to be guided by our <a href='%{services_agreement_page}' target='_blank'>standard services agreement</a>."
       images:
         logo: "https://identity.networkforgood.org/images/nfg-logo.png"
         alt:
@@ -30,11 +27,8 @@ en:
         nfg_website:
           homepage: "http://www.networkforgood.com"
           support_page: "http://www.networkforgood.com/support/"
-          services_agreement: "http://www.networkforgood.com/about/network-for-good-services-agreement/"
         social:
           facebook: "https://www.facebook.com/networkforgood"
           twitter: "https://twitter.com/Network4Good"
           linkedin: "https://www.linkedin.com/company/network-for-good"
           youtube: "https://www.youtube.com/user/NetworkForGood"
-          google_plus: "https://plus.google.com/+networkforgood/"
-      hours_of_operation: "(8am - 8pm Eastern Time, Mon - Fri)"
