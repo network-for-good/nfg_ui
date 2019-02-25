@@ -2,11 +2,11 @@
 - social_network = local_assigns[:social_network]
 - icon_size = local_assigns[:icon_size]
 
-- root_of_scope = :mailers
+- root_of_scope = [:nfg_ui, :email]
 
-- image_scope = [root_of_scope, :images, :icons, :social]
-- alt_scope = [root_of_scope, :images, :alt, :social]
-- url_scope = [root_of_scope, :links]
+- image_scope = [*root_of_scope, :images, :icons, :social]
+- alt_scope = [*root_of_scope, :images, :alt, :social]
+- url_scope = [*root_of_scope, :links]
 
 %item{ href: t("social.#{social_network}", scope: url_scope), target: "_blank" }
   %img{ src: image_path(t("#{social_network}", scope: image_scope)), alt: t("#{social_network}", scope: alt_scope), width: icon_size, style: "width: #{icon_size}px;" }
