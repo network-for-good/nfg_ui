@@ -68,10 +68,10 @@ $teal:    #60c6cf; // legacy color -- not used in our theme
 
 $primary:       $blue;
 // $secondary:     $gray-600 !default;
-// $success:       $green !default;
+$success:       $green !default; // TODO: REMOVE AND RESOLVE
 $info:          $blue;
 $warning:       $orange;
-// $danger:        $red !default;
+$danger:        $red !default; // TODO: REMOVE AND RESOLVE
 // $light:         $gray-100 !default;
 // $dark:          $gray-800 !default;
 
@@ -114,8 +114,11 @@ $enable-shadows:                              true;
 // $enable-prefers-reduced-motion-media-query:   true !default;
 // $enable-hover-media-query:                    false !default; // Deprecated, no longer affects any compiled CSS
 // $enable-grid-classes:                         true !default;
+// $enable-pointer-cursor-for-buttons:           true !default;
 // $enable-print-styles:                         true !default;
+// $enable-responsive-font-sizes:                false !default;
 $enable-validation-icons:                     false;
+// $enable-deprecation-messages:                 true !default;
 
 
 // Spacing
@@ -185,38 +188,28 @@ $paragraph-margin-bottom:   $spacer;
 // Define the minimum dimensions at which your layout will change,
 // adapting to different screen sizes, for use in media queries.
 
-// $grid-breakpoints: () !default;
-// stylelint-disable-next-line scss/dollar-variable-default
-// $grid-breakpoints: map-merge(
-//   (
-//     xs: 0,
-//     sm: 576px,
-//     md: 768px,
-//     lg: 992px,
-//     xl: 1200px
-//   ),
-//   $grid-breakpoints
-// );
+// $grid-breakpoints: (
+//   xs: 0,
+//   sm: 576px,
+//   md: 768px,
+//   lg: 992px,
+//   xl: 1200px
+// ) !default;
 
 // @include _assert-ascending($grid-breakpoints, "$grid-breakpoints");
-// @include _assert-starts-at-zero($grid-breakpoints);
+// @include _assert-starts-at-zero($grid-breakpoints, "$grid-breakpoints");
 
 
 // Grid containers
 //
 // Define the maximum width of `.container` for different screen sizes.
 
-// $container-max-widths: () !default;
-// stylelint-disable-next-line scss/dollar-variable-default
-// $container-max-widths: map-merge(
-//   (
-//     sm: 540px,
-//     md: 720px,
-//     lg: 960px,
-//     xl: 1140px
-//   ),
-//   $container-max-widths
-// );
+// $container-max-widths: (
+//   sm: 540px,
+//   md: 720px,
+//   lg: 960px,
+//   xl: 1140px
+// ) !default;
 
 // @include _assert-ascending($container-max-widths, "$container-max-widths");
 
@@ -253,6 +246,8 @@ $box-shadow-lg:               0 0 50px 0 transparentize($black, 0.9);
 // $component-active-bg:         theme-color("primary") !default;
 
 // $caret-width:                 .3em !default;
+// $caret-vertical-align:        $caret-width * .85 !default;
+// $caret-spacing:               $caret-width * .85 !default;
 
 // $transition-base:             all .2s ease-in-out !default;
 // $transition-fade:             opacity .15s linear !default;
@@ -301,10 +296,10 @@ $h1-font-size:                ($font-size-base * 2.25);
 // $h6-font-size:                $font-size-base !default;
 
 $headings-margin-bottom:      0;
-// $headings-font-family:        inherit !default;
+// $headings-font-family:        null !default;
 $headings-font-weight:        $font-weight-bold;
 $headings-line-height:        1.2 !default; // TODO: REMOVE AND RESOLVE
-// $headings-color:              inherit !default;
+// $headings-color:              null !default;
 
 // $display1-size:               6rem !default;
 // $display2-size:               5.5rem !default;
@@ -352,8 +347,10 @@ $hr-border-color:             $border-color;
 $table-cell-padding:          $spacer;
 $table-cell-padding-sm:       ($spacer * .5);
 
+// $table-color:                 $body-color !default;
 // $table-bg:                    transparent !default;
 $table-accent-bg:             $body-bg;
+// $table-hover-color:           $table-color !default;
 $table-hover-bg:              $black;
 // $table-active-bg:             $table-hover-bg !default;
 
@@ -363,11 +360,13 @@ $table-border-color:          $border-color;
 $table-head-bg:               $body-bg;
 $table-head-color:            $body-color;
 
+// $table-dark-color:            $white !default;
 $table-dark-bg:               theme-color("dark");
 $table-dark-accent-bg:        $gray-600;
+// $table-dark-hover-color:      $table-dark-color !default;
 $table-dark-hover-bg:         $white;
 $table-dark-border-color:     lighten($gray-800, 7.5%);
-$table-dark-color:           theme-color("light");
+$table-dark-color:            theme-color("light");
 
 // $table-striped-order:         odd !default;
 
@@ -383,6 +382,7 @@ $table-dark-color:           theme-color("light");
 
 $input-btn-padding-y:         .5rem;
 $input-btn-padding-x:         ($spacer * .5);
+// $input-btn-font-family:       null !default;
 // $input-btn-font-size:         $font-size-base !default;
 // $input-btn-line-height:       $line-height-base !default;
 
@@ -409,6 +409,7 @@ $input-btn-padding-x-lg:      ($spacer * .75);
 
 // $btn-padding-y:               $input-btn-padding-y !default;
 // $btn-padding-x:               $input-btn-padding-x !default;
+// $btn-font-family:             $input-btn-font-family !default;
 // $btn-font-size:               $input-btn-font-size !default;
 // $btn-line-height:             $input-btn-line-height !default;
 
@@ -449,6 +450,7 @@ $label-margin-bottom:                   ($spacer * .25);
 
 // $input-padding-y:                       $input-btn-padding-y !default;
 // $input-padding-x:                       $input-btn-padding-x !default;
+// $input-font-family:                     $input-btn-font-family !default;
 // $input-font-size:                       $input-btn-font-size !default;
 // $input-font-weight:                     $font-weight-base !default;
 // $input-line-height:                     $input-btn-line-height !default;
@@ -486,14 +488,13 @@ $input-placeholder-color:               $text-muted;
 
 // $input-height-border:                   $input-border-width * 2 !default;
 
-// $input-height-inner:                    ($input-btn-font-size * $input-btn-line-height) + ($input-btn-padding-y * 2) !default;
-// $input-height:                          calc(#{$input-height-inner} + #{$input-height-border}) !default;
+// $input-height-inner:                    calc(#{$input-line-height * 1em} + #{$input-padding-y * 2}) !default;
+// $input-height-inner-half:               calc(#{$input-line-height * .5em} + #{$input-padding-y}) !default;
+// $input-height-inner-quarter:            calc(#{$input-line-height * .25em} + #{$input-padding-y / 2}) !default;
 
-// $input-height-inner-sm:                 ($input-btn-font-size-sm * $input-btn-line-height-sm) + ($input-btn-padding-y-sm * 2) !default;
-// $input-height-sm:                       calc(#{$input-height-inner-sm} + #{$input-height-border}) !default;
-
-// $input-height-inner-lg:                 ($input-btn-font-size-lg * $input-btn-line-height-lg) + ($input-btn-padding-y-lg * 2) !default;
-// $input-height-lg:                       calc(#{$input-height-inner-lg} + #{$input-height-border}) !default;
+// $input-height:                          calc(#{$input-line-height * 1em} + #{$input-padding-y * 2} + #{$input-height-border}) !default;
+// $input-height-sm:                       calc(#{$input-line-height-sm * 1em} + #{$input-btn-padding-y-sm * 2} + #{$input-height-border}) !default;
+// $input-height-lg:                       calc(#{$input-line-height-lg * 1em} + #{$input-btn-padding-y-lg * 2} + #{$input-height-border}) !default;
 
 // $input-transition:                      border-color .15s ease-in-out, box-shadow .15s ease-in-out !default;
 
@@ -561,6 +562,8 @@ $custom-switch-indicator-size:                  $spacer;
 
 // $custom-select-padding-y:           $input-btn-padding-y !default;
 // $custom-select-padding-x:           $input-btn-padding-x !default;
+// $custom-select-font-family:         $input-font-family !default;
+// $custom-select-font-size:           $input-font-size !default;
 // $custom-select-height:              $input-height !default;
 $custom-select-indicator-padding:   $spacer; // Extra padding to account for the presence of the background-image based indicator
 // $custom-select-font-weight:         $input-font-weight !default;
@@ -624,6 +627,7 @@ $custom-select-focus-box-shadow:    none;
 // $custom-file-padding-y:             $input-padding-y !default;
 // $custom-file-padding-x:             $input-padding-x !default;
 // $custom-file-line-height:           $input-line-height !default;
+// $custom-file-font-family:           $input-font-family !default;
 // $custom-file-font-weight:           $input-font-weight !default;
 // $custom-file-color:                 $input-color !default;
 // $custom-file-bg:                    $input-bg !default;
@@ -642,44 +646,29 @@ $custom-select-focus-box-shadow:    none;
 
 // $form-feedback-margin-top:          $form-text-margin-top !default;
 $form-feedback-font-size:           $font-size-sm;
-// $form-feedback-valid-color:         theme-color("success") !default;
-// $form-feedback-invalid-color:       theme-color("danger") !default;
+$form-feedback-valid-color:         $success !default; // TODO: REMOVE AND RESOLVE
+$form-feedback-invalid-color:       $danger !default; // TODO: REMOVE AND RESOLVE
 
 // $form-feedback-icon-valid-color:    $form-feedback-valid-color !default;
 $form-feedback-icon-valid:          none;
 // $form-feedback-icon-invalid-color:  $form-feedback-invalid-color !default;
 $form-feedback-icon-invalid:        none;
 
-
-// Dropdowns
-//
-// Dropdown menu container and contents.
-
-// $dropdown-min-width:                10rem !default;
-$dropdown-padding-y:                0;
-$dropdown-spacer:                   ($spacer * .25);
-// $dropdown-bg:                       $white !default;
-$dropdown-border-color:             transparent;
-// $dropdown-border-radius:            $border-radius !default;
-$dropdown-border-width:             0px;
-// $dropdown-inner-border-radius:      calc(#{$dropdown-border-radius} - #{$dropdown-border-width}) !default;
-$dropdown-divider-bg:               $border-color;
-$dropdown-box-shadow:               $box-shadow-sm;
-
-$dropdown-link-color:               $body-color;
-$dropdown-link-hover-color:         $body-color;
-$dropdown-link-hover-bg:            $body-bg;
-
-$dropdown-link-active-color:        $body-color;
-$dropdown-link-active-bg:           $body-bg;
-
-$dropdown-link-disabled-color:      $text-muted;
-
-$dropdown-item-padding-y:           ($spacer * .5);
-$dropdown-item-padding-x:           ($spacer * .5);
-
-$dropdown-header-color:             $text-muted;
-
+$form-validation-states: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$form-validation-states: map-merge(
+  (
+    "valid": (
+      "color": $form-feedback-valid-color,
+      "icon": $form-feedback-icon-valid
+    ),
+    "invalid": (
+      "color": $form-feedback-invalid-color,
+      "icon": $form-feedback-icon-invalid
+    ),
+  ),
+  $form-validation-states
+);
 
 // Z-index master list
 //
@@ -755,6 +744,39 @@ $navbar-dark-active-color:          #cccccc; // LEGACY
 // $navbar-dark-brand-hover-color:           $navbar-dark-active-color !default;
 
 
+// Dropdowns
+//
+// Dropdown menu container and contents.
+
+// $dropdown-min-width:                10rem !default;
+$dropdown-padding-y:                0;
+$dropdown-spacer:                   ($spacer * .25);
+// $dropdown-bg:                       $white !default;
+// $dropdown-font-size:                $font-size-base !default;
+// $dropdown-color:                    $body-color !default;
+$dropdown-border-color:             transparent;
+// $dropdown-border-radius:            $border-radius !default;
+$dropdown-border-width:             0px;
+// $dropdown-inner-border-radius:      calc(#{$dropdown-border-radius} - #{$dropdown-border-width}) !default;
+$dropdown-divider-bg:               $border-color;
+// $dropdown-divider-margin-y:         $nav-divider-margin-y !default;
+$dropdown-box-shadow:               $box-shadow-sm;
+
+$dropdown-link-color:               $body-color;
+$dropdown-link-hover-color:         $body-color;
+$dropdown-link-hover-bg:            $body-bg;
+
+$dropdown-link-active-color:        $body-color;
+$dropdown-link-active-bg:           $body-bg;
+
+$dropdown-link-disabled-color:      $text-muted;
+
+$dropdown-item-padding-y:           ($spacer * .5);
+$dropdown-item-padding-x:           ($spacer * .5);
+
+$dropdown-header-color:             $text-muted;
+
+
 // Pagination
 
 $pagination-padding-y:              $input-btn-padding-y;
@@ -789,6 +811,7 @@ $pagination-disabled-border-color:  $border-color;
 // Jumbotron
 
 $jumbotron-padding:                 $spacer;
+// $jumbotron-color:                   null !default;
 $jumbotron-bg:                      $body-bg;
 
 
@@ -801,7 +824,8 @@ $card-spacer-x:                     $spacer;
 $card-border-color:                 $border-color;
 // $card-inner-border-radius:          calc(#{$card-border-radius} - #{$card-border-width}) !default;
 $card-cap-bg:                       $white;
-// $card-cap-color:                    inherit !default;
+// $card-cap-color:                    null !default;
+// $card-color:                        null !default;
 // $card-bg:                           $white !default;
 
 $card-img-overlay-padding:          ($spacer * .5);
@@ -866,19 +890,21 @@ $popover-arrow-height:              ($spacer * .25);
 
 
 // Toasts
-$toast-max-width: 300px;
-$toast-padding-x: ($spacer * .5);
-$toast-padding-y: ($spacer * .25);
-$toast-font-size: $font-size-base;
-// $toast-background-color: rgba($white, .85) !default;
-$toast-border-width: $border-width;
-$toast-border-color: $border-color;
-$toast-border-radius: $border-radius;
-$toast-box-shadow: $box-shadow-sm;
 
-$toast-header-color: $body-color;
-$toast-header-background-color: $body-bg;
-$toast-header-border-color: $border-color;
+$toast-max-width:                   300px;
+$toast-padding-x:                   ($spacer * .5);
+$toast-padding-y:                   ($spacer * .25);
+$toast-font-size:                   $font-size-base;
+// $toast-color:                       null !default;
+// $toast-background-color:            rgba($white, .85) !default;
+$toast-border-width:                $border-width;
+$toast-border-color:                $border-color;
+$toast-border-radius:               $border-radius;
+$toast-box-shadow:                  $box-shadow-sm;
+
+$toast-header-color:                $body-color;
+$toast-header-background-color:     $body-bg;
+$toast-header-border-color:         $border-color;
 
 
 // Badges
@@ -888,6 +914,9 @@ $badge-font-size:                   80%;
 // $badge-padding-y:                   .25em !default;
 // $badge-padding-x:                   .4em !default;
 // $badge-border-radius:               $border-radius !default;
+
+// $badge-transition:                  $btn-transition !default;
+// $badge-focus-width:                 $input-btn-focus-width !default;
 
 // $badge-pill-padding-x:              .6em !default;
 // Use a higher than normal value to ensure completely rounded edges when
@@ -905,6 +934,7 @@ $modal-dialog-margin-y-sm-up:       ($spacer * 1.5);
 
 $modal-title-line-height:           inherit;
 
+// $modal-content-color:               null !default;
 // $modal-content-bg:                  $white !default;
 $modal-content-border-color:        $border-color;
 // $modal-content-border-width:        $border-width !default;
@@ -963,6 +993,7 @@ $progress-box-shadow:               none;
 
 // List group
 
+// $list-group-color:                  null !default;
 // $list-group-bg:                     $white !default;
 $list-group-border-color:           $border-color;
 // $list-group-border-width:           $border-width !default;
@@ -1081,6 +1112,7 @@ $pre-color:                         theme-color("dark");
 
 // Utilities
 
+// $displays: none, inline, inline-block, block, table, table-row, table-cell, flex, inline-flex !default;
 // $overflows: auto, hidden !default;
 // $positions: static, relative, absolute, fixed, sticky !default;
 
