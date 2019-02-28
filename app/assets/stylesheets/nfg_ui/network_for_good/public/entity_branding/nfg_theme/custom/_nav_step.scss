@@ -6,7 +6,7 @@
 
     &.visited, &.active {
       .step-indicator {
-        color: yiq-contrast-color($primary, $yiq-text-dark, $yiq-text-light);
+        color: color-yiq($primary);
         background-color: $primary;
         border-color: $primary;
       }
