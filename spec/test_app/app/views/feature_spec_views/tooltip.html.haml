@@ -36,9 +36,8 @@
 %p= ui.nfg :button, tooltip: feature_spec_tooltip_text, body: 'Button with Nil Modal', describe: 'tooltip-button-with-nil-modal', href: '#', modal: ('#test_modal' if 1!=1)
 
 -# Disabled buttons
-/ Not sure if this wrapper is needed yet. remove if not.
-/ %span{ data: { describe: 'disabled-button-wrapper' } }
-%p= ui.nfg :button, :disabled, tooltip: feature_spec_tooltip_text, body: 'Disabled button with tooltip', describe: 'button-link-with-tooltip'
+%span{ data: { describe: 'disabled-button-wrapper' } }
+  %p= ui.nfg :button, :disabled, tooltip: feature_spec_tooltip_text, body: 'Disabled button with tooltip', describe: 'disabled-button-link-with-tooltip'
 
 
 %hr
@@ -59,15 +58,18 @@
     = ui.nfg :dropdown_item, body: 'Dropdown item with tooltip', icon: 'rocket', tooltip: feature_spec_tooltip_text, href: '#', modal: ('#test_modal' if 1!=1), describe: 'tooltip-dropdown-item-with-nil-modal'
 
     -# Disabled dropdown item with tooltip
-    = ui.nfg :dropdown_item, :disabled, body: 'Dropdown item with tooltip', icon: 'rocket', tooltip: feature_spec_tooltip_text, describe: 'disabled-tooltip-dropdown-item'
+    %span{ data: { describe: 'disabled-dropdown-item-wrapper' } }
+      = ui.nfg :dropdown_item, :disabled, body: 'Dropdown item with tooltip', icon: 'rocket', tooltip: feature_spec_tooltip_text, describe: 'disabled-tooltip-dropdown-item'
 
 %hr
 
 = ui.nfg :typeface, subheading: 'Nav Items', class: 'mb-1'
 
 = ui.bootstrap :nav, class: 'bg-light p-3' do
-  = ui.nfg :nav_item, body: 'Nav Item with Tooltip', href: '#', tooltip: feature_spec_tooltip_text
-  = ui.nfg :nav_item, :disabled, body: 'Disabled Nav Item with Tooltip', href: '#', tooltip: feature_spec_tooltip_text, describe: 'disabled-tooltip-nav-item'
+  = ui.nfg :nav_item, body: 'Nav Item with Tooltip', href: '#', tooltip: feature_spec_tooltip_text, describe: 'tooltip-nav-item'
+  
+  %span{ data: { describe: 'disabled-nav-item-wrapper' } }
+    = ui.nfg :nav_item, :disabled, body: 'Disabled Nav Item with Tooltip', href: '#', tooltip: feature_spec_tooltip_text, describe: 'disabled-tooltip-nav-item'
   
   -# Active nav item with tooltip
   = ui.nfg :nav_item, :active, body: 'Active Nav Item with Tooltip', href: '#', tooltip: feature_spec_tooltip_text, describe: 'tooltip-active-nav-item'
@@ -76,7 +78,7 @@
   -# Modal and tooltip are not allowed to both be present
   -# at the same time. This helps ensure that the :modal key
   -# is still acceptable, even if nil (as it should be).
-  = ui.nfg :nav_item, body: 'Active Nav Item with Tooltip', href: '#', tooltip: feature_spec_tooltip_text, modal: ('#test_modal' if 1!=1)
+  = ui.nfg :nav_item, body: 'Active Nav Item with Tooltip', href: '#', tooltip: feature_spec_tooltip_text, modal: ('#test_modal' if 1!=1), describe: 'tooltip-nav-item-with-nil-modal'
 
 %hr
 
@@ -99,7 +101,7 @@
 
   -# Disabled slat action with tooltip
   %span{ data: { describe: 'disabled-slat-action-wrapper' } }
-    = ui.nfg :slat_action, :disabled, body: 'Disabled Tooltip Slat Action - No Href', icon: 'rocket', tooltip: feature_spec_tooltip_text, describe: 'disabled-slat-action', tooltip: 'Viable tooltip'
+    = ui.nfg :slat_action, :disabled, body: 'Disabled Tooltip Slat Action - No Href', icon: 'rocket', tooltip: feature_spec_tooltip_text, describe: 'disabled-slat-action'
 %hr
 
 = ui.nfg :typeface, subheading: 'Steps', class: 'mb-1'

@@ -79,7 +79,7 @@ module NfgUi
         def tooltip_data_attributes
           { toggle: 'tooltip',
             placement: tooltip_placement,
-            html: 'true'}
+            html: 'true' }
         end
 
         def non_html_attribute_options

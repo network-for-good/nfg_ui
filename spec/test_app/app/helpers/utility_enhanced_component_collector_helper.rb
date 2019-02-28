@@ -40,7 +40,6 @@ module UtilityEnhancedComponentCollectorHelper
       # Don't continue if the component class doesn't have the requested method
       next unless component_class.method_defined?(tested_method)
 
-      raise 'PENDING'
       components << component_name_or_css_class(component_class: component_class, component_name: component_name, css_class: css_class)
     end
 
@@ -62,7 +61,7 @@ module UtilityEnhancedComponentCollectorHelper
     if css_class
       # Don't return a '.' string
       return '' if component_css_class_string(component_class: component_class).blank?
-      
+
       # returns a string like '.slat-actions'
       ".#{component_css_class_string(component_class: component_class)}" 
     else

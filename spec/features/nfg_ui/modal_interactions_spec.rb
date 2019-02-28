@@ -48,7 +48,7 @@ shared_examples_for 'a disabled modalable component' do |tooltip: false|
         page.find('body').click # reset tooltips
 
         # Restart dropdown if needed
-        maybe_open_dropdown_menu(dropdown: dropdown, dropdown_data_describe: dropdown_data_describe)
+        maybe_open_dropdown_menu(maybe_open_dropdown: dropdown, dropdown_data_describe: dropdown_data_describe, nested_toggle: nested_toggle)
 
         by 'not having the tooltip html present on the page' do
           expect(page).not_to have_css '.tooltip'
@@ -78,7 +78,7 @@ end
 # let(:dropdown_data_describe) { 'the-toggle' }
 shared_examples_for 'modalable components with a pre-supplied href' do
   it 'does not overwrite the pre-supplied href' do
-    maybe_open_dropdown_menu(dropdown: dropdown, dropdown_data_describe: dropdown_data_describe)
+    maybe_open_dropdown_menu(maybe_open_dropdown: dropdown, dropdown_data_describe: dropdown_data_describe, nested_toggle: nested_toggle)
 
     and_it 'maintains the supplied href' do
       expect(page).not_to have_css "[data-describe='#{describe}'][href='#']"
@@ -94,7 +94,7 @@ end
 # let(:dropdown_data_describe) { 'the-toggle' }
 shared_examples_for 'modalable components without an href' do
   it 'supplies the default href on href-capable components' do
-    maybe_open_dropdown_menu(dropdown: dropdown, dropdown_data_describe: dropdown_data_describe)
+    maybe_open_dropdown_menu(maybe_open_dropdown: dropdown, dropdown_data_describe: dropdown_data_describe, nested_toggle: nested_toggle)
 
     if anchorable_component
       and_context 'when the component is anchorable' do
@@ -117,7 +117,7 @@ end
 # let(:modal_id) { '#test_modal' }
 shared_examples_for 'modalable components with a tooltip option in html that yields a nil tooltip' do
   it 'does not raise an ArgumentError when the tooltip is nil within the component options' do
-    maybe_open_dropdown_menu(dropdown: dropdown, dropdown_data_describe: dropdown_data_describe)
+    maybe_open_dropdown_menu(maybe_open_dropdown: dropdown, dropdown_data_describe: dropdown_data_describe, nested_toggle: nested_toggle)
     expect(page).to have_css "[data-describe='#{describe}'][data-toggle='modal'][data-target='#{modal_id}']"
     expect(page).not_to have_css "[data-describe='#{describe}'][data-toggle='tooltip']"
   end
@@ -125,21 +125,21 @@ end
 
 
 # 2. Specs:
-RSpec.describe 'Opening and closing a modal from various modalable components', type: :feature, js: true do
+RSpec.describe 'Opening and closing a modal from all modalable components', type: :feature, js: true do
   let(:modal_id) { ComponentAttributeDefaultsHelper::feature_spec_modal_target }
+  let(:nested_toggle) { false }
 
   before { visit modal_feature_spec_views_path }
 
   # Do what we can to ensure we're not missing some 
   # new modalable components along the way.
-  it_behaves_like 'a page that contains all of the utility enhanced components', tested_method: :modal
+  it_behaves_like 'a page that contains all of the utility enhanced components', tested_method: :modal, component_suite: :nfg
 
   describe 'activating the modal' do
     let(:element) { '' }
     let(:dropdown_data_describe) { nil }
     let(:disabled_button_wrapper_describe) { nil }
     let(:describe) { nil }
-    let(:slat_action) { false }
     let(:scroll_to_target) { dropdown ? dropdown_data_describe : (describe || disabled_button_wrapper_describe) }
 
     before { scroll_to_element "[data-describe=\'#{scroll_to_target}\']" }
@@ -234,7 +234,7 @@ RSpec.describe 'Opening and closing a modal from various modalable components', 
     # While slat actions inherit from DropdownItem, we should not
     # assume that their behavior and limitations are identical.
     describe 'opening and closing a modal with slat actions' do
-      let(:slat_action) { true }
+      let(:nested_toggle) { true }
       let(:dropdown) { true }
       let(:dropdown_data_describe) { 'slat-actions-menu' }
 
@@ -298,11 +298,7 @@ end
 
 def activate_modal(data_describe:, element: '', dropdown: false, dropdown_data_describe: 'dropdown-menu')
   return if page.has_css?('.dropdown-menu.show')
-  maybe_open_dropdown_menu(dropdown: dropdown, dropdown_data_describe: dropdown_data_describe)
+  maybe_open_dropdown_menu(maybe_open_dropdown: dropdown, dropdown_data_describe: dropdown_data_describe, nested_toggle: nested_toggle)
   page.find("#{element}[data-describe='#{data_describe}']").click
   wait_for_modal_animation
-end
-
-def maybe_open_dropdown_menu(dropdown:, dropdown_data_describe: 'dropdown-menu')
-  page.find("[data-describe='#{dropdown_data_describe}']#{' .dropdown-toggle' if slat_action}").click if dropdown
 end
