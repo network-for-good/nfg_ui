@@ -37,8 +37,10 @@ module UtilityEnhancedComponentCollectorHelper
 
       component_class = component.send(:ancestry_string).constantize
 
+      # Don't continue if the component class doesn't have the requested method
       next unless component_class.method_defined?(tested_method)
 
+      raise 'PENDING'
       components << component_name_or_css_class(component_class: component_class, component_name: component_name, css_class: css_class)
     end
 
@@ -55,11 +57,20 @@ module UtilityEnhancedComponentCollectorHelper
     Nfg::BOOTSTRAP_COMPONENT_NAMES
   end
 
+  # Return the component's name or css class depending on the request
   def component_name_or_css_class(component_class:, component_name:, css_class:)
     if css_class
-      ".#{component_class.new({}, ApplicationController.new.view_context).send(:component_css_class)}"
+      # Don't return a '.' string
+      return '' if component_css_class_string(component_class: component_class).blank?
+      
+      # returns a string like '.slat-actions'
+      ".#{component_css_class_string(component_class: component_class)}" 
     else
       component_name
     end
+  end
+
+  def component_css_class_string(component_class:)
+    component_class.new({}, ApplicationController.new.view_context).send(:component_css_class)
   end
 end
