@@ -1,6 +1,6 @@
 // Styles specific to the everyday default style
 .everyday_default {
   .progress-stats {
-    .progress-text-on { color: yiq-contrast-color($primary, $yiq-text-dark, $yiq-text-light); }
+    .progress-text-on { color: color-yiq($primary); }
   }
 }
