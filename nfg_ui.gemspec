@@ -25,6 +25,12 @@ Gem::Specification.new do |s|
   # To be upgraded later
   # s.add_dependency 'browser', '~> 2.5.0'
   s.add_dependency 'browser', '~> 1.1'
+  
+  # Bootstrap4.3.1 allows for upgrading past 9.4.10 which requires ruby >= 2.4.
+  # When running `bundle update nfg_ui` from Evo.
+  # Evo is officially on ruby 2.3.7 so autoprefixef must 
+  # be manually set.
+  s.add_dependency 'autoprefixer-rails', '9.4.9'
 
   s.add_development_dependency 'rspec-rails'
   s.add_development_dependency 'rails-controller-testing' # for assert-template
