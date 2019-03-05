@@ -15,7 +15,7 @@ RSpec.describe NfgUi::Components::Patterns::Carousel do
   describe '#render' do
     subject { Capybara.string(rendered) }
 
-    it 'includes a unique padding on the inner carousel' do
+    it 'includes a unique padding on the inner carousel that is designed to facilitate a text-based carousel like a donor scroll instead of a hero banner image-based carousel' do
       expect(subject).to have_css '.carousel-inner.pb-3'
     end
 
