@@ -25,7 +25,7 @@ module NfgUi
         def render
           super do
             capture do
-              content_tag(:div, class: 'carousel-inner pb-3') do
+              content_tag(:div, class: 'carousel-inner') do
                 if indicators > 0
                   concat(NfgUi::Bootstrap::Components::CarouselIndicators.new({ count: indicators, carousel: "##{id}" }, view_context).render)
                 end
