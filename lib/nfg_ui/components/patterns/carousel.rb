@@ -13,7 +13,7 @@ module NfgUi
 
         def render
           content_tag(:div, html_options) do
-            content_tag(:div, class: 'carousel-inner') do
+            content_tag(:div, class: 'carousel-inner pb-3') do
               concat((block_given? ? yield : body))
               if controls
                 concat(NfgUi::Components::Elements::CarouselControl.new({ control: :next, carousel: "##{id}" }, view_context).render)
