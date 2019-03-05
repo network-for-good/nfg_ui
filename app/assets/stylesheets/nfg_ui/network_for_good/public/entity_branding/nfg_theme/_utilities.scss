@@ -1,7 +1,7 @@
 // Specific styles for entity branding
 
 .bg-primary {
-  color: yiq-contrast-color($primary, $yiq-text-dark, $yiq-text-light) !important;
+  color: color-yiq($primary) !important;
   background-color: $primary !important;
 }
 

@@ -1,11 +1,11 @@
 // Specific styles for entity branding
 
 .btn-primary {
-  color: yiq-contrast-color($primary, $yiq-text-dark, $yiq-text-light);
+  color: color-yiq($primary);
   background-color: $primary;
   border-color: $primary;
   &:hover {
-    color: yiq-contrast-color(darken($primary, 10%), $yiq-text-dark, $yiq-text-light);
+    color: color-yiq(darken($primary, 10%));
     background-color: darken($primary, 10%);
     border-color: darken($primary, 10%);
   }
@@ -14,30 +14,30 @@
   &:not(:disabled):not(.disabled):active,
   &:not(:disabled):not(.disabled).active,
   .show > &.dropdown-toggle {
-    color: yiq-contrast-color($primary, $yiq-text-dark, $yiq-text-light);
+    color: color-yiq($primary);
     background-color: $primary;
     border-color: $primary;
   }
 }
 
 .btn-outline-secondary {
-  color: yiq-contrast-color($primary, $yiq-text-dark, $primary);
-  &:hover { color: yiq-contrast-color($primary, $yiq-text-dark, $primary); }
+  color: color-yiq($primary, $yiq-text-dark, $primary);
+  &:hover { color: color-yiq($primary, $yiq-text-dark, $primary); }
   &:not(:disabled):not(.disabled):active,
   &:not(:disabled):not(.disabled).active,
-  .show > &.dropdown-toggle { color: yiq-contrast-color($primary, $yiq-text-dark, $primary); }
+  .show > &.dropdown-toggle { color: color-yiq($primary, $yiq-text-dark, $primary); }
 }
 
 .btn-link {
-  color: yiq-contrast-color($primary, $yiq-text-dark, $primary);
-  &:hover { color: yiq-contrast-color(darken($primary, 15%), $yiq-text-dark, darken($primary, 15%)); }
+  color: color-yiq($primary, $yiq-text-dark, $primary);
+  &:hover { color: color-yiq(darken($primary, 15%), $yiq-text-dark, darken($primary, 15%)); }
 }
 
 .bg-dark {
   .btn-primary {
-    h1, h2, h3, h4, h5, h6, p, label { color: yiq-contrast-color($primary, $yiq-text-dark, $yiq-text-light); }
+    h1, h2, h3, h4, h5, h6, p, label { color: color-yiq($primary); }
   }
   .btn-outline-secondary {
-    h1, h2, h3, h4, h5, h6, p, label { color: yiq-contrast-color($primary, $yiq-text-dark, $primary); }
+    h1, h2, h3, h4, h5, h6, p, label { color: color-yiq($primary, $yiq-text-dark, $primary); }
   }
 }
