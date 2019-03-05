@@ -1062,8 +1062,8 @@ $carousel-indicator-width:           ($spacer * .5);
 $carousel-indicator-height:          ($spacer * .5);
 // $carousel-indicator-hit-area-height: 10px !default;
 $carousel-indicator-spacer:          ($spacer * .25);
-// $carousel-indicator-active-bg:       $white !default;
-$carousel-indicator-transition:      $gray-600;
+$carousel-indicator-active-bg:       $text-muted;
+$carousel-indicator-transition:      $text-muted;
 
 // $carousel-caption-width:             70% !default;
 // $carousel-caption-color:             $white !default;
