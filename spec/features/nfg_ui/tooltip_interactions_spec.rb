@@ -4,7 +4,6 @@
 shared_examples_for 'tooltippable components that activate a tooltip' do
   it 'activates tooltips on tooltippable component' do
     tooltippable_component_selectors.each do |selector|
-      p "selector from shared: #{selector}"
       maybe_open_dropdown_menu(maybe_open_dropdown: dropdown, dropdown_data_describe: dropdown_data_describe, nested_toggle: nested_toggle)
       confirm_tooltip_presence(selector: selector)
     end
@@ -73,6 +72,37 @@ RSpec.describe 'Activating a tooltip on all tooltippable components', type: :fea
       it_behaves_like 'tooltippable components that activate a tooltip'
 
       pending "[data-describe='disabled-nav-item-wrapper'] [data-toggle='tooltip'] does not yet work"
+    end
+
+    describe 'tooltips on slact actions' do
+      let(:tooltippable_component_selectors) { ["[data-describe='tooltip-slat-action']","[data-describe='tooltip-slat-action-with-href']","[data-describe='modal-slat-action-with-tooltip']","[data-describe='disabled-slat-action-wrapper'] [data-toggle='tooltip']" ] }
+
+      it 'activates tooltips on tooltippable slat action items' do
+        tooltippable_component_selectors.each do |selector|
+          p selector
+          page.find("[data-describe='slat-actions-menu'] .dropdown-toggle").click
+          sleep 0.25
+          confirm_tooltip_presence(selector: selector)
+          page.find("body").click
+        end
+      end
+    end
+
+    describe 'tooltips on steps' do
+      let(:tooltippable_component_selectors) { [ "[data-describe='tooltip-step-visited']", 
+                                                 "[data-describe='tooltip-step-active']"
+                                                 # "[data-toggle='disabled-tooltip-step-wrapper'] [data-toggle='tooltip']"
+                                                ] }
+      
+      it_behaves_like 'tooltippable components that activate a tooltip'
+
+      pending "[data-toggle='disabled-tooltip-step-wrapper'] [data-toggle='tooltip'] doesn't work yet."
+    end
+
+    describe 'tooltips on progress' do
+      let(:tooltippable_component_selectors) { ["[data-describe='tooltip-progress']"] }
+      
+      it_behaves_like 'tooltippable components that activate a tooltip'
     end
   end
 end

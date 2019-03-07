@@ -20,7 +20,6 @@ shared_examples_for 'a page that contains all of the utility enhanced components
       component_and_custom_css_selectors = [component_css_classes, *additional_component_css_classes].flatten.reject(&:blank?)
 
       component_and_custom_css_selectors.each do |css_class|
-        p "within spec: #{css_class}"
         expect(page).to have_css css_class, visible: :all
       end
     end
