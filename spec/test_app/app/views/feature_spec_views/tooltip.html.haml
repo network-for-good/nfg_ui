@@ -109,8 +109,6 @@
 = ui.nfg :steps do
   = ui.nfg :step, :visited, step: 1, body: 'Donation', href: '#back', tooltip: feature_spec_tooltip_text, describe: 'tooltip-step-visited'
   = ui.nfg :step, :active, step: 2, body: 'Your Info', tooltip: feature_spec_tooltip_text, describe: 'tooltip-step-active'
-
-%span{ data: { describe: 'disabled-tooltip-step-wrapper' } }
   = ui.nfg :step, step: 3, body: 'Payment', tooltip: feature_spec_tooltip_text, describe: 'tooltip-step-disabled'
 
 %hr
