@@ -1,4 +1,6 @@
-class NfgUiPreventClickableDisabledElement
+window.NfgUi = {}
+
+class NfgUi.PreventClickableDisabledElement
   constructor: (@el) ->
     console.log "prevent clickable is constructor"
     @el.click (e) =>
@@ -15,7 +17,7 @@ class NfgUiPreventClickableDisabledElement
 
 init_plugin = (el) ->
   el.each ->
-    inst = new NfgUiPreventClickableDisabledElement $(@)
+    inst = new NfgUi.PreventClickableDisabledElement $(@)
 
 $ ->
   elSelector = '.disabled'
