@@ -1,12 +1,35 @@
 %h1 Modals
 
+%h2 Button modal action
 = ui.nfg :button, body: 'Modal Trigger Button', modal: '#test_modal'
 = ui.nfg :modal, id: 'test_modal', title: 'Test Modal', footer: 'Modal footer (as a component option only)' do
   Modal body goes here
 
 %hr
 
-%h2 Disabled button modal
+%h2 Button modal action that opens a modal with a custom footer
+= ui.nfg :button, body: 'Modal Trigger Button', modal: '#test_modal_with_footer'
+= ui.nfg :modal, id: 'test_modal_with_footer', title: 'Test Modal', render_in_body: false do
+  = ui.nfg :modal_body, body: 'Modal body goes here'
+  = ui.nfg :modal_footer do
+    = ui.nfg :button, dismiss: :modal, body: 'Close Modal', icon: 'times'
+
+
+%hr
+
+%h3 Disabled button modal
 = ui.nfg :button, body: 'Modal Trigger Button', modal: '#test_modal2', disabled: true, tooltip: 'Test tooltip'
 = ui.nfg :modal, id: 'test_modal2', title: 'Test Modal', footer: 'Modal footer (as a component option only)' do
+  Modal body goes here
+
+%hr
+
+%h3 Dropdown item modal action
+= ui.nfg :dropdown, button: 'Modalable Dropdown Items' do
+  = ui.nfg :dropdown_menu do
+    = ui.nfg :dropdown_item, body: 'Modal Firing Dropdown Item', icon: 'rocket', modal: '#test_modal3'
+    = ui.nfg :dropdown_item, body: 'Modal Firing Dropdown Item', icon: 'rocket', modal: '#test_modal3', href: '#will_not_overwrite'
+    = ui.nfg :dropdown_item, body: 'Modal Firing Dropdown Item', icon: 'rocket', modal: '#test_modal3'
+
+= ui.nfg :modal, id: 'test_modal3', title: 'Test Modal', footer: 'Modal footer (as a component option only)' do
   Modal body goes here

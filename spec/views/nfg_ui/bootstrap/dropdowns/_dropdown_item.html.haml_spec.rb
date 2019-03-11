@@ -21,10 +21,9 @@ RSpec.describe 'nfg_ui/bootstrap/dropdowns/_dropdown_item.html.haml', type: :vie
       let(:tested_tooltip) { 'tested tooltip' }
       let(:options) { { body: body, tooltip: tested_tooltip, disabled: true  } }
       it 'outputs a unique dropdown item that accounts for disabled & tooltip needs' do
-        expect(subject).to have_css "span.dropdown-item.disabled[data-toggle='tooltip'][title='#{tested_tooltip}'] a", text: body
-        expect(subject).to eq "<span data-toggle=\"tooltip\" data-placement=\"top\" data-html=\"true\" title=\"tested tooltip\" class=\"dropdown-item disabled\" tabindex=\"0\"><a style=\"pointer-events: none;\">test body content</a></span>"
+        expect(subject).to have_css "span[data-toggle='tooltip'][tabindex='0'] .dropdown-item.disabled[tabindex='-1']", text: body
+        expect(subject).to eq "<span data-toggle=\"tooltip\" data-placement=\"top\" data-html=\"true\" title=\"#{tested_tooltip}\" class=\"d-inline-block\" tabindex=\"0\"><a class=\"dropdown-item disabled\" tabindex=\"-1\" style=\"pointer-events: none;\">#{body}</a></span>"
       end
-
     end
   end
 end

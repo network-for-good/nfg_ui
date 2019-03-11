@@ -6,6 +6,7 @@ module NfgUi
       # Ino coming soon.
       class DropdownItem < NfgUi::Bootstrap::Components::DropdownItem
         include Bootstrap::Utilities::Themeable
+        include Bootstrap::Utilities::Modalable
 
         include NfgUi::Components::Utilities::Confirmable
         include NfgUi::Components::Utilities::Describable
@@ -23,7 +24,15 @@ module NfgUi
 
         def render
           if tooltip && disabled
-            super
+            content_tag(:span, disabled_component_tooltip_wrapper_html_options) do
+              content_tag(as, html_options.except(:href)) do
+                if icon
+                  NfgUi::Components::Foundations::Icon.new({ traits: ["#{icon} fw"], text: (block_given? ? yield : body), class: 'text-center' }, view_context).render
+                else
+                  (block_given? ? yield : body)
+                end
+              end
+            end
           else
             super do
               if icon
@@ -33,6 +42,12 @@ module NfgUi
               end
             end
           end
+        end
+
+        # Automatically supply an :href to the dropdown item when a modal is present
+        # so that the dropdown item presents correctly and appears clickable
+        def href
+          modal ? options.fetch(:href, '#') : super
         end
 
         private

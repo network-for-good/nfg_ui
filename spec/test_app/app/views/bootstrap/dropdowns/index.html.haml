@@ -6,6 +6,7 @@
   = ui.bootstrap :dropdown_menu do
     = ui.bootstrap :dropdown_header, heading: 'Dropdown Header'
     = ui.bootstrap :dropdown_item, body: 'Dropdown Item 1 Disabled', disabled: true, href: '#'
+    = ui.bootstrap :dropdown_item, body: 'Dropdown Item Disabled - With Tooltip', disabled: true, href: '#', tooltip: 'Test Tooltip'
     = ui.bootstrap :dropdown_item, body: 'Dropdown Item 2 Tooltipped', tooltip: 'Tested tooltip', href: '#'
     = ui.bootstrap :dropdown_divider
     = ui.bootstrap :dropdown_item, body: 'Dropdown Item 3 Disabled with Tooltip', disabled: true, tooltip: 'Test tooltip', class: 'test-class', id: 'test_id', data: { test_data: 'response' }, href: '#test'

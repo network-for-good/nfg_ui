@@ -18,7 +18,7 @@ module NfgUi
 
         def render
           if tooltip && disabled
-            content_tag(:span, disabled_component_tooltip_wrapper_html_options.merge!(class: 'dropdown-item disabled')) do
+            content_tag(:span, disabled_component_tooltip_wrapper_html_options) do
               content_tag(as, html_options.except(:href)) do
                 (block_given? ? yield : body)
               end
@@ -31,20 +31,6 @@ module NfgUi
         end
 
         private
-
-        # When a dropdown item is both disabled AND given a tooltip
-        # We need to restructure the syntax to wrap the dropdown item in
-        # a faux dropdown item that also contains the tooltip content
-        #
-        # This is similar to disabled, tooltipped buttons but works to maintain the UI
-        # of the dropdown menu
-        def css_classes
-          if disabled && tooltip.present?
-            super.gsub(component_css_class, '').gsub('disabled', '')
-          else
-            super
-          end
-        end
 
         def default_html_wrapper_element
           :a

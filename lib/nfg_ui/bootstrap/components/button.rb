@@ -11,6 +11,7 @@ module NfgUi
         include Bootstrap::Utilities::Disableable
         include Bootstrap::Utilities::Remotable
         include Bootstrap::Utilities::Sizable
+        include Bootstrap::Utilities::Modalable
         include Bootstrap::Utilities::Themeable
         include Bootstrap::Utilities::Tooltipable
         include Bootstrap::Utilities::Wrappable
@@ -33,17 +34,9 @@ module NfgUi
           options.fetch(:block, false)
         end
 
-        def data
-          modal ? super.merge!(toggle: 'modal', target: options[:modal]) : super
-        end
-
         def href
           return if as != :a
           collapse ? collapse : (options[:href] || '#')
-        end
-
-        def modal
-          options.fetch(:modal, nil)
         end
 
         def remove_component_css_classes
@@ -73,7 +66,7 @@ module NfgUi
         end
 
         def non_html_attribute_options
-          super.push(:modal, :block, :remove_component_css_classes)
+          super.push(:block, :remove_component_css_classes)
         end
       end
     end

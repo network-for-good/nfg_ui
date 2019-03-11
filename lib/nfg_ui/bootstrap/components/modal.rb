@@ -29,7 +29,11 @@ module NfgUi
               content_tag(:div, class: 'modal-content') do
                 capture do
                   concat(NfgUi::Bootstrap::Components::ModalHeader.new({ title: title }, view_context).render)
-                  concat(NfgUi::Bootstrap::Components::ModalBody.new({ body: (block_given? ? yield : body) }, view_context).render)
+                  if render_in_body
+                    concat(NfgUi::Bootstrap::Components::ModalBody.new({ body: (block_given? ? yield : body) }, view_context).render)
+                  else
+                    concat(block_given? ? yield : body)
+                  end
                   if footer
                     concat(NfgUi::Bootstrap::Components::ModalFooter.new({ body: footer }, view_context).render)
                   end
@@ -37,6 +41,10 @@ module NfgUi
               end
             end
           end
+        end
+
+        def render_in_body
+          options.fetch(:render_in_body, true)
         end
 
         private

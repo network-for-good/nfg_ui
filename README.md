@@ -1,6 +1,8 @@
 # Network for Good's Design System for Ruby on Rails
 The authoritative resource for the Network for Good front-end UI, empowered by the NFG Design System.
 
+Note: the readme documentation is a little out of date and will be updated with accurate info soon (note added on Jan. 19, 2019)
+
 ```ruby
 gem 'nfg_ui', git: 'https://github.com/network-for-good/nfg_ui'
 ```
@@ -346,6 +348,8 @@ $ Collapsible? (Y/n):
 29. Slat list sm ...
 
 30. Render_if doesn't see nil as falsy. Fix that.
+
+31. _Add a generator to supply the bootstrap shared examples for spec writing your own components._
 
 Component tooltip/icon auto list for backup
 FOUNDATION_COMPONENT_NAMES = %i[color
