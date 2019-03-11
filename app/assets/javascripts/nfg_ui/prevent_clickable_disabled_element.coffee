@@ -1,3 +1,5 @@
+window.NfgUi = {}
+
 class NfgUi.PreventClickableDisabledElement
   constructor: (@el) ->
     console.log "prevent clickable is constructor"
