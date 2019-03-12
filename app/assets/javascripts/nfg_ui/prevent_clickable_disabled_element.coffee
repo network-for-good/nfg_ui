@@ -8,9 +8,7 @@ window.NfgUi = {}
 
 class NfgUi.PreventClickableDisabledElement
   constructor: (@el) ->
-    console.log "prevent clickable is constructor"
     @el.click (e) =>
-      console.log "el was clicked"
       @preventClick e
 
   preventClick: (e) ->
@@ -27,7 +25,6 @@ init_plugin = (el) ->
 
 $ ->
   elSelector = '.disabled'
-  console.log "prevent clickable is running"
   
   $(document).on 'ajax:success', (e, xhr, settings) ->
     return unless $(elSelector).length
