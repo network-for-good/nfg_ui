@@ -1,0 +1,15 @@
+// Colors
+.bg-primary { background-color: $primary-color; }
+.bg-success { background-color: $success-color; }
+.bg-warning { background-color: $warning-color; }
+.bg-alert { background-color: $alert-color; }
+
+
+// Images
+.bg-image {
+  background-repeat: no-repeat;
+  background-position: 50% 0%;
+}
+.bg-image-primary { background: $primary-color image-url('backgrounds/bg-image-primary.jpg'); }
+.bg-image-success { background: $success-color image-url('backgrounds/bg-image-success.jpg'); }
+.bg-image-warning { background: $warning-color image-url('backgrounds/bg-image-warning.jpg'); }

@@ -10,6 +10,7 @@ module NfgUi
   require 'jquery-rails'
   require 'sass-rails'
   require 'select2-rails'
+  require 'inky'
 
   DEFAULT_BOOTSTRAP_THEME    = :primary
 
