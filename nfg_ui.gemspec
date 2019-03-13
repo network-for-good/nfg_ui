@@ -18,10 +18,12 @@ Gem::Specification.new do |s|
   s.add_dependency 'coffee-script'
   s.add_dependency 'font-awesome-rails'
   s.add_dependency 'haml'
+  s.add_dependency 'inky-rb', '~> 1.3.7'
   s.add_dependency 'jquery-rails'
   s.add_dependency 'rails', '>= 4.2.0'
   s.add_dependency 'sass-rails'
   s.add_dependency 'select2-rails'
+  
   # To be upgraded later
   # s.add_dependency 'browser', '~> 2.5.0'
   s.add_dependency 'browser', '~> 1.1'

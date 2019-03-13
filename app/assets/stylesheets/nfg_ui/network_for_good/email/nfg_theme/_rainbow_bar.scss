@@ -1,0 +1,47 @@
+// Rainbow Color Bar
+
+table.brand-colors {
+  width: 100%;
+  td {
+    font-size: 5px;
+    line-height: 5px;
+    height:5px;
+    &[class^='bar']{ height:5px; }
+    &.bar1 {
+      background-color: #2481c0;
+      width: 16% !important; // (Floor) Rounded Down: 197 / 1200
+    }
+    &.bar2 {
+      background-color: #59a5d6;
+      width: 7% !important; // (Floor) Rounded Down: 86 / 1200
+    }
+    &.bar3 {
+      background-color: #7fbb41;
+      width: 15% !important; // (Floor) Rounded Down: 187 / 1200
+    }
+    &.bar4 {
+      background-color: #31a644;
+      width: 10% !important; // Arbitrarily Updated to 10%
+    }
+    &.bar5 {
+      background-color: #2481c0;
+      width: 8% !important; // (Floor) Rounded Down: 100 / 1200
+    }
+    &.bar6 {
+      background-color: #fdb514;
+      width: 15% !important; // (Floor) Rounded Down: 189 / 1200
+    }
+    &.bar7 {
+      background-color: #f7901d;
+      width: 3% !important; // (Floor) Rounded Down: 45 / 1200
+    }
+    &.bar8 {
+      background-color: #ef3823;
+      width: 23% !important; // (Floor) Rounded Down: 287 / 1200
+    }
+    &.bar9 {
+      background-color: #9e1418;
+      width:  3% !important; // (Floor) Rounded Down: 44 / 1200
+    }
+  }
+}

@@ -1,0 +1,12 @@
+- url = local_assigns[:url]
+- text = local_assigns[:text]
+- size = nil if local_assigns[:size].nil?
+- theme_color = nil if local_assigns[:theme_color].nil?
+- expanded_class = "expanded" if local_assigns[:expanded_class].nil?
+- inverse = false if local_assigns[:inverse].nil?
+
+- button_classes = [size.to_s, "radius", theme_color, expanded_class, ('inverse' if inverse)].join(" ")
+
+%button{ class: button_classes, href: url }
+  = text
+  %img.display-inline-block.m-l-quarter{ src: image_path(t("nfg_ui.email.images.icons.caret")), alt: t("nfg_ui.email.images.alt.caret"), width: "6", style: "width:6px;" }

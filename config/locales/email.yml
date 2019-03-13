@@ -1,0 +1,34 @@
+en:
+  nfg_ui:
+    email:
+      company:
+        name: "Network for Good"
+        address: "Network for Good | 1140 Connecticut Avenue NW, Suite 700, Washington, District of Columbia 20036"
+      images:
+        logo: "https://identity.networkforgood.org/images/nfg-logo.png"
+        alt:
+          caret: ">"
+          logo: "Network for Good"
+          social:
+            facebook: "Network for Good on Facebook"
+            twitter: "Network for Good on Twitter"
+            linkedin: "Network for Good on LinkedIn"
+            youtube: "Network for Good on YouTube"
+            google_plus: "Network for Good on Google+"
+        icons:
+          social:
+            facebook: "https://identity.networkforgood.org/images/fa-facebook.png"
+            twitter: "https://identity.networkforgood.org/images/fa-twitter.png"
+            linkedin: "https://identity.networkforgood.org/images/fa-linkedin.png"
+            youtube: "https://identity.networkforgood.org/images/fa-youtube.png"
+            google_plus: "https://identity.networkforgood.org/images/fa-google-plus.png"
+          caret: "https://identity.networkforgood.org/images/fa-caret-right.png"
+      links:
+        nfg_website:
+          homepage: "http://www.networkforgood.com"
+          support_page: "http://www.networkforgood.com/support/"
+        social:
+          facebook: "https://www.facebook.com/networkforgood"
+          twitter: "https://twitter.com/Network4Good"
+          linkedin: "https://www.linkedin.com/company/network-for-good"
+          youtube: "https://www.youtube.com/user/NetworkForGood"
