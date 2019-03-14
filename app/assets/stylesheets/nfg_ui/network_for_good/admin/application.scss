@@ -21,3 +21,8 @@
 
 // Legacy browser support
 @import 'nfg_ui/network_for_good/public/legacy_browser_support/application';
+
+.disabled, [disabled] {
+  pointer-events: none !important;
+  cursor: not-allowed !important;
+}
