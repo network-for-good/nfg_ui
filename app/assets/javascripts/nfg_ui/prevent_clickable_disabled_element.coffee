@@ -1,3 +1,11 @@
+# It is necessary to include window.NfgUi = {} 
+# Because several legacy evo JS files
+# Are `require`ing this file. This makes it easier
+# To just drop in a //= require nfg_ui/prevent_clickable_disabled_element
+# Once we've transitioned over to nfg_ui managing Evo's javascript
+# This window.NfgUi = {} should be removed
+window.NfgUi = {}
+
 class NfgUi.PreventClickableDisabledElement
   constructor: (@el) ->
     @el.click (e) =>
@@ -16,13 +24,24 @@ init_plugin = (el) ->
     inst = new NfgUi.PreventClickableDisabledElement $(@)
 
 $ ->
-  elSelector = '.disabled'
+  elSelectorClass = '.disabled'
+  elAttribute = '[disabled]'
   
   $(document).on 'ajax:success', (e, xhr, settings) ->
-    return unless $(elSelector).length
-    init_plugin $(elSelector)
+    if $(elSelectorClass).length
+      init_plugin $(elSelectorClass)
+    if $(elAttribute).length
+      # We check for .disabled first, if it's got the css class
+      # then it's already been initialized.
+      unless $(elAttribute).hasClass 'disabled'
+        # Otherwise, initialize using $('[disabled]')
+        init_plugin $(elAttribute)
 
-  return unless $(elSelector).length
-  init_plugin $(elSelector)
+  if $(elSelectorClass).length 
+      init_plugin $(elSelectorClass)
+  
+  if $(elAttribute).length
+    unless $(elAttribute).hasClass 'disabled'
+      init_plugin $(elAttribute)
 
 
