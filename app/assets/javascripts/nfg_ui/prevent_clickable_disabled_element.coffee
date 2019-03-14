@@ -27,16 +27,21 @@ init_plugin = (el) ->
 $ ->
   elSelectorClass = '.disabled'
   elAttribute = '[disabled]'
+  console.log "inside"
   
   $(document).on 'ajax:success', (e, xhr, settings) ->
     if $(elSelectorClass).length
       init_plugin $(elSelectorClass)
-    if $(elAttribute).length
+    if $(elAttribute).length && 
       init_plugin $(elAttribute)
 
   if $(elSelectorClass).length 
+      console.log "init selector #{$(elSelectorClass).attr('class')}"
       init_plugin $(elSelectorClass)
+  
   if $(elAttribute).length
-    init_plugin $(elAttribute)
+    unless $(elAttribute).hasClass 'disabled'
+      console.log "init attribute #{$(elSelectorClass).attr('class')}"
+      init_plugin $(elAttribute)
 
 
