@@ -32,8 +32,11 @@ $ ->
   $(document).on 'ajax:success', (e, xhr, settings) ->
     if $(elSelectorClass).length
       init_plugin $(elSelectorClass)
-    if $(elAttribute).length && 
-      init_plugin $(elAttribute)
+    if $(elAttribute).length
+      # We check for .disabled first, if it's got the css class
+      # then it's already been initialized.
+      unless $(elAttribute).hasClass 'disabled'
+        init_plugin $(elAttribute)
 
   if $(elSelectorClass).length 
       console.log "init selector #{$(elSelectorClass).attr('class')}"
