@@ -21,16 +21,22 @@ class NfgUi.PreventClickableDisabledElement
 
 init_plugin = (el) ->
   el.each ->
+    console.log "#{$(@).attr('class')} #{$(@).attr('disabled')}"
     inst = new NfgUi.PreventClickableDisabledElement $(@)
 
 $ ->
-  elSelector = '.disabled'
+  elSelectorClass = '.disabled'
+  elAttribute = '[disabled]'
   
   $(document).on 'ajax:success', (e, xhr, settings) ->
-    return unless $(elSelector).length
-    init_plugin $(elSelector)
+    if $(elSelectorClass).length
+      init_plugin $(elSelectorClass)
+    if $(elAttribute).length
+      init_plugin $(elAttribute)
 
-  return unless $(elSelector).length
-  init_plugin $(elSelector)
+  if $(elSelectorClass).length 
+      init_plugin $(elSelectorClass)
+  if $(elAttribute).length
+    init_plugin $(elAttribute)
 
 
