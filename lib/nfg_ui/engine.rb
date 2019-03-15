@@ -8,7 +8,7 @@ module NfgUi
 
 
     initializer :assets do |config|
-      Rails.application.config.assets.paths << root.join("app", "assets", "images", "nfg_ui", '**', '*')
+      Rails.application.config.assets.paths << root.join("app", "assets", "images", "nfg_ui", 'app_icon')
     end
 
     config.to_prepare do
