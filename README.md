@@ -24,9 +24,28 @@ gem 'nfg_ui', git: 'https://github.com/network-for-good/nfg_ui'
 ```
 
 ### Import & Require the gem's assets
-_NOTE:_ This gem has not taken over ownership of CSS & JS from Evo yet. Some styles have been brought over for documentation visual check purposes (the core styling is in place), but it's not fully brought over yet. This includes javascript plugins, etc.
+_NOTE:_ This gem has not taken over ownership of CSS & JS from Evo yet. Some styles have been brought over for documentation visual check purposes (the core styling is in place), but it's not fully brought over yet. This includes javascript plugins, etc. To use `nfg_ui` images, note the special requirements:
 
-Here are the instructions placeholder: 
+#### Images
+Images are used for things like apple-touch icons, emails, etc.
+
+For Evo: in `application.rb` add:
+```ruby
+class Application < Rails::Application
+  ...
+  config.assets.paths << Rails.root.join("app", "assets", "images", "nfg_ui")
+  ...
+end
+```
+
+Wherever you precompile your assets (often in `config/initializers/assets.rb`), be sure to include "app/assets/images/nfg_ui", Which can look like this:
+
+```ruby
+Rails.application.config.assets.precompile << 'app/assets/images/nfg_ui/**/*'
+```
+
+
+Here are the instructions (more details coming soon): 
 
 In `application.scss` add your pertinent stylesheet suite based on whatever context you're building an interface. These are currently two categories: `admin` and `public`
 
