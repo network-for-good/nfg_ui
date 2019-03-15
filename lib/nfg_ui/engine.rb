@@ -6,6 +6,11 @@ module NfgUi
 
     config.autoload_paths << Engine.root.join("lib")
 
+
+    initializer "nfg_ui.assets.precompile" do |app|
+      config.assets.paths << Engine.root.join('app', 'assets', 'images', 'nfg_ui', '**', '*')
+    end
+
     config.to_prepare do
       ActiveSupport.on_load :action_controller do
         helper NfgUi::ApplicationHelper
