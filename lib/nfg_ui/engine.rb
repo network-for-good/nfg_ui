@@ -7,8 +7,8 @@ module NfgUi
     config.autoload_paths << Engine.root.join("lib")
 
 
-    initializer :assets do |config|
-      Rails.application.config.assets.paths << root.join("app", "assets", "images", "nfg_ui", 'app_icon')
+    initializer :assets do |app|
+      config.assets.paths << Engine.root.join("app", "assets", "images", "nfg_ui")
     end
 
     config.to_prepare do
