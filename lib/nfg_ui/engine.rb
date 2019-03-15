@@ -8,7 +8,7 @@ module NfgUi
 
 
     initializer "nfg_ui.assets.precompile" do |app|
-      config.assets.precompile += [Engine.root.join('app', 'assets', 'images', 'nfg_ui' )]
+      Rails.application.config.assets.paths << root.join('app', 'assets', 'images', 'nfg_ui' )
     end
 
     config.to_prepare do
