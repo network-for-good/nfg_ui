@@ -8,7 +8,7 @@ module NfgUi
 
 
     initializer "nfg_ui.assets.precompile" do |app|
-      config.assets.precompile += %w( nfg_ui/app_icon/apple-touch-icon.png )
+      config.assets.precompile += [Engine.root.join('app', 'assets', 'images', 'nfg_ui' )]
     end
 
     config.to_prepare do
