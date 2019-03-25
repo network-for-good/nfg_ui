@@ -6,8 +6,6 @@ module NfgUi
 
     config.autoload_paths << Engine.root.join("lib")
 
-
-
     # TODO: Could not get asset paths to precompile the images/nfg_ui
     # folder. For now, brute force all images via Dir.glob...
     initializer "nfg_ui.assets.precompile" do |app|
