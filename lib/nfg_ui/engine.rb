@@ -6,7 +6,7 @@ module NfgUi
 
     config.autoload_paths << Engine.root.join("lib")
 
-    Rails.application.config.assets.precompile += ['*.jpg', '*.png', '*.ico', '*.gif', '*.woff2', '*.eot', '*.woff', '*.ttf', '*.svg']
+    config.assets.precompile += ['*.jpg', '*.png', '*.ico', '*.gif', '*.woff2', '*.eot', '*.woff', '*.ttf', '*.svg']
 
     # TODO: Could not get asset paths to precompile the images/nfg_ui
     # folder. For now, brute force all images via Dir.glob...
