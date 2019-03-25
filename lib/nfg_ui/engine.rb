@@ -10,7 +10,7 @@ module NfgUi
     # folder. For now, brute force all images via Dir.glob...
     initializer "nfg_ui.assets.precompile" do |app|
       images = Dir.glob(Engine.root.join('app', 'assets', 'images', 'nfg_ui', '**', '*'))
-      images << Engine.root.join('public', 'favicon.ico')
+      images << "#{Engine.root.join('public')}/favicon.ico"
       app.config.assets.precompile += images
     end
 
