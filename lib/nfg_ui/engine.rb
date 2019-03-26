@@ -11,7 +11,7 @@ module NfgUi
     initializer "nfg_ui.assets.precompile" do |app|
       images = Dir.glob(Engine.root.join('app', 'assets', 'images', 'nfg_ui', '**', '*'))
       images << "#{Engine.root.join('app', 'assets', 'images', 'nfg_ui')}/site.webmanifest"
-      images << Engine.root.join('public', 'favicon.ico')
+      images << "#{Engine.root.join('public')}/favicon.ico"
 
       app.config.assets.precompile += images
     end
