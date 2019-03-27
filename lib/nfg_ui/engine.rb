@@ -6,23 +6,23 @@ module NfgUi
 
     config.autoload_paths << Engine.root.join("lib")
 
+    # Ensures that the config/nfg_ui_manifest.js file is compiled
+    # which, in turn, ensures that all of the non-autoloaded assets
+    # are pre-compiled for the host-app's consumption.
+    #
+    # If you need to add unique assets to be precompiled
+    # (new folders within the assets directory, for example)
+    # update / add to the "links" found on the manifest file.
+    #
+    # See manifest here: app/assets/config/nfg_ui_manifest.js
+    #
+    # Learn more about what options for linking assets from
+    # the manifest are available here:
+    # https://github.com/rails/sprockets#link
+    #
+    # Utilize engine initializer method:
     initializer "nfg_ui.assets.precompile" do |app|
-      # In the event that we need to pre-compile assets, this operates
-      # as a working example of pre-compiling the assets/images folder
-      # for consumption and use by the host app.
-      #
-      # Example: (from within host app)
-      # = image_tag 'nfg_ui/email/logo.png'
-      #
-      # Noted by JR: 3/27/19
-      # Remove this note when appropriate.
-      #
-      # Code to re-enstate:
-      # assets = Dir.glob(Engine.root.join('app', 'assets', 'images', 'nfg_ui', '**', '*'))
-      # assets << "#{Engine.root.join('public')}/favicon.ico"
-      # app.config.assets.precompile += assets
-
-      app.config.assets.precompile << "#{Engine.root.join('app', 'assets', 'config')}/nfg_ui_manifest.js"
+      app.config.assets.precompile += %w( config/nfg_ui_manifest.js )
     end
 
 
