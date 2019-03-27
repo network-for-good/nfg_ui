@@ -8,12 +8,12 @@ module NfgUi
 
     # TODO: Could not get asset paths to precompile the images/nfg_ui
     # folder. For now, brute force all images via Dir.glob...
-    initializer "nfg_ui.assets.precompile" do |app|
-      assets = Dir.glob(Engine.root.join('app', 'assets', 'images', 'nfg_ui', '**', '*'))
-      assets << "#{Engine.root.join('public')}/favicon.ico"
+    # initializer "nfg_ui.assets.precompile" do |app|
+    #   # assets = Dir.glob(Engine.root.join('app', 'assets', 'images', 'nfg_ui', '**', '*'))
+    #   # assets << "#{Engine.root.join('public')}/favicon.ico"
 
-      app.config.assets.precompile += assets
-    end
+    #   # app.config.assets.precompile += assets
+    # end
 
     config.to_prepare do
       ActiveSupport.on_load :action_controller do
