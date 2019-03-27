@@ -37,9 +37,9 @@ module NfgUi
     #
     # ex: favicons & Apple touch icons need to be at http://website.com/favicon.ico, etc.
     # ... `public/favicon.ico` or `public/apple-touch-icon.png`
-    initializer "static assets" do |app|
-      app.middleware.insert_before(::ActionDispatch::Static, ::ActionDispatch::Static, "#{Engine.root}/public")
-    end
+    # initializer "static assets" do |app|
+    #   app.middleware.insert_before(::ActionDispatch::Static, ::ActionDispatch::Static, "#{Engine.root}/public")
+    # end
 
     config.to_prepare do
       ActiveSupport.on_load :action_controller do
