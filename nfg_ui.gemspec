@@ -34,14 +34,15 @@ Gem::Specification.new do |s|
   # be manually set.
   s.add_dependency 'autoprefixer-rails', '9.4.9'
 
-  s.add_development_dependency 'rspec-rails'
+  s.add_development_dependency 'capybara'
+  s.add_development_dependency 'chromedriver-helper'
+  s.add_development_dependency 'factory_bot_rails'
+  s.add_development_dependency 'puma'
   s.add_development_dependency 'rails-controller-testing' # for assert-template
   s.add_development_dependency 'rspec_junit_formatter'
-  s.add_development_dependency 'sqlite3'
-  s.add_development_dependency 'capybara'
+  s.add_development_dependency 'rspec-rails'
   s.add_development_dependency 'selenium-webdriver'
-  s.add_development_dependency 'chromedriver-helper'
-  s.add_development_dependency 'puma'
-  s.add_development_dependency 'factory_bot_rails'
   s.add_development_dependency 'simplecov'
+  s.add_development_dependency 'sprockets', ['>= 0']
+  s.add_development_dependency 'sqlite3'
 end
