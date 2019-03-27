@@ -22,7 +22,7 @@ module NfgUi
     #
     # Utilize engine initializer method:
     initializer "nfg_ui.assets.precompile" do |app|
-      app.config.assets.precompile += %w( config/nfg_ui_manifest.js )
+      app.config.assets.precompile << "#{Engine.root.join('app', 'assets', 'config')}/nfg_ui_manifest.js"
     end
 
 
