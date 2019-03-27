@@ -17,7 +17,7 @@ module NfgUi
     # Font assets example:
     # on app/assets/config/nfg_ui_manifest.js
     #
-    # //= link_tree '../font'
+    # //= link_tree '../font/nfg_ui'
     #
     # See manifest here: app/assets/config/nfg_ui_manifest.js
     #
