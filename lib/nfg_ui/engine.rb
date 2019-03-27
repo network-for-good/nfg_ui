@@ -11,21 +11,23 @@ module NfgUi
     # are pre-compiled for the host-app's consumption.
     #
     # If you need to add unique assets to be precompiled
-    # (new folders within the assets directory, for example)
+    # (new folders -- e.g.: 'font' -- within the assets directory)
     # update / add to the "links" found on the manifest file.
+    #
+    # Font assets example:
+    # on app/assets/config/nfg_ui_manifest.js
+    #
+    # //= link_tree '../font'
     #
     # See manifest here: app/assets/config/nfg_ui_manifest.js
     #
-    # Learn more about what options for linking assets from
-    # the manifest are available here:
+    # Learn more about using the sprockets `link`ing mechanisms:
     # https://github.com/rails/sprockets#link
     #
     # Utilize engine initializer method:
     initializer "nfg_ui.assets.precompile" do |app|
       app.config.assets.precompile << "#{Engine.root.join('app', 'assets', 'config')}/nfg_ui_manifest.js"
     end
-
-
 
     config.to_prepare do
       ActiveSupport.on_load :action_controller do
