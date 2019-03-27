@@ -29,9 +29,14 @@ module NfgUi
       app.config.assets.precompile << "#{Engine.root.join('app', 'assets', 'config')}/nfg_ui_manifest.js"
     end
 
-    # Merge files in nfg_ui's public folder into the host app's
-    # used for things situations where you need a file in the root directory
-    # on the web, ex: favicon.co and apple-touch-icon.png
+    # Merge `nfg_ui/public` folder's assets & files into
+    # the host app's `/public` folder.
+    #
+    # This is needed for situations where a file must be in
+    # the root directory of the website
+    #
+    # ex: favicons & Apple touch icons need to be at http://website.com/favicon.ico, etc.
+    # ... `public/favicon.ico` or `public/apple-touch-icon.png`
     initializer "static assets" do |app|
       app.middleware.insert_before(::ActionDispatch::Static, ::ActionDispatch::Static, "#{Engine.root}/public")
     end
