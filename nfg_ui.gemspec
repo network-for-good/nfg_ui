@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.description = 'The embodied design system for Network for Good.'
   s.license     = 'MIT'
 
-  s.files = Dir['{app,config,db,lib, public}/**/*', 'MIT-LICENSE', 'Rakefile', 'README.md']
+  s.files = Dir['{app,config,db,lib,public}/**/*', 'MIT-LICENSE', 'Rakefile', 'README.md']
 
   s.add_dependency 'bootstrap', '4.3.1'
   s.add_dependency 'coffee-script'

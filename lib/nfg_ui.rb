@@ -11,6 +11,7 @@ module NfgUi
   require 'sass-rails'
   require 'select2-rails'
   require 'inky'
+  require 'nfg_ui/railtie' if defined?(Rails)
 
   DEFAULT_BOOTSTRAP_THEME    = :primary
 
