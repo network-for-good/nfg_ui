@@ -25,7 +25,7 @@ module NfgUi
     # https://github.com/rails/sprockets#link
     #
     # Utilize engine initializer method:
-    initializer "nfg_ui.assets.precompile" do |app|
+    initializer 'nfg_ui.assets.precompile' do |app|
       app.config.assets.precompile << "#{Engine.root.join('app', 'assets', 'config')}/nfg_ui_manifest.js"
     end
 
