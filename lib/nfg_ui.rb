@@ -172,5 +172,3 @@ module NfgUi
                                   tile_header
                                   tile_section].freeze
 end
-
-require 'nfg_ui/railtie' if defined?(Rails)

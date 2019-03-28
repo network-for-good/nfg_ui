@@ -29,6 +29,10 @@ module NfgUi
       app.config.assets.precompile << "#{Engine.root.join('app', 'assets', 'config')}/nfg_ui_manifest.js"
     end
 
+    initializer 'static_assets.load_static_assets' do |app|
+      app.middleware.use ::ActionDispatch::Static, "#{root}/public"
+    end
+
     # Merge `nfg_ui/public` folder's assets & files into
     # the host app's `/public` folder.
     #
