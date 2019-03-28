@@ -6,6 +6,10 @@ module NfgUi
 
     config.autoload_paths << Engine.root.join("lib")
 
+    initializer 'nfg_ui.load_static_assets' do |app|
+      app.middleware.use ::ActionDispatch::Static, "#{root}/public"
+    end
+
     # Ensures that the config/nfg_ui_manifest.js file is compiled
     # which, in turn, ensures that all of the non-autoloaded assets
     # are pre-compiled for the host-app's consumption.
@@ -27,26 +31,11 @@ module NfgUi
     # Utilize engine initializer method:
     initializer "nfg_ui.assets.precompile" do |app|
       app.config.assets.precompile << "#{Engine.root.join('app', 'assets', 'config')}/nfg_ui_manifest.js"
+      # app.config.assets.precompile << "#{root.join('public')}/favicon.ico"
+      # app.config.assets.precompile << "#{root.join('public')}/apple-touch-icon.png"
     end
 
-    initializer 'static_assets.load_static_assets' do |app|
-      app.middleware.use ::ActionDispatch::Static, "#{root}/public"
-    end
 
-    # Merge `nfg_ui/public` folder's assets & files into
-    # the host app's `/public` folder.
-    #
-    # This is needed for situations where a file must be in
-    # the root directory of the website
-    #
-    # ex: favicons & Apple touch icons need to be at http://website.com/favicon.ico, etc.
-    # ... `public/favicon.ico` or `public/apple-touch-icon.png`
-    #
-    # This is supported by also including the `public` folder in the gemspec's files list:
-    # s.files = Dir['{app,config,db,lib,public}/**/*', 'MIT-LICENSE', 'Rakefile', 'README.md']
-    # initializer "static assets" do |app|
-    #   app.middleware.insert_before(::ActionDispatch::Static, ::ActionDispatch::Static, "#{root}/public")
-    # end
 
     config.to_prepare do
       ActiveSupport.on_load :action_controller do
