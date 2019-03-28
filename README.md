@@ -253,6 +253,9 @@ $ git clone https://github.com/network-for-good/nfg_ui.git
 $ bundle exec bundle install
 ```
 
+### To test the gem locally on your host app
+See this gist: https://gist.github.com/jonathanroehm/70749fb6f29c61d0af7c7ed9cc233f79
+
 All done!
 
 ## To browse the components:
