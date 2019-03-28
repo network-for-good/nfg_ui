@@ -9,9 +9,9 @@ end
 
 namespace :nfg_ui do
   task :copy_public_assets => :"assets:environment"  do
-    assets = ['favicon.ico', 'apple-touch-icon.png']
+    assets = Dir.glob(Rails.root.join('public', 'nfg_ui'))
     assets.each do |asset|
-      source_file = File.join(MyEngine::Engine.root, 'public', asset)
+      source_file = File.join(NfgUi::Engine.root, 'public', 'nfg_ui', asset)
       dest_file = File.join(Rails.root, 'public', asset)
       FileUtils.copy_file source_file, dest_file, true
     end
