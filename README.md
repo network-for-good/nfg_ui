@@ -3,6 +3,8 @@ The authoritative resource for the Network for Good front-end UI, empowered by t
 
 Note: the readme documentation is a little out of date and will be updated with accurate info soon (note added on Jan. 19, 2019)
 
+[Jump to development / setting up the gem locally](https://github.com/network-for-good/nfg_ui/blob/master/README.md#local-development--accessing-documentation)
+
 ```ruby
 gem 'nfg_ui', git: 'https://github.com/network-for-good/nfg_ui'
 ```
