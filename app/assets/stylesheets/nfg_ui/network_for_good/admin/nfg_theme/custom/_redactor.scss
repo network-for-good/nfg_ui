@@ -10,6 +10,11 @@
   background-color: $body-bg;
   box-shadow: none;
   border-bottom: $border-width solid $border-color;
+
+  // Set the icons to white on hover
+  li {
+    a:not(.btn):hover, a:not(.btn):focus { color: $white !important; }
+  }
 }
 .redactor-editor, .redactor-box, .redactor-box textarea { z-index: auto; }
 .redactor-box .redactor-toolbar { z-index: $zindex-dropdown - 10 !important; }
