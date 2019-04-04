@@ -21,7 +21,7 @@ RSpec.describe 'Activating a tooltip on all tooltippable components', type: :fea
   let(:tested_additional_component_css_classes) { ['.fa', "h6[data-toggle='tooltip']"] }
   let(:additional_component_css_classes) { [*typeface_component_css_selectors, *tested_additional_component_css_classes] }
 
-  before { visit tooltip_feature_spec_views_path }  
+  before { visit tooltip_feature_spec_views_path }
 
   # Do what we can to ensure we're not missing some
   # new tooltippable components along the way.
@@ -79,7 +79,6 @@ RSpec.describe 'Activating a tooltip on all tooltippable components', type: :fea
 
       it 'activates tooltips on tooltippable slat action items' do
         tooltippable_component_selectors.each do |selector|
-          p selector
           page.find("[data-describe='slat-actions-menu'] .dropdown-toggle").click
           sleep 0.25
           confirm_tooltip_presence(selector: selector)
@@ -89,11 +88,11 @@ RSpec.describe 'Activating a tooltip on all tooltippable components', type: :fea
     end
 
     describe 'tooltips on steps' do
-      let(:tooltippable_component_selectors) { [ "[data-describe='tooltip-step-visited']", 
+      let(:tooltippable_component_selectors) { [ "[data-describe='tooltip-step-visited']",
                                                  "[data-describe='tooltip-step-active']"
                                                  # "[data-toggle='disabled-tooltip-step-wrapper'] [data-toggle='tooltip']"
                                                 ] }
-      
+
       it_behaves_like 'tooltippable components that activate a tooltip'
 
       pending "[data-toggle='disabled-tooltip-step-wrapper'] [data-toggle='tooltip'] doesn't work yet."
@@ -101,7 +100,7 @@ RSpec.describe 'Activating a tooltip on all tooltippable components', type: :fea
 
     describe 'tooltips on progress' do
       let(:tooltippable_component_selectors) { ["[data-describe='tooltip-progress']"] }
-      
+
       it_behaves_like 'tooltippable components that activate a tooltip'
     end
   end
