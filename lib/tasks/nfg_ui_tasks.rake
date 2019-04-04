@@ -1,9 +1,9 @@
-# This will copy the files in nfg_ui's `public/nfg_ui` folder
-# to the host app's `public` folder.
+desc "Copies the files in nfg_ui's `public/nfg_ui` folder to your application's `public` folder."
 Rake::Task['assets:precompile'].enhance do
   Rake::Task['nfg_ui:copy_assets'].invoke
 end
 
+# Enhanced assets:precompile to ensure that the latest assets are copied over
 namespace :nfg_ui do
   task :copy_assets => :"assets:environment"  do
     puts 'rake nfg_ui:copy_assets has begun'
