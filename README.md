@@ -26,14 +26,11 @@ gem 'nfg_ui', git: 'https://github.com/network-for-good/nfg_ui'
 ```
 
 ### Import & Require the gem's assets
-_NOTE:_ This gem has not taken over ownership of CSS & JS from Evo yet. Some styles have been brought over for documentation visual check purposes (the core styling is in place), but it's not fully brought over yet. This includes javascript plugins, etc.
+_NOTE:_ This gem has not taken over ownership of JS from Evo yet. Some styles have been brought over for documentation visual check purposes (the core styling is in place), but it's not fully brought over yet. This includes javascript plugins, etc. To use `nfg_ui` images, note the special requirements:
 
-Here are the instructions placeholder: 
+In `application.scss` add your pertinent stylesheet suite based on whatever context you're building an interface. These are currently two categories: `admin` and `public` (and `email`)
 
-In `application.scss` add your pertinent stylesheet suite based on whatever context you're building an interface. These are currently two categories: `admin` and `public`
-
-
-#### SCSS
+#### SCSS Application stylesheets
 *Admin* stylesheets should be `@imported` in your pertinent application.scss file:
 ```scss
 @import 'nfg_ui/network_for_good/admin/application';
@@ -44,8 +41,13 @@ In `application.scss` add your pertinent stylesheet suite based on whatever cont
 @import 'nfg_ui/network_for_good/public/application';
 ```
 
+*Email* stylesheeets should be `@imported` as above:
+```scss
+@import 'nfg_ui/network_for_good/email/application';
+```
+
 #### Javascript
-Currently, there is only one javascript library. This will likely change, but the current setup is as follows: 
+Currently, there is only one javascript library. This will likely change, but the current setup is as follows:
 
 Javascript should be `//= required` in your pertinent application.js file:
 ```js
@@ -77,7 +79,7 @@ Examples:
 = ui.nfg :button, :submit
 
 // Is the traited / predesigned equivalent of...
-= ui.nfg :button, as: :button, type: 'submit', icon: 'chevron-right', body: 'Save & Exit', theme: :primary, disable_with: "<i class='fa fa-spinner fa-spin mr-1'></i> Saving..." 
+= ui.nfg :button, as: :button, type: 'submit', icon: 'chevron-right', body: 'Save & Exit', theme: :primary, disable_with: "<i class='fa fa-spinner fa-spin mr-1'></i> Saving..."
 
 // Build your own button
 = ui.nfg :button, :danger, data: { describe: 'delete-button' } do
@@ -122,7 +124,7 @@ Here are some implementation examples of speedy traits:
   * `:sm`
   * `:small`
 * For components that are collapsible (Tiles for example)
-  * `ui.nfg :tile, :collapsible` is the same as `ui.nfg :tile, collapsed: false` 
+  * `ui.nfg :tile, :collapsible` is the same as `ui.nfg :tile, collapsed: false`
   * `ui.nfg :tile, :collapsed` is the same as `ui.nfg :tile, collapsed: true`
   * `:collapsible`
   * `:collapsed`
@@ -263,7 +265,7 @@ All done!
 ## To browse the components:
 Browse the components at: *http://localhost:3000/*
 
-_From the gem's root directory (not spec/test_app/):_, 
+_From the gem's root directory (not spec/test_app/):_,
 Begin rails server the normal way.
 
 ```
@@ -278,9 +280,9 @@ $ rails s -p 3003
 
 Documentation .haml files can be found here:
 ```
-/spec/test_app/app/views 
+/spec/test_app/app/views
 ```
-Within that folder are all of the component code examples found when you click through the navigation. Divided up as `Bootstrap`, then the grouping names: `patterns`, `elements`, `foundations`. 
+Within that folder are all of the component code examples found when you click through the navigation. Divided up as `Bootstrap`, then the grouping names: `patterns`, `elements`, `foundations`.
 
 ## Specs
 _From the gem's root directory (not spec/test_app/):_
@@ -291,9 +293,9 @@ $ spring rspec
 ```
 
 ## To do's:
-1. Create a generator for adding a new bootstrap component and a new nfg component. perhaps run through a script (or skip) to set it up to have utilities in place... do you want it to be... 
+1. Create a generator for adding a new bootstrap component and a new nfg component. perhaps run through a script (or skip) to set it up to have utilities in place... do you want it to be...
 ```
-$ Collapsible? (Y/n): 
+$ Collapsible? (Y/n):
 ```
 
 2. Write out a step by step process for manually creating a component of different nesting levels
@@ -330,7 +332,7 @@ $ Collapsible? (Y/n):
 
 18. Create a registered list ... for things like tooltippable nfg components (all? some?) -- that way can mass add modules for nfg side as needed.
 
-19. Look into collapsible toggle / collapse toggle, There are lots of buttons that have their classes removed so they can behave as a "link" 
+19. Look into collapsible toggle / collapse toggle, There are lots of buttons that have their classes removed so they can behave as a "link"
 
 20. Trait specs
 
