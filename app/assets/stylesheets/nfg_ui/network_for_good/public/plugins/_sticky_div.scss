@@ -5,6 +5,7 @@
   position: sticky;
   position: -webkit-sticky;
   top: 0;
-  z-index: 999;
+  z-index: ($zindex-dropdown - 1);
   transition: $transition-base;
+  &.stuck { z-index: ($zindex-tooltip + 1); }
 }

@@ -10,7 +10,7 @@
 .select2.select2-hidden-accessible { width: auto !important; } // Prevents horizontal scrolling on designation select on donation form
 
 body:not(.modal-open) {
-  .select2-container--default { z-index: 901; }
+  .select2-container--default { z-index: $zindex-dropdown; }
 }
 
 .select2-container--default {
@@ -33,7 +33,7 @@ body:not(.modal-open) {
     vertical-align: middle;
     background: $custom-select-bg $custom-select-indicator no-repeat right $custom-select-padding-x center;
     background-size: $custom-select-bg-size;
-    border: $custom-select-border-width solid $custom-select-border-color;
+    border: $custom-select-border-width solid $custom-select-border-color !important;
     border-radius: $border-radius;
     outline: none;
     cursor: pointer;
