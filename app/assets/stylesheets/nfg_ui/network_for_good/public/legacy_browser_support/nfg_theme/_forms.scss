@@ -1,7 +1,7 @@
 // IE10 only
 &.no-flexbox {
   select {
-    background-image: none !important;
+    background: $white !important;
     &::-ms-expand { display: block !important; }
   }
 }
