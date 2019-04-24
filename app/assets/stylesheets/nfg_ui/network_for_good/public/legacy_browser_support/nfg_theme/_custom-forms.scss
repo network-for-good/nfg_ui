@@ -3,8 +3,10 @@
 .custom-control-inline { display: -ms-inline-flexbox; }
 
 .custom-select {
-  background-size: 30%;
-  background-position-x: right 0px;
+  background-image: none;
+  &::-ms-expand {
+    display: inherit;
+  }
 }
 
 .custom-switch {
