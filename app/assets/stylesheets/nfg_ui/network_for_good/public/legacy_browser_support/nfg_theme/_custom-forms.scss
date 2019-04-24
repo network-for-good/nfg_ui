@@ -5,7 +5,7 @@
 .custom-select {
   background-image: none;
   &::-ms-expand {
-    display: inherit;
+    display: block;
   }
 }
 
