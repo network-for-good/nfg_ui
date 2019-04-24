@@ -1,8 +1,12 @@
-// Fixes issue with padding on select fields
-select {
-  padding-left: 10px;
-  padding-right: 15px;
+// IE10 only
+&.no-flexbox {
+  select {
+    background-image: none !important;
+    &::-ms-expand { display: block !important; }
+  }
 }
+
+// Fixes padding issue on file inputs
 input[type='file'] {
   padding: 0;
   border: none;

@@ -2,13 +2,6 @@
 
 .custom-control-inline { display: -ms-inline-flexbox; }
 
-.custom-select {
-  background-image: none;
-  &::-ms-expand {
-    display: block;
-  }
-}
-
 .custom-switch {
   .custom-control-label {
     &::before {
