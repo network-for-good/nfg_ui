@@ -1,6 +1,7 @@
 // IE10 only
 &.no-flexbox {
   select {
+    padding-right: 12px;
     background: #FFFFFF !important;
     &::-ms-expand { display: block !important; }
   }
