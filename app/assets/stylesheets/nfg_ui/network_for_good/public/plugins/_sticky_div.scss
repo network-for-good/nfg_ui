@@ -7,5 +7,5 @@
   top: 0;
   z-index: ($zindex-dropdown - 1);
   transition: $transition-base;
-  &.stuck { z-index: ($zindex-tooltip + 1); }
+  &.stuck { z-index: $zindex-sticky; }
 }
