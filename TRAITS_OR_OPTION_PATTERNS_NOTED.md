@@ -33,3 +33,12 @@ However, the design pattern is actually:
 A `:boolean` trait combined with a `condition:` option might look like this:
 `= ui.nfg :icon, :boolean, condition: entity.has_link_to_website?`
 Which would then check the condition, if true: output the success themed check icon with "Yes" text, etc.
+
+2. An external link trait, e.g. :external would convert:
+```
+= ui.nfg :icon, 'external-link', text: t('.links.stored_consent_agreement'), right: true
+```
+And used as a trait:
+```
+= ui.nfg :icon, :external, text: t('.links.stored_consent_agreement')
+```
