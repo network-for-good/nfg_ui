@@ -16,6 +16,15 @@
 
 %hr
 
+= ui.nfg :typeface, subheading: 'Badge Tooltips', class: 'mb-1'
+%p
+  = ui.nfg :badge, body: 'Tooltip Badge', tooltip: feature_spec_tooltip_text, describe: 'tooltip-badge'
+  = ui.nfg :badge, tooltip: feature_spec_tooltip_text, describe: 'tooltip-badge-with-link', href: '#nogo', body: 'Tooltip Badge Linked'
+  = ui.nfg :badge, tooltip: feature_spec_tooltip_text, describe: 'tooltip-badge-pill', body: 'Tooltip Pill Badge'
+  = ui.nfg :badge, tooltip: feature_spec_tooltip_text, describe: 'tooltip-badge-pill-with-link', href: '#nogo', body: 'Tooltip Pill Badge Linked'
+
+%hr
+
 = ui.nfg :typeface, subheading: 'Icon Tooltips', class: 'mb-1'
 %p= ui.nfg :icon, 'rocket', tooltip: feature_spec_tooltip_text, describe: 'tooltip-icon'
 %p= ui.nfg :icon, 'rocket', text: 'Tooltip with text', tooltip: feature_spec_tooltip_text, describe: 'tooltip-icon-with-text'
@@ -46,7 +55,7 @@
 
 = ui.nfg :dropdown do
   = ui.nfg :dropdown_toggle, body: 'Tooltipped Dropdown Items', describe: 'dropdown-menu'
-  
+
   = ui.nfg :dropdown_menu do
     -# Dropdown item with tooltip
     = ui.nfg :dropdown_item, body: 'Dropdown item with tooltip', icon: 'rocket', tooltip: feature_spec_tooltip_text, href: '#', describe: 'tooltip-dropdown-item'
@@ -67,10 +76,10 @@
 
 = ui.bootstrap :nav, class: 'bg-light p-3' do
   = ui.nfg :nav_item, body: 'Nav Item with Tooltip', href: '#', tooltip: feature_spec_tooltip_text, describe: 'tooltip-nav-item'
-  
+
   %span{ data: { describe: 'disabled-nav-item-wrapper' } }
     = ui.nfg :nav_item, :disabled, body: 'Disabled Nav Item with Tooltip', href: '#', tooltip: feature_spec_tooltip_text, describe: 'disabled-tooltip-nav-item'
-  
+
   -# Active nav item with tooltip
   = ui.nfg :nav_item, :active, body: 'Active Nav Item with Tooltip', href: '#', tooltip: feature_spec_tooltip_text, describe: 'tooltip-active-nav-item'
 
@@ -92,7 +101,7 @@
 
   -# Slat action with href
   = ui.nfg :slat_action, body: 'Tooltip Slat Action - With Href', icon: 'rocket', tooltip: feature_spec_tooltip_text, href: '#', describe: 'tooltip-slat-action-with-href'
-  
+
   -# Slat action with tooltip and with nil modal
   -# Modal and tooltip are not allowed to both be present
   -# at the same time. This helps ensure that the :modal key

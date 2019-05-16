@@ -41,6 +41,11 @@ RSpec.describe 'Activating a tooltip on all tooltippable components', type: :fea
       it_behaves_like 'tooltippable components that activate a tooltip'
     end
 
+    describe 'tooltips on badges' do
+      let(:tooltippable_component_selectors) { ["[data-describe='tooltip-badge']", "[data-describe='tooltip-badge-with-link']", "[data-describe='tooltip-badge-pill']", "[data-describe='tooltip-badge-pill-with-link']"] }
+      it_behaves_like 'tooltippable components that activate a tooltip'
+    end
+
     describe 'tooltips on icons' do
       let(:tooltippable_component_selectors) { ["[data-describe='tooltip-icon']", "[data-describe='tooltip-icon-with-text']"] }
       it_behaves_like 'tooltippable components that activate a tooltip'
