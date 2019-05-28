@@ -15,14 +15,14 @@ Gem::Specification.new do |s|
   s.files = Dir['{app,config,db,lib}/**/*', 'MIT-LICENSE', 'Rakefile', 'README.md']
 
   s.add_dependency 'bootstrap', '4.3.1'
-  s.add_dependency 'coffee-script'
-  s.add_dependency 'font-awesome-rails'
-  s.add_dependency 'haml'
+  s.add_dependency 'coffee-script', '~> 2.4'
+  s.add_dependency 'font-awesome-rails', '~> 4.7'
+  s.add_dependency 'haml', '~> 5.0'
   s.add_dependency 'inky-rb', '~> 1.3.7'
-  s.add_dependency 'jquery-rails'
+  s.add_dependency 'jquery-rails', '~> 4.3'
   s.add_dependency 'rails', '>= 4.2.0'
-  s.add_dependency 'sass-rails'
-  s.add_dependency 'select2-rails'
+  s.add_dependency 'sass-rails', '~> 5.0'
+  s.add_dependency 'select2-rails', '~> 4.0'
 
   # To be upgraded later
   # s.add_dependency 'browser', '~> 2.5.0'
