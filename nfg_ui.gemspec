@@ -20,7 +20,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'haml', '~> 5.0'
   s.add_dependency 'inky-rb', '~> 1.3.7'
   s.add_dependency 'jquery-rails', '~> 4.3'
-  s.add_dependency 'rails', '>= 4.2.0'
+  s.add_dependency 'rails', '~> 4.2.0', '>= 4.2.0'
   s.add_dependency 'sass-rails', '~> 5.0'
   s.add_dependency 'select2-rails', '~> 4.0'
 
@@ -34,15 +34,15 @@ Gem::Specification.new do |s|
   # be manually set.
   s.add_dependency 'autoprefixer-rails', '9.4.9'
 
-  s.add_development_dependency 'capybara'
-  s.add_development_dependency 'chromedriver-helper'
-  s.add_development_dependency 'factory_bot_rails'
-  s.add_development_dependency 'puma'
-  s.add_development_dependency 'rails-controller-testing' # for assert-template
-  s.add_development_dependency 'rspec_junit_formatter'
-  s.add_development_dependency 'rspec-rails'
-  s.add_development_dependency 'selenium-webdriver'
-  s.add_development_dependency 'simplecov'
-  s.add_development_dependency 'sprockets', ['>= 0']
-  s.add_development_dependency 'sqlite3'
+  s.add_development_dependency 'capybara', '~> 3.9'
+  s.add_development_dependency 'chromedriver-helper', '~> 2.1'
+  s.add_development_dependency 'factory_bot_rails', '~> 4.11'
+  s.add_development_dependency 'puma', '~> 3.12'
+  s.add_development_dependency 'rails-controller-testing', '~> 1.0' # for assert-template
+  s.add_development_dependency 'rspec_junit_formatter', '~> 0.4'
+  s.add_development_dependency 'rspec-rails', '~> 3.8'
+  s.add_development_dependency 'selenium-webdriver', '~> 3.14'
+  s.add_development_dependency 'simplecov', '~> 0.16'
+  s.add_development_dependency 'sprockets', '~> 3.7', '>= 0'
+  s.add_development_dependency 'sqlite3', '~> 1.3'
 end
