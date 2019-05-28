@@ -48,6 +48,10 @@ module NfgUi
           options[:theme] = :dark
         end
 
+        def white_theme
+          options[:theme] = :white
+        end
+
         def outlined_trait
           options[:outlined] = true
         end
