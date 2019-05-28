@@ -14,6 +14,7 @@ module NfgUi
                     info
                     light
                     dark
+                    white
                     outlined].freeze
 
         def primary_trait
@@ -48,7 +49,7 @@ module NfgUi
           options[:theme] = :dark
         end
 
-        def white_theme
+        def white_trait
           options[:theme] = :white
         end
 
