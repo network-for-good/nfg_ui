@@ -9,6 +9,8 @@ module NfgUi
         # SlatAction  - is the equivalent of a dropdown menu item
         # SlatActions - is the parent / wrapping component of the SlatAction(s)
         #
+        # and... Integrated Slat Action essentially replaces a dropdown toggle & dropdown menu with either a text link or a button component.
+        #
         # Usage: When you are creating a slat that does not need a menu but has a singular action link
         # For example: when the only option you have on a slat is to delete that item.
         #
@@ -25,12 +27,11 @@ module NfgUi
         # This is a monkeypatch while we re-evaluate the Slat component suite
         # so as not to break existing code implementation on our apps.
         module IntegratedSlatAction
-          # Allows for icons to be passed into the integrated SlatAction
+          # Allows for icons to be passed into the integrated slat action component
           include NfgUi::Components::Utilities::Iconable
 
-          # Allows for using theme traits on the SlatActions component
+          # Allows for using theme traits on the slat action component
           # that is then passed through to the integrated slat action.
-          # Note:
           include NfgUi::Components::Traits::Theme
 
           # This sets whether or not the SlatAction is a button.
@@ -44,14 +45,14 @@ module NfgUi
             options.fetch(:button, false)
           end
 
-          # Passes in the rails confirm option to SlatAction.
+          # Passes in the rails confirm option to the slat action component.
           # Rails example: link_to 'Delete', ..., confirm: 'Are you sure?'
           def confirm
             options.fetch(:confirm, nil)
           end
 
           # Passes the :disable_with option, when present, to the
-          # integrated SlatAction -- this adds the rails disable_with
+          # integrated slat action component -- this adds the rails disable_with
           # Rails example: link_to 'Delete', ..., disable_with: 'Deleting...'
           def disable_with
             options.fetch(:disable_with, nil)
@@ -64,7 +65,7 @@ module NfgUi
             options[:href] || '#'
           end
 
-          # Passes in the rails confirm option to SlatAction.
+          # Passes in the rails confirm option to the slat action component.
           # Rails example: link_to 'Update', ..., method: :patch
           def method
             options.fetch(:method, nil)
@@ -77,7 +78,7 @@ module NfgUi
             options[:outlined] || button
           end
 
-          # Passes in the rails :remote option to SlatAction
+          # Passes in the rails :remote option to the slat action component
           # Rails example: link_to 'Get Started', remote: true
           def remote
             options.fetch(:remote, nil)
@@ -89,7 +90,7 @@ module NfgUi
 
           # Passes the standard `:theme` option to the integrated Slat Action
           #
-          # When the SlatAction is a `button` (`button: true`):
+          # When the slat action component is a `button` (`button: true`):
           # The integrated slat action will default to the `:secondary` theme
           # per the design system style guide.
           #
@@ -113,7 +114,7 @@ module NfgUi
 
           # Supplies the SlatActions with
           # the appropriate css classes for the action link
-          # when the SlatActions is used to bypass writing a manual SlatAction
+          # when the SlatActions is used to bypass writing a manual slat action component
           # This is complicated, and thus...
           # This is why we are creating a patching module -- so that we can later rip this stuff out.
           def integrated_slat_action_link_css_classes
@@ -123,7 +124,7 @@ module NfgUi
             ].join(' ').squish
           end
 
-          # Determines if the integrated SlatAction is a delete link
+          # Determines if the slat action component is a delete link
           # Evaluated by examining the :method option
           #
           # This is used to determine where to inject the `delete` HTML data attribute (data-method)
@@ -132,9 +133,9 @@ module NfgUi
             @delete_link ||= options.fetch(:method, nil) == :delete
           end
 
-          # When the integrated SlatAction is a button component,
+          # When the slat action component is a button component,
           # These are the compiled options that are passed
-          # through from the SlatActions options into the SlatAction (now, button) options.
+          # through from the SlatActions options into the integrated button's options.
           #
           # This also acts as a filter against what is allowed to pass
           # and what is not allowed to pass into the
@@ -175,8 +176,8 @@ module NfgUi
               confirm: confirm }.merge(mergable_delete_link)
           end
 
-          # The HTML options that are passed into the manually created SlatAction
-          # For instances where you are bypassing the manual SlatAction by leveraging the
+          # The HTML options that are passed into the manually created slat action component
+          # For instances where you are bypassing the manual slat action component by leveraging the
           def integrated_slat_action_html_options
           { href: href,
             class: integrated_slat_action_link_css_classes,
@@ -187,7 +188,7 @@ module NfgUi
 
           # These options are removed from attributes because
           # they are picked up and placed on the *SlatActions*
-          # and not on the integrated *SlatAction*
+          # and not on the integrated *slat action component*
           def non_html_attribute_options
             super.push(:button, :confirm, :disable_with, :href, :method, :remote, :theme)
           end
