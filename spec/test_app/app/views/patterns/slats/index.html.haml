@@ -245,20 +245,24 @@
   "Theme: :danger (button)"
   %br
   = ui.nfg :slat_actions, theme: :danger, menu: false, icon: 'trash', href: '#nogo', button: true
+  = ui.nfg :slat_actions, theme: :danger, menu: false, icon: 'trash', href: '#nogo', button: true, body: 'Delete'
   %p.my-3
   "No theme (button)"
   %br
   = ui.nfg :slat_actions, menu: false, icon: 'trash', href: '#nogo', button: true
-
+  = ui.nfg :slat_actions, menu: false, icon: 'trash', href: '#nogo', button: true, body: 'Delete'
   %p.my-3
   ":warning trait (not button)"
   %br
   = ui.nfg :slat_actions, :warning, menu: false, icon: 'trash', href: '#nogo', button: false
+  = ui.nfg :slat_actions, :warning, menu: false, icon: 'trash', href: '#nogo', button: false, body: 'Delete'
   %p.my-3
   "theme: :danger (not button)"
   %br
   = ui.nfg :slat_actions, theme: :danger, menu: false, icon: 'trash', href: '#nogo'
+  = ui.nfg :slat_actions, theme: :danger, menu: false, icon: 'trash', href: '#nogo', body: 'Delete'
 
   %p.my-3
   "no theme"
   = ui.nfg :slat_actions, menu: false, icon: 'trash', href: '#nogo'
+  = ui.nfg :slat_actions, menu: false, icon: 'trash', href: '#nogo', body: 'Delete'
