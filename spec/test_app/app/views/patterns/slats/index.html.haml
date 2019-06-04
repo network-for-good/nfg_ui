@@ -1,35 +1,3 @@
-.text-right
-  ":warning trait (button)"
-  %br
-  = ui.nfg :slat_actions, :warning, menu: false, icon: 'trash', href: '#nogo', button: true
-
-  -#
-    / %br
-    / = NfgUi::Components::Elements::Button.new({traits: [:warning], body: 'sup'}, self).theme.inspect
-    / %br
-    / = NfgUi::Components::Elements::Button.new({traits: [:warning], body: 'sup'}, self).render.inspect
-
-  %p.my-3
-  "Theme: :danger (button)"
-  %br
-  = ui.nfg :slat_actions, theme: :danger, menu: false, icon: 'trash', href: '#nogo', button: true
-  %p.my-3
-  "No theme (button)"
-  %br
-  = ui.nfg :slat_actions, menu: false, icon: 'trash', href: '#nogo', button: true
-
-  %p.my-3
-  ":warning trait (not button)"
-  %br
-  = ui.nfg :slat_actions, :warning, menu: false, icon: 'trash', href: '#nogo', button: false
-  %p.my-3
-  "theme: :danger (not button)"
-  %br
-  = ui.nfg :slat_actions, theme: :danger, menu: false, icon: 'trash', href: '#nogo'
-
-  %p.my-3
-  "no theme"
-  = ui.nfg :slat_actions, menu: false, icon: 'trash', href: '#nogo'
 
 
 %hr
@@ -264,3 +232,33 @@
     = ui.nfg :slat do
       = ui.nfg :slat_body do
         = ui.nfg :slat_item, heading: 'Your shopping cart'
+
+%hr
+
+%h3.my-4 Slat Actions that build a slat action on their own
+.text-right
+  ":warning trait (button)"
+  %br
+  = ui.nfg :slat_actions, :warning, menu: false, icon: 'trash', href: '#nogo', button: true
+
+  %p.my-3
+  "Theme: :danger (button)"
+  %br
+  = ui.nfg :slat_actions, theme: :danger, menu: false, icon: 'trash', href: '#nogo', button: true
+  %p.my-3
+  "No theme (button)"
+  %br
+  = ui.nfg :slat_actions, menu: false, icon: 'trash', href: '#nogo', button: true
+
+  %p.my-3
+  ":warning trait (not button)"
+  %br
+  = ui.nfg :slat_actions, :warning, menu: false, icon: 'trash', href: '#nogo', button: false
+  %p.my-3
+  "theme: :danger (not button)"
+  %br
+  = ui.nfg :slat_actions, theme: :danger, menu: false, icon: 'trash', href: '#nogo'
+
+  %p.my-3
+  "no theme"
+  = ui.nfg :slat_actions, menu: false, icon: 'trash', href: '#nogo'
