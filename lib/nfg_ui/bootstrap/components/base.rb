@@ -54,7 +54,6 @@ module NfgUi
         end
 
         def html_options
-
           options.except(*non_html_attribute_options.uniq)
                  .merge!(id: id,
                          class: css_classes,

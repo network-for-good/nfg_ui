@@ -5,8 +5,6 @@ module NfgUi
     module Patterns
       # Slat doc coming soon
       class SlatActions < NfgUi::Components::Base
-        # include NfgUi::Components::Traits::Theme
-
         # Includes a workaround suite of functionality
         # to integrate a singular SlatAction automatically when
         # The SlatActions component is rendered when the `:menu` option is set to false.

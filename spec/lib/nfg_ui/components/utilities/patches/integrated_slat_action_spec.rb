@@ -6,6 +6,12 @@ RSpec.describe NfgUi::Components::Utilities::Patches::IntegratedSlatAction do
   let(:view_context) { ActionController::Base.new.view_context }
   let(:slat_actions) { NfgUi::Components::Patterns::SlatActions.new(options, view_context) }
 
+  # Have to run these against SlatActions since it's included in the SlatActions class
+  describe 'included modules' do
+    let(:described_class) { NfgUi::Components::Patterns::SlatActions }
+    it_behaves_like 'a component that includes the Iconable utility module'
+  end
+
   describe '#button' do
     let(:tested_button) { nil }
     let(:options) { { button: tested_button } }
