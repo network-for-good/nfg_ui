@@ -70,6 +70,13 @@ module NfgUi
             options.fetch(:method, nil)
           end
 
+          # Allow for outline settings to be added
+          # Assumes true if `button: true` per design system
+          # style guide expectations.
+          def outlined
+            options[:outlined] || button
+          end
+
           # Passes in the rails :remote option to SlatAction
           # Rails example: link_to 'Get Started', remote: true
           def remote
@@ -77,18 +84,7 @@ module NfgUi
           end
 
           def render_integrated_slat_action
-            if button
-              # raise integrated_slat_action_button_component_options.inspect
-              NfgUi::Components::Elements::Button.new({ **integrated_slat_action_button_component_options, body: (block_given? ? yield : body) }, view_context).render
-            else
-              content_tag(:a, **integrated_slat_action_html_options) do
-                if icon
-                  NfgUi::Components::Foundations::Icon.new({ traits: [icon], text: (block_given? ? yield : body), theme: theme }, view_context).render
-                else
-                  (block_given? ? yield : body)
-                end
-              end
-            end
+            button ? render_button : render_link
           end
 
           # Passes the standard `:theme` option to the integrated Slat Action
@@ -196,11 +192,20 @@ module NfgUi
             super.push(:button, :confirm, :disable_with, :href, :method, :remote, :theme)
           end
 
-          # Allow for outline settings to be added
-          # Assumes true if `button: true` per design system
-          # style guide expectations.
-          def outlined
-            options.fetch(:outlined, button)
+          # When `:button` is `true`, this is what is rendered
+          def render_button
+            NfgUi::Components::Elements::Button.new({ **integrated_slat_action_button_component_options, body: (block_given? ? yield : body) }, view_context).render
+          end
+
+          # When `:button` is `false`, a link is rendered
+          def render_link
+            content_tag(:a, **integrated_slat_action_html_options) do
+              if icon
+                NfgUi::Components::Foundations::Icon.new({ traits: [icon], text: (block_given? ? yield : body), theme: theme }, view_context).render
+              else
+                (block_given? ? yield : body)
+              end
+            end
           end
         end
       end
