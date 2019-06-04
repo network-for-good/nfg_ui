@@ -54,7 +54,7 @@ module NfgUi
         end
 
         def html_options
-          options.except(*non_html_attribute_options)
+          options.except(*non_html_attribute_options.uniq)
                  .merge!(id: id,
                          class: css_classes,
                          data: data,
@@ -122,7 +122,7 @@ module NfgUi
         # adding a new string of css classes to this method
         # ex: super.push('new-class')
         def css_classes
-          @css_classes ||= [component_css_class, options[:class]].join(' ').squish
+          @css_classes ||= [component_css_class, options[:class]].reject(&:nil?).uniq.join(' ').squish
         end
 
         def defaults

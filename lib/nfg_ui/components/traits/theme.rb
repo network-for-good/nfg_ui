@@ -5,17 +5,20 @@ module NfgUi
     module Traits
       # Access to pre-designed theme traits
       module Theme
-        # TODO: Figure out how to get NfgUi::BOOTSTRAP_THEMES to be recognized for TRAITS
-        TRAITS = %i[primary
-                    secondary
-                    success
-                    danger
-                    warning
-                    info
-                    light
-                    dark
-                    white
-                    outlined].freeze
+        COLOR_TRAITS = %i[primary
+                          secondary
+                          success
+                          danger
+                          warning
+                          info
+                          light
+                          dark
+                          white]
+
+        TRAITS = [*COLOR_TRAITS,
+                  :outlined].freeze
+
+
 
         def primary_trait
           options[:theme] = :primary
