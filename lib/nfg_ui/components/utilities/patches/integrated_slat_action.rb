@@ -84,6 +84,7 @@ module NfgUi
             options.fetch(:remote, nil)
           end
 
+          # Render the component!
           def render_integrated_slat_action
             button ? render_button : render_link
           end
@@ -97,16 +98,6 @@ module NfgUi
           # The default `:secondary` theme can be manually overridden by passing in a
           # `:theme` trait or `:theme` option to the parent SlatActions component.
           def theme
-            # Note: this needs to be solved / addressed
-            # For whatever reason, the traits are not being picked up by the
-            # button version of the slat action.
-            # This ensures that any theme traits get applied here.
-            # calculated_theme = (traits & NfgUi::Components::Traits::Theme::COLOR_TRAITS)
-
-            # calculated_theme.any? ? calculated_theme.first : options[:theme]
-            # raise options.inspect
-            # options[:theme]
-            # options.fetch(:theme, super)
             options.fetch(:theme, nil)
           end
 
@@ -141,12 +132,7 @@ module NfgUi
           # and what is not allowed to pass into the
           # integrated component.
           def integrated_slat_action_button_component_options
-            # Do not set theme to nil (so theme defaults will run)
-            # Instead, do not pass in a theme at all.
-            # theme_options_hash = theme ? { theme: theme } : {}
-
             { theme: (theme || :secondary),
-              # **theme_options_hash,
               traits: traits,
               as: :a,
               confirm: confirm,
@@ -155,7 +141,7 @@ module NfgUi
               method: send(:method),
               remote: remote,
               outlined: outlined,
-              icon: icon }
+              left_icon: icon }
           end
 
           # Given the complexity of the data-attributes,
