@@ -6,7 +6,7 @@ Note: the readme documentation is a little out of date and will be updated with 
 [Jump to development / setting up the gem locally](https://github.com/network-for-good/nfg_ui/blob/master/README.md#local-development--accessing-documentation)
 
 ```ruby
-gem 'nfg_ui', git: 'https://github.com/network-for-good/nfg_ui'
+gem 'nfg_ui'
 ```
 
 NFG UX & UI team_ (J&K) are excited to bring you... the *Network For Good design system* gem or: `nfg_ui` gem. This bad boy is an all encompassing one-stop shop for everything front-end for Network for Good products.
@@ -22,7 +22,7 @@ To review the documentation for the components, get code samples and browse the 
 
 ### Include the gem in your Gemfile
 ```ruby
-gem 'nfg_ui', git: 'https://github.com/network-for-good/nfg_ui'
+gem 'nfg_ui'
 ```
 
 ### Import & Require the gem's assets
