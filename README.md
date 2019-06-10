@@ -54,6 +54,18 @@ Javascript should be `//= required` in your pertinent application.js file:
 //= require nfg_ui/application
 ```
 
+### Configuring `nfg_ui` for a rails engine gem.
+If you're using `nfg_ui` within a rails engine gem, you'll want to add this to your engine's `ApplicationController`. This ensures that the `ui` method is picked up on your engine's views when consumed by the host app.
+
+```ruby
+module YourEngine
+  class ApplicationController
+    helper NfgUi::ApplicationHelper
+    # ...
+  end
+end
+```
+
 # Usage
 
 ## Network for Good design system components

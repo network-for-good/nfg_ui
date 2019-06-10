@@ -28,44 +28,50 @@ module NfgUi
           dismiss ? super.merge!(dismiss: dismiss) : super
         end
 
-        # TODO
+        # TODO resolve
         def close
           # convert :close trait to
           # close: :alert
-        end
-
-        def method
-          options.fetch(:method, nil)
         end
 
         def dismiss
           options.fetch(:dismiss, nil)
         end
 
+        def method
+          options.fetch(:method, nil)
+        end
+
         def render
           if tooltip && disabled
             content_tag(:span, disabled_component_tooltip_wrapper_html_options) do
               content_tag(as, html_options) do
-                capture do
-                  concat(left_icon_component) if left_icon
-                  concat(block_given? ? yield : body)
-                  concat(right_icon_component) if icon
-                end
+                render_body_or_icon
               end
             end
-
           else
             content_tag(as, html_options) do
-              capture do
-                concat(left_icon_component) if left_icon
-                concat(block_given? ? yield : body)
-                concat(right_icon_component) if icon
-              end
+              render_body_or_icon
             end
           end
         end
 
         private
+
+        # Simplifies whether or not to render the icon only.
+        # Using concat tricks the icon into thinking it should add a spacer to the icon
+        # resulting in a button with an icon and extra left margin (bad UI)
+        def render_body_or_icon
+          if body.present?
+            capture do
+              concat(left_icon_component) if left_icon
+              concat(block_given? ? yield : body)
+              concat(right_icon_component) if icon
+            end
+          elsif icon.present?
+            NfgUi::Components::Foundations::Icon.new({ traits: [icon] }, view_context).render
+          end
+        end
 
         def left_icon_component
           NfgUi::Components::Foundations::Icon.new({ traits: [left_icon],
@@ -75,8 +81,7 @@ module NfgUi
         end
 
         def right_icon_component
-          NfgUi::Components::Foundations::Icon.new({ traits: [icon, :right],
-                                                     class: NfgUi::Components::Foundations::Icon::RIGHT_ICON_SPACER_CSS_CLASS },
+          NfgUi::Components::Foundations::Icon.new({ traits: [icon, :right] },
                                                    view_context).render
         end
 

@@ -1,5 +1,9 @@
 # Changelog
 
+# 0.9.10
+*Non-breaking changes*
+* `NfgUi::Components::Elements::Button` renders a semantically correct icon without unexpected spacing css classes when `:body` is empty in options resulting in an icon that sits perfectly centered in a button without text.
+
 # 0.9.9
 *Non-breaking changes*
 * `SlatActions` can now accept the `:button` option.
