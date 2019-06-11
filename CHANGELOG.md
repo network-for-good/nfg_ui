@@ -1,5 +1,10 @@
 # Changelog
 
+# 0.9.10
+*Non-breaking changes*
+* `NfgUi::Components::Foundations::Icon` is now applies `aria-hidden='true'` by default when rendered to improve accessibility per Font Awesome documentation:
+  * https://fontawesome.com/how-to-use/on-the-web/other-topics/accessibility
+
 # 0.9.9
 *Non-breaking changes*
 * `SlatActions` can now accept the `:button` option.
