@@ -62,6 +62,10 @@ module NfgUi
           nil
         end
 
+        def assistive_html_attributes
+          super.merge(aria: { hidden: true })
+        end
+
         def non_html_attribute_options
           super.push(:right, :text, :icon)
         end
@@ -74,7 +78,7 @@ module NfgUi
         # where text is supplied in the #render, and not passed to the icon
         # thus, icons with :right trait are allowed through
         def update_css_classes?
-          text || right
+          text.present? || right
         end
       end
     end
