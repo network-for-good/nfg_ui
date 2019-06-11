@@ -4,7 +4,7 @@
 *Non-breaking changes*
 * `NfgUi::Components::Foundations::Icon` now applies `aria-hidden='true'` by default when rendered to improve accessibility per Font Awesome documentation:
   * https://fontawesome.com/how-to-use/on-the-web/other-topics/accessibility
-* Fixes an issue where slat actions (and other components, assumedly) were rendering two spacer classes when an icon was present (ex: `<i class="fa fa-heart ml-1 ml-1"></i> Text Example`)
+* Fixes an issue where slat actions (and other components, assumedly) were rendering two spacer css classes (ex: `NfgUi::Components::Foundations::Icon::LEFT_ICON_SPACER_CSS_CLASS`) when an icon was present (ex: `<i class="fa fa-heart ml-1 ml-1"></i> Text Example`)
 * Further solidifies css class updates on the `Icon` when determining whether or not to apply spacer classes.
 * Adds additional specs for `Icon` and thoroughly tests its `#render` method along with many contexts and edge cases that have caused issue or raised issues in the past.
 * Adds a helpful `rescue` when using the `#substring_present?` helper method on specs communicating what the method interpretted instead of raising a useless `nil` regex match missing error.
