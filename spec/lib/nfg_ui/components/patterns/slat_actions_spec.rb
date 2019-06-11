@@ -12,7 +12,7 @@ RSpec.describe NfgUi::Components::Patterns::SlatActions do
     subject { slat_actions.render }
 
     it 'renders the component' do
-      expect(subject).to eq "<div class=\"slat-actions\" href=\"#\"><div class=\"dropdown\"><button class=\"btn dropdown-toggle btn-outline-secondary\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\" type=\"button\">Actions<i aria-hidden=\"true\" class=\"fa fa-caret-down ml-1 ml-1\"></i></button><div class=\"dropdown-menu dropdown-menu-right\"></div></div></div>"
+      expect(subject).to eq "<div class=\"slat-actions\" href=\"#\"><div class=\"dropdown\"><button class=\"btn dropdown-toggle btn-outline-secondary\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\" type=\"button\">Actions<i aria-hidden=\"true\" class=\"fa fa-caret-down ml-1\"></i></button><div class=\"dropdown-menu dropdown-menu-right\"></div></div></div>"
     end
   end
 
@@ -97,7 +97,7 @@ RSpec.describe NfgUi::Components::Patterns::SlatActions do
           end
 
           and_by 'rendering the default language for the action menu' do
-            expect(subject).to include "Actions<i aria-hidden=\"true\" class=\"fa fa-caret-down ml-1 ml-1\"></i>"
+            expect(subject).to include "Actions<i aria-hidden=\"true\" class=\"fa fa-caret-down ml-1\"></i>"
           end
 
           and_by 'rendering the dropdown menu on the right' do

@@ -19,4 +19,8 @@ def substring_present?(string:, starting_substring:, ending_substring:, sought_s
   else
     string[regex, 1].match(sought_substring)
   end
+
+rescue
+  # Use `.inspect` to get the non interpolated / escaped strings supplied in the arguments.
+  raise "Error:\n#substring_present? result:\nThe :saught_substring was NOT found.\n\nDetails:\n string: #{string.inspect}\nsought_substring: #{sought_substring.inspect}\nstarting_substring: #{starting_substring.inspect}\nending_substring: #{ending_substring.inspect}"
 end
