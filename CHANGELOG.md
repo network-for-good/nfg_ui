@@ -8,6 +8,7 @@
 * Further solidifies css class updates on the `Icon` when determining whether or not to apply spacer classes.
 * Adds additional specs for `Icon` and thoroughly tests its `#render` method along with many contexts and edge cases that have caused issue or raised issues in the past.
 * Adds a helpful `rescue` when using the `#substring_present?` helper method on specs communicating what the method interpretted instead of raising a useless `nil` regex match missing error.
+* CSS improvements for event page jumbotron to behave like edgp on mobile
 
 # 0.9.9
 *Non-breaking changes*
