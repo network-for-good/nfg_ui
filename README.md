@@ -358,6 +358,8 @@ $ Collapsible? (Y/n):
 
 31. _Add a generator to supply the bootstrap shared examples for spec writing your own components._
 
+32. Need to integrate will_paginate rendering into the nfg_ui gem.
+
 Component tooltip/icon auto list for backup
 FOUNDATION_COMPONENT_NAMES = %i[color
                                   icon
