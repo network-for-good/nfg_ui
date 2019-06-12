@@ -1,9 +1,19 @@
 # Changelog
 
+# 0.9.10
+*Non-breaking changes*
+* `NfgUi::Components::Foundations::Icon` now applies `aria-hidden='true'` by default when rendered to improve accessibility per Font Awesome documentation:
+  * https://fontawesome.com/how-to-use/on-the-web/other-topics/accessibility
+* Fixes an issue where slat actions (and other components, assumedly) were rendering two spacer css classes (ex: `NfgUi::Components::Foundations::Icon::LEFT_ICON_SPACER_CSS_CLASS`) when an icon was present (ex: `<i class="fa fa-heart ml-1 ml-1"></i> Text Example`)
+* Further solidifies css class updates on the `Icon` when determining whether or not to apply spacer classes.
+* Adds additional specs for `Icon` and thoroughly tests its `#render` method along with many contexts and edge cases that have caused issue or raised issues in the past.
+* Adds a helpful `rescue` when using the `#substring_present?` helper method on specs communicating what the method interpretted instead of raising a useless `nil` regex match missing error.
+* CSS improvements for event page jumbotron to behave like edgp on mobile
+
 # 0.9.9
 *Non-breaking changes*
-* `SlatActions` can now accept the `:button` option.
-  * Example usage: `= ui.nfg :slat_actions, icon: 'trash', body: 'Delete', menu: false, button: true`
+* `NfgUi::Components::Patterns::SlatActions` can now accept the `:button` option. Setting `:button` to `true` (*and* `menu: false`) will result in the `SlatActions` component automatically rendering a button in place of the dropdown menu. Setting `button: false` (*and* `menu: false`) in the component options will render the component as a text link.
+  * Example usage: `= ui.nfg :slat_actions, icon: 'trash', body: 'Delete', menu: false, button: true, method: :delete`
 * A patching system has been introduced for the design system (not `bootstrap`).
   * Patching a component will now signal that we are introducing functionality that we intend to remove. It also provides a pattern for implementing "quick fixes" and provides a single module suite to review for code debt.
 * Along with the patching concept, a new pattern for "quick built" components is now available. This allows us to remove "pass through" methods from the parent component's class and keep it in its own isolated area.

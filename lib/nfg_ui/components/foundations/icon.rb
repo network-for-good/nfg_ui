@@ -23,41 +23,80 @@ module NfgUi
         LEFT_ICON_SPACER_CSS_CLASS  = 'mr-1'
         RIGHT_ICON_SPACER_CSS_CLASS = 'ml-1'
 
-        def render
-          view_context.fa_icon icon, **html_options, text: text, right: right
-        end
-
+        # Utilize a trait or `:icon` within options.
+        # When setting the icon as a trait, you must pass in a string.
+        # If a symbol is detected, the component assumes it's a registered trait
+        #
+        # Example usage as a trait:
+        # = ui.nfg :icon, 'heart'
+        #
+        # Example usage as an option:
+        # = ui.nfg :icon, icon: 'heart'
+        #
+        # This is useful in syncing up the ability to pass in `:icon` to
+        # components that accept `:icon` in options and automatically render an icon.
         def icon
           options[:icon] || (traits.slice!(0).to_s if traits.first.is_a?(String))
         end
 
-        def text
-          options.fetch(:text, nil)
+        # Outputs a Font Awesome icon using the #fa_icon method.
+        def render
+          view_context.fa_icon icon, **html_options, text: text, right: right
         end
 
+        # Tap into the font_awesome_rails :right method to
+        # place the icon on the right side of the text.
+        # This also automatically adds the right side css spacer class to the icon <i> tag.
         def right
           options.fetch(:right, false)
         end
 
+        # Tap into the font_awesome_rails :text method to
+        # insert text into the rendered component.
+        def text
+          options.fetch(:text, nil)
+        end
+
         private
 
-        def css_classes
-          return super unless update_css_classes?
-          [
-            super,
-            (NfgUi::Components::Foundations::Icon::LEFT_ICON_SPACER_CSS_CLASS unless right),
-            (NfgUi::Components::Foundations::Icon::RIGHT_ICON_SPACER_CSS_CLASS if right)
-          ].join(' ').squish
+        # Adds the left css spacer class when :right is false
+        # and when text is present
+        def add_left_icon_css_spacer_class?
+          !right && text.present?
         end
 
-        def theme_css_class_prefix
-          'text-'
+        # Adds the left css spacer class when :right is true
+        # and when text is present
+        def add_right_icon_css_spacer_class?
+          right && text.present?
         end
 
+        def assistive_html_attributes
+          super.merge(aria: { hidden: true })
+        end
+
+        # Override the auto generated css class
         def component_css_class
           ''
         end
 
+        # Icons utilize "spacer" css classes to manually provide margins
+        # between the icon and the text.
+        def css_classes
+          [
+            super,
+            (NfgUi::Components::Foundations::Icon::LEFT_ICON_SPACER_CSS_CLASS if add_left_icon_css_spacer_class?),
+            (NfgUi::Components::Foundations::Icon::RIGHT_ICON_SPACER_CSS_CLASS if add_right_icon_css_spacer_class?)
+          ].join(' ').squish
+        end
+
+        # Icons utilize text styling for css theming.
+        def theme_css_class_prefix
+          'text-'
+        end
+
+        # Icons should be body text color by default and should not
+        # have a theme set by default.
         def default_theme
           nil
         end
@@ -66,15 +105,9 @@ module NfgUi
           super.push(:right, :text, :icon)
         end
 
+        # Icons are not thematically outlineable
         def outlineable?
           false
-        end
-
-        # Several components need to utilize the icon with a spacer css class
-        # where text is supplied in the #render, and not passed to the icon
-        # thus, icons with :right trait are allowed through
-        def update_css_classes?
-          text || right
         end
       end
     end
