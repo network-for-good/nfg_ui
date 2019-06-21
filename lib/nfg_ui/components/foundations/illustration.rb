@@ -6,7 +6,6 @@ module NfgUi
       # Grid doc coming soon
       class Illustration < NfgUi::Components::Foundations::Image
         include Bootstrap::Utilities::Sizable
-        include Bootstrap::Utilities::Tooltipable
         include NfgUi::Components::Traits::Size
         include NfgUi::Components::Traits::Illustration
 

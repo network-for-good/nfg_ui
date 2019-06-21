@@ -5,6 +5,8 @@ module NfgUi
     module Foundations
       # Image doc coming soon
       class Image < NfgUi::Components::Base
+        include Bootstrap::Utilities::Tooltipable
+
         def css_classes
           [
             super,
