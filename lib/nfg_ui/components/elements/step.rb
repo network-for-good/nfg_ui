@@ -19,6 +19,15 @@ module NfgUi
           options.fetch(:step, nil)
         end
 
+        def active
+          # Active is a transitory state for steps
+          # So when a step is active, it is automatically visited.
+          # This sets visited to true.
+          # This is also accounted for in the #active_trait for steps.
+          options[:visited] = true if options[:active]
+          super
+        end
+
         def visited
           options.fetch(:visited, false)
         end

@@ -1,6 +1,7 @@
 %h1 Steps
 %h2 Component
 %p Note: upcoming steps that are neither :visited nor :active are :disabled by default
+%p Also note: active steps are both active & visited. Active is seen as a transitory step that augments a visited step's appearance.
 
 = ui.nfg :steps do
   = ui.nfg :step, :visited, step: 1, body: 'Donation', href: '#back'

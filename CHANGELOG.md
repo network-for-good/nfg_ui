@@ -1,6 +1,9 @@
 # Changelog
 # 0.9.11
 *Non-breaking changes*
+* `NfgUi::Components::Elements::Step` now views :active state as a transitory state. Active steps are now seen as `:visited` steps that are also `:active`.
+  * As such, an `:active` step will include both the `.active` and `.visited` css classes.
+  * CSS has been updated to account for this and no changes should be needed for steps front-end implementation or use as of *0.9.11*
 * Formally introduces the `NfgUi::Components::Foundations::Image` component
   * Images are tooltippable (`tooltip: 'My tooltip'`)
   * Utilizes a `:responsive` option which is turned on by default.
