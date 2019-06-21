@@ -11,14 +11,7 @@ module NfgUi
 
         include NfgUi::Components::Traits::Step
 
-        def component_family
-          :steps
-        end
-
-        def step
-          options.fetch(:step, nil)
-        end
-
+        # Override #active from Activatable
         def active
           # Active is a transitory state for steps
           # So when a step is active, it is automatically visited.
@@ -28,10 +21,13 @@ module NfgUi
           super
         end
 
-        def visited
-          options.fetch(:visited, false)
+        def component_family
+          :steps
         end
 
+        # NOTE: DISABLED TOOLTIPS DO NOT YET WORK ON STEPS
+        # NAVITEM DOES NOT INCLUDE DISABLEABLE MODULE
+        # JR: 06-21-2019
         def disabled
           options[:disabled] || (!visited && !active)
         end
@@ -40,6 +36,14 @@ module NfgUi
           content_tag(as, html_options) do
             NfgUi::Components::Elements::StepIndicator.new({ step: step.to_s, body: (block_given? ? yield : body), icon: icon, href: href, disabled: disabled }, view_context).render
           end
+        end
+
+        def step
+          options.fetch(:step, nil)
+        end
+
+        def visited
+          options.fetch(:visited, false)
         end
 
         private
