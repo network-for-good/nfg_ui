@@ -1,0 +1,17 @@
+%h1 Illustrations
+
+%h3 Illustration without sizing:
+%p= ui.nfg :illustration, image: 'test_app/sample_illustration.png'
+
+%hr
+
+%h3 Illustrations with sizing:
+%p
+  Large:
+  %br
+  = ui.nfg :illustration, :lg, image: 'test_app/sample_illustration.png'
+
+%p
+  Small:
+  %br
+  = ui.nfg :illustration, :sm, image: 'test_app/sample_illustration.png'

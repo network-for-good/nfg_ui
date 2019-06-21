@@ -83,6 +83,7 @@ module NfgUi
 
   FOUNDATION_COMPONENT_NAMES = %i[color
                                   icon
+                                  illustration
                                   image
                                   input
                                   grid
