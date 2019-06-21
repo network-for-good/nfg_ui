@@ -22,7 +22,7 @@ module NfgUi
         end
 
         def render
-          image_tag(view_context.image_path(image || src || ''), **html_options)
+          image_tag(view_context.image_path(image_location), **html_options)
         end
 
         # Flag if the image should utilize responsive settings or not.
@@ -40,6 +40,10 @@ module NfgUi
         end
 
         private
+
+        def image_location
+          src || ''
+        end
 
         def component_css_class
           ''
