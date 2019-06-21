@@ -18,6 +18,7 @@ module NfgUi
                          Dismiss
                          DropdownToggle
                          Icon
+                         Illustration
                          ListGroup
                          Muted
                          Nav

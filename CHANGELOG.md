@@ -1,4 +1,17 @@
 # Changelog
+# 0.9.11
+*Non-breaking changes*
+* Formally introduces the `NfgUi::Components::Foundations::Image` component
+  * Utilizes a `:responsive` option which is turned on by default.
+    * Turning `:responsive` off (`responsive: false`) removes the `img-fluid` css class.
+* Introduced the *illustration* component to the `NetworkForGood` system: `NfgUi::Components::Foundations::Illustration` -- this component inherits `NfgUi::Components::Foundations::Image`
+  * Utilizes sizing options and traits as well as the `:image` option.
+  * By default, since sizing is in use, the `:responsive` option is automatically set to `false`, this can be turned on as needed. *Do not pass in a :size option / trait if `responsive: true`*
+  * Example usage:
+    * `= ui.nfg :illustration, image: 'test_app/sample_illustration.png'`
+    * `= ui.nfg :illustration, :lg, image: 'test_app/sample_illustration.png'`
+    * `= ui.nfg :illustration, :sm, image: 'test_app/sample_illustration.png'`
+    * `= ui.nfg :illustration, image: 'test_app/sample_illustration.png', responsive: true`
 
 # 0.9.10
 *Non-breaking changes*

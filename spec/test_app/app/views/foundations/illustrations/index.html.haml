@@ -1,7 +1,16 @@
 %h1 Illustrations
+%p By default, illustrations have responsive set to false and will not include img-fluid
 
 %h3 Illustration without sizing:
-%p= ui.nfg :illustration, image: 'test_app/sample_illustration.png'
+%p= ui.nfg :illustration, image: 'test_app/sample_illustration.png', alt: 'Test'
+
+%hr
+%h3 Illustration with responsive turned on.
+%p When responsive is set to true, all of the illustration specific css classes (including sizing) is removed from the image tag.
+
+.row
+  .col-lg-3.col
+    %p= ui.nfg :illustration, :responsive, image: 'test_app/sample_illustration.png', alt: 'Test'
 
 %hr
 

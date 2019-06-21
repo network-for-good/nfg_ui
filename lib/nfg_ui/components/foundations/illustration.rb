@@ -4,27 +4,24 @@ module NfgUi
   module Components
     module Foundations
       # Grid doc coming soon
-      class Illustration < NfgUi::Components::Base
+      class Illustration < NfgUi::Components::Foundations::Image
         include Bootstrap::Utilities::Sizable
         include Bootstrap::Utilities::Tooltipable
-
         include NfgUi::Components::Traits::Size
+        include NfgUi::Components::Traits::Illustration
 
-        def image
-          options.fetch(:image, nil)
+        def size
+          responsive ? nil : super
         end
 
-        def render
-          return unless image.present?
-          content_tag(:img, html_options.except(:image).merge!(src: view_context.image_path(image))) {}
-          # image_tag(image_path(image), **html_options)
-
+        def component_css_class
+          responsive ? '' : super
         end
 
         private
 
-        def non_html_attribute_options
-          super.push(:image)
+        def default_responsive
+          false
         end
       end
     end
