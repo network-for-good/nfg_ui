@@ -41,6 +41,10 @@ module NfgUi
 
         private
 
+        def component_css_class
+          ''
+        end
+
         def non_html_attribute_options
           super.push(:image, :src, :responsive)
         end
