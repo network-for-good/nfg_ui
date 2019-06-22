@@ -7,10 +7,10 @@
 
 
     // Background connector bar between items
-    &::after {
+    &::before {
       position: absolute;
       top: (($spacer * .5) - .1rem);
-      left: 50%;
+      right: 50%;
       width: 100%;
       height: ($border-width + 1px);
       background-color: $border-color;
@@ -20,20 +20,33 @@
 
 
     // Removes the background connector bar on the last item
-    &:last-child {
-      &::after { display: none; }
+    &:first-child {
+      &::before { display: none; }
     }
 
 
     // Various states
     &.visited, &.active {
+      &::before { background-color: $primary; }
       .step-indicator {
         color: $white;
         background-color: $primary;
         border-color: $primary;
       }
     }
-    &.visited::after { background-color: $primary; }
+    &.active {
+      .nav-link {
+        .step-indicator::after { opacity: 1; }
+      }
+      ~ .visited {
+        &::before { background-color: $secondary; }
+        .step-indicator {
+          background-color: $secondary;
+          border-color: $secondary;
+          &::after { box-shadow: 0 0 0 ($spacer * .25) transparentize($secondary, 0.5); };
+        }
+      }
+    }
     &.disabled {
       cursor: default;
       pointer-events: none;
