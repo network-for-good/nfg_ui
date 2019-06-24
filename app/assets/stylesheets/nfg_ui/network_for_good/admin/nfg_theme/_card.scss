@@ -1,8 +1,8 @@
 //
 // Base styles
 //
-.card { box-shadow: none; }
-a.card {
+.card[href] {
+  box-shadow: none;
   transition: $transition-base;
   &:hover { box-shadow: $box-shadow-sm; }
 }
