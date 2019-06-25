@@ -1,6 +1,7 @@
 .illustration {
   max-width: 100%;
-  height: ($spacer * 6);
+  height: auto;
+  max-height: ($spacer * 6);
 }
-.illustration-sm { height: ($spacer * 4); }
-.illustration-lg { height: ($spacer * 10); }
+.illustration-sm { max-height: ($spacer * 4); }
+.illustration-lg { max-height: ($spacer * 10); }
