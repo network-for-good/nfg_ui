@@ -1,0 +1,25 @@
+- theme_color = nil if local_assigns[:theme_color].nil?
+- body = '' if local_assigns[:body].nil?
+- image = '' if local_assigns[:image].nil? # :image should be the path to an image.
+
+-# Success is assumed true if the theme color is :success
+- success = (theme_color == :success) if local_assigns[:success].nil?
+
+-# If :success is true, auto-generate the checkmark unless an image is set.
+- if success && local_assigns[:image].nil?
+  - image = 'nfg_ui/email/icons/fa-check-circle-success.png'
+
+-# Auto-generate an image alt based on the filename -- humanized.
+- image_alt = image.split('/').last.split('.').first.titleize if local_assigns[:image_alt].nil?
+
+%callout{ class: theme_color }
+  %row
+    - if image.present?
+      %columns{ small: 2 }
+        = image_tag image_path(image), alt: image_alt, height: 30, width: 30
+
+    %columns{ small: (image.present? ? 10 : 12) }
+      - if body.present?
+        %p= body
+      - elsif block_given?
+        = yield
