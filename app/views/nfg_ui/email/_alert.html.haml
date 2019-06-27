@@ -13,13 +13,12 @@
 - image_alt = image.split('/').last.split('.').first.titleize if local_assigns[:image_alt].nil?
 
 %callout{ class: theme_color }
-  %row
-    - if image.present?
-      %columns{ small: 2 }
-        = image_tag image_path(image), alt: image_alt, height: 30, width: 30
-
-    %columns{ small: (image.present? ? 10 : 12) }
-      - if body.present?
-        %p= body
-      - elsif block_given?
-        = yield
+  - if image.present?
+    = render partial: 'nfg_ui/email/media', locals: { image: image, image_alt: image_alt, body: body }
+  - else
+    %row
+      %columns
+        - if body.present?
+          %p= body
+        - else
+          = yield

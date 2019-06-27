@@ -1,0 +1,22 @@
+- body = '' if local_assigns[:body].nil?
+- image = '' if local_assigns[:image].nil? # :image should be the path to an image.
+
+-# Auto-generate an image alt based on the filename -- humanized
+-# Or, send in your own
+- if image.present?
+  - image_alt = image.split('/').last.split('.').first.titleize if local_assigns[:image_alt].nil?
+- else
+  - image_alt = '' if local_assigns[:image_alt].nil?
+-# For now, the media component only accepts an image path string
+-# If no image is present, it fallsback to a single column
+-# This should be re-considered, but is in place for fool-proofing at the moment.
+%row
+  - if image.present?
+    %columns{ small: 2 }
+      = image_tag image_path(image), alt: image_alt, height: 30, width: 30
+
+  %columns{ small: (image.present? ? 10 : 12) }
+    - if body.present?
+      %p= body
+    - else
+      = yield
