@@ -35,7 +35,7 @@ FactoryBot.define do
                                        .nfg(:badge, attributes) }
     end
   end
-  
+
   factory :button, class: NfgUi::Components::Elements::Button do
     body { nil }
     traits { [] }
@@ -140,6 +140,19 @@ FactoryBot.define do
     trait :rendered do
       initialize_with { NfgUi::UI::Base.new(ActionController::Base.new.view_context)
                                        .nfg(:tile_section, attributes) }
+    end
+  end
+
+  factory :step, class: NfgUi::Components::Elements::Step do
+    body { nil }
+    traits { [] }
+
+    skip_create
+    initialize_with { new(attributes.merge!(traits: traits), ActionController::Base.new.view_context) }
+
+    trait :rendered do
+      initialize_with { NfgUi::UI::Base.new(ActionController::Base.new.view_context)
+                                       .nfg(:step, attributes) }
     end
   end
 

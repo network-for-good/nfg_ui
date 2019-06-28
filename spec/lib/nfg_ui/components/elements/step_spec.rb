@@ -10,6 +10,10 @@ RSpec.describe NfgUi::Components::Elements::Step do
   it_behaves_like 'a component that includes the Iconable utility module'
   it_behaves_like 'a component that includes the Activatable utility module', component_suite: :nfg
 
+  it { expect(described_class.included_modules).to include NfgUi::Components::Traits::Active }
+
+  it { expect(described_class.included_modules).to include NfgUi::Components::Traits::Step }
+
   describe '#active' do
     subject { step.active }
     let(:options) { { active: true } }
@@ -32,7 +36,6 @@ RSpec.describe NfgUi::Components::Elements::Step do
       it 'sets does not set the :visited option to true' do
         by 'running the method' do
           subject
-          # raise step.options.inspect
         end
 
         and_it 'does not add the active key to the options' do
@@ -40,6 +43,12 @@ RSpec.describe NfgUi::Components::Elements::Step do
         end
       end
     end
+  end
+
+  describe '#component_family' do
+    subject { step.component_family }
+
+    it { is_expected.to eq :steps }
   end
 
   describe '#disabled' do
@@ -98,42 +107,6 @@ RSpec.describe NfgUi::Components::Elements::Step do
           end
         end
       end
-    end
-  end
-
-  describe '#component_family' do
-    subject { step.component_family }
-
-    it { is_expected.to eq :steps }
-  end
-
-  describe '#step' do
-    subject { step.step }
-
-    context 'when :step is present in options' do
-      let(:options) { { step: tested_step } }
-      let(:tested_step) { 4 }
-      it { is_expected.to eq tested_step }
-    end
-
-    context 'when :step is not present in options' do
-      let(:options) { {} }
-      it { is_expected.to be_nil }
-    end
-  end
-
-  describe '#visited' do
-    subject { step.visited }
-
-    context 'when :visited is present in options' do
-      let(:options) { { visited: tested_visited } }
-      let(:tested_visited) { true }
-      it { is_expected.to eq tested_visited }
-    end
-
-    context 'when :visited is not present in options' do
-      let(:options) { {} }
-      it { is_expected.not_to be }
     end
   end
 
@@ -220,6 +193,36 @@ RSpec.describe NfgUi::Components::Elements::Step do
           expect(subject).to eq "<li class=\"nav-item active visited\" data-toggle=\"tooltip\" data-placement=\"top\" data-html=\"true\" title=\"tested tooltip\"><a class=\"nav-link\"><div class=\"step-indicator\"></div><p class=\"mt-1 mb-0 step-text text-muted\"></p></a></li>"
         end
       end
+    end
+  end
+
+  describe '#step' do
+    subject { step.step }
+
+    context 'when :step is present in options' do
+      let(:options) { { step: tested_step } }
+      let(:tested_step) { 4 }
+      it { is_expected.to eq tested_step }
+    end
+
+    context 'when :step is not present in options' do
+      let(:options) { {} }
+      it { is_expected.to be_nil }
+    end
+  end
+
+  describe '#visited' do
+    subject { step.visited }
+
+    context 'when :visited is present in options' do
+      let(:options) { { visited: tested_visited } }
+      let(:tested_visited) { true }
+      it { is_expected.to eq tested_visited }
+    end
+
+    context 'when :visited is not present in options' do
+      let(:options) { {} }
+      it { is_expected.not_to be }
     end
   end
 
