@@ -41,20 +41,30 @@ module NfgUi
 
         private
 
-        def image_location
-          src || ''
-        end
-
         def component_css_class
           ''
         end
 
-        def non_html_attribute_options
-          super.push(:image, :src, :responsive)
-        end
-
         def default_responsive
           true
+        end
+
+        # Provide a fallback image location and default to src
+        # :src will default to the :image option
+        # if :src is not set.
+        #
+        # We prefer the :image keyword here because of its specificity and to pass between components.
+        #
+        # Ex: `:button, image: '...'`
+        def image_location
+          src || ''
+        end
+
+        # :src is removed because we leveage the #image_tag helper method.
+        #
+        # the image_tag helper method automatically turns the first argument into the `src` attribute.
+        def non_html_attribute_options
+          super.push(:image, :src, :responsive)
         end
       end
     end
