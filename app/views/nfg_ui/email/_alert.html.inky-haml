@@ -1,22 +1,10 @@
 - theme_color = nil if local_assigns[:theme_color].nil?
 - body = '' if local_assigns[:body].nil?
-- image = '' if local_assigns[:image].nil? # :image should be the path to an image.
-- image_alt = '' if local_assigns[:image_alt].nil?
-
--# Success is assumed true if the theme color is :success
-- success = (theme_color == :success)
-
--# If :success is true, auto-generate the checkmark unless an image is set.
-- if success && image.empty?
-  - image = 'nfg_ui/email/icons/fa-check-circle-success.png'
 
 %callout{ class: theme_color }
-  - if image.present?
-    = render partial: 'nfg_ui/email/media', locals: { image: image, image_alt: image_alt, body: body }
-  - else
-    %row
-      %columns
-        - if body.present?
-          %p= body
-        - else
-          = yield
+  %row
+    %columns
+      - if body.present?
+        %p= body
+      - else
+        = yield
