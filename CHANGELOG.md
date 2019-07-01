@@ -3,7 +3,7 @@
 *Non-breaking changes*
 * Adds an inky / Zurb Foundation for Emails `callout` component (which we label as 'alert').
   * Render with a `theme` local variable and an optional `body` local or block.
-  * Example usage: `<%= render layout: 'nfg_ui/email/alert', locals: { theme_color: :warning, body: 'Email Body' } %>
+  * Example usage: `<%= render layout: 'nfg_ui/email/alert', locals: { theme_color: :warning, body: 'Email Body' } %>`
 * `NfgUi::Components::Elements::Step` now views :active state as a transitory state. Active steps are now seen as `:visited` steps that are also `:active`.
   * As such, an `:active` step will include both the `.active` and `.visited` css classes.
   * CSS has been updated to account for this and no changes should be needed for steps front-end implementation or use as of *0.9.11*
