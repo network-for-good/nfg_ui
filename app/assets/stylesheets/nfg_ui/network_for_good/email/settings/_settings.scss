@@ -119,15 +119,15 @@ $button-rounded: $global-rounded;
 // 6. Callout
 // ----------
 
-$callout-background: $white;
-$callout-background-fade: 85%;
+$callout-background: #e5f5fd;
+$callout-background-fade: 88%;
 $callout-padding: 12px;
 $callout-margin-bottom: $global-margin;
-$callout-border: 1px solid darken($callout-background, 20%);
-$callout-border-secondary: 1px solid darken($secondary-color, 20%);
-$callout-border-success: 1px solid darken($success-color, 20%);
-$callout-border-warning: 1px solid darken($warning-color, 20%);
-$callout-border-alert: 1px solid darken($alert-color, 20%);
+$callout-border: 1px solid $primary-color;
+$callout-border-secondary: 1px solid $secondary-color;
+$callout-border-success: 1px solid $success-color;
+$callout-border-warning: 1px solid $warning-color;
+$callout-border-alert: 1px solid $alert-color;
 
 // 7. Menu
 // -------

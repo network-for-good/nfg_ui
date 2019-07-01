@@ -1,3 +1,26 @@
 %h1 Images
+%p By default, images are set to be responsive.
+%p Illustrations and images both allow for setting tooltips
 
+%h3 Standard image using the :image option
+.row
+  .col-lg-3.col
+    %p
+      %b Tooltips are available:
+      = ui.nfg :image, image: 'test_app/sample_illustration.png', tooltip: 'With a tooltip'
+
+%hr
+
+%h3 Standard image with responsive set to false
+= ui.nfg :image, image: 'test_app/sample_illustration.png', responsive: false
+
+
+%h3 Standard image using the :src option
+.row
+  .col-lg-4.col
+    = ui.nfg :image, src: 'test_app/sample_illustration.png'
+
+%hr
+
+%h3 An image with no image or src
 = ui.nfg :image

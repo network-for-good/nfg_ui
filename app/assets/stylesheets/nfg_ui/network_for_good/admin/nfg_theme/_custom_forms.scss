@@ -67,7 +67,7 @@
   padding: 0;
   .custom-control-label {
     margin-bottom: 0;
-    padding: ($spacer * .5) ($spacer * .5) ($spacer * 1.5);
+    padding: ($spacer * 1.5) $spacer ($spacer * 2);
     border: $border-width solid $border-color;
     border-radius: $border-radius;
     cursor: pointer;

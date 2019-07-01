@@ -1,0 +1,10 @@
+- theme_color = nil if local_assigns[:theme_color].nil?
+- body = '' if local_assigns[:body].nil?
+
+%callout{ class: theme_color }
+  %row
+    %columns
+      - if body.present?
+        %p= body
+      - else
+        = yield

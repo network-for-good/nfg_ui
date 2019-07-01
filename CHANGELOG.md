@@ -1,4 +1,29 @@
 # Changelog
+# 0.9.11
+*Non-breaking changes*
+* Adds an inky / Zurb Foundation for Emails `callout` component (which we label as 'alert').
+  * Render with a `theme` local variable and an optional `body` local or block.
+  * Example usage: `<%= render layout: 'nfg_ui/email/alert', locals: { theme_color: :warning, body: 'Email Body' } %>
+* `NfgUi::Components::Elements::Step` now views :active state as a transitory state. Active steps are now seen as `:visited` steps that are also `:active`.
+  * As such, an `:active` step will include both the `.active` and `.visited` css classes.
+  * CSS has been updated to account for this and no changes should be needed for steps front-end implementation or use as of *0.9.11*
+* Formally introduces the `NfgUi::Components::Foundations::Image` component
+  * Images are tooltippable (`tooltip: 'My tooltip'`)
+  * Images accept `:image` option for the path to the image.
+  * Images accept `:src` which is essentially an alias for `:image` (we prefer `:image` since the `Image` component is used throughout the gem and `image: '...'` as an option for other components is more friendly than `src: '...'`)
+  * Utilizes a `:responsive` option which is turned on by default.
+    * Turning `:responsive` off (`responsive: false`) removes the `.img-fluid` css class.
+* Introduced the *illustration* component to the `NetworkForGood` system: `NfgUi::Components::Foundations::Illustration` -- this component inherits `NfgUi::Components::Foundations::Image`
+  * Illustrations are tooltippable (`tooltip: 'My tooltip'`)
+  * Utilizes sizing options (`size: :lg`) and traits (`ui.nfg :illustration, :lg ...`)
+  * `:image` option is available for passing in the path to the image. The gem automatically applies the `image_path()` asset pipeline helper method for the image. You're good to go.
+  * By default, since sizing is in use, the `:responsive` option is automatically set to `false`, this can be turned on as needed. *Do not pass in a :size option / trait if `responsive: true`*
+  * Example usage:
+    * `= ui.nfg :illustration, image: 'test_app/sample_illustration.png'`
+    * `= ui.nfg :illustration, :lg, image: 'test_app/sample_illustration.png'`
+    * `= ui.nfg :illustration, :sm, image: 'test_app/sample_illustration.png'`
+    * As an option: `= ui.nfg :illustration, image: 'test_app/sample_illustration.png', responsive: true`
+    * As a trait: `= ui.nfg :illustration, :responsive, image: 'test_app/sample_illustration.png'`
 
 # 0.9.10
 *Non-breaking changes*

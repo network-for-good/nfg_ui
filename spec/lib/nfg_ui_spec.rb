@@ -86,6 +86,7 @@ RSpec.describe NfgUi do
         it 'contains the approved list of foundation component names' do
           expect(NfgUi::FOUNDATION_COMPONENT_NAMES).to eq %i[color
                                                              icon
+                                                             illustration
                                                              image
                                                              input
                                                              grid

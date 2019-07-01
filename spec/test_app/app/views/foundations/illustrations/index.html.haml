@@ -1,0 +1,32 @@
+%h1 Illustrations
+%p By default, illustrations have responsive set to false and will not include img-fluid.
+%p Illustrations and images both allow for setting tooltips
+
+%h3 Illustration without sizing:
+%p= ui.nfg :illustration, image: 'test_app/sample_illustration.png', alt: 'Test', tooltip: 'Another tooltip'
+
+%hr
+%h3 Illustration with responsive turned on.
+%p When responsive is set to true, all of the illustration specific css classes (including sizing) is removed from the image tag.
+
+.row
+  .col-lg-3.col
+    %p= ui.nfg :illustration, :responsive, image: 'test_app/sample_illustration.png', alt: 'Test'
+
+%hr
+
+%h3 Illustrations with sizing:
+%p
+  Large:
+  %br
+  = ui.nfg :illustration, :lg, image: 'test_app/sample_illustration.png'
+
+%p
+  Standard (no size is set):
+  %br
+  = ui.nfg :illustration, image: 'test_app/sample_illustration.png'
+
+%p
+  Small:
+  %br
+  = ui.nfg :illustration, :sm, image: 'test_app/sample_illustration.png'
