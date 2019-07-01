@@ -13,11 +13,11 @@ module NfgUi
           responsive ? nil : super
         end
 
-        def component_css_class
-          responsive ? '' : super
-        end
-
         private
+
+        def component_css_class
+          responsive ? '' : 'illustration'
+        end
 
         def default_responsive
           false
