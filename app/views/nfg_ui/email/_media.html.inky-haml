@@ -3,11 +3,10 @@
 
 -# Auto-generate an image alt based on the filename -- humanized
 -# Or, send in your own
-- image_alt = '' if local_assigns[:image_alt].nil?
+- image_alt = nil if local_assigns[:image_alt].nil?
 
 - if image.present?
   - image_alt = image.split('/').last.split('.').first.titleize if local_assigns[:image_alt].nil?
-
 
 -# For now, the media component only accepts an image path string
 -# If no image is present, it fallsback to a single column

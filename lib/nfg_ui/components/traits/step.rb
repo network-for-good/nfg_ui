@@ -3,7 +3,7 @@ module NfgUi
     module Traits
       # Step traits
       module Step
-        TRAITS = %i[visited active].freeze
+        TRAITS = %i[visited].freeze
 
         def visited_trait
           options[:visited] = true

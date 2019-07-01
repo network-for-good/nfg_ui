@@ -9,6 +9,7 @@ module NfgUi
 
         include NfgUi::Components::Utilities::Iconable
 
+        include NfgUi::Components::Traits::Active
         include NfgUi::Components::Traits::Step
 
         # Override #active from Activatable
