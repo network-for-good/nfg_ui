@@ -108,6 +108,16 @@ RSpec.describe 'Activating a tooltip on all tooltippable components', type: :fea
 
       it_behaves_like 'tooltippable components that activate a tooltip'
     end
+
+    describe 'tooltips on images' do
+      let(:tooltippable_component_selectors) { ["[data-describe='tooltip-image']"] }
+      it_behaves_like 'tooltippable components that activate a tooltip'
+    end
+
+    describe 'tooltips on illustrations' do
+      let(:tooltippable_component_selectors) { ["[data-describe='tooltip-illustration']"] }
+      it_behaves_like 'tooltippable components that activate a tooltip'
+    end
   end
 end
 
