@@ -65,6 +65,32 @@ FactoryBot.define do
     end
   end
 
+  factory :illustration, class: NfgUi::Components::Foundations::Illustration do
+    body { nil }
+    traits { [] }
+
+    skip_create
+    initialize_with { new(attributes.merge!(traits: traits), ActionController::Base.new.view_context) }
+
+    trait :rendered do
+      initialize_with { NfgUi::UI::Base.new(ActionController::Base.new.view_context)
+                                       .nfg(:illustration, attributes) }
+    end
+  end
+
+  factory :image, class: NfgUi::Components::Foundations::Image do
+    body { nil }
+    traits { [] }
+
+    skip_create
+    initialize_with { new(attributes.merge!(traits: traits), ActionController::Base.new.view_context) }
+
+    trait :rendered do
+      initialize_with { NfgUi::UI::Base.new(ActionController::Base.new.view_context)
+                                       .nfg(:image, attributes) }
+    end
+  end
+
   factory :modal, class: NfgUi::Components::Patterns::Modal do
     body { nil }
     traits { [] }
