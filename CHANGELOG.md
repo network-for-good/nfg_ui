@@ -1,4 +1,9 @@
 # Changelog
+# 0.9.12
+*Non-breaking changes*
+* `NfgUi::Components::Elements::StepIndicator` becomes an `<a>` tag when `:href` is present in `:options` and becomes a `<span>` when `:href` is not present.
+  * `StepIndicator` is now `Wrappable` and can have it's `:as` value changed in `:options`
+
 # 0.9.11
 *Non-breaking changes*
 * Adds an inky / Zurb Foundation for Emails `callout` component (which we label as 'alert').
