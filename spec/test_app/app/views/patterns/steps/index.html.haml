@@ -4,7 +4,7 @@
 %p Also note: active steps are both active & visited. Active is seen as a transitory step that augments a visited step's appearance.
 
 = ui.nfg :steps do
-  = ui.nfg :step, :visited, step: 1, body: 'Donation', href: '#back'
-  = ui.nfg :step, :active, step: 2, body: 'Your Info'
-  = ui.nfg :step, step: 3, body: 'Payment'
-  = ui.nfg :step, icon: 'check', body: 'Receipt'
+  = ui.nfg :step, :visited, step: 1, body: 'Donation (link)', href: '#back'
+  = ui.nfg :step, :active, step: 2, body: 'Your Info (span)'
+  = ui.nfg :step, step: 3, body: 'Payment (link)'
+  = ui.nfg :step, icon: 'check', body: 'Receipt (span)'
