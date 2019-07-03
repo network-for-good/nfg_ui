@@ -3,6 +3,7 @@
 *Non-breaking changes*
 * `NfgUi::Components::Elements::StepIndicator` becomes an `<a>` tag when `:href` is present in `:options` and becomes a `<span>` when `:href` is not present.
   * `StepIndicator` is now `Wrappable` and can have it's `:as` value changed in `:options`
+  * `StepIndicator` no longer renders an empty `Typeface` component when `:body` is empty in `:options`.
 
 # 0.9.11
 *Non-breaking changes*

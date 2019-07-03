@@ -19,12 +19,12 @@ module NfgUi
           content_tag(as, html_options) do
             concat(content_tag(:div, class: 'step-indicator') {
               if icon
-                NfgUi::Components::Foundations::Icon.new({ traits: [icon,] }, view_context).render
+                NfgUi::Components::Foundations::Icon.new({ traits: [icon] }, view_context).render
               else
                 step
               end
             })
-            concat(NfgUi::Components::Foundations::Typeface.new({ traits: [:muted], caption: (block_given? ? yield : body), class: 'mt-1 mb-0 step-text' }, view_context).render)
+            concat(NfgUi::Components::Foundations::Typeface.new({ traits: [:muted], caption: (block_given? ? yield : body), class: 'mt-1 mb-0 step-text' }, view_context).render) if (block_given? || body.present?)
           end
         end
 
