@@ -120,7 +120,7 @@ RSpec.describe NfgUi::Components::Elements::Step do
     let(:options) { { step: tested_step, body: tested_body, icon: tested_icon, href: tested_href, disabled: tested_disabled } }
 
     it 'renders a basic default component when no options are set' do
-      expect(subject).to eq "<li class=\"nav-item disabled\" tabindex=\"-1\"><a class=\"nav-link disabled\" tabindex=\"-1\"><div class=\"step-indicator\"></div><p class=\"mt-1 mb-0 step-text text-muted\"></p></a></li>"
+      expect(subject).to eq "<li class=\"nav-item disabled\" tabindex=\"-1\"><span class=\"nav-link disabled\" tabindex=\"-1\"><div class=\"step-indicator\"></div></span></li>"
     end
 
     describe 'the :step option' do
@@ -167,7 +167,7 @@ RSpec.describe NfgUi::Components::Elements::Step do
     describe 'a disabled step' do
       let(:tested_disabled) { true }
       it 'renders the disabled step' do
-        expect(subject).to eq "<li class=\"nav-item disabled\" tabindex=\"-1\"><a class=\"nav-link disabled\" tabindex=\"-1\"><div class=\"step-indicator\"></div><p class=\"mt-1 mb-0 step-text text-muted\"></p></a></li>"
+        expect(subject).to eq "<li class=\"nav-item disabled\" tabindex=\"-1\"><span class=\"nav-link disabled\" tabindex=\"-1\"><div class=\"step-indicator\"></div></span></li>"
       end
     end
 
@@ -190,7 +190,7 @@ RSpec.describe NfgUi::Components::Elements::Step do
         let(:tested_active) { true }
         let(:tested_disabled) { false }
         it 'renders the step with a tooltip' do
-          expect(subject).to eq "<li class=\"nav-item active visited\" data-toggle=\"tooltip\" data-placement=\"top\" data-html=\"true\" title=\"tested tooltip\"><a class=\"nav-link\"><div class=\"step-indicator\"></div><p class=\"mt-1 mb-0 step-text text-muted\"></p></a></li>"
+          expect(subject).to eq "<li class=\"nav-item active visited\" data-toggle=\"tooltip\" data-placement=\"top\" data-html=\"true\" title=\"tested tooltip\"><span class=\"nav-link\"><div class=\"step-indicator\"></div></span></li>"
         end
       end
     end
