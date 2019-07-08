@@ -2,10 +2,9 @@
 
 require 'nfg_ui/engine'
 require 'nfg_ui/ui/base'
-require 'nfg_ui/ui/utilities'
-require 'nfg_ui/ui/utilities/initializer'
 require 'nfg_ui/ui/bootstrap'
 require 'nfg_ui/ui/network_for_good'
+require 'nfg_ui/ui/utilities'
 
 module NfgUi
   require 'bootstrap'

@@ -1,6 +1,4 @@
 # frozen_string_literal: true
-require 'action_view/helpers/capture_helper'
-require 'haml/helpers'
 
 module NfgUi
   module UI
@@ -17,8 +15,8 @@ module NfgUi
         # after initialization
         private :component=
 
-        include ::ActionView::Helpers::CaptureHelper # add capture support, required for Haml
-        include ::Haml::Helpers # add capture_haml support
+        include ActionView::Helpers::CaptureHelper # add capture support, required for Haml
+        include Haml::Helpers # add capture_haml support
 
         def render_component
           component.render
