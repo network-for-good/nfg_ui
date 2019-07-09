@@ -13,7 +13,6 @@ RSpec.describe NfgUi::Bootstrap::Components::ButtonGroup do
 
   describe '#render' do
     let(:rendered_html) { button_group.render }
-    let(:options) { {} }
     subject { Capybara.string(rendered_html) }
 
     describe 'html output for the bootstrap button_group' do
