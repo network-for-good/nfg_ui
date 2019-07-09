@@ -41,6 +41,11 @@ module NfgUi
         helper NfgUi::Components::EmailHelpers
       end
 
+      require_dependency Engine.root + 'lib/nfg_ui/ui/base'
+      require_dependency Engine.root + 'lib/nfg_ui/ui/bootstrap'
+      require_dependency Engine.root + 'lib/nfg_ui/ui/network_for_good'
+      require_dependency Engine.root + 'lib/nfg_ui/ui/utilities'
+
       # load the utilities
       Dir.glob(Engine.root + "lib/nfg_ui/ui/utilities/**/*.rb").each do |c|
         require_dependency(c)
