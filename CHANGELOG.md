@@ -1,11 +1,15 @@
 # Changelog
-# 0.9.12
+## 0.9.13
+*Non-breaking changes*
+* Addresses a *critical issue* where `ActionView` was throwing an uninitialized constant error: `ActionView::Template::Error: uninitialized constant NfgUi::UI` when `nfg_ui` is a dependency within another engine.
+
+## 0.9.12
 *Non-breaking changes*
 * `NfgUi::Components::Elements::StepIndicator` becomes an `<a>` tag when `:href` is present in `:options` and becomes a `<span>` when `:href` is not present.
   * `StepIndicator` is now `Wrappable` and can have it's `:as` value changed in `:options`
   * `StepIndicator` no longer renders an empty `Typeface` component when `:body` is empty in `:options`.
 
-# 0.9.11
+## 0.9.11
 *Non-breaking changes*
 * Adds an inky / Zurb Foundation for Emails `callout` component (which we label as 'alert').
   * Render with a `theme` local variable and an optional `body` local or block.
@@ -31,7 +35,7 @@
     * As an option: `= ui.nfg :illustration, image: 'test_app/sample_illustration.png', responsive: true`
     * As a trait: `= ui.nfg :illustration, :responsive, image: 'test_app/sample_illustration.png'`
 
-# 0.9.10
+## 0.9.10
 *Non-breaking changes*
 * `NfgUi::Components::Foundations::Icon` now applies `aria-hidden='true'` by default when rendered to improve accessibility per Font Awesome documentation:
   * https://fontawesome.com/how-to-use/on-the-web/other-topics/accessibility
@@ -41,7 +45,7 @@
 * Adds a helpful `rescue` when using the `#substring_present?` helper method on specs communicating what the method interpretted instead of raising a useless `nil` regex match missing error.
 * CSS improvements for event page jumbotron to behave like edgp on mobile
 
-# 0.9.9
+## 0.9.9
 *Non-breaking changes*
 * `NfgUi::Components::Patterns::SlatActions` can now accept the `:button` option. Setting `:button` to `true` (*and* `menu: false`) will result in the `SlatActions` component automatically rendering a button in place of the dropdown menu. Setting `button: false` (*and* `menu: false`) in the component options will render the component as a text link.
   * Example usage: `= ui.nfg :slat_actions, icon: 'trash', body: 'Delete', menu: false, button: true, method: :delete`
@@ -55,6 +59,6 @@
     * The actual component implemented is not necessarily important. In the `IntegratedSlatAction` module, we actually leverage both a text link and a `Button` component. Neither of which calls the actual SlatAction component. While this may change later depending how we handle the evolution of our most complex component suite... *slats. The most important point is to signal* what this sub component is being integrated *_as_* Thus, The `IntegratedSlatAction` is communicated as a "slat action" integrated into this component. Nifty.
 * CSS improvements introduced for `SlatItem` fixing a spacing bug for small slat items.
 
-# <= 0.9.8.18
+## <= 0.9.8.18
 * Not documented
 

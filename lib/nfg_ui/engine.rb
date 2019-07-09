@@ -40,6 +40,27 @@ module NfgUi
       ActiveSupport.on_load :action_mailer do
         helper NfgUi::Components::EmailHelpers
       end
+
+      require_dependency Engine.root + 'lib/nfg_ui/ui/base'
+      require_dependency Engine.root + 'lib/nfg_ui/ui/bootstrap'
+      require_dependency Engine.root + 'lib/nfg_ui/ui/network_for_good'
+      require_dependency Engine.root + 'lib/nfg_ui/ui/utilities'
+
+      # load the utilities
+      Dir.glob(Engine.root + "lib/nfg_ui/ui/utilities/**/*.rb").each do |c|
+        require_dependency(c)
+      end
+
+      # load the bootstrap components
+      require_dependency Engine.root + 'lib/nfg_ui/bootstrap/components/base'
+      Dir.glob(Engine.root + "lib/nfg_ui/bootstrap/**/*.rb").each do |c|
+        require_dependency(c)
+      end
+
+      require_dependency Engine.root + 'lib/nfg_ui/components/base'
+      Dir.glob(Engine.root + "lib/nfg_ui/components/**/*.rb").each do |c|
+        require_dependency(c)
+      end
     end
   end
 end
