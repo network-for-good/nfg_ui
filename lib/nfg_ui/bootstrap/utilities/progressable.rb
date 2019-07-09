@@ -10,7 +10,6 @@ module NfgUi
         end
 
         def label
-          # options.fetch(:label, nil)
           options[:label] == true ? "#{progress}%" : options[:label] || body
         end
 
