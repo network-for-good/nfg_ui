@@ -1,17 +1,16 @@
 # frozen_string_literal: true
 
 require 'nfg_ui/engine'
+require 'bootstrap'
+require 'coffee-script'
+require 'font-awesome-rails'
+require 'haml'
+require 'jquery-rails'
+require 'sass-rails'
+require 'select2-rails'
+require 'inky'
 
 module NfgUi
-  require 'bootstrap'
-  require 'coffee-script'
-  require 'font-awesome-rails'
-  require 'haml'
-  require 'jquery-rails'
-  require 'sass-rails'
-  require 'select2-rails'
-  require 'inky'
-
   DEFAULT_BOOTSTRAP_THEME    = :primary
 
   BOOTSTRAP_THEMES           = %i[primary

@@ -2,9 +2,8 @@
 
 module NfgUi
   module Components
-    # Centralizes and autoloads traits for design system components
+    # Centralizes traits for design system components
     # Trait modules must have the same name as the component they represent.
-    # This provides autoloading of traits.
     module Traits
       TRAIT_MODULES = %i[Active
                          Alert
@@ -34,9 +33,6 @@ module NfgUi
                          Theme
                          Typeface
                          Vertical].freeze
-
-      extend ActiveSupport::Autoload
-      TRAIT_MODULES.each { |trait_module| autoload trait_module }
 
       REGISTERED_TRAITS = TRAIT_MODULES.collect { |trait| "NfgUi::Components::Traits::#{trait}::TRAITS".constantize }.reject(&:empty?).flatten
     end
