@@ -1,4 +1,8 @@
 # Changelog
+## 0.9.14
+*Non-breaking changes*
+* Fixes issue identified after 0.9.13: "warning: already initialized constant for TRAITS instance". [See issue here](https://github.com/network-for-good/nfg_ui/issues/28).
+
 ## 0.9.13
 *Non-breaking changes*
 * Addresses a *critical issue* where `ActionView` was throwing an uninitialized constant error: `ActionView::Template::Error: uninitialized constant NfgUi::UI` when `nfg_ui` is a dependency within another engine.
