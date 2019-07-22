@@ -14,7 +14,7 @@ RSpec.describe NfgUi::Components::Foundations::Image do
   describe '#css_classes' do
     let(:options) { { responsive: tested_responsive } }
     let(:tested_responsive) { nil }
-    subject { image.css_classes }
+    subject { image.send(:css_classes) }
 
     it 'does not include the component name as a css class' do
       expect(subject).not_to include 'image'
