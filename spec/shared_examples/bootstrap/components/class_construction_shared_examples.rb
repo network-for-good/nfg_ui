@@ -2,7 +2,7 @@ shared_examples_for 'a component with a consistent initalized construction' do |
   describe 'default class construction' do
     let(:component) { described_class.new(required_options, ActionController::Base.new.view_context) }
     let(:unique_public_methods) { (component.public_methods - Class.public_methods).sort }
-    
+
     it 'contains only the public methods and options it is expected to' do
       expect(unique_public_methods).to include(:body,
                                                :data,
@@ -11,6 +11,8 @@ shared_examples_for 'a component with a consistent initalized construction' do |
                                                :component_family,
                                                :href,
                                                :options,
+                                               :options=,
+                                               :render,
                                                :view_context,
                                                :view_context=)
       expect(component.options).to include(class: '', body: nil, data: {})

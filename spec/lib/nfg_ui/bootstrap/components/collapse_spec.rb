@@ -22,6 +22,63 @@ RSpec.describe NfgUi::Bootstrap::Components::Collapse do
     end
   end
 
+  describe '#render' do
+    let(:rendered_html) { collapse.render }
+    subject { Capybara.string(rendered_html) }
+
+    describe 'the default collapse component' do
+      let(:options) { {} }
+      it { expect(rendered_html).to eq "<div class=\"collapse show\"></div>" }
+    end
+
+    describe 'collapse with :navbar set to true in options' do
+      let(:options) { { navbar: true } }
+      it 'renders the collapse as a navbar-collapse' do
+        expect(subject).to have_css '.collapse.navbar-collapse'
+        expect(rendered_html).to eq "<div class=\"collapse navbar-collapse\"></div>"
+
+        and_it 'does not add the .show css class' do
+          expect(subject).not_to have_css '.show'
+        end
+      end
+    end
+
+    describe 'collapsed / collapsible states' do
+      context 'and when :collapsible is true but :collapse is not set in :options' do
+        let(:options) { { collapsible: true } }
+
+        it 'has no effect' do
+          expect(rendered_html).to eq "<div class=\"collapse show\"></div>"
+
+          and_it 'is visible' do
+            expect(subject).to have_css '.show'
+          end
+        end
+      end
+      context 'and when :collapsed is true in options' do
+        let(:options) { { collapsed: true } }
+        it 'renders a collapsed component' do
+          expect(rendered_html).to eq "<div class=\"collapse\"></div>"
+
+          and_it 'does not add the .show css class' do
+            expect(subject).not_to have_css '.show'
+          end
+        end
+      end
+
+      context 'and when :collapsed is false in options' do
+        let(:options) { { collapsed: false } }
+        it 'renders a visible collapse component' do
+          expect(rendered_html).to eq "<div class=\"collapse show\"></div>"
+
+          and_it 'is visible' do
+            expect(subject).to have_css '.show'
+          end
+        end
+      end
+    end
+  end
+
   describe 'private methods' do
     describe '#css_classes' do
       subject { collapse.send(:css_classes) }

@@ -73,13 +73,6 @@ module NfgUi
           options[:id]
         end
 
-        # For components that inherit bootstrap, provide a second
-        # layer of initialization, for example:
-        # to initialize traits on design system components
-        # (which are not available on bootstrap)
-        def component_initialize; end
-        def utility_initialize; end
-
         def style
           options[:style]
         end
@@ -95,6 +88,13 @@ module NfgUi
         def assistive_html_attributes
           @assistive_html_attributes ||= {}
         end
+
+        # For components that inherit bootstrap, provide a second
+        # layer of initialization, for example:
+        # to initialize traits on design system components
+        # (which are not available on bootstrap)
+        def component_initialize; end
+        def utility_initialize; end
 
         # the base_element is used in the default render for all components
         # as the outer wrapping element. Typically, this is a div, but

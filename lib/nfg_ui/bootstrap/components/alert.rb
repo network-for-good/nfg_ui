@@ -4,7 +4,6 @@ module NfgUi
   module Bootstrap
     module Components
       # Bootstrap Alert Component
-      # https://getbootstrap.com/docs/4.1/components/alerts/
       class Alert < NfgUi::Bootstrap::Components::Base
         include Bootstrap::Utilities::Dismissible
         include Bootstrap::Utilities::Headable

@@ -2,10 +2,10 @@ require 'rails_helper'
 
 RSpec.describe NfgUi::Bootstrap::Components::Embed do
   let(:embed) { described_class.new(options, ActionController::Base.new.view_context) }
-  let(:options) { { aspect_ratio: aspect_ratio, iframe: iframe, autoplay: autoplay } }
-
+  let(:options) { { aspect_ratio: aspect_ratio, iframe: iframe, autoplay: autoplay, **additional_options } }
+  let(:additional_options) { {} }
   let(:aspect_ratio) { nil }
-  let(:tested_aspect_ratio) { '16:9' }  
+  let(:tested_aspect_ratio) { '16:9' }
   let(:iframe) { nil }
   let(:tested_iframe) { 'http://www.cnn.com' }
   let(:autoplay) { nil }
@@ -13,7 +13,7 @@ RSpec.describe NfgUi::Bootstrap::Components::Embed do
 
   it { expect(described_class).to be < NfgUi::Bootstrap::Components::Base }
   it_behaves_like 'a component with a consistent initalized construction'
-  
+
   describe '#aspect_ratio' do
     subject { embed.aspect_ratio }
 
@@ -76,6 +76,32 @@ RSpec.describe NfgUi::Bootstrap::Components::Embed do
     context 'when options :autoplay is not present' do
       let(:options) { {} }
       it { is_expected.to be false }
+    end
+  end
+
+  describe '#render' do
+    let(:rendered_html) { embed.render }
+    let(:additional_options) { { body: body } }
+    let(:body) { nil }
+    subject { Capybara.string(rendered_html) }
+
+    context 'when embed component has an :iframe option' do
+      let(:iframe) { 'http://www.google.com' }
+      it 'outputs the indended iframe' do
+        expect(subject).to have_css '.embed-responsive.embed-responsive-16by9'
+        expect(subject).to have_css '.embed-responsive iframe.embed-responsive-item'
+        expect(rendered_html).to eq "<div class=\"embed-responsive embed-responsive-16by9\"><iframe src=\"#{iframe}\" class=\"embed-responsive-item\" allowfullscreen=\"allowfullscreen\"></iframe></div>"
+      end
+    end
+
+    context 'when embed component does not have an :iframe option' do
+      let(:iframe) { nil }
+      let(:body) { 'test body' }
+      it 'outputs the intended component :body' do
+        expect(subject).to have_css '.embed-responsive.embed-responsive-16by9'
+        expect(subject).not_to have_css 'iframe'
+        expect(rendered_html).to eq "<div class=\"embed-responsive embed-responsive-16by9\">#{body}</div>"
+      end
     end
   end
 
