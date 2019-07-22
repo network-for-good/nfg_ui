@@ -166,6 +166,9 @@ RSpec.describe NfgUi::Bootstrap::Components::Table do
     # Making explicitly clear, via the testing, that table-responsive should never
     # show up in the table's css_classes even when
     # responsive is true. This is a fallback, sanity check.
+    #
+    # The table's responsive css class is applied to a custom container div
+    # managed in the table's #render method.
     describe 'responsive tables' do
       context 'when :responsive is true in options' do
         let(:tested_responsive) { true }
