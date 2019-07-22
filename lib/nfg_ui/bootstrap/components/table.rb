@@ -11,7 +11,7 @@ module NfgUi
 
         def size
           if options.fetch(:size, nil) == :lg
-            raise ArgumentError.new 'Tables may not utilize the :lg size when setting a size option. You may set `size: :sm` or no size.'
+            raise ArgumentError.new I18n.t('nfg_ui.errors.argument_error.components.table.size')
           else
             super
           end
@@ -57,7 +57,7 @@ module NfgUi
         end
 
         def non_html_attribute_options
-          super.push(:striped)
+          super.push(:striped, :bordered)
         end
       end
     end

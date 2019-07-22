@@ -1,4 +1,5 @@
-shared_examples_for 'a component that includes the Sizable utility module' do |component_suite:|
+# :skip is avaialble for skipping :lg
+shared_examples_for 'a component that includes the Sizable utility module' do |component_suite:, skip: nil|
   describe 'Sizable module included in the component' do
     let(:component) { described_class.new({}, ActionController::Base.new.view_context) }
     it { expect(described_class.included_modules).to include NfgUi::Bootstrap::Utilities::Sizable }
@@ -37,21 +38,23 @@ shared_examples_for 'a component that includes the Sizable utility module' do |c
         end
       end
 
-      context 'and when size is large' do
-        let(:size) { :lg }
-        it 'adds the large size css class to the component' do
-          by 'adding the large size' do
-            expect(substring_present?(string: subject,
-                                      starting_substring: "class='",
-                                      ending_substring: "'",
-                                      sought_substring: "#{ruby_component.send(:size_css_class_prefix)}-#{size}")).to be
-          end
+      unless skip == :lg
+        context 'and when size is large' do
+          let(:size) { :lg }
+          it 'adds the large size css class to the component' do
+            by 'adding the large size' do
+              expect(substring_present?(string: subject,
+                                        starting_substring: "class='",
+                                        ending_substring: "'",
+                                        sought_substring: "#{ruby_component.send(:size_css_class_prefix)}-#{size}")).to be
+            end
 
-          and_by 'not adding the small size' do
-            expect(substring_present?(string: subject,
-                                      starting_substring: "class='",
-                                      ending_substring: "'",
-                                      sought_substring: "#{ruby_component.send(:size_css_class_prefix)}-sm")).not_to be
+            and_by 'not adding the small size' do
+              expect(substring_present?(string: subject,
+                                        starting_substring: "class='",
+                                        ending_substring: "'",
+                                        sought_substring: "#{ruby_component.send(:size_css_class_prefix)}-sm")).not_to be
+            end
           end
         end
       end

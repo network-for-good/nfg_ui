@@ -9,7 +9,7 @@
 #   it_behaves_like 'a fetched option with a defined fallback', fallback: nil
 # end
 
-shared_examples_for 'a fetched option with a defined fallback'do |fallback: nil|
+shared_examples_for 'a fetched option with a defined fallback' do |fallback: nil|
   let(:options) { { tested_option => tested_value } }
 
   context 'when the tested option is true in the :options hash' do
