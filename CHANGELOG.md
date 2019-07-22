@@ -1,6 +1,6 @@
 # Changelog
 ## 0.9.15
-* Introduces the official `Table` component.
+* Re-introduces the official `Table` component.
   * _Design System Version_: [Table Element](http://localhost:3000/elements/tables)
   * See Bootstrap docs for [Tables](https://getbootstrap.com/docs/4.3/content/tables/) for a rundown of the options available.
   * _Tables options:_
@@ -9,7 +9,10 @@
   * `:bordered` - `true` adds the `.table-bordered` css class to the `<table>` element.
   * `:size` - Setting `:sm` for size, will add the `.table-sm` css class to the table element. _Note:_ setting `:lg` will raise an `ArgumentError` - tables are only "no size" or "small" per docs.
 * Introduces a new `NfgUi::Bootstrap::Utilities::Responsiveable` `Utility` module which now manages the `:responsive` option.
+  * `Image` & `Illustration` now use the `Responsive` module.
+  * Removed `Illustration` trait module and replaced with `Responsiveable`.
 * View specs are being retired now that we no longer utilize the `render partial` approach (outside of email); these specs have been moved over to `describe '#render'` ruby class specs.
+
 
 ## 0.9.14
 * Fixes issue identified after 0.9.13: "warning: already initialized constant for TRAITS instance". [See issue here](https://github.com/network-for-good/nfg_ui/issues/28).

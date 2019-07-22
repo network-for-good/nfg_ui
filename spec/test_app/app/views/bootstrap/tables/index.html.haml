@@ -1,4 +1,25 @@
 %h1 Tables
 
-= ui.bootstrap :table, class: 'my-4' do
-  Coming Soon
+%h3 Striped Table
+= ui.bootstrap :table, striped: true do
+  = render partial: 'bootstrap/tables/table_body', locals: { lots_of_data: false }
+
+%hr
+
+%h3 Bordered Table
+%p Note: "borderless" is not the opposite of a bordered table. Bordered, when false, adds no modifier class to the table.
+= ui.bootstrap :table, bordered: true do
+  = render partial: 'bootstrap/tables/table_body', locals: { lots_of_data: false }
+
+%hr
+
+%h3 Responsive Tables
+= ui.bootstrap :table, responsive: true do
+  = render partial: 'bootstrap/tables/table_body', locals: { lots_of_data: true }
+
+%hr
+%h3 Sizable tables
+%p Tables are either their default size or made `:sm`
+= ui.bootstrap :table, size: :sm do
+  = render partial: 'bootstrap/tables/table_body', locals: { lots_of_data: false }
+

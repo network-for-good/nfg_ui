@@ -10,7 +10,7 @@ RSpec.describe NfgUi::Components::Foundations::Illustration do
   it_behaves_like 'a component that includes the Sizable utility module', component_suite: :nfg
   it_behaves_like 'a component that includes the Size trait module'
 
-  it { expect(described_class.included_modules).to include NfgUi::Components::Traits::Illustration }
+  it { expect(described_class.included_modules).to include NfgUi::Components::Traits::Responsive }
 
   describe '#size' do
     subject { illustration.size }

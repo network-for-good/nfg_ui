@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe NfgUi::Components::Traits::Illustration do
+RSpec.describe NfgUi::Components::Traits::Responsive do
   let(:component_with_traits) { NfgUi::Components::Foundations::Illustration.new(options.merge!(traits: traits), ActionController::Base.new.view_context) }
   let(:options) { {} }
   let(:traits) { [] }

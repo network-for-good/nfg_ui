@@ -7,7 +7,6 @@ module NfgUi
       class Illustration < NfgUi::Components::Foundations::Image
         include Bootstrap::Utilities::Sizable
         include NfgUi::Components::Traits::Size
-        include NfgUi::Components::Traits::Illustration
 
         def size
           responsive ? nil : super

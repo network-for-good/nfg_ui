@@ -49,7 +49,7 @@ module NfgUi
             super,
             ("#{component_css_class}-striped" if striped),
             ("#{component_css_class}-bordered" if bordered)
-          ].join(' ').squish&.remove!(responsive_css_class) # see above note
+          ].join(' ')&.remove!(responsive_css_class)&.squish # see above note
         end
 
         def base_element

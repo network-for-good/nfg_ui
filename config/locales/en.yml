@@ -1,5 +1,9 @@
 en:
   nfg_ui:
+    components:
+      elements:
+        table:
+          responsive_caption: "<< Scroll left and right to see all data >>"
     errors:
       argument_error:
         components:
