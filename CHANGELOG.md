@@ -12,6 +12,7 @@
   * `Image` & `Illustration` now use the `Responsive` module.
   * Removed `Illustration` trait module and replaced with `Responsiveable`.
 * View specs are being retired now that we no longer utilize the `render partial` approach (outside of email); these specs have been moved over to `describe '#render'` ruby class specs.
+* CSS: improves UI for textarea min-height
 
 
 ## 0.9.14
