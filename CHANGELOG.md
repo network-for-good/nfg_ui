@@ -7,6 +7,7 @@
   * `:responsive` - `true` wraps the table in a `.table-responsive` classed div.
   * `:striped` - `true` adds the `.table-striped` css class to the `<table>` element.
   * `:bordered` - `true` adds the `.table-bordered` css class to the `<table>` element.
+  * `:size` - Setting `:sm` for size, will add the `.table-sm` css class to the table element. _Note:_ setting `:lg` will raise an `ArgumentError` - tables are only "no size" or "small" per docs.
 * Introduces a new `NfgUi::Bootstrap::Utilities::Responsiveable` `Utility` module which now manages the `:responsive` option.
 * View specs are being retired now that we no longer utilize the `render partial` approach (outside of email); these specs have been moved over to `describe '#render'` ruby class specs.
 
