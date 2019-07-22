@@ -1,91 +1,27 @@
 %h1 Tables
 
+%h3 Striped Table
+= ui.nfg :table, striped: true do
+  = render partial: 'elements/tables/table_body', locals: { lots_of_data: false }
+
+%hr
+
+%h3 Bordered Table
+%p Note: "borderless" is not the opposite of a bordered table. Bordered, when false, adds no modifier class to the table.
+= ui.nfg :table, bordered: true do
+  = render partial: 'elements/tables/table_body', locals: { lots_of_data: false }
+
+%hr
+
+%h3 Responsive Tables
 = ui.nfg :typeface, :muted, caption: '<< New: scroll left and right to see all data >>', class: 'mb-1 text-right'
 
-= ui.nfg :table, responsive: true, class: 'table-striped table-bordered table-sm' do
-  %thead
-    %tr
-      %th Title
-      %th Title
-      %th Title
-      %th Title
-      %th Title
-      %th Title
-      %th Title
-      %th Title
-      %th Title
-      %th Title
-      %th Title
-      %th Title
-      %th Title
-      %th Title
-      %th Title
-      %th Title
-      %th Title
-      %th Title
-  %tbody
-    %tr
-      %td This is information
-      %td This is information
-      %td This is information
-      %td This is information
-      %td This is information
-      %td This is information
-      %td This is information
-      %td This is information
-      %td This is information
-      %td This is information
-      %td This is information
-      %td This is information
-      %td This is information
-      %td This is information
-      %td This is information
-      %td This is information
-      %td This is information
-      %td This is information
+= ui.nfg :table, responsive: true do
+  = render partial: 'elements/tables/table_body', locals: { lots_of_data: true }
 
+%hr
+%h3 Sizable tables
+%p Tables are either their default size or made `:sm`
+= ui.nfg :table, size: :sm do
+  = render partial: 'elements/tables/table_body', locals: { lots_of_data: false }
 
--# RESPONSIVE TABLE
-= ui.nfg :typeface, :muted, caption: '<< scroll left and right to see all data >>', class: 'mb-1 text-right'
-.table-responsive
-  = ui.nfg :table, class: 'table-striped table-bordered table-sm' do
-    %thead
-      %tr
-        %th Title
-        %th Title
-        %th Title
-        %th Title
-        %th Title
-        %th Title
-        %th Title
-        %th Title
-        %th Title
-        %th Title
-        %th Title
-        %th Title
-        %th Title
-        %th Title
-        %th Title
-        %th Title
-        %th Title
-        %th Title
-    %tbody
-      %tr
-        %td This is information
-        %td This is information
-        %td This is information
-        %td This is information
-        %td This is information
-        %td This is information
-        %td This is information
-        %td This is information
-        %td This is information
-        %td This is information
-        %td This is information
-        %td This is information
-        %td This is information
-        %td This is information
-        %td This is information
-        %td This is information
-        %td This is information
-        %td This is information

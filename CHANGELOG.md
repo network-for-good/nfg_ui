@@ -1,20 +1,27 @@
 # Changelog
+## 0.9.15
+* Introduces the official `Table` component.
+  * _Design System Version_: [Table Element](http://localhost:3000/elements/tables)
+  * See Bootstrap docs for [Tables](https://getbootstrap.com/docs/4.3/content/tables/) for a rundown of the options available.
+  * _Tables options:_
+  * `:responsive` - `true` wraps the table in a `.table-responsive` classed div.
+  * `:striped` - `true` adds the `.table-striped` css class to the `<table>` element.
+  * `:bordered` - `true` adds the `.table-bordered` css class to the `<table>` element.
+* Introduces a new `NfgUi::Bootstrap::Utilities::Responsiveable` `Utility` module which now manages the `:responsive` option.
+* View specs are being retired now that we no longer utilize the `render partial` approach (outside of email); these specs have been moved over to `describe '#render'` ruby class specs.
+
 ## 0.9.14
-*Non-breaking changes*
 * Fixes issue identified after 0.9.13: "warning: already initialized constant for TRAITS instance". [See issue here](https://github.com/network-for-good/nfg_ui/issues/28).
 
 ## 0.9.13
-*Non-breaking changes*
 * Addresses a *critical issue* where `ActionView` was throwing an uninitialized constant error: `ActionView::Template::Error: uninitialized constant NfgUi::UI` when `nfg_ui` is a dependency within another engine.
 
 ## 0.9.12
-*Non-breaking changes*
 * `NfgUi::Components::Elements::StepIndicator` becomes an `<a>` tag when `:href` is present in `:options` and becomes a `<span>` when `:href` is not present.
   * `StepIndicator` is now `Wrappable` and can have it's `:as` value changed in `:options`
   * `StepIndicator` no longer renders an empty `Typeface` component when `:body` is empty in `:options`.
 
 ## 0.9.11
-*Non-breaking changes*
 * Adds an inky / Zurb Foundation for Emails `callout` component (which we label as 'alert').
   * Render with a `theme` local variable and an optional `body` local or block.
   * Example usage: `<%= render layout: 'nfg_ui/email/alert', locals: { theme_color: :warning, body: 'Email Body' } %>`
@@ -40,7 +47,6 @@
     * As a trait: `= ui.nfg :illustration, :responsive, image: 'test_app/sample_illustration.png'`
 
 ## 0.9.10
-*Non-breaking changes*
 * `NfgUi::Components::Foundations::Icon` now applies `aria-hidden='true'` by default when rendered to improve accessibility per Font Awesome documentation:
   * https://fontawesome.com/how-to-use/on-the-web/other-topics/accessibility
 * Fixes an issue where slat actions (and other components, assumedly) were rendering two spacer css classes (ex: `NfgUi::Components::Foundations::Icon::LEFT_ICON_SPACER_CSS_CLASS`) when an icon was present (ex: `<i class="fa fa-heart ml-1 ml-1"></i> Text Example`)
@@ -50,7 +56,6 @@
 * CSS improvements for event page jumbotron to behave like edgp on mobile
 
 ## 0.9.9
-*Non-breaking changes*
 * `NfgUi::Components::Patterns::SlatActions` can now accept the `:button` option. Setting `:button` to `true` (*and* `menu: false`) will result in the `SlatActions` component automatically rendering a button in place of the dropdown menu. Setting `button: false` (*and* `menu: false`) in the component options will render the component as a text link.
   * Example usage: `= ui.nfg :slat_actions, icon: 'trash', body: 'Delete', menu: false, button: true, method: :delete`
 * A patching system has been introduced for the design system (not `bootstrap`).
