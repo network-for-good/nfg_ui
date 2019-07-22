@@ -31,7 +31,7 @@ RSpec.describe NfgUi::Bootstrap::Components::Table do
 
           and_it 'does not add the responsive table css class to the table' do
             expect(subject).not_to have_css 'table.table-responsive'
-            expect(rendered_component).to eq "<div class=\"table-responsive\"><table class=\"table \"></table></div>"
+            expect(rendered_component).to eq "<div class=\"table-responsive\"><table class=\"table\"></table></div>"
           end
         end
       end
