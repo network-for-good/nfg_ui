@@ -1,11 +1,19 @@
 en:
   nfg_ui:
+    components:
+      elements:
+        table:
+          responsive_caption: "<< Scroll left and right to see all data >>"
     errors:
       argument_error:
+        components:
+          table:
+            size: 'Tables may not utilize the :lg size when setting a size option. You may set `size: :sm` or no size.'
+
         # required keys -- :modal, :class_name, :options, :file, :method
-        # 
+        #
         # Example keys:
-        # 
+        #
         # modal: '#example'
         # class_name: self.class.name
         # options: options
@@ -17,7 +25,7 @@ en:
 
                      Raised from gem file: %{file}
                      Raised from gem method: #%{method}
-                     
+
                      To fix this error:
                      Remove `tooltip: [the tooltip]` or `modal: '%{modal}'` from your component's :options hash
 
@@ -28,11 +36,11 @@ en:
                      About:
                      Modal and Tooltip both utilize the data-toggle HTML data attribute. When :modal is present,
                      it will always overwrite the tooltip's data-toggle attribute causing a silent failure
-                     in which the tooltip does not render (though the modal HTML does). 
+                     in which the tooltip does not render (though the modal HTML does).
 
           remote:  |
                      ArgumentError: :modal & remote: true may not both be present in :options hash
-                     
+
                      Raised from gem file: %{file}
                      Raised from gem method: #%{method}
 
@@ -47,17 +55,17 @@ en:
                      Component options: %{options}
 
                      About:
-                     Components may not include both `modal: %{modal}` and `remote: true` in their options because modalable components 
+                     Components may not include both `modal: %{modal}` and `remote: true` in their options because modalable components
                      that fire remote actions can result in undesirable modal activation behavior.
 
                      This tends to occur when a modal is injected into the page from a remote action, is subsequently dismissed
                      and then opened again from the same remote link.
 
-                     The previously dismissed modal appears (because it's still on the page, and referenced in the component's HTML) 
+                     The previously dismissed modal appears (because it's still on the page, and referenced in the component's HTML)
                      and the modal is then, visibly to the user, re-animated (overwritten and re-started) by the newly injected modal from the remote ajax action.
-                      
 
 
-                        
 
-                        
+
+
+

@@ -1,8 +1,7 @@
 module NfgUi
   module Components
     module Traits
-      # Shared Size traits
-      module Illustration
+      module Responsive
         TRAITS = %i[responsive].freeze
 
         def responsive_trait

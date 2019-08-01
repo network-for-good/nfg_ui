@@ -2,6 +2,7 @@
 // Basic Bootstrap table
 //
 .table {
+  margin-bottom: 0;
   thead th { border-bottom-width: $table-border-width; }
   tbody + tbody { border-top-width: $table-border-width; }
 }

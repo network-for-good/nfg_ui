@@ -126,11 +126,6 @@ RSpec.describe NfgUi::Bootstrap::Components::Base do
     end
   end
 
-  describe '#component_initialize' do
-    subject { bootstrap_base.component_initialize }
-    it { is_expected.to be_nil }
-  end
-
   describe '#style' do
     subject { bootstrap_base.style }
     context 'when :style is present in options' do
@@ -178,6 +173,16 @@ RSpec.describe NfgUi::Bootstrap::Components::Base do
         let(:css_class) { nil }
         it { is_expected.to eq 'base' }
       end
+    end
+
+    describe '#component_initialize' do
+      subject { bootstrap_base.send(:component_initialize) }
+      it { is_expected.to be_nil }
+    end
+
+    describe '#utility_initialize' do
+      subject { bootstrap_base.send(:utility_initialize) }
+      it { is_expected.to be_nil }
     end
 
     describe '#defaults' do

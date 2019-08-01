@@ -6,13 +6,8 @@ module NfgUi
       # Image doc coming soon
       class Image < NfgUi::Components::Base
         include Bootstrap::Utilities::Tooltipable
-
-        def css_classes
-          [
-            super,
-            ('img-fluid' if responsive)
-          ].join(' ').squish
-        end
+        include Bootstrap::Utilities::Responsiveable
+        include NfgUi::Components::Traits::Responsive
 
         # Prefer image, image is used
         # on other components that pull in
@@ -25,13 +20,6 @@ module NfgUi
           image_tag(view_context.image_path(image_location), **html_options)
         end
 
-        # Flag if the image should utilize responsive settings or not.
-        # This typically does thigns like
-        # apply specific css classes (e.g.: 'img-fluid') to the rendered component
-        def responsive
-          options.fetch(:responsive, default_responsive)
-        end
-
         # Allow :src to come through
         # since :src is a native and
         # viable to way source a image path / url
@@ -40,6 +28,10 @@ module NfgUi
         end
 
         private
+
+        def responsive_css_class
+          'img-fluid'
+        end
 
         def component_css_class
           ''
@@ -64,7 +56,7 @@ module NfgUi
         #
         # the image_tag helper method automatically turns the first argument into the `src` attribute.
         def non_html_attribute_options
-          super.push(:image, :src, :responsive)
+          super.push(:image, :src)
         end
       end
     end

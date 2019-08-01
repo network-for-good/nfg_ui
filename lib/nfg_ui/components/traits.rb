@@ -17,7 +17,6 @@ module NfgUi
                          Dismiss
                          DropdownToggle
                          Icon
-                         Illustration
                          ListGroup
                          Muted
                          Nav
@@ -27,9 +26,11 @@ module NfgUi
                          Pill
                          ProgressBar
                          Remote
+                         Responsive
                          Size
                          Step
                          SlatItem
+                         Table
                          Theme
                          Typeface
                          Vertical].freeze

@@ -16,13 +16,6 @@ module NfgUi
           options.fetch(:height, nil)
         end
 
-        def style
-          [
-            super,
-            ("height: #{height}px;" if height)
-          ].join(' ').squish
-        end
-
         def render
           super do
             if body
@@ -31,6 +24,13 @@ module NfgUi
               NfgUi::Bootstrap::Components::ProgressBar.new({ theme: theme, label: label, progress: progress, striped: striped, animated: animated }, view_context).render
             end
           end
+        end
+
+        def style
+          [
+            super,
+            ("height: #{height}px;" if height)
+          ].join(' ').squish
         end
 
         private
