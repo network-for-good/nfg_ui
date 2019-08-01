@@ -12,8 +12,11 @@
   * `Image` & `Illustration` now use the `Responsive` module.
   * Removed `Illustration` trait module and replaced with `Responsiveable`.
 * View specs are being retired now that we no longer utilize the `render partial` approach (outside of email); these specs have been moved over to `describe '#render'` ruby class specs.
-* CSS: improves UI for textarea min-height
-
+* CSS:
+  * improves UI for textarea min-height
+  * Updates the YIQ color contrast threshold to `177` from `147`
+  * Fixes custom select form control invalid appearance.
+  * Improvements to table CSS aesthetics.
 
 ## 0.9.14
 * Fixes issue identified after 0.9.13: "warning: already initialized constant for TRAITS instance". [See issue here](https://github.com/network-for-good/nfg_ui/issues/28).
