@@ -1,7 +1,9 @@
 # Network for Good's Design System for Ruby on Rails
 The authoritative resource for the Network for Good front-end UI, empowered by the NFG Design System.
 
-Note: the readme documentation is a little out of date and will be updated with accurate info soon (note added on Jan. 19, 2019)
+Note: the readme documentation is a little out of date and will be updated with accurate info soon (noted on Aug. 22, 2019)
+
+See [changelog](https://github.com/network-for-good/nfg_ui/blob/master/CHANGELOG.md) for notes on updates.
 
 [Jump to development / setting up the gem locally](https://github.com/network-for-good/nfg_ui/blob/master/README.md#local-development--accessing-documentation)
 
