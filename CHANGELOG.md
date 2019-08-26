@@ -1,4 +1,7 @@
 # Changelog
+## 0.9.15.1
+* Addresses security vulnerability with `Nokogiri` which must now be `1.10.4` or greater [CVE-2019-5477](https://nvd.nist.gov/vuln/detail/CVE-2019-5477)
+
 ## 0.9.15
 * Re-introduces the official `Table` component.
   * _Design System Version_: [Table Element](http://localhost:3000/elements/tables)
