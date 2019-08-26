@@ -14,25 +14,21 @@ Gem::Specification.new do |s|
 
   s.files = Dir['{app,config,db,lib}/**/*', 'MIT-LICENSE', 'Rakefile', 'README.md']
 
-  s.add_dependency 'bootstrap', '4.3.1'
-  s.add_dependency 'coffee-script', '~> 2.4'
-  s.add_dependency 'font-awesome-rails', '~> 4.7'
-  s.add_dependency 'inky-rb', '~> 1.3.7'
-  s.add_dependency 'jquery-rails', '~> 4.3'
-  s.add_dependency 'rails', '>= 4.2.0'
-  s.add_dependency 'sass-rails', '~> 5.0'
-  s.add_dependency 'select2-rails', '~> 4.0'
-
-  # To be upgraded later
-  # s.add_dependency 'browser', '~> 2.5.0'
-  s.add_dependency 'browser', '~> 1.1'
-
   # Bootstrap4.3.1 allows for upgrading past 9.4.10 which requires ruby >= 2.4.
   # When running `bundle update nfg_ui` from Evo.
   # Evo is officially on ruby 2.3.7 so autoprefixef must
   # be manually set.
   s.add_dependency 'autoprefixer-rails', '9.4.9'
+  s.add_dependency 'bootstrap', '4.3.1'
+  s.add_dependency 'browser', '~> 1.1' # To be upgraded later -- very out of date, but required by Evo at this lower version.
+  s.add_dependency 'coffee-script', '~> 2.4'
+  s.add_dependency 'font-awesome-rails', '~> 4.7'
+  s.add_dependency 'inky-rb', '~> 1.3.7'
+  s.add_dependency 'jquery-rails', '~> 4.3'
   s.add_dependency "nokogiri", ">= 1.10.4" # must manually set nokogiri to a higher version for security high risk vulnerability issues. See: https://nvd.nist.gov/vuln/detail/CVE-2019-5477
+  s.add_dependency 'rails', '>= 4.2.0'
+  s.add_dependency 'sass-rails', '~> 5.0'
+  s.add_dependency 'select2-rails', '~> 4.0'
 
 
   s.add_development_dependency 'capybara', '~> 3.9'
