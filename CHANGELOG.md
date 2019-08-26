@@ -1,6 +1,11 @@
 # Changelog
 ## 0.9.16
 * Introduces [DateTimePicker](https://github.com/xdan/datetimepicker) as the alternative datetimepicker. Demo page: [localhost:3000/javascript_plugins/datetimepicker](http://localhost:3000/javascript_plugins/datetimepicker)
+  * The datetimepicker comes in 3 flavors: combo date & time picker, date picker, and time picker. To initialize them, add the `data-datetimepicker` attribute to your text input:
+    * DateTime Combo: `%input{ type: 'text', data: { datetimepicker: 'datetime'  } }`
+    * Calendar / Date: `%input{ type: 'text', data: { datetimepicker: 'date' } }`
+    * Time: `%input{ type: 'text', data: { datetimepicker: 'time' } }`
+
 
 ## 0.9.15
 * Re-introduces the official `Table` component.
