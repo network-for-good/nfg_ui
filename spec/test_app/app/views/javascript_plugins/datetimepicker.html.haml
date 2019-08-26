@@ -1,11 +1,26 @@
+%p Unlike in DMS, the nfg_ui version is initialized with a data attribute. This is done to prevent collisions where both the DMS version and the nfg_ui version would interfere.
+
 .mb-3
-  %p Full DateTime Picker
-  %input.datetime-picker{ type: 'text' }
+  %p
+    Full DateTime Picker
+    %br
+    Add
+    %code data-datetimepicker='datetime'
+
+  %input{ type: 'text', data: { datetimepicker: 'datetime'  } }
 %hr
 .mb-3
-  %p Date picker only
-  %input.date-picker{ type: 'text' }
+  %p
+    Date picker only
+    %br
+    Add
+    %code data-datetimepicker='date'
+  %input{ type: 'text', data: { datetimepicker: 'date' } }
 %hr
 .mb-3
-  %p Time Picker only
-  %input.time-picker{ type: 'text' }
+  %p
+    Time picker only
+    %br
+    Add
+    %code data-datetimepicker='date'
+  %input{ type: 'text', data: { datetimepicker: 'time' } }

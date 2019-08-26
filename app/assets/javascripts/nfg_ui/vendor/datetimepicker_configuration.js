@@ -39,9 +39,10 @@ function () {
   }, {
     key: "defaultFormat",
     value: function defaultFormat() {
-      if (this.input.hasClass('datetime-picker')) {
+
+      if (this.input.data('datetimepicker') == 'datetime') {
         return 'Y-MM-DD hh:mm A';
-      } else if (this.input.hasClass('time-picker')) {
+      } else if (this.input.data('datetimepicker') == 'time') {
         return 'hh:mm A';
       } else {
         return 'Y-MM-DD';
@@ -53,7 +54,7 @@ function () {
 }();
 
 $(function() {
-  var inputs = $('input.datetime-picker, input.date-picker, input.time-picker');
+  var inputs = $("input[data-datetimepicker='datetime'], input[data-datetimepicker='date'], input[data-datetimepicker='time']");
 
   if (!(inputs.length > 0)) {
     return;
