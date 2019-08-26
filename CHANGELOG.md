@@ -1,4 +1,7 @@
 # Changelog
+## 0.9.16
+* Introduces [DateTimePicker](https://github.com/xdan/datetimepicker) as the alternative datetimepicker. Demo page: [localhost:3000/javascript_plugins/datetimepicker](http://localhost:3000/javascript_plugins/datetimepicker)
+
 ## 0.9.15
 * Re-introduces the official `Table` component.
   * _Design System Version_: [Table Element](http://localhost:3000/elements/tables)

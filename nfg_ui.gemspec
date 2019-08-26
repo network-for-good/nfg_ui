@@ -22,7 +22,8 @@ Gem::Specification.new do |s|
   s.add_dependency 'rails', '>= 4.2.0'
   s.add_dependency 'sass-rails', '~> 5.0'
   s.add_dependency 'select2-rails', '~> 4.0'
-
+  s.add_dependency 'bootstrap3-datetimepicker-rails', '~> 4.17', '>= 4.17.43' # datetime picker from DMS
+  s.add_dependency 'momentjs-rails', '~> 2.11', '>= 2.11.1' # client side date formatting
   # To be upgraded later
   # s.add_dependency 'browser', '~> 2.5.0'
   s.add_dependency 'browser', '~> 1.1'
