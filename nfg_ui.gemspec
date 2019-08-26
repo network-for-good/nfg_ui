@@ -32,8 +32,9 @@ Gem::Specification.new do |s|
   # Evo is officially on ruby 2.3.7 so autoprefixef must
   # be manually set.
   s.add_dependency 'autoprefixer-rails', '9.4.9'
+  s.add_dependency "nokogiri", ">= 1.10.4" # must manually set nokogiri to a higher version for security high risk vulnerability issues. See: https://nvd.nist.gov/vuln/detail/CVE-2019-5477
 
-  s.add_development_dependency "nokogiri", ">= 1.10.4" # must manually set nokogiri to a higher version for security high risk vulnerability issues. See: https://nvd.nist.gov/vuln/detail/CVE-2019-5477
+
   s.add_development_dependency 'capybara', '~> 3.9'
   s.add_development_dependency 'chromedriver-helper', '~> 2.1'
   s.add_development_dependency 'factory_bot_rails', '~> 4.11'
