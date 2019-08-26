@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    nfg_ui (0.9.15)
+    nfg_ui (0.9.15.1)
       autoprefixer-rails (= 9.4.9)
       bootstrap (= 4.3.1)
       browser (~> 1.1)
@@ -207,9 +207,8 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
-    sassc (2.0.1)
+    sassc (2.1.0)
       ffi (~> 1.9)
-      rake
     sassc-rails (2.1.2)
       railties (>= 4.0.0)
       sassc (>= 2.0)
