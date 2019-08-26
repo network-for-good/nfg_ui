@@ -9,7 +9,6 @@ require 'jquery-rails'
 require 'sass-rails'
 require 'select2-rails'
 require 'inky'
-require 'bootstrap3-datetimepicker-rails'
 require 'momentjs-rails'
 
 module NfgUi

@@ -22,15 +22,15 @@ Gem::Specification.new do |s|
   s.add_dependency 'rails', '>= 4.2.0'
   s.add_dependency 'sass-rails', '~> 5.0'
   s.add_dependency 'select2-rails', '~> 4.0'
-  s.add_dependency 'bootstrap3-datetimepicker-rails', '~> 4.17', '>= 4.17.43' # datetime picker from DMS
-  s.add_dependency 'momentjs-rails', '~> 2.11', '>= 2.11.1' # client side date formatting
+  s.add_dependency 'momentjs-rails', '~> 2.11', '>= 2.11.1' # client side date formatting - used for bootstrap-datetimepicker
+
   # To be upgraded later
   # s.add_dependency 'browser', '~> 2.5.0'
   s.add_dependency 'browser', '~> 1.1'
 
   # Bootstrap4.3.1 allows for upgrading past 9.4.10 which requires ruby >= 2.4.
   # When running `bundle update nfg_ui` from Evo.
-  # Evo is officially on ruby 2.3.7 so autoprefixef must
+  # Evo is officially on ruby 2.3.7 so autoprefixer must
   # be manually set.
   s.add_dependency 'autoprefixer-rails', '9.4.9'
 

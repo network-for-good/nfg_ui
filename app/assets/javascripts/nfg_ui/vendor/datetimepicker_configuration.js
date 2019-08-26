@@ -32,8 +32,8 @@ function () {
       }
 
       options.useCurrent = false;
-      options.ignoreReadonly = true; // options.debug = true
-
+      options.ignoreReadonly = true;
+      // options.debug = true
       return options;
     }
   }, {
