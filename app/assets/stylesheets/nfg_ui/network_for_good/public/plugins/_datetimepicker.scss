@@ -5,302 +5,58 @@
 //*****************************//
 
 //** Base styles
-  .bootstrap-datetimepicker-widget {
-    display: block;
-    top: 0 !important;
-    padding: 0;
-    min-width: 280px;
-    max-width: 280px;
-    background-color: $white;
-    border: $border-width solid $border-color;
-    border-radius: 0;
-    z-index: 110;
+.bootstrap-datetimepicker-widget {
+  display: block;
+  top: 0 !important;
+  padding: 0;
+  min-width: ($spacer * 14);
+  max-width: ($spacer * 14);
+  background-color: $white;
+  border: $border-width solid $border-color;
+  border-radius: 0;
+  z-index: 110;
 
-    &.dropdown-menu {
-      position: absolute !important;
-      top: 100% !important;
-      right: auto !important;
-      bottom: auto !important;
-      left: auto !important;
-      opacity: 1;
-      pointer-events: auto;
-      visibility: visible !important;
-      transform: none;
-    }
-
-    //** Base date and time styles
-      ul { margin: 0; }
-      .datepicker, .timepicker {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-      }
-      a[data-action] { display: block; }
-
-    //** Icons from bootstrap adapted to fontawesome that we use
-      .glyphicon {
-        position: relative;
-        display: block;
-        width: 100%;
-        height: 100%;
-        font-weight: normal;
-        z-index: 0;
-        &:after {
-          position: absolute;
-          top: 50%;
-          right: 50%;
-          display: block;
-          margin-top: -10px;
-          margin-right: -10px;
-          width: 20px;
-          height: 20px;
-          font-family: "FontAwesome";
-          font-size: $h4-font-size;
-          line-height: 1;
-          text-align: center;
-          cursor: pointer;
-          z-index: 30;
-        }
-      }
-
-    //** Table defaults
-      table {
-        width: 100%;
-        td, th {
-          text-align: center;
-          vertical-align: middle;
-        }
-      }
-
-    //** Time/Date Toggle
-      .collapse.in {
-        .timepicker-picker {
-          tr:first-child a, tr:last-child a {
-            border-radius: 0;
-          }
-
-        }
-        + .picker-switch {
-          border-top: $border-width solid $border-color;
-        }
-      }
-      .picker-switch {
-        + .collapse.in {
-          border-top: $border-width solid $border-color;
-        }
-      }
-
-    //** Accessbility
-      .prev,
-      .next {
-        &:after {
-          position: absolute;
-          margin: -1px;
-          padding: 0;
-          width: 1px;
-          height: 1px;
-          border: 0;
-          overflow: hidden;
-          clip: rect(0, 0, 0, 0);
-        }
-      }
-      .prev:after { content: 'Previous Month'; }
-      .next:after { content: 'Next Month'; }
+  &.dropdown-menu {
+    position: absolute !important;
+    top: 100% !important;
+    right: auto !important;
+    bottom: auto !important;
+    left: auto !important;
+    opacity: 1;
+    pointer-events: auto;
+    visibility: visible !important;
+    transform: none;
   }
 
-//** Shared datepicker and timepicker styles
+  //** Base date and time styles
+  ul { margin: 0; }
   .datepicker, .timepicker {
-
-    //** Default states for actions
-      [data-action^='select'],
-      [data-action^='picker'],
-      .prev,
-      .next,
-      .timepicker-picker a.btn {
-        cursor: pointer;
-        background-color: $white;
-        @include transition(color 250ms ease, background-color 250ms ease);
-        &:hover, &:active, &.active {
-          color: $white;
-          background-color: $link-color;
-        }
-      }
-      [data-action^='select'],
-      [data-action^='picker'] {
-        font-weight: $font-weight-bold;
-        font-size: $font-size-sm;
-        line-height: 1;
-        color: $body-color;
-        border-left: $border-width solid $border-color;
-        border-top: $border-width solid $border-color;
-      }
-
-      //** Disabled or unavailable states
-        .unavailable, .old, .new, .disabled, .disabled:hover {
-          font-size: 10px;
-          color: $custom-control-label-disabled-color;
-          background-color: $gray-100;
-        }
-        .unavailable, .disabled { cursor: not-allowed; }
-
-      //** Today's state
-        .today {
-          color: $white;
-          background-color: $gray-800;
-          &.active {
-            &:hover, &:active {
-              background-color: $link-color;
-            }
-          }
-        }
-
-    //** Default sizing for select cells
-      [data-action^='select'] {
-        display: inline-block;
-        height: $spacer; // @include rem(height, $spacer-triple);
-        line-height: $spacer; // @include rem(line-height, $spacer-triple);
-      }
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
   }
+  a[data-action] { display: block; }
 
-//** Datepicker specific
-  .datepicker {
-
-    //** Top picker switcher for month, year, decade
-      [data-action^='picker'] {
-        padding-top: $spacer / 2; // @include rem(padding-top, $spacer-half);
-        padding-bottom: $spacer / 2; // @include rem(padding-bottom, $spacer-half);
-        width: 200px;
-        border-right: $border-width solid $border-color;
-        border-left: $border-width solid $border-color;
-        border-top: none;
-      }
-
-    //** Day of the week
-      .dow {
-        padding: $spacer / 2; // @include rem(padding, $spacer-half);
-        font-weight: $font-weight-bold;
-        font-size: 10px;
-        line-height: 1;
-        border-top: $border-width solid $border-color;
-      }
-
-    //** Previous/Next buttons
-      .prev, .next {
-        color: $link-color;
-        width: 40px;
-        height: 100%;
-      }
-      .prev {
-        .glyphicon:after { content: '\f104'; }
-      }
-      .next {
-        .glyphicon:after { content: '\f105'; }
-      }
-
-    //** Body
-      .datepicker-days {
-        [data-action^='select'] {
-          display: table-cell;
-          width: $spacer; // width: $spacer-base-half;
-          height: $spacer; // height: $spacer-base-half;
-          line-height: $spacer; // line-height: $spacer-base-half;
-          &:first-child { border-left: none; }
-        }
-      }
-      .datepicker-months,
-      .datepicker-years,
-      .datepicker-decades {
-        [data-action^='select'] {
-          width: 33.3333333%;
-          &:nth-child(3n + 1) { border-left: none; }
-        }
-      }
-  }
-
-//** Timepicker specific
-  .timepicker {
-    [data-action^='select'] {
-      width: 25%;
-      &:nth-child(4n + 1) { border-left: none; }
-    }
-    [class^='timepicker-'] {
-      tr:first-child td { border-top: none; }
+  //** Table defaults
+  table {
+    width: 100%;
+    td, th {
+      text-align: center;
+      vertical-align: middle;
     }
   }
 
-  //** Timepicker picker section
+  //** Time/Date Toggle
+  .collapse.show {
     .timepicker-picker {
-      padding-right: $spacer / 2; // @include rem(padding-right, $spacer-half);
-
-      td {
-        width: 35%;
-        &:nth-child(2) {
-          width: $spacer / 2; // width: $spacer-half;
-        }
-        &:nth-child(4) {
-
-          padding-left: $spacer / 2; // @include rem(padding-left, $spacer-half);
-          width: $spacer *2; // @include rem(width, $spacer-double);
-        }
-        a {
-          color: $link-color;
-        }
-      }
-      [class^='timepicker-'] {
-        display: block;
-        width: 100%;
-        height: 40px;
-        line-height: 40px;
-        font-weight: $font-weight-bold;
-        font-size: $font-size-lg;
-        cursor: pointer;
-        transition: background-color 250ms ease; // @include transition(background-color 250ms ease);
-        &:hover, &:active {
-          background-color: $gray-300; // background-color: $bg-color-primary;
-        }
-      }
-      .btn {
-        position: relative;
-        display: block;
-        width: 100%;
-        height: 40px;
-        .glyphicon-chevron-up:after { content: '\f106'; }
-        .glyphicon-chevron-down:after { content: '\f107'; }
-      }
+      tr:first-child a, tr:last-child a { border-radius: 0; }
     }
-
-//** Time/Date Toggle
-  .picker-switch.accordion-toggle {
-    a {
-      display: block;
-      height: 40px;
-      color: $link-color;
-      background-color: $white;
-      cursor: pointer;
-      transition: color 250ms ease, background-color 250ms ease; // @include transition(color 250ms ease, background-color 250ms ease);
-      &:hover, &:active {
-        color: $white;
-        background-color: $link-color;
-      }
-    }
-    .glyphicon-time:after { content: '\f017'; } // Clock icon
-    .glyphicon-calendar:after { content: '\f073'; } // Calendar icon
-    .glyphicon-screenshot:after { content: '\f274'; } // Today icon
-    .glyphicon-trash:after { content: '\f0e2'; } // Clear icon
-    .glyphicon-remove:after { content: '\f00d'; } // Close icon
+    + .picker-switch { border-top: $border-width solid $border-color; }
   }
+  .picker-switch + .collapse.show { border-top: $border-width solid $border-color; }
 
-//** Accessbility
-  [data-action='togglePicker'],
-  [data-action='incrementHours'],
-  [data-action='incrementMinutes'],
-  [data-action='decrementHours'],
-  [data-action='decrementMinutes'],
-  [data-action='showHours'],
-  [data-action='showMinutes'],
-  [data-action='togglePeriod'],
-  [data-action='clear'],
-  [data-action='today'] {
+  //** Accessbility
+  .prev, .next {
     &:after {
       position: absolute;
       margin: -1px;
@@ -312,13 +68,198 @@
       clip: rect(0, 0, 0, 0);
     }
   }
-  [data-action='togglePicker']:after { content: 'Toggle Date and Time Screens'; }
-  [data-action='incrementHours']:after { content: 'Increment Hours'; }
-  [data-action='incrementMinutes']:after { content: 'Increment Minutes'; }
-  [data-action='decrementHours']:after { content: 'Decrement Hours'; }
-  [data-action='decrementMinutes']:after { content: 'Decrement Minutes'; }
-  [data-action='showHours']:after { content: 'Show Hours'; }
-  [data-action='showMinutes']:after { content: 'Show Minutes'; }
-  [data-action='togglePeriod']:after { content: 'Toggle AM/PM'; }
-  [data-action='clear']:after { content: 'Clear the picker'; }
-  [data-action='today']:after { content: 'Set the date to today'; }
+  .prev:after { content: 'Previous Month'; }
+  .next:after { content: 'Next Month'; }
+}
+
+//** Shared datepicker and timepicker styles
+.datepicker, .timepicker {
+
+  //** Default states for actions
+  [data-action^='select'],
+  [data-action^='picker'],
+  .prev,
+  .next,
+  .timepicker-picker a.btn {
+    cursor: pointer;
+    background-color: $white;
+    @include transition(color 250ms ease, background-color 250ms ease);
+    &:hover, &:active, &.active {
+      color: $white;
+      background-color: $link-color;
+    }
+  }
+  [data-action^='select'],
+  [data-action^='picker'] {
+    font-weight: $font-weight-bold;
+    font-size: $font-size-base;
+    color: $body-color;
+    border-left: $border-width solid $border-color;
+    border-top: $border-width solid $border-color;
+  }
+
+  //** Disabled or unavailable states
+  .unavailable, .old, .new, .disabled, .disabled:hover {
+    font-size: $font-size-sm;
+    color: $input-placeholder-color;
+    background-color: $input-disabled-bg;
+  }
+  .unavailable, .disabled { cursor: not-allowed; }
+
+  //** Today's state
+  .today {
+    color: $white;
+    background-color: $dark;
+    &.active {
+      &:hover, &:active { background-color: $link-color; }
+    }
+  }
+
+  //** Default sizing for select cells
+  [data-action^='select'] {
+    display: inline-block;
+    height: ($spacer * 3);
+    line-height: ($spacer * 3);
+  }
+}
+
+//** Datepicker specific
+.datepicker {
+
+  //** Top picker switcher for month, year, decade
+  [data-action^='picker'] {
+    padding-top: ($spacer / 2);
+    padding-bottom: ($spacer / 2);
+    width: ($spacer * 10);
+    border-right: $border-width solid $border-color;
+    border-left: $border-width solid $border-color;
+    border-top: none;
+  }
+
+  //** Day of the week
+  .dow {
+    padding: ($spacer / 4);
+    font-weight: $font-weight-bold;
+    font-size: $font-size-base;
+    border-top: $border-width solid $border-color;
+  }
+
+  //** Previous/Next buttons
+  .prev, .next {
+    color: $link-color;
+    width: ($spacer * 2);
+    height: 100%;
+  }
+
+  //** Body
+  .datepicker-days {
+    [data-action^='select'] {
+      display: table-cell;
+      width: ($spacer * 2);
+      height: ($spacer * 2);
+      line-height: 1;
+      &:first-child { border-left: none; }
+    }
+  }
+  .datepicker-months,
+  .datepicker-years,
+  .datepicker-decades {
+    [data-action^='select'] {
+      width: 33.3333333%;
+      &:nth-child(3n + 1) { border-left: none; }
+    }
+  }
+}
+
+//** Timepicker specific
+.timepicker {
+  [data-action^='select'] {
+    width: 25%;
+    &:nth-child(4n + 1) { border-left: none; }
+  }
+  [class^='timepicker-'] {
+    tr:first-child td { border-top: none; }
+  }
+}
+
+//** Timepicker picker section
+.timepicker-picker {
+  padding-right: ($spacer / 2);
+  td {
+    width: 35%;
+    &:nth-child(2) { width: ($spacer / 2); }
+    &:nth-child(4) {
+      padding-left: ($spacer / 2);
+      width: ($spacer * 2);
+    }
+    a { color: $link-color; }
+  }
+  [class^='timepicker-'] {
+    display: block;
+    width: 100%;
+    height: ($spacer * 2);
+    line-height: ($spacer * 2);
+    font-weight: $font-weight-bold;
+    font-size: $font-size-lg;
+    cursor: pointer;
+    transition: background-color 250ms ease; // @include transition(background-color 250ms ease);
+    &:hover, &:active { background-color: $border-color; }
+  }
+  .btn {
+    position: relative;
+    display: block;
+    padding: ($spacer / 2) 0;
+    width: 100%;
+    height: ($spacer * 2);
+  }
+}
+
+//** Time/Date Toggle
+.picker-switch.accordion-toggle {
+  a {
+    display: block;
+    padding-top: ($spacer / 2);
+    padding-bottom: ($spacer / 2);
+    color: $link-color;
+    background-color: $white;
+    cursor: pointer;
+    transition: color 250ms ease, background-color 250ms ease; // @include transition(color 250ms ease, background-color 250ms ease);
+    &:hover, &:active {
+      color: $white;
+      background-color: $link-color;
+    }
+  }
+}
+
+//** Accessbility
+[data-action='togglePicker'],
+[data-action='incrementHours'],
+[data-action='incrementMinutes'],
+[data-action='decrementHours'],
+[data-action='decrementMinutes'],
+[data-action='showHours'],
+[data-action='showMinutes'],
+[data-action='togglePeriod'],
+[data-action='clear'],
+[data-action='today'] {
+  &:after {
+    position: absolute;
+    margin: -1px;
+    padding: 0;
+    width: 1px;
+    height: 1px;
+    border: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+  }
+}
+[data-action='togglePicker']:after { content: 'Toggle Date and Time Screens'; }
+[data-action='incrementHours']:after { content: 'Increment Hours'; }
+[data-action='incrementMinutes']:after { content: 'Increment Minutes'; }
+[data-action='decrementHours']:after { content: 'Decrement Hours'; }
+[data-action='decrementMinutes']:after { content: 'Decrement Minutes'; }
+[data-action='showHours']:after { content: 'Show Hours'; }
+[data-action='showMinutes']:after { content: 'Show Minutes'; }
+[data-action='togglePeriod']:after { content: 'Toggle AM/PM'; }
+[data-action='clear']:after { content: 'Clear the picker'; }
+[data-action='today']:after { content: 'Set the date to today'; }

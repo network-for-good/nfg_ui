@@ -1,0 +1,44 @@
+// Specific styles for entity branding
+.datepicker, .timepicker {
+
+  //** Default states for actions
+  [data-action^='select'],
+  [data-action^='picker'],
+  .prev,
+  .next,
+  .timepicker-picker a.btn {
+    &:hover, &:active, &.active {
+      color: color-yiq($primary) !important;
+      background-color: $primary !important;
+    }
+  }
+
+  //** Today's state
+  .today {
+    &.active {
+      &:hover, &:active {
+        color: color-yiq($primary) !important;
+        background-color: $primary !important;
+      }
+    }
+  }
+}
+
+//** Datepicker specific
+.datepicker {
+  .prev, .next { color: color-yiq($primary, $yiq-text-dark, $primary); }
+}
+
+//** Timepicker picker section
+.timepicker-picker td a { color: color-yiq($primary, $yiq-text-dark, $primary); }
+
+//** Time/Date Toggle
+.picker-switch.accordion-toggle {
+  a {
+    color: color-yiq($primary, $yiq-text-dark, $primary);
+    &:hover, &:active {
+      color: color-yiq($primary) !important;
+      background-color: $primary !important;
+    }
+  }
+}
