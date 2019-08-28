@@ -4,6 +4,12 @@
 // DATEPICKER -- based on http://eonasdan.github.io/bootstrap-daetetimepicker/
 //*****************************//
 
+//** form style that clears out readonly styles
+.form-control[data-datetimepicker] {
+  background-color: $input-bg;
+  cursor: pointer;
+}
+
 //** Base styles
 .bootstrap-datetimepicker-widget {
   display: block;
