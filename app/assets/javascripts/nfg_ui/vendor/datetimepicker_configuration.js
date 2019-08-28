@@ -33,6 +33,17 @@ function () {
 
       options.useCurrent = false;
       options.ignoreReadonly = true;
+      options.icons = {
+        time:"fa fa-clock-o",
+        date:"fa fa-calendar",
+        up:"fa fa-caret-up",
+        down:"fa fa-caret-down",
+        previous:"fa fa-caret-left",
+        next:"fa fa-caret-right",
+        today:"fa fa-crosshairs",
+        clear:"fa fa-trash-o",
+        close:"fa fa-times"
+      }
       // options.debug = true
       return options;
     }
