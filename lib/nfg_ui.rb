@@ -9,6 +9,7 @@ require 'jquery-rails'
 require 'sass-rails'
 require 'select2-rails'
 require 'inky'
+require 'momentjs-rails'
 
 module NfgUi
   DEFAULT_BOOTSTRAP_THEME    = :primary

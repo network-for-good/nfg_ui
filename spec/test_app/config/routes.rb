@@ -34,4 +34,8 @@ Rails.application.routes.draw do
     get :modal
     get :tooltip
   end
+
+  resource :javascript_plugins, only: [] do
+    get :datetimepicker
+  end
 end
