@@ -1,11 +1,18 @@
 # Changelog
+## 0.9.17
+* `NfgUi::Bootstrap::Components::ButtonGroup`
+  * *Vertical Button Group*: Now properly applies either `btn-group` or `btn-group-vertical` when `vertical: true` in the component's `options` instead adding both css classes to the component when vertical.
+  * `aria` HTML attributes are no longer inadvertantly overwritten by default. Thus you can now add an aria to a button group, ex: `<%= ui.nfg :button_group, :vertical, aria: { 'test' => 'test2' }... %>`
+* CSS Updates:
+  * *Datetimepicker:* Updates datetimepicker styles to override the `readonly` `.form-control` styles
+  * *NFG_UI:* vertical button group is now designed and styled for usage within NFG apps.
+
 ## 0.9.16
 * Introduces [DateTimePicker](https://github.com/xdan/datetimepicker) as the alternative datetimepicker. Demo page: [localhost:3000/javascript_plugins/datetimepicker](http://localhost:3000/javascript_plugins/datetimepicker)
   * The datetimepicker comes in 3 flavors: combo date & time picker, date picker, and time picker. To initialize them, add the `data-datetimepicker` attribute to your text input:
     * DateTime Combo: `%input{ type: 'text', data: { datetimepicker: 'datetime'  } }`
     * Calendar / Date: `%input{ type: 'text', data: { datetimepicker: 'date' } }`
     * Time: `%input{ type: 'text', data: { datetimepicker: 'time' } }`
-
 
 ## 0.9.15
 * Re-introduces the official `Table` component.
