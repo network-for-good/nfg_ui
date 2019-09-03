@@ -153,9 +153,10 @@
 
 %h3 Vertical variation
 %h4 Button groups with buttons
-= ui.nfg :button_group, :vertical, aria: { 'test' => 'test2' } do
-  = ui.nfg :button, as: :button, body: 'Button'
-  = ui.nfg :button, as: :button do
-    Button
-  = ui.nfg :button, as: :button do
-    Button
+.text-center
+  = ui.nfg :button_group, :vertical, aria: { 'test' => 'test2' }, class: 'align-items-center' do
+    = ui.nfg :button, :lg, as: :button, body: 'Button'
+    = ui.nfg :button, :outlined, :secondary, as: :button, class: 'mt-3' do
+      Button goes here woohoo
+    = ui.nfg :button, as: :button, class: 'mt-3' do
+      Button
