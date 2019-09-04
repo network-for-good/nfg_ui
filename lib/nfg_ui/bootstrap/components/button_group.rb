@@ -5,7 +5,6 @@ module NfgUi
     module Components
       # Bootstrap Button Group Component
       # An optional parent of the Button component
-      # https://getbootstrap.com/docs/4.1/components/breadcrumb/
       class ButtonGroup < NfgUi::Bootstrap::Components::Base
         include Bootstrap::Utilities::DropdownDirectionable
         include Bootstrap::Utilities::Sizable
@@ -17,18 +16,21 @@ module NfgUi
         private
 
         def assistive_html_attributes
-          super.merge!(role: 'group', aria: { label: 'action buttons' })
+          # Prevent overwriting supplied aria attributes in the component's :options
+          aria = options[:aria].present? ? options[:aria] : {}
+          aria.merge!(label: 'action buttons')
+
+          super.merge!(role: 'group', aria: aria)
         end
 
+        # Bootstrap does not stack btn-group and btn-group-vertical together
+        # When a button group is set as vertical, it is only `btn-group-vertical`
         def component_css_class
-          'btn-group'
+          "btn-group#{'-vertical' if vertical}"
         end
 
-        def css_classes
-          [
-            super,
-            ("#{component_css_class}-vertical" if vertical)
-          ].join(' ').squish
+        def non_html_attribute_options
+          super.push(:vertical)
         end
       end
     end

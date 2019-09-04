@@ -134,17 +134,31 @@ RSpec.describe NfgUi::Bootstrap::Components::ButtonGroup do
   describe 'private methods' do
     describe '#assistive_html_attributes' do
       subject { button_group.send(:assistive_html_attributes) }
-      it { is_expected.to eq(role: 'group', aria: { label: 'action buttons' }) }
+      context 'when :aria is not present in options' do
+        it { is_expected.to eq(role: 'group', aria: { label: 'action buttons' }) }
+      end
+
+      context 'when :aria is present in options' do
+        let(:aria_key) { :aria_key_test }
+        let(:aria_value) { :aria_value_test }
+        let(:options) { { aria: { aria_key => aria_value } } }
+
+        it 'merges the arias together' do
+          expect(subject).to include(aria: {aria_key => aria_value, label: 'action buttons' })
+        end
+      end
     end
 
     describe '#component_css_class' do
       subject { button_group.send(:component_css_class) }
-      it { is_expected.to eq 'btn-group' }
-    end
+      context 'when :vertical is falsy in options' do
+        it { is_expected.to eq 'btn-group' }
+      end
 
-    describe '#css_classes' do
-      subject { button_group.send(:css_classes) }
-      pending 'spec needed for button_group#css_classes'
+      context 'when :vertical is true in options' do
+        let(:options) { { vertical: true } }
+        it { is_expected.to eq 'btn-group-vertical' }
+      end
     end
   end
 end
