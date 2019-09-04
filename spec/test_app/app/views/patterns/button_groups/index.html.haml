@@ -153,13 +153,20 @@
 
 %h3 Vertical variation
 %h4 Button groups with buttons
-%p
-  In order to make button group full width, you must add
-  %code class: 'w-100'
-
-%p
-  In order to center-align the buttons within the full width button group, add:
-  %code class: 'align-items-center'
+%p Usage:
+%ol
+  %li
+    In order to make button group full width, you must add:
+    %br
+    %code class: 'w-100'
+  %li
+    In order to center-align the buttons within the full width button group, add:
+    %br
+    %code class: 'align-items-center'
+  %li
+    Example:
+    %br
+    %code = ui.nfg :button_group, :vertical, class: 'align-items-center w-100' do ...
 
 = ui.nfg :button_group, :vertical, aria: { 'test' => 'test2' }, class: 'align-items-center w-100' do
   = ui.nfg :button, :lg, as: :button, body: 'Button'
