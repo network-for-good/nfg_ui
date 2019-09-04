@@ -1,5 +1,6 @@
 # Changelog
 ## 0.9.17
+* Addresses security vulnerability with `Nokogiri` which must now be `1.10.4` or greater [CVE-2019-5477](https://nvd.nist.gov/vuln/detail/CVE-2019-5477)
 * `NfgUi::Bootstrap::Components::ButtonGroup`
   * *Vertical Button Group*: Now properly applies either `btn-group` or `btn-group-vertical` when `vertical: true` in the component's `options` instead adding both css classes to the component when vertical.
   * `aria` HTML attributes are no longer inadvertantly overwritten by default. Thus you can now add an aria to a button group, ex: `<%= ui.nfg :button_group, :vertical, aria: { 'test' => 'test2' }... %>`
