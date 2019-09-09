@@ -5,10 +5,18 @@ module NfgUi
     module Traits
       # Access to pre-designed Icon traits
       module Icon
-        TRAITS = %i[loader].freeze
+        TRAITS = %i[loader tip].freeze
 
         def loader_trait
           options[:icon] = 'spinner spin fw'
+        end
+
+        # The defacto "(?)" tip icon
+        # Usage:
+        # ui.nfg :icon, :tip, tooltip: 'The tip'
+        def tip_trait
+          options[:icon] = 'question-circle-o'
+          options[:theme] = :info
         end
       end
     end

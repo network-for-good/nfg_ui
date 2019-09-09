@@ -6,7 +6,18 @@
 %hr
 
 %h2 Icons with custom traits
-= ui.nfg :icon, :loader
+%p
+  The loader icon:
+  %code :loader
+  %br
+  = ui.nfg :icon, :loader
+
+%p
+  The tip icon:
+  %code :tip
+  (remember to supply a tooltip!)
+  %br
+  = ui.nfg :icon, :tip, tooltip: 'The tip!'
 
 %h2 Icon with text, right & left
 = ui.nfg :icon, 'rocket', text: 'Icon on the left'

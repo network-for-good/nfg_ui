@@ -1,4 +1,8 @@
 # Changelog
+## 0.9.18
+* *Design System*: Adds `:tip` trait to the `NfgUi::Components::Foundations::Icon` which now auto-generates the design-system standard tootlip icon to be used whenever a tip/hint is provided on NFG apps. As of `0.9.18` the `:tip` trait is a `question-circle-o` icon.
+  * Example usage: `<%= ui.nfg :icon, :tip, tooltip: 'The tip!' %>`
+
 ## 0.9.17
 * Addresses security vulnerability with `Nokogiri` which must now be `1.10.4` or greater [CVE-2019-5477](https://nvd.nist.gov/vuln/detail/CVE-2019-5477)
 * `NfgUi::Bootstrap::Components::ButtonGroup`
