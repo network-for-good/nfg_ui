@@ -15,8 +15,8 @@ module NfgUi
         # Usage:
         # ui.nfg :icon, :tip, tooltip: 'The tip'
         def tip_trait
-          options[:icon] = 'question-circle-o'
-          options[:theme] = :info
+          options[:icon] = NfgUi::DEFAULT_TIP_ICON
+          options[:theme] = NfgUi::DEFAULT_TIP_THEME
         end
       end
     end

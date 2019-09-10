@@ -30,8 +30,8 @@ RSpec.describe NfgUi::Components::Traits::Icon do
     subject { component_with_traits.tip_trait }
     it 'establishes the tip icon with correct options' do
       by 'not being updated before running the trait' do
-        expect(component_with_traits.icon).not_to eq 'question-circle-o'
-        expect(component_with_traits.theme).not_to eq :info
+        expect(component_with_traits.icon).not_to eq NfgUi::DEFAULT_TIP_ICON
+        expect(component_with_traits.theme).not_to eq NfgUi::DEFAULT_TIP_THEME
       end
 
       and_by 'running the trait' do
@@ -39,11 +39,11 @@ RSpec.describe NfgUi::Components::Traits::Icon do
       end
 
       and_it 'is the correct icon' do
-        expect(component_with_traits.icon).to eq 'question-circle-o'
+        expect(component_with_traits.icon).to eq NfgUi::DEFAULT_TIP_ICON
       end
 
       and_it 'is the correct theme' do
-        expect(component_with_traits.theme).to eq :info
+        expect(component_with_traits.theme).to eq NfgUi::DEFAULT_TIP_THEME
       end
     end
   end

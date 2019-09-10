@@ -12,6 +12,9 @@ require 'inky'
 require 'momentjs-rails'
 
 module NfgUi
+  DEFAULT_TIP_ICON = 'question-circle-o'
+  DEFAULT_TIP_THEME = :info
+
   DEFAULT_BOOTSTRAP_THEME    = :primary
 
   BOOTSTRAP_THEMES           = %i[primary
