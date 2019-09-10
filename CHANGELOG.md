@@ -1,4 +1,7 @@
 # Changelog
+## 0.9.18.1
+* *Design System*: Establishes a centralized constant `DEFAULT_TIP_ICON` and `DEFAULT_TIP_THEME` for permeating tip styles and icons across other components. For example, `NfgUi::Components::Elements::Alert` has the `:tip` trait which applies the default tip icon and default tip theme to the alert.
+
 ## 0.9.18
 * *Design System*: Adds `:tip` trait to the `NfgUi::Components::Foundations::Icon` which now auto-generates the design-system standard tootlip icon to be used whenever a tip/hint is provided on NFG apps. As of `0.9.18` the `:tip` trait is a `question-circle-o` icon.
   * Example usage: `<%= ui.nfg :icon, :tip, tooltip: 'The tip!' %>`
