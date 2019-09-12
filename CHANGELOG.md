@@ -1,4 +1,7 @@
 # Changelog
+## 0.9.18.2
+* Fixes CSS bug where the Evo admin DatePicker `.ui-datepicker` div's z-index was below the bootstrap modal's z-index value (thus hiding the calendar widget when within a modal).
+
 ## 0.9.18.1
 * *Design System*: Establishes a centralized constant `DEFAULT_TIP_ICON` and `DEFAULT_TIP_THEME` for permeating tip styles and icons across other components. For example, `NfgUi::Components::Elements::Alert` has the `:tip` trait which applies the default tip icon and default tip theme to the alert.
 
