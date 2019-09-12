@@ -1,2 +1,3 @@
 // fixes z-index issue for default datepicker
 .ui-datepicker { z-index: $zindex-dropdown !important; }
+.modal-open .ui-datepicker{ z-index: $zindex-modal + 1 !important; }
