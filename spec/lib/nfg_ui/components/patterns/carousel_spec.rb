@@ -15,9 +15,27 @@ RSpec.describe NfgUi::Components::Patterns::Carousel do
   describe '#render' do
     subject { Capybara.string(rendered) }
 
-    it 'includes a unique padding on the inner carousel that is designed to facilitate a text-based carousel like a donor scroll instead of a hero banner image-based carousel' do
-      expect(subject).to have_css '.carousel-inner.pb-3'
+    context 'when indicators are present' do
+      let(:options) { { indicators: 3 } }
+      it 'includes a unique padding on the inner carousel that is designed to facilitate a text-based carousel like a donor scroll instead of a hero banner image-based carousel' do
+        expect(subject).to have_css '.carousel-inner.pb-3'
+      end
     end
 
+    context 'and when indicators are 0' do
+      let(:options) { { indicators: 0 } }
+      it 'does not include pb-3' do
+        expect(subject).not_to have_css '.carousel-inner.pb-3'
+        expect(subject).to have_css '.carousel-inner'
+      end
+    end
+
+    context 'and when indicators are nil' do
+      let(:options) { { indicators: nil } }
+      it 'does not include pb-3' do
+        expect(subject).not_to have_css '.carousel-inner.pb-3'
+        expect(subject).to have_css '.carousel-inner'
+      end
+    end
   end
 end
