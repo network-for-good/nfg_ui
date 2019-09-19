@@ -1,6 +1,6 @@
 # Changelog
 ## 0.9.18.3
-* `NfgUi::Components::Patterns::Carousel` now adds `pb-3` padding css class to the `.carousel-inner` div *only* when `:indicators` is more than `0`. This removes unexpected padding at the bottom of the `.carousel-inner` when indicators are not present
+* `NfgUi::Components::Patterns::Carousel` now adds `.pb-3` padding css class to the `.carousel-inner` div *only* when `:indicators` is more than `0`. This removes unexpected padding at the bottom of the `.carousel-inner` when indicators are not present
 
 ## 0.9.18.2
 * Fixes CSS bug where the Evo admin DatePicker `.ui-datepicker` div's z-index was below the bootstrap modal's z-index value (thus hiding the calendar widget when within a modal).
