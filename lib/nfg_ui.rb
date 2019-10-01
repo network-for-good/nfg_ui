@@ -94,6 +94,7 @@ module NfgUi
 
   ELEMENT_COMPONENT_NAMES    = %i[activity
                                   alert
+                                  avatar
                                   badge
                                   breadcrumb
                                   breadcrumb_item
