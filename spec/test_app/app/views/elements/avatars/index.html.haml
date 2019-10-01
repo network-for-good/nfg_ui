@@ -1,9 +1,26 @@
 %h1 Avatars
 
 %h2 Standard Avatars
--# Block example
-%p
-  = ui.nfg :avatar do
-    Avatar Body
 
-%p= ui.nfg :avatar, body: 'Standard Body in options'
+= ui.nfg :avatar, class: 'avatar-sm mr-3' do
+  %span.avatar-text
+    WW
+
+= ui.nfg :avatar, class: 'avatar-md mr-3' do
+  %span.avatar-text
+    WW
+
+= ui.nfg :avatar, class: 'avatar-lg mr-3' do
+  %span.avatar-text
+    WW
+
+= ui.nfg :avatar, class: 'avatar-xl mr-3' do
+  %span.avatar-text
+    WW
+
+%a.avatar.avatar-xl.mr-3{ href: '#' }
+  %span.avatar-text
+    WW
+
+%a.avatar.avatar-xl{ href: '#' }
+  %img{ src: 'https://i.pravatar.cc/300' }
