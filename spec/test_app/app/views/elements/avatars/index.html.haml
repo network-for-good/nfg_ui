@@ -4,22 +4,143 @@
 %p Avatars are :wrappable, so you can send in an :href to the options and it'll automatically generate the avatar as a link.
 %p Avatars come with sizes: :sm, :md: ,lg:, :xl. :md is default
 %p Pass in an image to render an image, or a body to send in text (e.g.: initials) to the component. If passing in an image, :alt is available and will be passed through to the image as an alt tag.
-%p Avatar enhancements:
-%ul
-  %li
-= ui.nfg :avatar, :sm, class: 'mr-3', href: '#test', body: 'WW'
 
-= ui.nfg :avatar, class: 'mr-3', body: 'Trait', tooltip: 'Test Tooltip', href: '#test'
+= ui.nfg :typeface, subheading: 'Default avatars, no sizing set', class: 'mb-1'
+.row
+  .col
+    = ui.nfg :avatar, body: 'KM'
+    %br
+    = ui.nfg :typeface, caption: 'No options'
+  .col
+    = ui.nfg :avatar, body: 'KM', href: '#test'
+    %br
+    = ui.nfg :typeface, caption: 'Linked by adding :href to options'
+  .col
+    = ui.nfg :avatar, body: 'KM', href: '#test', tooltip: 'Test Tooltip'
+    %br
+    = ui.nfg :typeface, caption: 'Tooltipped and linked'
+  .col
+    = ui.nfg :avatar, image: 'https://i.pravatar.cc/300'
+    %br
+    = ui.nfg :typeface, caption: 'No options'
+  .col
+    = ui.nfg :avatar, image: 'https://i.pravatar.cc/300', href: '#test'
+    %br
+    = ui.nfg :typeface, caption: 'Linked by adding :href to options'
+  .col
+    = ui.nfg :avatar, image: 'https://i.pravatar.cc/300', href: '#test', tooltip: 'Test Tooltip'
+    %br
+    = ui.nfg :typeface, caption: 'Tooltipped and linked'
 
-= ui.nfg :avatar, :md, class: 'mr-3', body: 'Option', tooltip: 'Test Tooltip', href: '#test'
+%hr
+= ui.nfg :typeface, subheading: 'Small avatars, set using :sm trait', class: 'mb-1'
+.row
+  .col
+    = ui.nfg :avatar, :sm, body: 'KM'
+    %br
+    = ui.nfg :typeface, caption: 'No options'
+  .col
+    = ui.nfg :avatar, :sm, body: 'KM', href: '#test'
+    %br
+    = ui.nfg :typeface, caption: 'Linked by adding :href to options'
+  .col
+    = ui.nfg :avatar, :sm, body: 'KM', href: '#test', tooltip: 'Test Tooltip'
+    %br
+    = ui.nfg :typeface, caption: 'Tooltipped and linked'
+  .col
+    = ui.nfg :avatar, :sm, image: 'https://i.pravatar.cc/300'
+    %br
+    = ui.nfg :typeface, caption: 'No options'
+  .col
+    = ui.nfg :avatar, :sm, image: 'https://i.pravatar.cc/300', href: '#test'
+    %br
+    = ui.nfg :typeface, caption: 'Linked by adding :href to options'
+  .col
+    = ui.nfg :avatar, :sm, image: 'https://i.pravatar.cc/300', href: '#test', tooltip: 'Test Tooltip'
+    %br
+    = ui.nfg :typeface, caption: 'Tooltipped and linked'
 
-= ui.nfg :avatar, :lg, class: 'mr-3', body: 'WW', href: '#test'
+%hr
+= ui.nfg :typeface, subheading: 'Medium avatars, set using :md trait', class: 'mb-1'
+.row
+  .col
+    = ui.nfg :avatar, :md, body: 'KM'
+    %br
+    = ui.nfg :typeface, caption: 'No options'
+  .col
+    = ui.nfg :avatar, :md, body: 'KM', href: '#test'
+    %br
+    = ui.nfg :typeface, caption: 'Linked by adding :href to options'
+  .col
+    = ui.nfg :avatar, :md, body: 'KM', href: '#test', tooltip: 'Test Tooltip'
+    %br
+    = ui.nfg :typeface, caption: 'Tooltipped and linked'
+  .col
+    = ui.nfg :avatar, :md, image: 'https://i.pravatar.cc/300'
+    %br
+    = ui.nfg :typeface, caption: 'No options'
+  .col
+    = ui.nfg :avatar, :md, image: 'https://i.pravatar.cc/300', href: '#test'
+    %br
+    = ui.nfg :typeface, caption: 'Linked by adding :href to options'
+  .col
+    = ui.nfg :avatar, :md, image: 'https://i.pravatar.cc/300', href: '#test', tooltip: 'Test Tooltip'
+    %br
+    = ui.nfg :typeface, caption: 'Tooltipped and linked'
 
-= ui.nfg :avatar, :xl, class: 'mr-3', body: 'WW'
+%hr
+= ui.nfg :typeface, subheading: 'Large avatars, set using :md trait', class: 'mb-1'
+.row
+  .col
+    = ui.nfg :avatar, :lg, body: 'KM'
+    %br
+    = ui.nfg :typeface, caption: 'No options'
+  .col
+    = ui.nfg :avatar, :lg, body: 'KM', href: '#test'
+    %br
+    = ui.nfg :typeface, caption: 'Linked by adding :href to options'
+  .col
+    = ui.nfg :avatar, :lg, body: 'KM', href: '#test', tooltip: 'Test Tooltip'
+    %br
+    = ui.nfg :typeface, caption: 'Tooltipped and linked'
+  .col
+    = ui.nfg :avatar, :lg, image: 'https://i.pravatar.cc/300'
+    %br
+    = ui.nfg :typeface, caption: 'No options'
+  .col
+    = ui.nfg :avatar, :lg, image: 'https://i.pravatar.cc/300', href: '#test'
+    %br
+    = ui.nfg :typeface, caption: 'Linked by adding :href to options'
+  .col
+    = ui.nfg :avatar, :lg, image: 'https://i.pravatar.cc/300', href: '#test', tooltip: 'Test Tooltip'
+    %br
+    = ui.nfg :typeface, caption: 'Tooltipped and linked'
 
-= ui.nfg :avatar, :xl, class: 'mr-3'
+%hr
+= ui.nfg :typeface, subheading: 'X-Large avatars, set using :md trait', class: 'mb-1'
+.row
+  .col
+    = ui.nfg :avatar, :xl, body: 'KM'
+    %br
+    = ui.nfg :typeface, caption: 'No options'
+  .col
+    = ui.nfg :avatar, :xl, body: 'KM', href: '#test'
+    %br
+    = ui.nfg :typeface, caption: 'Linked by adding :href to options'
+  .col
+    = ui.nfg :avatar, :xl, body: 'KM', href: '#test', tooltip: 'Test Tooltip'
+    %br
+    = ui.nfg :typeface, caption: 'Tooltipped and linked'
+  .col
+    = ui.nfg :avatar, :xl, image: 'https://i.pravatar.cc/300'
+    %br
+    = ui.nfg :typeface, caption: 'No options'
+  .col
+    = ui.nfg :avatar, :xl, image: 'https://i.pravatar.cc/300', href: '#test'
+    %br
+    = ui.nfg :typeface, caption: 'Linked by adding :href to options'
+  .col
+    = ui.nfg :avatar, :xl, image: 'https://i.pravatar.cc/300', href: '#test', tooltip: 'Test Tooltip'
+    %br
+    = ui.nfg :typeface, caption: 'Tooltipped and linked'
 
-= ui.nfg :avatar, :xl, class: 'mr-3' do
-  Manual
-
-= ui.nfg :avatar, :xl, image: 'https://i.pravatar.cc/300', href: '#test', alt: 'Test alt', tooltip: 'Test Tooltip'
