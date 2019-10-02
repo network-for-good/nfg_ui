@@ -75,13 +75,26 @@ RSpec.describe NfgUi::Components::Elements::Avatar do
       end
 
       describe 'adding an alt to the image' do
-        let(:tested_alt) { 'tested alt' }
-        let(:options) { { image: tested_image, alt: tested_alt } }
-        it 'supplies the alt to the image' do
-          expect(subject).to have_css ".avatar img[alt='#{tested_alt}']"
+        context 'and when an :alt is present in :options' do
+          let(:tested_alt) { 'tested alt' }
+          let(:options) { { image: tested_image, alt: tested_alt } }
+          it 'supplies the alt to the image' do
+            expect(subject).to have_css ".avatar img[alt='#{tested_alt}']"
 
-          and_it 'does not add the alt to the .avatar parent element' do
-            expect(subject).not_to have_css '.avatar[alt]'
+            and_it 'does not add the alt to the .avatar parent element' do
+              expect(subject).not_to have_css '.avatar[alt]'
+            end
+          end
+        end
+
+        context 'and when :alt is not present in options' do
+          let(:options) { { image: tested_image } }
+          it 'does not automatically generate an alt from the options' do
+            expect(subject).not_to have_css '.avatar img[alt]'
+
+            and_it 'does not add an alt to the parent div' do
+              expect(subject).not_to have_css '.avatar[alt]'
+            end
           end
         end
       end
@@ -122,6 +135,8 @@ RSpec.describe NfgUi::Components::Elements::Avatar do
     end
 
     describe 'sizing avatars' do
+      let(:options) { { size: tested_size } }
+
       context 'when no size is supplied' do
         let(:options) { {} }
         it 'renders the avatar with medium size by default' do
@@ -129,38 +144,53 @@ RSpec.describe NfgUi::Components::Elements::Avatar do
         end
       end
 
+
+
       context 'when small size is supplied' do
-        let(:options) { { size: :sm } }
+        let(:tested_size) { :sm }
         it 'renders the avatar with the correct size' do
           expect(subject).to have_css '.avatar.avatar-sm'
         end
       end
 
       context 'when medium size is supplied' do
-        let(:options) { { size: :md } }
+        let(:tested_size) { :md }
         it 'renders the avatar with the correct size' do
           expect(subject).to have_css '.avatar.avatar-md'
         end
       end
 
       context 'when large size is supplied' do
-        let(:options) { { size: :lg } }
+        let(:tested_size) { :lg }
         it 'renders the avatar with the correct size' do
           expect(subject).to have_css '.avatar.avatar-lg'
         end
       end
 
       context 'when xlarge size is supplied' do
-        let(:options) { { size: :xl } }
+        let(:tested_size) { :xl }
         it 'renders the avatar with the correct size' do
           expect(subject).to have_css '.avatar.avatar-xl'
         end
       end
 
       context 'when size is set to nil' do
-        let(:options) { { size: nil } }
+        let(:tested_size) { nil }
         it 'renders the avatar with the default size' do
           expect(subject).to have_css '.avatar.avatar-md'
+        end
+      end
+
+      context 'when size is an arbitrary / illegal value' do
+        let(:tested_size) { :arbitrary }
+        it 'renders the avatar with no size' do
+          and_it 'does not render the avatar with the default size' do
+            expect(subject).not_to have_css '.avatar.avatar-md'
+          end
+
+          and_it 'renders the avatar with no size' do
+            expect(rendered_html).to eq "<div class=\"avatar\"></div>"
+          end
         end
       end
     end
