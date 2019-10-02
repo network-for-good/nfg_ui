@@ -70,7 +70,20 @@ RSpec.describe NfgUi::Components::Elements::Avatar do
         expect(subject).to have_css ".avatar img[src*='#{tested_image}']"
 
         and_it 'does not render the avatar-text span' do
-          expect(subject).not_to have_css body_css_class
+          expect(subject).not_to have_css ".#{body_css_class}"
+        end
+      end
+
+      context 'when an image and body are both present' do
+        let(:tested_body) { 'test body' }
+        let(:options) { { image: tested_image, body: tested_body } }
+        it 'ignores the body and prefers the image' do
+          expect(subject).to have_css "img[src*='#{tested_image}']"
+
+          and_it 'does not display the body' do
+            expect(subject).not_to have_text tested_body
+            expect(subject).not_to have_css ".#{body_css_class}"
+          end
         end
       end
 
