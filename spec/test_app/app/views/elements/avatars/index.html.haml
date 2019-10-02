@@ -12,6 +12,11 @@
     %br
     = ui.nfg :typeface, caption: 'No options'
   .col
+    = ui.nfg :avatar  do
+      KM
+    %br
+    = ui.nfg :typeface, caption: 'Manually set body via do block'
+  .col
     = ui.nfg :avatar, body: 'KM', href: '#test'
     %br
     = ui.nfg :typeface, caption: 'Linked by adding :href to options'
@@ -39,6 +44,11 @@
     = ui.nfg :avatar, :sm, body: 'KM'
     %br
     = ui.nfg :typeface, caption: 'No options'
+  .col
+    = ui.nfg :avatar, :sm do
+      KM
+    %br
+    = ui.nfg :typeface, caption: 'Manually set body via do block'
   .col
     = ui.nfg :avatar, :sm, body: 'KM', href: '#test'
     %br
@@ -68,6 +78,11 @@
     %br
     = ui.nfg :typeface, caption: 'No options'
   .col
+    = ui.nfg :avatar, :md do
+      KM
+    %br
+    = ui.nfg :typeface, caption: 'Manually set body via do block'
+  .col
     = ui.nfg :avatar, :md, body: 'KM', href: '#test'
     %br
     = ui.nfg :typeface, caption: 'Linked by adding :href to options'
@@ -89,12 +104,17 @@
     = ui.nfg :typeface, caption: 'Tooltipped and linked'
 
 %hr
-= ui.nfg :typeface, subheading: 'Large avatars, set using :md trait', class: 'mb-1'
+= ui.nfg :typeface, subheading: 'Large avatars, set using :lg trait', class: 'mb-1'
 .row
   .col
     = ui.nfg :avatar, :lg, body: 'KM'
     %br
     = ui.nfg :typeface, caption: 'No options'
+  .col
+    = ui.nfg :avatar, :lg do
+      KM
+    %br
+    = ui.nfg :typeface, caption: 'Manually set body via do block'
   .col
     = ui.nfg :avatar, :lg, body: 'KM', href: '#test'
     %br
@@ -117,12 +137,17 @@
     = ui.nfg :typeface, caption: 'Tooltipped and linked'
 
 %hr
-= ui.nfg :typeface, subheading: 'X-Large avatars, set using :md trait', class: 'mb-1'
+= ui.nfg :typeface, subheading: 'X-Large avatars, set using :xl trait', class: 'mb-1'
 .row
   .col
     = ui.nfg :avatar, :xl, body: 'KM'
     %br
     = ui.nfg :typeface, caption: 'No options'
+  .col
+    = ui.nfg :avatar, :xl do
+      KM
+    %br
+    = ui.nfg :typeface, caption: 'Manually set body via do block'
   .col
     = ui.nfg :avatar, :xl, body: 'KM', href: '#test'
     %br
