@@ -7,6 +7,7 @@
     * Linkable: `href: '/my/page'`
     * Imageable: `image: '/path/to/image.jpg'`
     * Body: `body: 'JR'`
+    * Alt's can be supplied for images: `alt: 'image alt'`
   * Example usage: `<%= ui.nfg :avatar, :xl, image: 'https://i.pravatar.cc/300', href: '#test', alt: 'Test alt', tooltip: 'Test Tooltip' %>`
 * `NfgUi::Components::Traits::Size` now accepts all 4 sizes, `:sm`, `:md`, `:lg`, `:xl`
   * `#resize?` method found on the Sizable module will still only supply a resize css class for `:sm` and `:lg`, you must manually override `#resize?` in your target component. For example:
