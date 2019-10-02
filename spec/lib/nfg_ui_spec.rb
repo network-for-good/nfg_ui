@@ -98,6 +98,7 @@ RSpec.describe NfgUi do
         it 'contains the approved list of element component names' do
           expect(NfgUi::ELEMENT_COMPONENT_NAMES).to eq %i[activity
                                                           alert
+                                                          avatar
                                                           badge
                                                           breadcrumb
                                                           breadcrumb_item

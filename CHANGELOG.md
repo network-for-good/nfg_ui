@@ -1,4 +1,23 @@
 # Changelog
+## 0.9.19
+* `NfgUi::Components::Elements::Avatar` is now available as a new component to use. Browse to `http://localhost:3000/elements/avatars` to see them in action
+  * Avatars are:
+    * Tooltippable `tooltip: 'test tooltip'`
+    * Sizable: *Defaults to* `:md` : `<%= ui.nfg :avatar, :xl ... %>`
+    * Linkable: `href: '/my/page'`
+    * Imageable: `image: '/path/to/image.jpg'`
+    * Body: `body: 'JR'`
+    * Alt's can be supplied for images: `alt: 'image alt'`
+  * Example usage: `<%= ui.nfg :avatar, :xl, image: 'https://i.pravatar.cc/300', href: '#test', alt: 'Test alt', tooltip: 'Test Tooltip' %>`
+* `NfgUi::Components::Traits::Size` now accepts all 4 sizes, `:sm`, `:md`, `:lg`, `:xl`
+  * `#resize?` method found on the Sizable module will still only supply a resize css class for `:sm` and `:lg`, you must manually override `#resize?` in your target component. For example:
+  ```ruby
+  def resized?
+    [:sm, :md, :lg, :xl].include?(size)
+  end
+  ```
+
+
 ## 0.9.18.3
 * `NfgUi::Components::Patterns::Carousel` now adds `.pb-3` padding css class to the `.carousel-inner` div *only* when `:indicators` is more than `0`. This removes unexpected padding at the bottom of the `.carousel-inner` when indicators are not present
 
