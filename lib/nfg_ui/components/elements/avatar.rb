@@ -57,7 +57,7 @@ module NfgUi
         # When an illegal size is detected, it does not generate the size css class (e.g.: 'avatar-xl')
         #
         # nfg_ui implements more sizes than "sm" and "lg",
-        # We set #resized? to true by default to avoid this restriction
+        # We set #resized? updated restrictions here, instead.
         # allowing updated size css classes to be passed to html_options
         def resized?
           [:sm, :md, :lg, :xl].include?(size)
