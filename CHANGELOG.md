@@ -1,4 +1,7 @@
 # Changelog
+## 0.9.19.1
+* Addresses security vulnerability [CVE-2019-16892](https://nvd.nist.gov/vuln/detail/CVE-2019-16892) by manually updating `selenium-webdriver` and adding a dependency for `rubyzip >= 1.3.0`
+
 ## 0.9.19
 * `NfgUi::Components::Elements::Avatar` is now available as a new component to use. Browse to `http://localhost:3000/elements/avatars` to see them in action
   * Avatars are:
