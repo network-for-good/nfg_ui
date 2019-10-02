@@ -12,14 +12,30 @@
 shared_examples_for 'a fetched option with a defined fallback' do |fallback: nil|
   let(:options) { { tested_option => tested_value } }
 
-  context 'when the tested option is true in the :options hash' do
-    let(:tested_value) { true }
-    it { is_expected.to be }
-  end
+  it_behaves_like 'an option with a value'
 
   context 'when the tested option is false in the :options hash' do
     let(:tested_value) { false }
     it { is_expected.not_to be }
+  end
+
+  context 'when the option is nil in the :options hash' do
+    let(:tested_value) { nil }
+    it { is_expected.to be_nil }
+  end
+
+  context 'when the tested option is not present in the :options hash' do
+    let(:options) { {} }
+    it { is_expected.to eq fallback }
+  end
+end
+
+shared_examples_for 'an option with a value' do |fallback: nil|
+  let(:options) { { tested_option => tested_value } }
+
+  context 'when the tested option is true in the :options hash' do
+    let(:tested_value) { true }
+    it { is_expected.to be }
   end
 
   context 'when the teste option is a symbol in the :options hash' do
@@ -40,15 +56,5 @@ shared_examples_for 'a fetched option with a defined fallback' do |fallback: nil
   context 'when the tested option is an array in the :options hash' do
     let(:tested_value) { %w[another tested array] }
     it { is_expected.to eq tested_value }
-  end
-
-  context 'when the option is nil in the :options hash' do
-    let(:tested_value) { nil }
-    it { is_expected.to be_nil }
-  end
-
-  context 'when the tested option is not present in the :options hash' do
-    let(:options) { {} }
-    it { is_expected.to eq fallback }
   end
 end

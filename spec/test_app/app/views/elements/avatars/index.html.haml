@@ -1,26 +1,25 @@
 %h1 Avatars
 
 %h2 Standard Avatars
+%p Avatars are :wrappable, so you can send in an :href to the options and it'll automatically generate the avatar as a link.
+%p Avatars come with sizes: :sm, :md: ,lg:, :xl. :md is default
+%p Pass in an image to render an image, or a body to send in text (e.g.: initials) to the component. If passing in an image, :alt is available and will be passed through to the image as an alt tag.
+%p Avatar enhancements:
+%ul
+  %li
+= ui.nfg :avatar, :sm, class: 'mr-3', href: '#test', body: 'WW'
 
-= ui.nfg :avatar, class: 'avatar-sm mr-3' do
-  %span.avatar-text
-    WW
+= ui.nfg :avatar, class: 'mr-3', body: 'Trait', tooltip: 'Test Tooltip', href: '#test'
 
-= ui.nfg :avatar, class: 'avatar-md mr-3' do
-  %span.avatar-text
-    WW
+= ui.nfg :avatar, :md, class: 'mr-3', body: 'Option', tooltip: 'Test Tooltip', href: '#test'
 
-= ui.nfg :avatar, class: 'avatar-lg mr-3' do
-  %span.avatar-text
-    WW
+= ui.nfg :avatar, :lg, class: 'mr-3', body: 'WW', href: '#test'
 
-= ui.nfg :avatar, class: 'avatar-xl mr-3' do
-  %span.avatar-text
-    WW
+= ui.nfg :avatar, :xl, class: 'mr-3', body: 'WW'
 
-%a.avatar.avatar-xl.mr-3{ href: '#' }
-  %span.avatar-text
-    WW
+= ui.nfg :avatar, :xl, class: 'mr-3'
 
-%a.avatar.avatar-xl{ href: '#' }
-  %img{ src: 'https://i.pravatar.cc/300' }
+= ui.nfg :avatar, :xl, class: 'mr-3' do
+  Manual
+
+= ui.nfg :avatar, :xl, image: 'https://i.pravatar.cc/300', href: '#test', alt: 'Test alt', tooltip: 'Test Tooltip'
