@@ -9,6 +9,7 @@ module NfgUi
         include Bootstrap::Utilities::Wrappable
 
         include NfgUi::Components::Traits::Size
+
         def alt
           options.fetch(:alt, nil)
         end
