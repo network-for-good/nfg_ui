@@ -3,7 +3,7 @@
 #= require select2
 #= require bootstrap
 #= require moment
-#= require bootstrap-datetimepicker.min
+#= require nfg_ui/vendor/bootstrap-datetimepicker.min
 
 #= require_self
 #= require nfg_ui/collapsible_toggle
