@@ -34,6 +34,7 @@ Gem::Specification.new do |s|
   # Evo is officially on ruby 2.3.7 so autoprefixer must
   # be manually set.
   s.add_dependency 'autoprefixer-rails', '9.4.9'
+  s.add_dependency 'rubyzip', '~> 1.3.0'
 
   s.add_development_dependency 'capybara', '~> 3.9'
   s.add_development_dependency 'chromedriver-helper', '~> 2.1'
