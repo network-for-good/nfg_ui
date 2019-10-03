@@ -42,8 +42,8 @@ Gem::Specification.new do |s|
   # Rubyzip is dependended on by selenium-webdriver, among other gems.
   s.add_dependency 'rubyzip', '>= 1.3.0'
 
-  s.add_development_dependency 'capybara', '~> 3.9'
-  s.add_development_dependency 'chromedriver-helper', '~> 2.1'
+  s.add_development_dependency 'capybara', '~> 3.18'
+  s.add_development_dependency 'webdrivers'
   s.add_development_dependency 'factory_bot_rails', '~> 4.11'
   s.add_development_dependency 'puma', '~> 3.12'
   s.add_development_dependency 'rails-controller-testing', '~> 1.0' # for assert-template
