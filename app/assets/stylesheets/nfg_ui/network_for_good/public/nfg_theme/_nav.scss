@@ -1,0 +1,29 @@
+//
+// Tabs
+//
+.nav-tabs {
+  border-bottom: none;
+
+  .nav-item { margin-bottom: 0; }
+
+  .nav-link {
+    position: relative;
+    color: $text-muted;
+    border: none;
+    border-bottom: $nav-tabs-border-width solid transparent;
+    &::after {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: $nav-tabs-border-width;
+      background: $nav-tabs-link-hover-border-color;
+      border-radius: ($nav-tabs-border-width / 2);
+      content: '';
+    }
+    @include hover-focus {
+      color: $nav-tabs-link-active-color;
+      border-color: $nav-tabs-link-hover-border-color;
+    }
+  }
+}
