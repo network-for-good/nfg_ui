@@ -1,0 +1,11 @@
+//
+// Tabs
+//
+.nav-tabs {
+  .nav-link {
+    @include hover-focus {
+      border-color: $primary;
+      &::after { background: $primary; }
+    }
+  }
+}
