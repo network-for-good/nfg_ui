@@ -3,7 +3,7 @@
 //
 .nav-tabs {
   .nav-link {
-    @include hover-focus {
+    &:hover, &.active {
       border-color: $primary;
       &::after { background: $primary; }
     }
