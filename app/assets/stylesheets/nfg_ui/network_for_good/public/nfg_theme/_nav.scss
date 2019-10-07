@@ -10,7 +10,6 @@
     position: relative;
     color: $text-muted;
     border: none;
-    border-bottom: $nav-tabs-border-width solid transparent;
     &::after {
       position: absolute;
       bottom: 0;
@@ -18,11 +17,11 @@
       width: 100%;
       height: $nav-tabs-border-width;
       border-radius: ($nav-tabs-border-width / 2);
+      transition: $transition-base;
       content: '';
     }
     @include hover-focus {
       color: $nav-tabs-link-active-color;
-      border-color: $nav-tabs-link-hover-border-color;
       &::after { background: $nav-tabs-link-hover-border-color; }
     }
   }
