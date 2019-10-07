@@ -1,5 +1,7 @@
 // Specific styles for entity branding
 
 .progress-bar.bg-primary {
-  background-color: color-yiq($primary, $yiq-text-dark, $primary) !important;
+  &:not(.bg-dark) & {
+    background-color: color-yiq($primary, $yiq-text-dark, $primary) !important;
+  }
 }
