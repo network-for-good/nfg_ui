@@ -692,7 +692,7 @@ $nav-link-padding-x:                $spacer;
 $nav-link-disabled-color:           $text-muted;
 
 $nav-tabs-border-color:             $border-color;
-$nav-tabs-border-width:             ($spacer * .25);
+$nav-tabs-border-width:             $border-width;
 $nav-tabs-border-radius:            0;
 $nav-tabs-link-hover-border-color:  $primary;
 $nav-tabs-link-active-color:        $body-color;
