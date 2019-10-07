@@ -3,7 +3,7 @@
 .everyday_default {
   .progress-stats {
     .progress-text-on {
-      &:not(.bg-dark) & {
+      :not(.bg-dark) & {
         color: color-yiq($primary, $yiq-text-dark, $primary);
       }
     }
