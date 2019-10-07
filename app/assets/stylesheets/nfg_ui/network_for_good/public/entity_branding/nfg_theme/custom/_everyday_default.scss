@@ -1,14 +1,15 @@
 // Styles specific to the everyday default style
 
+// Background specific bg-colors to help with extreme colors like #fff and #000
 .everyday_default {
   .bg-dark {
     .progress-stats .progress-text-on {
-      color: color-yiq($primary, $primary, $yiq-text-light);
+      color: color-yiq($primary, $yiq-text-dark, $primary);
     }
   }
   .bg-light {
     .progress-stats .progress-text-on {
-      color: color-yiq($primary, $yiq-text-dark, $primary);
+      color: color-yiq($primary, $primary, $yiq-text-light);
     }
   }
 }
