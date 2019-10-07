@@ -21,8 +21,8 @@
 }
 
 .btn-outline-secondary {
-  color: color-yiq($primary, $yiq-text-dark, $primary);
-  &:hover { color: color-yiq($primary, $yiq-text-dark, $primary); }
+  color: color-yiq($primary);
+  &:hover { color: color-yiq($primary); }
   &:not(:disabled):not(.disabled):active,
   &:not(:disabled):not(.disabled).active,
   .show > &.dropdown-toggle { color: color-yiq($primary, $yiq-text-dark, $primary); }
