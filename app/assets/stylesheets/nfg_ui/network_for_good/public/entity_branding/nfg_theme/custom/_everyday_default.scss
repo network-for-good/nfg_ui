@@ -1,11 +1,14 @@
 // Styles specific to the everyday default style
 
 .everyday_default {
-  .progress-stats {
-    .progress-text-on {
-      :not(.bg-dark) & {
-        color: color-yiq($primary, $yiq-text-dark, $primary);
-      }
+  .bg-dark {
+    .progress-stats .progress-text-on {
+      color: color-yiq($primary, $primary, $yiq-text-light);
+    }
+  }
+  .bg-light {
+    .progress-stats .progress-text-on {
+      color: color-yiq($primary, $yiq-text-dark, $primary);
     }
   }
 }
