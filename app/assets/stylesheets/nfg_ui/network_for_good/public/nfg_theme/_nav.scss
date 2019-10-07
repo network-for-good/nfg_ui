@@ -14,7 +14,10 @@
         transition: $transition-base;
         content: '';
       }
-      &.active::after { background: $nav-tabs-link-hover-border-color; }
+      &.active {
+        color: $nav-tabs-link-active-color !important;
+        &::after { background: $nav-tabs-link-hover-border-color; }
+      }
       @include hover-focus { color: $nav-tabs-link-active-color !important; }
     }
   }
@@ -24,7 +27,7 @@
 // Tabs
 //
 .nav-tabs {
-  .nav-item { margin-right: ($spacer * .25); }
+  .nav-item { margin-right: ($spacer * .5); }
   .nav-link {
     position: relative;
     color: $text-muted;
