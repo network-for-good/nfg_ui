@@ -14,7 +14,7 @@
 }
 
 .custom-select {
-  color: color-yiq($primary);
+  color: color-yiq($primary, $yiq-text-dark, $primary);
   background-image: $custom-select-indicator;
   &:focus {
     border-color: $primary;

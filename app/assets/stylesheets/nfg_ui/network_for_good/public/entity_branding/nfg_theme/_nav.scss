@@ -3,14 +3,14 @@
 .nav {
   &.flex-column {
     .nav-link {
-      &.active::after { background: color-yiq($primary, $yiq-text-dark, $primary);; }
+      &.active::after { background: color-yiq($primary, $yiq-text-dark, $primary); }
     }
   }
 }
 .nav-tabs {
   .nav-link {
     &:hover, &.active {
-      &::after { background: color-yiq($primary, $yiq-text-dark, $primary);; }
+      &::after { background: color-yiq($primary, $yiq-text-dark, $primary); }
     }
   }
 }
