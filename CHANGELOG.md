@@ -1,4 +1,7 @@
 # Changelog
+## 0.9.19.1
+* Updates CSS styles for public facing tabs and donor specific UI features for the Evo donor profile.
+
 ## 0.9.19
 * `NfgUi::Components::Elements::Avatar` is now available as a new component to use. Browse to `http://localhost:3000/elements/avatars` to see them in action
   * Avatars are:
