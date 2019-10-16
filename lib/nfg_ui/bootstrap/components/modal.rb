@@ -6,6 +6,7 @@ module NfgUi
       # Bootstrap Modal Component
       # https://getbootstrap.com/docs/4.1/components/modal/
       class Modal < NfgUi::Bootstrap::Components::Base
+        include Bootstrap::Utilities::Sizable
 
         # NOTE: ARIALABELLEDBY has not been introduced on speed modals.
         # ex: aria-labelledby="exampleModalLabel"
@@ -25,7 +26,7 @@ module NfgUi
 
         def render
           super do
-            content_tag(:div, class: 'modal-dialog', role: 'document') do
+            content_tag(:div, class: modal_dialog_css_classes, role: 'document') do
               content_tag(:div, class: 'modal-content') do
                 capture do
                   concat(NfgUi::Bootstrap::Components::ModalHeader.new({ title: title }, view_context).render)
@@ -49,12 +50,28 @@ module NfgUi
 
         private
 
+        # Manually set css classes here so that sizable doesn't take over
+        # and add size classes to the component html_options
         def css_classes
-          super + ' fade'
+          [
+            component_css_class,
+            'fade'
+          ].join(' ').squish
+        end
+
+        def modal_dialog_css_classes
+          [
+            'modal-dialog',
+            (size_css_class if resized?)
+          ].join(' ').squish
         end
 
         def non_html_attribute_options
           super.push((:footer if footer.present?), (:title if title.present?))
+        end
+
+        def resized?
+          [:sm, :lg, :xl].include?(size)
         end
 
         def assistive_html_attributes
