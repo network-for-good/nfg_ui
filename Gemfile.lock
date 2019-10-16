@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    nfg_ui (0.9.19.1)
+    nfg_ui (0.9.20)
       autoprefixer-rails (= 9.4.9)
       bootstrap (= 4.3.1)
       browser (~> 1.1)
