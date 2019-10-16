@@ -33,3 +33,18 @@
 
 = ui.nfg :modal, id: 'test_modal3', title: 'Test Modal', footer: 'Modal footer (as a component option only)' do
   Modal body goes here
+
+%hr
+
+%h3 Modal with sizes
+= ui.nfg :button, body: 'Small Modal', modal: '#test_modal_sm'
+= ui.nfg :modal, :sm, id: 'test_modal_sm', title: 'Test Modal', footer: 'Modal footer (as a component option only)' do
+  Modal body goes here
+
+= ui.nfg :button, body: 'Large Modal', modal: '#test_modal_lg'
+= ui.nfg :modal, :lg, id: 'test_modal_lg', title: 'Test Modal', footer: 'Modal footer (as a component option only)' do
+  Modal body goes here
+
+= ui.nfg :button, body: 'X-Large Modal', modal: '#test_modal_xl'
+= ui.nfg :modal, :xl, id: 'test_modal_xl', title: 'Test Modal', footer: 'Modal footer (as a component option only)' do
+  Modal body goes here

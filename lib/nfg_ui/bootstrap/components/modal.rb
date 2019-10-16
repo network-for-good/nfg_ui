@@ -6,7 +6,6 @@ module NfgUi
       # Bootstrap Modal Component
       # https://getbootstrap.com/docs/4.1/components/modal/
       class Modal < NfgUi::Bootstrap::Components::Base
-        include Bootstrap::Utilities::Sizable
 
         # NOTE: ARIALABELLEDBY has not been introduced on speed modals.
         # ex: aria-labelledby="exampleModalLabel"
@@ -48,6 +47,10 @@ module NfgUi
           options.fetch(:render_in_body, true)
         end
 
+        def size
+          options.fetch(:size, nil)
+        end
+
         private
 
         # Manually set css classes here so that sizable doesn't take over
@@ -67,11 +70,15 @@ module NfgUi
         end
 
         def non_html_attribute_options
-          super.push((:footer if footer.present?), (:title if title.present?))
+          super.push((:footer if footer.present?), (:title if title.present?), :size)
         end
 
         def resized?
           [:sm, :lg, :xl].include?(size)
+        end
+
+        def size_css_class
+          "#{component_css_class}-#{size}"
         end
 
         def assistive_html_attributes
