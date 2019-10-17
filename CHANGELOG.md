@@ -1,4 +1,9 @@
 # Changelog
+## 0.9.20
+* Bootstrap and NFG modals are now sizable. See `https://getbootstrap.com/docs/4.3/components/modal/#optional-sizes`
+  * Traits: add `:sm` `:lg` or `:xl` to nfg modals.
+  * Bootstrap: add `size: :sm` `size: :lg` or `size: :xl`.
+
 ## 0.9.19.1
 * Updates CSS styles for public facing tabs and donor specific UI features for the Evo donor profile.
 

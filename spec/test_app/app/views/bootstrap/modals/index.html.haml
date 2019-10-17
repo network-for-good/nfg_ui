@@ -19,3 +19,18 @@
 = ui.bootstrap :button, body: 'Modal Trigger Button', modal: '#test_modal2', disabled: true, tooltip: 'Test tooltip'
 = ui.bootstrap :modal, id: 'test_modal2', title: 'Test Modal', footer: 'Modal footer (as a component option only)' do
   Modal body goes here
+
+%hr
+
+%h2 Modal with sizes
+= ui.bootstrap :button, body: 'Small Modal', modal: '#test_modal_sm'
+= ui.bootstrap :modal, id: 'test_modal_sm', size: :sm, title: 'Test Modal', footer: 'Modal footer (as a component option only)' do
+  Modal body goes here
+
+= ui.bootstrap :button, body: 'Large Modal', modal: '#test_modal_lg'
+= ui.bootstrap :modal, id: 'test_modal_lg', size: :lg, title: 'Test Modal', footer: 'Modal footer (as a component option only)' do
+  Modal body goes here
+
+= ui.bootstrap :button, body: 'X-Large Modal', modal: '#test_modal_xl'
+= ui.bootstrap :modal, id: 'test_modal_xl', size: :xl, title: 'Test Modal', footer: 'Modal footer (as a component option only)' do
+  Modal body goes here

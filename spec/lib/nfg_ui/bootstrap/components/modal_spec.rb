@@ -107,6 +107,12 @@ RSpec.describe NfgUi::Bootstrap::Components::Modal do
     it { is_expected.to eq 'modal fade' }
   end
 
+  describe '#size' do
+    let(:tested_option) { :size }
+    subject { modal.size }
+    it_behaves_like 'a fetched option with a defined fallback', fallback: nil
+  end
+
   describe '#non_html_attribute_options' do
     subject { modal.send(:non_html_attribute_options) }
     context 'when footer is present' do
@@ -133,6 +139,40 @@ RSpec.describe NfgUi::Bootstrap::Components::Modal do
 
     context 'when title is not present' do
       it { is_expected.not_to include :title }
+    end
+  end
+
+  describe '#modal_dialog_css_classes' do
+    subject { modal.send(:modal_dialog_css_classes) }
+
+    context 'when modal is resized?' do
+      let(:options) { { size: :lg } }
+      it 'adds the size css class' do
+        expect(subject).to eq 'modal-dialog modal-lg'
+      end
+    end
+
+    context 'when modal is not resized?' do
+      let(:options) { {} }
+      it 'does not add the size css class' do
+        expect(subject).to eq 'modal-dialog'
+      end
+    end
+  end
+
+  describe '#resized?' do
+    let(:options) { { size: size } }
+    let(:size) { nil }
+    subject { modal.send(:resized?) }
+
+    context 'when the size is a legal size' do
+      let(:size) { :sm }
+      it { is_expected.to be }
+    end
+
+    context 'when the size is not a legal size' do
+      let(:size) { :arbitrary }
+      it { is_expected.not_to be }
     end
   end
 

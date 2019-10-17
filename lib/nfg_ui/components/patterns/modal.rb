@@ -9,6 +9,8 @@ module NfgUi
         include NfgUi::Components::Utilities::Describable
         include NfgUi::Components::Utilities::Renderable
         include NfgUi::Components::Utilities::Titleable
+
+        include NfgUi::Components::Traits::Size
       end
     end
   end
