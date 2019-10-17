@@ -53,13 +53,11 @@ module NfgUi
 
         private
 
-        # Manually set css classes here so that sizable doesn't take over
-        # and add size classes to the component html_options
         def css_classes
           [
             component_css_class,
             'fade'
-          ].join(' ').squish
+          ].join(' ')
         end
 
         def modal_dialog_css_classes
