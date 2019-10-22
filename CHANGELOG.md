@@ -1,4 +1,11 @@
 # Changelog
+## 0.9.21
+* *NFG_UI:* Responsive tables can now have their scroll message optionally turned off by passing in `caption: nil` to the `:table`'s options.
+  * Example: `<%= ui.nfg :table, :responsive, caption: nil ...`
+  * You can add a custom caption by supply a caption in the `:options` hash, example: `caption: 'My custom caption'`
+  * Browse to `http://localhost:3000/elements/tables` to see them
+
+
 ## 0.9.20
 * Bootstrap and NFG modals are now sizable. See `https://getbootstrap.com/docs/4.3/components/modal/#optional-sizes`
   * Traits: add `:sm` `:lg` or `:xl` to nfg modals.
