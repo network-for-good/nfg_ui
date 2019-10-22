@@ -14,9 +14,20 @@
 %hr
 
 %h3 Responsive Tables
-/ = ui.nfg :typeface, :muted, caption: '<< Scroll left and right to see all data >>', class: 'mb-1 text-right'
-
 = ui.nfg :table, :responsive do
+  = render partial: 'elements/tables/table_body', locals: { lots_of_data: true }
+
+%hr
+%h4 Responsive Table with custom caption:
+%code.d-block.mb-4 caption: 'Custom caption'
+= ui.nfg :table, :responsive, caption: 'Custom caption' do
+  = render partial: 'elements/tables/table_body', locals: { lots_of_data: true }
+
+%hr
+
+%h4 Responsive Table with caption turned off:
+%code.d-block.mb-4 caption: nil || false
+= ui.nfg :table, :responsive, caption: nil do
   = render partial: 'elements/tables/table_body', locals: { lots_of_data: true }
 
 %hr
