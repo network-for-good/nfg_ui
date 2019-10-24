@@ -49,7 +49,7 @@ module NfgUi
         end
 
         def allowed_aspect_ratios
-          %w[21:9 16:9 4:3 1:1]
+          %w[21:9 16:9 9:16 4:3 3:4 1:1]
         end
 
         def default_aspect_ratio
