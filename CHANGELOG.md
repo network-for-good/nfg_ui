@@ -1,4 +1,7 @@
 # Changelog
+## 0.9.22
+* *NFG_UI* introduces device previews. These are in-line HTML device previews for embedded iframes for previewing a website (like a campaign page). See http://localhost:3000/elements/embeds for examples.
+
 ## 0.9.21
 * *NFG_UI:* Responsive tables can now have their scroll message optionally turned off by passing in `caption: nil` to the `:table`'s options.
   * Example: `<%= ui.nfg :table, :responsive, caption: nil ...`
