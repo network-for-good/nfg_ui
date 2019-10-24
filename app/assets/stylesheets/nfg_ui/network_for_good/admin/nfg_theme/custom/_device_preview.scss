@@ -6,7 +6,7 @@
   margin: auto;
 
   // Device Details
-  .device-preview-tablet, .device-preview-mobile {
+  &.device-preview-tablet, &.device-preview-mobile {
     border: 16px solid $white;
     border-top-width: 60px;
     border-bottom-width: 60px;
