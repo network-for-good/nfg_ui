@@ -253,17 +253,19 @@ $box-shadow-lg:               0 0 50px 0 transparentize($black, 0.9);
 // $transition-fade:             opacity .15s linear !default;
 // $transition-collapse:         height .35s ease !default;
 
-// $embed-responsive-aspect-ratios: () !default;
+$embed-responsive-aspect-ratios: () !default;
 // stylelint-disable-next-line scss/dollar-variable-default
-// $embed-responsive-aspect-ratios: join(
-//   (
-//     (21 9),
-//     (16 9),
-//     (3 4),
-//     (1 1),
-//   ),
-//   $embed-responsive-aspect-ratios
-// );
+$embed-responsive-aspect-ratios: join(
+  (
+    (21 9),
+    (16 9),
+    (9 16),
+    (4 3),
+    (3 4),
+    (1 1),
+  ),
+  $embed-responsive-aspect-ratios
+);
 
 // Fonts
 //

@@ -129,7 +129,7 @@ RSpec.describe NfgUi::Bootstrap::Components::Embed do
 
     describe '#allowed_aspect_ratios' do
       subject { embed.send(:allowed_aspect_ratios) }
-      it { is_expected.to eq %w[21:9 16:9 4:3 1:1] }
+      it { is_expected.to eq %w[21:9 16:9 9:16 4:3 3:4 1:1] }
     end
 
     describe '#default_aspect_ratio' do

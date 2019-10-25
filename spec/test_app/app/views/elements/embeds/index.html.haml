@@ -1,22 +1,44 @@
-%h1 Embeds
+= ui.nfg :tile_section do
+  %h1 Embeds
 
-%h2 Default embed
-%p Defaults to 16:9
-.row
-  .col-8.mx-auto
-    = ui.nfg :embed, iframe: 'https://www.youtube.com/embed/zpOULjyy-n8?rel=0'
+  %h2 Default embed
+  %p Defaults to 16:9
+  .row
+    .col-8.mx-auto
+      = ui.nfg :embed, iframe: 'https://www.youtube.com/embed/zpOULjyy-n8?rel=0'
 
-%h2 Embed aspect ratios
-= ui.nfg :embed, aspect_ratio: '21:9', iframe: 'https://www.youtube.com/embed/zpOULjyy-n8?rel=0', class: 'mb-3'
+= ui.nfg :tile_section do
+  %h2 Embed aspect ratios
+  = ui.nfg :embed, aspect_ratio: '21:9', iframe: 'https://www.youtube.com/embed/zpOULjyy-n8?rel=0', class: 'mb-3'
+  = ui.nfg :embed, aspect_ratio: '16:9', iframe: 'https://www.youtube.com/embed/zpOULjyy-n8?rel=0', class: 'mb-3'
+  = ui.nfg :embed, aspect_ratio: '4:3', iframe: 'https://www.youtube.com/embed/zpOULjyy-n8?rel=0', class: 'mb-3'
 
-= ui.nfg :embed, aspect_ratio: '16:9', iframe: 'https://www.youtube.com/embed/zpOULjyy-n8?rel=0', class: 'mb-3'
+= ui.nfg :tile_section do
 
-= ui.nfg :embed, aspect_ratio: '4:3', iframe: 'https://www.youtube.com/embed/zpOULjyy-n8?rel=0', class: 'mb-3'
+  %h2 Block example
+  = ui.nfg :embed, aspect_ratio: '16:9' do
+    %iframe{ src: 'https://www.youtube.com/embed/zpOULjyy-n8?rel=0', class: 'embed-responsive-item' }
 
+= ui.nfg :tile_section do
 
+  %h2 Device preview
+  %p
+    The width will need to be set inline on the div with an explicit or percentage width. The best solution would be to have an explicit width with a max-width set as a percentage. It is not within the device styles. Example:
+    %code style="width: 768px; max-width: 90%;"
 
-%hr
+  %h6 Tablet version:
+  .device-preview.device-preview-tablet.mb-5{ style: 'width:768px;max-width:90%;' }
+    = ui.nfg :embed, aspect_ratio: '3:4', class: 'device-screen' do
+      %iframe{ src: 'https://getbootstrap.com/' }
 
-%h2 Block example
-= ui.nfg :embed, aspect_ratio: '16:9' do
-  %iframe{ src: 'https://www.youtube.com/embed/zpOULjyy-n8?rel=0', class: 'embed-responsive-item' }
+  %h6 Mobile version:
+  .device-preview.device-preview-mobile.mb-5{ style: 'width:320px;max-width:60%;' }
+    = ui.nfg :embed, aspect_ratio: '9:16', class: 'device-screen' do
+      %iframe{ src: 'https://getbootstrap.com/' }
+
+  %h6 Mobile version:
+  .device-preview.device-preview-mobile.mb-5{ style: 'width:320px;max-width:60%;' }
+    = ui.nfg :embed, aspect_ratio: '9:16', class: 'device-screen' do
+      .device-content
+        .p-3
+          = ui.nfg :typeface, body: "Content inside a device that isn't an iframe.", class: 'mb-0'
