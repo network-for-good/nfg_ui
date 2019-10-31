@@ -14,8 +14,7 @@ module NfgUi
         # However, the structure is in place to facilitate
         # resource specific theming ala Donor Management.
         def resource_theme_color(object = nil)
-          resource_theme_name = resource_theme_name(object)
-          case resource_theme_name
+          case resource_theme_name(object)
           when 'Project'
             'primary'
           when 'Campaign'
