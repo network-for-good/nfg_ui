@@ -29,7 +29,7 @@ module NfgUi
               object.class.name
             end
           else
-            controller_name.split('/').last.classify
+            view_context.controller_name.split('/').last.classify
           end
         end
 

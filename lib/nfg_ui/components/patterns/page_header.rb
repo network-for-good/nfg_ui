@@ -5,9 +5,11 @@ module NfgUi
     module Patterns
       # PageHeader doc coming soon
       class PageHeader < NfgUi::Components::Base
-        include NfgUi::Components::Utilities::Titleable
         include NfgUi::Components::Utilities::BrowserDetectable
+        include NfgUi::Components::Utilities::Iconable
         include NfgUi::Components::Utilities::Renderable
+        include NfgUi::Components::Utilities::ResourceThemeable
+        include NfgUi::Components::Utilities::Titleable
 
         include NfgUi::Components::Traits::PageHeader
 
@@ -24,14 +26,10 @@ module NfgUi
           options.fetch(:subtitle, nil)
         end
 
-        # TODO: These resource_theme methods are just temporary placeholders.
-        # They need to come from ResourceThemeable somehow.
         def resource_theme_icon
-          'heart-o'
-        end
-
-        def resource_theme_color
-          'primary'
+          # Prefer :icon in options over resource_theme_icon autolookup
+          return icon if icon.present?
+          super
         end
 
         def render
@@ -52,9 +50,12 @@ module NfgUi
                         })
                         concat(NfgUi::Components::Elements::MediaBody.new({}, view_context).render {
                           content_tag(:h2) do
-                            concat(title)
                             if subtitle
+                              concat(content_tag(:span, title, class: 'mr-2'))
                               concat(content_tag(:small, subtitle, class: 'text-muted'))
+
+                            else
+                              concat(title)
                             end
                           end
                         })
