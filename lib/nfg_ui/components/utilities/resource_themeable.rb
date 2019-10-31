@@ -7,6 +7,12 @@ module NfgUi
       module ResourceThemeable
         # attr_reader :view_context
 
+        # This method represents an existential question
+        # for the UX team at NFG
+        #
+        # For now, we are defaulting everything to primary
+        # However, the structure is in place to facilitate
+        # resource specific theming ala Donor Management.
         def resource_theme_color(object = nil)
           resource_theme_name = resource_theme_name(object)
           case resource_theme_name
@@ -16,6 +22,17 @@ module NfgUi
             'primary'
           else
             'primary'
+          end
+        end
+
+        def resource_theme_icon(object = nil)
+          case resource_theme_name(object)
+          when 'Project'
+            'bullhorn'
+          when 'Campaign'
+            'bullhorn'
+          else
+            'heart-o'
           end
         end
 
@@ -30,17 +47,6 @@ module NfgUi
             end
           else
             view_context.controller_name.split('/').last.classify
-          end
-        end
-
-        def resource_theme_icon(object = nil)
-          case resource_theme_name(object)
-          when 'Project'
-            'bullhorn'
-          when 'Campaign'
-            'bullhorn'
-          else
-            'heart-o'
           end
         end
       end
