@@ -1,4 +1,10 @@
 # Changelog
+## 0.9.23
+* `NfgUi::Components::Utilities::ResourceThemeable` received an upgrade with a full accounting of resource theme icons.
+  * `NfgUi::Components::Patterns::PageHeader` now has an autolookup for icons and can also receive an `:icon` option, example: `icon: 'bars'`
+    * `PageHeader` received numerous upgrades, including a spacing fix for when the subtitle is present.
+
+
 ## 0.9.22
 * *NFG_UI* introduces device previews. These are in-line HTML device previews for embedded iframes for previewing a website (like a campaign page). See http://localhost:3000/elements/embeds for examples.
 

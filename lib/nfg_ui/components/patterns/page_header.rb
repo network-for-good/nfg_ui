@@ -28,6 +28,9 @@ module NfgUi
 
         def resource_theme_icon
           # Prefer :icon in options over resource_theme_icon autolookup
+          # #icon is made available by Iconable,
+          # effectively allowing `icon: 'example'` to overwrite
+          # the auto resource_theme_icon version.
           return icon if icon.present?
           super
         end
