@@ -5,7 +5,9 @@
     * `PageHeader` received numerous upgrades, including a spacing fix for when the subtitle is present.
 
 ## 0.9.23
-placeholder
+* *NFG_UI* `:tip` `Icon`s have updated options.
+  * `:tip` icons now have `right: true` by default when `:text` is present.
+  * `:tip` icons use the `.fa-fw` css class for spacing when `:text` is present.
 
 ## 0.9.22
 * *NFG_UI* introduces device previews. These are in-line HTML device previews for embedded iframes for previewing a website (like a campaign page). See http://localhost:3000/elements/embeds for examples.
