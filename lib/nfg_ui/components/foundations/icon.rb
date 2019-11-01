@@ -62,12 +62,14 @@ module NfgUi
         # Adds the left css spacer class when :right is false
         # and when text is present
         def add_left_icon_css_spacer_class?
+          return false if reject_spacer_class?
           !right && text.present?
         end
 
         # Adds the left css spacer class when :right is true
         # and when text is present
         def add_right_icon_css_spacer_class?
+          return false if reject_spacer_class?
           right && text.present?
         end
 
@@ -108,6 +110,17 @@ module NfgUi
         # Icons are not thematically outlineable
         def outlineable?
           false
+        end
+
+        # List of unique conditions that will result in
+        # full rejection of left/right spacer classes
+        #
+        # This is needed for specific traits / design system approaches
+        # Where icons get unique css classes based on
+        # their context, such as a :tip icon which is
+        # placed in the sentence flow and doesn't need left/right css spacers.
+        def reject_spacer_class?
+          traits.include?(:tip)
         end
       end
     end

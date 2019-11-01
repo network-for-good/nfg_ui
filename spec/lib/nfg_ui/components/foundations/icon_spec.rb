@@ -347,6 +347,24 @@ RSpec.describe NfgUi::Components::Foundations::Icon do
 
       subject { icon.send(:add_right_icon_css_spacer_class?) }
 
+      describe 'reject_spacer_class? evaluation on method' do
+        before { allow(icon).to receive(:reject_spacer_class?).and_return(reject_spacer_class) }
+
+        context 'when reject_spacer_class? is true' do
+          let(:reject_spacer_class) { true }
+          it { is_expected.to eq false }
+        end
+
+        context 'when reject_spacer_class? is false' do
+          let(:reject_spacer_class) { false }
+          # setup condition for truth
+          let(:tested_right) { true }
+          let(:tested_text) { 'test' }
+
+          it { is_expected.to be }
+        end
+      end
+
       context 'when :right is false' do
         let(:tested_right) { false }
         it { is_expected.not_to be }
@@ -425,6 +443,19 @@ RSpec.describe NfgUi::Components::Foundations::Icon do
     describe '#outlineable?' do
       subject { icon.send(:outlineable?) }
       it { is_expected.not_to be }
+    end
+
+    describe '#reject_spacer_class?' do
+      subject { icon.send(:reject_spacer_class?) }
+      context 'when the icon does not have the :tip trait' do
+        let(:options) { { traits: [] } }
+        it { is_expected.not_to be }
+      end
+
+      context 'when the icon does have the :tip trait' do
+        let(:options) { { traits: [:tip] } }
+        it { is_expected.to be }
+      end
     end
   end
 end
