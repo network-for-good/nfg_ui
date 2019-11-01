@@ -347,15 +347,15 @@ RSpec.describe NfgUi::Components::Foundations::Icon do
 
       subject { icon.send(:add_right_icon_css_spacer_class?) }
 
-      describe 'reject_spacer_class? evaluation on method' do
-        before { allow(icon).to receive(:reject_spacer_class?).and_return(reject_spacer_class) }
+      describe 'reject_spacer_css_class? evaluation on method' do
+        before { allow(icon).to receive(:reject_spacer_css_class?).and_return(reject_spacer_class) }
 
-        context 'when reject_spacer_class? is true' do
+        context 'when reject_spacer_css_class? is true' do
           let(:reject_spacer_class) { true }
           it { is_expected.to eq false }
         end
 
-        context 'when reject_spacer_class? is false' do
+        context 'when reject_spacer_css_class? is false' do
           let(:reject_spacer_class) { false }
           # setup condition for truth
           let(:tested_right) { true }
@@ -445,8 +445,8 @@ RSpec.describe NfgUi::Components::Foundations::Icon do
       it { is_expected.not_to be }
     end
 
-    describe '#reject_spacer_class?' do
-      subject { icon.send(:reject_spacer_class?) }
+    describe '#reject_spacer_css_class?' do
+      subject { icon.send(:reject_spacer_css_class?) }
       context 'when the icon does not have the :tip trait' do
         let(:options) { { traits: [] } }
         it { is_expected.not_to be }
