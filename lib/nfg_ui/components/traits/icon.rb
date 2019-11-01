@@ -17,6 +17,11 @@ module NfgUi
         def tip_trait
           options[:icon] = NfgUi::DEFAULT_TIP_ICON
           options[:theme] = NfgUi::DEFAULT_TIP_THEME
+
+          if options[:text].present?
+            options[:right] = true
+            options[:class] += ' fa-fw'
+          end
         end
       end
     end

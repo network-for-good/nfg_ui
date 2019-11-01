@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe NfgUi::Components::Traits::Icon do
-  let(:component_with_traits) { FactoryBot.create(:icon, options: options) }
+  let(:component_with_traits) { NfgUi::Components::Foundations::Icon.new(options, ActionController::Base.new.view_context) }
   let(:options) { {} }
 
   describe 'registered traits' do
@@ -28,6 +28,50 @@ RSpec.describe NfgUi::Components::Traits::Icon do
 
   describe '#tip_trait' do
     subject { component_with_traits.tip_trait }
+
+    describe 'updating the icon :class option' do
+      context 'when the icon has text' do
+        let(:test_css_class) { 'test-class' }
+        let(:options) { { text: 'test', class: test_css_class } }
+
+        it 'includes the custom css class' do
+          and_by 'running the trait' do
+            subject # run the trait
+          end
+
+          and_it 'includes the css class' do
+            expect(component_with_traits.options[:class]).to include 'fa-fw'
+          end
+
+          and_it 'adds a space between the pre-supplied css class' do
+            expect(component_with_traits.options[:class]).to include(test_css_class, ' fa-fw')
+          end
+
+          and_it 'is :right' do
+            expect(component_with_traits.right).to be
+          end
+        end
+      end
+
+      context 'when the icon does not have text' do
+        let(:options) { { text: nil } }
+
+        it 'does not implement text-based updates' do
+          and_by 'running the trait' do
+            subject # run the trait
+          end
+
+          and_it 'is not :right' do
+            expect(component_with_traits.right).not_to be
+          end
+
+          and_it 'does not include the text spacer css class' do
+            expect(component_with_traits.options[:class]).not_to include 'fa-fw'
+          end
+        end
+      end
+    end
+
     it 'establishes the tip icon with correct options' do
       by 'not being updated before running the trait' do
         expect(component_with_traits.icon).not_to eq NfgUi::DEFAULT_TIP_ICON
