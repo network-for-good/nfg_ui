@@ -1,6 +1,6 @@
 # Changelog
 ## 0.9.23.1
-* Updates `selenium-webdriver` to `version 3.142.6` to update the dependency for `rubyzip` addressing the rubyzip 1.2.X security vulnerability
+* Addresses security vulnerability [CVE-2019-16892](https://nvd.nist.gov/vuln/detail/CVE-2019-16892) by manually updating `selenium-webdriver`
 
 ## 0.9.23
 * *NFG_UI* `:tip` `Icon`s have updated options.
