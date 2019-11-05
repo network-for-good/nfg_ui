@@ -1,4 +1,7 @@
 # Changelog
+## 0.9.23.1
+* Updates `selenium-webdriver` to `version 3.142.6` to update the dependency for `rubyzip` addressing the rubyzip 1.2.X security vulnerability
+
 ## 0.9.23
 * *NFG_UI* `:tip` `Icon`s have updated options.
   * `:tip` icons now have `right: true` by default when `:text` is present.
