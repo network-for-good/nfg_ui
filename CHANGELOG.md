@@ -1,4 +1,7 @@
 # Changelog
+## 0.9.24
+* `Modal` now accepts the `:class` option and will apply the class to the parent `.modal` element.
+
 ## 0.9.23
 * *NFG_UI* `:tip` `Icon`s have updated options.
   * `:tip` icons now have `right: true` by default when `:text` is present.

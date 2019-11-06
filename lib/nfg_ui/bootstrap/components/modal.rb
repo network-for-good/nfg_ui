@@ -55,7 +55,7 @@ module NfgUi
 
         def css_classes
           [
-            component_css_class,
+            super,
             'fade'
           ].join(' ')
         end
