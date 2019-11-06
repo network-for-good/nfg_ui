@@ -3,13 +3,13 @@
 #= require select2
 #= require bootstrap
 #= require moment
-#= require bootstrap-datetimepicker.min
+#= require nfg_ui/vendor/bootstrap-datetimepicker.min
 
 #= require_self
 #= require nfg_ui/collapsible_toggle
-#= require nfg_ui/vendor/select2
-#= require nfg_ui/vendor/tooltips
-#= require nfg_ui/vendor/datetimepicker_configuration
+#= require nfg_ui/select2
+#= require nfg_ui/tooltips
+#= require nfg_ui/datetimepicker_configuration
 
 window.NfgUi = {}
 
