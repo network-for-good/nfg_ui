@@ -1,7 +1,10 @@
 # Changelog
-## 0.9.23.1
+## 0.9.24.1
 * Addresses security vulnerability [CVE-2019-16892](https://nvd.nist.gov/vuln/detail/CVE-2019-16892) by manually updating `selenium-webdriver`
-  * Replaces `chromedriver-helper` development dependency with `webdrivers`
+* Replaces `chromedriver-helper` development dependency with `webdrivers`
+
+## 0.9.24
+* `Modal` now accepts the `:class` option and will apply the class to the parent `.modal` element.
 
 ## 0.9.23
 * *NFG_UI* `:tip` `Icon`s have updated options.
