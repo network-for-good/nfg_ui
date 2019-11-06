@@ -1,4 +1,8 @@
 # Changelog
+## 0.9.24.3
+* Removes `vendor/assets/javascripts` and moves the `bootstrap-datetimepicker.min.js` file into `app/assets/javascripts/nfg_ui/vendor/`
+  * In effect, undoes `0.9.24.1`. After further testing, it did not reliably work for the host *engine*.
+
 ## 0.9.24.2
 * Addresses security vulnerability [CVE-2019-16892](https://nvd.nist.gov/vuln/detail/CVE-2019-16892) by manually updating `selenium-webdriver`
 * Replaces `chromedriver-helper` development dependency with `webdrivers`
