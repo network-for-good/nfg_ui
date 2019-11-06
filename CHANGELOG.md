@@ -1,4 +1,7 @@
 # Changelog
+## 0.9.24.1
+* Adds `vendors/assets/javascripts` to the `Engine`s `config.autoload_paths`. This resolves an issue where files in the `vendors` folder were not accessible to *host engines*.
+
 ## 0.9.24
 * `Modal` now accepts the `:class` option and will apply the class to the parent `.modal` element.
 
