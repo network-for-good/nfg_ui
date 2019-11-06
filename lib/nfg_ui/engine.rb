@@ -5,6 +5,7 @@ module NfgUi
     isolate_namespace NfgUi
 
     config.autoload_paths << Engine.root.join("lib")
+    config.autoload_paths << Engine.root.join("vendors", 'assets', 'javascripts')
 
     # Ensures that the config/nfg_ui_manifest.js file is compiled
     # which, in turn, ensures that all of the non-autoloaded assets
