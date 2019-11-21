@@ -19,7 +19,8 @@ module NfgUi
           # Gem user wants to customize the theme in a unique setting
           # = ui.nfg :icon, :tip, theme: :danger
           #
-          # Without using this #maybe_update_option method, `theme: :danger` would be ignored (and thus overwritten) by by the :tip trait
+          # Without using this #maybe_update_option method, `theme: :danger`
+          # would be ignored (and thus overwritten) by by the :tip trait
           #
           # When using this theme, the :tip trait would first check if theme is present _before_
           # setting the trait's theme value.
