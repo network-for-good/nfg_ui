@@ -8,9 +8,10 @@ module NfgUi
 
           private
 
-          # As a practice, traits are designed to help not rule
+          # As a practice, traits are designed to help not rule.
+          #
           # Leveraging this method to conditionally overwrite values in the options hash
-          # ensures that users of the gem are able to leverage
+          # ensures that users of the gem are able to use
           # traits and further customize them on the fly.
           #
           # Example:
@@ -18,7 +19,7 @@ module NfgUi
           # Gem user wants to customize the theme in a unique setting
           # = ui.nfg :icon, :tip, theme: :danger
           #
-          # Without using this theme, theme: :danger would be ignored by by the :tip trait.
+          # Without using this #maybe_update_option method, `theme: :danger` would be ignored (and thus overwritten) by by the :tip trait
           #
           # When using this theme, the :tip trait would first check if theme is present _before_
           # setting the trait's theme value.
