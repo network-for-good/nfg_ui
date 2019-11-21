@@ -5,7 +5,6 @@ module NfgUi
     module Utilities
       module Traits
         module TraitUtilities
-
           private
 
           # As a practice, traits are designed to help not rule.
