@@ -5,8 +5,6 @@ module NfgUi
     module Traits
       # Access to pre-designed Alert traits
       module Alert
-        include NfgUi::Components::Utilities::Traits::TraitUtilities
-
         TRAITS = %i[tip].freeze
 
         def tip_trait
