@@ -21,8 +21,28 @@ module NfgUi
           # Without using this #maybe_update_option method, `theme: :danger`
           # would be ignored (and thus overwritten) by by the :tip trait
           #
-          # When using this theme, the :tip trait would first check if theme is present _before_
-          # setting the trait's theme value.
+          # Thus, when using this method, the :tip trait would first check if :theme option is present _before_
+          # setting the established trait's options[:theme] value.
+          #
+          # It may not always be necessary or appropriate to use this method. For example,
+          # Some traits modify only one value in options, and if that trait is being overwritten by a supplied option,
+          # it defeats the purpose of the trait.
+          #
+          # Example where method usage is not necessary:
+          # def active_trait
+          #   options[:active] = true
+          # end
+          #
+          # Overall, trait creation doctrine really
+          # prefers usage of this method.
+          #
+          #
+          # Example Usage:
+          #
+          # def white_trait
+          #   maybe_update_option(:light, value: true)
+          #   maybe_update_option(:theme, value: :white)
+          # end
           def maybe_update_option(option_key, value:)
             return if options[option_key].present?
             options[option_key] = value

@@ -5,12 +5,13 @@ module NfgUi
     module Traits
       # Access to pre-designed traits
       module Navbar
+        include NfgUi::Components::Utilities::Traits::TraitUtilities
+
         TRAITS = %i[white].freeze
 
         def white_trait
-          options[:light] = true
-          # options[:class] += ' bg-white'
-          options[:theme] = :white
+          maybe_update_option(:light, value: true)
+          maybe_update_option(:theme, value: :white)
         end
       end
     end
