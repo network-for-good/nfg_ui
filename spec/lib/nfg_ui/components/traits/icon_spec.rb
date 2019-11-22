@@ -90,5 +90,45 @@ RSpec.describe NfgUi::Components::Traits::Icon do
         expect(component_with_traits.theme).to eq NfgUi::DEFAULT_TIP_THEME
       end
     end
+
+    context 'when options are preset in the options hash that compete with trait updates' do
+      let(:test_icon) { nil }
+      let(:test_theme) { nil }
+      let(:test_right) { nil }
+      let(:options) { { icon: test_icon, theme: test_theme, right: test_right } }
+
+      describe ':icon' do
+        let(:test_icon) { 'test-icon' }
+
+        it 'does not overwrite the supplied icon' do
+          subject
+          expect(component_with_traits.icon).not_to eq NfgUi::DEFAULT_TIP_ICON
+
+          expect(component_with_traits.icon).to eq test_icon
+        end
+      end
+
+      describe ':theme' do
+        let(:test_theme) { :danger }
+
+        it 'does not overwrite the supplied icon' do
+          subject
+          expect(component_with_traits.theme).not_to eq NfgUi::DEFAULT_TIP_THEME
+
+          expect(component_with_traits.theme).to eq test_theme
+        end
+      end
+
+      describe ':right' do
+        let(:test_right) { false }
+
+        it 'does not overwrite the supplied icon' do
+          subject
+          expect(component_with_traits.right).not_to eq true
+
+          expect(component_with_traits.right).to eq test_right
+        end
+      end
+    end
   end
 end

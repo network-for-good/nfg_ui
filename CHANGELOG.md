@@ -1,4 +1,16 @@
 # Changelog
+## 0.9.25
+* Introduces the ability for traits to avoid overwriting pre-existing (manually set) component options. This is an optional implementation made available.
+* New trait utility added: `NfgUi::Components::Utilities::Traits::TraitUtilities`
+  * Provides a new method: `maybe_update_option(option_key, value:)`
+      * This method checks the component's :options hash for a pre-existing value (e.g.: `theme: :danger`) for that :options key
+      * If a value is detected for that :options key, it will not overwrite it.
+      * If no value is detected, it updates that options value
+* The following trait modules were updated:
+  * `NfgUi::Components::Traits::Alert`
+  * `NfgUi::Components::Traits::Icon`
+  * `NfgUi::Components::Traits::Navbar`
+
 ## 0.9.24.3
 * Removes `vendor/assets/javascripts` and moves the `bootstrap-datetimepicker.min.js` file into `app/assets/javascripts/nfg_ui/vendor/`
   * In effect, undoes `0.9.24.1`. After further testing, it did not reliably work for the host *engine*.
