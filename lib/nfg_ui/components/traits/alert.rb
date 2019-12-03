@@ -12,7 +12,7 @@ module NfgUi
         def tip_trait
           maybe_update_option(:icon, value: NfgUi::DEFAULT_TIP_ICON)
           maybe_update_option(:theme, value: NfgUi::DEFAULT_TIP_THEME)
-          maybe_update_option(:dismissible, value: false)
+          options[:dismissible] = false
         end
       end
     end
