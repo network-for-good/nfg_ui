@@ -1,4 +1,7 @@
 # Changelog
+## 0.9.25.1
+* `NfgUi::Components::Elements::Alert` `:tip` trait now sets `dismissable: false` correctly in the trait.
+
 ## 0.9.25
 * Introduces the ability for traits to avoid overwriting pre-existing (manually set) component options. This is an optional implementation made available.
 * New trait utility added: `NfgUi::Components::Utilities::Traits::TraitUtilities`
