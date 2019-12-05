@@ -34,6 +34,7 @@ module NfgUi
         end
 
         def resource_theme_name(object = nil)
+          # If an object is included in the args
           if object.present?
             if object.is_a?(String)
               object
@@ -42,9 +43,28 @@ module NfgUi
             else
               object.class.name
             end
+
+          # If this method was called from a view as a normal helper method,
+          # check for params[:controller] presence
+          elsif params[:controller].present?
+            get_controller_name(params[:controller])
+
+          # If this method was called from within a design system component
+          # then seek the defined view_context
+          elsif defined?(view_context)
+            get_controller_name(view_context.controller_name)
+
+          # If nothing responds, return an empty string
           else
-            view_context.controller_name.split('/').last.classify
+            ''
           end
+        end
+
+        private
+
+        # Centralizes how we format the controller name for interpretation in our cases
+        def get_controller_name(controller_name_string)
+          controller_name_string.split('/').last.classify
         end
       end
     end
