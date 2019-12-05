@@ -5,8 +5,6 @@ module NfgUi
     module Utilities
       # The library of dedicated theme resources in Evo & DMS
       module ResourceThemeable
-        # attr_reader :view_context
-
         # This method represents an existential question
         # for the UX team at NFG
         #
