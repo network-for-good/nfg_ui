@@ -17,7 +17,9 @@
   %code :tip
   (remember you can supply a tooltip!)
   %br
-  = ui.nfg :icon, :tip, tooltip: 'The tip!'
+  = ui.nfg :icon, :tip
+  = ui.nfg :icon, :tip, :danger, tooltip: 'The tip!'
+  = ui.nfg :icon, :tip, theme: :danger, tooltip: 'The tip!'
   %br
   The tip icon with text:
   %br

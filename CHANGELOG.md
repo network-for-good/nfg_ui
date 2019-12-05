@@ -1,8 +1,37 @@
 # Changelog
-## 0.9.24
+## 0.9.26
 * `NfgUi::Components::Utilities::ResourceThemeable` received an upgrade with a full accounting of resource theme icons.
   * `NfgUi::Components::Patterns::PageHeader` now has an autolookup for icons and can also receive an `:icon` option, example: `icon: 'bars'`
     * `PageHeader` received numerous upgrades, including a spacing fix for when the subtitle is present.
+
+## 0.9.25.1
+* `NfgUi::Components::Elements::Alert` `:tip` trait now sets `dismissable: false` correctly in the trait.
+
+## 0.9.25
+* Introduces the ability for traits to avoid overwriting pre-existing (manually set) component options. This is an optional implementation made available.
+* New trait utility added: `NfgUi::Components::Utilities::Traits::TraitUtilities`
+  * Provides a new method: `maybe_update_option(option_key, value:)`
+      * This method checks the component's :options hash for a pre-existing value (e.g.: `theme: :danger`) for that :options key
+      * If a value is detected for that :options key, it will not overwrite it.
+      * If no value is detected, it updates that options value
+* The following trait modules were updated:
+  * `NfgUi::Components::Traits::Alert`
+  * `NfgUi::Components::Traits::Icon`
+  * `NfgUi::Components::Traits::Navbar`
+
+## 0.9.24.3
+* Removes `vendor/assets/javascripts` and moves the `bootstrap-datetimepicker.min.js` file into `app/assets/javascripts/nfg_ui/vendor/`
+  * In effect, undoes `0.9.24.1`. After further testing, it did not reliably work for the host *engine*.
+
+## 0.9.24.2
+* Addresses security vulnerability [CVE-2019-16892](https://nvd.nist.gov/vuln/detail/CVE-2019-16892) by manually updating `selenium-webdriver`
+* Replaces `chromedriver-helper` development dependency with `webdrivers`
+
+## 0.9.24.1
+* Adds `vendors/assets/javascripts` to the `Engine`s `config.autoload_paths`. This resolves an issue where files in the `vendors` folder were not accessible to *host engines*.
+
+## 0.9.24
+* `Modal` now accepts the `:class` option and will apply the class to the parent `.modal` element.
 
 ## 0.9.23
 * *NFG_UI* `:tip` `Icon`s have updated options.

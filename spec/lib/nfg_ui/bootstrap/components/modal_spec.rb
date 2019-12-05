@@ -103,8 +103,9 @@ RSpec.describe NfgUi::Bootstrap::Components::Modal do
   end
 
   describe '#css_classes' do
+    let(:options) { { class: 'test-class' } }
     subject { modal.send(:css_classes) }
-    it { is_expected.to eq 'modal fade' }
+    it { is_expected.to eq 'modal test-class fade' }
   end
 
   describe '#size' do

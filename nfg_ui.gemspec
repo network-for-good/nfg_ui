@@ -36,7 +36,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'autoprefixer-rails', '9.4.9'
 
   s.add_development_dependency 'capybara', '~> 3.9'
-  s.add_development_dependency 'chromedriver-helper', '~> 2.1'
+  s.add_development_dependency 'webdrivers'
   s.add_development_dependency 'factory_bot_rails', '~> 4.11'
   s.add_development_dependency 'puma', '~> 3.12'
   s.add_development_dependency 'rails-controller-testing', '~> 1.0' # for assert-template
