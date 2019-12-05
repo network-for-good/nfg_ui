@@ -24,17 +24,27 @@ module NfgUi
 
         def resource_theme_icon(object = nil)
           case resource_theme_name(object)
-          when 'Project'
+          when 'Report'
+            'bar-chart'
+          when 'Campaign', 'Project', 'Cause', 'Event'
             'bullhorn'
-          when 'Campaign'
-            'bullhorn'
+          when 'PaymentGatewayProfile'
+            'credit-card'
+          when 'Donation'
+            'dollar'
+          when 'Donor', 'Admin'
+            'user'
+          when 'Integration'
+            'exchange'
+          when 'Entity'
+            'gears'
           else
             'heart-o'
           end
         end
 
         def resource_theme_name(object = nil)
-          # If an object is included in the args
+          # If an object is included:
           if object.present?
             if object.is_a?(String)
               object
@@ -45,14 +55,14 @@ module NfgUi
             end
 
           # If this method was called from a view as a normal helper method,
-          # check for params[:controller] presence
-          elsif params[:controller].present?
-            get_controller_name(params[:controller])
+          # check for controller_name
+          elsif defined?(controller_name)
+            formatted_controller_name(controller_name)
 
           # If this method was called from within a design system component
           # then seek the defined view_context
           elsif defined?(view_context)
-            get_controller_name(view_context.controller_name)
+            formatted_controller_name(view_context.controller_name)
 
           # If nothing responds, return an empty string
           else
@@ -63,7 +73,7 @@ module NfgUi
         private
 
         # Centralizes how we format the controller name for interpretation in our cases
-        def get_controller_name(controller_name_string)
+        def formatted_controller_name(controller_name_string)
           controller_name_string.split('/').last.classify
         end
       end
