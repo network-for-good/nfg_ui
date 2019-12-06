@@ -1,4 +1,9 @@
 # Changelog
+## 0.9.26
+* `NfgUi::Components::Utilities::ResourceThemeable` received an upgrade with a full accounting of resource theme icons.
+  * `NfgUi::Components::Patterns::PageHeader` now has an autolookup for icons and can also receive an `:icon` option, example: `icon: 'bars'`
+    * `PageHeader` received numerous upgrades, including a spacing fix for when the subtitle is present.
+
 ## 0.9.25.1
 * `NfgUi::Components::Elements::Alert` `:tip` trait now sets `dismissable: false` correctly in the trait.
 
