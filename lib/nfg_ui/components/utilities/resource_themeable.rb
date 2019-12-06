@@ -30,14 +30,14 @@ module NfgUi
             'bullhorn'
           when 'PaymentGatewayProfile'
             'credit-card'
-          when 'Donation'
+          when 'Donation', 'Order', 'RecurringDonation'
             'dollar'
           when 'Donor', 'Admin'
             'user'
           when 'Integration'
             'exchange'
           when 'Entity'
-            'gears'
+            'cog'
           else
             'heart-o'
           end
