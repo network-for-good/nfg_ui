@@ -33,6 +33,13 @@ RSpec.describe NfgUi::Components::Utilities::ResourceThemeable do
         let(:object) { ['1', '2'] }
         it { is_expected.to eq 'Array' }
       end
+
+      context 'and when object is a symbol' do
+        let(:object) { :test_case }
+        it 'classifys the symbol as a string' do
+          expect(subject).to eq 'TestCase'
+        end
+      end
     end
 
     context 'when an object is not present' do

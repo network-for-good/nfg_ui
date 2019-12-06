@@ -50,6 +50,8 @@ module NfgUi
               object
             elsif object.is_a?(Class)
               object.name
+            elsif object.is_a?(Symbol)
+              object.to_s.classify
             else
               object.class.name
             end
