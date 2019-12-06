@@ -24,20 +24,26 @@ module NfgUi
 
         def resource_theme_icon(object = nil)
           case resource_theme_name(object)
+          when 'Newsletter'
+            'at'
           when 'Report'
             'bar-chart'
           when 'Campaign', 'Project', 'Cause', 'Event'
             'bullhorn'
+          when 'Entity'
+            'cog'
           when 'PaymentGatewayProfile'
             'credit-card'
-          when 'Donation', 'Order', 'RecurringDonation'
+          when 'Donation', 'Order'
             'dollar'
+          when 'CustomContent', 'SiteContent'
+            'file-text-o'
           when 'Donor', 'Admin'
             'user'
           when 'Integration'
             'exchange'
-          when 'Entity'
-            'cog'
+          when 'RecurringDonation'
+            'refresh'
           else
             'heart-o'
           end
