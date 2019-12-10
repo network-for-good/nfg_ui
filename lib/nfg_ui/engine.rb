@@ -32,6 +32,7 @@ module NfgUi
     config.to_prepare do
       ActiveSupport.on_load :action_controller do
         helper NfgUi::ApplicationHelper
+        helper NfgUi::Components::BrowserHelper
         helper NfgUi::Components::ResourceThemesHelper
         helper NfgUi::Components::TooltipHelper
         helper NfgUi::Components::EmailHelpers
