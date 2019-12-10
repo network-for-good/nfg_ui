@@ -1,4 +1,10 @@
 # Changelog
+## 0.10
+* *POTENTIAL BREAKING CHANGES*
+* Upgrades Browser gem to 2.7.1
+  * Supplies browser/aliases so that legacy implementation of browser (e.g.: `browser.mobile?`) on the view continue to work.
+  * Browser now has a new arg structure where the first arg in `browser` method is the UA as a string. This change may cause issues for existing specs (where browser is stubbed)
+
 ## 0.9.26
 * `NfgUi::Components::Utilities::ResourceThemeable` received an upgrade with a full accounting of resource theme icons.
   * `NfgUi::Components::Patterns::PageHeader` now has an autolookup for icons and can also receive an `:icon` option, example: `icon: 'bars'`
