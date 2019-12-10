@@ -3,6 +3,9 @@
 module NfgUi
   # Core rendering helper methods
   module ApplicationHelper
+    # provide the browser method for utilizing Browser gem to host apps / engines
+    include NfgUi::Components::Utilities::BrowserDetectable
+
     # render components from the pertinent suite
     # Network for Good components: = ui.nfg
     # Bootstrap core components:   = ui.bootstrap
