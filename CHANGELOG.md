@@ -5,6 +5,13 @@
   * Supplies browser/aliases so that legacy implementation of browser (e.g.: `browser.mobile?`) on the view continue to work.
   * Browser now has a new arg structure where the first arg in `browser` method is the UA as a string. This change may cause issues for existing specs (where browser is stubbed)
 
+## 0.9.28
+* Addresses security vulnerability [CVE-2019-15587
+](https://github.com/advisories/GHSA-c3gv-9cxf-6f57) by bumping `loofah` from `2.2.3` to `2.3.1`
+
+## 0.9.27
+* Addresses security vulnerability [GHSA-7xx3-m584-x994](https://github.com/advisories/GHSA-7xx3-m584-x994) by updating `puma` requirement from `~> 3.12` to `~> 4.3`
+
 ## 0.9.26
 * `NfgUi::Components::Utilities::ResourceThemeable` received an upgrade with a full accounting of resource theme icons.
   * `NfgUi::Components::Patterns::PageHeader` now has an autolookup for icons and can also receive an `:icon` option, example: `icon: 'bars'`
