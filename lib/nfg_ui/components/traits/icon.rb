@@ -5,6 +5,8 @@ module NfgUi
     module Traits
       # Access to pre-designed Icon traits
       module Icon
+        include NfgUi::Components::Utilities::Traits::TraitUtilities
+
         TRAITS = %i[loader tip].freeze
 
         def loader_trait
@@ -15,11 +17,12 @@ module NfgUi
         # Usage:
         # ui.nfg :icon, :tip, tooltip: 'The tip'
         def tip_trait
-          options[:icon] = NfgUi::DEFAULT_TIP_ICON
-          options[:theme] = NfgUi::DEFAULT_TIP_THEME
+          maybe_update_option(:icon, value: NfgUi::DEFAULT_TIP_ICON)
+
+          maybe_update_option(:theme, value: NfgUi::DEFAULT_TIP_THEME)
 
           if options[:text].present?
-            options[:right] = true
+            maybe_update_option(:right, value: true)
             options[:class] += ' fa-fw'
           end
         end
