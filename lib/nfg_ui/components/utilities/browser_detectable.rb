@@ -5,8 +5,6 @@ module NfgUi
     module Utilities
       # Add browser detection to the desired component
       module BrowserDetectable
-        require 'browser'
-
         # Allow .mobile? .tablet?, etc to work
         # on browser.mobile?
         # to support legacy implementation and not require
