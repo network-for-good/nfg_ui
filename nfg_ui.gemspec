@@ -25,9 +25,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'momentjs-rails', '~> 2.11', '>= 2.11.1' # client side date formatting - used for bootstrap-datetimepicker
   s.add_dependency 'nokogiri', '>= 1.10.4' # manually set to >= 1.10.4 to address critical severity security vulnerability: https://nvd.nist.gov/vuln/detail/CVE-2019-5477
 
-  # To be upgraded later
-  # s.add_dependency 'browser', '~> 2.5.0'
-  s.add_dependency 'browser', '~> 1.1'
+  s.add_dependency 'browser', '~> 2.7.1'
 
   # Bootstrap4.3.1 allows for upgrading past 9.4.10 which requires ruby >= 2.4.
   # When running `bundle update nfg_ui` from Evo.

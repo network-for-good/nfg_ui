@@ -1,4 +1,10 @@
 # Changelog
+## 0.10
+* *POTENTIAL BREAKING CHANGES*
+* Upgrades Browser gem to 2.7.1
+  * Supplies browser/aliases so that legacy implementation of browser (e.g.: `browser.mobile?`) on the view continue to work.
+  * Browser now has a new arg structure where the first arg in `browser` method is the UA as a string. This change may cause issues for existing specs (where browser is stubbed)
+
 ## 0.9.28
 * Addresses security vulnerability [CVE-2019-15587
 ](https://github.com/advisories/GHSA-c3gv-9cxf-6f57) by bumping `loofah` from `2.2.3` to `2.3.1`
