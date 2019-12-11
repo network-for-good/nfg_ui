@@ -1,4 +1,7 @@
 # Changelog
+## 0.9.27
+* Addresses security vulnerability [GHSA-7xx3-m584-x994](https://github.com/advisories/GHSA-7xx3-m584-x994) by updating `puma` requirement from `~> 3.12` to `~> 4.3`
+
 ## 0.9.26
 * `NfgUi::Components::Utilities::ResourceThemeable` received an upgrade with a full accounting of resource theme icons.
   * `NfgUi::Components::Patterns::PageHeader` now has an autolookup for icons and can also receive an `:icon` option, example: `icon: 'bars'`
