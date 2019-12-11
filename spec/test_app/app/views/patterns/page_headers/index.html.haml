@@ -2,9 +2,17 @@
 
 %h2 Standard
 = ui.nfg :page_header, title: 'Page header title', subtitle: 'Small subtitle'
+= ui.nfg :page_header, title: 'Page header title without Subtitle'
+%hr
+
+%h3 Icons
+= ui.nfg :page_header, title: 'Page header title', subtitle: 'Small subtitle', icon: 'info'
+%hr
 
 %h2 Standard with sticky
 = ui.nfg :page_header, :sticky, title: 'Sticky page header title', subtitle: 'Sticky subtitle'
+
+%hr
 
 %h2 Page header with button toolbar
 = ui.nfg :page_header, title: 'Toolbar Title', subtitle: 'Toolbar subtitle' do
