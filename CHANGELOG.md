@@ -1,4 +1,7 @@
 # Changelog
+## 0.10.1
+* Adds missing `require 'browser'` to nfg_ui.rb so that host apps have access to `browser` method on load.
+
 ## 0.10
 * *POTENTIAL BREAKING CHANGES*
 * Upgrades Browser gem to 2.7.1

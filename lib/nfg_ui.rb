@@ -10,6 +10,7 @@ require 'sass-rails'
 require 'select2-rails'
 require 'inky'
 require 'momentjs-rails'
+require 'browser'
 
 module NfgUi
   DEFAULT_TIP_ICON = 'question-circle-o'
