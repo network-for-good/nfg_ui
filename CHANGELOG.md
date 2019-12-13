@@ -1,4 +1,7 @@
 # Changelog
+## 0.10.2
+* Adds nfg "builder" UI to css
+
 ## 0.10.1
 * Adds missing `require 'browser'` to nfg_ui.rb so that host apps have access to `browser` method on load.
 
