@@ -1,0 +1,7 @@
+// INTERCOM -- custom styles for https://www.intercom.io/ integration
+#intercom-container {
+  @include media-breakpoint-down(sm) { display: none !important; } // hides on small devices
+  .intercom-launcher-frame {
+    @include media-breakpoint-down(md) { bottom: ($spacer * 3.5) !important; } // adjusts location on medium devices
+  }
+}
