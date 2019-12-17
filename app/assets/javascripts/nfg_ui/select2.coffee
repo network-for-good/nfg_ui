@@ -1,11 +1,15 @@
 init_plugin = (parent) ->
   return unless $('select.select2').length
-  
+
   # Just incase anything's changed, refresh select2 via triggering a 'change' event
   parent.find('select.select2').trigger 'change'
 
   parent.find('select.select2').select2
-    dropdownParent: parent
+    # Find the explicit parent to help resolve issues
+    # with Safari where setting $('body') caused the
+    # page to jump to the bottom when interacting
+    # with the select2 menu.
+    dropdownParent: parent.find('select.select2').parent()
 
 $ ->
   doc = $(document)
@@ -13,7 +17,7 @@ $ ->
   modal = $('.modal')
 
   init_plugin body
-  
+
   # use 'shown' tense on modal event
   # otherwise, no guarantee that the select menu will be on the page yet
   doc.on 'shown.bs.modal', '.modal', (e) ->
