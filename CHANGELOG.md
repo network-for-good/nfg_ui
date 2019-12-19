@@ -1,4 +1,7 @@
 # Changelog
+## 0.10.3
+* Addresses security vulnerability [GHSA-hrqr-hxpp-chr3](https://github.com/advisories/GHSA-hrqr-hxpp-chr3) by bumping `rack` from `2.0.7` to `2.0.8`
+
 ## 0.10.2
 * Addresses safari page-jumping when interacting with select2 by setting a more specific parent. Tracks to: [Jira PSTWO-14309](https://jira.networkforgood.org/browse/PSTWO-14309)
 
