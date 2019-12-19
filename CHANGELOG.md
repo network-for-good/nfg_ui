@@ -1,6 +1,7 @@
 # Changelog
 ## 0.10.4
-* Adds nfg "builder" UI to css
+* Adds Network for Good's "builder" UI to the shared CSS library.
+* Adds intercom.io styling to admin stylesheet manifest.
 
 ## 0.10.3
 * Addresses security vulnerability [GHSA-hrqr-hxpp-chr3](https://github.com/advisories/GHSA-hrqr-hxpp-chr3) by bumping `rack` from `2.0.7` to `2.0.8`
