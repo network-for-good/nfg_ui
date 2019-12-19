@@ -1,39 +1,49 @@
 # Changelog
 ## 0.10.4
+_Dec. 19, 2019_
 * Adds Network for Good's "builder" UI to the shared CSS library.
 * Adds intercom.io styling to admin stylesheet manifest.
 
 ## 0.10.3
+_Dec. 19, 2019_
 * Addresses security vulnerability [GHSA-hrqr-hxpp-chr3](https://github.com/advisories/GHSA-hrqr-hxpp-chr3) by bumping `rack` from `2.0.7` to `2.0.8`
 
 ## 0.10.2
+_Dec. 17, 2019_
 * Addresses safari page-jumping when interacting with select2 by setting a more specific parent. Tracks to: [Jira PSTWO-14309](https://jira.networkforgood.org/browse/PSTWO-14309)
 
 ## 0.10.1
+_Dec. 12, 2019_
 * Adds missing `require 'browser'` to nfg_ui.rb so that host apps have access to `browser` method on load.
 
 ## 0.10
+_Dec. 12, 2019_
 * *POTENTIAL BREAKING CHANGES*
 * Upgrades Browser gem to 2.7.1
   * Supplies browser/aliases so that legacy implementation of browser (e.g.: `browser.mobile?`) on the view continue to work.
   * Browser now has a new arg structure where the first arg in `browser` method is the UA as a string. This change may cause issues for existing specs (where browser is stubbed)
 
 ## 0.9.28
+_Dec. 12, 2019_
 * Addresses security vulnerability [CVE-2019-15587
 ](https://github.com/advisories/GHSA-c3gv-9cxf-6f57) by bumping `loofah` from `2.2.3` to `2.3.1`
 
 ## 0.9.27
+_Dec. 12, 2019_
 * Addresses security vulnerability [GHSA-7xx3-m584-x994](https://github.com/advisories/GHSA-7xx3-m584-x994) by updating `puma` requirement from `~> 3.12` to `~> 4.3`
 
 ## 0.9.26
+_Dec. 6, 2019_
 * `NfgUi::Components::Utilities::ResourceThemeable` received an upgrade with a full accounting of resource theme icons.
   * `NfgUi::Components::Patterns::PageHeader` now has an autolookup for icons and can also receive an `:icon` option, example: `icon: 'bars'`
     * `PageHeader` received numerous upgrades, including a spacing fix for when the subtitle is present.
 
 ## 0.9.25.1
+_Dec. 3, 2019_
 * `NfgUi::Components::Elements::Alert` `:tip` trait now sets `dismissable: false` correctly in the trait.
 
 ## 0.9.25
+_Nov. 22, 2019_
 * Introduces the ability for traits to avoid overwriting pre-existing (manually set) component options. This is an optional implementation made available.
 * New trait utility added: `NfgUi::Components::Utilities::Traits::TraitUtilities`
   * Provides a new method: `maybe_update_option(option_key, value:)`
@@ -46,28 +56,35 @@
   * `NfgUi::Components::Traits::Navbar`
 
 ## 0.9.24.3
+_Nov. 6, 2019_
 * Removes `vendor/assets/javascripts` and moves the `bootstrap-datetimepicker.min.js` file into `app/assets/javascripts/nfg_ui/vendor/`
   * In effect, undoes `0.9.24.1`. After further testing, it did not reliably work for the host *engine*.
 
 ## 0.9.24.2
+_Nov. 6, 2019_
 * Addresses security vulnerability [CVE-2019-16892](https://nvd.nist.gov/vuln/detail/CVE-2019-16892) by manually updating `selenium-webdriver`
 * Replaces `chromedriver-helper` development dependency with `webdrivers`
 
 ## 0.9.24.1
+_Nov. 6, 2019_
 * Adds `vendors/assets/javascripts` to the `Engine`s `config.autoload_paths`. This resolves an issue where files in the `vendors` folder were not accessible to *host engines*.
 
 ## 0.9.24
+_Nov. 6, 2019_
 * `Modal` now accepts the `:class` option and will apply the class to the parent `.modal` element.
 
 ## 0.9.23
+_Nov. 1, 2019_
 * *NFG_UI* `:tip` `Icon`s have updated options.
   * `:tip` icons now have `right: true` by default when `:text` is present.
   * `:tip` icons use the `.fa-fw` css class for spacing when `:text` is present.
 
 ## 0.9.22
+_Oct. 25, 2019_
 * *NFG_UI* introduces device previews. These are in-line HTML device previews for embedded iframes for previewing a website (like a campaign page). See http://localhost:3000/elements/embeds for examples.
 
 ## 0.9.21
+_Oct. 22, 2019_
 * *NFG_UI:* Responsive tables can now have their scroll message optionally turned off by passing in `caption: nil` to the `:table`'s options.
   * Example: `<%= ui.nfg :table, :responsive, caption: nil ...`
   * You can add a custom caption by supply a caption in the `:options` hash, example: `caption: 'My custom caption'`
@@ -75,14 +92,17 @@
 
 
 ## 0.9.20
+_Oct. 17, 2019_
 * Bootstrap and NFG modals are now sizable. See `https://getbootstrap.com/docs/4.3/components/modal/#optional-sizes`
   * Traits: add `:sm` `:lg` or `:xl` to nfg modals.
   * Bootstrap: add `size: :sm` `size: :lg` or `size: :xl`.
 
 ## 0.9.19.1
+_Oct. 11, 2019_
 * Updates CSS styles for public facing tabs and donor specific UI features for the Evo donor profile.
 
 ## 0.9.19
+_Oct. 2, 2019_
 * `NfgUi::Components::Elements::Avatar` is now available as a new component to use. Browse to `http://localhost:3000/elements/avatars` to see them in action
   * Avatars are:
     * Tooltippable `tooltip: 'test tooltip'`
@@ -102,19 +122,24 @@
 
 
 ## 0.9.18.3
+_Sep. 19, 2019_
 * `NfgUi::Components::Patterns::Carousel` now adds `.pb-3` padding css class to the `.carousel-inner` div *only* when `:indicators` is more than `0`. This removes unexpected padding at the bottom of the `.carousel-inner` when indicators are not present
 
 ## 0.9.18.2
+_Sep. 12, 2019_
 * Fixes CSS bug where the Evo admin DatePicker `.ui-datepicker` div's z-index was below the bootstrap modal's z-index value (thus hiding the calendar widget when within a modal).
 
 ## 0.9.18.1
+_Sep. 10, 2019_
 * *Design System*: Establishes a centralized constant `DEFAULT_TIP_ICON` and `DEFAULT_TIP_THEME` for permeating tip styles and icons across other components. For example, `NfgUi::Components::Elements::Alert` has the `:tip` trait which applies the default tip icon and default tip theme to the alert.
 
 ## 0.9.18
+_Sep. 9, 2019_
 * *Design System*: Adds `:tip` trait to the `NfgUi::Components::Foundations::Icon` which now auto-generates the design-system standard tootlip icon to be used whenever a tip/hint is provided on NFG apps. As of `0.9.18` the `:tip` trait is a `question-circle-o` icon.
   * Example usage: `<%= ui.nfg :icon, :tip, tooltip: 'The tip!' %>`
 
 ## 0.9.17
+_Sep. 4, 2019_
 * Addresses security vulnerability with `Nokogiri` which must now be `1.10.4` or greater [CVE-2019-5477](https://nvd.nist.gov/vuln/detail/CVE-2019-5477)
 * `NfgUi::Bootstrap::Components::ButtonGroup`
   * *Vertical Button Group*: Now properly applies either `btn-group` or `btn-group-vertical` when `vertical: true` in the component's `options` instead adding both css classes to the component when vertical.
@@ -124,6 +149,7 @@
   * *NFG_UI:* vertical button group is now designed and styled for usage within NFG apps.
 
 ## 0.9.16
+_Aug. 27, 2019_
 * Introduces [DateTimePicker](https://github.com/xdan/datetimepicker) as the alternative datetimepicker. Demo page: [localhost:3000/javascript_plugins/datetimepicker](http://localhost:3000/javascript_plugins/datetimepicker)
   * The datetimepicker comes in 3 flavors: combo date & time picker, date picker, and time picker. To initialize them, add the `data-datetimepicker` attribute to your text input:
     * DateTime Combo: `%input{ type: 'text', data: { datetimepicker: 'datetime'  } }`
@@ -131,6 +157,7 @@
     * Time: `%input{ type: 'text', data: { datetimepicker: 'time' } }`
 
 ## 0.9.15
+_Aug. 1, 2019_
 * Re-introduces the official `Table` component.
   * _Design System Version_: [Table Element](http://localhost:3000/elements/tables)
   * See Bootstrap docs for [Tables](https://getbootstrap.com/docs/4.3/content/tables/) for a rundown of the options available.
@@ -150,17 +177,21 @@
   * Improvements to table CSS aesthetics.
 
 ## 0.9.14
+_Jul. 12, 2019_
 * Fixes issue identified after 0.9.13: "warning: already initialized constant for TRAITS instance". [See issue here](https://github.com/network-for-good/nfg_ui/issues/28).
 
 ## 0.9.13
+_Jul. 9, 2019_
 * Addresses a *critical issue* where `ActionView` was throwing an uninitialized constant error: `ActionView::Template::Error: uninitialized constant NfgUi::UI` when `nfg_ui` is a dependency within another engine.
 
 ## 0.9.12
+_Jul. 3, 2019_
 * `NfgUi::Components::Elements::StepIndicator` becomes an `<a>` tag when `:href` is present in `:options` and becomes a `<span>` when `:href` is not present.
   * `StepIndicator` is now `Wrappable` and can have it's `:as` value changed in `:options`
   * `StepIndicator` no longer renders an empty `Typeface` component when `:body` is empty in `:options`.
 
 ## 0.9.11
+_Jul. 1, 2019_
 * Adds an inky / Zurb Foundation for Emails `callout` component (which we label as 'alert').
   * Render with a `theme` local variable and an optional `body` local or block.
   * Example usage: `<%= render layout: 'nfg_ui/email/alert', locals: { theme_color: :warning, body: 'Email Body' } %>`
@@ -186,6 +217,7 @@
     * As a trait: `= ui.nfg :illustration, :responsive, image: 'test_app/sample_illustration.png'`
 
 ## 0.9.10
+_Jun. 12, 2019_
 * `NfgUi::Components::Foundations::Icon` now applies `aria-hidden='true'` by default when rendered to improve accessibility per Font Awesome documentation:
   * https://fontawesome.com/how-to-use/on-the-web/other-topics/accessibility
 * Fixes an issue where slat actions (and other components, assumedly) were rendering two spacer css classes (ex: `NfgUi::Components::Foundations::Icon::LEFT_ICON_SPACER_CSS_CLASS`) when an icon was present (ex: `<i class="fa fa-heart ml-1 ml-1"></i> Text Example`)
@@ -195,6 +227,7 @@
 * CSS improvements for event page jumbotron to behave like edgp on mobile
 
 ## 0.9.9
+_Jun. 5, 2019_
 * `NfgUi::Components::Patterns::SlatActions` can now accept the `:button` option. Setting `:button` to `true` (*and* `menu: false`) will result in the `SlatActions` component automatically rendering a button in place of the dropdown menu. Setting `button: false` (*and* `menu: false`) in the component options will render the component as a text link.
   * Example usage: `= ui.nfg :slat_actions, icon: 'trash', body: 'Delete', menu: false, button: true, method: :delete`
 * A patching system has been introduced for the design system (not `bootstrap`).
