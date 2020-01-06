@@ -1,4 +1,8 @@
 # Changelog
+## 0.10.5
+* Replaces the use of `$(function)` on JavaScript plugins with `NfgUi.readyOrTurbolinksLoad` which detects if `Turbolinks` is present and then supplies the appropriate `$(document).ready ...` or `$(document).on('turbolinks:load')` depending on if the host application is using turbolinks or not.
+
+
 ## 0.10.4
 _Dec. 19, 2019_
 * Adds Network for Good's "builder" UI to the shared CSS library.
