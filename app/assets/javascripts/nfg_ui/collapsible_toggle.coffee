@@ -15,7 +15,7 @@ class NfgUi.CollapsibleToggle
       @el
       .find ".#{@collapseIconClass}"
       .removeClass @collapseIconClass
-      .addClass @collapsedIconClass  
+      .addClass @collapsedIconClass
     else
       @el
         .find ".#{@collapsedIconClass}"
@@ -39,7 +39,7 @@ class NfgUi.CollapsibleToggle
         .removeClass @collapsedIconClass
         .addClass @collapseIconClass
 
-NfgUi.readyOrTurboLinksLoad ->
+NfgUi.readyOrTurbolinksLoad ->
   el = $("[data-toggle='collapse'][data-collapse-icon][data-collapsed-icon]")
 
   return unless el.length

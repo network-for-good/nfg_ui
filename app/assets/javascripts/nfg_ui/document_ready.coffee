@@ -1,10 +1,10 @@
 # Facilitate 'on ready' event for turbolinks and non-turbolinks environments
 
 if $("head [data-turbolinks-track='reload']").length > 0
-  NfgUi.readyOrTurboLinksLoad = $(document).on('turbolinks:load')
+  NfgUi.readyOrTurbolinksLoad = $(document).on('turbolinks:load')
 else
-  NfgUi.readyOrTurboLinksLoad = $(document).ready
+  NfgUi.readyOrTurbolinksLoad = $(document).ready
 
 # Usage example:
-# NfgUi.readyOrTurboLinksLoad ->
+# NfgUi.readyOrTurbolinksLoad ->
 #   alert 'hello!'

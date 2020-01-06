@@ -23,7 +23,7 @@ init_plugin = (el) ->
   el.each ->
     inst = new NfgUi.PreventClickableDisabledElement $(@)
 
-NfgUi.readyOrTurboLinksLoad ->
+NfgUi.readyOrTurbolinksLoad ->
   elSelectorClass = '.disabled'
   elAttribute = '[disabled]'
 

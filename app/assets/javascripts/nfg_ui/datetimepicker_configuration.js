@@ -64,7 +64,7 @@ function () {
   return DateTimePicker;
 }();
 
-NfgUi.readyOrTurboLinksLoad(function() {
+NfgUi.readyOrTurbolinksLoad(function() {
   var inputs = $("input[data-datetimepicker='datetime'], input[data-datetimepicker='date'], input[data-datetimepicker='time']");
 
   if (!(inputs.length > 0)) {
