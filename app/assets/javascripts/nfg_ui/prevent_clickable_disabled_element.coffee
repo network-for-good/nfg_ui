@@ -1,4 +1,4 @@
-# It is necessary to include window.NfgUi = {} 
+# It is necessary to include window.NfgUi = {}
 # Because several legacy evo JS files
 # Are `require`ing this file. This makes it easier
 # To just drop in a //= require nfg_ui/prevent_clickable_disabled_element
@@ -23,10 +23,10 @@ init_plugin = (el) ->
   el.each ->
     inst = new NfgUi.PreventClickableDisabledElement $(@)
 
-$ ->
+NfgUi.readyOrTurboLinksLoad ->
   elSelectorClass = '.disabled'
   elAttribute = '[disabled]'
-  
+
   $(document).on 'ajax:success', (e, xhr, settings) ->
     if $(elSelectorClass).length
       init_plugin $(elSelectorClass)
@@ -37,11 +37,9 @@ $ ->
         # Otherwise, initialize using $('[disabled]')
         init_plugin $(elAttribute)
 
-  if $(elSelectorClass).length 
+  if $(elSelectorClass).length
       init_plugin $(elSelectorClass)
-  
+
   if $(elAttribute).length
     unless $(elAttribute).hasClass 'disabled'
       init_plugin $(elAttribute)
-
-

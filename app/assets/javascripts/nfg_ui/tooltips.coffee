@@ -4,7 +4,7 @@ init_plugin = (parent) ->
   parent.find("[data-toggle='tooltip']").tooltip()
   $('body').tooltip selector: "[data-toggle~='tooltip']"
 
-$ ->
+NfgUi.readyOrTurboLinksLoad ->
   doc = $(document)
   body = $('body')
   modal = $('.modal')

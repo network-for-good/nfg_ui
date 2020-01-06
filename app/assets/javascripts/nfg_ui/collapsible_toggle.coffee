@@ -39,9 +39,9 @@ class NfgUi.CollapsibleToggle
         .removeClass @collapsedIconClass
         .addClass @collapseIconClass
 
-$ ->
+NfgUi.readyOrTurboLinksLoad ->
   el = $("[data-toggle='collapse'][data-collapse-icon][data-collapsed-icon]")
-  
+
   return unless el.length
   el.each ->
     inst = new NfgUi.CollapsibleToggle $(@)
