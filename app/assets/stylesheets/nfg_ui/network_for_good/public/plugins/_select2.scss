@@ -136,7 +136,7 @@ body:not(.modal-open) {
     font-weight: $font-weight-normal;
     color: $dropdown-link-color;
     text-align: inherit; // For `<button>`s
-    white-space: nowrap; // prevent links from randomly breaking onto new lines
+    white-space: normal; // breaks long text
     background-color: transparent; // For `<button>`s
     border: 0; // For `<button>`s
     border-top: $border-width solid $border-color;
