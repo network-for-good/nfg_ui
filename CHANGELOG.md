@@ -1,4 +1,8 @@
 # Changelog
+## 0.10.4.1
+_Jan. 13, 2020_
+* Updates select2 list items to break onto multiple lines.
+
 ## 0.10.4
 _Dec. 19, 2019_
 * Adds Network for Good's "builder" UI to the shared CSS library.

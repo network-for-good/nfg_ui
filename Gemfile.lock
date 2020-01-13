@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    nfg_ui (0.10.4)
+    nfg_ui (0.10.4.1)
       autoprefixer-rails (= 9.4.9)
       bootstrap (= 4.3.1)
       browser (~> 2.7.1)
@@ -135,7 +135,7 @@ GEM
     nio4r (2.5.2)
     nokogiri (1.10.5)
       mini_portile2 (~> 2.4.0)
-    popper_js (1.14.5)
+    popper_js (1.16.0)
     public_suffix (4.0.1)
     puma (4.3.1)
       nio4r (~> 2.0)
