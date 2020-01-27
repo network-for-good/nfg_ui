@@ -3,11 +3,4 @@
 if typeof NfgUi == 'undefined'
   window.NfgUi = {}
 
-if $("head [data-turbolinks-track='reload']").length > 0
-  NfgUi.readyOrTurbolinksLoad = $(document).on('turbolinks:load')
-else
-  NfgUi.readyOrTurbolinksLoad = $(document).ready
-
-# Usage example:
-# NfgUi.readyOrTurbolinksLoad ->
-#   alert 'hello!'
+NfgUi.turbolinks = ($("head [data-turbolinks-track='reload']").length > 0)

@@ -39,9 +39,14 @@ class NfgUi.CollapsibleToggle
         .removeClass @collapsedIconClass
         .addClass @collapseIconClass
 
-NfgUi.readyOrTurbolinksLoad ->
+initNfgUiCollapsibleToggle = () ->
   el = $("[data-toggle='collapse'][data-collapse-icon][data-collapsed-icon]")
 
   return unless el.length
   el.each ->
     inst = new NfgUi.CollapsibleToggle $(@)
+
+if NfgUi.turbolinks
+  $(document).on('turbolinks:load', initNfgUiCollapsibleToggle)
+else
+  $(document).ready(initNfgUiCollapsibleToggle)

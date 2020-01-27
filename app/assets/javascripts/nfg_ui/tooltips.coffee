@@ -4,7 +4,7 @@ init_plugin = (parent) ->
   parent.find("[data-toggle='tooltip']").tooltip()
   $('body').tooltip selector: "[data-toggle~='tooltip']"
 
-NfgUi.readyOrTurbolinksLoad ->
+initNfgUiTooltips = () ->
   doc = $(document)
   body = $('body')
   modal = $('.modal')
@@ -16,3 +16,8 @@ NfgUi.readyOrTurbolinksLoad ->
 
   doc.on 'hidden.bs.modal ajax:success', (e, xhr, settings) ->
     init_plugin body
+
+if NfgUi.turbolinks
+  $(document).on('turbolinks:load', initNfgUiTooltips)
+else
+  $(document).ready(initNfgUiTooltips)

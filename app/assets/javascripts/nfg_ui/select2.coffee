@@ -11,8 +11,7 @@ init_plugin = (parent) ->
     # with the select2 menu.
     dropdownParent: parent.find('select.select2').parent()
 
-NfgUi.readyOrTurbolinksLoad ->
-
+initNfgUiSelect2 = () ->
   doc = $(document)
   body = $('body')
   modal = $('.modal')
@@ -29,3 +28,8 @@ NfgUi.readyOrTurbolinksLoad ->
   # after the a tooltipped element is removed from the page
   doc.on 'hidden.bs.modal ajax:success', (e) ->
     init_plugin body
+
+if NfgUi.turbolinks
+  $(document).on('turbolinks:load', initNfgUiSelect2)
+else
+  $(document).ready(initNfgUiSelect2)

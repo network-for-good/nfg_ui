@@ -15,7 +15,7 @@ init_plugin = (el) ->
   el.each ->
     inst = new NfgUi.PreventClickableDisabledElement $(@)
 
-NfgUi.readyOrTurbolinksLoad ->
+initNfgUiPreventClickableDisabledElement = () ->
   elSelectorClass = '.disabled'
   elAttribute = '[disabled]'
 
@@ -35,3 +35,8 @@ NfgUi.readyOrTurbolinksLoad ->
   if $(elAttribute).length
     unless $(elAttribute).hasClass 'disabled'
       init_plugin $(elAttribute)
+
+if NfgUi.turbolinks
+  $(document).on('turbolinks:load', initNfgUiPreventClickableDisabledElement)
+else
+  $(document).ready(initNfgUiPreventClickableDisabledElement)
