@@ -1,4 +1,9 @@
 # Changelog
+## 0.10.5
+* Updates ruby version to 2.3.8 to be in sync with Network For Good's All in One software.
+* Updates JavaScript initializers and plugins to work in both turbolinks and non-turbolinks environments.
+
+
 ## 0.10.4.1
 _Jan. 13, 2020_
 * Updates select2 list items to break onto multiple lines.

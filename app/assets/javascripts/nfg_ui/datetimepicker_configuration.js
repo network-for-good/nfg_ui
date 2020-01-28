@@ -64,7 +64,7 @@ function () {
   return DateTimePicker;
 }();
 
-$(function() {
+function initNfgUiDateTimePicker() {
   var inputs = $("input[data-datetimepicker='datetime'], input[data-datetimepicker='date'], input[data-datetimepicker='time']");
 
   if (!(inputs.length > 0)) {
@@ -74,4 +74,9 @@ $(function() {
   return inputs.each(function (index, input) {
     return new NfgUi.DateTimePicker($(input));
   });
-});
+}
+
+if (NfgUi.turbolinks)
+  $(document).on('turbolinks:load', initNfgUiDateTimePicker);
+else
+  $(document).ready(initNfgUiDateTimePicker);
