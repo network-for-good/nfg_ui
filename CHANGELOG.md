@@ -1,6 +1,7 @@
 # Changelog
 ## 0.10.5
-* Replaces the use of `$(function)` on JavaScript plugins with `NfgUi.readyOrTurbolinksLoad` which detects if `Turbolinks` is present and then supplies the appropriate `$(document).ready ...` or `$(document).on('turbolinks:load')` depending on if the host application is using turbolinks or not.
+* Updates ruby version to 2.3.8 to be in sync with Network For Good's All in One software.
+* Updates JavaScript initializers and plugins to work in both turbolinks and non-turbolinks environments.
 
 
 ## 0.10.4.1
