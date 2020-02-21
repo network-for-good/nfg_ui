@@ -1,4 +1,4 @@
-// Styles that replicate the legacy top navs
+// Styles that replicate the legacy top navs in EVO
 #admin-nav {
   background-color: #444444;
   .navbar {
@@ -126,6 +126,98 @@
       color: $teal;
       &:hover {
         background-color: $gray-900;
+      }
+    }
+  }
+}
+
+// Main navigation bar (left) in DMS
+.site-navbar {
+  position: fixed;
+  right: 0;
+  left: 0;
+  z-index: $zindex-fixed;
+  @include transition(left .2s ease-in-out);
+  @include media-breakpoint-down(lg) {
+    bottom: 0;
+    width: 100%;
+    border-top: $border-width solid $nav-divider-color;
+  }
+  @include media-breakpoint-up(xl) {
+    top: 0;
+    left: 200px;
+    border-bottom: $border-width solid $nav-divider-color;
+  }
+  .navbar-brand {
+    font-size: ($font-size-base * .75);
+    @include media-breakpoint-down(lg) { display: none !important; }
+  }
+  .nav {
+    .nav-item {
+      position: relative;
+      font-size: ($font-size-base * .75);
+      font-weight: $font-weight-bold;
+      line-height: 1;
+      text-align: center;
+      border-left: $border-width solid $border-color;
+      @include media-breakpoint-down(lg) {
+        width: 20%;
+        &:first-child { border-left: none; }
+      }
+      .nav-alert {
+        position: absolute;
+        top: -4px;
+        right: -4px;
+        width: 8px;
+        height: 8px;
+        background-color: $primary;
+        @include border-radius(50%);
+        box-shadow: 0 0 0 2px rgba(255,255,255,1);
+        &.nav-alert-danger { background-color: $danger; }
+      }
+      .nav-link {
+        color: $text-muted;
+        outline: none !important;
+        @include transition(background-color .2s ease-in-out);
+        @include media-breakpoint-down(sm) { padding: ($spacer * .5); }
+        @include media-breakpoint-up(md) { padding: 18px $spacer; }
+        @include hover() { background-color: $body-bg; }
+        &[aria-expanded="true"],
+        &:not(:disabled):not(.disabled).active { background-color: $body-bg; }
+        &.disabled {
+          cursor: disabled;
+          pointer-events: none;
+          opacity: .4;
+        }
+        &.dropdown-toggle {
+          @include media-breakpoint-down(lg) {
+            + .dropdown-menu {
+              top: auto;
+              bottom: 100%;
+              margin-bottom: 2px;
+            }
+          }
+        }
+        &.has-label {
+          @include media-breakpoint-up(xl) {
+            padding-top: 15px;
+            height: ($spacer * 2);
+          }
+        }
+        .nav-text {
+          &.visible {
+            @include media-breakpoint-up(xl) { display: inline-block; }
+          }
+          @include media-breakpoint-down(sm) {
+            display: block;
+            margin-top: 2px;
+            font-weight: $font-weight-bold;
+            font-size: 10px;
+          }
+          @include media-breakpoint-up(md) { margin-left: ($spacer * .25); }
+          @include media-breakpoint-up(xl) { display: none; }
+        }
+        + .nav-link { margin-left: 0; }
       }
     }
   }

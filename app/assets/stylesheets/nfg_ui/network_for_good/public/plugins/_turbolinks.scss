@@ -1,0 +1,6 @@
+// Turbolink progress bar
+.turbolinks-progress-bar {
+  background-color: $success !important;
+  height: ($spacer * .25);
+  z-index: ($zindex-fixed + 1);
+}

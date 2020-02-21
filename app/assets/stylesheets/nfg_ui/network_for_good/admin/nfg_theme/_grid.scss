@@ -1,0 +1,58 @@
+// Specific container styles for DMS
+.container-wrap {
+  position: relative;
+  z-index: 0;
+  @include media-breakpoint-down(sm) {
+    margin-right: -($grid-gutter-width / 2);
+    margin-left: -($grid-gutter-width / 2);
+  }
+  @include media-breakpoint-down(lg) {
+    padding-bottom: ($spacer * 2);
+    &.nav-slide {
+      .site-navbar { left: 200px; }
+      .container-main { margin-left: 200px; }
+    }
+  }
+  @include media-breakpoint-up(xl) {
+    padding-top: ($spacer * 2);
+    padding-left: 200px;
+  }
+}
+
+// Wraps main page content
+.container-main {
+  margin-left: 0;
+  width: 100%;
+  @include transition(margin-left .2s ease-in-out);
+  @include media-breakpoint-up(sm) {
+    padding-right: ($grid-gutter-width / 2);
+    padding-left: ($grid-gutter-width / 2);
+  }
+  @include media-breakpoint-up(xl) {
+    padding-right: $grid-gutter-width;
+    padding-left: $grid-gutter-width;
+  }
+
+  // Used in DMS to make the tiles the width of device on mobile size
+  > .container-fluid:not(.page-header) {
+    @include media-breakpoint-down(sm) {
+      margin-right: -($grid-gutter-width / 2);
+      margin-left: -($grid-gutter-width / 2);
+      width: auto;
+    }
+  }
+}
+
+// Used in banners at the top of the app (ex: engagement banner)
+.container-flush {
+  margin-left: -$spacer;
+  margin-right: -$spacer;
+}
+
+// Used in page header for most situations
+.container-narrow {
+  @include media-breakpoint-down(sm) {
+    padding-right: ($grid-gutter-width / 2);
+    padding-left: ($grid-gutter-width / 2);
+  }
+}
