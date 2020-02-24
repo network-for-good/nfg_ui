@@ -31,20 +31,38 @@
 
 %hr
 
+%h3 Nav with :nav_items and manually added :nav_links that call modals.
+
+= ui.nfg :nav, class: 'bg-light p-3' do
+  = ui.nfg :nav_item do
+    = ui.nfg :nav_link, :active, body: 'Nav Modal Link #1', href: '#', icon: 'home', modal: '#test_modal1'
+  = ui.nfg :nav_item do
+    = ui.nfg :nav_link, body: 'Nav Modal Link #2', href: '#', icon: 'rocket', modal: '#test_modal2'
+  = ui.nfg :nav_item do
+    = ui.nfg :nav_link, body: 'Nav Modal Link #3', href: '#', icon: 'heart', modal: '#test_modal3'
+
+= ui.nfg :modal, id: 'test_modal1', title: 'Test Modal #1', body: 'This is test modal #1'
+
+= ui.nfg :modal, id: 'test_modal2', title: 'Test Modal #2', body: 'This is test modal #2'
+
+= ui.nfg :modal, id: 'test_modal3', title: 'Test Modal #3', body: 'This is test modal #3'
+
+%hr
+
 %h3 Nav with :nav_items and manually added :nav_links including collapsed sibling content for nav_links.
 
 = ui.nfg :nav, class: 'bg-light p-3' do
   = ui.nfg :nav_item do
-    = ui.nfg :nav_link, :active, body: 'Nav Link #1', href: '#', icon: 'home', collapse: '#test_collapse1'
+    = ui.nfg :nav_link, :active, body: 'Nav Collapse Link #1', href: '#', icon: 'home', collapse: '#test_collapse1'
     = ui.nfg :collapse, :collapsed, id: 'test_collapse1', body: 'Collapsed Content #1'
   = ui.nfg :nav_item do
-    = ui.nfg :nav_link, body: 'Nav Link #2', href: '#', icon: 'rocket', collapse: '#test_collapse2'
+    = ui.nfg :nav_link, body: 'Nav Collapse Link #2', href: '#', icon: 'rocket', collapse: '#test_collapse2'
     = ui.nfg :collapse, :collapsed, id: 'test_collapse2', body: 'Collapsed Content #2'
   = ui.nfg :nav_item do
-    = ui.nfg :nav_link, body: 'Nav Link #3', href: '#', icon: 'heart', collapse: '#test_collapse3'
+    = ui.nfg :nav_link, body: 'Nav Collapse Link #3', href: '#', icon: 'heart', collapse: '#test_collapse3'
     = ui.nfg :collapse, :collapsed, id: 'test_collapse3', body: 'Collapsed Content #3'
   = ui.nfg :nav_item do
-    = ui.nfg :nav_link, :disabled, body: 'Nav Link #4 (disabled)', href: '#', icon: 'usd', collapse: '#test_collapse_broken'
+    = ui.nfg :nav_link, :disabled, body: 'Nav Collapse Link #4 (disabled)', href: '#', icon: 'usd', collapse: '#test_collapse_broken'
     = ui.nfg :collapse, :collapsed, id: 'test_collapse_broken', body: "Collapsed Content SHOULD NEVER SHOW ON DISABLED COMPONENT IF YOU SEE ME I'M BROKEN"
 
 

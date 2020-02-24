@@ -6,6 +6,8 @@ module NfgUi
       # Nav doc coming soon
       class NavLink < NfgUi::Bootstrap::Components::NavLink
         include Bootstrap::Utilities::CollapseToggleable
+        include Bootstrap::Utilities::Modalable
+
         include NfgUi::Components::Utilities::Traitable
         include NfgUi::Components::Utilities::Describable
         include NfgUi::Components::Utilities::Iconable
