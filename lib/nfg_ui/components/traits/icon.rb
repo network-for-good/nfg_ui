@@ -22,7 +22,19 @@ module NfgUi
           maybe_update_option(:theme, value: NfgUi::DEFAULT_TIP_THEME)
 
           if options[:text].present?
-            maybe_update_option(:right, value: true)
+            # We are unable to use #maybe_update_option method due to how traits
+            # are calculated when sub components are
+            # rendered within sub components (example: nav_link being rendered within a nav_item)...
+            #
+            # This will leave options[:right] alone unless
+            # there is a value stored in the component's options[:right]
+            #
+            # Example where options[:right] is left alone:
+            # ui.nfg(:icon, :tip, right: false, text: 'Tip icon is on the left')
+            #
+            # Example where options[:right] gets updated:
+            # ui.nfg(:icon, :tip, text: 'Tip icon is on the right')
+            options[:right] = true if options[:right].nil?
             options[:class] += ' fa-fw'
           end
         end
