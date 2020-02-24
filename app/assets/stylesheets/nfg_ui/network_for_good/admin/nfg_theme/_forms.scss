@@ -10,6 +10,11 @@ label {
       padding-right: ($spacer * .25);
     }
   }
+  .required, abbr[title='required'] {
+    color: $danger;
+    cursor: default;
+    border-bottom: none;
+  }
 }
 
 textarea.form-control { min-height: ($spacer * 6); }
