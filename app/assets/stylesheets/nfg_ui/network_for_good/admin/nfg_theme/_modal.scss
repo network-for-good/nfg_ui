@@ -1,0 +1,6 @@
+// Hides #quick-add-modal modal if task modal is enabled in DMS
+#task-modal.show {
+  z-index: $zindex-modal + 1;
+  + #quick-add-modal { display: none !important; }
+  ~ .modal-backdrop.show ~ .modal-backdrop.show { display: none !important; }
+}
