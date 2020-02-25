@@ -2,10 +2,6 @@
 .container-wrap {
   position: relative;
   z-index: 0;
-  @include media-breakpoint-down(sm) {
-    margin-right: -($grid-gutter-width / 2);
-    margin-left: -($grid-gutter-width / 2);
-  }
   @include media-breakpoint-down(lg) {
     padding-bottom: ($spacer * 2);
     &.nav-slide {
@@ -22,12 +18,10 @@
 // Wraps main page content
 .container-main {
   margin-left: 0;
+  padding-right: ($grid-gutter-width / 2);
+  padding-left: ($grid-gutter-width / 2);
   width: 100%;
   @include transition(margin-left .2s ease-in-out);
-  @include media-breakpoint-up(sm) {
-    padding-right: ($grid-gutter-width / 2);
-    padding-left: ($grid-gutter-width / 2);
-  }
   @include media-breakpoint-up(xl) {
     padding-right: $grid-gutter-width;
     padding-left: $grid-gutter-width;
