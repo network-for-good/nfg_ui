@@ -1,6 +1,8 @@
 # Changelog
 ## 0.10.6
-* Coming soon.
+* Adds Donor Management container styles to support pre-NFG_UI styles
+* Adds product icon styles and font family (icomoon)
+* Adds default alert link (<a>) styles
 
 ## 0.10.5
 * Updates ruby version to 2.3.8 to be in sync with Network For Good's All in One software.
