@@ -5,6 +5,8 @@ module NfgUi
     module Utilities
       # The library of dedicated theme resources in Evo & DMS
       module ResourceThemeable
+        FALLBACK_ICON = 'heart-o'
+        DEFAULT_THEME_COLOR = 'primary'
         # This method represents an existential question
         # for the UX team at NFG
         #
@@ -14,11 +16,11 @@ module NfgUi
         def resource_theme_color(object = nil)
           case resource_theme_name(object)
           when 'Project'
-            'primary'
+            DEFAULT_THEME_COLOR
           when 'Campaign'
-            'primary'
+            DEFAULT_THEME_COLOR
           else
-            'primary'
+            DEFAULT_THEME_COLOR
           end
         end
 
@@ -45,7 +47,7 @@ module NfgUi
           when 'RecurringDonation'
             'refresh'
           else
-            'heart-o'
+            FALLBACK_ICON
           end
         end
 
