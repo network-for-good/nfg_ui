@@ -98,7 +98,7 @@ shared_examples_for 'modalable components without an href' do
 
     if anchorable_component
       and_context 'when the component is anchorable' do
-        expect(page).to have_css("[data-describe='#{describe}'][href='#']") 
+        expect(page).to have_css("[data-describe='#{describe}'][href='#']")
       end
     end
 
@@ -131,7 +131,7 @@ RSpec.describe 'Opening and closing a modal from all modalable components', type
 
   before { visit modal_feature_spec_views_path }
 
-  # Do what we can to ensure we're not missing some 
+  # Do what we can to ensure we're not missing some
   # new modalable components along the way.
   it_behaves_like 'a page that contains all of the utility enhanced components', tested_method: :modal, component_suite: :nfg
 
@@ -266,6 +266,12 @@ RSpec.describe 'Opening and closing a modal from all modalable components', type
 
         it_behaves_like 'a disabled modalable component', tooltip: true
       end
+    end
+
+    describe 'opening and closing the modal with nav-link' do
+      let(:dropdown) { false }
+      let(:describe) { 'modal-nav-link'  }
+      it_behaves_like 'a modalable component that kicks off a modal'
     end
   end
 
