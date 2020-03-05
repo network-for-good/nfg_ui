@@ -1,3 +1,7 @@
+.form-control {
+  &[readonly] { background-color: $input-bg; }
+}
+
 // Required styles
 label {
   font-weight: $font-weight-bold;
