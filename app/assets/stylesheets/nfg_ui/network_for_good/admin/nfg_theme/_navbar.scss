@@ -153,6 +153,7 @@
     @include media-breakpoint-down(lg) { display: none !important; }
   }
   .nav {
+    @include media-breakpoint-down(lg) { width: 100%; }
     .nav-item {
       position: relative;
       font-size: ($font-size-base * .75);
