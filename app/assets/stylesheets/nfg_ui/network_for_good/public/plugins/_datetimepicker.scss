@@ -52,6 +52,9 @@
     }
   }
 
+  //** Needed to support legacy bs4 alpha collapse styles in DMS
+  .collapse.in { display: block; }
+
   //** Time/Date Toggle
   .collapse.show {
     .timepicker-picker {
