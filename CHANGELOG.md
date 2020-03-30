@@ -1,4 +1,20 @@
 # Changelog
+## 0.10.6
+* CSS Updates
+  * Adds Donor Management container styles to support pre-NFG_UI styles
+  * Adds product icon styles and font family (icomoon)
+  * Adds default alert link (<a>) styles
+* `NfgUi::Components::Patterns:PageHeader` upgrades:
+  * `PageHeader` now accepts the `:full_width` option (boolean). By default, `:full_width` is set to `false`. This ensures that historic use is unimpacted.
+  * Setting `:full_width` to `true` set the wrapping container's column class to a singular `.col` instead of the modifier `col-xl-11 mx-auto`
+* `NfgUi::Components::Elements:NavLink` upgrades:
+  * `NavLink` is now `Modalable`, supplying the `:modal` option will now successfully target and launch its corresponding modal.
+  * `NavLink` can now also `CollapseToggleable` meaning that, *when not a dropdown*, it can power a `Collapse` component (for example: clicking a nav link to expand a collapsed sub navigation, which is decidedly _not_ a dropdown menu)
+* `NfgUi::Components::Traits::Icon` `#tip_trait` method was further upgraded to correctly respond to and _not_ modify the component's right/left presence when `:right` is present in options. This was causing problems with certain complex implementations of the tip icon when used in components like a dropdown-powered `NavItem`. Basically: setting `right: false` will now accurately turn off the icon's `:right` behavior.
+* `NfgUi::Components::Utilities::ResourceThemeable` now includes two constants:
+  * `FALLBACK_ICON` which is set to `heart-o` which is helpful for accessing this icon without guessing in specs and other areas of the app.
+  * `DEFAULT_THEME_COLOR` for `resource_theme_color` is set to `primary` for similar easy access for specs and other uses.
+
 ## 0.10.5
 * Updates ruby version to 2.3.8 to be in sync with Network For Good's All in One software.
 * Updates JavaScript initializers and plugins to work in both turbolinks and non-turbolinks environments.

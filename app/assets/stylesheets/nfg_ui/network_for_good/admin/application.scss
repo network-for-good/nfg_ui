@@ -18,8 +18,10 @@
 @import 'nfg_ui/network_for_good/public/plugins/datepicker';
 @import 'nfg_ui/network_for_good/public/plugins/datetimepicker';
 @import 'nfg_ui/network_for_good/public/plugins/intercom'; // only in admin layouts
-@import 'nfg_ui/network_for_good/public/plugins/sticky_div';
 @import 'nfg_ui/network_for_good/public/plugins/select2';
+@import 'nfg_ui/network_for_good/public/plugins/sticky_div';
+@import 'nfg_ui/network_for_good/public/plugins/turbolinks';
+@import 'nfg_ui/network_for_good/public/plugins/twitter_typeahead';
 
 // Legacy browser support
 @import 'nfg_ui/network_for_good/public/legacy_browser_support/application';

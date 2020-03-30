@@ -1,0 +1,52 @@
+// Free trial styles for DMS
+
+// Height of banner
+$free_trial_banner_height: 6.2rem;
+
+// Styles for container elements when body tag is using .has-free-trial
+body.has-free-trial.nfg_ui {
+  padding-top: 0;
+
+  // For Top Banner
+  @include media-breakpoint-down(lg) {
+    .site-nav { padding-top: $free_trial_banner_height; }
+    .page-wrap { padding-top: $free_trial_banner_height; }
+  }
+  @include media-breakpoint-up(xl) {
+    .site-nav {
+      top: $free_trial_banner_height;
+      height: calc(100% - 62px);
+    }
+    .full_width_layout { padding-top: ($spacer * 3); }
+    .container-wrap { padding-top: ($spacer * 2) + $free_trial_banner_height; }
+    .site-navbar, .email-navbar { top: $free_trial_banner_height; }
+
+    .page-wrap { padding-top: ($spacer * 2) + ($spacer * .5) + $free_trial_banner_height; }
+    .builder-container { padding-top: 110px !important; }
+    .sidebar { padding-top: $free_trial_banner_height; }
+
+    .builder-header { top: $free_trial_banner_height; }
+    .builder-wrap { padding-top: ($spacer * 2) + $free_trial_banner_height; }
+    .builder-options { padding-top: ($spacer * 3) + $spacer + $free_trial_banner_height; }
+
+    // Sticky redactor to render above the free trial banner
+    #email-layout .cs-html-editor-overlay,
+    .cs-html-editor-overlay { z-index: $zindex-fixed + 2; }
+  }
+  @include media-breakpoint-up(xl) {
+    .sidebar { height: 100%; }
+  }
+
+  // Free trial banner specific styles
+  .free-trial-alert {
+    z-index: $zindex-fixed + 1;
+    @include media-breakpoint-up(xl) {
+      position: fixed !important;
+      top: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+    }
+  }
+}
+

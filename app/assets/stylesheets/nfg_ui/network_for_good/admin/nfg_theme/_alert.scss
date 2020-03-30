@@ -1,2 +1,18 @@
 // Custom type color
-.alert { color: $body-color; }
+.alert {
+  color: $body-color;
+  a {
+    text-decoration: underline;
+    &:hover, &:active { text-decoration: none; }
+  }
+}
+.alert-success a { color: $success; }
+.alert-info a { color: $info; }
+.alert-warning a { color: $warning; }
+.alert-danger, .alert-error {
+  a { color: $danger; }
+}
+.alert-gray, .alert-notice,
+.alert-light, .alert-dark {
+  a { color: inherit; }
+}

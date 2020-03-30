@@ -1,2 +1,2 @@
 // Sort
-[class*='sort'] { cursor: move; }
+[class*='sort']:not(.sort_link) { cursor: move; }
