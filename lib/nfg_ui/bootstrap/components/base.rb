@@ -65,8 +65,13 @@ module NfgUi
                                               # Example: <div class>Text</div>
         end
 
+        # Use view_context urL_for method to ensure that
+        # when objects are passed into href, e.g.
+        # `href: admin_path(admin)` will convert it to the
+        # correct path
         def href
-          options[:href]
+          return if options[:href].nil?
+          view_context.url_for(options[:href])
         end
 
         def id

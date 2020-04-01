@@ -47,7 +47,7 @@ module NfgUi
         # Automatically supply an :href to the dropdown item when a modal is present
         # so that the dropdown item presents correctly and appears clickable
         def href
-          modal ? options.fetch(:href, '#') : super
+          super || (modal ? '#' : nil)
         end
 
         private

@@ -36,7 +36,7 @@ module NfgUi
 
         def href
           return if as != :a
-          collapse ? collapse : (options[:href] || '#')
+          collapse ? collapse : (super || '#')
         end
 
         def remove_component_css_classes
