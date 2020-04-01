@@ -67,8 +67,12 @@ module NfgUi
 
         # Use view_context urL_for method to ensure that
         # when objects are passed into href, e.g.
-        # `href: admin_path(admin)` will convert it to the
+        # `href: @admin` will convert it to the
         # correct path
+        #
+        # Likewise that hashes are also parsed correctly
+        # example:
+        # href: { controller: 'admin', action: 'show', id: 7 }
         def href
           return if options[:href].nil?
           view_context.url_for(options[:href])
