@@ -1,4 +1,7 @@
 # Changelog
+## 0.10.8
+* Adds file input javascript that supplies the filename to custom file input form controls.
+
 ## 0.10.7
 * Updates `NfgUi::Bootstrap::Components::Base` `#href` method to leverage `view_context`'s `#url_for` so that ActiveRecord objects and hashes can be passed into the `href` option.
   * Example: `= ui.nfg :button, href: @admin` now generates the path to the admin show page, e.g.: `admins/7`
