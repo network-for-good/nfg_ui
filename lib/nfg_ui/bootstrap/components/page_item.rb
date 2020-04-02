@@ -18,7 +18,7 @@ module NfgUi
         end
 
         def href
-          super || '#' # return # when nil
+          super || '#'
         end
 
         # Send href through to the "page link" that's embedded within
