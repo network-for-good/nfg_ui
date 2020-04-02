@@ -1,4 +1,10 @@
 # Changelog
+## 0.10.7
+* Updates `NfgUi::Bootstrap::Components::Base` `#href` method to leverage `view_context`'s `#url_for` so that ActiveRecord objects and hashes can be passed into the `href` option.
+  * Example: `= ui.nfg :button, href: @admin` now generates the path to the admin show page, e.g.: `admins/7`
+  * `= ui.nfg :button, href: { controller: 'admin', action: 'show', id: 7 }` will generate the same `admins/7` URL.
+* Updates `#href` method on `Button`, `PageItem`, `NavLink`, `NavbarBrand`, `PageItem`, `DropdownItem` and `IntegratedSlatAction` to leverage `super` instead of fetching `href` from options so that `url_for` is now in use when a fallback isn't set.
+
 ## 0.10.6
 * CSS Updates
   * Adds Donor Management container styles to support pre-NFG_UI styles
