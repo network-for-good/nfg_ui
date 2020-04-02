@@ -18,10 +18,6 @@ module NfgUi
           options.fetch(:dropdown, false)
         end
 
-        def href
-          options.fetch(:href, nil)
-        end
-
         def tab
           options.fetch(:tab, nil)
         end
