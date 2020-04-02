@@ -76,7 +76,7 @@ module NfgUi
         def href
           options_href = options[:href]
 
-          return if options_href.nil? || options_href.empty?
+          return if options_href.blank?
           view_context.url_for(options_href)
         end
 
