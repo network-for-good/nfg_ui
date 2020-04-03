@@ -1,4 +1,7 @@
 # Changelog
+## 0.10.8.2
+* Addresses security vulnerability [GHSA-65cv-r6x7-79hv](https://github.com/advisories/GHSA-65cv-r6x7-79hv) by bumping `actionview` from `5.2.2` to `5.2.4.2`
+
 ## 0.10.8.1
 * Addresses security vulnerability [CVE-2020-8130](https://github.com/advisories/GHSA-jppv-gw3r-w3q8) by bumping `rake` from `12.3.2` to `13.0.1`
 
