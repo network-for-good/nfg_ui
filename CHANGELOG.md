@@ -1,4 +1,7 @@
 # Changelog
+## 0.10.8.1
+* Addresses security vulnerability [CVE-2020-8130](https://github.com/advisories/GHSA-jppv-gw3r-w3q8) by bumping `rake` from `12.3.2` to `13.0.1`
+
 ## 0.10.7
 * Updates `NfgUi::Bootstrap::Components::Base` `#href` method to leverage `view_context`'s `#url_for` so that ActiveRecord objects and hashes can be passed into the `href` option.
   * Example: `= ui.nfg :button, href: @admin` now generates the path to the admin show page, e.g.: `admins/7`
