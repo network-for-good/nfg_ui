@@ -53,6 +53,7 @@ RSpec.describe NfgUi::Bootstrap::Components::Button do
       let(:options) { {} }
       let(:tested_collapse) { '#tested_collapse' }
       let(:tested_modal) { '#tested_modal' }
+      let(:tested_href) { '#tested-href' }
 
       context 'href with collapse' do
         let(:options) { { collapse: tested_collapse } }
@@ -63,6 +64,23 @@ RSpec.describe NfgUi::Bootstrap::Components::Button do
         context 'when collapse is falsey' do
           let(:options) { { collapse: false } }
           it { is_expected.to eq '#' }
+        end
+
+        context 'when collapse is nil' do
+          let(:options) { { collapse: nil } }
+          it { is_expected.to eq '#' }
+        end
+
+        context 'when href is present' do
+
+          let(:options) { { collapse: nil, href: tested_href } }
+          it { is_expected.to eq tested_href }
+          it { is_expected.not_to eq '#' }
+        end
+
+        context 'when collapse and href are present' do
+          let(:options) { { href: tested_href, collapse: tested_collapse } }
+          it { is_expected.to eq tested_collapse }
         end
       end
     end

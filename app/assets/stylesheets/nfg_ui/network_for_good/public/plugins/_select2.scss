@@ -12,6 +12,10 @@
 body:not(.modal-open) {
   .select2-container--default { z-index: $zindex-dropdown; }
 }
+body.modal-open  {
+  .select2-container { z-index: $zindex-modal + 2 !important; } // makes select2 dropdown higher than redactor toolbar in modals
+}
+
 
 .select2-container--default {
   &.select2-container--focus .select2-selection--multiple { border-color: $primary; }
