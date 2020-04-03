@@ -22,3 +22,16 @@
 
 // Sizing
 .dropdown-menu-md { min-width: ($spacer * 12); }
+
+
+// Styles for wider "My Tools" dropdown in top nav
+#my_tools_dropdown {
+  @include media-breakpoint-down(sm) { max-width: 100vw; }
+  .media {
+    div {
+      &:first-child { width: 60px; }
+      &:last-child { width: 38px; }
+    }
+    .media-body { width: 240px; }
+  }
+}

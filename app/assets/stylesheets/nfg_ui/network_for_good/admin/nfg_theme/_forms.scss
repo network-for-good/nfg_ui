@@ -1,3 +1,7 @@
+.form-control {
+  &[readonly] { background-color: $input-bg; }
+}
+
 // Required styles
 label {
   font-weight: $font-weight-bold;
@@ -9,6 +13,11 @@ label {
       margin-left: -($spacer * .5);
       padding-right: ($spacer * .25);
     }
+  }
+  .required, abbr[title='required'] {
+    color: $danger;
+    cursor: default;
+    border-bottom: none;
   }
 }
 

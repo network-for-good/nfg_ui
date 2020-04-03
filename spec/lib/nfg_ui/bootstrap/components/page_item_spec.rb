@@ -44,8 +44,18 @@ RSpec.describe NfgUi::Bootstrap::Components::PageItem do
       it { is_expected.to eq tested_href }
     end
 
-    context 'when href is not present in options' do
+    context 'when href is nil in options' do
       let(:options) { { href: nil } }
+      it { is_expected.to eq '#' }
+    end
+
+    context 'when href is not present in options' do
+      let(:options) { {} }
+      it { is_expected.to eq '#' }
+    end
+
+    context 'when href is an empty string in options' do
+      let(:options) { { href: '' } }
       it { is_expected.to eq '#' }
     end
   end

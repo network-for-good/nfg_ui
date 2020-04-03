@@ -17,6 +17,15 @@ module NfgUi
           sticky ? super.merge!(toggle: 'sticky-div') : super
         end
 
+        # Supplies a slightly smaller design-system approved column structure
+        # when set to false (as used in Evo), by default.
+        # DMS, however requires a simple 'col' (full width) layout
+        # and will have :full_width set to true manually while both apps
+        # co-exist with slightly different page layouts.
+        def full_width
+          options.fetch(:full_width, false)
+        end
+
         def sticky
           return if Rails.env.test? || browser.mobile?
           options.fetch(:sticky, true)
@@ -41,7 +50,7 @@ module NfgUi
 
           content_tag(:div, html_options) do
             content_tag(:div, class: 'row') do
-              content_tag(:div, class: 'col col-xl-11 mx-auto') do
+              content_tag(:div, class: column_structure_css_classes) do
                 content_tag(:div, class: 'row align-items-center') do
                   concat(content_tag(:div, class: 'col py-2') {
                     NfgUi::Components::Patterns::Media.new({}, view_context).render do
@@ -80,8 +89,12 @@ module NfgUi
 
         private
 
+        def column_structure_css_classes
+          "col #{'col-xl-11 mx-auto' unless full_width}".squish
+        end
+
         def non_html_attribute_options
-          super.push(:subtitle)
+          super.push(:subtitle, :full_width, :sticky)
         end
       end
     end

@@ -3,6 +3,11 @@
 .nav {
   display: -ms-flexbox;
   -ms-flex-wrap: wrap;
+  // override because flexbox displays incorrect in <= IE10
+  &.site-nav {
+    display: block !important;
+    .nav-sub-menu { display: block !important; }
+  }
 }
 
 // Justified variants
@@ -19,3 +24,5 @@
     -ms-flex-positive: 1;
   }
 }
+
+

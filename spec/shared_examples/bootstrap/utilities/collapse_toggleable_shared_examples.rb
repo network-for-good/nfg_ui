@@ -1,4 +1,4 @@
-shared_examples_for 'a component that includes the CollapseToggleable utility module' do |component_suite:|
+shared_examples_for 'a component that includes the CollapseToggleable utility module' do |component_suite:, skip_link_href_test: false|
   describe 'CollapseToggleable module included in the component' do
     let(:component) { described_class.new({}, ActionController::Base.new.view_context) }
     it { expect(described_class.included_modules).to include NfgUi::Bootstrap::Utilities::CollapseToggleable }
@@ -31,17 +31,20 @@ shared_examples_for 'a component that includes the CollapseToggleable utility mo
             expect(subject).to include "data-toggle='collapse'", "#{tested_data_key}='#{tested_data_value}'"
           end
 
-          context 'when the the component is :as <a>' do
-            let(:options) { { collapse: tested_collapse, as: :a } }
-            it 'does not add the data-target attribute' do
-              if ruby_component.class.method_defined?(:as)
-                expect(subject).not_to include "data-target='#{tested_collapse}'"
+          # In some instances, this test is not necessary, :skip_link_href_test allows us to bypass this test
+          unless skip_link_href_test
+            context 'when the the component is :as <a>' do
+              let(:options) { { collapse: tested_collapse, as: :a } }
+              it 'does not add the data-target attribute' do
+                if ruby_component.class.method_defined?(:as)
+                  expect(subject).not_to include "data-target='#{tested_collapse}'"
+                end
               end
-            end
 
-            it 'sets the href to the collapse value' do
-              if ruby_component.class.method_defined?(:as)
-                expect(subject).to include "href='#{tested_collapse}'"
+              it 'sets the href to the collapse value' do
+                if ruby_component.class.method_defined?(:as)
+                  expect(subject).to include "href='#{tested_collapse}'"
+                end
               end
             end
           end

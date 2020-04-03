@@ -12,6 +12,10 @@
 body:not(.modal-open) {
   .select2-container--default { z-index: $zindex-dropdown; }
 }
+body.modal-open  {
+  .select2-container { z-index: $zindex-modal + 2 !important; } // makes select2 dropdown higher than redactor toolbar in modals
+}
+
 
 .select2-container--default {
   &.select2-container--focus .select2-selection--multiple { border-color: $primary; }
@@ -45,6 +49,7 @@ body:not(.modal-open) {
       height: $custom-select-height !important;
       transition: $transition-base;
     }
+    .select2-selection__placeholder { color: $primary; }
     .select2-selection__arrow { display: none; }
   }
 
@@ -65,7 +70,6 @@ body:not(.modal-open) {
       .select2-search__field {
         margin-top: 0;
         min-height: 18px;
-        border: $input-border-width solid $input-border-color;
       }
     }
     .select2-selection__rendered {
@@ -204,8 +208,7 @@ body:not(.modal-open) {
       top: 0;
       right: 0;
       width: 60px;
-      font-size: 10px;
-      line-height: 34px;
+      font-size: 12px;
       font-family: $font-family-sans-serif;
       color: $link-color;
       text-transform: uppercase;

@@ -62,7 +62,7 @@ module NfgUi
           # integrated action items are still
           # correctly styled
           def href
-            options[:href] || '#'
+            super || '#'
           end
 
           # Passes in the rails confirm option to the slat action component.
