@@ -1,8 +1,9 @@
 // Setting a common height for the builder header
 $builder-header-height: ($spacer * 3);
+$builder-nav-height: ($spacer * 4.5);
 
 // Put on the <body> to help with correct scrolling within builder-wrap and builder-options
-.builder-layout {
+.builder-layout, .builder-layout-with-nav {
   width: 100%;
   height: 100%;
   @include media-breakpoint-up(lg) { overflow: hidden; }
@@ -10,16 +11,44 @@ $builder-header-height: ($spacer * 3);
 
 // Macro styles for builder layout
 .builder-header {
+  padding: ($spacer * .5);
+  width: 100%;
+  min-height: $builder-header-height;
+  background-color: $dark;
+  z-index: $zindex-fixed;
+  &.builder-header-fixed {
+    position: fixed;
+    left: 0;
+    right: 0;
+    @include media-breakpoint-down(md) { bottom: 0; }
+    @include media-breakpoint-up(lg) { top: 0; }
+  }
+}
+
+.builder-nav {
+  padding: $spacer;
+  background-color: $white;
+  border-bottom: $border-width solid $border-color;
+  z-index: $zindex-fixed;
+}
+
+.builder-nav-sm {
   position: fixed;
   z-index: $zindex-fixed;
+  bottom: 0;
   left: 0;
   right: 0;
   padding: ($spacer * .5);
   width: 100%;
   min-height: $builder-header-height;
   background-color: $dark;
-  @include media-breakpoint-down(md) { bottom: 0; }
-  @include media-breakpoint-up(lg) { top: 0; }
+  @include media-breakpoint-up(lg) { display: none; }
+}
+
+.builder-container {
+  width: 100vw;
+  height: 100vh;
+  overflow-y: auto;
 }
 
 .builder-wrap {
@@ -50,3 +79,13 @@ $builder-header-height: ($spacer * 3);
     > :last-child { margin-bottom: $spacer; }
   }
 }
+
+
+// used mostly in onboarders when a navigation bar is used
+.builder-layout-with-nav {
+  @include media-breakpoint-up(lg) {
+    .builder-wrap { padding: ($spacer * 2) $spacer; }
+    .builder-options { padding-top: $builder-header-height + $builder-nav-height + $spacer; }
+  }
+}
+
