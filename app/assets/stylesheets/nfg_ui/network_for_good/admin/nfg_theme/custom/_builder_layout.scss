@@ -55,6 +55,9 @@ $builder-nav-height: ($spacer * 4.5);
   padding: ($spacer * 2) $spacer;
   @include media-breakpoint-down(md) { padding-bottom: $builder-header-height + ($spacer * 2); }
   @include media-breakpoint-up(lg) {
+    position: fixed;
+    top: 0;
+    left: 0;
     padding-top: $builder-header-height + ($spacer * 2);
     width: 67vw;
     height: 100vh;
@@ -84,8 +87,7 @@ $builder-nav-height: ($spacer * 4.5);
 // used mostly in onboarders when a navigation bar is used
 .builder-layout-with-nav {
   @include media-breakpoint-up(lg) {
-    .builder-wrap { padding: ($spacer * 2) $spacer; }
+    .builder-wrap { padding-top: $builder-header-height + $builder-nav-height + ($spacer * 2); }
     .builder-options { padding-top: $builder-header-height + $builder-nav-height + $spacer; }
   }
 }
-
