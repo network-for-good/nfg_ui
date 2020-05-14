@@ -12,5 +12,6 @@
 #= require nfg_ui/select2
 #= require nfg_ui/tooltips
 #= require nfg_ui/datetimepicker_configuration
+#= require nfg_ui/file_inputs
 
 window.NfgUi = {}
