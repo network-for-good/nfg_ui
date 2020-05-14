@@ -1,4 +1,7 @@
 # Changelog
+## 0.10.9
+* Adds file input javascript that supplies the filename to custom file input form controls.
+
 ## 0.10.8.2
 * Addresses security vulnerability [GHSA-65cv-r6x7-79hv](https://github.com/advisories/GHSA-65cv-r6x7-79hv) by bumping `actionview` from `5.2.2` to `5.2.4.2`
 

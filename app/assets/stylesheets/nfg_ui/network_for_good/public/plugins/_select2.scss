@@ -154,6 +154,7 @@ body.modal-open  {
         background-color: theme-color("light");
       }
     }
+    &[aria-disabled="true"],
     &[aria-selected='true'] {
       padding-right: ($spacer * 2);
       color: $body-color !important;
@@ -174,10 +175,12 @@ body.modal-open  {
         z-index: 5;
       }
     }
-    &[aria-disabled='true'] {
-      color: $text-muted;
+    &.loading-results {
+      padding-right: 0;
+      color: $text-muted !important;
       font-weight: $font-weight-bold;
       text-transform: uppercase;
+      &:after { display: none; }
     }
   }
   .select2-results__group {
