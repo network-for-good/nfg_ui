@@ -38,7 +38,6 @@ $builder-preview-padding: ($spacer * 2);
 }
 .builder-nav {
   padding: $builder-nav-padding;
-  min-height: $builder-nav-height;
   background-color: $white;
   border-bottom: $border-width solid $border-color;
   @include media-breakpoint-up(lg) {
@@ -46,6 +45,7 @@ $builder-preview-padding: ($spacer * 2);
     top: $builder-header-height;
     left: 0;
     right: 0;
+    min-height: $builder-nav-height;
   }
 }
 .builder-nav-sm {
