@@ -1,0 +1,34 @@
+@each $color, $value in $colors {
+  .#{$color} {
+    .datepicker, .timepicker {
+      [data-action^='select'],
+      [data-action^='picker'],
+      .prev,
+      .next,
+      .timepicker-picker a.btn {
+        &:hover, &:active, &.active {
+          background-color: $value;
+          color: $white !important;
+        }
+      }
+      .today.active {
+        &:hover, &:active { background-color: $value; }
+      }
+    }
+    .datepicker {
+      .prev, .next {
+        color: $value;
+      }
+    }
+    .timepicker-picker td a { color: $value; }
+    .picker-switch.accordion-toggle {
+      a {
+        color: $value;
+        &:hover, &:active {
+          color: $white !important;
+          background-color: $value;
+        }
+      }
+    }
+  }
+}

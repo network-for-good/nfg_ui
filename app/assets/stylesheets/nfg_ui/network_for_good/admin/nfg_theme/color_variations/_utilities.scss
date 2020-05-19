@@ -1,0 +1,6 @@
+@each $color, $value in $colors {
+  .#{$color} {
+    .bg-primary { background-color: $value !important; }
+    .border-primary { border-color: $value !important; }
+  }
+}

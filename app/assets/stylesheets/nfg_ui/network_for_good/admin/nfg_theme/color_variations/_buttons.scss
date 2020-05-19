@@ -1,0 +1,6 @@
+@each $color, $value in $colors {
+  .#{$color} {
+    .btn-primary { @include button-variant($value, $value); }
+    .btn-outline-secondary, .btn-link { color: $value; }
+  }
+}
