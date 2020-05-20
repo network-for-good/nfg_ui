@@ -9,6 +9,7 @@
       &.select2-container--focus .select2-selection--multiple { border-color: $value; }
       &.select2-container--open {
         .select2-selection--single {
+          border-color: $value !important;
           .select2-selection__rendered { color: $body-color; }
         }
       }
