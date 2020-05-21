@@ -1,4 +1,9 @@
 # Changelog
+## 0.10.10
+* Adds Donor Management color variation styles
+* Updates builder layout styles to be more flexible and work in onboarders
+* Adds height: 100%; to html element in admin and public views
+
 ## 0.10.9
 * Adds file input javascript that supplies the filename to custom file input form controls.
 
