@@ -1,0 +1,8 @@
+@each $color, $value in $colors {
+  .#{$color} {
+    a {
+      color: $value;
+      @include hover { color: darken($value, 15%); }
+    }
+  }
+}

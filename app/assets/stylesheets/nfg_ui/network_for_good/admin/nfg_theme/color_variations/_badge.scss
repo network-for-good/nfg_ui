@@ -1,0 +1,5 @@
+@each $color, $value in $colors {
+  .#{$color} {
+    .badge-primary { @include badge-variant($value); }
+  }
+}

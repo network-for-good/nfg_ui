@@ -1,0 +1,25 @@
+@each $color, $value in $colors {
+  .#{$color} {
+    .custom-control {
+      .custom-control-input {
+        &:checked {
+          ~ .custom-control-label { border-color: $value; }
+          ~ .custom-control-label::before {
+            border-color: $value;
+            background-color: $value;
+          }
+        }
+      }
+    }
+    .custom-switch {
+      .custom-control-input:checked ~ .custom-control-label {
+        &::after { border-color: $value; }
+        &::before {
+          background-color: $value;
+          border-color: $value;
+        }
+      }
+    }
+    .custom-select { color: $value; }
+  }
+}

@@ -18,6 +18,7 @@
 
 .custom-control-label {
   font-weight: $font-weight-normal;
+  cursor: pointer;
 
   // Background-color and icon
   &::before, &::after { top: .3rem; }
