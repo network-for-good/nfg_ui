@@ -1,4 +1,9 @@
 # Changelog
+## 0.10.11
+* Adds modernizr JS assets from Network For Good's Fundraising Pages application so that the fallback CSS (`app/assets/stylesheets/nfg_ui/network_for_good/public/legacy_browser_support`) will accurately be run when legacy browsers are detected.
+* Legacy browser support has been added, by default, to `nfg_ui/application`
+* If you are not requiring `nfg_ui/application` in your application.js, Modernizr JS assets need to be included in your application.js file manually: `//= require nfg_ui/vendor/legacy_browser_support/application`
+
 ## 0.10.10
 * Adds Donor Management color variation styles
 * Updates builder layout styles to be more flexible and work in onboarders
