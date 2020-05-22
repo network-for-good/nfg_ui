@@ -1,4 +1,7 @@
 # Changelog
+## 0.10.12
+* Addresses security vulnerability [GHSA-w64w-qqph-5gxm](https://github.com/advisories/GHSA-w64w-qqph-5gxm) by bumping `puma` to `4.3.5`
+
 ## 0.10.11
 * Adds modernizr JS assets from Network For Good's Fundraising Pages application so that the fallback CSS (`app/assets/stylesheets/nfg_ui/network_for_good/public/legacy_browser_support`) will accurately be run when legacy browsers are detected.
 * Legacy browser support has been added, by default, to `nfg_ui/application`
