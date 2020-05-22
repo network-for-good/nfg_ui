@@ -5,6 +5,7 @@
 #= require bootstrap
 #= require moment
 #= require nfg_ui/vendor/bootstrap-datetimepicker.min
+#= require nfg_ui/vendor/legacy_browser_support/application
 
 #= require_self
 #= require nfg_ui/document_ready
