@@ -1,0 +1,10 @@
+@each $color, $value in $colors {
+  .#{$color} {
+    .page-item {
+      &.active .page-link {
+        background-color: $value;
+        border-color: $value;
+      }
+    }
+  }
+}

@@ -3,14 +3,14 @@
   color: theme-color("primary");
   background-color: $white;
   border-color: $border-color;
-  &:hover {
-    color: $body-color;
+  @include hover {
+    color: $body-color !important;
     background-color: $body-bg;
   }
   &:not(:disabled):not(.disabled):active,
   &:not(:disabled):not(.disabled).active,
   .show > &.dropdown-toggle {
-    color: $body-color;
+    color: $body-color !important;
     background-color: $body-bg;
   }
 }

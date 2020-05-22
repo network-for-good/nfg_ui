@@ -1,0 +1,5 @@
+@each $color, $value in $colors {
+  .#{$color} {
+    .fa-question-circle-o.text-info { color: $value !important; } // used to make help icon correct theme color
+  }
+}
