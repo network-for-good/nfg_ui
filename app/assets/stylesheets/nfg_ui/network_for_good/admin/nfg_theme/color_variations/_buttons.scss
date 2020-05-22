@@ -1,0 +1,10 @@
+@each $color, $value in $colors {
+  .#{$color} {
+    .btn-primary { @include button-variant($value, $value); }
+    .show > .btn-primary.dropdown-toggle {
+      background-color: darken($value, 10%);
+      border-color: darken($value, 10%);
+    }
+    .btn-outline-secondary, .btn-link { color: $value; }
+  }
+}

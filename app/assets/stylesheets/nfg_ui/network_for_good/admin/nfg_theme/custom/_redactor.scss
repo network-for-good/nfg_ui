@@ -10,6 +10,7 @@
   background-color: $body-bg;
   box-shadow: none;
   border-bottom: $border-width solid $border-color;
+  a { color: inherit !important; }
 }
 .redactor-editor, .redactor-box, .redactor-box textarea { z-index: auto; }
 .redactor-box .redactor-toolbar { z-index: $zindex-dropdown - 10 !important; }

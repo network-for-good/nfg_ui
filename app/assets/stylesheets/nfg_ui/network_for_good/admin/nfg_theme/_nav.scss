@@ -11,13 +11,17 @@
   }
 
   .nav-link {
-    color: $text-muted;
+    color: $text-muted !important;
     border: none;
     border-bottom: $nav-tabs-border-width solid transparent;
     @include hover-focus {
-      color: $nav-tabs-link-active-color;
+      color: $nav-tabs-link-active-color !important;
       border-color: $nav-tabs-link-hover-border-color;
     }
+  }
+  .nav-link.active,
+  .nav-item.show .nav-link {
+    color: $nav-tabs-link-active-color !important;
   }
 }
 

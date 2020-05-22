@@ -64,6 +64,9 @@
           .step-indicator::after { opacity: 1; }
         }
       }
+      .step-text {
+        @include media-breakpoint-down(md) { display: none; }
+      }
     }
 
 

@@ -1,0 +1,5 @@
+@each $color, $value in $colors {
+  .#{$color} {
+    .progress-bar { background-color: $value; }
+  }
+}
