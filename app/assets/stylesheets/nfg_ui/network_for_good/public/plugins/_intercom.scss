@@ -1,7 +1,5 @@
 // INTERCOM -- custom styles for https://www.intercom.io/ integration
-.intercom-lightweight-app {
-  @include media-breakpoint-down(sm) { display: none !important; } // hides on small devices
-  .intercom-lightweight-app-launcher {
-    @include media-breakpoint-down(md) { bottom: ($spacer * 3.5) !important; } // adjusts location on medium devices
-  }
+
+.intercom-lightweight-app-launcher, .intercom-launcher-frame { // second selector is class added to intercom icon after full screen closes on mobile
+  @include media-breakpoint-down(md) { bottom: ($spacer * 3.5) !important; } // adjusts location on medium devices and smaller
 }
