@@ -1,4 +1,9 @@
 # Changelog
+## 0.10.13
+* Addresses security vulnerability [CVE-2020-8165](https://github.com/advisories/GHSA-2p68-f74v-9wc6) by bumping `activesupport` from `5.2.4.2` to `5.2.4.3`
+* Addresses security vulnerability [CVE-2020-8164](https://github.com/advisories/GHSA-8727-m6gj-mc37) by bumping `actionpack` from `5.2.4.2` to `5.2.4.3`
+* Addresses security vulnerability [CVE-2020-8162](https://github.com/advisories/GHSA-m42x-37p3-fv5w) by bumping `activestorage` from `5.2.4.2` to `5.2.4.3`
+
 ## 0.10.12
 * Addresses security vulnerability [GHSA-w64w-qqph-5gxm](https://github.com/advisories/GHSA-w64w-qqph-5gxm) by bumping `puma` to `4.3.5`
 
