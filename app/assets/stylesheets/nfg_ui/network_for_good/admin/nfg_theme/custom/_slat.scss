@@ -1,112 +1,118 @@
+$slat-actions-sm-width: 36px;
+$slat-actions-lg-width: 108px;
+
+
+// Slat list layout
+.slats {
+  display: flex;
+  flex-flow: column nowrap;
+
+  // Non-breaked version -- used when the goal is to have all slat-item columns on the same line in smaller screens
+  &:not(.slats-no-break) { // noting the :not() psuedo-class meaning all slats that don't have this class get these styles
+    .slat-body {
+      @include media-breakpoint-down(sm) { flex-direction: column; }
+    }
+    .slat-item + .slat-item {
+      @include media-breakpoint-down(sm) { margin-top: $spacer; }
+    }
+  }
+}
+
+
 // Slat and its child elements
 .slat {
   display: flex;
   flex-flow: row wrap;
+  padding-top: $spacer;
+  padding-bottom: $spacer;
+  + .slat { border-top: $border-width solid $border-color; }
+
+  // Sizing options
+  .slats-sm & {
+    padding-top: ($spacer * .5);
+    padding-bottom: ($spacer * .5);
+  }
+  .slats-lg & {
+    padding-top: ($spacer * 1.5);
+    padding-bottom: ($spacer * 1.5);
+  }
+
+  // Various states
+  &.ui-sortable-placeholder {
+    visibility: visible !important;
+    background: theme-color("light");
+    border: $border-width dashed $border-color;
+    + .slat { border-top: none; }
+    + &.ui-sortable-helper {
+      border-top-style: dashed;
+      + &.slat { border-top: none; }
+    }
+  }
+  &.ui-sortable-helper {
+    border-top: none;
+    opacity: .5;
+    border-top: none;
+    + &.ui-sortable-placeholder { border-top: $border-width dashed $border-color; }
+  }
 }
 
 
 // Body Column
 .slat-body {
   display: flex;
-  flex-flow: row wrap;
+  flex-direction: row;
+  flex-wrap: wrap;
   flex: 1 0 0;
   margin-right: -($grid-gutter-width * .5);
   margin-left: -($grid-gutter-width * .5);
   width: 100%;
-  .slat-item {
-    flex: 1 0 0;
-    padding-right: ($grid-gutter-width * .5);
-    padding-left: ($grid-gutter-width * .5);
-    width: 100%;
-    max-width: 100%;
-    min-height: 1px;
-    &:first-child {
-      flex-grow: 2;
 
-      // Sizing options
-      &.slat-item-sm { flex-grow: 1; }
-      &.slat-item-lg { flex-grow: 6; }
-    }
-  }
+  // max-width needed for when text-truncate is on an element inside
+  @include media-breakpoint-down(sm) { max-width: calc(100% - #{$slat-actions-sm-width}); }
+  @include media-breakpoint-up(md) { max-width: calc(100% - #{$slat-actions-lg-width}); }
+  .slat-actions-sm & { max-width: calc(100% - #{$slat-actions-sm-width}); }
+  .slat-actions-lg & { max-width: calc(100% - #{$slat-actions-lg-width}); }
+  .slat-actions-none & { max-width: calc(100% + 24px); }
+}
+
+
+// Shared action and item column
+.slat-item, .slat-actions {
+  padding-left: ($grid-gutter-width * .5);
+  min-width: 0px;
+  word-break: break-word;
+  white-space: normal;
+}
+
+
+// Item Column
+.slat-item {
+  flex: 1 0 0;
+  padding-right: ($grid-gutter-width * .5);
+  width: 100%;
+  max-width: 100%;
+  &.slat-item-2 { flex-grow: 2; }
+  &.slat-item-3 { flex-grow: 3; }
+  &.slat-item-4 { flex-grow: 4; }
 }
 
 
 // Action Column
 .slat-actions {
-  padding-left: ($grid-gutter-width * .5);
-  flex: 0 0 ($spacer * 1.5);
-  width: auto;
-  max-width: none;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: ($spacer * 2.5);
   text-align: right;
-  @include media-breakpoint-up(sm) { flex-basis: ($spacer * 6); }
-
-
-  // Sizing options
-  &.slat-actions-sm { flex-basis: ($spacer * 1.5); }
-  &.slat-actions-lg { flex-basis: ($spacer * 12); }
+  @include media-breakpoint-up(md) { flex-basis: ($spacer * 5.5); }
+  .slat-actions-sm & { flex-basis: ($spacer * 2.5); }
+  .slat-actions-lg & { flex-basis: ($spacer * 5.5); }
 }
 
 
 // Slat header
 .slat-header {
   padding-bottom: ($spacer * .5);
+  border-bottom: $border-width solid $border-color;
+  .slat { padding: 0 !important; }
   .slat-body { align-items: center; }
-}
-
-
-// Slat list layout
-.slat-list {
-  border-top: $border-width solid $border-color;
-  .slat {
-    padding-top: $spacer;
-    padding-bottom: $spacer;
-    + .slat { border-top: $border-width solid $border-color; }
-
-
-    // Various states
-    &.ui-sortable-placeholder {
-      visibility: visible !important;
-      background: theme-color("light");
-      border: $border-width dashed $border-color;
-      + .slat { border-top: none; }
-      + &.ui-sortable-helper {
-        border-top-style: dashed;
-        + &.slat { border-top: none; }
-      }
-    }
-    &.ui-sortable-helper {
-      border-top: none;
-      opacity: .5;
-      border-top: none;
-      + &.ui-sortable-placeholder { border-top: $border-width dashed $border-color; }
-    }
-  }
-
-
-  // Sizing options
-  &.slat-list-sm {
-    .slat {
-      padding-top: ($spacer * .5);
-      padding-bottom: ($spacer * .5);
-    }
-  }
-  &.slat-list-lg {
-    .slat {
-      padding-top: ($spacer * 1.5);
-      padding-bottom: ($spacer * 1.5);
-    }
-  }
-
-
-  // Non-breaked version -- used when the goal is to have all slat-item columns on the same line in smaller screens
-  &:not(.slat-list-no-break) {
-    .slat-item {
-      &:first-child {
-        @include media-breakpoint-down(sm) {
-          flex-basis: 100%;
-          margin-bottom: $spacer;
-        }
-      }
-    }
-  }
 }
