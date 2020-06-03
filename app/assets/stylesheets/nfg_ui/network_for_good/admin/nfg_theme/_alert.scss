@@ -1,18 +1,18 @@
 // Custom type color
 .alert {
   color: $body-color;
-  a {
+  a:not(.btn) {
     text-decoration: underline;
     &:hover, &:active { text-decoration: none; }
   }
 }
-.alert-success a { color: $success; }
-.alert-info a { color: $info; }
-.alert-warning a { color: $warning; }
+.alert-success a:not(.btn) { color: $success; }
+.alert-info a:not(.btn) { color: $info; }
+.alert-warning a:not(.btn) { color: $warning; }
 .alert-danger, .alert-error {
-  a { color: $danger; }
+  a:not(.btn) { color: $danger; }
 }
 .alert-gray, .alert-notice,
 .alert-light, .alert-dark {
-  a { color: inherit; }
+  a:not(.btn) { color: inherit; }
 }
