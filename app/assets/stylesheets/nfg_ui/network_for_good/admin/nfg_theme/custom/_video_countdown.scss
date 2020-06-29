@@ -1,0 +1,47 @@
+.video-container {
+  video { z-index: 10; }
+}
+
+// Animation timing
+$anim: 6s;
+@keyframes time {
+  0%, 10%, 100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+  5% {
+    opacity: 0.8;
+    transform: scale(1.2);
+  }
+}
+
+.countdown {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  visibility: hidden;
+  text-align: center;
+  z-index: 20;
+  span {
+    position: absolute;
+    font-size: ($spacer * 5);
+    font-weight: bold;
+    color: $white;
+    opacity: 0;
+  }
+  &.play {
+    visibility: visible;
+    @for $i from 0 through 3 {
+      .num#{$i} {
+        animation: time $anim;
+        animation-delay: (3-$i)+s;
+      }
+    }
+  }
+}
