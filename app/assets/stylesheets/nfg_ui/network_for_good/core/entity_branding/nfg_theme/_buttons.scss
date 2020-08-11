@@ -22,10 +22,10 @@
 
 .btn-outline-secondary {
   color: color-yiq($primary, $yiq-text-dark, $primary);
-  &:hover { color: color-yiq($primary, $yiq-text-dark, $primary); }
+  &:hover { color: color-yiq($primary, $yiq-text-dark, $primary) !important; }
   &:not(:disabled):not(.disabled):active,
   &:not(:disabled):not(.disabled).active,
-  .show > &.dropdown-toggle { color: color-yiq($primary, $yiq-text-dark, $primary); }
+  .show > &.dropdown-toggle { color: color-yiq($primary, $yiq-text-dark, $primary) !important; }
 }
 
 .btn-link {

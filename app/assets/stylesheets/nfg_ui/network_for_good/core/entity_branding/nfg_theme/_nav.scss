@@ -3,14 +3,12 @@
 .nav {
   &.flex-column {
     .nav-link {
-      &.active::after { background: $primary; }
+      &.active { border-color: $primary; }
     }
   }
 }
 .nav-tabs {
   .nav-link {
-    &:hover, &.active {
-      &::after { background: $primary; }
-    }
+    &:hover, &.active { border-color: $primary; }
   }
 }

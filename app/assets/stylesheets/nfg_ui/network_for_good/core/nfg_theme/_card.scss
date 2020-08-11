@@ -1,11 +1,9 @@
 //
 // Base styles
 //
-.card[href] {
-  box-shadow: none;
-  transition: $transition-base;
-  &:hover { box-shadow: $box-shadow-sm; }
-}
+// .card[href] { box-shadow: none; }
+.card-title { margin-bottom: ($card-spacer-y * .5); }
+
 .card-subtitle { margin-top: 0; }
 
 

@@ -1,10 +1,10 @@
 // Styles specific for the new user navbar on everyday_story and everyday_classic_style layouts
 
-$navbar-logo-height: (($spacer * 4.5) - ($navbar-padding-y * 2));
+$navbar-logo-height: (($spacer * 4.5) - $spacer);
 
 .navbar-brand {
   margin-right: 0;
-  padding: $navbar-padding-y 0;
+  padding: ($spacer * .5) 0;
   max-width: ($spacer * 8);
   height: $navbar-logo-height;
   white-space: normal !important;

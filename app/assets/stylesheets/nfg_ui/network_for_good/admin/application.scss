@@ -3,16 +3,14 @@
 // Core styles
 @import 'nfg_ui/network_for_good/core/application';
 
-// Variables that override core variables
+// Customization and overrides
 @import 'variables';
-
-// NFG Theme that adds to core nfg_theme
 @import 'nfg_theme/*';
 
 // Plugins
-@import 'nfg_ui/network_for_good/core/plugins/intercom'; // only in admin layouts
+@import 'nfg_ui/network_for_good/core/plugins/intercom';
 @import 'nfg_ui/network_for_good/core/plugins/turbolinks';
 @import 'nfg_ui/network_for_good/core/plugins/twitter_typeahead';
 
 // Color variations
-@import 'nfg_theme/color_variations/*';
+@import 'nfg_ui/network_for_good/core/color_variations/application';
