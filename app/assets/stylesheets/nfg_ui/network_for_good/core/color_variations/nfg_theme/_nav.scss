@@ -6,14 +6,12 @@
       }
     }
   }
-}
 
-// Color variations for border
-@each $color in $colors {
+  // Color variations for border in main nav in DM
   .site-nav {
-    .nav-item.#{nth($color, 1)} {
+    .nav-item.#{$color} {
       .nav-link {
-        &:hover, &.active, &[aria-expanded="true"] { border-color: nth($color, 2); }
+        &:hover, &.active, &[aria-expanded="true"] { border-color: $value; }
       }
     }
   }
