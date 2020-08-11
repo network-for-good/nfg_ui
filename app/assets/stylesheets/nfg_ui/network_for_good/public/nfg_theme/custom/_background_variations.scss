@@ -3,6 +3,7 @@
   @include media-breakpoint-down(md) {
     &.jumbotron, &.card { background-color: $gray-800; }
   }
+  &.card { border-color: $gray-800; }
   h1, h2, h3, h4, h5, h6, p, label { color: $white; }
   .progress { background-color: $gray-600; }
 
