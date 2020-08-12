@@ -4,7 +4,6 @@
 @import 'nfg_ui/network_for_good/core/application';
 
 // Customization and overrides
-@import 'variables';
 @import 'nfg_theme/*';
 
 // Plugins
@@ -13,4 +12,5 @@
 @import 'nfg_ui/network_for_good/core/plugins/twitter_typeahead';
 
 // Color variations
-@import 'nfg_theme/color_variations/*';
+@import 'color_variations/nfg_theme/*';
+@import 'color_variations/plugins/*';
