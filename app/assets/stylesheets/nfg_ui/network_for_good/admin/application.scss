@@ -1,30 +1,16 @@
 //** Admin Styles **//
 
-// App Vendors
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,700);
-@import 'font-awesome';
-@import 'select2';
+// Core Styles
+@import 'nfg_ui/network_for_good/core/application';
 
-// Our Variables
-@import 'variables';
-
-// Bootstrap Vendor Base
-@import 'bootstrap';
-
-// NFG Theme
+// Customization and Overrides
 @import 'nfg_theme/*';
 
 // Plugins
-@import 'nfg_ui/network_for_good/public/plugins/datepicker';
-@import 'nfg_ui/network_for_good/public/plugins/datetimepicker';
-@import 'nfg_ui/network_for_good/public/plugins/intercom'; // only in admin layouts
-@import 'nfg_ui/network_for_good/public/plugins/select2';
-@import 'nfg_ui/network_for_good/public/plugins/sticky_div';
-@import 'nfg_ui/network_for_good/public/plugins/turbolinks';
-@import 'nfg_ui/network_for_good/public/plugins/twitter_typeahead';
+@import 'nfg_ui/network_for_good/core/plugins/intercom';
+@import 'nfg_ui/network_for_good/core/plugins/turbolinks';
+@import 'nfg_ui/network_for_good/core/plugins/twitter_typeahead';
 
-// Legacy browser support
-@import 'nfg_ui/network_for_good/public/legacy_browser_support/application';
-
-// Color variations
-@import 'nfg_theme/color_variations/*';
+// Color Variations - has to be inside admin directory for variables to work properly
+@import 'color_variations/nfg_theme/*';
+@import 'color_variations/plugins/*';

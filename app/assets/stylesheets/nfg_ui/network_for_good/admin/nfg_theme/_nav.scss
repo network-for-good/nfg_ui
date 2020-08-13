@@ -1,30 +1,3 @@
-//
-// Tabs
-//
-.nav-tabs {
-  border-width: $border-width;
-
-  .nav-item {
-    margin-bottom: -$border-width;
-    font-weight: $font-weight-bold;
-    font-size: $font-size-base;
-  }
-
-  .nav-link {
-    color: $text-muted !important;
-    border: none;
-    border-bottom: $nav-tabs-border-width solid transparent;
-    @include hover-focus {
-      color: $nav-tabs-link-active-color !important;
-      border-color: $nav-tabs-link-hover-border-color;
-    }
-  }
-  .nav-link.active,
-  .nav-item.show .nav-link {
-    color: $nav-tabs-link-active-color !important;
-  }
-}
-
 // Top navigation bar in DMS
 .site-nav {
   position: fixed;
@@ -91,17 +64,6 @@
         &:hover, &:focus, &.active {
           background-color: darken(#006D9D, 17%);
         }
-      }
-    }
-  }
-}
-
-// Color variations for border
-@each $color in $colors {
-  .site-nav {
-    .nav-item.#{nth($color, 1)} {
-      .nav-link {
-        &:hover, &.active, &[aria-expanded="true"] { border-color: nth($color, 2); }
       }
     }
   }

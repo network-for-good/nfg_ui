@@ -66,7 +66,7 @@ $teal:    #60c6cf; // legacy color -- not used in our theme
 //   $colors
 // );
 
-$primary:       $blue;
+$primary:       $blue !default; // need !default for $primary to work properly (override) in entity_branding
 // $secondary:     $gray-600 !default;
 $success:       $green;
 $info:          $blue;
@@ -95,11 +95,11 @@ $danger:        $red;
 // $theme-color-interval:      8% !default;
 
 // The yiq lightness value that determines when the lightness of color changes from "dark" to "light". Acceptable values are between 0 and 255.
-$yiq-contrasted-threshold:  177;
+$yiq-contrasted-threshold:  147;
 
 // Customize the light and dark text colors for use in our YIQ color contrast function.
 $yiq-text-dark:             $gray-800;
-// $yiq-text-light:            $white !default;
+$yiq-text-light:            $white;
 
 
 // Options
@@ -142,7 +142,7 @@ $spacer: 2.4rem;
 //   $spacers
 // );
 
-// // This variable affects the `.h-*` and `.w-*` classes.
+// This variable affects the `.h-*` and `.w-*` classes.
 // $sizes: () !default;
 // stylelint-disable-next-line scss/dollar-variable-default
 // $sizes: map-merge(
@@ -169,7 +169,7 @@ $body-color:                $gray-800;
 //
 // Style anchor elements.
 
-// $link-color:                              theme-color("primary") !default;
+$link-color:                              $primary;
 // $link-decoration:                         none !default;
 // $link-hover-color:                        darken($link-color, 15%) !default;
 $link-hover-decoration:                   none;
@@ -238,12 +238,12 @@ $border-radius-sm:            .3rem;
 
 // $rounded-pill:                50rem !default;
 
-$box-shadow-sm:               0 0 5px transparentize($black, 0.7);
-$box-shadow:                  0 0 30px transparentize($black, 0.93);
-$box-shadow-lg:               0 0 50px 0 transparentize($black, 0.9);
+$box-shadow-sm:               0 2px 5px transparentize($black, 0.7);
+$box-shadow:                  0 10px 30px transparentize($black, 0.9);
+$box-shadow-lg:               0 15px 50px 0 transparentize($black, 0.85);
 
-// $component-active-color:      $white !default;
-// $component-active-bg:         theme-color("primary") !default;
+$component-active-color:      $white;
+$component-active-bg:         $primary;
 
 // $caret-width:                 .3em !default;
 // $caret-vertical-align:        $caret-width * .85 !default;
@@ -253,7 +253,7 @@ $box-shadow-lg:               0 0 50px 0 transparentize($black, 0.9);
 // $transition-fade:             opacity .15s linear !default;
 // $transition-collapse:         height .35s ease !default;
 
-$embed-responsive-aspect-ratios: () !default;
+$embed-responsive-aspect-ratios: ();
 // stylelint-disable-next-line scss/dollar-variable-default
 $embed-responsive-aspect-ratios: join(
   (
@@ -656,7 +656,7 @@ $form-feedback-icon-valid:          none;
 // $form-feedback-icon-invalid-color:  $form-feedback-invalid-color !default;
 $form-feedback-icon-invalid:        none;
 
-$form-validation-states: () !default;
+$form-validation-states: ();
 // stylelint-disable-next-line scss/dollar-variable-default
 $form-validation-states: map-merge(
   (
@@ -713,7 +713,7 @@ $nav-divider-margin-y:              0;
 $navbar-padding-y:                  0;
 $navbar-padding-x:                  0;
 
-// $navbar-nav-link-padding-x:         .5rem !default;
+$navbar-nav-link-padding-x:         ($spacer * .5);
 
 // $navbar-brand-font-size:            $font-size-lg !default;
 // Compute the navbar-brand padding-y so the navbar-brand will have the same height as navbar-text and nav-link
@@ -733,10 +733,10 @@ $navbar-dark-active-color:          #cccccc; // LEGACY
 // $navbar-dark-toggler-icon-bg:       str-replace(url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='#{$navbar-dark-color}' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e"), "#", "%23") !default;
 // $navbar-dark-toggler-border-color:  rgba($white, .1) !default;
 
-// $navbar-light-color:                rgba($black, .5) !default;
-// $navbar-light-hover-color:          rgba($black, .7) !default;
-// $navbar-light-active-color:         rgba($black, .9) !default;
-// $navbar-light-disabled-color:       rgba($black, .3) !default;
+$navbar-light-color:                $body-color;
+$navbar-light-hover-color:          $primary;
+$navbar-light-active-color:         $primary;
+$navbar-light-disabled-color:       $text-muted;
 // $navbar-light-toggler-icon-bg:      str-replace(url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='#{$navbar-light-color}' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e"), "#", "%23") !default;
 // $navbar-light-toggler-border-color: rgba($black, .1) !default;
 
@@ -821,10 +821,10 @@ $jumbotron-bg:                      $body-bg;
 
 $card-spacer-y:                     $spacer;
 $card-spacer-x:                     $spacer;
-// $card-border-width:                 $border-width !default;
+$card-border-width:                 $border-width;
 // $card-border-radius:                $border-radius !default;
 $card-border-color:                 $border-color;
-// $card-inner-border-radius:          calc(#{$card-border-radius} - #{$card-border-width}) !default;
+$card-inner-border-radius:          $border-radius;
 $card-cap-bg:                       $white;
 // $card-cap-color:                    null !default;
 // $card-color:                        null !default;
@@ -955,8 +955,8 @@ $modal-header-padding-x:            $spacer;
 // $modal-header-padding:              $modal-header-padding-y $modal-header-padding-x !default; // Keep this for backwards compatibility
 
 // $modal-xl:                          1140px !default;
-$modal-lg:                          900px !default;
-$modal-md:                          600px !default;
+$modal-lg:                          900px;
+$modal-md:                          600px;
 // $modal-sm:                          300px !default;
 
 // $modal-fade-transform:              translate(0, -50px) !default;
@@ -1019,7 +1019,7 @@ $list-group-action-color:           $body-color;
 // $list-group-action-active-bg:       $gray-200 !default;
 
 
-// Image thumbnails -- NOT CURRENTLY USED IN ADMIN
+// Image thumbnails
 
 // $thumbnail-padding:                 .25rem !default;
 // $thumbnail-bg:                      $body-bg !default;
@@ -1035,7 +1035,7 @@ $list-group-action-color:           $body-color;
 $figure-caption-color:              $text-muted;
 
 
-// Breadcrumbs -- NOT CURRENTLY USED IN ADMIN
+// Breadcrumbs
 
 // $breadcrumb-padding-y:              .75rem !default;
 // $breadcrumb-padding-x:              1rem !default;
@@ -1051,20 +1051,20 @@ $figure-caption-color:              $text-muted;
 // $breadcrumb-border-radius:          $border-radius !default;
 
 
-// Carousel -- NOT CURRENTLY USED IN ADMIN
+// Carousel
 
 // $carousel-control-color:             $white !default;
 // $carousel-control-width:             15% !default;
-// $carousel-control-opacity:           .5 !default;
+$carousel-control-opacity:           .3;
 // $carousel-control-hover-opacity:     .9 !default;
 // $carousel-control-transition:        opacity .15s ease !default;
 
-// $carousel-indicator-width:           30px !default;
-// $carousel-indicator-height:          3px !default;
+$carousel-indicator-width:           ($spacer * .5);
+$carousel-indicator-height:          ($spacer * .5);
 // $carousel-indicator-hit-area-height: 10px !default;
-// $carousel-indicator-spacer:          3px !default;
-// $carousel-indicator-active-bg:       $white !default;
-// $carousel-indicator-transition:      opacity .6s ease !default;
+$carousel-indicator-spacer:          ($spacer * .25);
+$carousel-indicator-active-bg:       $text-muted;
+$carousel-indicator-transition:      $text-muted;
 
 // $carousel-caption-width:             70% !default;
 // $carousel-caption-color:             $white !default;

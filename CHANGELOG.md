@@ -1,4 +1,17 @@
 # Changelog
+## 0.10.15.1
+* Addresses security vulnerability [CVE-2020-10663](https://github.com/advisories/GHSA-jphg-qwrw-7w9g) by bumping `json` from `2.1.0` to `2.3.1`
+* Addresses security vulnerability [CVE-2020-8184](https://github.com/advisories/GHSA-j6w9-fv6q-3q52) by bumping `rack` from `2.2.2` to `2.2.3`
+
+## 0.10.15
+* Consolidates admin and public styles into new core directory for wider company usage
+* Moves entity branding styles to core directory
+* Moves legacy browser support styles to core directory
+
+## 0.10.14
+* Adds responsive embed variables that were available in the admin suite to the public suite (so 4by3 and 3by4 are avaialble, for example).
+* adds :not() pseudo-class to links in alerts to prevent buttons being the same color as their background
+
 ## 0.10.13
 * Addresses security vulnerability [CVE-2020-8165](https://github.com/advisories/GHSA-2p68-f74v-9wc6) by bumping `activesupport` from `5.2.4.2` to `5.2.4.3`
 * Addresses security vulnerability [CVE-2020-8164](https://github.com/advisories/GHSA-8727-m6gj-mc37) by bumping `actionpack` from `5.2.4.2` to `5.2.4.3`
