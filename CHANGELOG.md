@@ -1,4 +1,7 @@
 # Changelog
+## 0.10.15
+
+
 ## 0.10.14
 * Adds responsive embed variables that were available in the admin suite to the public suite (so 4by3 and 3by4 are avaialble, for example).
 * adds :not() pseudo-class to links in alerts to prevent buttons being the same color as their background
