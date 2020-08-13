@@ -5,10 +5,10 @@
 @import 'font-awesome';
 @import 'select2';
 
-// Our Variables
+// Core Variables
 @import 'variables';
 
-// Bootstrap Vendor Base
+// Bootstrap Vendor Base - placed after core variables in order to pull in our custom variables
 @import 'bootstrap';
 
 // NFG Theme
@@ -20,5 +20,5 @@
 @import 'plugins/select2';
 @import 'plugins/sticky_div';
 
-// Legacy browser support
+// Legacy Browser Support
 @import 'legacy_browser_support/application';

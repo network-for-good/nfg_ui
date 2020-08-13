@@ -1,9 +1,9 @@
 //** Admin Styles **//
 
-// Core styles
+// Core Styles
 @import 'nfg_ui/network_for_good/core/application';
 
-// Customization and overrides
+// Customization and Overrides
 @import 'nfg_theme/*';
 
 // Plugins
@@ -11,5 +11,6 @@
 @import 'nfg_ui/network_for_good/core/plugins/turbolinks';
 @import 'nfg_ui/network_for_good/core/plugins/twitter_typeahead';
 
-// Color variations
-@import 'nfg_ui/network_for_good/core/color_variations/application';
+// Color Variations - has to be inside admin directory for variables to work properly
+@import 'color_variations/nfg_theme/*';
+@import 'color_variations/plugins/*';

@@ -46,7 +46,7 @@ $teal:    #60c6cf; // legacy color -- not used in our theme
 // $cyan:    #17a2b8 !default; // not used in our theme
 
 // $colors: () !default;
-// // stylelint-disable-next-line scss/dollar-variable-default
+// stylelint-disable-next-line scss/dollar-variable-default
 // $colors: map-merge(
 //   (
 //     "blue":       $blue,
@@ -142,7 +142,7 @@ $spacer: 2.4rem;
 //   $spacers
 // );
 
-// // This variable affects the `.h-*` and `.w-*` classes.
+// This variable affects the `.h-*` and `.w-*` classes.
 // $sizes: () !default;
 // stylelint-disable-next-line scss/dollar-variable-default
 // $sizes: map-merge(
@@ -169,7 +169,7 @@ $body-color:                $gray-800;
 //
 // Style anchor elements.
 
-// $link-color:                              theme-color("primary") !default;
+$link-color:                              $primary;
 // $link-decoration:                         none !default;
 // $link-hover-color:                        darken($link-color, 15%) !default;
 $link-hover-decoration:                   none;
