@@ -1,6 +1,8 @@
 # Changelog
 ## 0.10.15
-
+* Consolidates admin and public styles into new core directory for wider company usage
+* Moves entity branding styles to core directory
+* Moves legacy browser support styles to core directory
 
 ## 0.10.14
 * Adds responsive embed variables that were available in the admin suite to the public suite (so 4by3 and 3by4 are avaialble, for example).
