@@ -1,4 +1,8 @@
 # Changelog
+## 0.10.15.1
+* Addresses security vulnerability [CVE-2020-10663](https://github.com/advisories/GHSA-jphg-qwrw-7w9g) by bumping `json` from `2.1.0` to `2.3.1`
+* Addresses security vulnerability [CVE-2020-8184](https://github.com/advisories/GHSA-j6w9-fv6q-3q52) by bumping `rack` from `2.2.2` to `2.2.3`
+
 ## 0.10.15
 * Consolidates admin and public styles into new core directory for wider company usage
 * Moves entity branding styles to core directory
