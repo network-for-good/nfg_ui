@@ -1,9 +1,0 @@
-@each $color, $value in $colors {
-  .#{$color} {
-    .nav-tabs {
-      .nav-link {
-        &:hover, &.active { border-color: $value; }
-      }
-    }
-  }
-}

@@ -66,7 +66,7 @@ $teal:    #60c6cf; // legacy color -- not used in our theme
 //   $colors
 // );
 
-$primary:       $blue !default;
+$primary:       $blue !default; // need !default for $primary to work properly (override) in entity_branding
 // $secondary:     $gray-600 !default;
 $success:       $green;
 $info:          $blue;
@@ -74,7 +74,6 @@ $warning:       $orange;
 $danger:        $red;
 // $light:         $gray-100 !default;
 // $dark:          $gray-800 !default;
-
 
 // $theme-colors: () !default;
 // stylelint-disable-next-line scss/dollar-variable-default
@@ -233,9 +232,9 @@ $line-height-sm:              1;
 $border-width:                1px;
 $border-color:                $gray-300;
 
-$border-radius:               .6rem;
-$border-radius-lg:            .6rem;
-$border-radius-sm:            .6rem;
+$border-radius:               .3rem;
+$border-radius-lg:            .3rem;
+$border-radius-sm:            .3rem;
 
 // $rounded-pill:                50rem !default;
 
@@ -254,7 +253,7 @@ $component-active-bg:         $primary;
 // $transition-fade:             opacity .15s linear !default;
 // $transition-collapse:         height .35s ease !default;
 
-$embed-responsive-aspect-ratios: () !default;
+$embed-responsive-aspect-ratios: ();
 // stylelint-disable-next-line scss/dollar-variable-default
 $embed-responsive-aspect-ratios: join(
   (
@@ -267,7 +266,6 @@ $embed-responsive-aspect-ratios: join(
   ),
   $embed-responsive-aspect-ratios
 );
-
 
 // Fonts
 //
@@ -313,7 +311,7 @@ $display4-size:               ($font-size-base * .875);
 // $display1-weight:             300 !default;
 // $display2-weight:             300 !default;
 // $display3-weight:             300 !default;
-$display4-weight:             $font-weight-normal;
+$display4-weight:             $font-weight-bold;
 // $display-line-height:         $headings-line-height !default;
 
 $lead-font-size:              ($font-size-base * 1.5);
@@ -399,7 +397,7 @@ $input-btn-padding-x-sm:      ($spacer * .25);
 // $input-btn-font-size-sm:      $font-size-sm !default;
 // $input-btn-line-height-sm:    $line-height-sm !default;
 
-$input-btn-padding-y-lg:      1.1rem;
+$input-btn-padding-y-lg:      .5rem;
 $input-btn-padding-x-lg:      ($spacer * .75);
 // $input-btn-font-size-lg:      $font-size-lg !default;
 // $input-btn-line-height-lg:    $line-height-lg !default;
@@ -658,7 +656,7 @@ $form-feedback-icon-valid:          none;
 // $form-feedback-icon-invalid-color:  $form-feedback-invalid-color !default;
 $form-feedback-icon-invalid:        none;
 
-$form-validation-states: () !default;
+$form-validation-states: ();
 // stylelint-disable-next-line scss/dollar-variable-default
 $form-validation-states: map-merge(
   (
@@ -695,16 +693,16 @@ $nav-link-padding-x:                $spacer;
 $nav-link-disabled-color:           $text-muted;
 
 $nav-tabs-border-color:             $border-color;
-$nav-tabs-border-width:             $border-width;
+$nav-tabs-border-width:             3px;
 $nav-tabs-border-radius:            0;
 $nav-tabs-link-hover-border-color:  $primary;
 $nav-tabs-link-active-color:        $body-color;
 $nav-tabs-link-active-bg:           transparent;
 $nav-tabs-link-active-border-color: $primary;
 
-// $nav-pills-border-radius:           $border-radius !default;
-// $nav-pills-link-active-color:       $component-active-color !default;
-// $nav-pills-link-active-bg:          $component-active-bg !default;
+$nav-pills-border-radius:           0;
+$nav-pills-link-active-color:       $white;
+$nav-pills-link-active-bg:          darken(#006D9D, 10%);
 
 $nav-divider-color:                 $border-color;
 $nav-divider-margin-y:              0;
@@ -712,8 +710,8 @@ $nav-divider-margin-y:              0;
 
 // Navbar
 
-$navbar-padding-y:                  ($spacer * .5);
-// $navbar-padding-x:                  $spacer !default;
+$navbar-padding-y:                  0;
+$navbar-padding-x:                  0;
 
 $navbar-nav-link-padding-x:         ($spacer * .5);
 
@@ -728,9 +726,9 @@ $navbar-toggler-padding-x:          ($spacer * .5);
 // $navbar-toggler-font-size:          $font-size-lg !default;
 // $navbar-toggler-border-radius:      $btn-border-radius !default;
 
-// $navbar-dark-color:                 rgba($white, .5) !default;
-// $navbar-dark-hover-color:           rgba($white, .75) !default;
-// $navbar-dark-active-color:          $white !default;
+$navbar-dark-color:                 #9a9a9a; // LEGACY
+$navbar-dark-hover-color:           #b9b9b9; // LEGACY
+$navbar-dark-active-color:          #cccccc; // LEGACY
 // $navbar-dark-disabled-color:        rgba($white, .25) !default;
 // $navbar-dark-toggler-icon-bg:       str-replace(url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='#{$navbar-dark-color}' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e"), "#", "%23") !default;
 // $navbar-dark-toggler-border-color:  rgba($white, .1) !default;
@@ -823,11 +821,11 @@ $jumbotron-bg:                      $body-bg;
 
 $card-spacer-y:                     $spacer;
 $card-spacer-x:                     $spacer;
-$card-border-width:                 0;
+$card-border-width:                 $border-width;
 // $card-border-radius:                $border-radius !default;
-$card-border-color:                 transparent;
+$card-border-color:                 $border-color;
 $card-inner-border-radius:          $border-radius;
-$card-cap-bg:                       theme-color("light");
+$card-cap-bg:                       $white;
 // $card-cap-color:                    null !default;
 // $card-color:                        null !default;
 // $card-bg:                           $white !default;
@@ -957,8 +955,8 @@ $modal-header-padding-x:            $spacer;
 // $modal-header-padding:              $modal-header-padding-y $modal-header-padding-x !default; // Keep this for backwards compatibility
 
 // $modal-xl:                          1140px !default;
-$modal-lg:                          900px !default;
-$modal-md:                          600px !default;
+$modal-lg:                          900px;
+$modal-md:                          600px;
 // $modal-sm:                          300px !default;
 
 // $modal-fade-transform:              translate(0, -50px) !default;
@@ -1021,7 +1019,7 @@ $list-group-action-color:           $body-color;
 // $list-group-action-active-bg:       $gray-200 !default;
 
 
-// Image thumbnails -- NOT CURRENTLY USED IN PUBLIC
+// Image thumbnails
 
 // $thumbnail-padding:                 .25rem !default;
 // $thumbnail-bg:                      $body-bg !default;
@@ -1037,7 +1035,7 @@ $list-group-action-color:           $body-color;
 $figure-caption-color:              $text-muted;
 
 
-// Breadcrumbs -- NOT CURRENTLY USED IN PUBLIC
+// Breadcrumbs
 
 // $breadcrumb-padding-y:              .75rem !default;
 // $breadcrumb-padding-x:              1rem !default;

@@ -1,50 +1,15 @@
-// Vertical navigations with left indicator
+// Vertical navigations with left indicator used in donor profile area
 .nav {
   &.flex-column {
     .nav-link {
       position: relative;
       color: $text-muted;
-      &::after {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: ($spacer * .25);
-        height: 100%;
-        border-radius: (($spacer * .25) / 2);
-        transition: $transition-base;
-        content: '';
-      }
+      border-left: 4px solid transparent;
       &.active {
         color: $nav-tabs-link-active-color !important;
-        &::after { background: $nav-tabs-link-hover-border-color; }
+        border-color: $nav-tabs-link-hover-border-color;
       }
       @include hover-focus { color: $nav-tabs-link-active-color !important; }
-    }
-  }
-}
-
-//
-// Tabs
-//
-.nav-tabs {
-  .nav-item { margin-right: ($spacer * .5); }
-  .nav-link {
-    position: relative;
-    color: $text-muted;
-    border: none;
-    &::after {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: ($spacer * .25);
-      border-radius: (($spacer * .25) / 2);
-      transition: $transition-base;
-      content: '';
-    }
-    @include hover-focus {
-      color: $nav-tabs-link-active-color !important;
-      &::after { background: $nav-tabs-link-hover-border-color; }
     }
   }
 }

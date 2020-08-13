@@ -1,24 +1,7 @@
 //** Public Styles **//
 
-// App Vendors
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,700);
-@import 'font-awesome';
-@import 'select2';
+// Core Styles
+@import 'nfg_ui/network_for_good/core/application';
 
-// Our Variables
-@import 'variables';
-
-// Bootstrap Vendor Base
-@import 'bootstrap';
-
-// NFG Theme
+// Customization and Overrides
 @import 'nfg_theme/*';
-
-// Plugins
-@import 'plugins/datepicker';
-@import 'plugins/sticky_div';
-@import 'plugins/select2';
-@import 'plugins/datetimepicker';
-
-// Legacy browser support
-@import 'legacy_browser_support/application';
