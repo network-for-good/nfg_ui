@@ -37,9 +37,9 @@
   -ms-flex-positive: 1;
   -ms-flex-negative: 0;
   -ms-flex-preferred-size: 0;
-  &.slat-item-2 { -ms-flex-positive: 2; }
-  &.slat-item-3 { -ms-flex-positive: 3; }
-  &.slat-item-4 { -ms-flex-positive: 4; }
+  &.slat-item-md { -ms-flex-positive: 2; }
+  &.slat-item-lg { -ms-flex-positive: 3; }
+  &.slat-item-xl { -ms-flex-positive: 4; }
 }
 
 

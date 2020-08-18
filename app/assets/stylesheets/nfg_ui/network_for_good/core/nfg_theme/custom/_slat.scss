@@ -91,9 +91,9 @@ $slat-actions-lg-width: 108px;
   padding-right: ($grid-gutter-width * .5);
   width: 100%;
   max-width: 100%;
-  &.slat-item-2 { flex-grow: 2; }
-  &.slat-item-3 { flex-grow: 3; }
-  &.slat-item-4 { flex-grow: 4; }
+  &.slat-item-md { flex-grow: 2; }
+  &.slat-item-lg { flex-grow: 3; }
+  &.slat-item-xl { flex-grow: 4; }
 }
 
 
