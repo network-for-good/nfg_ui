@@ -24,13 +24,13 @@ module NfgUi
         end
 
         def render
-          super do
+          content_tag(base_element, slat_item_html_options) do
             if slat_header
               concat(content_tag(:h6, slat_header, class: 'display-4'))
             end
             if heading
               if href
-                concat(content_tag(:a, href: href) {
+                concat(content_tag(:a, href: view_context.url_for(href)) {
                   NfgUi::Components::Foundations::Typeface.new({ subheading: heading }, view_context).render
                 })
               else
@@ -45,6 +45,11 @@ module NfgUi
         end
 
         private
+
+        # Strip the href from html_options and pass it to the header
+        def slat_item_html_options
+          html_options.except(:href)
+        end
 
         # :sm is the default size, and is not given
         # a `slat-item-sm` class name.
