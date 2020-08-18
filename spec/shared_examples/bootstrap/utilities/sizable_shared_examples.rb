@@ -19,25 +19,26 @@ shared_examples_for 'a component that includes the Sizable utility module' do |c
 
     context 'when a size is present in options' do
       let(:options) { { size: size } }
-      context 'and when size is small' do
-        let(:size) { :sm }
-        it 'adds the small size css class to the component' do
-          by 'adding the small size' do
-            expect(substring_present?(string: subject,
-                                      starting_substring: "class='",
-                                      ending_substring: "'",
-                                      sought_substring: "#{ruby_component.send(:size_css_class_prefix)}-#{size}")).to be
-          end
+      unless skip == :sm
+        context 'and when size is small' do
+          let(:size) { :sm }
+          it 'adds the small size css class to the component' do
+            by 'adding the small size' do
+              expect(substring_present?(string: subject,
+                                        starting_substring: "class='",
+                                        ending_substring: "'",
+                                        sought_substring: "#{ruby_component.send(:size_css_class_prefix)}-#{size}")).to be
+            end
 
-          and_by 'not adding the large size' do
-            expect(substring_present?(string: subject,
-                                      starting_substring: "class='",
-                                      ending_substring: "'",
-                                      sought_substring: "#{ruby_component.send(:size_css_class_prefix)}-lg")).not_to be
+            and_by 'not adding the large size' do
+              expect(substring_present?(string: subject,
+                                        starting_substring: "class='",
+                                        ending_substring: "'",
+                                        sought_substring: "#{ruby_component.send(:size_css_class_prefix)}-lg")).not_to be
+            end
           end
         end
       end
-
       unless skip == :lg
         context 'and when size is large' do
           let(:size) { :lg }
