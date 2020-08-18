@@ -1,10 +1,33 @@
 # Changelog
 ## 0.11.0 *BREAKING CHANGES*
 * Sweeping changes and upgrades to the slats component.
-* Note: removal of the `SlatList` will cause your host app to error. You will need to remove the :slat_list component from your view. All children `:slat`s should now be siblings of `:slat_header`
-  * Removed `SlatList` which used to be the direct sibling of `SlatHeader` (embracing the `Slat`s)
+* Note: removal of the `SlatList` will cause your host app to error. You will need to remove the `:slat_list` component from your view. All children `:slat`s should now be siblings of `:slat_header`
+
+HAML Example:
+```ruby
+= ui.nfg :slats, :lg, :nowrap, slat_actions: :lg do
+  = ui.nfg :slat_header do
+    = ui.nfg :slat do
+      = ui.nfg :slat_body do
+        = ui.nfg :slat_item, slat_header: 'First Column'
+        = ui.nfg :slat_item, slat_header: 'Second Column'
+
+  = ui.nfg :slat do
+    = ui.nfg :slat_body do
+      = ui.nfg :slat_item, heading: 'Karl Fergood live here at this column', caption: 'A caption about this contact'
+      = ui.nfg :slat_item do
+        = ui.nfg :typeface, :truncate, body: 'aReallyLongStringForTruncationExampleIsPlacedHereAndBecauseItsGreatToStressTestItsEvenLonger!'
+    = ui.nfg :slat_actions do
+      = ui.nfg :slat_action, href: '#', body: 'Edit', icon: 'pencil'
+      = ui.nfg :slat_action, :danger, href: '#', body: 'Delete', icon: 'trash-o', method: :delete, confirm: 'Are you sure you want to delete?'
+```
+
+* Removed `SlatList` which used to be the direct sibling of `SlatHeader` (embracing the `Slat`s)
+* CSS Updates:
+  * Overhaul / refactor of CSS for all slat components.
+* Ruby updates:
   * `SlatItem` updates:
-    * SlatItem now accepts the `:size` option, specifically for use on the first `SlatItem` within a `Slat`
+    * `SlatItem` now accepts the `:size` option, specifically for use on the first `SlatItem` within a `Slat`
     * Setting `:size` (or using the size trait, such as `:lg`) will now increase the size of that slat item in relation to the other SlatItems.
       * Ex: `size: :lg` will make the SlatItem 3x the width of all other slats.
       * Available size options: `:md, :lg, :xl`
@@ -16,6 +39,7 @@
       * `:slat_header` has been removed and is no longer necessary to identify a `slat_actions` as a `slat_header`
   * `Slats` updates (note: the plural Slat*s*):
     * Slats are now `Sizable` and utilize `Size` trait module
+    * Example usage: `<%= ui.nfg(:slats, size: :lg, nowrap: true, slat_actions: :lg) %>`
     * New Options:
       * Utilizing a `:size` option or size trait (`:sm, :lg`) will supply a `.slats-XXX` size css class and increase / decrease the amount of space between slats.
       * `:nowrap` by default is `false`, when set to `true` the column structure of children `SlatItem` will remain columnular. When `false` (its default behavior), the columns will break down into rows at responsive widths.
