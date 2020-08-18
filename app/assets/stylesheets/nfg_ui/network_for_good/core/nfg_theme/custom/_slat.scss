@@ -109,6 +109,22 @@ $slat-actions-lg-width: 108px;
 }
 
 
+// Action dropdown text used for default action dropdown behavior
+.slat-actions-text {
+  @include media-breakpoint-down(sm) { display: none; }
+  @include media-breakpoint-up(md) {
+    display: inline-block;
+    margin-right: ($spacer * .25);
+  }
+  .slat-actions-lg & { // always show text on :lg slat-actions
+    display: inline-block;
+    margin-right: ($spacer * .25);
+  }
+  .slat-actions-sm & { display: none; } // always hide text on :sm slat-actions
+  + .fa.ml-1 { margin-left: 0 !important; } // hides default margin on icons in buttons on smaller device
+}
+
+
 // Slat header
 .slat-header {
   padding-bottom: ($spacer * .5);
