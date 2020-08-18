@@ -5,6 +5,9 @@ module NfgUi
     module Patterns
       # Main slats
       class Slats < NfgUi::Components::Base
+        include Bootstrap::Utilities::Sizable
+        include NfgUi::Components::Traits::Size
+
         def component_family
           :slats
         end

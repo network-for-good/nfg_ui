@@ -46,11 +46,11 @@ module NfgUi
 
         private
 
-        def css_classes
-          [
-            super,
-            ('text-word-wrap' if size == :lg)
-          ]
+        # :sm is the default size, and is not given
+        # a `slat-item-sm` class name.
+        # thus, reject :sm from resizable symbols.
+        def resized?
+          [:md, :lg, :xl].include?(size)
         end
 
         def non_html_attribute_options

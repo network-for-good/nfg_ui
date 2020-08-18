@@ -38,23 +38,6 @@ RSpec.describe NfgUi::Components::Patterns::SlatActions do
     end
   end
 
-  describe '#slat_header' do
-    let(:options) { { slat_header: tested_slat_header } }
-    let(:tested_slat_header) { nil }
-
-    subject { slat_actions.slat_header }
-
-    context 'when :slat_header is present in the options' do
-      let(:tested_slat_header) { true }
-      it { is_expected.to eq tested_slat_header }
-    end
-
-    context 'when :slat_header is not present in the options' do
-      let(:options) { {} }
-      it { is_expected.to be false }
-    end
-  end
-
   describe '#wide' do
     let(:options) { { wide: tested_wide } }
     let(:tested_wide) { nil }
@@ -79,30 +62,21 @@ RSpec.describe NfgUi::Components::Patterns::SlatActions do
       let(:options) { { menu: true, **additional_options } }
       let(:additional_options) { {} }
 
-      context 'and when :slat_header is true in options' do
-        let(:additional_options) { { slat_header: true } }
-        it 'renders the slat header version of the slat actions component' do
-          expect(subject).to eq "<div class=\"slat-actions\" href=\"#\"><h6 class=\"display-4\">&nbsp;</h6></div>"
+      it 'renders the full component' do
+        by 'rendering the slat actions within the dropdown menu' do
+          expect(subject).to include "<div class=\"slat-actions\" href=\"#\"><div class=\"dropdown\">"
         end
-      end
 
-      context 'and when :slat_header is falsey in options' do
-        it 'renders the full component' do
-          by 'rendering the slat actions within the dropdown menu' do
-            expect(subject).to include "<div class=\"slat-actions\" href=\"#\"><div class=\"dropdown\">"
-          end
+        and_by 'rendering the secondary outlined dropdown toggle' do
+          expect(subject).to include "<button class=\"btn dropdown-toggle btn-outline-secondary\" data-toggle=\"dropdown\""
+        end
 
-          and_by 'rendering the secondary outlined dropdown toggle' do
-            expect(subject).to include "<button class=\"btn dropdown-toggle btn-outline-secondary\" data-toggle=\"dropdown\""
-          end
+        and_by 'rendering the default language for the action menu' do
+          expect(subject).to include "Actions<i aria-hidden=\"true\" class=\"fa fa-caret-down ml-1\"></i>"
+        end
 
-          and_by 'rendering the default language for the action menu' do
-            expect(subject).to include "Actions<i aria-hidden=\"true\" class=\"fa fa-caret-down ml-1\"></i>"
-          end
-
-          and_by 'rendering the dropdown menu on the right' do
-            expect(subject).to include "<div class=\"dropdown-menu dropdown-menu-right\">"
-          end
+        and_by 'rendering the dropdown menu on the right' do
+          expect(subject).to include "<div class=\"dropdown-menu dropdown-menu-right\">"
         end
       end
     end

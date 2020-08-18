@@ -175,7 +175,6 @@ RSpec.describe NfgUi do
                                                           slat
                                                           slat_actions
                                                           slat_header
-                                                          slat_list
                                                           slats
                                                           steps
                                                           tab_content
