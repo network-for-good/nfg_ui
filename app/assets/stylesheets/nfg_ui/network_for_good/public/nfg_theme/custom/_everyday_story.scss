@@ -6,7 +6,7 @@
     background-size: cover;
     @include media-breakpoint-down(md) {
       background-image: none !important;
-      .card { box-shadow: none; }
+      .card { box-shadow: none !important; }
       .card-body { padding: 0; }
     }
     @include media-breakpoint-up(lg) { min-height: 500px; }
