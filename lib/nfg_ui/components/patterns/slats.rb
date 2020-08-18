@@ -8,9 +8,49 @@ module NfgUi
         include Bootstrap::Utilities::Sizable
         include NfgUi::Components::Traits::Size
 
+        # Determine whether or not to accomodate a specific
+        # SlatActions size configuration
+        # by default, when slat_actions is not set
+        # it should have a nil presence
+        #
+        # Note:
+        # `nil` is different from the :none keyword
+        #
+        # Options:
+        # :sm - account for a small SlatAction (icon only)
+        # :lg - account for a large SlatAction (Text & Icon)
+        # :none - Do not account for a SlatAction
+        #
+        # Leaving `nil` for slat_actions will kick off
+        # default behavior for the Slats' SlatAction
+        # which is a combination of :lg (for large screen)
+        # and :sm for small screen (where the slat action flexes)
+        # across screen sizes hiding and showing its text
+        def slat_actions
+          options[:slat_actions] || nil
+        end
+
         def component_family
           :slats
         end
+
+        private
+
+        def css_classes
+          [
+            super,
+            ("slat-actions-#{slat_actions}" if slat_actions_resized?)
+          ].join(' ').squish
+        end
+
+        def slat_actions_resized?
+          [:sm, :lg, :none].include?(slat_actions)
+        end
+
+        def non_html_attribute_options
+          super.push(:slat_actions)
+        end
+
       end
     end
   end
