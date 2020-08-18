@@ -27,6 +27,7 @@ HAML Example:
   * Overhaul / refactor of CSS for all slat components.
 * Ruby updates:
   * `SlatItem` updates:
+    * Fix: `:href` option no correctly gets passed to the `:slat_header` instead of being placed on both the `.slat-item` div AND the `slat_header`
     * `SlatItem` now accepts the `:size` option, specifically for use on the first `SlatItem` within a `Slat`
     * Setting `:size` (or using the size trait, such as `:lg`) will now increase the size of that slat item in relation to the other SlatItems.
       * Ex: `size: :lg` will make the SlatItem 3x the width of all other slats.
