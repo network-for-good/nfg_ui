@@ -6,7 +6,9 @@ module NfgUi
       # Main slats
       class Slats < NfgUi::Components::Base
         include Bootstrap::Utilities::Sizable
+
         include NfgUi::Components::Traits::Size
+        include NfgUi::Components::Traits::Slats
 
         # Determine whether or not to accomodate a specific
         # SlatActions size configuration
@@ -36,6 +38,8 @@ module NfgUi
 
         private
 
+        # Provide slat-actions-XXX when
+        # slat_actions keyword is present and legal
         def css_classes
           [
             super,
@@ -43,6 +47,9 @@ module NfgUi
           ].join(' ').squish
         end
 
+        # Only acceptable keywords are:
+        # :sm, :lg, and :none
+        # all other slat_action keywords are ignored
         def slat_actions_resized?
           [:sm, :lg, :none].include?(slat_actions)
         end

@@ -29,6 +29,7 @@ module NfgUi
                          Responsive
                          Size
                          Step
+                         Slats
                          SlatItem
                          Table
                          Theme

@@ -10,6 +10,14 @@
 %h1 Slats
 
 %h2.mb-4 Manual build
+
+%p
+  Slat Actions
+  %br
+  %pre slat_actions: :sm, :lg, :none
+  %br
+  %pre :slat_actions_sm, :slat_actions_lg, :slat_actions_none
+
 = ui.nfg :slats, :lg, slat_actions: :lg do
   = ui.nfg :slat_header do
     = ui.nfg :slat do
