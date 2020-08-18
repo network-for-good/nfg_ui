@@ -49,7 +49,7 @@ HAML Example:
         * This option does not often need to be added and its default behavior will work for a majority of situations.
         * Options: `slat_actions: :sm, :lg, :none`
         * traited: `:slat_actions_sm, :slat_actions_lg, :slat_actions_none`
-        * This determines whether or not to accomodate a specific SlatActions button configuration. *Note:* `nil` is diferent from `:none`
+        * This determines whether or not to accomodate a specific `SlatActions` button configuration. *Note:* `nil` is diferent from `:none`
           * `:sm` - account for a small SlatAction (icon only)
           * `:lg` - account for a large SlatAction (Text & Icon)
           * `:none` - Do not account for a SlatAction
