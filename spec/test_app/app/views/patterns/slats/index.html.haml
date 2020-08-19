@@ -1,236 +1,178 @@
-%h1 Slats
+%h1.mb-4 Slats
 
-%h2.mb-4 Manual build
-
-%p
-  Slat Actions
-  %br
-  %pre slat_actions: :sm, :lg, :none
-  %br
-  %pre :slat_actions_sm, :slat_actions_lg, :slat_actions_none
-
-= ui.nfg :slats, :lg, :nowrap, slat_actions: :lg do
-  = ui.nfg :slat_header do
-    = ui.nfg :slat do
-      = ui.nfg :slat_body do
-        = ui.nfg :slat_item, slat_header: 'First Column'
-        = ui.nfg :slat_item, slat_header: 'Second Column'
-
-  = ui.nfg :slat do
-    = ui.nfg :slat_body do
-      = ui.nfg :slat_item, heading: 'Karl Fergood live here at this column', caption: 'A caption about this contact'
-      = ui.nfg :slat_item do
-        = ui.nfg :typeface, :truncate, body: 'aReallyLongStringForTruncationExampleIsPlacedHereAndBecauseItsGreatToStressTestItsEvenLonger!'
-    = ui.nfg :slat_actions do
-      = ui.nfg :slat_action, href: '#', body: 'Edit', icon: 'pencil'
-      = ui.nfg :slat_action, :danger, href: '#', body: 'Delete', icon: 'trash-o', method: :delete, confirm: 'Are you sure you want to delete?'
-
-  = ui.nfg :slat do
-    = ui.nfg :slat_body do
-      = ui.nfg :slat_item, heading: 'Karl Fergood - Link', href: '#nogo'
-      = ui.nfg :slat_item, heading: '$5000', caption: 'An amount caption'
-    = ui.nfg :slat_actions do
-      = ui.nfg :slat_action, href: '#', body: 'Edit', icon: 'pencil'
-      = ui.nfg :slat_action, :danger, href: '#', body: 'Delete', icon: 'trash-o', method: :delete, confirm: 'Are you sure you want to delete?'
-
-  = ui.nfg :slat do
-    = ui.nfg :slat_body do
-      = ui.nfg :slat_item, heading: 'Non-wide slat set on slat_actions (wide: false)'
-      = ui.nfg :slat_item, heading: '$5000', caption: 'An amount caption'
-    = ui.nfg :slat_actions do
-      = ui.nfg :slat_action, href: '#', body: 'Edit', icon: 'pencil'
-      = ui.nfg :slat_action, :danger, href: '#', body: 'Delete', icon: 'trash-o', method: :delete, confirm: 'Are you sure you want to delete?'
-
-.mt-5
-%hr
-.mb-5
-
-%h3.mb-4 Non-wide slat rows (action dropdowns without text)
-
-= ui.nfg :slats do
-  = ui.nfg :slat_header do
-    = ui.nfg :slat do
-      = ui.nfg :slat_body do
-        = ui.nfg :slat_item, slat_header: 'First Column'
-        = ui.nfg :slat_item, slat_header: 'Second Column'
-
-  = ui.nfg :slat do
-    = ui.nfg :slat_body do
-
-      = ui.nfg :slat_item, heading: 'Non-wide slat set on slat_actions (wide: false)'
-      = ui.nfg :slat_item, heading: '$5000', caption: 'An amount caption'
-
-    = ui.nfg :slat_actions do
-      = ui.nfg :slat_action, href: '#', body: 'Edit', icon: 'pencil'
-      = ui.nfg :slat_action, :danger, href: '#', body: 'Delete', icon: 'trash-o', method: :delete, confirm: 'Are you sure you want to delete?'
-  = ui.nfg :slat do
-    = ui.nfg :slat_body do
-      = ui.nfg :slat_item, heading: 'Non-wide slat set on slat_actions (wide: false)'
-      = ui.nfg :slat_item, heading: '$5000', caption: 'An amount caption'
-
-    = ui.nfg :slat_actions do
-      = ui.nfg :slat_action, href: '#', body: 'Edit', icon: 'pencil'
-      = ui.nfg :slat_action, :danger, href: '#', body: 'Delete', icon: 'trash-o', method: :delete, confirm: 'Are you sure you want to delete?'
-
-
-.mt-5
-%hr
-.mb-5
-
-%h3.mb-4 Slats without action menus but with action column
-
-= ui.nfg :slats do
-  = ui.nfg :slat_header do
-    = ui.nfg :slat do
-      = ui.nfg :slat_body do
-        = ui.nfg :slat_item, slat_header: 'First Column'
-        = ui.nfg :slat_item, slat_header: 'Second Column'
-
-
-  = ui.nfg :slat do
-    = ui.nfg :slat_body do
-
-      = ui.nfg :slat_item, heading: 'Slat information'
-      = ui.nfg :slat_item, heading: '$5000', caption: 'An amount caption'
-
-    = ui.nfg :slat_actions, menu: false, icon: 'trash', body: 'Delete', href: '#nogo'
-  = ui.nfg :slat do
-    = ui.nfg :slat_body do
-
-      = ui.nfg :slat_item, heading: 'Button version'
-      = ui.nfg :slat_item, heading: '$5000', caption: 'An amount caption'
-
-    = ui.nfg :slat_actions, menu: false, icon: 'trash', body: 'Button', href: '#nogo', button: true
-  = ui.nfg :slat do
-    = ui.nfg :slat_body do
-
-      = ui.nfg :slat_item, heading: 'Slat information'
-      = ui.nfg :slat_item, heading: '$5000', caption: 'An amount caption'
-
-    = ui.nfg :slat_actions, :danger, menu: false, icon: 'trash', body: 'Delete', href: '#nogo', remote: true, method: :get
-
-.mt-5
-%hr
-.mb-5
-
-%h3.my-4 Slats without action menus but with action column, icon only (not wide)
-
-= ui.nfg :slats do
-  = ui.nfg :slat_header do
-    = ui.nfg :slat do
-      = ui.nfg :slat_body do
-        = ui.nfg :slat_item, slat_header: 'First Column'
-        = ui.nfg :slat_item, slat_header: 'Second Column'
-
-
-  = ui.nfg :slat do
-    = ui.nfg :slat_body do
-
-      = ui.nfg :slat_item, heading: 'Button version of slat action'
-      = ui.nfg :slat_item, heading: '$5000', caption: 'An amount caption'
-
-    = ui.nfg :slat_actions, button: true, menu: false, icon: 'trash', href: '#nogo'
-  = ui.nfg :slat do
-    = ui.nfg :slat_body do
-
-      = ui.nfg :slat_item, heading: 'Slat information'
-      = ui.nfg :slat_item, heading: '$5000', caption: 'An amount caption'
-
-    = ui.nfg :slat_actions, menu: false, icon: 'trash', href: '#nogo'
-
-  = ui.nfg :slat do
-    = ui.nfg :slat_body do
-
-      = ui.nfg :slat_item, heading: 'Slat information'
-      = ui.nfg :slat_item, heading: '$5000', caption: 'An amount caption'
-
-    = ui.nfg :slat_actions, menu: false, icon: 'trash', href: '#nogo', method: :get, disable_with: 'Disabler', confirm: 'Are you sure?'
-
-  = ui.nfg :slat do
-    = ui.nfg :slat_body do
-
-      = ui.nfg :slat_item, heading: 'Button version of slat action'
-      = ui.nfg :slat_item, heading: '$5000', caption: 'An amount caption'
-
-    = ui.nfg :slat_actions, button: true, menu: false, icon: 'trash', href: '#nogo'
-
-.row
-  .col-md-6.col-8.mx-auto
-    = ui.nfg :slats do
-      = ui.nfg :slat_header do
-        = ui.nfg :slat do
-          = ui.nfg :slat_body do
-            = ui.nfg :slat_item, slat_header: 'First Column'
-            = ui.nfg :slat_item, slat_header: 'Second Column', class: 'text-right'
-
-
+= ui.nfg :tile_section, heading: 'Default Slats' do
+  = ui.nfg :typeface, :muted, body: 'Actions dropdown on larger screen turns into just caret-down icon on smaller screens.'
+  = ui.nfg :slats do
+    = ui.nfg :slat_header do
       = ui.nfg :slat do
         = ui.nfg :slat_body do
+          = ui.nfg :slat_item, slat_header: 'First Column'
+          = ui.nfg :slat_item, slat_header: 'Second Column'
+          = ui.nfg :slat_item, slat_header: 'Third Column'
+    = ui.nfg :slat do
+      = ui.nfg :slat_body do
+        = ui.nfg :slat_item, heading: 'Karl Fergood - Link', href: '#nogo'
+        = ui.nfg :slat_item do
+          = ui.nfg :typeface, :truncate, body: 'aReallyLongStringForTruncationExampleIsPlacedHereAndBecauseItsGreatToStressTestItsEvenLonger!', class: 'mb-0'
+        = ui.nfg :slat_item, heading: '$5000', caption: 'An amount caption'
+      = ui.nfg :slat_actions do
+        = ui.nfg :slat_action, href: '#', body: 'Edit', icon: 'pencil'
+        = ui.nfg :slat_action, :danger, href: '#', body: 'Delete', icon: 'trash-o', method: :delete, confirm: 'Are you sure you want to delete?'
 
-          = ui.nfg :slat_item, heading: 'Slat information'
-          = ui.nfg :slat_item, heading: '$5000', class: 'text-right', caption: 'An amount caption'
-
-        = ui.nfg :slat_actions, :danger, menu: false, icon: 'trash', href: '#nogo', confirm: 'Test', method: :delete
-
+= ui.nfg :tile_section, heading: 'Slats with large slat actions' do
+  = ui.nfg :typeface, :muted, body: 'Button present on all screen sizes.'
+  = ui.nfg :slats, slat_actions: :lg do
+    = ui.nfg :slat_header do
       = ui.nfg :slat do
         = ui.nfg :slat_body do
-
-          = ui.nfg :slat_item, heading: 'Slat information'
-          = ui.nfg :slat_item, heading: '$5000', caption: 'An amount caption'
-
-        = ui.nfg :slat_actions, menu: false, icon: 'trash', href: '#nogo', method: :get, disable_with: 'Disabler', confirm: 'Are you sure?'
-
-
-
-.mt-5
-%hr
-.mb-5
-
-%h3.my-4 Slat with slat-items lg
-= ui.nfg :slats do
-  = ui.nfg :slat_header do
+          = ui.nfg :slat_item, slat_header: 'First Column'
+          = ui.nfg :slat_item, slat_header: 'Second Column'
     = ui.nfg :slat do
       = ui.nfg :slat_body do
-        = ui.nfg :slat_item, slat_header: 'First Column'
-        = ui.nfg :slat_item, slat_header: 'Second Column'
-
-
-  = ui.nfg :slat do
-    = ui.nfg :slat_body do
-
-      = ui.nfg :slat_item, :lg, heading: 'Slat information (:lg)'
-      = ui.nfg :slat_item, heading: '$5000', caption: 'An amount caption'
-
-    = ui.nfg :slat_actions, :warning, menu: false, icon: 'trash', href: '#nogo'
-
-  = ui.nfg :slat do
-    = ui.nfg :slat_body do
-
-      = ui.nfg :slat_item, :lg, heading: 'Slat information (:lg) button version'
-      = ui.nfg :slat_item, heading: '$5000', caption: 'An amount caption'
-
-    = ui.nfg :slat_actions, :warning, menu: false, icon: 'trash', href: '#nogo', button: true
-
-.mt-5
-%hr
-.mb-5
-
-%h3.my-4 Slats with sm
-
-= ui.nfg :slats, :sm do
-  = ui.nfg :slat_header do
+        = ui.nfg :slat_item, heading: 'Default actions menu'
+        = ui.nfg :slat_item, heading: '$5000'
+      = ui.nfg :slat_actions do
+        = ui.nfg :slat_action, href: '#', body: 'Edit', icon: 'pencil'
+        = ui.nfg :slat_action, :danger, href: '#', body: 'Delete', icon: 'trash-o', method: :delete, confirm: 'Are you sure you want to delete?'
     = ui.nfg :slat do
       = ui.nfg :slat_body do
-        = ui.nfg :slat_item, slat_header: 'First Column'
+        = ui.nfg :slat_item, heading: 'No menu and single action button'
+        = ui.nfg :slat_item, heading: '$5000'
+      = ui.nfg :slat_actions, button: true, menu: false, icon: 'pencil', body: 'Edit', href: '#nogo'
+    = ui.nfg :slat do
+      = ui.nfg :slat_body do
+        = ui.nfg :slat_item, heading: 'No menu and single action button with no button and :danger theme'
+        = ui.nfg :slat_item, heading: '$5000'
+      = ui.nfg :slat_actions, :danger, button: false, menu: false, icon: 'trash', body: 'Delete', href: '#nogo'
 
+= ui.nfg :tile_section, heading: 'Slats with small slat actions' do
+  = ui.nfg :typeface, :muted, body: 'Icon ONLY present on all screen sizes.'
+  = ui.nfg :slats, slat_actions: :sm do
+    = ui.nfg :slat_header do
+      = ui.nfg :slat do
+        = ui.nfg :slat_body do
+          = ui.nfg :slat_item, slat_header: 'First Column'
+          = ui.nfg :slat_item, slat_header: 'Second Column'
+    = ui.nfg :slat do
+      = ui.nfg :slat_body do
+        = ui.nfg :slat_item, heading: 'No menu and single icon action button'
+        = ui.nfg :slat_item, heading: '$5000'
+      = ui.nfg :slat_actions, button: true, menu: false, icon: 'pencil', href: '#nogo'
+    = ui.nfg :slat do
+      = ui.nfg :slat_body do
+        = ui.nfg :slat_item, heading: 'No menu and single icon action with no button and :danger theme'
+        = ui.nfg :slat_item, heading: '$5000'
+      = ui.nfg :slat_actions, :danger, button: false, menu: false, icon: 'trash', href: '#nogo'
 
-  = ui.nfg :slat do
-    = ui.nfg :slat_body do
-      = ui.nfg :slat_item, heading: 'Your shopping cart'
+= ui.nfg :tile_section, heading: 'Slats without slat actions' do
+  = ui.nfg :typeface, :muted, body: 'No slat actions allows for content (slat-body) to be full width of slat.'
+  = ui.nfg :slats, slat_actions: :none do
+    = ui.nfg :slat_header do
+      = ui.nfg :slat do
+        = ui.nfg :slat_body do
+          = ui.nfg :slat_item, slat_header: 'First Column'
+          = ui.nfg :slat_item, slat_header: 'Second Column'
+    = ui.nfg :slat do
+      = ui.nfg :slat_body do
+        = ui.nfg :slat_item, heading: 'Karl Fergood lives here in this column', caption: 'A caption about this contact'
+        = ui.nfg :slat_item, heading: '$5000', caption: 'An amount caption'
+
+= ui.nfg :tile_section, heading: 'Slats with large spacing' do
+  = ui.nfg :typeface, :muted, body: 'Used when the slats need to be expanded.'
+  = ui.nfg :slats, :lg do
+    = ui.nfg :slat_header do
+      = ui.nfg :slat do
+        = ui.nfg :slat_body do
+          = ui.nfg :slat_item, slat_header: 'First Column'
+          = ui.nfg :slat_item, slat_header: 'Second Column'
+    = ui.nfg :slat do
+      = ui.nfg :slat_body do
+        = ui.nfg :slat_item, heading: 'Karl Fergood lives here in this column', caption: 'A caption about this contact'
+        = ui.nfg :slat_item, heading: '$5000', caption: 'An amount caption'
+      = ui.nfg :slat_actions do
+        = ui.nfg :slat_action, href: '#', body: 'Edit', icon: 'pencil'
+        = ui.nfg :slat_action, :danger, href: '#', body: 'Delete', icon: 'trash-o', method: :delete, confirm: 'Are you sure you want to delete?'
+
+= ui.nfg :tile_section, heading: 'Slats with small spacing' do
+  = ui.nfg :typeface, :muted, body: 'Used when the slats need to be condensed.'
+  = ui.nfg :slats, :sm do
+    = ui.nfg :slat_header do
+      = ui.nfg :slat do
+        = ui.nfg :slat_body do
+          = ui.nfg :slat_item, slat_header: 'First Column'
+          = ui.nfg :slat_item, slat_header: 'Second Column'
+    = ui.nfg :slat do
+      = ui.nfg :slat_body do
+        = ui.nfg :slat_item, heading: 'Karl Fergood lives here in this column', caption: 'A caption about this contact'
+        = ui.nfg :slat_item, heading: '$5000', caption: 'An amount caption'
+      = ui.nfg :slat_actions do
+        = ui.nfg :slat_action, href: '#', body: 'Edit', icon: 'pencil'
+        = ui.nfg :slat_action, :danger, href: '#', body: 'Delete', icon: 'trash-o', method: :delete, confirm: 'Are you sure you want to delete?'
+
+= ui.nfg :tile_section, heading: 'Slats with nowrap' do
+  = ui.nfg :typeface, :muted, body: 'Used when slat items should not wrap on smaller screens.'
+  = ui.nfg :slats, :nowrap do
+    = ui.nfg :slat_header do
+      = ui.nfg :slat do
+        = ui.nfg :slat_body do
+          = ui.nfg :slat_item, slat_header: 'First Column'
+          = ui.nfg :slat_item, slat_header: 'Second Column'
+    = ui.nfg :slat do
+      = ui.nfg :slat_body do
+        = ui.nfg :slat_item, heading: 'Karl Fergood lives here in this column', caption: 'A caption about this contact'
+        = ui.nfg :slat_item, heading: '$5000', caption: 'An amount caption'
+      = ui.nfg :slat_actions do
+        = ui.nfg :slat_action, href: '#', body: 'Edit', icon: 'pencil'
+        = ui.nfg :slat_action, :danger, href: '#', body: 'Delete', icon: 'trash-o', method: :delete, confirm: 'Are you sure you want to delete?'
+
+= ui.nfg :tile_section, heading: 'Slats with medium slat item' do
+  = ui.nfg :slats, class: 'mt-3' do
+    = ui.nfg :slat_header do
+      = ui.nfg :slat do
+        = ui.nfg :slat_body do
+          = ui.nfg :slat_item, :md, slat_header: 'First Column'
+          = ui.nfg :slat_item, slat_header: 'Second Column'
+    = ui.nfg :slat do
+      = ui.nfg :slat_body do
+        = ui.nfg :slat_item, :md, heading: 'Karl Fergood lives here in this column', caption: 'A caption about this contact'
+        = ui.nfg :slat_item, heading: '$5000', caption: 'An amount caption'
+      = ui.nfg :slat_actions do
+        = ui.nfg :slat_action, href: '#', body: 'Edit', icon: 'pencil'
+        = ui.nfg :slat_action, :danger, href: '#', body: 'Delete', icon: 'trash-o', method: :delete, confirm: 'Are you sure you want to delete?'
+
+= ui.nfg :tile_section, heading: 'Slats with large slat item' do
+  = ui.nfg :slats, class: 'mt-3' do
+    = ui.nfg :slat_header do
+      = ui.nfg :slat do
+        = ui.nfg :slat_body do
+          = ui.nfg :slat_item, :lg, slat_header: 'First Column'
+          = ui.nfg :slat_item, slat_header: 'Second Column'
+    = ui.nfg :slat do
+      = ui.nfg :slat_body do
+        = ui.nfg :slat_item, :lg, heading: 'Karl Fergood lives here in this column', caption: 'A caption about this contact'
+        = ui.nfg :slat_item, heading: '$5000', caption: 'An amount caption'
+      = ui.nfg :slat_actions do
+        = ui.nfg :slat_action, href: '#', body: 'Edit', icon: 'pencil'
+        = ui.nfg :slat_action, :danger, href: '#', body: 'Delete', icon: 'trash-o', method: :delete, confirm: 'Are you sure you want to delete?'
+
+= ui.nfg :tile_section, heading: 'Slats with extra large slat item' do
+  = ui.nfg :slats, class: 'mt-3' do
+    = ui.nfg :slat_header do
+      = ui.nfg :slat do
+        = ui.nfg :slat_body do
+          = ui.nfg :slat_item, :xl, slat_header: 'First Column'
+          = ui.nfg :slat_item, slat_header: 'Second Column'
+    = ui.nfg :slat do
+      = ui.nfg :slat_body do
+        = ui.nfg :slat_item, :xl, heading: 'Karl Fergood lives here in this column', caption: 'A caption about this contact'
+        = ui.nfg :slat_item, heading: '$5000', caption: 'An amount caption'
+      = ui.nfg :slat_actions do
+        = ui.nfg :slat_action, href: '#', body: 'Edit', icon: 'pencil'
+        = ui.nfg :slat_action, :danger, href: '#', body: 'Delete', icon: 'trash-o', method: :delete, confirm: 'Are you sure you want to delete?'
 
 %hr
 
-%h3.my-4 Slat Actions that build a slat action on their own
+%h3.mt-5.mb-3 Slat Actions that build a slat action on their own
 .text-right
   ":warning trait (button)"
   %br
