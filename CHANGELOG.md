@@ -1,6 +1,60 @@
 # Changelog
 ## 0.11.0 *BREAKING CHANGES*
-* SlatList component has been removed
+* Sweeping changes and upgrades to the slats component.
+* Note: removal of the `SlatList` will cause your host app to error. You will need to remove the `:slat_list` component from your view. All children `:slat`s should now be siblings of `:slat_header`
+
+HAML Example:
+```ruby
+= ui.nfg :slats, :lg, :nowrap, slat_actions: :lg do
+  = ui.nfg :slat_header do
+    = ui.nfg :slat do
+      = ui.nfg :slat_body do
+        = ui.nfg :slat_item, slat_header: 'First Column'
+        = ui.nfg :slat_item, slat_header: 'Second Column'
+
+  = ui.nfg :slat do
+    = ui.nfg :slat_body do
+      = ui.nfg :slat_item, heading: 'Karl Fergood live here at this column', caption: 'A caption about this contact'
+      = ui.nfg :slat_item do
+        = ui.nfg :typeface, :truncate, body: 'aReallyLongStringForTruncationExampleIsPlacedHereAndBecauseItsGreatToStressTestItsEvenLonger!'
+    = ui.nfg :slat_actions do
+      = ui.nfg :slat_action, href: '#', body: 'Edit', icon: 'pencil'
+      = ui.nfg :slat_action, :danger, href: '#', body: 'Delete', icon: 'trash-o', method: :delete, confirm: 'Are you sure you want to delete?'
+```
+
+* Removed `SlatList` which used to be the direct sibling of `SlatHeader` (embracing the `Slat`s)
+* CSS Updates:
+  * Overhaul / refactor of CSS for all slat components.
+* Ruby updates:
+  * `SlatItem` updates:
+    * Fix: `:href` option no correctly gets passed to the `:slat_header` instead of being placed on both the `.slat-item` div AND the `slat_header`
+    * `SlatItem` now accepts the `:size` option, specifically for use on the first `SlatItem` within a `Slat`
+    * Setting `:size` (or using the size trait, such as `:lg`) will now increase the size of that slat item in relation to the other SlatItems.
+      * Ex: `size: :lg` will make the SlatItem 3x the width of all other slats.
+      * Available size options: `:md, :lg, :xl`
+      * By default, `sm` is the default size; `:sm` is ignored and specifically rejected from the `resized?` list since it does not require a `.slat-items-sm` css class to be added.
+  * `SlatActions` update (note: the plural Action*s*):
+    * The following `options` have been removed:
+      * `:wide` is replaced by utilizing the `:slat_actions` sizing option on the parent `Slats` component.
+        * In response, the `SlatActions` auto-built `DropdownToggle` now includes a custom css class `.slat-actions-text` which is influenced by the `slat_actions` sizing that is set on the parent `Slat`
+      * `:slat_header` has been removed and is no longer necessary to identify a `slat_actions` as a `slat_header`
+  * `Slats` updates (note: the plural Slat*s*):
+    * Slats are now `Sizable` and utilize `Size` trait module
+    * Example usage: `<%= ui.nfg(:slats, size: :lg, nowrap: true, slat_actions: :lg) %>`
+    * New Options:
+      * Utilizing a `:size` option or size trait (`:sm, :lg`) will supply a `.slats-XXX` size css class and increase / decrease the amount of space between slats.
+      * `:nowrap` by default is `false`, when set to `true` the column structure of children `SlatItem` will remain columnular. When `false` (its default behavior), the columns will break down into rows at responsive widths.
+        * Options: `nowrap: true, false`
+        * Traited: `:nowrap`
+      * `:slat_actions`
+        * This option does not often need to be added and its default behavior will work for a majority of situations.
+        * Options: `slat_actions: :sm, :lg, :none`
+        * traited: `:slat_actions_sm, :slat_actions_lg, :slat_actions_none`
+        * This determines whether or not to accomodate a specific `SlatActions` button configuration. *Note:* `nil` is diferent from `:none`
+          * `:sm` - account for a small SlatAction (icon only)
+          * `:lg` - account for a large SlatAction (Text & Icon)
+          * `:none` - Do not account for a SlatAction
+          * Leaving `nil` for slat_actions will kick off default behavior for the Slats' SlatAction which is a combination of :lg (for large screen) and :sm for small screen (where the slat action flexes) across screen sizes hiding and showing its text
 
 ## 0.10.15.1
 * Addresses security vulnerability [CVE-2020-10663](https://github.com/advisories/GHSA-jphg-qwrw-7w9g) by bumping `json` from `2.1.0` to `2.3.1`

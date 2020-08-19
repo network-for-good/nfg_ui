@@ -12,7 +12,7 @@ RSpec.describe NfgUi::Components::Patterns::SlatActions do
     subject { slat_actions.render }
 
     it 'renders the component' do
-      expect(subject).to eq "<div class=\"slat-actions\" href=\"#\"><div class=\"dropdown\"><button class=\"btn dropdown-toggle btn-outline-secondary\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\" type=\"button\">Actions<i aria-hidden=\"true\" class=\"fa fa-caret-down ml-1\"></i></button><div class=\"dropdown-menu dropdown-menu-right\"></div></div></div>"
+      expect(subject).to eq "<div class=\"slat-actions\" href=\"#\"><div class=\"dropdown\"><button class=\"btn dropdown-toggle btn-outline-secondary\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\" type=\"button\"><span class=\"slat-actions-text\">Actions</span><i aria-hidden=\"true\" class=\"fa fa-caret-down ml-1\"></i></button><div class=\"dropdown-menu dropdown-menu-right\"></div></div></div>"
     end
   end
 
@@ -38,23 +38,6 @@ RSpec.describe NfgUi::Components::Patterns::SlatActions do
     end
   end
 
-  describe '#wide' do
-    let(:options) { { wide: tested_wide } }
-    let(:tested_wide) { nil }
-
-    subject { slat_actions.wide }
-
-    context 'when :wide is present in the options' do
-      let(:tested_wide) { true }
-      it { is_expected.to eq tested_wide }
-    end
-
-    context 'when :wide is not present in the options' do
-      let(:options) { {} }
-      it { is_expected.to be }
-    end
-  end
-
   describe '#render' do
     subject { slat_actions.render }
 
@@ -72,7 +55,7 @@ RSpec.describe NfgUi::Components::Patterns::SlatActions do
         end
 
         and_by 'rendering the default language for the action menu' do
-          expect(subject).to include "Actions<i aria-hidden=\"true\" class=\"fa fa-caret-down ml-1\"></i>"
+          expect(subject).to include "<span class=\"slat-actions-text\">Actions</span><i aria-hidden=\"true\" class=\"fa fa-caret-down ml-1\"></i>"
         end
 
         and_by 'rendering the dropdown menu on the right' do
@@ -86,22 +69,6 @@ RSpec.describe NfgUi::Components::Patterns::SlatActions do
     context 'when :menu is false' do
       let(:options) { { menu: false } }
       it { is_expected.to include slat_actions.send(:render_integrated_slat_action) }
-    end
-  end
-
-  describe 'private methods' do
-    describe '#css_classes' do
-      subject { slat_actions.send(:css_classes) }
-
-      context 'when :wide is true in options' do
-        let(:options) { { wide: true } }
-        it { is_expected.not_to include 'slat-actions-sm' }
-      end
-
-      context 'when :wide is falsey in options' do
-        let(:options) { { wide: false } }
-        it { is_expected.to include 'slat-actions-sm' }
-      end
     end
   end
 end
