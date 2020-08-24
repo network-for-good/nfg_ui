@@ -26,7 +26,7 @@ module NfgUi
         def render
           content_tag(base_element, slat_item_html_options) do
             if slat_header
-              concat(content_tag(:h6, slat_header, class: 'display-4'))
+              concat(content_tag(:h6, slat_header, class: 'display-4 slat-column-header'))
             end
             if heading
               if href

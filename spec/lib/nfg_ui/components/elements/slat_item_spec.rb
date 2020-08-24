@@ -37,16 +37,16 @@ RSpec.describe NfgUi::Components::Elements::SlatItem do
       context 'when slat_header is present' do
         let(:tested_slat_header) { 'Tested slat header' }
         it 'includes the slat header' do
-          expect(rendered_html).to eq "<div class=\"slat-item\"><h6 class=\"display-4\">#{tested_slat_header}</h6></div>"
+          expect(rendered_html).to eq "<div class=\"slat-item\"><h6 class=\"display-4 slat-column-header\">#{tested_slat_header}</h6></div>"
 
-          expect(subject).to have_css '.slat-item h6.display-4'
+          expect(subject).to have_css '.slat-item h6.display-4.slat-column-header'
         end
       end
 
       context 'when slat_header is not present' do
         let(:tested_slat_header) { nil }
         it 'does not include the slat header' do
-          expect(subject).not_to have_css '.slat-item h6.display-4'
+          expect(subject).not_to have_css '.slat-item h6.display-4.slat-column-header'
         end
       end
     end

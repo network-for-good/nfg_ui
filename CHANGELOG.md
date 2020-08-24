@@ -33,6 +33,7 @@ HAML Example:
       * Ex: `size: :lg` will make the SlatItem 3x the width of all other slats.
       * Available size options: `:md, :lg, :xl`
       * By default, `sm` is the default size; `:sm` is ignored and specifically rejected from the `resized?` list since it does not require a `.slat-items-sm` css class to be added.
+    * When the `:slat_header` option is applied, the column header will now include the `.slat-column-header` css class.
   * `SlatActions` update (note: the plural Action*s*):
     * The following `options` have been removed:
       * `:wide` is replaced by utilizing the `:slat_actions` sizing option on the parent `Slats` component.
