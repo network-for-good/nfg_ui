@@ -12,9 +12,9 @@
     = ui.nfg :slat do
       = ui.nfg :slat_body do
         = ui.nfg :slat_item, heading: 'Karl Fergood - Link', href: '#nogo'
-        = ui.nfg :slat_item do
+        = ui.nfg :slat_item, slat_header: 'Second Column' do
           = ui.nfg :typeface, :truncate, body: 'aReallyLongStringForTruncationExampleIsPlacedHereAndBecauseItsGreatToStressTestItsEvenLonger!', class: 'mb-0'
-        = ui.nfg :slat_item, heading: '$5000', caption: 'An amount caption'
+        = ui.nfg :slat_item, slat_header: 'Third Column', heading: '$5000', caption: 'An amount caption'
       = ui.nfg :slat_actions do
         = ui.nfg :slat_action, href: '#', body: 'Edit', icon: 'pencil'
         = ui.nfg :slat_action, :danger, href: '#', body: 'Delete', icon: 'trash-o', method: :delete, confirm: 'Are you sure you want to delete?'
