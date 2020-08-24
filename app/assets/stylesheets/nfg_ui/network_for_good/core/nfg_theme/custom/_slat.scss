@@ -8,7 +8,7 @@ $slat-actions-lg-width: 108px;
   flex-flow: column nowrap;
 
   // Nowrap version -- used when the goal is to have all slat-item columns on the same line in smaller screens
-  &:not(.slats-nowrap) { // noting the :not() psuedo-class meaning all slats that don't have this class get these styles
+  :not(.slats-nowrap) { // noting the :not() psuedo-class meaning all slats that don't have this class get these styles
     .slat-body {
       @include media-breakpoint-down(sm) { flex-direction: column; }
     }
@@ -109,7 +109,7 @@ $slat-actions-lg-width: 108px;
 }
 
 
-// Action dropdown text used for default action dropdown behavior
+// Action dropdown text (ex: "Actions") used for default action dropdown behavior
 .slat-actions-text {
   @include media-breakpoint-down(sm) { display: none; }
   @include media-breakpoint-up(md) {
@@ -131,4 +131,12 @@ $slat-actions-lg-width: 108px;
   border-bottom: $border-width solid $border-color;
   .slat { padding: 0 !important; }
   .slat-body { align-items: center; }
+
+
+  // Slat column headers
+  :not(&) {  // noting the :not() psuedo-class meaning all .slat-column-header NOT inside .slat-header display none on larger devices
+    .slat-column-header {
+      @include media-breakpoint-up(md) { display: none; }
+    }
+  }
 }
