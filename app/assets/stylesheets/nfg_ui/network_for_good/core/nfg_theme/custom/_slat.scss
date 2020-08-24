@@ -131,12 +131,12 @@ $slat-actions-lg-width: 108px;
   border-bottom: $border-width solid $border-color;
   .slat { padding: 0 !important; }
   .slat-body { align-items: center; }
+  .slat-column-header { display: inline-block; }
+
+}
 
 
-  // Slat column headers
-  :not(&) {  // noting the :not() psuedo-class meaning all .slat-column-header NOT inside .slat-header display none on larger devices
-    .slat-column-header {
-      @include media-breakpoint-up(md) { display: none; }
-    }
-  }
+// Slat column headers -- any .slat-column-header not in .slat-header displays none on larger devices
+.slat-column-header {
+  @include media-breakpoint-up(md) { display: none; }
 }
