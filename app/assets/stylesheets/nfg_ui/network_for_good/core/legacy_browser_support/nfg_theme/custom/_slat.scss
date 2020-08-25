@@ -1,10 +1,27 @@
 // Slat and its child elements
 .slat {
   display: -ms-flexbox;
+  -ms-flex-direction: column;
+  -ms-flex-wrap: nowrap;
+
+  // Nowrap version -- used when the goal is to have all slat-item columns on the same line in smaller screens
+  &:not(.slats-nowrap) { // noting the :not() psuedo-class meaning all slats that don't have this class get these styles
+    .slat-body {
+      @include media-breakpoint-down(sm) { -ms-flex-direction: column; }
+    }
+  }
+}
+
+
+// Slat and its child elements
+.slat {
+  display: -ms-flexbox;
   -ms-flex-direction: row;
   -ms-flex-wrap: wrap;
 }
 
+
+// Body Column
 .slat-body {
   display: -ms-flexbox;
   -ms-flex-direction: row;
@@ -12,55 +29,36 @@
   -ms-flex-positive: 1;
   -ms-flex-negative: 0;
   -ms-flex-preferred-size: 0;
-
-  .slat-item {
-    -ms-flex-positive: 1;
-    -ms-flex-negative: 0;
-    -ms-flex-preferred-size: 0;
-    &:first-child {
-      -ms-flex-positive: 2;
-
-      // Sizing options
-      &.slat-item-sm { -ms-flex-positive: 1; }
-      &.slat-item-lg { -ms-flex-positive: 6; }
-    }
-  }
 }
 
+
+// Item Column
+.slat-item {
+  -ms-flex-positive: 1;
+  -ms-flex-negative: 0;
+  -ms-flex-preferred-size: 0;
+  &.slat-item-md { -ms-flex-positive: 2; }
+  &.slat-item-lg { -ms-flex-positive: 3; }
+  &.slat-item-xl { -ms-flex-positive: 4; }
+}
+
+
+// Action Column
 .slat-actions {
   -ms-flex-positive: 0;
   -ms-flex-negative: 0;
-  -ms-flex-preferred-size: ($spacer * 1.5);
-  min-width: ($spacer * 1.5);
-  @include media-breakpoint-up(sm) {
-    -ms-flex-preferred-size: ($spacer * 6);
-    min-width: ($spacer * 6);
+  -ms-flex-preferred-size: ($spacer * 2.5);
+  min-width: ($spacer * 2.5);
+  @include media-breakpoint-up(md) {
+    -ms-flex-preferred-size: ($spacer * 5.5);
+    min-width: ($spacer * 5.5);
   }
-
-
-  // Sizing options
-  &.slat-actions-sm { -ms-flex-preferred-size: ($spacer * 1.5); }
-  &.slat-actions-lg { -ms-flex-preferred-size: ($spacer * 12); }
+  .slat-actions-sm & { -ms-flex-preferred-size: ($spacer * 2.5); }
+  .slat-actions-lg & { -ms-flex-preferred-size: ($spacer * 5.5); }
 }
 
 
 // Slat header
 .slat-header {
   .slat-body { -ms-flex-align: center; }
-}
-
-
-// Slat list layout
-.slat-list {
-
-  // Non-breaked version -- used when the goal is to have all slat-item columns on the same line in smaller screens
-  &:not(.slat-list-no-break) {
-    .slat-item {
-      &:first-child {
-        @include media-breakpoint-down(sm) {
-          -ms-flex-preferred-size: 100%;
-        }
-      }
-    }
-  }
 }

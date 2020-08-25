@@ -28,38 +28,15 @@ module NfgUi
           options.fetch(:menu, true)
         end
 
-        # Signal if this slat_action is being used
-        # In the slat_header area of the Slats
-        #
-        # If so, this then customizes the output of the
-        # SlatActions to ensure that the widths of the slat_header columns
-        # is accurate and matches the width of the slats below.
-        def slat_header
-          options.fetch(:slat_header, false)
-        end
-
-        # Signals if this is a wide SlatActions.
-        # This is a stylistic update which is used in situations like shopping carts where
-        # you may only be providing a summary and have no actions or extra columns.
-        #
-        # Note: Further documentation is needed on this
-        def wide
-          options.fetch(:wide, true)
-        end
-
         def render
           content_tag(:div, html_options) do
             if menu
-              if slat_header
-                content_tag(:h6, "&nbsp;".html_safe, class: 'display-4')
-              else
-                NfgUi::Components::Patterns::Dropdown.new({ }, view_context).render do
-                  capture do
-                    concat(NfgUi::Components::Elements::DropdownToggle.new({ **default_dropdown_toggle_options, body: ('Actions' if wide)}, view_context).render)
-                    concat(NfgUi::Components::Patterns::DropdownMenu.new({ traits: [:right] }, view_context).render {
-                      (block_given? ? yield : body)
-                    })
-                  end
+              NfgUi::Components::Patterns::Dropdown.new({ }, view_context).render do
+                capture do
+                  concat(NfgUi::Components::Elements::DropdownToggle.new({ **default_dropdown_toggle_options, body: dropdown_toggle_body }, view_context).render)
+                  concat(NfgUi::Components::Patterns::DropdownMenu.new({ traits: [:right] }, view_context).render {
+                    (block_given? ? yield : body)
+                  })
                 end
               end
             else
@@ -76,15 +53,12 @@ module NfgUi
           { outlined: true, theme: :secondary }
         end
 
-        def css_classes
-          [
-            super,
-            ("#{component_css_class}-sm" unless wide)
-          ].join(' ').squish
+        def dropdown_toggle_body
+          content_tag(:span, 'Actions', class: 'slat-actions-text')
         end
 
         def non_html_attribute_options
-          super.push(:slat_header, :wide, :menu)
+          super.push(:menu)
         end
       end
     end

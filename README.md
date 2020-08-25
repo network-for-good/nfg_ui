@@ -190,7 +190,6 @@ Groupings of elements to create rich interfaces. For example, an `:activity_feed
 * `:media`
 * `:modal`
 * `:navbar`
-* `:slat_list`
 * `:task_list`
 * *Tiles*
   * `:tile`
@@ -425,7 +424,6 @@ FOUNDATION_COMPONENT_NAMES = %i[color
                                   navbar
                                   navbar_nav
                                   page_header
-                                  slat_list [tooltip]
                                   tab_content
                                   task_list
                                   tile [icon, tooltip]
