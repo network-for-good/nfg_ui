@@ -1,0 +1,58 @@
+# frozen_string_literal: true
+# rubocop:disable LineLength
+
+# Add your own tasks in files placed in lib/tasks ending in .rake,
+# for example lib/tasks/capistrano.rake, and they will automatically be available to Rake.
+
+require_relative 'config/application'
+require 'fileutils'
+
+Rails.application.load_tasks
+
+# Checks to see if any files already exist at the destination URI
+def guard_against_overwrite!(destination_uri)
+  sh "aws s3 ls #{destination_uri}" do |ok, res|
+    case res.exitstatus
+    when 0
+      # if the command is successful, we know files are present, which is an error condition for us
+
+      err_msg = <<~ERR_MSG
+        **** Pre-existing files were detected in '#{destination_uri}', aborting for safety reasons.
+        **** To overwrite the files, please invoke this task with the override argument:
+        **** rake publish[0.00.0, override]
+      ERR_MSG
+
+      abort err_msg
+      break
+    when 1
+      return true # exit status 1 means no files found, which is the success condition for this method
+    else
+      abort "Received unexpected error while checking for pre-existing files in '#{destination_uri}': #{res.exitstatus}.  Please try again."
+      break
+    end
+  end
+end
+
+desc 'Compile nfg_ui assets and upload to S3 for public access'
+task :publish, %i[nfg_ui_version override_mode] => %i[assets:precompile] do |_, nfg_ui_version: nil, override_mode: nil|
+  if nfg_ui_version.blank?
+    abort 'ERROR: must specify gem version to publish, for example: rake publish[0.11.0]'
+  end
+
+  destination_uri = "s3://nfg-ui/v#{nfg_ui_version}"
+
+  if override_mode == 'override'
+    puts "#{override_mode} mode detected, skipping checks for pre-existing files in '#{destination_uri}'"
+  else
+    guard_against_overwrite!(destination_uri)
+  end
+
+  puts "Publishing nfg_ui assets to '#{destination_uri}'"
+  sh "aws s3 cp --acl public-read --recursive public/assets/ #{destination_uri}" do |ok, res|
+    if ok
+      puts 'Assets published successfully'
+    else
+      puts "Unable to publish assets. Received error code '#{res.exitstatus}'."
+    end
+  end
+end

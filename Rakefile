@@ -21,3 +21,25 @@ load 'rails/tasks/engine.rake'
 load 'rails/tasks/statistics.rake'
 
 require 'bundler/gem_tasks'
+
+task :publish do
+  require 'fileutils'
+
+  version = Bundler.load_gemspec("#{__dir__}/nfg_ui.gemspec").version
+
+  puts "Compiling and publishing NFG UI v#{version} assets"
+
+  Dir.chdir("#{__dir__}/publisher") do
+    Bundler.with_clean_env do
+      sh "RAILS_ENV=production bundle exec rake publish[#{version}]" do |ok, res|
+        puts "unable to publish assets (status = #{res.exitstatus})" unless ok
+      end
+    end
+  end
+end
+
+# Disabling the release task for safety reasons until we're happy with how release->publish works
+__END__
+Rake::Task['release'].enhance do
+  Rake::Task['publish'].invoke
+end
