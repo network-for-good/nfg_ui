@@ -88,6 +88,18 @@ Examples:
   = ui.nfg :icon, 'trash', class: 'mr-1', text: 'Delete Row'
 ```
 
+## Asset publishing
+
+After `rake release` successfully completes, the `rake publish` task will run. This command wraps a separate `rake publish` task contained within the `/publisher` subdirectory.
+`/publisher` contains a skeleton Rails app. The `rake publish` task contained within `/publisher` precompiles the assets that are part of the new `nfg_ui` release and uploads them to S3. 
+
+If necessary, `rake publish` can be invoked from within the `nfg_ui` parent directory, separately:
+
+```
+rake publish           # upload assets to S3; fails if files are already exist for the release
+rake publish[override] # uploads assets to S3 without checking for existing files
+```
+
 #### Trait details
 Traits are designed to allow you to speedily build components, or pre-design complex components using meaningful symbols.
 
