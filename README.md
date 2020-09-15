@@ -90,6 +90,34 @@ Examples:
 
 ## Asset publishing
 
+### Depedency Installation
+
+NFG UI assets are published for cross-site usage to a publicly-accessible AWS S3 bucket (`s3://nfg-ui/v#.##.#/`) using the AWS command-line interface:
+
+1. [Install the AWS command-line interface](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-mac.html#cliv2-mac-install-gui)
+2. Install AWS credentials provided by anyone on the team who has permissions to mint IAM users (such as Mike or Timothy). The credentials are sensitive and should be stored at `~/.aws/credentials`. See example below.
+3. (Optional but recommended) Install `~/.aws/config` per below to set a default region for S3 operations.
+
+```
+# Example ~/.aws/credentials file
+
+[default]
+aws_access_key_id = ####################
+aws_secret_access_key = ########################################
+
+# Example ~/.aws/config
+[default]
+region = us-east-1
+```
+
+4. Use the following command to confirm successful installation:
+
+```
+aws s3 ls --recursive s3://nfg-ui/
+```
+
+### Workflow
+
 After `rake release` successfully completes, the `rake publish` task will run. This command wraps a separate `rake publish` task contained within the `/publisher` subdirectory.
 `/publisher` contains a skeleton Rails app. The `rake publish` task contained within `/publisher` precompiles the assets that are part of the new `nfg_ui` release and uploads them to S3. 
 
