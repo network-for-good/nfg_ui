@@ -1,7 +1,7 @@
 PATH
   remote: ..
   specs:
-    nfg_ui (0.11.0)
+    nfg_ui (0.11.1)
       autoprefixer-rails (= 9.4.9)
       bootstrap (= 4.3.1)
       browser (~> 2.7.1)
@@ -201,7 +201,7 @@ PLATFORMS
 DEPENDENCIES
   byebug
   haml (~> 5.1)
-  nfg_ui (= 0.11)!
+  nfg_ui (~> 0.11.0)!
   rails (~> 5.2.4, >= 5.2.4.3)
   rspec
   sass-rails (~> 5.0)
