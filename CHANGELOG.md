@@ -1,4 +1,7 @@
 # Changelog
+## 0.11.2
+* Updates to Ruby 2.5.8 to match NFG app ruby versions while also necessary to support security vulnerability issues with Rails 5 and `ActionView`.
+
 ## 0.11.1.1
 * Fixes gemfile for publisher app
 
