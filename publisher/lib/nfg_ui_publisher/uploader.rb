@@ -31,8 +31,26 @@ module NfgUiPublisher
 
       if status.success?
         console.puts("Assets were successfully uploaded to '#{uri}':\n\n")
-        console.puts(cmd_output_str) # so user can see the results of the files that were uploaded
-        console.puts
+        lines = cmd_output_str.split(/\n/)
+
+        core_match = lines.find do |line|
+          match = line.match(%r{to (?<uri>s3://.+?/network_for_good/core/application-\w+?\.css)\Z})
+          break match if match
+        end
+
+        unless core_match
+          puts "Upload succeeded, but we were not able to identify the core stylesheet URL from the following output:\n\n#{cmd_output_str}\n"
+          return
+        end
+
+        core_stylesheet_uri = core_match[:uri]
+
+        # TODO: hard-coding the CDN URI for now, for convenience, but we will probably want to switch to something more robust
+        cloudfront_uri = ENV.fetch('NFG_CLOUDFRONT_URI', 'https://d2pjrg2y3fmcfa.cloudfront.net')
+
+        cdn_url = core_stylesheet_uri.sub(%r{s3://nfg-ui}, cloudfront_uri).to_s
+
+        console.puts "Core CSS File URL:\n#{cdn_url}"
         return
       end
 
