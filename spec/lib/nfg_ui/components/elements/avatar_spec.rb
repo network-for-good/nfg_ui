@@ -63,7 +63,7 @@ RSpec.describe NfgUi::Components::Elements::Avatar do
     end
 
     context 'when rendering an avatar with an image' do
-      let(:tested_image) { "spec/fixtures/images/sample_image.jpg" }
+      let(:tested_image) { "#{Rails.root}/spec/fixtures/images/sample_image.jpg" }
       let(:options) { { image: tested_image } }
 
       it 'renders the avatar with the image' do
