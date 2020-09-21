@@ -1,4 +1,7 @@
 # Changelog
+## 0.11.1
+* Introduces nfg_ui publisher. See `Asset publishing` in README.md for specifics.
+
 ## 0.11.0 *BREAKING CHANGES*
 * Sweeping changes and upgrades to the slats component.
 * Note: removal of the `SlatList` will cause your host app to error. You will need to remove the `:slat_list` component from your view. All children `:slat`s should now be siblings of `:slat_header`
