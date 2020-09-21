@@ -1,6 +1,7 @@
 # Changelog
 ## 0.11.1
 * Introduces nfg_ui publisher. See `Asset publishing` in README.md for specifics.
+* `Avatar` now uses the image path helper for locating assets within the asset pipeline. This was missing before and could only accurately load in external images via a URL.
 
 ## 0.11.0 *BREAKING CHANGES*
 * Sweeping changes and upgrades to the slats component.

@@ -21,7 +21,7 @@ module NfgUi
         def render
           content_tag(as, html_options) do
             if image.present?
-              image_tag image, alt: alt.presence
+              image_tag view_context.image_path(image), alt: alt.presence
             elsif body.present?
               content_tag(:span, (block_given? ? yield : body), class: body_css_class)
             end
