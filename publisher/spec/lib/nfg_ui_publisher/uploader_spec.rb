@@ -8,7 +8,14 @@ RSpec.describe NfgUiPublisher::Uploader do
 
   let(:src_dir) { '/tmp/example/precompiled_assets/' }
   let(:uri) { 's3://nfg-ui-publisher-test/v0.0.0' }
-  let(:cmd_output) { 'EXAMPLE' }
+  let(:cmd_output) do
+    <<~OUTPUT
+      upload: public/assets/nfg_ui/tooltips-939bbb341fd2cc639ad8eff0f7f2c306e6f33edc7e6b1b2cf7ad79c106895ef8.js.gz to s3://nfg-ui/v0.11.1.1/nfg_ui/tooltips-939bbb341fd2cc639ad8eff0f7f2c306e6f33edc7e6b1b2cf7ad79c106895ef8.js.gz
+      upload: public/assets/nfg_ui/vendor/legacy_browser_support/application-11b02ba2e91525d9c16619f86e5c483fbad318e4d8f90d1fd038c84ebd5bbd8c.js.gz to s3://nfg-ui/v0.11.1.1/nfg_ui/vendor/legacy_browser_support/application-11b02ba2e91525d9c16619f86e5c483fbad318e4d8f90d1fd038c84ebd5bbd8c.js.gz
+      upload: public/assets/nfg_ui/network_for_good/core/application-d994baac0c3175874dc55ddb80d4218ec110b46b9f24923bd91240df863824c2.css.gz to s3://nfg-ui/v0.11.1.1/nfg_ui/network_for_good/core/application-d994baac0c3175874dc55ddb80d4218ec110b46b9f24923bd91240df863824c2.css.gz
+      upload: public/assets/nfg_ui/network_for_good/core/application-d994baac0c3175874dc55ddb80d4218ec110b46b9f24923bd91240df863824c2.css to s3://nfg-ui/v0.11.1.1/nfg_ui/network_for_good/core/application-d994baac0c3175874dc55ddb80d4218ec110b46b9f24923bd91240df863824c2.css
+    OUTPUT
+  end
 
   let(:cmd_success_flag) { true }
   let(:cmd_exit_status) { 0 }
@@ -37,15 +44,13 @@ RSpec.describe NfgUiPublisher::Uploader do
     expect(guard).to have_received(:check).with(uri)
   end
 
-  it '#call writes success output to console' do
+  it '#call writes CDN output' do
     subject.call(src_dir, uri)
-    expect(console).to have_received(:puts).exactly(4).times
+    expect(console).to have_received(:puts).with(/cloudfront/)
   end
 
-  context 'when asset uploading is successful' do
-    it '#call does not yield an error message' do
-      expect { |b| subject.call(src_dir, uri, &b) }.not_to yield_control
-    end
+  it '#call does not yield an error message' do
+    expect { |b| subject.call(src_dir, uri, &b) }.not_to yield_control
   end
 
   context 'when the OverwriteGuard instance yields an error' do

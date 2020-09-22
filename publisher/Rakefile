@@ -10,7 +10,7 @@ require 'nfg_ui_publisher/uploader'
 Rails.application.load_tasks
 
 desc 'Compile nfg_ui assets and upload to S3 for public access. This command takes two arguments: the version number and an optional override flag'
-task :publish, %i[nfg_ui_version override_flag] => %i[assets:precompile] do |_, nfg_ui_version: nil, override_flag: nil|
+task :publish, %i[nfg_ui_version override_flag] => %i[assets:clobber assets:precompile] do |_, nfg_ui_version: nil, override_flag: nil|
   find_aws = `which aws`
 
   if find_aws == ''
