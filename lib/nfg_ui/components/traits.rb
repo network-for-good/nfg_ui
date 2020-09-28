@@ -18,6 +18,7 @@ module NfgUi
                          DropdownToggle
                          Icon
                          ListGroup
+                         Modal
                          Muted
                          Nav
                          Navbar

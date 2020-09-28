@@ -10,7 +10,14 @@ module NfgUi
         include NfgUi::Components::Utilities::Renderable
         include NfgUi::Components::Utilities::Titleable
 
+        include NfgUi::Components::Traits::Modal
         include NfgUi::Components::Traits::Size
+
+        private
+
+        def resized?
+          [:sm, :lg, :xl, :cover].include?(size)
+        end
       end
     end
   end
