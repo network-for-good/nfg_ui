@@ -1,4 +1,7 @@
 # Changelog
+## 0.11.2
+* `Modal` `:title` option is now optional. If left nil / empty, the `ModalHeader` component will not render. This is similar to `Tile`.
+
 ## 0.11.1.1
 * Fixes gemfile for publisher app
 
