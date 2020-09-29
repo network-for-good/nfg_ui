@@ -3,7 +3,9 @@
 * `Modal` `:title` option is now optional. If left nil / empty, the `ModalHeader` component will not render. This is similar to `Tile`.
 
 ## 0.11.2
-Incoming
+* Updates to Ruby 2.5.8 to match NFG app ruby versions while also necessary to support security vulnerability issues with Rails 5 and `ActionView`.
+* Addresses security vulnerability [GHSA-cfjv-5498-mph5](https://github.com/advisories/GHSA-cfjv-5498-mph5) by bumping `actionview` from `5.2.4.3` to `5.2.4.4`
+* Upgrades Rails to 5.2.4.4
 
 ## 0.11.1.1
 * Fixes gemfile for publisher app
