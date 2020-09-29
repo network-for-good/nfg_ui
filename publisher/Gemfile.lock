@@ -201,13 +201,13 @@ PLATFORMS
 DEPENDENCIES
   byebug
   haml (~> 5.1)
-  nfg_ui (~> 0.11.0)!
+  nfg_ui (~> 0.11)!
   rails (~> 5.2.4, >= 5.2.4.3)
   rspec
   sass-rails (~> 5.0)
 
 RUBY VERSION
-   ruby 2.3.8p459
+   ruby 2.5.8p224
 
 BUNDLED WITH
    2.1.4
