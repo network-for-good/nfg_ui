@@ -19,13 +19,16 @@ RSpec.describe 'nfg_ui/bootstrap/modals/_modal.html.haml', type: :view do
       expect(subject).to have_css ".modal[tabindex='-1']"
       expect(subject).to have_css ".modal .modal-dialog[role='document']"
       expect(subject).to have_css '.modal .modal-content'
-      expect(subject).to have_css '.modal .modal-header'
       expect(subject).to have_css '.modal .modal-body'
 
       # sanity check to make sure more attributes didn't sneak in.
       expect(subject).to include "<div class=\"modal fade\" role=\"dialog\" tabindex=\"-1\" aria-hidden=\"true\"><div class=\"modal-dialog\" role=\"document\"><div class=\"modal-content\">"
-      expect(subject).to include "<div class=\"modal-header\"><button class=\"btn close\" data-dismiss=\"modal\" aria-label=\"Close\" type=\"button\"><span aria-hidden=\"true\">&times;</span></button></div>"
       expect(subject).to include "<div class=\"modal-body\">"
+
+      and_it 'because no title was set, does not include modal header' do
+        expect(subject).not_to have_css '.modal .modal-header'
+        expect(subject).not_to include "<div class=\"modal-header\"><button class=\"btn close\" data-dismiss=\"modal\" aria-label=\"Close\" type=\"button\"><span aria-hidden=\"true\">&times;</span></button></div>"
+      end
     end
   end
 
@@ -36,6 +39,9 @@ RSpec.describe 'nfg_ui/bootstrap/modals/_modal.html.haml', type: :view do
         it 'renders the modal title with text' do
           expect(subject).to have_selector '.modal-header h5.modal-title', text: tested_title
           expect(subject).to include "<h5 class=\"modal-title\">#{tested_title}</h5>"
+          expect(subject).to include "<button class=\"btn close\" data-dismiss=\"modal\" aria-label=\"Close\" type=\"button\"><span aria-hidden=\"true\">&times;</span></button></div>"
+
+
         end
       end
 
