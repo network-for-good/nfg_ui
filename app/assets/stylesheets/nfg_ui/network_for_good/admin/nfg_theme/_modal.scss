@@ -8,17 +8,15 @@
 
 // Full page cover modal option
 .modal-cover {
-  .modal-dialog {
-    margin: 0;
-    width: 100%;
-    max-width: 100%;
+  margin: 0;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  transform: none !important; // removes default 50px transform that occurs on modal showing (.fade and .show)
+  .modal-content {
+    display: block;
     height: 100%;
-    transform: none !important; // removes default 50px transform that occurs on modal showing (.fade and .show)
-    .modal-content {
-      display: block;
-      height: 100%;
-      border: none;
-      border-radius: 0;
-    }
+    border: none;
+    border-radius: 0;
   }
 }
