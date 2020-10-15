@@ -36,7 +36,7 @@ task :publish, %i[override_flag] do |_, override_flag: nil|
   subtask_args << ",#{override_flag}" if override_flag
 
   Dir.chdir("#{__dir__}/publisher") do
-    Bundler.with_clean_env do
+    Bundler.with_unbundled_env do
       sh "RAILS_ENV=production bundle exec rake publish[#{subtask_args}]" do |ok, _|
         puts 'unable to publish assets' unless ok
       end
