@@ -1,5 +1,5 @@
 # Changelog
-## 0.11.3
+## 0.11.4
 * `Modal` `:title` option is now optional. If left nil / empty, the `ModalHeader` component will not render. This is similar to `Tile`.
 
 ## 0.11.2
