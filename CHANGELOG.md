@@ -1,4 +1,7 @@
 # Changelog
+## 0.11.2.1
+* Adds responsive sizing helper classes (ex: `.w-md-50`)
+
 ## 0.11.2
 * Updates to Ruby 2.5.8 to match NFG app ruby versions while also necessary to support security vulnerability issues with Rails 5 and `ActionView`.
 * Addresses security vulnerability [GHSA-cfjv-5498-mph5](https://github.com/advisories/GHSA-cfjv-5498-mph5) by bumping `actionview` from `5.2.4.3` to `5.2.4.4`
