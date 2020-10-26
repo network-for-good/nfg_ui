@@ -80,6 +80,7 @@ $builder-preview-padding: ($spacer * 2);
   }
 }
 .builder-preview {
+  background-color: $body-bg;
   padding: $builder-preview-padding ($builder-preview-padding / 2);
   @include media-breakpoint-up(lg) {
     float: left;

@@ -1,0 +1,46 @@
+// Gallery styles
+.card-gallery {
+
+  // Gallery image styles
+  .card-gallery-img {
+    height: ($spacer * 14); // sets height of gallery image preview
+    overflow: hidden;
+    z-index: 0;
+    .card-img {
+      min-height: 100%;
+      z-index: 0;
+    }
+    .card-img-overlay { z-index: 1; }
+    .card-gallery-img-overlay {
+      display: block;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      text-align: center;
+      background-color: $modal-backdrop-bg;
+      transition: $transition-fade;
+      opacity: 0;
+      z-index: 10;
+      @include hover { opacity: 1; }
+      > .card-gallery-img-overlay-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 100%;
+        transform: translate(-50%, -50%);
+      }
+    }
+  }
+
+  // Gallery card body styles
+  .card-body { z-index: 10; }
+  .badge-highlight {
+    position: absolute;
+    top: -($card-spacer-y * .5);
+    left: $card-spacer-y;
+  }
+}
+
+

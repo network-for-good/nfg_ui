@@ -8,3 +8,7 @@
     .btn-outline-secondary, .btn-link { color: $value; }
   }
 }
+
+// temporary color fix for consistency on a white text on orange bg
+// overrides color contrast settings
+.orange .btn-primary { color: $white !important; }

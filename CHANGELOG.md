@@ -1,4 +1,11 @@
 # Changelog
+## 0.11.4
+* `Modal` updates:
+  * `:title` option is now optional. If left nil / empty, the `ModalHeader` component will not render. This is similar to `Tile`.
+  * A new `size` option has been added called `:cover`
+    * `:cover` trait is avaialable and is also applied by using the `size` option: `size: :cover`
+    * This will set the modal to be a full screen "cover" on the page.
+
 ## 0.11.3
 * Adds responsive sizing helper classes to CSS (ex: `.w-md-50`)
 

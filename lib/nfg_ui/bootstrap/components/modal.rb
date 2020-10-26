@@ -28,7 +28,11 @@ module NfgUi
             content_tag(:div, class: modal_dialog_css_classes, role: 'document') do
               content_tag(:div, class: 'modal-content') do
                 capture do
-                  concat(NfgUi::Bootstrap::Components::ModalHeader.new({ title: title }, view_context).render)
+                  # Optionally, leave title nil
+                  # and the title / dismiss functionality is left out.
+                  if title.present?
+                    concat(NfgUi::Bootstrap::Components::ModalHeader.new({ title: title }, view_context).render)
+                  end
                   if render_in_body
                     concat(NfgUi::Bootstrap::Components::ModalBody.new({ body: (block_given? ? yield : body) }, view_context).render)
                   else
