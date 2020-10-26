@@ -3,3 +3,7 @@
     .badge-primary { @include badge-variant($value); }
   }
 }
+
+// temporary color fix for consistency on a white text on orange bg
+// overrides color contrast settings
+.orange .badge-primary { color: $white !important; }

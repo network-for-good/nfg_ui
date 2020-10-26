@@ -6,11 +6,11 @@
     &:hover, &:active { text-decoration: none; }
   }
 }
-.alert-success a:not(.btn) { color: $success; }
-.alert-info a:not(.btn) { color: $info; }
-.alert-warning a:not(.btn) { color: $warning; }
+.alert-success a:not(.btn) { color: $success !important; }
+.alert-info a:not(.btn) { color: $info !important; }
+.alert-warning a:not(.btn) { color: $warning !important; }
 .alert-danger, .alert-error {
-  a:not(.btn) { color: $danger; }
+  a:not(.btn) { color: $danger !important; }
 }
 .alert-gray, .alert-notice,
 .alert-light, .alert-dark {

@@ -15,3 +15,6 @@
   }
 }
 .btn-link { font-weight: $btn-font-weight; }
+
+// overrides color contrast settings
+.btn-warning { color: $white !important; }
