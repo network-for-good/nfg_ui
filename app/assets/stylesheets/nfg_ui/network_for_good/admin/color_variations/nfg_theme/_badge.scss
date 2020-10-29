@@ -1,9 +1,8 @@
 @each $color, $value in $colors {
   .#{$color} {
-    .badge-primary { @include badge-variant($value); }
+    .badge-primary {
+      @include badge-variant($value);
+      color: $white !important;
+    }
   }
 }
-
-// temporary color fix for consistency on a white text on orange bg
-// overrides color contrast settings
-.orange .badge-primary { color: $white !important; }

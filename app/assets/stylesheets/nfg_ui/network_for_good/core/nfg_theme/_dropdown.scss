@@ -3,7 +3,6 @@
 
 // Links, buttons, and more within the dropdown menu
 .dropdown-item {
-  color: inherit !important; // overrides color_variations <a> styles
   + .dropdown-item { border-top: $border-width solid $border-color; }
   &.disabled, &:disabled {
     background-color: $body-bg;
