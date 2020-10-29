@@ -40,7 +40,7 @@ $redacted-font-family: "BLOKK";
   font-family: $font-family-base;
   letter-spacing: 0;
   word-spacing: 0;
-  background-color: rgba(255,255,255,0.9);
+  background-color: transparentize($white, 0.2);
 }
 .overlay-blur {
   transition: $transition-base;
