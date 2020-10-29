@@ -1,0 +1,34 @@
+// Custom icon styles
+// icons shouldn't be larger than the h1 font-size. use illustrations for larger visuals.
+// don't use icon circles for icons smaller than icon-circle-sm size. use just an icon.
+.icon-circle {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  width: ($spacer * 1.5);
+  height: ($spacer * 1.5);
+  font-size: $font-size-base;
+  background-color: $border-color;
+  border-radius: 50%;
+  &.icon-circle-outline {
+    background-color: $white;
+    border: $border-width solid $border-color;
+  }
+  &.icon-circle-sm {
+    width: $spacer;
+    height: $spacer;
+    font-size: $font-size-sm;
+  }
+  &.icon-circle-lg {
+    width: ($spacer * 2);
+    height: ($spacer * 2);
+    font-size: $font-size-lg;
+  }
+  &.icon-circle-xl {
+    width: ($spacer * 3);
+    height: ($spacer * 3);
+    font-size: $h1-font-size;
+  }
+}

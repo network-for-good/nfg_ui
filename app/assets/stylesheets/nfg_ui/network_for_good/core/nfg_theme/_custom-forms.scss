@@ -10,6 +10,7 @@
     }
     &:focus:not(:checked) ~ .custom-control-label::before { border-color: $input-border-color; }
   }
+  + .custom-control:not(.custom-control-inline) { margin-top: ($spacer * .25); }
 }
 
 // Custom control indicators
@@ -41,6 +42,9 @@
 //
 
 .custom-select {
+  display: block;
+  width: auto;
+  max-width: 100%;
   font-weight: $btn-font-weight;
   cursor: pointer;
   box-shadow: none;

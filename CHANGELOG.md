@@ -1,4 +1,7 @@
 # Changelog
+## 0.11.5
+* Adds activity feed styles that are in DM, introduces icon-circle and skeleton styles. Skeleton comes with a loading sheen for future loading features.
+
 ## 0.11.4
 * `Modal` updates:
   * `:title` option is now optional. If left nil / empty, the `ModalHeader` component will not render. This is similar to `Tile`.
