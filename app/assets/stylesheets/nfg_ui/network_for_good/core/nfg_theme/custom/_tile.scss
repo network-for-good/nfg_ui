@@ -22,13 +22,13 @@
   display: block;
   margin-right: auto;
   margin-left: auto;
-  @include media-breakpoint-down(sm) { padding-bottom: $grid-gutter-width; }
-  @include media-breakpoint-up(sm) { padding-bottom: ($grid-gutter-width * 1.5); }
+  @include media-breakpoint-down(sm) { padding-bottom: ($grid-gutter-width * 1.5); }
+  @include media-breakpoint-up(sm) { padding-bottom: ($grid-gutter-width * 2); }
   &:last-child { padding-bottom: 0; }
   + .tile-section {
     border-top: $border-width solid $border-color;
-    @include media-breakpoint-down(sm) { padding-top: $grid-gutter-width; }
-    @include media-breakpoint-up(sm) { padding-top: ($grid-gutter-width * 1.5); }
+    @include media-breakpoint-down(sm) { padding-top: ($grid-gutter-width * 1.5); }
+    @include media-breakpoint-up(sm) { padding-top: ($grid-gutter-width * 2); }
   }
 }
 
