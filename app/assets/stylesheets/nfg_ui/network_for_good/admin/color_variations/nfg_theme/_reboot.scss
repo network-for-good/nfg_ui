@@ -1,6 +1,6 @@
 @each $color, $value in $colors {
   .#{$color} {
-    a:not(.dropdown-item) {
+    a:not(.btn) {
       color: $value;
       @include hover { color: darken($value, 15%); }
     }

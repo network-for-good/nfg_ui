@@ -9,6 +9,7 @@
     cursor: default;
     pointer-events: none;
   }
+  &:not(.text-danger) { color: inherit !important; }
 }
 
 
