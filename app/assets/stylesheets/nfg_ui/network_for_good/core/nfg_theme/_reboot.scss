@@ -18,6 +18,10 @@ body {
 
 div { position: relative; } // setting this as a base to avoid improper absolute positioning elements
 
+p {
+  &.disabled { opacity: .4; } // used on filter bars on list pages for bulk actions
+}
+
 ol,
 ul,
 dl {
