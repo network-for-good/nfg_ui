@@ -1,4 +1,7 @@
 # Changelog
+## 0.11.6
+* Fixes compatability issue with VW in CSS. Replaces VW with % for the "Builder" layout.
+
 ## 0.11.5
 * Adds activity feed styles that are in DM, introduces icon-circle and skeleton styles. Skeleton comes with a loading sheen for future loading features.
 
