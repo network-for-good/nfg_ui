@@ -1,2 +1,2 @@
 // Sort
-.ui-sortable-handle { cursor: move; }
+.ui-sortable-handle, [data-sortable="handle"] { cursor: move; }
