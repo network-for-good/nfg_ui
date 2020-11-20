@@ -22,7 +22,14 @@
 
 
 // Sizing
-.dropdown-menu-md { min-width: ($spacer * 12); }
+.dropdown-menu-md, .dropdown-menu-lg { min-width: ($spacer * 10); }
+.dropdown-menu-md {
+  @include media-breakpoint-up(sm) { min-width: ($spacer * 12); }
+}
+.dropdown-menu-lg {
+  @include media-breakpoint-up(sm) { min-width: ($spacer * 24); }
+}
+
 
 
 // Styles for wider "My Tools" dropdown in top nav
