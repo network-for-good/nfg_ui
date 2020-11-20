@@ -1,0 +1,29 @@
+// Shared sorting styles
+.slat, .option {
+  &.ui-sortable-placeholder {
+    visibility: visible !important;
+    background: theme-color("light");
+    border: $border-width dashed $border-color;
+  }
+  &.ui-sortable-helper { opacity: .5; }
+}
+// Slat
+.slat {
+  &.ui-sortable-placeholder {
+    + .slat { border-top: none; }
+    + &.ui-sortable-helper {
+      border-top-style: dashed;
+      + &.slat { border-top: none; }
+    }
+  }
+  &.ui-sortable-helper {
+    border-top: none;
+    border-top: none;
+    + &.ui-sortable-placeholder { border-top: $border-width dashed $border-color; }
+  }
+}
+
+// Sortable options (used on form fields for checkboxes/radios/select options)
+.option {
+  &.ui-sortable-placeholder { margin-bottom: ($spacer * .25); }
+}
