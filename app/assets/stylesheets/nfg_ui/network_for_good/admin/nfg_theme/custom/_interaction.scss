@@ -1,2 +1,2 @@
 // Sort
-[class*='sort']:not(.sort_link) { cursor: move; }
+.ui-sortable, .ui-sortable-handle { cursor: move; }
