@@ -20,6 +20,9 @@
         }
       }
     }
-    .custom-select { color: $value; }
+    .custom-select {
+      color: $value;
+      &:focus { border-color: $value; }
+    }
   }
 }
