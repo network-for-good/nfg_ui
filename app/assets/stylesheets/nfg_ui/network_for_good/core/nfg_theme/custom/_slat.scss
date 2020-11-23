@@ -36,24 +36,6 @@ $slat-actions-lg-width: 108px;
     padding-top: ($spacer * 1.5);
     padding-bottom: ($spacer * 1.5);
   }
-
-  // Various states
-  &.ui-sortable-placeholder {
-    visibility: visible !important;
-    background: theme-color("light");
-    border: $border-width dashed $border-color;
-    + .slat { border-top: none; }
-    + &.ui-sortable-helper {
-      border-top-style: dashed;
-      + &.slat { border-top: none; }
-    }
-  }
-  &.ui-sortable-helper {
-    border-top: none;
-    opacity: .5;
-    border-top: none;
-    + &.ui-sortable-placeholder { border-top: $border-width dashed $border-color; }
-  }
 }
 
 

@@ -3,6 +3,7 @@
 // Base class takes care of all the key behavioral aspects.
 
 .custom-control {
+  padding-left: 0;
   .custom-control-input {
     &:checked {
       ~ .custom-control-label,
@@ -18,11 +19,17 @@
 // Build the custom controls out of pseudo-elements.
 
 .custom-control-label {
+  padding-left: $custom-control-gutter + $custom-control-indicator-size;
+  min-width: $custom-control-gutter + $custom-control-indicator-size;
+  min-height: $custom-control-indicator-size;
   font-weight: $font-weight-normal;
   cursor: pointer;
 
   // Background-color and icon
-  &::before, &::after { top: .3rem; }
+  &::before, &::after {
+    top: .3rem;
+    left: 0;
+  }
   &::before { border: $border-width solid $border-color; }
   &::after { cursor: pointer; }
 }
@@ -101,7 +108,10 @@
 // Tweak a few things for switches
 
 .custom-switch {
+  padding-left: 0;
   .custom-control-label {
+    padding-left: $custom-switch-width + $custom-control-gutter;
+    &::before, &::after { left: 0; }
     &::before {
       padding-left: 28px;
       font-size: 12px;
@@ -113,7 +123,6 @@
     }
     &::after {
       top: 0;
-      left: -($custom-switch-width + $custom-control-gutter);
       background-color: $white;
       border: $border-width solid $border-color;
       border-radius: 50%;
