@@ -1,4 +1,9 @@
 # Changelog
+## 0.11.7
+* CSS style updates for custom form elements.
+  * There was a gap between the checkbox/radio/switch that didn't allow the user to select the option -- resulting in a poor UX where the user would have to click either the icon or the language for it to work.
+  * There's also an update to custom-select using color variations on focus, the large dropdown size from Donor Management and more explicit sort styles.
+
 ## 0.11.6
 * Fixes compatability issue with VW in CSS. Replaces VW with % for the "Builder" layout.
 
