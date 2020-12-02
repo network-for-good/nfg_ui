@@ -8,7 +8,7 @@ $slat-actions-lg-width: 108px;
   flex-flow: column nowrap;
 
   // Nowrap version -- used when the goal is to have all slat-item columns on the same line in smaller screens
-  :not(.slats-nowrap) { // noting the :not() psuedo-class meaning all slats that don't have this class get these styles
+  &:not(.slats-nowrap) { // noting the :not() psuedo-class meaning all slats that don't have this class get these styles
     .slat-body {
       @include media-breakpoint-down(sm) { flex-direction: column; }
     }
