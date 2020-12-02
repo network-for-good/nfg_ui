@@ -13,6 +13,7 @@
   }
   + .custom-control:not(.custom-control-inline) { margin-top: ($spacer * .25); }
 }
+.custom-checkbox, .custom-radio { min-width: $custom-control-gutter + $custom-control-indicator-size; } // sets minimum width to have space even if custom-control-label isn't there
 
 // Custom control indicators
 //
