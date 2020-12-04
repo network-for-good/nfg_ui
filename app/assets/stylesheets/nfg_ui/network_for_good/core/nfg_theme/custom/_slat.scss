@@ -36,6 +36,9 @@ $slat-actions-lg-width: 108px;
     padding-top: ($spacer * 1.5);
     padding-bottom: ($spacer * 1.5);
   }
+
+  // Status
+  &.pending { background-color: #fff5e0; }
 }
 
 
