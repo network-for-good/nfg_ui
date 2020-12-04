@@ -1,0 +1,24 @@
+// Powers the readmore.js plugin
+.expandable,
+.readmore-js-section {
+  position: relative;
+  z-index: 10;
+  transition: $transition-collapse;
+  &.readmore-js-collapsed { overflow: hidden; }
+  &.readmore-js-expanded { overflow: visible; }
+}
+.readmore-js-collapsed:after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: ($spacer * 1.5);
+  @include gradient-y(transparentize($white, 1), transparentize($white, 0));
+  content: '';
+  z-index: 20;
+}
+.readmore-js-toggle {
+  padding-top: ($spacer * .5);
+  padding-bottom: ($spacer * .5);
+  z-index: 30;
+}
