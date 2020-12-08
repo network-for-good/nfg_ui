@@ -1,0 +1,15 @@
+#bee_plugin_container {
+  height: 600px; // fallback value if calc() isn't supported
+  border-top: 1px solid $border-color;
+  border-bottom: 1px solid $border-color;
+}
+
+// Height if just the builder-header is present
+.builder-header + .builder-container {
+  #bee_plugin_container { height: calc(100vh - 72px); }
+}
+
+// Height if both builder-header and builder-nav are present (typical in onboarder)
+.builder-header + .builder-nav + .builder-container {
+  #bee_plugin_container { height: calc(100vh - 180px); }
+}
