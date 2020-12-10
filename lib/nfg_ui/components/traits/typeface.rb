@@ -10,7 +10,6 @@ module NfgUi
                     heading
                     subheading
                     title
-                    muted
                     truncate].freeze
 
         def body_trait

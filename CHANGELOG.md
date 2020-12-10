@@ -1,4 +1,9 @@
 # Changelog
+## 0.11.8
+* CSS style additions for beefree.io editor
+  * Added support for Beefree.io editor to render with a height when it is in and out of the builder layout. There's support for when there is and is not the builder-nav (typically used for step navigation in an onboarder).
+* Removes listed rogue `muted` trait from `Typeface` traits on `lib/nfg_ui/components/traits/typeface.rb`.
+
 ## 0.11.7
 * CSS style updates for custom form elements.
   * There was a gap between the checkbox/radio/switch that didn't allow the user to select the option -- resulting in a poor UX where the user would have to click either the icon or the language for it to work.
