@@ -91,26 +91,42 @@
 
 %hr
 
-= ui.nfg :typeface, subheading: 'Slat Actions', class: 'mb-1'
+= ui.nfg :typeface, subheading: 'Slat Item & Slat Actions', class: 'mb-1'
 
--# Slat action inherits from dropdown item. Not assuming they are 1:1, however.
-= ui.nfg :slat_actions, describe: 'slat-actions-menu' do
+= ui.nfg :slats do
+  = ui.nfg :slat_header do
+    = ui.nfg :slat do
+      = ui.nfg :slat_body do
+        = ui.nfg :slat_item, slat_header: 'First Column', tooltip: feature_spec_tooltip_text, describe: 'tooltip-slat-header'
+        = ui.nfg :slat_item, slat_header: 'Second Column'
+        = ui.nfg :slat_item, slat_header: 'Third Column'
+        = ui.nfg :slat_item, slat_header: 'Fourth Column'
 
-  -# Slat action without href
-  = ui.nfg :slat_action, body: 'Tooltip Slat Action - No Href', icon: 'rocket', tooltip: feature_spec_tooltip_text, describe: 'tooltip-slat-action'
+    = ui.nfg :slat do
+      = ui.nfg :slat_body do
+        = ui.nfg :slat_item, heading: 'First Column Heading', href: '#nogo', tooltip: feature_spec_tooltip_text, describe: 'tooltip-slat-heading'
+        = ui.nfg :slat_item, heading: 'Second Column Heading', body: 'Second Column Body', caption: 'Second Column Caption', tooltip: feature_spec_tooltip_text, describe: 'tooltip-full-slat-item'
+        = ui.nfg :slat_item, body: 'Third Column Body', tooltip: feature_spec_tooltip_text, describe: 'tooltip-body-slat-item'
+        = ui.nfg :slat_item, caption: 'Fourth Column Caption', tooltip: feature_spec_tooltip_text, describe: 'tooltip-caption-slat-item'
 
-  -# Slat action with href
-  = ui.nfg :slat_action, body: 'Tooltip Slat Action - With Href', icon: 'rocket', tooltip: feature_spec_tooltip_text, href: '#', describe: 'tooltip-slat-action-with-href'
+      -# Slat action inherits from dropdown item. Not assuming they are 1:1, however.
+      = ui.nfg :slat_actions, describe: 'slat-actions-menu' do
 
-  -# Slat action with tooltip and with nil modal
-  -# Modal and tooltip are not allowed to both be present
-  -# at the same time. This helps ensure that the :modal key
-  -# is still acceptable, even if nil (as it should be).
-  = ui.nfg :slat_action, body: 'Tooltip Slat Action - With Nil Tooltip', icon: 'rocket', tooltip: feature_spec_tooltip_text, describe: 'modal-slat-action-with-tooltip', modal: ('#test_modal' if 1!=1)
+        -# Slat action without href
+        = ui.nfg :slat_action, body: 'Tooltip Slat Action - No Href', icon: 'rocket', tooltip: feature_spec_tooltip_text, describe: 'tooltip-slat-action'
 
-  -# Disabled slat action with tooltip
-  %span{ data: { describe: 'disabled-slat-action-wrapper' } }
-    = ui.nfg :slat_action, :disabled, body: 'Disabled Tooltip Slat Action - No Href', icon: 'rocket', tooltip: feature_spec_tooltip_text, describe: 'disabled-slat-action'
+        -# Slat action with href
+        = ui.nfg :slat_action, body: 'Tooltip Slat Action - With Href', icon: 'rocket', tooltip: feature_spec_tooltip_text, href: '#', describe: 'tooltip-slat-action-with-href'
+
+        -# Slat action with tooltip and with nil modal
+        -# Modal and tooltip are not allowed to both be present
+        -# at the same time. This helps ensure that the :modal key
+        -# is still acceptable, even if nil (as it should be).
+        = ui.nfg :slat_action, body: 'Tooltip Slat Action - With Nil Tooltip', icon: 'rocket', tooltip: feature_spec_tooltip_text, describe: 'modal-slat-action-with-tooltip', modal: ('#test_modal' if 1!=1)
+
+        -# Disabled slat action with tooltip
+        %span{ data: { describe: 'disabled-slat-action-wrapper' } }
+          = ui.nfg :slat_action, :disabled, body: 'Disabled Tooltip Slat Action - No Href', icon: 'rocket', tooltip: feature_spec_tooltip_text, describe: 'disabled-slat-action'
 %hr
 
 = ui.nfg :typeface, subheading: 'Steps', class: 'mb-1'
