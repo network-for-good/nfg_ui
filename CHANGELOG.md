@@ -1,4 +1,7 @@
 # Changelog
+## 0.11.9
+* `SlatItem` is now `Tooltipable` and can have tooltips passed in via its options: `ui.nfg(:slat_item, slat_header: 'Test', tooltip: 'The Tooltip')`
+
 ## 0.11.8
 * CSS style additions for beefree.io editor
   * Added support for Beefree.io editor to render with a height when it is in and out of the builder layout. There's support for when there is and is not the builder-nav (typically used for step navigation in an onboarder).

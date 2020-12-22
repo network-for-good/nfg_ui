@@ -79,7 +79,7 @@ RSpec.describe 'Activating a tooltip on all tooltippable components', type: :fea
       pending "[data-describe='disabled-nav-item-wrapper'] [data-toggle='tooltip'] does not yet work"
     end
 
-    describe 'tooltips on slact actions' do
+    describe 'tooltips on slat actions' do
       let(:tooltippable_component_selectors) { ["[data-describe='tooltip-slat-action']","[data-describe='tooltip-slat-action-with-href']","[data-describe='modal-slat-action-with-tooltip']","[data-describe='disabled-slat-action-wrapper'] [data-toggle='tooltip']" ] }
 
       it 'activates tooltips on tooltippable slat action items' do
@@ -90,6 +90,13 @@ RSpec.describe 'Activating a tooltip on all tooltippable components', type: :fea
           page.find("body").click
         end
       end
+    end
+
+    describe 'tooltips on slat items' do
+      let(:tooltippable_component_selectors) {
+        ["[data-describe='tooltip-slat-header'] .slat-column-header", "[data-describe='tooltip-slat-heading'] a h6", "[data-describe='tooltip-full-slat-item'] h6", "[data-describe='tooltip-body-slat-item']", "[data-describe='tooltip-caption-slat-item'] p.font-size-sm"]
+      }
+      it_behaves_like 'tooltippable components that activate a tooltip'
     end
 
     describe 'tooltips on steps' do
@@ -130,10 +137,12 @@ end
 private
 
 def wait_for_tooltip
-  sleep 0.5
+  sleep 1
 end
 
 def confirm_tooltip_presence(selector:)
+  scroll_to_element selector
+  sleep 0.1
   page.find(selector).hover
   wait_for_tooltip
   expect(page).to have_css tooltip_id(selector: selector)

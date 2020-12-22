@@ -11,6 +11,5 @@
 # This then adds the '#' symbol in front of the value to return
 # a valid CSS ID selector, ex: '#tooltip41235'
 def tooltip_id(selector:)
-  return '' unless page.find(selector)['aria-describedby']
   "##{page.find(selector)['aria-describedby']}"
 end
