@@ -69,6 +69,7 @@ module NfgUi
           options = html_options.except(:href)
 
           # merge in tooltip only if leveraging block body content
+          # tooltip_html_options will return {} if no tooltip so this is a safe merge
           options.merge!(tooltip_html_options) unless (heading || caption || slat_header)
 
           options
