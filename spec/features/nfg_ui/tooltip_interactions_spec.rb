@@ -94,7 +94,13 @@ RSpec.describe 'Activating a tooltip on all tooltippable components', type: :fea
 
     describe 'tooltips on slat items' do
       let(:tooltippable_component_selectors) {
-        ["[data-describe='tooltip-slat-header'] .slat-column-header", "[data-describe='tooltip-slat-heading'] a h6", "[data-describe='tooltip-full-slat-item'] h6", "[data-describe='tooltip-body-slat-item']", "[data-describe='tooltip-caption-slat-item'] p.font-size-sm"]
+        [
+          "[data-describe='tooltip-slat-header'] .slat-column-header",
+          "[data-describe='tooltip-slat-heading'] a h6",
+          "[data-describe='tooltip-full-slat-item'] h6",
+          "[data-describe='tooltip-body-slat-item']",
+          "[data-describe='tooltip-caption-slat-item'] p.font-size-sm"
+        ]
       }
       it_behaves_like 'tooltippable components that activate a tooltip'
     end
