@@ -66,7 +66,7 @@ module NfgUi
 
         # Strip the href from html_options and pass it to the header
         def slat_item_html_options
-          options = html_options.except(:href, :tooltip)
+          options = html_options.except(:href)
 
           # merge in tooltip only if leveraging block body content
           options.merge!(tooltip_html_options) unless (heading || caption || slat_header)
