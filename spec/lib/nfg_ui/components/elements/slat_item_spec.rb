@@ -33,13 +33,33 @@ RSpec.describe NfgUi::Components::Elements::SlatItem do
     end
 
     describe 'slat_header' do
-      let(:options) { { slat_header: tested_slat_header } }
+      let(:options) { { slat_header: tested_slat_header, tooltip: tested_tooltip } }
+      let(:tested_tooltip) { nil }
+
       context 'when slat_header is present' do
         let(:tested_slat_header) { 'Tested slat header' }
         it 'includes the slat header' do
           expect(rendered_html).to eq "<div class=\"slat-item\"><h6 class=\"display-4 slat-column-header\">#{tested_slat_header}</h6></div>"
 
           expect(subject).to have_css '.slat-item h6.display-4.slat-column-header'
+        end
+
+        describe 'tooltip presence in options' do
+          context 'when tooltip is present' do
+            let(:tested_tooltip) { 'tooltip' }
+            it 'includes the tooltip on the slat column header' do
+              expect(rendered_html).to eq "<div class=\"slat-item\"><h6 class=\"display-4 slat-column-header\" title=\"#{tested_tooltip}\" data-toggle=\"tooltip\" data-placement=\"top\" data-html=\"true\">#{tested_slat_header}</h6></div>"
+              expect(subject).to have_css "[data-toggle='tooltip']"
+
+            end
+          end
+
+          context 'when tooltip is not present' do
+            let(:tested_tooltip) { nil }
+            it 'does not include tooltip markup in the HTML' do
+              expect(subject).not_to have_css "[data-toggle='tooltip']"
+            end
+          end
         end
       end
 
@@ -52,9 +72,10 @@ RSpec.describe NfgUi::Components::Elements::SlatItem do
     end
 
     describe 'heading' do
-      let(:options) { { heading: tested_heading, href: tested_href } }
+      let(:options) { { heading: tested_heading, href: tested_href, tooltip: tested_tooltip } }
       let(:tested_heading) { nil }
       let(:tested_href) { nil }
+      let(:tested_tooltip) { nil }
 
       context 'when heading is present' do
         let(:tested_heading) { 'Tested heading' }
@@ -74,6 +95,25 @@ RSpec.describe NfgUi::Components::Elements::SlatItem do
             expect(subject).to have_css '.slat-item h6'
           end
         end
+
+        describe 'tooltip on the heading' do
+          context 'when tooltip is present' do
+            let(:tested_tooltip) { 'tested tooltip' }
+            it 'applies the tooltip on the heading only' do
+              expect(rendered_html).to eq "<div class=\"slat-item\"><h6 data-toggle=\"tooltip\" data-placement=\"top\" data-html=\"true\" title=\"#{tested_tooltip}\">#{tested_heading}</h6></div>"
+
+              expect(subject).to have_css "h6[data-toggle='tooltip']"
+            end
+          end
+
+          context 'when tooltip is not present' do
+            let(:tested_tooltip) { nil }
+
+            it 'does not add tooltip markup to the heading' do
+              expect(subject).not_to have_css "h6[data-toggle='tooltip']"
+            end
+          end
+        end
       end
 
       context 'when heading is not present' do
@@ -84,16 +124,35 @@ RSpec.describe NfgUi::Components::Elements::SlatItem do
     end
 
     describe 'rendering the body' do
-      let(:options) { { body: tested_body } }
+      let(:options) { { body: tested_body, tooltip: tested_tooltip } }
       let(:tested_body) { 'tested body' }
+      let(:tested_tooltip) { nil }
 
       it 'renders the body' do
         expect(rendered_html).to eq "<div class=\"slat-item\">#{tested_body}</div>"
       end
+
+      describe 'tooltip presence on body' do
+        context 'when a tooltip is present' do
+          let(:tested_tooltip) { 'tested tooltip' }
+          it 'adds a tooltip to the slat item' do
+            expect(rendered_html).to eq "<div class=\"slat-item\" title=\"#{tested_tooltip}\" data-toggle=\"tooltip\" data-placement=\"top\" data-html=\"true\">#{tested_body}</div>"
+            expect(subject).to have_css ".slat-item[data-toggle='tooltip']"
+          end
+        end
+
+        context 'when a tooltip is not present' do
+          let(:tested_tooltip) { nil }
+          it 'does not add a tooltip markup html to the slat item' do
+            expect(subject).not_to have_css ".slat-item[data-toggle='tooltip']"
+          end
+        end
+      end
     end
 
     describe 'caption' do
-      let(:options) { { caption: tested_caption } }
+      let(:options) { { caption: tested_caption, tooltip: tested_tooltip } }
+      let(:tested_tooltip) { nil }
 
       context 'when caption is present' do
         let(:tested_caption) { 'tested caption' }
@@ -102,12 +161,77 @@ RSpec.describe NfgUi::Components::Elements::SlatItem do
 
           expect(subject).to have_css '.slat-item p.mb-0.font-size-sm'
         end
+
+        describe 'tooltip presence on caption slat item' do
+          context 'when tooltip is present' do
+            let(:tested_tooltip) { 'tested tooltip' }
+            it 'adds a tooltip to the caption' do
+              expect(rendered_html).to eq "<div class=\"slat-item\"><p class=\"mb-0 font-size-sm\" data-toggle=\"tooltip\" data-placement=\"top\" data-html=\"true\" title=\"#{tested_tooltip}\">#{tested_caption}</p></div>"
+
+              expect(subject).to have_css ".font-size-sm[data-toggle='tooltip']"
+            end
+          end
+
+          context 'when tooltip is not present' do
+            let(:tested_tooltip) { nil }
+            it 'does not add the tooltip html to the caption markup' do
+              expect(subject).not_to have_css ".font-size-sm[data-toggle='tooltip']"
+            end
+          end
+        end
       end
 
       context 'when caption is not present' do
         let(:tested_caption) { nil }
         it 'does not render the slat item with a caption' do
           expect(subject).not_to have_css '.slat-item p.mb-0.font-size-sm'
+        end
+      end
+    end
+
+    describe 'complex tooltip implementations' do
+      let(:options) { { heading: tested_heading, body: tested_body, caption: tested_caption, tooltip: tested_tooltip } }
+      let(:tested_tooltip) { 'tested tooltip' }
+      let(:tested_heading) { nil }
+      let(:tested_body) { nil }
+      let(:tested_caption) { nil }
+
+      describe 'heading as the anchored element' do
+        context 'when heading, body and caption are present' do
+          let(:tested_heading) { 'tested heading' }
+          let(:tested_body) { 'tested body' }
+          let(:tested_caption) { 'tested caption' }
+
+          it 'adds a tooltip to the heading only' do
+            expect(rendered_html).to eq "<div class=\"slat-item\"><h6 data-toggle=\"tooltip\" data-placement=\"top\" data-html=\"true\" title=\"#{tested_tooltip}\">#{tested_heading}</h6>#{tested_body}<p class=\"mb-0 font-size-sm\">#{tested_caption}</p></div>"
+          end
+        end
+
+        context 'when heading and caption are present' do
+          let(:tested_heading) { 'tested heading' }
+          let(:tested_caption) { 'tested caption' }
+          it 'adds a tooltip to the heading only' do
+            expect(rendered_html).to eq "<div class=\"slat-item\"><h6 data-toggle=\"tooltip\" data-placement=\"top\" data-html=\"true\" title=\"#{tested_tooltip}\">#{tested_heading}</h6><p class=\"mb-0 font-size-sm\">#{tested_caption}</p></div>"
+          end
+        end
+
+        context 'when heading and body are present' do
+          let(:tested_heading) { 'tested heading' }
+          let(:tested_body) { 'tested body' }
+          it 'adds a tooltip to the heading only' do
+            expect(rendered_html).to eq "<div class=\"slat-item\"><h6 data-toggle=\"tooltip\" data-placement=\"top\" data-html=\"true\" title=\"#{tested_tooltip}\">#{tested_heading}</h6>#{tested_body}</div>"
+          end
+        end
+      end
+
+      describe 'caption as the anchored element' do
+        context 'when caption and body are present' do
+          let(:tested_caption) { 'tested caption' }
+          let(:tested_body) { 'tested body' }
+
+          it 'adds a tooltip to the caption' do
+            expect(rendered_html).to eq "<div class=\"slat-item\">#{tested_body}<p class=\"mb-0 font-size-sm\" data-toggle=\"tooltip\" data-placement=\"top\" data-html=\"true\" title=\"#{tested_tooltip}\">#{tested_caption}</p></div>"
+          end
         end
       end
     end

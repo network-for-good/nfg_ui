@@ -6,15 +6,18 @@
     = ui.nfg :slat_header do
       = ui.nfg :slat do
         = ui.nfg :slat_body do
-          = ui.nfg :slat_item, slat_header: 'First Column'
-          = ui.nfg :slat_item, slat_header: 'Second Column'
-          = ui.nfg :slat_item, slat_header: 'Third Column'
+          = ui.nfg :slat_item, slat_header: 'First Column', tooltip: 'Tooltip example on slat_header'
+          = ui.nfg :slat_item, slat_header: 'Second Column', tooltip: 'Tooltip example on slat_header'
+          = ui.nfg :slat_item, slat_header: 'Third Column', tooltip: 'Tooltip example on slat_header'
+          = ui.nfg :slat_item, slat_header: 'Fourth Column', tooltip: 'Tooltip example on slat_header'
     = ui.nfg :slat do
       = ui.nfg :slat_body do
-        = ui.nfg :slat_item, heading: 'Karl Fergood - Link', href: '#nogo'
-        = ui.nfg :slat_item, slat_header: 'Second Column' do
+        = ui.nfg :slat_item, heading: 'Karl Fergood - Link', href: '#nogo', tooltip: 'Tooltip example on heading'
+        = ui.nfg :slat_item, heading: 'Second2 Column', tooltip: 'Tooltip example on heading only (not body)' do
           = ui.nfg :typeface, :truncate, body: 'aReallyLongStringForTruncationExampleIsPlacedHereAndBecauseItsGreatToStressTestItsEvenLonger!', class: 'mb-0'
-        = ui.nfg :slat_item, slat_header: 'Third Column', heading: '$5000', caption: 'An amount caption'
+        = ui.nfg :slat_item, heading: 'Third Column', heading: '$5000', caption: 'An amount caption', tooltip: 'Tooltip on heading, not caption'
+        = ui.nfg :slat_item, tooltip: 'Tooltip on rendered block body' do
+          Example for tooltip
       = ui.nfg :slat_actions do
         = ui.nfg :slat_action, href: '#', body: 'Edit', icon: 'pencil'
         = ui.nfg :slat_action, :danger, href: '#', body: 'Delete', icon: 'trash-o', method: :delete, confirm: 'Are you sure you want to delete?'
