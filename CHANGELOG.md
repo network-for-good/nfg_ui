@@ -1,4 +1,7 @@
 # Changelog
+## 0.11.11
+* Addresses security vulnerability [GHSA-vr8q-g5c7-m54m](https://github.com/advisories/GHSA-vr8q-g5c7-m54m) by bumping `nokogiri` from `1.10.10` to `1.11.0`
+
 ## 0.11.10
 * Adds `heartbit` and `.notify` css animations and classes to support NFG's DMS notification featurette utilized by sysadmins. This is a CSS only update.
 
