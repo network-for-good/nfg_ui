@@ -1,0 +1,51 @@
+// Heartbeat "beacon" styles for sysuser functionality
+.notify {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 50;
+  .heartbit {
+    position: absolute;
+    top: -($spacer * .75);
+    right: -($spacer * .75);
+    height: ($spacer * 1.5);
+    width: ($spacer * 1.5);
+    z-index: 10;
+    border: 6px solid $warning;
+    border-radius: ($spacer * .75);
+    animation: heartbit 1s ease-out infinite;
+  }
+  .point {
+    position: absolute;
+    right: -($spacer * .25);
+    top: -($spacer * .25);
+    width: ($spacer * .5);
+    height: ($spacer * .5);
+    border-radius: $spacer;
+    background-color: $warning;
+  }
+}
+
+// Heartbeat animation used on beacon for sysusers
+@keyframes heartbit {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  25% {
+    transform: scale(0.1);
+    opacity: .1;
+  }
+  50% {
+    transform: scale(0.5);
+    opacity: .3;
+  }
+  75% {
+    transform: scale(0.8);
+    opacity: .5;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}

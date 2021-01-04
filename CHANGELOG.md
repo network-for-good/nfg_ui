@@ -1,4 +1,7 @@
 # Changelog
+## 0.11.10
+* Adds `heartbit` and `.notify` css animations and classes to support NFG's DMS notification featurette utilized by sysadmins. This is a CSS only update.
+
 ## 0.11.9
 * `SlatItem` is now `Tooltipable` and can have tooltips passed in via its options: `ui.nfg(:slat_item, slat_header: 'Test', tooltip: 'The Tooltip')`
 
