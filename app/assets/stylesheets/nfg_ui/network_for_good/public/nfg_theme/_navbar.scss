@@ -21,13 +21,12 @@ $navbar-logo-height: (($spacer * 4.5) - $spacer);
   border-left: $border-width solid $border-color;
 }
 .sticky-div {
-  box-shadow: $box-shadow-sm;
+  border-bottom: $border-width solid $border-color;
   .btn-header-donate {
     opacity: 0;
     transition: $transition-base;
   }
   &.stuck {
-    box-shadow: $box-shadow;
     .btn-header-donate { opacity: 1; }
   }
 }
