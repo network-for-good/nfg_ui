@@ -42,7 +42,7 @@
   }
   &.drawer-right, &.drawer-left {
     height: 100%;
-    @include media-breakpoint-up(lg) { width: 33%; }
+    @include media-breakpoint-up(lg) { width: 32%; }
   }
   &.drawer-top, &.drawer-right, &.drawer-bottom, &.drawer-left {
     &.show { transform: translate(0, 0); } // uses modal's show for slide animation
