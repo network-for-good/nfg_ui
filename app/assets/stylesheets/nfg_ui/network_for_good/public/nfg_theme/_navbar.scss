@@ -20,13 +20,3 @@ $navbar-logo-height: (($spacer * 4.5) - $spacer);
   padding-left: $navbar-padding-x;
   border-left: $border-width solid $border-color;
 }
-.sticky-div {
-  border-bottom: $border-width solid $border-color;
-  .btn-header-donate {
-    opacity: 0;
-    transition: $transition-base;
-  }
-  &.stuck {
-    .btn-header-donate { opacity: 1; }
-  }
-}
