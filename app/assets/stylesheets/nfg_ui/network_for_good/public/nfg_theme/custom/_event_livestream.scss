@@ -15,6 +15,7 @@
   }
 }
 .event-content {
+  padding: $spacer;
   @include media-breakpoint-up(lg) {
     float: left;
     width: 67%;
@@ -27,12 +28,32 @@
   @include media-breakpoint-down(md) { border-bottom: $border-width solid $border-color; }
   @include media-breakpoint-up(lg) {
     float: right;
+    display: flex;
+    flex-direction: column;
     width: 33%;
     height: 100%;
     border-left: $border-width solid $border-color;
+    overflow-y: scroll;
     > :last-child { margin-bottom: $spacer; }
   }
+  .event-sidebar-scroll {
+    @include media-breakpoint-up(lg) { overflow-y: scroll; }
+  }
+  .event-sidebar-section {
+    padding: $spacer;
+    + .event-sidebar-section { border-top: $border-width solid $border-color; }
+    &.event-sidebar-section-scroll {
+      min-height: ($spacer * 10); // sets min-height to ensure the scrollable area has room to be seen on restricted height devices (not mobile)
+      overflow-y: scroll;
+    }
+
+  }
 }
-.event-sidebar-scroll {
-  overflow-y: scroll;
+
+// styles specific to donor-scroll to remove default card styles when donor scroll is inside the event sidebar
+.event-sidebar-section {
+  .card[data-describe='donor-scroll'] {
+    border: 0;
+    .card-body { padding: 0; }
+  }
 }
