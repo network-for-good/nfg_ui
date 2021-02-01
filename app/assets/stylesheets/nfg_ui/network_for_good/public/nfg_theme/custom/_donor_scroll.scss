@@ -1,0 +1,8 @@
+
+
+// Animation for a new donation
+@keyframes new-donation-success {
+  0% { background-color: #ebf7e4; }
+  100% { background-color: transparent; }
+}
+.new-donation { animation: new-donation-success 4s; }
