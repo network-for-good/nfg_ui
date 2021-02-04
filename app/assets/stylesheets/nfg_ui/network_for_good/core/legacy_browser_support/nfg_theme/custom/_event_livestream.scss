@@ -1,0 +1,6 @@
+.event-sidebar {
+  @include media-breakpoint-up(lg) {
+    display: -ms-flexbox;
+    -ms-flex-direction: column;
+  }
+}
