@@ -33,10 +33,9 @@
     width: 33%;
     height: 100%;
     border-left: $border-width solid $border-color;
-    overflow-y: scroll;
     > :last-child { margin-bottom: $spacer; }
   }
-  .event-sidebar-scroll {
+  &.event-sidebar-scroll {
     @include media-breakpoint-up(lg) { overflow-y: scroll; }
   }
   .event-sidebar-section {
