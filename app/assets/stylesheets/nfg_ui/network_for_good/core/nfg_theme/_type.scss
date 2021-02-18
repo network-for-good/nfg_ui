@@ -66,8 +66,8 @@ a.no-link-color {
     content: '';
     z-index: 0;
   }
-  .text-center, .btn-center { z-index: 10; }
-  .text-center {
+  [class*='text-'], .btn-center { z-index: 10; }
+  [class*='text-'] {
     position: relative;
     text-align: center;
     line-height: 1;
