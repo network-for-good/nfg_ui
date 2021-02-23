@@ -1,0 +1,34 @@
+$page-header-height: ($spacer * 4.5);
+$page-header-height-admin: ($spacer * 6.5);
+
+// Page header specific styles
+.page-header {
+  width: 100%;
+  background-color: $white;
+  border-bottom: $border-width solid $border-color;
+  z-index: $zindex-fixed;
+  @include media-breakpoint-up(lg) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    min-height: $page-header-height;
+  }
+  body.admin & { // this renders as body.admin .page-header specifying when the view is in admin status
+    @include media-breakpoint-up(lg) { min-height: $page-header-height-admin; }
+  }
+}
+
+// Moving .page-content container down with padding when page-header exists but ONLY on larger screens
+.page-header {
+  + .page-content {
+    @include media-breakpoint-up(lg) {
+      padding-top: $page-header-height;
+    }
+  }
+  body.admin & + .page-content { // this renders as body.admin .page-header + .page-content specifying when the view is in admin status
+    @include media-breakpoint-up(lg) {
+      padding-top: $page-header-height-admin;
+    }
+  }
+}

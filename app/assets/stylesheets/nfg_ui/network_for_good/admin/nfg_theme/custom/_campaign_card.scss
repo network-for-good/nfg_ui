@@ -2,5 +2,10 @@
 #campaign_image {
   height: ($spacer * 8);
   overflow: hidden;
-  .card-img { min-height: 100%; }
+  .card-img {
+    display: inline-block;
+    width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+  }
 }

@@ -16,7 +16,8 @@
     @include media-breakpoint-down(md) {
       &::before { content: none; }
       .card {
-        box-shadow: none;
+        border: none !important;
+        box-shadow: none !important;
         border-radius: 0;
       }
       .card-body { padding: 0; }

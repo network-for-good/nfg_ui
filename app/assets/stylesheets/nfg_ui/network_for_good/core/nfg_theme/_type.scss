@@ -15,6 +15,13 @@ h6, .h6 { line-height: 1.5; }
   text-transform: uppercase;
 }
 
+// Adjust heading sizes on smaller devices
+@include media-breakpoint-down(md) {
+  h1, .h1, h2, .h2, h3, .h3 {
+    font-size: $h4-font-size;
+    line-height: 1;
+  }
+}
 
 //
 // Misc
@@ -59,8 +66,8 @@ a.no-link-color {
     content: '';
     z-index: 0;
   }
-  .text-center, .btn-center { z-index: 10; }
-  .text-center {
+  [class*='text-'], .btn-center { z-index: 10; }
+  [class*='text-'] {
     position: relative;
     text-align: center;
     line-height: 1;

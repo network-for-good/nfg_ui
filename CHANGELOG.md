@@ -1,4 +1,22 @@
 # Changelog
+## 0.11.12
+CSS updates
+**Core**
+* adds "drawer" styles for top, right, bottom, and left variants (this uses current modal component as a base)
+* moves `.modal-cover` styles from admin to core
+* adds responsive type styles
+* makes text-divider styles accommodate more than `.text-center`
+* adds missing border-radius to default progress bar size
+
+**Public**
+* adds event livestream template styles
+* adds `.page-header` styles to public to replace sticky-div styles and accommodate new event livestream template styles (these are similar to event builder styles)
+* makes background white to better clear out NFG styles for customer styles and clears out sticky-div public styles
+* cleans up miscellaneous card and text-muted styles
+
+**Admin**
+* better image styles for campaign card on admin campaign index in FP
+
 ## 0.11.11.1
 * Fixes z-index for select2 dropdown menu when hosted within a modal.
 

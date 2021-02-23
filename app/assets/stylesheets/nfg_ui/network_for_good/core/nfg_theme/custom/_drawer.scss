@@ -1,0 +1,87 @@
+.drawer {
+  position: fixed;
+  width: 100%;
+  z-index: $zindex-modal;
+  background-color: $white;
+  box-shadow: $box-shadow;
+  transition: transform 0.5s cubic-bezier(0.4, 0.0, 0.2, 1);
+  opacity: 1 !important;
+
+  // Positions for drawer to slide in from
+  &.drawer-top {
+    top: 0;
+    right: auto;
+    bottom: auto;
+    left: 0;
+    transform: translate(0, -100%);
+  }
+  &.drawer-right {
+    top: 0;
+    right: 0;
+    bottom: auto;
+    left: auto;
+    transform: translate(100%, 0);
+  }
+  &.drawer-bottom {
+    top: auto;
+    right: auto;
+    bottom: 0;
+    left: 0;
+    transform: translate(0, 100%);
+  }
+  &.drawer-left {
+    top: 0;
+    right: auto;
+    bottom: auto;
+    left: 0;
+    transform: translate(-100%, 0);
+  }
+  &.drawer-top, &.drawer-bottom {
+    height: 100%;
+    @include media-breakpoint-up(lg) { height: auto; }
+  }
+  &.drawer-right, &.drawer-left {
+    height: 100%;
+    @include media-breakpoint-up(lg) { width: 32%; }
+  }
+  &.drawer-top, &.drawer-right, &.drawer-bottom, &.drawer-left {
+    &.show { transform: translate(0, 0); } // uses modal's show for slide animation
+  }
+}
+
+// Modal overrides for drawer to use modal component
+.drawer {
+  .modal-dialog {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    transition: none !important; // removes default fade in modal transition
+    transform: none !important; // removes default 50px transform that occurs on modal showing (.fade and .show)
+    .modal-content {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border: none;
+      box-shadow: none;
+      border-radius: 0;
+    }
+  }
+}
+
+// Hides modal backdrop default and need to be siblings
+.drawer ~ .modal-backdrop { display: none; }
+
+// Main drawer container
+.drawer-content {
+  height: 100%;
+  overflow-y: auto;
+}
+.drawer-section {
+  + .drawer-section { border-top: $border-width solid $border-color; }
+  &.drawer-section-scroll { overflow-y: scroll; }
+}
+.drawer-header, .drawer-body, .drawer-footer {
+  padding: $spacer;
+}

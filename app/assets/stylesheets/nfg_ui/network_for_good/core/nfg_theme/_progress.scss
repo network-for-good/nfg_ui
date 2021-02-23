@@ -1,4 +1,5 @@
 // Sizing options
+.progress { border-radius: $progress-height; }
 .progress-sm {
   height: ($spacer * .5);
   border-radius: ($spacer * .5);
