@@ -70,7 +70,7 @@ module NfgUi
         private
 
         def left_icon_component
-          NfgUi::Components::Foundations::Icon.new({traits: [left_icon],
+          NfgUi::Components::Foundations::Icon.new({ traits: [left_icon],
                                                      class: NfgUi::Components::Foundations::Icon::LEFT_ICON_SPACER_CSS_CLASS },
                                                    view_context).render
 
