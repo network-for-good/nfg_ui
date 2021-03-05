@@ -1,4 +1,7 @@
 # Changelog
+## 0.11.14
+* Fixes nfg_ui `Button` icon usage where a button without text (with an icon) would add a spacer class to the icon even when there was no text.
+
 ## 0.11.13
 * Addresses security vulnerability [CVE-2021-22880](https://github.com/advisories/GHSA-8hc4-xxm3-5ppp) by bumping `activerecord` from `5.2.4.4` to `5.2.4.5`
   * Essentially: bumps `rails` to `5.2.4.5`

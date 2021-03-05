@@ -43,12 +43,14 @@ module NfgUi
         end
 
         def render
+          @body = yield if block_given?
+
           if tooltip && disabled
             content_tag(:span, disabled_component_tooltip_wrapper_html_options) do
               content_tag(as, html_options) do
                 capture do
                   concat(left_icon_component) if left_icon
-                  concat(block_given? ? yield : body)
+                  concat(body)
                   concat(right_icon_component) if icon
                 end
               end
@@ -58,7 +60,7 @@ module NfgUi
             content_tag(as, html_options) do
               capture do
                 concat(left_icon_component) if left_icon
-                concat(block_given? ? yield : body)
+                concat(body)
                 concat(right_icon_component) if icon
               end
             end
@@ -76,8 +78,12 @@ module NfgUi
 
         def right_icon_component
           NfgUi::Components::Foundations::Icon.new({ traits: [icon, :right],
-                                                     class: NfgUi::Components::Foundations::Icon::RIGHT_ICON_SPACER_CSS_CLASS },
+                                                     class: right_icon_class },
                                                    view_context).render
+        end
+
+        def right_icon_class
+          NfgUi::Components::Foundations::Icon::RIGHT_ICON_SPACER_CSS_CLASS if body.present?
         end
 
         def base_element
