@@ -36,14 +36,15 @@
     > :last-child { margin-bottom: $spacer; }
   }
   &.event-sidebar-scroll {
-    @include media-breakpoint-up(lg) { overflow-y: scroll; }
+    @include media-breakpoint-up(lg) { overflow-y: auto; }
   }
   .event-sidebar-section {
     padding: $spacer;
     + .event-sidebar-section { border-top: $border-width solid $border-color; }
     &.event-sidebar-section-scroll {
+      height: 100%;
       min-height: ($spacer * 10); // sets min-height to ensure the scrollable area has room to be seen on restricted height devices (not mobile)
-      overflow-y: scroll;
+      overflow-y: auto;
     }
   }
 }
@@ -53,5 +54,29 @@
   .card[data-describe='donor-scroll'] {
     border: 0;
     .card-body { padding: 0; }
+  }
+}
+
+// chat container and message specific styles
+.event-sidebar-section-chat {
+  @include media-breakpoint-down(md) { // puts a border and height on mobile
+    height: ($spacer * 10);
+    border: $border-width solid $border-color;
+    border-radius: $border-radius;
+  }
+}
+.chat-container {
+  width: 100%;
+  max-height: 100%;
+  z-index: 0;
+}
+.chat-container-messages { max-height: 100%; }
+.chat-message {
+  width: 100%;
+  .icon-circle {
+    position: absolute;
+    top: -($spacer * .5);
+    left: -($spacer * .5);
+    z-index: 20;
   }
 }
