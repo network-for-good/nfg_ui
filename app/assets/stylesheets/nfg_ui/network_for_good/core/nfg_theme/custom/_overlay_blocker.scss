@@ -8,7 +8,7 @@
   font-family: $font-family-base;
   letter-spacing: 0;
   word-spacing: 0;
-  background-color: transparentize($white, 0.2);
+  background-color: transparentize($white, 0.1);
 }
 .overlay-blur {
   transition: $transition-base;

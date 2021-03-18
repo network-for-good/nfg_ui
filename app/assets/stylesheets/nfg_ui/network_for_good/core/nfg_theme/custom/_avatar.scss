@@ -6,7 +6,7 @@
   vertical-align: middle;
   width: ($spacer * 2);
   height: ($spacer * 2);
-  color: transparent;
+  color: $body-color;
   background-color: $border-color;
   border-radius: 50%;
 
@@ -22,7 +22,7 @@
     font-weight: $font-weight-bold;
     font-size: $font-size-base;
     line-height: 1.2;
-    color: $body-color;
+    color: inherit;
     text-align: center;
     white-space: nowrap;
     overflow: hidden;
