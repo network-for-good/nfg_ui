@@ -1,0 +1,10 @@
+// Chat functionality within FP admin and public (livestream event template)
+.chat-container {
+  display: -ms-flexbox;
+  -ms-flex-align: end;
+}
+.chat-messages {
+  display: -ms-flexbox;
+  -ms-flex-direction: column;
+  -ms-flex-align: end;
+}

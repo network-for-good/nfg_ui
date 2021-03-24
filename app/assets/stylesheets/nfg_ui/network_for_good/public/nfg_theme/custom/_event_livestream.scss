@@ -1,4 +1,4 @@
-// Styles specific to the event livestream styles
+// Styles specific to the event livestream
 .event {
   @include media-breakpoint-up(lg) { height: 100%; }
   .page-content {
@@ -42,9 +42,16 @@
     padding: $spacer;
     + .event-sidebar-section { border-top: $border-width solid $border-color; }
     &.event-sidebar-section-scroll {
+      flex-grow: 1;
       height: 100%;
       min-height: ($spacer * 10); // sets min-height to ensure the scrollable area has room to be seen on restricted height devices (not mobile)
       overflow-y: auto;
+    }
+    &.event-sidebar-section-container { // container for chat and donor scroll
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      height: 100%;
     }
   }
 }
@@ -59,6 +66,9 @@
 
 // chat container and message specific styles
 .event-sidebar-section-chat {
+  display: flex;
+  align-items: flex-end;
+  flex-grow: 1;
   @include media-breakpoint-down(md) { // puts a border and height on mobile
     height: ($spacer * 10);
     border: $border-width solid $border-color;

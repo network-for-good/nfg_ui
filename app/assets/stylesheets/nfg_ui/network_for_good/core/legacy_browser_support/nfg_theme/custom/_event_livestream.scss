@@ -1,0 +1,24 @@
+// Styles specific to the event livestream
+.event-sidebar {
+  @include media-breakpoint-up(lg) {
+    display: -ms-flexbox;
+    -ms-flex-direction: column;
+  }
+  .event-sidebar-section {
+    &.event-sidebar-section-scroll {
+      -ms-flex-positive: 1;
+    }
+    &.event-sidebar-section-container {
+      display: -ms-flexbox;
+      -ms-flex-direction: column;
+      -ms-flex-positive: 1;
+    }
+  }
+}
+
+// chat container and message specific styles
+.event-sidebar-section-chat {
+  display: -ms-flexbox;
+  -ms-flex-align: end;
+  -ms-flex-positive: 1;
+}
