@@ -82,3 +82,13 @@
   // need this because .chat-message delete button doesn't know user type in partial
   .hide-admin { display: none; }
 }
+
+// Allows for the login form to show in desktop and mobile.
+.event-sidebar-section-no-access {
+  overflow: hidden;
+  @include media-breakpoint-down(md) { height: 720px; }
+  .log-in { overflow-y: auto; }
+  .event-sidebar-section-chat {
+    @include media-breakpoint-down(md) { height: 100%; }
+  }
+}
