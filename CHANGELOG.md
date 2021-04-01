@@ -1,4 +1,8 @@
 # Changelog
+
+## 0.11.15
+* Introduces additional CSS styles needed to power the NFG Livestream Chat feature for giving page templates.
+
 ## 0.11.14
 * Fixes nfg_ui `Button` icon usage where a button without text (with an icon) would add a spacer class to the icon even when there was no text.
 
