@@ -8,6 +8,6 @@
       background-color: darken($value, 10%);
       border-color: darken($value, 10%);
     }
-    .btn-outline-secondary, .btn-link { color: $value; }
+    .btn-secondary, .btn-outline-secondary, .btn-link { color: $value; }
   }
 }

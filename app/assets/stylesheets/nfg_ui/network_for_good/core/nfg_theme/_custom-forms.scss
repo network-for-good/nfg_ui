@@ -7,9 +7,17 @@
   .custom-control-input {
     &:checked {
       ~ .custom-control-label,
-      ~ .custom-control-label::before { border-color: $input-focus-border-color; }
+      ~ .custom-control-label::before {
+        border-color: $input-focus-border-color;
+      }
+      ~ .custom-control-label::before {
+        box-shadow: 0 0 0 ($spacer * .125) transparentize($primary, 0.8);
+      }
     }
     &:focus:not(:checked) ~ .custom-control-label::before { border-color: $input-border-color; }
+  }
+  &.custom-control-block {
+    .custom-control-input:checked ~ .custom-control-label { box-shadow: 0 0 0 ($spacer * .125) transparentize($primary, 0.8); }
   }
   + .custom-control:not(.custom-control-inline) { margin-top: ($spacer * .25); }
 }
@@ -40,7 +48,7 @@
 // Tweak just a few things for radios.
 
 .custom-radio {
-  .custom-control-label::after { background-size: 45% 45%; }
+  .custom-control-label::after { background-size: 50% 50%; }
 }
 
 // Select
@@ -53,9 +61,13 @@
   display: block;
   width: auto;
   max-width: 100%;
-  font-weight: $btn-font-weight;
   cursor: pointer;
   box-shadow: none;
+  &:focus { border-color: $border-color; } // if focus has a color other than the original, it shows the new border color after user selects item in select
+  &:active {
+    border-color: $input-focus-border-color;
+    box-shadow: 0 0 0 ($spacer * .125) transparentize($primary, 0.8); // adds box-shadow for active only
+  }
 }
 
 // File
@@ -123,7 +135,7 @@
       background-color: $body-bg;
     }
     &::after {
-      top: 0;
+      top: 1px;
       background-color: $white;
       border: $border-width solid $border-color;
       border-radius: 50%;

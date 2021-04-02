@@ -1,23 +1,26 @@
 .dropdown-toggle::after { content: none; }
 
 
+// The dropdown menu
+.dropdown-menu { padding: $dropdown-padding-y $dropdown-padding-x; }
+
+
 // Links, buttons, and more within the dropdown menu
 .dropdown-item {
-  + .dropdown-item { border-top: $border-width solid $border-color; }
+  @include border-radius($dropdown-inner-border-radius);
   &.disabled, &:disabled {
-    background-color: $body-bg;
+    background-color: $input-disabled-bg;
     cursor: default;
     pointer-events: none;
   }
   &:not(.text-danger) { color: inherit !important; }
 }
 
-
 // Dropdown section headers
 .dropdown-header {
-  padding-top: ($spacer * .5);
-  padding-bottom: ($spacer * .5);
-  + .dropdown-item { border-top: $border-width solid $border-color; }
+  font-size: $font-size-base;
+  padding-top: ($spacer * .25);
+  padding-bottom: ($spacer * .25);
 }
 
 
@@ -29,7 +32,6 @@
 .dropdown-menu-lg {
   @include media-breakpoint-up(sm) { min-width: ($spacer * 24); }
 }
-
 
 
 // Styles for wider "My Tools" dropdown in top nav

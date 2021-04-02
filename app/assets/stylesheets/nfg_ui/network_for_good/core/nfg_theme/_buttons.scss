@@ -1,9 +1,40 @@
+// Sets box-shadow interaction to override bootstrap's defaults
+@each $color, $value in $theme-colors {
+  .btn-#{$color}, .btn-outline-#{$color} {
+    &:focus,
+    &.focus {
+      @include box-shadow($btn-active-box-shadow, 0 0 0 $btn-focus-width transparentize($value, 0.8));
+    }
+    &:not(:disabled):not(.disabled):active,
+    &:not(:disabled):not(.disabled).active,
+    .show > &.dropdown-toggle {
+      @include box-shadow($btn-active-box-shadow, 0 0 0 $btn-focus-width transparentize($value, 0.8));
+      &:focus { @include box-shadow($btn-active-box-shadow, 0 0 0 $btn-focus-width transparentize($value, 0.8)); }
+    }
+  }
+}
+
+
 // Custom secondary button usage
-.btn-outline-secondary {
+[class*='btn-outline'], .btn-secondary {
+  padding-top: $input-btn-padding-y;
+  padding-bottom: $input-btn-padding-y;
+  border-width: $border-width;
+  box-shadow: transparentize($black, 0.9) 0px 1px 0px 0px;
+  &.btn-sm {
+    padding-top: $input-btn-padding-y-sm;
+    padding-bottom: $input-btn-padding-y-sm;
+  }
+  &.btn-lg {
+    padding-top: $input-btn-padding-y-lg;
+    padding-bottom: $input-btn-padding-y-lg;
+  }
+}
+.btn-secondary, .btn-outline-secondary {
   color: $primary;
   background-color: $white;
-  border-color: $border-color;
-  @include hover {
+  border: $border-width solid $border-color;
+  @include hover-focus {
     color: $body-color !important;
     background-color: $body-bg;
   }
@@ -14,7 +45,10 @@
     background-color: $body-bg;
   }
 }
-.btn-link { font-weight: $btn-font-weight; }
+.btn-link {
+  font-weight: $btn-font-weight;
+  &:hover { text-decoration: underline; }
+}
 
 // overrides color contrast settings
 .btn-warning { color: $white !important; }

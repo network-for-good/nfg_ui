@@ -11,11 +11,11 @@
         }
         &.active ~ .visited {
           .step-indicator {
-            &::after { box-shadow: 0 0 0 ($spacer * .25) transparentize($value, 0.5); };
+            &::after { box-shadow: 0 0 0 ($spacer * .25) transparentize($value, 0.8); };
           }
         }
         .step-indicator {
-          &::after { box-shadow: 0 0 0 ($spacer * .25) transparentize($value, 0.5); }
+          &::after { box-shadow: 0 0 0 ($spacer * .25) transparentize($value, 0.8); }
         }
       }
     }

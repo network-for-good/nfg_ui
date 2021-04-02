@@ -1,5 +1,4 @@
 // Specific styles for entity branding
-
 .btn-primary {
   color: color-yiq($primary);
   background-color: $primary;
@@ -9,6 +8,10 @@
     background-color: darken($primary, 10%);
     border-color: darken($primary, 10%);
   }
+  &:focus,
+  &.focus {
+    @include box-shadow($btn-active-box-shadow, 0 0 0 $btn-focus-width transparentize($primary, 0.8));
+  }
   &.disabled,
   &:disabled,
   &:not(:disabled):not(.disabled):active,
@@ -17,15 +20,19 @@
     color: color-yiq($primary);
     background-color: $primary;
     border-color: $primary;
+    @include box-shadow($btn-active-box-shadow, 0 0 0 $btn-focus-width transparentize($primary, 0.8));
+    &:focus { @include box-shadow($btn-active-box-shadow, 0 0 0 $btn-focus-width transparentize($primary, 0.8)); }
   }
 }
 
-.btn-outline-secondary {
+.btn-secondary, .btn-outline-secondary {
   color: color-yiq($primary, $yiq-text-dark, $primary);
   &:hover { color: color-yiq($primary, $yiq-text-dark, $primary) !important; }
   &:not(:disabled):not(.disabled):active,
   &:not(:disabled):not(.disabled).active,
-  .show > &.dropdown-toggle { color: color-yiq($primary, $yiq-text-dark, $primary) !important; }
+  .show > &.dropdown-toggle {
+    color: color-yiq($primary, $yiq-text-dark, $primary) !important;
+  }
 }
 
 .btn-link {
