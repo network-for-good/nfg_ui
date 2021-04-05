@@ -128,19 +128,20 @@ $enable-validation-icons:                     false;
 // You can add more entries to the $spacers map, should you need more variation.
 
 $spacer: 3.2rem;
-// $spacers: () !default;
+$spacers: ();
 // stylelint-disable-next-line scss/dollar-variable-default
-// $spacers: map-merge(
-//   (
-//     0: 0,
-//     1: ($spacer * .25),
-//     2: ($spacer * .5),
-//     3: $spacer,
-//     4: ($spacer * 1.5),
-//     5: ($spacer * 3)
-//   ),
-//   $spacers
-// );
+$spacers: map-merge(
+  (
+    0: 0,
+    1: ($spacer * .25),
+    2: ($spacer * .5),
+    3: $spacer,
+    4: ($spacer * 1.25),
+    5: ($spacer * 2),
+    6: ($spacer * 3)
+  ),
+  $spacers
+);
 
 // This variable affects the `.h-*` and `.w-*` classes.
 // $sizes: () !default;
@@ -689,11 +690,11 @@ $form-validation-states: map-merge(
 // Navs
 
 $nav-link-padding-y:                ($spacer * .5);
-$nav-link-padding-x:                $spacer;
+$nav-link-padding-x:                ($spacer * .75);
 $nav-link-disabled-color:           $text-muted;
 
 $nav-tabs-border-color:             $border-color;
-$nav-tabs-border-width:             3px;
+$nav-tabs-border-width:             4px;
 $nav-tabs-border-radius:            0;
 $nav-tabs-link-hover-border-color:  $primary;
 $nav-tabs-link-active-color:        $body-color;
@@ -820,8 +821,8 @@ $jumbotron-bg:                      $body-bg;
 
 // Cards
 
-$card-spacer-y:                     $spacer;
-$card-spacer-x:                     $spacer;
+$card-spacer-y:                     ($spacer * .75);
+$card-spacer-x:                     ($spacer * .75);
 $card-border-width:                 $border-width;
 // $card-border-radius:                $border-radius !default;
 $card-border-color:                 $border-color;
@@ -1038,15 +1039,15 @@ $figure-caption-color:              $text-muted;
 
 // Breadcrumbs
 
-// $breadcrumb-padding-y:              .75rem !default;
-// $breadcrumb-padding-x:              1rem !default;
-// $breadcrumb-item-padding:           .5rem !default;
+$breadcrumb-padding-y:              0;
+$breadcrumb-padding-x:              0;
+$breadcrumb-item-padding:           ($spacer * .25);
 
-// $breadcrumb-margin-bottom:          1rem !default;
+$breadcrumb-margin-bottom:          $spacer;
 
-// $breadcrumb-bg:                     $gray-200 !default;
-// $breadcrumb-divider-color:          $gray-600 !default;
-// $breadcrumb-active-color:           $gray-600 !default;
+$breadcrumb-bg:                     transparent;
+$breadcrumb-divider-color:          $border-color;
+$breadcrumb-active-color:           $text-muted;
 // $breadcrumb-divider:                quote("/") !default;
 
 // $breadcrumb-border-radius:          $border-radius !default;

@@ -1,3 +1,16 @@
-// overrides color contrast settings
-.badge-secondary { color: $white !important; }
-.badge-warning { color: $white !important; }
+.badge {
+  color: $body-color;
+  border: $border-width solid transparent;
+}
+
+
+// Colors
+//
+// Contextual variations (linked badges get darker on :hover).
+@each $color, $value in $theme-colors {
+  .badge-#{$color} {
+    background: transparentize($value, 0.8);
+    background: scale-color($value, $lightness: 80%);
+    border-color: $value;
+  }
+}

@@ -1,7 +1,6 @@
 //
 // Base styles
 //
-
 .tile {
   display: block;
   margin-right: auto;
@@ -9,36 +8,35 @@
   word-wrap: break-word;
   background-color: $white;
   border: $border-width solid $border-color;
+  border-radius: $border-radius-lg;
   + .tile { margin-top: $spacer; }
 }
-
+.tile-body, .tile-header, .tile-footer { padding: ($grid-gutter-width * .75); }
 .tile-body {
-  padding: $grid-gutter-width;
-  @include media-breakpoint-up(sm) { padding: ($grid-gutter-width * 1.5); }
+  @include media-breakpoint-up(sm) { padding: ($grid-gutter-width * 1.25) $grid-gutter-width; }
 }
+
 
 // Sections within a tile used to separate groups of content
 .tile-section {
   display: block;
   margin-right: auto;
   margin-left: auto;
-  @include media-breakpoint-down(sm) { padding-bottom: ($grid-gutter-width * 1.5); }
+  @include media-breakpoint-down(sm) { padding-bottom: $grid-gutter-width; }
   @include media-breakpoint-up(sm) { padding-bottom: ($grid-gutter-width * 2); }
   &:last-child { padding-bottom: 0; }
   + .tile-section {
     border-top: $border-width solid $border-color;
-    @include media-breakpoint-down(sm) { padding-top: ($grid-gutter-width * 1.5); }
+    @include media-breakpoint-down(sm) { padding-top: $grid-gutter-width; }
     @include media-breakpoint-up(sm) { padding-top: ($grid-gutter-width * 2); }
   }
 }
 
+
 //
 // Optional textual caps
 //
-
 .tile-header, .tile-footer {
-  padding: ($grid-gutter-width / 2) $grid-gutter-width;
-  background-color: $white;
   @include media-breakpoint-up(sm) { padding: $grid-gutter-width; }
 }
 .tile-header {
@@ -49,13 +47,13 @@
 }
 .tile-body + .tile-footer { border-top: $border-width solid $border-color; }
 
+
 //
 // Header navs
 //
-
 .tile-header-tabs {
   margin-right: -$grid-gutter-width;
-  margin-bottom: -($grid-gutter-width / 2);
+  margin-bottom: -($grid-gutter-width * .75);
   margin-left: -$grid-gutter-width;
   border-bottom: 0;
   @include media-breakpoint-up(sm) { margin-bottom: -$grid-gutter-width; }

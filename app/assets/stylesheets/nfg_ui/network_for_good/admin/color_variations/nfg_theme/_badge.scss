@@ -1,8 +1,8 @@
 @each $color, $value in $colors {
   .#{$color} {
     .badge-primary {
-      @include badge-variant($value);
-      color: $white !important;
+      background: scale-color($value, $lightness: 80%);
+      border-color: $value;
     }
   }
 }

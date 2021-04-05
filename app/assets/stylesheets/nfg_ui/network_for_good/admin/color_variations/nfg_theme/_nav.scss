@@ -2,7 +2,9 @@
   .#{$color} {
     .nav-tabs {
       .nav-link {
-        &:hover, &.active { border-color: $value; }
+        &:hover, &.active {
+          &:after { background: $value; }
+        }
       }
     }
   }
