@@ -10,7 +10,7 @@
   }
   &:focus,
   &.focus {
-    @include box-shadow($btn-active-box-shadow, 0 0 0 $btn-focus-width transparentize($primary, 0.8));
+    box-shadow: 0 0 0 $input-btn-focus-width transparentize($primary, 0.8);
   }
   &.disabled,
   &:disabled,
@@ -20,8 +20,8 @@
     color: color-yiq($primary);
     background-color: $primary;
     border-color: $primary;
-    @include box-shadow($btn-active-box-shadow, 0 0 0 $btn-focus-width transparentize($primary, 0.8));
-    &:focus { @include box-shadow($btn-active-box-shadow, 0 0 0 $btn-focus-width transparentize($primary, 0.8)); }
+    box-shadow: 0 0 0 $input-btn-focus-width transparentize($primary, 0.8);
+    &:focus { box-shadow: 0 0 0 $input-btn-focus-width transparentize($primary, 0.8); }
   }
 }
 
