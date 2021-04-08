@@ -112,7 +112,7 @@ $slat-actions-lg-width: 108px;
 
 // Slat header
 .slat-header {
-  padding-bottom: ($spacer * .5);
+  padding-bottom: ($spacer * .25);
   border-bottom: $border-width solid $border-color;
   .slat { padding: 0 !important; }
   .slat-body { align-items: center; }

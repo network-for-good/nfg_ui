@@ -25,7 +25,7 @@
       }
     }
     .custom-select {
-      &:active {
+      &:active, &:focus {
         border-color: $value;
         box-shadow: 0 0 0 ($spacer * .125) transparentize($value, 0.8);
       }

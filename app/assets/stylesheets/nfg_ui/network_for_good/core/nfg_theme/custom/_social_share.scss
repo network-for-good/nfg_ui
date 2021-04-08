@@ -21,26 +21,27 @@ $social-media-colors: map-merge(
 
 
 // Buttons
-@each $color, $value in $social-media-colors {
-  .btn-#{$color} {
+@each $social-media, $value in $social-media-colors {
+  .btn-#{$social-media} {
+    color: $white !important;
     @include button-variant($value, $value);
   }
 }
 
-@each $color, $value in $social-media-colors {
-  .btn-outline-#{$color} {
+@each $social-media, $value in $social-media-colors {
+  .btn-outline-#{$social-media} {
     @include button-outline-variant($value);
   }
 }
 
 
 // Text
-@each $color, $value in $social-media-colors {
-  @include text-emphasis-variant(".text-#{$color}", $value);
+@each $social-media, $value in $social-media-colors {
+  @include text-emphasis-variant(".text-#{$social-media}", $value);
 }
 
 
 // Backgrounds
-@each $color, $value in $social-media-colors {
-  @include bg-variant(".bg-#{$color}", $value);
+@each $social-media, $value in $social-media-colors {
+  @include bg-variant(".bg-#{$social-media}", $value);
 }

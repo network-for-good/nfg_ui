@@ -1,58 +1,21 @@
 // Styles that replicate the legacy top navs in EVO
 #admin-nav {
-  background-color: #444444;
+  background-color: $gray-900;
   .navbar {
     background: transparent !important;
     .navbar-nav {
       .nav-item {
-        @include media-breakpoint-up(lg) {
-          + .nav-item { border-left: $border-width solid #4d4d4d; }
-        }
         > .nav-link {
-          padding: $spacer ($spacer * .5);
-          font-size: $font-size-sm;
-          font-weight: $font-weight-bold;
-          &:hover {
-            color: $navbar-dark-hover-color;
-            background-color: #414141;
-          }
-          > .fa {
-            color: #626262;
-            &:first-child { margin-right: ($spacer * .25); }
-          }
+          padding-top: $spacer;
+          padding-bottom: $spacer;
+          @include hover-focus() { background-color: $gray-800; }
         }
-        &.active {
-          > .nav-link {
-            color: $navbar-dark-active-color;
-            background-color: #4b4b4b;
-            > .fa { color: $navbar-dark-active-color; }
-          }
-        }
+        &.active > .nav-link { background-color: $gray-800; }
       }
       .dropdown-menu {
-        margin-top: 0;
-        border-radius: 0 0 $border-radius $border-radius;
-        background-color: #525252;
         .dropdown-item {
           padding: 0;
-          + .dropdown-item { border-top: none; }
-          &.active {
-            background-color: transparent;
-            .nav-link {
-              color: #cccccc;
-              border-left-color: $teal;
-            }
-          }
-        }
-        .nav-link {
-          padding: ($spacer * .5);
-          color: #989797;
-          border-left: 5px solid transparent;
-          &:hover {
-            color: #cccccc;
-            background-color: #575757;
-            border-left-color: #616161;
-          }
+          &.active .nav-link, .nav-link { color: inherit; }
         }
       }
     }
@@ -60,48 +23,30 @@
 }
 
 #admin-toolbar {
-  padding-top: 2px;
-  font-size: 12px;
-  font-weight: $font-weight-bold;
-  line-height: 1;
-  background-color: #2b2b2b;
-  &:before {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background-color: $teal;
-    z-index: 5;
-    content: '';
-  }
-  .navbar { background: transparent !important; }
+  font-size: $font-size-sm;
+  background-color: $gray-800;
   .navbar-brand {
-    font-size: 11px;
-    font-weight: $font-weight-bold;
-    line-height: 1;
-    text-transform: uppercase;
+    padding-top: ($spacer * .25);
+    padding-bottom: ($spacer * .25);
+    font-size: $font-size-sm;
+    color: $gray-500;
   }
   .nav-item {
     > .nav-link {
       padding: ($spacer * .5);
-      text-transform: uppercase;
-      color: $teal;
+      color: $gray-500;
       transition: $transition-base;
-      &:hover { background-color: #515151; }
-      @include media-breakpoint-down(sm) { font-size: 14px; }
-    }
-    &.show {
-      > .nav-link {
-        background-color: #fff;
-        color: $teal;
+      @include hover-focus() {
+        color: $border-color;
+        background-color: $gray-900;
       }
     }
-    .dropdown-menu {
-      margin-top: 0;
-      border-radius: 0 0 $border-radius $border-radius;
-      .dropdown-item, .nav-link { color: $teal; }
-      .nav-link { padding: 0; }
+    #sysadmin_dropdown {
+      .dropdown-item { padding: 0; }
+      .nav-link {
+        padding: $dropdown-item-padding-y $dropdown-item-padding-x;
+        color: inherit;
+      }
     }
   }
 }

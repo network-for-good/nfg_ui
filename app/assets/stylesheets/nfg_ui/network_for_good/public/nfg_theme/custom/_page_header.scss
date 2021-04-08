@@ -1,5 +1,5 @@
-$page-header-height: ($spacer * 4.5);
-$page-header-height-admin: ($spacer * 6.5);
+$page-header-height: ($spacer * 3.5); // 11.2rem
+$page-header-height-admin: ($spacer * 5); // 16rem
 
 // Page header specific styles
 .page-header {
@@ -22,13 +22,9 @@ $page-header-height-admin: ($spacer * 6.5);
 // Moving .page-content container down with padding when page-header exists but ONLY on larger screens
 .page-header {
   + .page-content {
-    @include media-breakpoint-up(lg) {
-      padding-top: $page-header-height;
-    }
+    @include media-breakpoint-up(lg) { padding-top: $page-header-height; }
   }
   body.admin & + .page-content { // this renders as body.admin .page-header + .page-content specifying when the view is in admin status
-    @include media-breakpoint-up(lg) {
-      padding-top: $page-header-height-admin;
-    }
+    @include media-breakpoint-up(lg) { padding-top: $page-header-height-admin; }
   }
 }

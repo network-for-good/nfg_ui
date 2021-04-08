@@ -64,7 +64,7 @@
   cursor: pointer;
   box-shadow: none;
   &:focus { border-color: $border-color; } // if focus has a color other than the original, it shows the new border color after user selects item in select
-  &:active {
+  &:active, &:focus {
     border-color: $input-focus-border-color;
     box-shadow: 0 0 0 ($spacer * .125) transparentize($primary, 0.8); // adds box-shadow for active only
   }

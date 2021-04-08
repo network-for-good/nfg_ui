@@ -20,8 +20,7 @@
 }
 
 .custom-select {
-  background-image: $custom-select-indicator;
-  &:active {
+  &:active, &:focus {
     border-color: $primary;
     box-shadow: 0 0 0 ($spacer * .125) transparentize($primary, 0.8);
   }
