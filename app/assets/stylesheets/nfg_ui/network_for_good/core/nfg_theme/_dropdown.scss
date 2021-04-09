@@ -7,8 +7,9 @@
 
 // Links, buttons, and more within the dropdown menu
 .dropdown-item {
-  @include border-radius($dropdown-inner-border-radius);
+  border-radius: $dropdown-inner-border-radius;
   &.disabled, &:disabled {
+    color: $dropdown-link-disabled-color !important;
     background-color: $input-disabled-bg;
     cursor: default;
     pointer-events: none;

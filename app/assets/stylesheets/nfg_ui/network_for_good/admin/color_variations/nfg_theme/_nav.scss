@@ -13,7 +13,9 @@
   .site-nav {
     .nav-item.#{$color} {
       .nav-link {
-        &:hover, &.active, &[aria-expanded="true"] { border-color: $value; }
+        &:hover, &.active, &[aria-expanded="true"] {
+          &:after { background-color: $value; }
+        }
       }
     }
   }

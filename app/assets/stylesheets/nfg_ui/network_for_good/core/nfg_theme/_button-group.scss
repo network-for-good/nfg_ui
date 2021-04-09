@@ -24,6 +24,7 @@
 // Buttons on quick add modal in DMS
 .btn-group-quick-add {
   .col-4 {
+    padding: 0;
     &:nth-child(1n) { border-left: $border-width solid $border-color; }
     @include media-breakpoint-down(sm) {
       &:first-child { border-left: none; }

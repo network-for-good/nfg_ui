@@ -1,10 +1,10 @@
 // Setting a common height for the builder header and nav
-$builder-header-height: ($spacer * 3);
-$builder-header-padding: ($spacer * .5);
-$builder-nav-height: ($spacer * 4.5);
+$builder-header-height: ($spacer * 2.25);
+$builder-header-padding: ($spacer * .25) ($spacer * .5);
+$builder-nav-height: ($spacer * 4.125);
 $builder-nav-padding: $spacer;
 $builder-options-padding: $spacer;
-$builder-preview-padding: ($spacer * 2);
+$builder-preview-padding: ($spacer * 1.5);
 
 // Put on the <body> to help with correct scrolling within builder-wrap and builder-options
 .builder-layout {
@@ -51,7 +51,7 @@ $builder-preview-padding: ($spacer * 2);
 .builder-nav-sm {
   position: fixed;
   bottom: 0;
-  padding: ($builder-nav-padding * .5);
+  padding: $builder-header-padding;
   min-height: $builder-header-height;
   background-color: $dark;
   @include media-breakpoint-up(lg) { display: none; }

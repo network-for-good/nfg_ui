@@ -48,6 +48,7 @@
 
 // Avatar as a link
 a.avatar {
+  color: inherit !important;
   opacity: 1;
   transition: $transition-fade;
   &:hover, &:active { opacity: $btn-disabled-opacity; }
