@@ -1,16 +1,17 @@
 // Styles that replicate the legacy top navs in EVO
 #admin-nav {
-  background-color: $gray-900;
+  background-color: $primary-1000;
   .navbar {
-    background: transparent !important;
+    background-color: transparent !important;
     .navbar-nav {
       .nav-item {
         > .nav-link {
           padding-top: $spacer;
           padding-bottom: $spacer;
-          @include hover-focus() { background-color: $gray-800; }
+          transition: $transition-base;
+          @include hover-focus() { background-color: $primary-900; }
         }
-        &.active > .nav-link { background-color: $gray-800; }
+        &.active > .nav-link { background-color: $primary-900; }
       }
       .dropdown-menu {
         .dropdown-item {
@@ -24,28 +25,31 @@
 
 #admin-toolbar {
   font-size: $font-size-sm;
-  background-color: $gray-800;
-  .navbar-brand {
-    padding-top: ($spacer * .25);
-    padding-bottom: ($spacer * .25);
-    font-size: $font-size-sm;
-    color: $gray-500;
-  }
-  .nav-item {
-    > .nav-link {
-      padding: ($spacer * .5);
+  background-color: $primary-1100;
+  .navbar {
+    background-color: transparent !important;
+    .navbar-brand {
+      padding-top: ($spacer * .25);
+      padding-bottom: ($spacer * .25);
+      font-size: $font-size-sm;
       color: $gray-500;
-      transition: $transition-base;
-      @include hover-focus() {
-        color: $border-color;
-        background-color: $gray-900;
-      }
     }
-    #sysadmin_dropdown {
-      .dropdown-item { padding: 0; }
-      .nav-link {
-        padding: $dropdown-item-padding-y $dropdown-item-padding-x;
-        color: inherit;
+    .nav-item {
+      > .nav-link {
+        padding: ($spacer * .5);
+        color: $gray-500;
+        transition: $transition-base;
+        @include hover-focus() {
+          color: $border-color;
+          background-color: $primary-1000;
+        }
+      }
+      #sysadmin_dropdown {
+        .dropdown-item { padding: 0; }
+        .nav-link {
+          padding: $dropdown-item-padding-y $dropdown-item-padding-x;
+          color: inherit;
+        }
       }
     }
   }

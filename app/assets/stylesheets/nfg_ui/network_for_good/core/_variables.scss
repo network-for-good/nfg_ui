@@ -91,6 +91,21 @@ $danger:        $red;
 //   $theme-colors
 // );
 
+
+// Scale of $primary
+$primary-100:   #d3eefb;
+$primary-200:   #a8def7;
+$primary-300:   #7ccdf3;
+$primary-400:   #51bdef;
+$primary-500:   $primary;
+$primary-600:   #1e8abc;
+$primary-700:   #16678d;
+$primary-800:   #135676;
+$primary-900:   #0f455e;
+$primary-1000:  #0b3446;
+$primary-1100:  #07222f;
+
+
 // Set a specific jump point for requesting color jumps
 // $theme-color-interval:      8% !default;
 
