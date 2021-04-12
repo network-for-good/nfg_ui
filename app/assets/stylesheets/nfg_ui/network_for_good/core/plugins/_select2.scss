@@ -36,7 +36,7 @@ body.modal-open  {
     vertical-align: middle;
     background: $custom-select-bg $custom-select-indicator no-repeat right $custom-select-padding-x center;
     background-size: $custom-select-bg-size;
-    border: $custom-select-border-width solid $custom-select-border-color !important;
+    border: $custom-select-border-width solid $custom-select-border-color;
     border-radius: $border-radius;
     outline: none;
     cursor: pointer;
@@ -86,7 +86,7 @@ body.modal-open  {
         transition: $transition-base;
         &:hover, &:active {
           color: $body-color;
-          background-color: theme-color("light");
+          background-color: $dropdown-link-active-bg;
         }
         + li { margin-top: 0; }
       }
