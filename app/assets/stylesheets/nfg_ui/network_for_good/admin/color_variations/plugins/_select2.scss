@@ -1,49 +1,27 @@
 @each $color, $value in $colors {
   .#{$color} {
     .select2-container--default {
-      .select2-search--dropdown {
-        .select2-search__field:focus {
-          border-color: $value;
-        }
-      }
-      &.select2-container--focus .select2-selection--multiple { border-color: $value; }
-      &.select2-container--open {
-        .select2-selection--single {
-          border-color: $value !important;
-          .select2-selection__rendered { color: $body-color; }
-        }
-      }
-      .select2-selection--single {
-        &:hover .select2-selection__rendered { color: $body-color; }
-        .select2-selection__rendered, .select2-selection__placeholder { color: $value !important; }
+      .select2-search--dropdown .select2-search__field:focus,
+      &.select2-container--focus .select2-selection--multiple,
+      &.select2-container--open .select2-selection--single {
+        border-color: $value;
+        box-shadow: 0 0 0 ($spacer * .125) transparentize($value, 0.8);
       }
       .select2-selection--multiple {
         .select2-selection__rendered {
           .select2-selection__choice {
-            color: $value;
             &:hover, &:active { color: $body-color; }
           }
         }
         .select2-selection__choice__remove { color: $value;  }
       }
     }
-    .has-danger {
-      .select2-container--default {
-        .select2-selection--single .select2-selection__rendered,
-        .select2-selection--multiple .select2-selection__rendered {
-          color: $danger;
-        }
-      }
-    }
-    .select2-selection__rendered .select2-selection__clear:before { color: $value; }
   }
   .#{$color} ~ .select2-container--default { // ~ is needed to style containers and elements outside of .container-main and still adhere to the page's specifc resource_color
     .select2-search--dropdown {
-      .select2-search__field:focus { border-color: $value; }
-    }
-    .select2-results__option {
-      &[aria-selected='true'] {
-        &:after { color: $value; }
+      .select2-search__field:focus {
+        border-color: $value;
+        box-shadow: 0 0 0 ($spacer * .125) transparentize($value, 0.8);
       }
     }
   }
