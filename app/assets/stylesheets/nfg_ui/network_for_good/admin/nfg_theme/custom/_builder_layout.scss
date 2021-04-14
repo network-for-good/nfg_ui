@@ -1,8 +1,8 @@
 // Setting a common height for the builder header and nav
 $builder-header-height: ($spacer * 2.25);
 $builder-header-padding: ($spacer * .25) ($spacer * .5);
-$builder-nav-height: ($spacer * 4.125);
-$builder-nav-padding: $spacer;
+$builder-nav-height: ($spacer * 3.25);
+$builder-nav-padding: ($spacer * .75) ($spacer * .5);
 $builder-options-padding: $spacer;
 $builder-preview-padding: ($spacer * 1.5);
 
@@ -27,6 +27,7 @@ $builder-preview-padding: ($spacer * 1.5);
     left: 0;
     right: 0;
   }
+  .text-muted { color: $gray-500 !important; }
 }
 .builder-header-fixed-bottom {
   position: fixed;

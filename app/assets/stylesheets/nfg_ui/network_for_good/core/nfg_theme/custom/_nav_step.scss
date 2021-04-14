@@ -4,7 +4,7 @@
 .nav-steps {
   .nav-item {
     position: relative;
-
+    line-height: 1;
 
     // Background connector bar between items
     &::before {
@@ -103,6 +103,7 @@
         content: '';
       }
     }
+    .step-text { line-height: 1.143; }
   }
 
 

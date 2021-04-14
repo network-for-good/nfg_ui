@@ -78,10 +78,7 @@
     .nav-link {
       padding-right: ($nav-link-padding-x * .5);
       padding-left: ($nav-link-padding-x * .5);
-      color: $teal;
-      &:hover {
-        background-color: $gray-900;
-      }
+      &:hover { background-color: $gray-900; }
     }
   }
 }
