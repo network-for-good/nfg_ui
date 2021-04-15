@@ -1,3 +1,6 @@
+// Footer (for actions)
+.modal-footer { justify-content: flex-start; } // Left align buttons which overrides bootstrap's default of right aligned
+
 // Full page cover modal option
 .modal-cover {
   margin: 0;
