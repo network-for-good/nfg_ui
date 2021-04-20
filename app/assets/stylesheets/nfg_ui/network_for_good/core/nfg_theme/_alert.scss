@@ -22,3 +22,12 @@
 .alert-light, .alert-dark {
   a:not(.btn) { color: inherit; }
 }
+
+// Absolute Positioning Alerts
+.alert[data-position-absolute='true'] {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: $zindex-modal + 1;
+  box-shadow: $box-shadow-sm;
+}

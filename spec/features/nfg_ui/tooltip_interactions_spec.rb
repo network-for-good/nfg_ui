@@ -148,7 +148,7 @@ end
 
 def confirm_tooltip_presence(selector:)
   scroll_to_element selector
-  sleep 0.1
+  sleep 0.25
   page.find(selector).hover
   wait_for_tooltip
   expect(page).to have_css tooltip_id(selector: selector)
