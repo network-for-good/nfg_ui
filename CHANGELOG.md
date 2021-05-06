@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.11.16
+* Addresses security vulnerability [CVE-2021-22904](https://github.com/advisories/GHSA-7wjx-3g7j-8584) by bumping `actionpack` from `5.2.4.6` to `5.2.6`
+
 ## 0.11.15
 * Introduces additional CSS styles needed to power the NFG Livestream Chat feature for giving page templates.
 
