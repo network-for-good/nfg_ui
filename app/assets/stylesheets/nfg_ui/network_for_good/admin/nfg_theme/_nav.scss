@@ -4,7 +4,7 @@
   top: 0;
   width: 200px;
   height: 100%;
-  background-color: $gray-800;
+  background-color: $blue-700;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   @include transition(all .2s ease-in-out);
@@ -67,8 +67,8 @@
         padding-bottom: ($spacer * .5);
         font-size: $font-size-sm;
         line-height: $line-height-sm;
-        background-color: $gray-900;
-        &:hover, &:focus, &.active { background-color: $gray-700; }
+        background-color: $blue-900;
+        &:hover, &:focus, &.active { background-color: $blue-1000; }
       }
     }
   }

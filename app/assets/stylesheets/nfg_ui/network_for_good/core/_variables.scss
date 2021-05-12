@@ -66,6 +66,20 @@ $green:   #59bf22;
 //   $colors
 // );
 
+
+// Blue (primary) scale
+$blue-100: #d3eefb;
+$blue-200: #a8def7;
+$blue-300: #7ccdf3;
+$blue-400: #51bdef;
+$blue-500: #1e8abc;
+$blue-600: #16678d;
+$blue-700: #135676;
+$blue-800: #0f455e;
+$blue-900: #0b3446;
+$blue-1000: #07222f;
+
+
 $primary:       $blue !default; // need !default for $primary to work properly (override) in entity_branding
 // $secondary:     $gray-600 !default;
 $success:       $green;
@@ -706,7 +720,7 @@ $nav-tabs-link-active-border-color: $primary;
 
 $nav-pills-border-radius:           0;
 $nav-pills-link-active-color:       $white;
-$nav-pills-link-active-bg:          $gray-900;
+$nav-pills-link-active-bg:          $blue-800;
 
 $nav-divider-color:                 $border-color;
 $nav-divider-margin-y:              0;

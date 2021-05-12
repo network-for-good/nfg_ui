@@ -38,7 +38,7 @@
 }
 
 #admin-nav {
-  background-color: $gray-800;
+  background-color: $blue-700;
   .navbar {
     background-color: transparent !important;
     .navbar-nav {
@@ -46,10 +46,11 @@
         > .nav-link {
           padding-top: $spacer;
           padding-bottom: $spacer;
+          color: $white;
           transition: $transition-base;
-          @include hover-focus() { background-color: $gray-900; }
+          @include hover-focus() { background-color: $blue-800; }
         }
-        &.active > .nav-link { background-color: $gray-900; }
+        &.active > .nav-link { background-color: $blue-800; }
       }
       .dropdown-menu {
         .dropdown-item {
@@ -73,7 +74,7 @@
 }
 
 #p2p-nav {
-  background-color: $gray-800;
+  background-color: $blue-800;
   .navbar-nav {
     .nav-link {
       padding-right: ($nav-link-padding-x * .5);

@@ -19,7 +19,7 @@ $builder-preview-padding: ($spacer * 1.5);
   padding: $builder-header-padding;
   width: 100%;
   min-height: $builder-header-height;
-  background-color: $dark;
+  background-color: $blue-700;
   z-index: $zindex-fixed;
   @include media-breakpoint-up(lg) {
     position: fixed;
@@ -27,7 +27,7 @@ $builder-preview-padding: ($spacer * 1.5);
     left: 0;
     right: 0;
   }
-  .text-muted { color: $gray-500 !important; }
+  .text-muted { color: $blue-200 !important; }
 }
 .builder-header-fixed-bottom {
   position: fixed;
@@ -54,7 +54,7 @@ $builder-preview-padding: ($spacer * 1.5);
   bottom: 0;
   padding: $builder-header-padding;
   min-height: $builder-header-height;
-  background-color: $dark;
+  background-color: $blue-700;
   @include media-breakpoint-up(lg) { display: none; }
 }
 
