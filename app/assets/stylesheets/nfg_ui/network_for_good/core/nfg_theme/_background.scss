@@ -1,5 +1,0 @@
-// Overrides text-muted default color to account for better contrast for accessibility (also used in _builder_layout.scss for .builder-header)
-.bg-dark {
-  background-color: $blue-700 !important;
-  .text-muted { color: $blue-200 !important; }
-}
