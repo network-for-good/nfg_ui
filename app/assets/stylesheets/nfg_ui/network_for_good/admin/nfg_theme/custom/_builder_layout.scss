@@ -8,6 +8,7 @@ $builder-preview-padding: ($spacer * 1.5);
 
 // Put on the <body> to help with correct scrolling within builder-wrap and builder-options
 .builder-layout {
+  background-color: $white;
   @include media-breakpoint-up(lg) {
     height: 100%;
     > form { height: 100%; } // targets form directly inside <body> and needed for correct scrolling
@@ -81,7 +82,6 @@ $builder-preview-padding: ($spacer * 1.5);
   }
 }
 .builder-preview {
-  background-color: $body-bg;
   padding: $builder-preview-padding ($builder-preview-padding / 2);
   @include media-breakpoint-up(lg) {
     float: left;
