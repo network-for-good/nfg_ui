@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.11.18
+* Addresses security vulnerability in /publisher app and bumps `nokogiri` from `1.11.1` to `1.11.5`.
+
+## 0.11.17
+* Addresses security vulnerability [GHSA-7rrm-v45f-jp64](https://github.com/advisories/GHSA-7rrm-v45f-jp64) by bumping `nokogiri` from `1.11.3` to `1.11.4`
+* Addresses security vulnerability [GHSA-q28m-8xjw-8vr5](https://github.com/advisories/GHSA-q28m-8xjw-8vr5) by bumping `puma` from `<= 4.3.7` to `~> 5.3`
+
 ## 0.11.16
 * Addresses security vulnerability [CVE-2021-22904](https://github.com/advisories/GHSA-7wjx-3g7j-8584) by bumping `actionpack` from `5.2.4.6` to `5.2.6`
 
