@@ -1,4 +1,7 @@
 # Changelog
+## 0.12.0.2
+* Applies the ExecJS update to the publisher app to resolve the release problem with being unable to publish assets to s3.
+
 ## 0.12.0.1
 * `0.12.0` was unable to publish CSS assets to s3 due to a problem with ExecJS. This version locks ExecJS into `'~> 2.7.0'` in the gemfile.
 
