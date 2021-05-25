@@ -1,4 +1,7 @@
 # Changelog
+## 0.12.0.3
+* Adds brand color disabled `.btn-primary` styles and adds brand color focus style for `.btn-link`
+
 ## 0.12.0.2
 * Applies the ExecJS update to the publisher app to resolve the release problem with being unable to publish assets to s3.
 
