@@ -264,7 +264,6 @@ PLATFORMS
 DEPENDENCIES
   byebug
   capybara (~> 3.9)
-  execjs (~> 2.7.0)
   factory_bot_rails (~> 4.11)
   haml
   nfg_ui!

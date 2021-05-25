@@ -77,7 +77,7 @@ GEM
     crass (1.0.6)
     diff-lcs (1.4.4)
     erubi (1.10.0)
-    execjs (2.8.1)
+    execjs (2.7.0)
     ffi (1.13.1)
     font-awesome-rails (4.7.0.7)
       railties (>= 3.2, < 7)
@@ -205,6 +205,7 @@ PLATFORMS
 
 DEPENDENCIES
   byebug
+  execjs (~> 2.7.0)
   haml (~> 5.1)
   nfg_ui (~> 0.11)!
   rails (~> 5.2.4, >= 5.2.4.5)
@@ -215,4 +216,4 @@ RUBY VERSION
    ruby 2.5.8p224
 
 BUNDLED WITH
-   2.2.11
+   2.2.17
