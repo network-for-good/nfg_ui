@@ -12,6 +12,11 @@
   &.focus {
     box-shadow: 0 0 0 $input-btn-focus-width transparentize($primary, 0.8);
   }
+  &.disabled, &:disabled {
+    color: color-yiq($primary);
+    background-color: $primary;
+    border-color: $primary;
+  }
   &:not(:disabled):not(.disabled):active,
   &:not(:disabled):not(.disabled).active,
   .show > &.dropdown-toggle {
@@ -36,6 +41,7 @@
 .btn-link {
   color: color-yiq($primary, $yiq-text-dark, $primary);
   &:hover { color: color-yiq(darken($primary, 15%), $yiq-text-dark, darken($primary, 15%)); }
+  &:focus { box-shadow: 0 0 0 $input-btn-focus-width transparentize($primary, 0.8); }
 }
 
 .bg-dark {
