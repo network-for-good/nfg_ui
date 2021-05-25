@@ -1,6 +1,5 @@
 // Specific styles for entity branding
-
 .badge-primary {
-  color: color-yiq($primary);
-  background-color: $primary;
+  background: scale-color($primary, $lightness: 80%);
+  border-color: $primary;
 }

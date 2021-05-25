@@ -14,12 +14,9 @@
 .bootstrap-datetimepicker-widget {
   display: block;
   top: 0 !important;
-  padding: 0;
-  min-width: ($spacer * 14);
-  max-width: ($spacer * 14);
+  min-width: ($spacer * 10.5);
+  max-width: ($spacer * 10.5);
   background-color: $white;
-  border: $border-width solid $border-color;
-  border-radius: 0;
   z-index: 110;
 
   &.dropdown-menu {
@@ -127,8 +124,8 @@
   //** Default sizing for select cells
   [data-action^='select'] {
     display: inline-block;
-    height: ($spacer * 3);
-    line-height: ($spacer * 3);
+    height: ($spacer * 2.25);
+    line-height: ($spacer * 2.25);
   }
 }
 
@@ -137,8 +134,8 @@
 
   //** Top picker switcher for month, year, decade
   [data-action^='picker'] {
-    padding-top: ($spacer / 2);
-    padding-bottom: ($spacer / 2);
+    padding-top: ($spacer * .25);
+    padding-bottom: ($spacer * .25);
     width: ($spacer * 10);
     border-right: $border-width solid $border-color;
     border-left: $border-width solid $border-color;
@@ -147,7 +144,7 @@
 
   //** Day of the week
   .dow {
-    padding: ($spacer / 4);
+    padding: ($spacer * .25);
     font-weight: $font-weight-bold;
     font-size: $font-size-base;
     border-top: $border-width solid $border-color;
@@ -156,7 +153,7 @@
   //** Previous/Next buttons
   .prev, .next {
     color: $link-color;
-    width: ($spacer * 2);
+    width: ($spacer * 1.5);
     height: 100%;
   }
 
@@ -164,8 +161,8 @@
   .datepicker-days {
     [data-action^='select'] {
       display: table-cell;
-      width: ($spacer * 2);
-      height: ($spacer * 2);
+      width: ($spacer * 1.5);
+      height: ($spacer * 1.5);
       line-height: 1;
       &:first-child { border-left: none; }
     }
@@ -193,21 +190,21 @@
 
 //** Timepicker picker section
 .timepicker-picker {
-  padding-right: ($spacer / 2);
+  padding-right: ($spacer * .5);
   td {
     width: 35%;
-    &:nth-child(2) { width: ($spacer / 2); }
+    &:nth-child(2) { width: ($spacer * .5); }
     &:nth-child(4) {
-      padding-left: ($spacer / 2);
-      width: ($spacer * 2);
+      padding-left: ($spacer * .5);
+      width: ($spacer * 1.5);
     }
     a { color: $link-color; }
   }
   [class^='timepicker-'] {
     display: block;
     width: 100%;
-    height: ($spacer * 2);
-    line-height: ($spacer * 2);
+    height: ($spacer * 1.5);
+    line-height: ($spacer * 1.5);
     font-weight: $font-weight-bold;
     font-size: $font-size-lg;
     cursor: pointer;
@@ -217,9 +214,9 @@
   .btn {
     position: relative;
     display: block;
-    padding: ($spacer / 2) 0;
+    padding: ($spacer * .5) 0;
     width: 100%;
-    height: ($spacer * 2);
+    height: ($spacer * 1.5);
   }
 }
 
@@ -227,8 +224,8 @@
 .picker-switch.accordion-toggle {
   a {
     display: block;
-    padding-top: ($spacer / 2);
-    padding-bottom: ($spacer / 2);
+    padding-top: ($spacer * .5);
+    padding-bottom: ($spacer * .5);
     color: $link-color;
     background-color: $white;
     cursor: pointer;

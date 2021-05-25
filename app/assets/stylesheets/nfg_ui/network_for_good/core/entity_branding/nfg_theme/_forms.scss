@@ -1,6 +1,10 @@
 // Specific styles for entity branding
-
-.form-control:focus { border-color: $primary; }
+.form-control {
+  &:focus {
+    border-color: $primary;
+    box-shadow: 0 0 0 ($spacer * .125) transparentize($primary, 0.8);
+  }
+}
 
 
 // Styles needed to override :valid success styles provided by bootstrap... this is for server side forms only

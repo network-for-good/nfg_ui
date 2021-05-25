@@ -20,7 +20,7 @@ module NfgUi
               concat(NfgUi::Components::Elements::Button.new({ traits: [:link, :block], collapse: collapse, class: 'no-link-color p-0 m-0' }, view_context).render {
                 content_tag(:div, class: 'row align-items-center') do
                   concat(content_tag(:div, class: 'col-10 text-left') {
-                    NfgUi::Components::Foundations::Typeface.new({ title: title, class: 'text-uppercase', icon: icon }, view_context).render
+                    NfgUi::Components::Foundations::Typeface.new({ heading: title, icon: icon, class: 'h4' }, view_context).render
                   })
                   concat(content_tag(:div, class: 'col-2 text-right') {
                     NfgUi::Components::Foundations::Icon.new({ traits: ['caret-down fw'], tooltip: 'Show / hide additional information' }, view_context).render
@@ -28,7 +28,7 @@ module NfgUi
                 end
               })
             elsif title
-              concat(NfgUi::Components::Foundations::Typeface.new({ title: title, class: 'text-uppercase', icon: icon }, view_context).render)
+              concat(NfgUi::Components::Foundations::Typeface.new({ heading: title, icon: icon, class: 'h4' }, view_context).render)
             end
 
             concat((block_given? ? yield : body))

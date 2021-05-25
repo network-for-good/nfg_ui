@@ -56,12 +56,12 @@ module NfgUi
                     NfgUi::Components::Patterns::Media.new({}, view_context).render do
                       capture do
                         concat(NfgUi::Components::Elements::MediaObject.new({}, view_context).render {
-                          content_tag(:div, class: 'mr-2 h2') do
+                          content_tag(:div, class: 'mt-lg-1 mr-2 h3') do
                             NfgUi::Components::Foundations::Icon.new({ traits: [resource_theme_icon], class: "text-#{resource_theme_color} mr-0" }, view_context).render
                           end
                         })
                         concat(NfgUi::Components::Elements::MediaBody.new({}, view_context).render {
-                          content_tag(:h2) do
+                          content_tag(:h1) do
                             if subtitle
                               concat(content_tag(:span, title, class: 'mr-2'))
                               concat(content_tag(:small, subtitle, class: 'text-muted'))

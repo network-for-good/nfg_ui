@@ -4,12 +4,25 @@
     .nav-link {
       position: relative;
       color: $text-muted;
-      border-left: 4px solid transparent;
+      &:after {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: $nav-tabs-border-width;
+        border-radius: ($nav-tabs-border-width / 2);
+        background: transparent;
+        transition: $btn-transition;
+        content: '';
+      }
       &.active {
         color: $nav-tabs-link-active-color !important;
-        border-color: $nav-tabs-link-hover-border-color;
+        &:after { background: $nav-tabs-link-hover-border-color; }
       }
-      @include hover-focus { color: $nav-tabs-link-active-color !important; }
+      @include hover-focus {
+        color: $nav-tabs-link-active-color !important;
+        &:after { background: $nav-tabs-link-hover-border-color; }
+      }
     }
   }
 }

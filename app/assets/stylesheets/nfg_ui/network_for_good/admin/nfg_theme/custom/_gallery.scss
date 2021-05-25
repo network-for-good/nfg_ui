@@ -23,7 +23,7 @@
       transition: $transition-fade;
       opacity: 0;
       z-index: 10;
-      @include hover { opacity: 1; }
+      @include hover { opacity: $modal-backdrop-opacity; }
       > .card-gallery-img-overlay-text {
         position: absolute;
         top: 50%;

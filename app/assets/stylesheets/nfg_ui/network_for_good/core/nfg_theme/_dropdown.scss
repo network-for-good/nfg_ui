@@ -1,35 +1,38 @@
 .dropdown-toggle::after { content: none; }
 
 
+// The dropdown menu
+.dropdown-menu { padding: $dropdown-padding-y $dropdown-padding-x; }
+
+
 // Links, buttons, and more within the dropdown menu
 .dropdown-item {
-  + .dropdown-item { border-top: $border-width solid $border-color; }
+  border-radius: $dropdown-inner-border-radius;
   &.disabled, &:disabled {
-    background-color: $body-bg;
+    color: $dropdown-link-disabled-color !important;
+    background-color: $input-disabled-bg;
     cursor: default;
     pointer-events: none;
   }
-  &:not(.text-danger) { color: inherit !important; }
+  &:not(.text-danger):not(.disabled) { color: inherit !important; }
 }
-
 
 // Dropdown section headers
 .dropdown-header {
-  padding-top: ($spacer * .5);
-  padding-bottom: ($spacer * .5);
-  + .dropdown-item { border-top: $border-width solid $border-color; }
+  padding-top: ($spacer * .25);
+  padding-bottom: ($spacer * .25);
+  font-size: $font-size-base;
 }
 
 
 // Sizing
-.dropdown-menu-md, .dropdown-menu-lg { min-width: ($spacer * 10); }
+.dropdown-menu-md, .dropdown-menu-lg { min-width: ($spacer * 8); }
 .dropdown-menu-md {
-  @include media-breakpoint-up(sm) { min-width: ($spacer * 12); }
+  @include media-breakpoint-up(sm) { min-width: ($spacer * 10); }
 }
 .dropdown-menu-lg {
-  @include media-breakpoint-up(sm) { min-width: ($spacer * 24); }
+  @include media-breakpoint-up(sm) { min-width: ($spacer * 20); }
 }
-
 
 
 // Styles for wider "My Tools" dropdown in top nav

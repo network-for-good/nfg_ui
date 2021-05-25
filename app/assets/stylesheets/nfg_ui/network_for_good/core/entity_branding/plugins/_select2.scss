@@ -1,16 +1,13 @@
  // Specific styles for entity branding
 
 .select2-container--default {
-  .select2-selection--single {
-    color: color-yiq($primary) !important;
-    background-image: $custom-select-indicator;
-    &,
-    .select2-selection__placeholder,
-    .select2-selection__choice__remove,
-    .select2-selection__rendered,
-    .select2-selection__rendered .select2-selection__choice { color: color-yiq($primary, $yiq-text-dark, $primary) !important;  }
-  }
   &.select2-container--focus .select2-selection--multiple,
-  &.select2-container--open .select2-selection--single { border-color: $primary !important; }
-  .select2-search--dropdown .select2-search__field:focus { border-color: $primary !important; }
+  &.select2-container--open .select2-selection--single {
+    border-color: $primary !important;
+    box-shadow: 0 0 0 ($spacer * .125) transparentize($primary, 0.8);
+  }
+  .select2-search--dropdown .select2-search__field:focus {
+    border-color: $primary !important;
+    box-shadow: 0 0 0 ($spacer * .125) transparentize($primary, 0.8);
+  }
 }

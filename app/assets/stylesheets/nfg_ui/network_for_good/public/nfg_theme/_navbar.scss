@@ -1,18 +1,18 @@
 // Styles specific for the new user navbar on everyday_story and everyday_classic_style layouts
 
-$navbar-logo-height: (($spacer * 4.5) - $spacer);
+$navbar-logo-height: ($spacer * 2.5);
 
 .navbar-brand {
   margin-right: 0;
-  padding: ($spacer * .5) 0;
-  max-width: ($spacer * 8);
+  padding: 0;
+  max-width: ($spacer * 6);
   height: $navbar-logo-height;
   white-space: normal !important;
-  @include media-breakpoint-up(lg) { max-width: ($spacer * 12); }
+  @include media-breakpoint-up(lg) { max-width: ($spacer * 9); }
   img {
-    max-width: ($spacer * 8);
+    max-width: ($spacer * 6);
     max-height: $navbar-logo-height;
-    @include media-breakpoint-up(lg) { max-width: ($spacer * 12); }
+    @include media-breakpoint-up(lg) { max-width: ($spacer * 9); }
   }
 }
 .navbar-text {

@@ -18,11 +18,10 @@ body.modal-open  {
 
 
 .select2-container--default {
-  &.select2-container--focus .select2-selection--multiple { border-color: $primary; }
-  &.select2-container--open {
-    .select2-selection--single {
-      border-color: $custom-select-focus-border-color !important;
-    }
+  &.select2-container--focus .select2-selection--multiple,
+  &.select2-container--open .select2-selection--single {
+    border-color: $custom-select-focus-border-color;
+    box-shadow: 0 0 0 ($spacer * .125) transparentize($primary, 0.8);
   }
 
   //** Single select option
@@ -31,25 +30,23 @@ body.modal-open  {
     width: 100%;
     height: $custom-select-height !important;
     padding: $custom-select-padding-y ($custom-select-padding-x + $custom-select-indicator-padding) $custom-select-padding-y $custom-select-padding-x !important;
-    font-weight: $btn-font-weight;
+    // font-weight: $btn-font-weight;
     line-height: $custom-select-line-height;
     color: $custom-select-color;
     vertical-align: middle;
     background: $custom-select-bg $custom-select-indicator no-repeat right $custom-select-padding-x center;
     background-size: $custom-select-bg-size;
-    border: $custom-select-border-width solid $custom-select-border-color !important;
+    border: $custom-select-border-width solid $custom-select-border-color;
     border-radius: $border-radius;
     outline: none;
     cursor: pointer;
     transition: $transition-base;
     .select2-selection__rendered {
       padding: 0 !important;
-      color: $primary !important;
-      line-height: $spacer !important;
+      line-height: ($spacer * .75) !important;
       height: $custom-select-height !important;
       transition: $transition-base;
     }
-    .select2-selection__placeholder { color: $primary; }
     .select2-selection__arrow { display: none; }
   }
 
@@ -83,14 +80,13 @@ body.modal-open  {
         font-weight: $badge-font-weight;
         font-size: $font-size-sm;
         line-height: 1;
-        color: $primary;
         background-color: $white;
         border: $border-width solid $border-color;
         border-radius: $border-radius;
         transition: $transition-base;
         &:hover, &:active {
           color: $body-color;
-          background-color: theme-color("light");
+          background-color: $dropdown-link-active-bg;
         }
         + li { margin-top: 0; }
       }
@@ -103,6 +99,7 @@ body.modal-open  {
 
   //** Dropdown styles
   .select2-dropdown {
+    padding: $dropdown-padding-y $dropdown-padding-x;
     font-size: $font-size-base;
     color: $body-color;
     text-align: left;
@@ -110,11 +107,11 @@ body.modal-open  {
     background-color: $dropdown-bg;
     background-clip: padding-box;
     border: $dropdown-border-width solid $dropdown-border-color;
-    @include border-radius($dropdown-border-radius);
-    @include box-shadow($dropdown-box-shadow);
+    border-radius: $dropdown-border-radius;
+    box-shadow: $dropdown-box-shadow;
   }
   .select2-search--dropdown {
-    padding: ($spacer * .5);
+    padding: ($spacer * .25);
     .select2-search__field {
       display: block;
       width: 100%;
@@ -143,22 +140,22 @@ body.modal-open  {
     white-space: normal; // breaks long text
     background-color: transparent; // For `<button>`s
     border: 0; // For `<button>`s
-    border-top: $border-width solid $border-color;
     z-index: 1;
+    border-radius: $dropdown-inner-border-radius;
     transition: $transition-base;
     &.select2-results__option--highlighted, &.select2-results__option--highlighted[aria-selected] {
       color: $body-color;
-      background-color: transparent;
+      background-color: $dropdown-link-active-bg;
       &:hover, &:active {
         color: $body-color;
-        background-color: theme-color("light");
+        background-color: $dropdown-link-active-bg;
       }
     }
     &[aria-disabled="true"],
     &[aria-selected='true'] {
       padding-right: ($spacer * 2);
       color: $body-color !important;
-      background-color: transparent !important;
+      background-color: $dropdown-link-active-bg !important;
       cursor: default;
       &:after {
         position: absolute;
@@ -169,7 +166,7 @@ body.modal-open  {
         font-family: "FontAwesome";
         font-size: $font-size-base;
         line-height: 1.5;
-        color: theme-color("success");
+        color: $success;
         text-align: center;
         content: '\f00c';
         z-index: 5;
@@ -177,17 +174,30 @@ body.modal-open  {
     }
     &.loading-results {
       padding-right: 0;
+      padding-left: ($spacer * 1.5);
       color: $text-muted !important;
-      font-weight: $font-weight-bold;
-      text-transform: uppercase;
-      &:after { display: none; }
+      &:after {
+        position: absolute;
+        top: ($spacer * .5);
+        left: ($spacer * .25);
+        right: auto;
+        width: 36px;
+        height: 100%;
+        font-family: "FontAwesome";
+        font-size: $font-size-base;
+        line-height: 1.5;
+        color: $text-muted;
+        text-align: center;
+        content: '\f110';
+        z-index: 5;
+      }
     }
   }
   .select2-results__group {
-    padding: ($spacer * .5);
-    font-weight: $headings-font-weight;
+    padding-top: ($spacer * .25);
+    padding-bottom: ($spacer * .25);
     font-size: $font-size-base;
-    line-height: 1.3;
+    color: $dropdown-header-color;
   }
 }
 
@@ -195,8 +205,8 @@ body.modal-open  {
 // Error handling
   .has-danger {
     .select2-selection {
-      border-color: theme-color("danger");
-      color: theme-color("danger");
+      border-color: $danger;
+      color: $danger;
     }
   }
 

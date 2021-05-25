@@ -7,8 +7,12 @@
           ~ .custom-control-label::before {
             border-color: $value;
             background-color: $value;
+            box-shadow: 0 0 0 ($spacer * .125) transparentize($value, 0.8);
           }
         }
+      }
+      &.custom-control-block {
+        .custom-control-input:checked ~ .custom-control-label { box-shadow: 0 0 0 ($spacer * .125) transparentize($value, 0.8); }
       }
     }
     .custom-switch {
@@ -21,8 +25,10 @@
       }
     }
     .custom-select {
-      color: $value;
-      &:focus { border-color: $value; }
+      &:active, &:focus {
+        border-color: $value;
+        box-shadow: 0 0 0 ($spacer * .125) transparentize($value, 0.8);
+      }
     }
   }
 }

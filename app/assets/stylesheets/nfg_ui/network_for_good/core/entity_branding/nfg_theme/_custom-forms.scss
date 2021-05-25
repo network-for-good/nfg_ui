@@ -4,21 +4,25 @@
   .custom-control-input {
     &:checked {
       ~ .custom-control-label, ~ .custom-control-label::before { border-color: $primary; }
-      ~ .custom-control-label::before { background-color: $primary; }
+      ~ .custom-control-label::before {
+        background-color: $primary;
+        box-shadow: 0 0 0 ($spacer * .125) transparentize($primary, 0.8);
+      }
     }
     &:not(:disabled):active ~ .custom-control-label::before {
       background-color: lighten($primary, 35%);
       border-color: lighten($primary, 35%);
     }
   }
+  &.custom-control-block {
+    .custom-control-input:checked ~ .custom-control-label { box-shadow: 0 0 0 ($spacer * .125) transparentize($primary, 0.8); }
+  }
 }
 
 .custom-select {
-  color: color-yiq($primary, $yiq-text-dark, $primary);
-  background-image: $custom-select-indicator;
-  &:focus {
+  &:active, &:focus {
     border-color: $primary;
-    &::-ms-value { color: $primary; }
+    box-shadow: 0 0 0 ($spacer * .125) transparentize($primary, 0.8);
   }
 }
 

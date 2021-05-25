@@ -7,7 +7,7 @@
   &::after {
     position: absolute;
     top: 0;
-    left: 12px;
+    left: ($spacer * .5);
     bottom: 0;
     z-index: 0;
     border-left: $border-width solid $border-color;
@@ -19,7 +19,7 @@
   }
   .activity-icon {
     position: absolute;
-    top: 2px;
+    top: 0;
     left: 0;
     display: block;
     width: $spacer;

@@ -14,7 +14,7 @@ module NfgUi
         private
 
         def default_disable_with
-          @default_disable_with ||= view_context.ui.nfg(:icon, :loader, text: 'Saving...')
+          @default_disable_with ||= view_context.ui.nfg(:icon, :loader, text: 'Saving')
         end
 
         def non_html_attribute_options

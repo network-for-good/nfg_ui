@@ -1,14 +1,17 @@
 // Specific styles for entity branding
-
 .nav {
   &.flex-column {
     .nav-link {
-      &.active { border-color: $primary; }
+      &:hover, &.active {
+        &:after { background: $primary; }
+      }
     }
   }
 }
 .nav-tabs {
   .nav-link {
-    &:hover, &.active { border-color: $primary; }
+    &:hover, &.active {
+      &:after { background: $primary; }
+    }
   }
 }

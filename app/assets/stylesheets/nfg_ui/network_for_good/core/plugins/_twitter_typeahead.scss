@@ -9,23 +9,21 @@
 }
 .tt-hint { color: $text-muted; }
 .tt-menu {
-  margin-top: 2px;
-  padding: ($spacer * .25) 0;
+  margin-top: $dropdown-spacer;
+  padding: $dropdown-padding-y $dropdown-padding-x;
   width: 100%;
   max-width: 100%;
   max-height: 350px;
-  font-size: $font-size-sm;
   background-color: $dropdown-bg;
   background-clip: padding-box;
-  border: $dropdown-border-width solid $dropdown-border-color;
-  @include border-radius($border-radius);
-  @include box-shadow(0 0 5px transparentize($black, 0.7));
+  border-radius: $dropdown-border-radius;
+  box-shadow: $dropdown-box-shadow;
   overflow-y: auto;
 }
 .tt-suggestion {
   padding: ($spacer * .5);
   line-height: 1;
-  + .tt-suggestion { border-top: $dropdown-border-width solid $dropdown-border-color; }
+  border-radius: $dropdown-inner-border-radius;
 }
 .tt-selectable { cursor: pointer; }
 .tt-suggestion.tt-cursor, .tt-selectable:hover {

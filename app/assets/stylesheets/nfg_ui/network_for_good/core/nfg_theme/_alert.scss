@@ -6,6 +6,12 @@
     &:hover, &:active { text-decoration: none; }
   }
 }
+
+@each $color, $value in $theme-colors {
+  .alert-#{$color} {
+    background: scale-color($value, $lightness: 80%);
+  }
+}
 .alert-success a:not(.btn) { color: $success !important; }
 .alert-info a:not(.btn) { color: $info !important; }
 .alert-warning a:not(.btn) { color: $warning !important; }

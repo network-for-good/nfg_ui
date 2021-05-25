@@ -1,13 +1,14 @@
 // Setting a common height for the builder header and nav
-$builder-header-height: ($spacer * 3);
-$builder-header-padding: ($spacer * .5);
-$builder-nav-height: ($spacer * 4.5);
-$builder-nav-padding: $spacer;
+$builder-header-height: ($spacer * 2.25);
+$builder-header-padding: ($spacer * .25) ($spacer * .5);
+$builder-nav-height: ($spacer * 3.25);
+$builder-nav-padding: ($spacer * .75) ($spacer * .5);
 $builder-options-padding: $spacer;
-$builder-preview-padding: ($spacer * 2);
+$builder-preview-padding: ($spacer * 1.5);
 
 // Put on the <body> to help with correct scrolling within builder-wrap and builder-options
 .builder-layout {
+  background-color: $white;
   @include media-breakpoint-up(lg) {
     height: 100%;
     > form { height: 100%; } // targets form directly inside <body> and needed for correct scrolling
@@ -19,7 +20,7 @@ $builder-preview-padding: ($spacer * 2);
   padding: $builder-header-padding;
   width: 100%;
   min-height: $builder-header-height;
-  background-color: $dark;
+  background-color: $blue-700;
   z-index: $zindex-fixed;
   @include media-breakpoint-up(lg) {
     position: fixed;
@@ -27,6 +28,7 @@ $builder-preview-padding: ($spacer * 2);
     left: 0;
     right: 0;
   }
+  .text-muted { color: $blue-200 !important; }
 }
 .builder-header-fixed-bottom {
   position: fixed;
@@ -51,9 +53,9 @@ $builder-preview-padding: ($spacer * 2);
 .builder-nav-sm {
   position: fixed;
   bottom: 0;
-  padding: ($builder-nav-padding * .5);
+  padding: $builder-header-padding;
   min-height: $builder-header-height;
-  background-color: $dark;
+  background-color: $blue-700;
   @include media-breakpoint-up(lg) { display: none; }
 }
 
@@ -80,7 +82,6 @@ $builder-preview-padding: ($spacer * 2);
   }
 }
 .builder-preview {
-  background-color: $body-bg;
   padding: $builder-preview-padding ($builder-preview-padding / 2);
   @include media-breakpoint-up(lg) {
     float: left;

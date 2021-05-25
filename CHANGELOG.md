@@ -1,4 +1,18 @@
 # Changelog
+## 0.12.0 *UI/DESIGN BREAKING CHANGES*
+The summary of improvements are better UI alignment with networkforgood.com launch (colors, type, spacing, etc) and better accessibility (mainly contrast).
+
+* updates grid (and base) spacing from 24px to 32px
+* adds a xxl device size breakpoint for largest screens
+* updates neutral gray scale to include a slight hue of our primary blue
+* improves our text-muted color to be more accessible (higher contrast)
+* improves font size and line height of our typography to allow for better vertical rhythm on the 32px scale
+* adds focus style to buttons and form elements for better accessibility
+* improves contrast on badges for better accessibility
+* better aligns main navs in both DM and FP through color
+* adds style support to use = ui.nfg :button, :secondary which is the same as = ui.nfg :button, :outlined, :secondary to help with writing syntax in other apps
+* changes page header component to use h1 instead of h2
+* changes tile header component to use h4 instead of h6
 
 ## 0.11.18
 * Addresses security vulnerability in /publisher app and bumps `nokogiri` from `1.11.1` to `1.11.5`.

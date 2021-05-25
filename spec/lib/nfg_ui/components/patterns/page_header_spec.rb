@@ -126,7 +126,7 @@ RSpec.describe NfgUi::Components::Patterns::PageHeader do
     describe 'the page_header with no options' do
       let(:options) { {} }
       it 'outputs the expected HTML' do
-        expect(rendered_html).to eq "<div class=\"page-header container-fluid\"><div class=\"row\"><div class=\"col col-xl-11 mx-auto\"><div class=\"row align-items-center\"><div class=\"col py-2\"><div class=\"media\"><div class=\"mr-2 h2\"><i aria-hidden=\"true\" class=\"fa fa-#{NfgUi::Components::Utilities::ResourceThemeable::FALLBACK_ICON} text-#{NfgUi::Components::Utilities::ResourceThemeable::DEFAULT_THEME_COLOR} mr-0\"></i></div><div class=\"media-body\"><h2></h2></div></div></div></div></div></div></div>"
+        expect(rendered_html).to eq "<div class=\"page-header container-fluid\"><div class=\"row\"><div class=\"col col-xl-11 mx-auto\"><div class=\"row align-items-center\"><div class=\"col py-2\"><div class=\"media\"><div class=\"mt-lg-1 mr-2 h3\"><i aria-hidden=\"true\" class=\"fa fa-#{NfgUi::Components::Utilities::ResourceThemeable::FALLBACK_ICON} text-#{NfgUi::Components::Utilities::ResourceThemeable::DEFAULT_THEME_COLOR} mr-0\"></i></div><div class=\"media-body\"><h1></h1></div></div></div></div></div></div></div>"
       end
     end
 
@@ -135,7 +135,7 @@ RSpec.describe NfgUi::Components::Patterns::PageHeader do
       let(:options) { { subtitle: tested_subtitle } }
 
       it 'renders the subtitle with the correct html' do
-        expect(rendered_html).to include "<h2><span class=\"mr-2\"></span><small class=\"text-muted\">#{tested_subtitle}</small></h2>"
+        expect(rendered_html).to include "<h1><span class=\"mr-2\"></span><small class=\"text-muted\">#{tested_subtitle}</small></h1>"
       end
     end
 

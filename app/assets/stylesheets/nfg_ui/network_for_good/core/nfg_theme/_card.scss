@@ -16,7 +16,7 @@
 .card-img-overlay {
   top: auto; // makes the overlay gradient and container "stick" to bottom of parent container
   min-height: ($spacer * 2);
-  @include gradient-y(transparentize($black, 1), transparentize($black, .5));
+  @include gradient-y(transparentize($gray-900, 1), transparentize($gray-900, .5));
 }
 
 .card-img { @include border-radius(0); }

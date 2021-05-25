@@ -4,8 +4,8 @@
   align-items: center;
   justify-content: center;
   vertical-align: middle;
-  width: ($spacer * 2);
-  height: ($spacer * 2);
+  width: ($spacer * 1.25);
+  height: ($spacer * 1.25);
   color: $body-color;
   background-color: $border-color;
   border-radius: 50%;
@@ -32,22 +32,23 @@
   &.avatar-sm {
     width: $spacer;
     height: $spacer;
-    .avatar-text { font-size: ($font-size-base * .625); }
+    .avatar-text { font-size: $font-size-sm; }
   }
   &.avatar-lg {
-    width: ($spacer * 4);
-    height: ($spacer * 4);
-    .avatar-text { font-size: $font-size-lg; }
+    width: ($spacer * 3);
+    height: ($spacer * 3);
+    .avatar-text { font-size: $h3-font-size; }
   }
   &.avatar-xl {
-    width: ($spacer * 5);
-    height: ($spacer * 5);
+    width: ($spacer * 4.5);
+    height: ($spacer * 4.5);
     .avatar-text { font-size: $h1-font-size; }
   }
 }
 
 // Avatar as a link
 a.avatar {
+  color: inherit !important;
   opacity: 1;
   transition: $transition-fade;
   &:hover, &:active { opacity: $btn-disabled-opacity; }
