@@ -1,4 +1,7 @@
 # Changelog
+## 0.12.0.4
+* Fixes the redactor modal close button via CSS.
+
 ## 0.12.0.3
 * Adds brand color disabled `.btn-primary` styles and adds brand color focus style for `.btn-link`
 
