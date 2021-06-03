@@ -14,6 +14,10 @@
 }
 .redactor-editor, .redactor-box, .redactor-box textarea { z-index: auto; }
 .redactor-box .redactor-toolbar { z-index: $zindex-dropdown - 10 !important; }
+.redactor-modal-close {
+  border: none;
+  background: none;
+}
 
 body.modal-open  {
   .redactor-toolbar { z-index: $zindex-modal-backdrop - 1 !important; }
