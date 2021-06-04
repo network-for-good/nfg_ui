@@ -14,7 +14,7 @@
 }
 .redactor-editor, .redactor-box, .redactor-box textarea { z-index: auto; }
 .redactor-box .redactor-toolbar { z-index: $zindex-dropdown - 10 !important; }
-.redactor-modal-close {
+#redactor-modal-close {
   border: none;
   background: none;
 }
