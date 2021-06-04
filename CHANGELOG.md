@@ -1,6 +1,11 @@
 # Changelog
+## 0.12.0.5
+* (Correctly) Fixes the redactor modal close button via CSS.
+* Manually sets execjs in nfg_ui base gemfile to `'~> 2.7.0'` to facilitate local development.
+  * Regenerates gemfile.lock
+
 ## 0.12.0.4
-* Fixes the redactor modal close button via CSS.
+* (Attempted) Fixes the redactor modal close button via CSS.
 
 ## 0.12.0.3
 * Adds brand color disabled `.btn-primary` styles and adds brand color focus style for `.btn-link`
