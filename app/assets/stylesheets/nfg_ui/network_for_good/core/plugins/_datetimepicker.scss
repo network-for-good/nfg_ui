@@ -78,6 +78,11 @@
   .next:after { content: 'Next Month'; }
 }
 
+.form-control[data-datetimeside] + .bootstrap-datetimepicker-widget{
+  min-width: ($spacer * 15.5);
+  max-width: ($spacer * 15.5);
+}
+
 //** Shared datepicker and timepicker styles
 .datepicker, .timepicker {
 
