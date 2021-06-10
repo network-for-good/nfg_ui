@@ -14,8 +14,8 @@
 .bootstrap-datetimepicker-widget {
   display: block;
   top: 0 !important;
-  min-width: ($spacer * 10.5);
-  max-width: ($spacer * 10.5);
+  min-width: ($spacer * 10);
+  max-width: ($spacer * 10);
   background-color: $white;
   z-index: 110;
 
@@ -29,6 +29,15 @@
     pointer-events: auto;
     visibility: visible !important;
     transform: none;
+  }
+
+  //** For when the date and time pickers are side by side.
+  &.timepicker-sbs {
+    @include media-breakpoint-up(md) {
+      max-width: ($spacer * 20);
+    }
+    .row { align-items: center; }
+    .datepicker { width: ($spacer * 18.125); }
   }
 
   //** Base date and time styles
@@ -76,11 +85,6 @@
   }
   .prev:after { content: 'Previous Month'; }
   .next:after { content: 'Next Month'; }
-}
-
-.form-control[data-datetimeside] + .bootstrap-datetimepicker-widget{
-  min-width: ($spacer * 15.5);
-  max-width: ($spacer * 15.5);
 }
 
 //** Shared datepicker and timepicker styles
@@ -141,7 +145,7 @@
   [data-action^='picker'] {
     padding-top: ($spacer * .25);
     padding-bottom: ($spacer * .25);
-    width: ($spacer * 10);
+    width: ($spacer * 7.5);
     border-right: $border-width solid $border-color;
     border-left: $border-width solid $border-color;
     border-top: none;
@@ -219,9 +223,7 @@
   .btn {
     position: relative;
     display: block;
-    padding: ($spacer * .5) 0;
     width: 100%;
-    height: ($spacer * 1.5);
   }
 }
 
