@@ -53,11 +53,11 @@ function () {
     value: function defaultFormat() {
 
       if (this.input.data('datetimepicker') == 'datetime') {
-        return 'Y-MM-DD hh:mm A';
+        return 'YYYY-MM-DD hh:mm A';
       } else if (this.input.data('datetimepicker') == 'time') {
         return 'hh:mm A';
       } else {
-        return 'Y-MM-DD';
+        return 'YYYY-MM-DD';
       }
     }
   }]);
