@@ -44,7 +44,7 @@ function () {
         clear:"fa fa-trash-o",
         close:"fa fa-times"
       }
-      options.sideBySide = (this.input.data('datetimeside') === true) ? true : false
+      options.sideBySide = true;
       // options.debug = true
       return options;
     }
