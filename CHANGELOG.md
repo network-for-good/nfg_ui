@@ -1,4 +1,10 @@
 # Changelog
+## 0.12.1
+* Condensed datepicker JS files so that host apps can optionally choose to `require` the datepicker file on its own via `= require nfg_ui/datepicker`
+* Sets datetime side by side to true by default: `options.sideBySide = true;`
+* Fixed bug with datetime format where year was showing as "Y" (`return 'YYYY-MM-DD hh:mm A';`)
+* Misc calendar CSS fixes for side by side date time formatting in mobile.
+
 ## 0.12.0.5
 * (Correctly) Fixes the redactor modal close button via CSS.
 * Manually sets execjs in nfg_ui base gemfile to `'~> 2.7.0'` to facilitate local development.

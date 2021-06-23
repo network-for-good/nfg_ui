@@ -44,6 +44,7 @@ function () {
         clear:"fa fa-trash-o",
         close:"fa fa-times"
       }
+      options.sideBySide = true;
       // options.debug = true
       return options;
     }
@@ -52,11 +53,11 @@ function () {
     value: function defaultFormat() {
 
       if (this.input.data('datetimepicker') == 'datetime') {
-        return 'Y-MM-DD hh:mm A';
+        return 'YYYY-MM-DD hh:mm A';
       } else if (this.input.data('datetimepicker') == 'time') {
         return 'hh:mm A';
       } else {
-        return 'Y-MM-DD';
+        return 'YYYY-MM-DD';
       }
     }
   }]);

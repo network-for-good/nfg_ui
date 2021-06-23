@@ -11,28 +11,11 @@ RSpec.describe 'Bootstrap4-datetimepicker interactions', js: true do
 
       and_it 'shows the calendar with access to the time picker' do
         expect(page).to have_css '.bootstrap-datetimepicker-widget.dropdown-menu.fs-ignore-rage-clicks'
-        expect(page).to have_css '.collapse.show .datepicker'
+        expect(page).to have_css "[data-action='incrementHours']"
       end
 
       and_it 'is accurately showing the correct month' do
         expect(page).to have_selector '.picker-switch', text: Date::MONTHNAMES[Date.today.month]
-      end
-
-      and_it 'hides the time picker' do
-        expect(page).to have_selector '.picker-switch.accordion-toggle .fa-clock-o'
-        expect(page).to have_css '.collapse .timepicker', visible: false
-      end
-
-      and_by 'clicking the time picker' do
-        page.find('.picker-switch.accordion-toggle .fa-clock-o').click
-      end
-
-      and_it 'shows the time picker' do
-        expect(page).to have_css '.collapse.show .timepicker'
-      end
-
-      and_it 'hides the calendar' do
-        expect(page).to have_css '.collapse .datepicker', visible: false
       end
     end
   end
