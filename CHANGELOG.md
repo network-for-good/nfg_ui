@@ -1,4 +1,7 @@
 # Changelog
+## 0.12.2
+* Updates the bee editor CSS styles to use more accurate combinator selectors and adds styles specific if there are buttons above the bee editor.
+
 ## 0.12.1
 * Condensed datepicker JS files so that host apps can optionally choose to `require` the datepicker file on its own via `= require nfg_ui/datepicker`
 * Sets datetime side by side to true by default: `options.sideBySide = true;`
