@@ -29,5 +29,15 @@ RSpec.describe 'Collapsible tile interactions', js: true do
       expect(page).not_to have_css ".tile-header [data-toggle='collapse'] .fa-caret-up"
       expect(page).to have_css ".tile-header [data-toggle='collapse'] .fa-caret-down"
     end
+
+    and_by 'clicking the toggle' do
+      page.find("a[data-toggle='collapse']").click
+      sleep 1
+    end
+
+    and_it 'correctly expands' do
+      expect(page).to have_css ".tile-header [data-toggle='collapse'] .fa-caret-up"
+      expect(page).not_to have_css ".tile-header [data-toggle='collapse'] .fa-caret-down"
+    end
   end
 end
