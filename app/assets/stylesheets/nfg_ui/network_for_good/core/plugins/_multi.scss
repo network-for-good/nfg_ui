@@ -1,0 +1,64 @@
+//** Multi plugin used in export contacts/donations modal in DM
+
+.multi-wrapper {
+  border: $border-width solid $border-color;
+  border-radius: $border-radius;
+  width: 100%;
+  .search-input {
+    border: 0;
+    border-bottom: $border-width solid $border-color;
+    border-radius: 0;
+    display: block;
+    font-size: $font-size-base;
+    margin: 0;
+    outline: 0;
+    padding: $input-btn-padding-y $input-btn-padding-x;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .item {
+    cursor: pointer;
+    display: block;
+    position: relative;
+    padding: ($spacer * .25);
+    &:hover {
+      background: $gray-200;
+      border-radius: $border-radius;
+    }
+  }
+  .non-selected-wrapper, .selected-wrapper {
+    box-sizing: border-box;
+    display: inline-block;
+    height: ($spacer * 8);
+    overflow-y: scroll;
+    padding: ($spacer * .5);
+    vertical-align: top;
+    width: 50%;
+  }
+  .non-selected-wrapper {
+    background: $body-bg;
+    border-right: $border-width solid $border-color;
+    .item.selected {
+      padding-right: $spacer;
+      opacity: 0.5;
+      &:hover {
+        background: inherit;
+        cursor: inherit;
+      }
+      &:after {
+        position: absolute;
+        top: ($spacer * .25);
+        right: 0;
+        width: $spacer;
+        font-family: "FontAwesome";
+        font-size: $font-size-base;
+        line-height: 1.5;
+        color: inherit;
+        text-align: center;
+        content: '\f00c';
+        z-index: 5;
+      }
+    }
+  }
+  .selected-wrapper { background: $white; }
+}
