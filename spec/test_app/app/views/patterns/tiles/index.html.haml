@@ -22,8 +22,27 @@
             = ui.nfg :button, :link, collapse: '#', icon: 'caret-down', class: 'ml-2'
 
   = ui.nfg :tile_body, body: 'Some content'
+%hr
 
--# Add Exapmle here
+%h2.mb-2
+  = ui.nfg :badge, :success, body: 'New'
+  Full Example with updated syntax
+
+= ui.nfg :tile, render_in_body: false do
+  = ui.nfg :tile_header do
+    .row
+      .col
+        .row
+          .col-12.col-md
+            %h4
+              = ui.nfg :icon, 'rocket', class: 'mr-1'
+              Tile Title
+            = ui.nfg :typeface, :muted, body: 'Tile Subtitle', class: 'mt-1 mb-0'
+          .col-12.col-md-auto.mt-md-0.mt-2
+            = ui.nfg :button, :secondary, href: '#', body: 'Title Button'
+      .col-auto.pl-0
+        = ui.nfg :button, :link, collapse: '#', icon: 'caret-down', class: 'ml-2'
+  = ui.nfg :tile_body, body: 'Some content'
 
 %hr
 
