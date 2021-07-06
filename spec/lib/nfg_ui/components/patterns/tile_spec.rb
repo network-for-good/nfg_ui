@@ -195,7 +195,7 @@ RSpec.describe NfgUi::Components::Patterns::Tile do
       let(:render_in_body) { false }
       let(:additional_options) { { body: tested_body } }
       let(:tested_body) { 'tested body' }
-      it 'renders the body within the parent tile only' do
+      it 'renders the option supplied :body within the parent tile only' do
         expect(rendered_html).to eq "<div class=\"tile\">#{tested_body}</div>"
       end
     end
