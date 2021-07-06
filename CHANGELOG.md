@@ -1,4 +1,7 @@
 # Changelog
+## 0.12.3
+* Fixes collapsible tiles to utilize a hot-swapped up/down caret when collapsed and expanded. This was programmed in via javascript long ago but never actually worked.
+
 ## 0.12.2
 * Updates the bee editor CSS styles to use more accurate combinator selectors and adds styles specific if there are buttons above the bee editor.
 

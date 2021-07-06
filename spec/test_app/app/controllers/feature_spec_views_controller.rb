@@ -3,4 +3,5 @@ class FeatureSpecViewsController < ApplicationController
   
   def modal; end
   def tooltip; end
+  def tile; end
 end
