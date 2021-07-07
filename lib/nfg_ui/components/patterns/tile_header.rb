@@ -14,6 +14,18 @@ module NfgUi
           :tile
         end
 
+        def button
+          options.fetch(:button, nil)
+        end
+
+        def href
+          options.fetch(:href, nil)
+        end
+
+        def subtitle
+          options.fetch(:subtitle, nil)
+        end
+
         def render
           super do
             if collapsible && title
@@ -43,6 +55,10 @@ module NfgUi
 
         def collapsed_icon
           'caret-down'
+        end
+
+        def non_html_attribute_options
+          super.push(:subtitle, :button, :href)
         end
       end
     end

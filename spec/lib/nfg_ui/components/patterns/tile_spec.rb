@@ -28,6 +28,18 @@ RSpec.describe NfgUi::Components::Patterns::Tile do
     it_behaves_like 'a fetched option with a defined fallback', fallback: nil
   end
 
+  describe '#button' do
+    subject { tile.button }
+    let(:tested_option) { :button }
+    it_behaves_like 'a fetched option with a defined fallback', fallback: nil
+  end
+
+  describe '#href' do
+    subject { tile.href }
+    let(:tested_option) { :href }
+    it_behaves_like 'a fetched option with a defined fallback', fallback: nil
+  end
+
   describe '#component_family' do
     subject { tile.component_family }
     it { is_expected.to eq :tile }
@@ -204,7 +216,7 @@ RSpec.describe NfgUi::Components::Patterns::Tile do
   describe 'private methods' do
     describe '#non_html_attribute_options' do
       subject { tile.send(:non_html_attribute_options) }
-      it { is_expected.to include :heading, :render_in_body, :subtitle }
+      it { is_expected.to include :heading, :render_in_body, :subtitle, :button, :href }
     end
   end
 end
