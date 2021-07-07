@@ -1,3 +1,6 @@
+if typeof NfgUi == "undefined"
+  window.NfgUi = {}
+
 class NfgUi.CollapsibleToggle
   constructor: (@el) ->
     @target = @collapseTarget()

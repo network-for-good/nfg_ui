@@ -1,4 +1,8 @@
 # Changelog
+## 0.12.3
+* Fixes collapsible tiles to utilize a hot-swapped up/down caret when collapsed and expanded. This was programmed in via javascript long ago but never actually worked.
+* Updates `TileHeader` to leverage a context specific collapsible icon when the component is rendered (ex: when collapsed, it is `fa-caret-down` indicating that the tile can be expanded... when expanded `.fa-caret-up` indicates that it can be collapsed).
+
 ## 0.12.2
 * Updates the bee editor CSS styles to use more accurate combinator selectors and adds styles specific if there are buttons above the bee editor.
 

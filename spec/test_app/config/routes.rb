@@ -33,6 +33,7 @@ Rails.application.routes.draw do
   resource :feature_spec_views do
     get :modal
     get :tooltip
+    get :tile
   end
 
   resource :javascript_plugins, only: [] do
