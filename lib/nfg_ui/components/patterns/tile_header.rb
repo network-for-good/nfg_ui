@@ -23,7 +23,7 @@ module NfgUi
                     NfgUi::Components::Foundations::Typeface.new({ heading: title, icon: icon, class: 'h4' }, view_context).render
                   })
                   concat(content_tag(:div, class: 'col-2 text-right') {
-                    NfgUi::Components::Foundations::Icon.new({ traits: ["#{contextual_collapse_icon} fw"], tooltip: 'Show / hide additional information' }, view_context).render
+                    NfgUi::Components::Foundations::Icon.new({ traits: ["#{contextual_collapsible_icon} fw"], tooltip: 'Show / hide additional information' }, view_context).render
                   })
                 end
               })
@@ -37,7 +37,7 @@ module NfgUi
 
         private
 
-        def contextual_collapse_icon
+        def contextual_collapsible_icon
           return '' unless collapsible
           collapsed ? collapsed_icon : collapse_icon
         end
