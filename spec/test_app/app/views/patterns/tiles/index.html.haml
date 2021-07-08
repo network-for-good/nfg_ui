@@ -3,25 +3,29 @@
 %hr
 
 %h2.mb-2
-  = ui.nfg :badge, :success, body: 'New'
-  Full Example
+  = ui.nfg :badge, :success, body: 'New - Ruby'
+  Collapsible Version
 
-= ui.nfg :tile, render_in_body: false do
-  = ui.nfg :tile_header do
-    .row
-      .col-12.col-md
-        %h4
-          = ui.nfg :icon, 'rocket', class: 'mr-1'
-          Tile Title
-        = ui.nfg :typeface, :muted, body: 'Tile Subtitle', class: 'mt-1 mb-0'
-      .col-12.col-md-auto.mt-md-0.mt-2
-        = ui.nfg :media do
-          = ui.nfg :media_body do
-            = ui.nfg :button, :secondary, href: '#', body: 'Title Button'
-          = ui.nfg :media_object do
-            = ui.nfg :button, :link, collapse: '#', icon: 'caret-down', class: 'ml-2'
+= ui.nfg :tile, :collapsible, icon: 'rocket', title: 'The Title', subtitle: 'The Subtitle', button: 'The Button', href: '#the_href', body: 'The Body', id: 'collapsible_tile1'
 
-  = ui.nfg :tile_body, body: 'Some content'
+= ui.nfg :tile, :collapsible, title: 'The Title (No Icon)', subtitle: 'The Subtitle', button: 'The Button', href: '#the_href', body: 'The Body', id: 'collapsible_tile2'
+
+= ui.nfg :tile, :collapsible, title: 'The Title (No Icon, No Subtitle)', button: 'The Button', href: '#the_href', body: 'The Body', id: 'collapsible_tile3'
+
+= ui.nfg :tile, :collapsible, title: 'The Title (No Icon, No Subtitle, No Button)', body: 'The Body', id: 'collapsible_tile4'
+
+%h2.mb-2
+  = ui.nfg :badge, :success, body: 'New - Ruby'
+  Non-Collapsible Version
+
+= ui.nfg :tile, icon: 'rocket', title: 'The Title', subtitle: 'The Subtitle', button: 'The Button', href: '#the_href', body: 'The Body'
+
+= ui.nfg :tile, title: 'The Title (No Icon)', subtitle: 'The Subtitle', button: 'The Button', href: '#the_href', body: 'The Body'
+
+= ui.nfg :tile, title: 'The Title (No Icon, No Subtitle)', button: 'The Button', href: '#the_href', body: 'The Body'
+
+= ui.nfg :tile, title: 'The Title (No Icon, No Subtitle, No Button)', body: 'The Body'
+
 %hr
 
 %h2.mb-2
