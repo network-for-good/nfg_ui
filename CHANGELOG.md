@@ -1,4 +1,7 @@
 # Changelog
+## 0.12.4
+* CSS: Adds `multi` css plugin styles to the core stylesheet.
+
 ## 0.12.3
 * Fixes collapsible tiles to utilize a hot-swapped up/down caret when collapsed and expanded. This was programmed in via javascript long ago but never actually worked.
 * Updates `TileHeader` to leverage a context specific collapsible icon when the component is rendered (ex: when collapsed, it is `fa-caret-down` indicating that the tile can be expanded... when expanded `.fa-caret-up` indicates that it can be collapsed).
