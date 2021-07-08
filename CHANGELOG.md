@@ -1,4 +1,7 @@
 # Changelog
+## 0.12.5
+* Addresses security vulnerability [GHSA-7rrm-v45f-jp64](https://github.com/advisories/GHSA-7rrm-v45f-jp64) by setting `nokogiri` in the gemspec to `">= 1.11.4"`
+
 ## 0.12.4
 * CSS: Adds `multi` css plugin styles to the core stylesheet.
 
