@@ -34,6 +34,7 @@
   //** For when the date and time pickers are side by side.
   &.timepicker-sbs {
     @include media-breakpoint-up(md) {
+      min-width: ($spacer * 20);
       max-width: ($spacer * 20);
     }
     .row { align-items: center; }
