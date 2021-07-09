@@ -72,27 +72,42 @@ RSpec.describe NfgUi::Components::Patterns::Tile do
 
           describe 'tile :subtitle' do
             context 'and when :subtitle is present in options' do
-              pending 'not yet implemented'
+              let(:tested_subtitle) { 'tested subtitle' }
+              it 'renders the subtitle' do
+                expect(rendered_html).to include "<p class=\"mt-1 mb-0 text-muted\">#{tested_subtitle}</p>"
+                expect(subject).to have_css "h5.h4 + p.text-muted", text: tested_subtitle
+              end
             end
 
             context 'and when :subtitle is not present in options' do
-              pending 'not yet implemented'
+              let(:tested_subtitle) { nil }
+              it 'does not render a subtitle' do
+                expect(subject).not_to have_css "h5.h4 + p.text-muted"
+              end
             end
           end
 
           describe 'tile :button' do
             context 'and when :button is present in options' do
-
-              pending 'not yet implemented'
+              let(:tested_button) { 'tested button' }
+              let(:tested_href) { '#tested_href' }
 
               it 'includes the button in the tile header' do
+                expect(subject).to have_css '.tile-header .btn'
+                expect(subject).to have_selector ".col-12.col-md-auto > .btn-secondary", text: tested_button
+
                 and_it 'adds the href to the button' do
+                  expect(subject).to have_css ".btn-secondary[href='#{tested_href}']"
                 end
               end
             end
 
             context 'and when :button is not present in options' do
-              pending 'not yet implemented'
+              let(:tested_button) { nil }
+              let(:tested_href) { nil }
+              it 'does not render the button' do
+                expect(subject).not_to have_css '.tile-header .btn'
+              end
             end
           end
 
@@ -143,6 +158,7 @@ RSpec.describe NfgUi::Components::Patterns::Tile do
         let(:tested_id) { 'tested_id' }
         let(:tested_collapsed) { nil }
         let(:tested_body) { 'tested body' }
+        let(:tested_collapsible) { nil }
 
         context 'and when tile is :collapsible' do
           let(:tested_collapsible) { true }
@@ -160,26 +176,25 @@ RSpec.describe NfgUi::Components::Patterns::Tile do
               expect(subject).to have_selector '.tile-body', text: tested_body
             end
           end
+        end
 
-          context 'and when tile is :collapsed' do
-            let(:tested_collapsed) { true }
+        context 'and when tile is :collapsed' do
+          let(:tested_collapsed) { true }
 
-            pending 'not yet implemented - fa-icon flip'
-
-            it 'flips the fa-caret icon to down to indicate collapsed content' do
-
+          it 'flips the fa-caret icon to down to indicate collapsed content' do
+            # pending 'not working yet'
+            expect(subject).to have_css '.tile-header .fa-caret-up'
+          end
+          it 'collapses the tile body' do
+            # sanity check
+            by 'not including the show css class' do
+              expect(subject).not_to have_css "#collapse_#{tested_id}.collapse.show .tile-body"
             end
-            it 'collapses the tile body' do
-              # sanity check
-              by 'not including the show css class' do
-                expect(subject).not_to have_css "#collapse_#{tested_id}.collapse.show .tile-body"
-              end
 
-              expect(subject).to have_css "#collapse_#{tested_id}.collapse .tile-body", visible: false
+            expect(subject).to have_css "#collapse_#{tested_id}.collapse .tile-body", visible: false
 
-              and_it 'renders the body' do
-                expect(subject).to have_selector '.tile-body', text: tested_body, visible: false
-              end
+            and_it 'renders the body' do
+              expect(subject).to have_selector '.tile-body', text: tested_body, visible: false
             end
           end
         end
