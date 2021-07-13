@@ -1,4 +1,7 @@
 # Changelog
+## 0.12.6
+* Addresses security vulnerability [GHSA-jxhc-q857-3j6g](https://github.com/advisories/GHSA-jxhc-q857-3j6g) by setting `addressable` in the `gemfile.lock` to `2.8.0`
+
 ## 0.12.5
 * Addresses security vulnerability [GHSA-7rrm-v45f-jp64](https://github.com/advisories/GHSA-7rrm-v45f-jp64) by setting `nokogiri` in the gemspec to `">= 1.11.4"`
 
