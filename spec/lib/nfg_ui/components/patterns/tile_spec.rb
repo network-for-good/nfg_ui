@@ -182,8 +182,7 @@ RSpec.describe NfgUi::Components::Patterns::Tile do
           let(:tested_collapsed) { true }
 
           it 'flips the fa-caret icon to down to indicate collapsed content' do
-            # pending 'not working yet'
-            expect(subject).to have_css '.tile-header .fa-caret-up'
+            expect(subject).to have_css '.tile-header .fa-caret-down'
           end
           it 'collapses the tile body' do
             # sanity check
@@ -196,6 +195,13 @@ RSpec.describe NfgUi::Components::Patterns::Tile do
             and_it 'renders the body' do
               expect(subject).to have_selector '.tile-body', text: tested_body, visible: false
             end
+          end
+        end
+
+        context 'and when the tile is :collapsible but :collapsed is false' do
+          let(:tested_collapsed) { false }
+          it 'flips the fa-caret icon to up to indicate collapsible content' do
+            expect(subject).to have_css '.tile-header .fa-caret-up'
           end
         end
 

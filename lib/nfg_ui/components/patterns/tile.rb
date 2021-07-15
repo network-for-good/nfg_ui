@@ -36,7 +36,7 @@ module NfgUi
           super do
             if render_in_body
               if title.present?
-                concat(NfgUi::Components::Patterns::TileHeader.new({ title: title, subtitle: subtitle, button: button, href: href, icon: icon, collapsible: collapsible, collapse: ("#collapse_#{id}" if collapsible) }, view_context).render)
+                concat(NfgUi::Components::Patterns::TileHeader.new({ title: title, subtitle: subtitle, button: button, href: href, icon: icon, collapsible: collapsible, collapsed: collapsed, collapse: ("#collapse_#{id}" if collapsible) }, view_context).render)
               end
               if collapsible
                 concat(NfgUi::Components::Patterns::Collapse.new({ id: "collapse_#{id}", collapsed: collapsed }, view_context).render {
