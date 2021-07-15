@@ -14,6 +14,8 @@
 
 = ui.nfg :tile, :collapsible, title: 'The Title (No Icon, No Subtitle, No Button)', body: 'The Body', id: 'collapsible_tile4'
 
+%hr
+
 %h2.mb-2
   = ui.nfg :badge, :success, body: 'New - Ruby'
   Non-Collapsible Version
@@ -25,95 +27,6 @@
 = ui.nfg :tile, title: 'The Title (No Icon, No Subtitle)', button: 'The Button', href: '#the_href', body: 'The Body'
 
 = ui.nfg :tile, title: 'The Title (No Icon, No Subtitle, No Button)', body: 'The Body'
-
-%hr
-
-%h2.mb-2
-  = ui.nfg :badge, :success, body: 'New'
-  Full Example with updated syntax
-
-= ui.nfg :tile, render_in_body: false do
-  = ui.nfg :tile_header do
-    .row
-      -# pr-0 is added when collapsible
-      .col.pr-0
-        .row
-          .col-12.col-md
-            %h4
-              = ui.nfg :icon, 'rocket', class: 'mr-1'
-              Tile Title
-            = ui.nfg :typeface, :muted, body: 'Tile Subtitle', class: 'mt-1 mb-0'
-          .col-12.col-md-auto.mt-md-0.mt-2
-            = ui.nfg :button, :secondary, href: '#', body: 'Title Button'
-      .col-auto.pl-0
-        = ui.nfg :button, :link, collapse: '#', icon: 'caret-down', class: 'ml-2'
-  = ui.nfg :tile_body, body: 'Some content'
-
-%hr
-
-%h2.mb-2
-  = ui.nfg :badge, :success, body: 'New'
-  No Collapse Example
-
-= ui.nfg :tile, render_in_body: false do
-  = ui.nfg :tile_header do
-    .row
-      .col-12.col-md
-        %h4
-          = ui.nfg :icon, 'rocket', class: 'mr-1'
-          Tile Title
-        = ui.nfg :typeface, :muted, body: 'Tile Subtitle', class: 'mt-1 mb-0'
-      .col-12.col-md-auto.mt-md-0.mt-2
-        = ui.nfg :media do
-          = ui.nfg :media_body do
-            = ui.nfg :button, :secondary, href: '#', body: 'Title Button'
-  = ui.nfg :tile_body, body: 'Some content'
-
-%hr
-
-%h2.mb-2
-  = ui.nfg :badge, :success, body: 'New'
-  No Icon Example
-
-= ui.nfg :tile, render_in_body: false do
-  = ui.nfg :tile_header do
-    .row
-      .col-12.col-md
-        %h4
-          Tile Title
-        = ui.nfg :typeface, :muted, body: 'Tile Subtitle', class: 'mt-1 mb-0'
-      .col-12.col-md-auto.mt-md-0.mt-2
-        = ui.nfg :media do
-          = ui.nfg :media_body do
-            = ui.nfg :button, :secondary, href: '#', body: 'Title Button'
-
-%hr
-
-%h2.mb-2
-  = ui.nfg :badge, :success, body: 'New'
-  No Button Example
-
-= ui.nfg :tile, render_in_body: false do
-  = ui.nfg :tile_header do
-    .row
-      .col-12.col-md
-        %h4
-          Tile Title
-        = ui.nfg :typeface, :muted, body: 'Tile Subtitle', class: 'mt-1 mb-0'
-
-%hr
-
-%h2.mb-2
-  = ui.nfg :badge, :success, body: 'New'
-  No Subtitle Example
-
-= ui.nfg :tile, render_in_body: false do
-  = ui.nfg :tile_header do
-    .row
-      .col-12.col-md
-        %h4
-          Tile Title
-
 
 %hr
 
