@@ -67,7 +67,7 @@ RSpec.describe NfgUi::Components::Patterns::Tile do
           let(:tested_title) { 'tested title' }
 
           it 'includes the title in the tile header' do
-            expect(rendered_html).to eq "<div class=\"tile\"><div class=\"tile-header\"><h5 class=\"h4\">#{tested_title}</h5></div><div class=\"tile-body\"></div></div>"
+            expect(subject).to have_css '.tile-header', text: tested_title
           end
 
           describe 'tile :subtitle' do
