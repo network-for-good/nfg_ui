@@ -2,6 +2,34 @@
 
 %hr
 
+%h2.mb-2
+  = ui.nfg :badge, :success, body: 'New - Ruby'
+  Collapsible Version
+
+= ui.nfg :tile, :collapsible, icon: 'rocket', title: 'The Title', subtitle: 'The Subtitle', button: 'The Button', href: '#the_href', body: 'The Body', id: 'collapsible_tile1'
+
+= ui.nfg :tile, :collapsible, title: 'The Title (No Icon)', subtitle: 'The Subtitle', button: 'The Button', href: '#the_href', body: 'The Body', id: 'collapsible_tile2'
+
+= ui.nfg :tile, :collapsible, title: 'The Title (No Icon, No Subtitle)', button: 'The Button', href: '#the_href', body: 'The Body', id: 'collapsible_tile3'
+
+= ui.nfg :tile, :collapsible, title: 'The Title (No Icon, No Subtitle, No Button)', body: 'The Body', id: 'collapsible_tile4'
+
+%hr
+
+%h2.mb-2
+  = ui.nfg :badge, :success, body: 'New - Ruby'
+  Non-Collapsible Version
+
+= ui.nfg :tile, icon: 'rocket', title: 'The Title', subtitle: 'The Subtitle', button: 'The Button', href: '#the_href', body: 'The Body'
+
+= ui.nfg :tile, title: 'The Title (No Icon)', subtitle: 'The Subtitle', button: 'The Button', href: '#the_href', body: 'The Body'
+
+= ui.nfg :tile, title: 'The Title (No Icon, No Subtitle)', button: 'The Button', href: '#the_href', body: 'The Body'
+
+= ui.nfg :tile, title: 'The Title (No Icon, No Subtitle, No Button)', body: 'The Body'
+
+%hr
+
 %h2 Tile without rendered body (for super custom)
 
 = ui.nfg :tile, title: 'Tile without body', render_in_body: false do

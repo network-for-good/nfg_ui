@@ -1,4 +1,13 @@
 # Changelog
+## 0.12.7
+* This update enhances `Tile` and `TileHeader`. In summary, you can now pass in a `:subtitle`, `:button` and associated `:href` to a `Tile` to "speedbuild" a Tile with an enriched `TileHeader`. **This is a non-breaking change.**
+  * `:button` option:
+    * Sending `:button` into the `Tile` options will supply the button's `:body`
+    * Sending `:href` into the `Tile` options will supply the button's href / path.
+  * `:subtitle` will supply a subtitle below the Title
+* Example usage for a collapsible tile that includes a title, subtitle and button:
+  * `= ui.nfg :tile, :collapsible, icon: 'rocket', title: 'The Title', subtitle: 'The Subtitle', button: 'The Button', href: some_path, body: 'The Body', id: 'a_collapsible_tile'`
+
 ## 0.12.6
 * Addresses security vulnerability [GHSA-jxhc-q857-3j6g](https://github.com/advisories/GHSA-jxhc-q857-3j6g) by setting `addressable` in the `gemfile.lock` to `2.8.0`
 
