@@ -44,6 +44,12 @@
     color: $body-color !important;
     background-color: $body-bg;
   }
+  &.disabled,
+  &:disabled {
+    color: $primary;
+    background-color: $white;
+    border: $border-width solid $border-color;
+  }
 }
 .btn-link {
   font-weight: $btn-font-weight;
