@@ -1,4 +1,7 @@
 # Changelog
+## 0.12.8
+* `NavLink` was unable to accept `method: :delete` in its options hash and was breaking a logout button in Donor Management. `NavLink` is now set to `include NfgUi::Components::Utilities::Methodable`.
+
 ## 0.12.7
 * This update enhances `Tile` and `TileHeader`. In summary, you can now pass in a `:subtitle`, `:button` and associated `:href` to a `Tile` to "speedbuild" a Tile with an enriched `TileHeader`. **This is a non-breaking change.**
   * `:button` option:
