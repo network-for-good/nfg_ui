@@ -7,6 +7,7 @@ RSpec.describe NfgUi::Components::Elements::NavLink do
   it_behaves_like 'a component that includes the Describable utility module'
   it_behaves_like 'a component that includes the Renderable utility module'
   it_behaves_like 'a component that includes the Modalable utility module', component_suite: :nfg
+  it_behaves_like 'a component that includes the Methodable utility module'
 
   # Because we uniquely apply where the modalable attributes are applied (a content_tag and not a component)
   # we don't worry about the `as: :a` version of this shared example.

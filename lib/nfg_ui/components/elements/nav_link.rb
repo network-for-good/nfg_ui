@@ -11,6 +11,7 @@ module NfgUi
         include NfgUi::Components::Utilities::Traitable
         include NfgUi::Components::Utilities::Describable
         include NfgUi::Components::Utilities::Iconable
+        include NfgUi::Components::Utilities::Methodable
         include NfgUi::Components::Utilities::Renderable
 
         include NfgUi::Components::Traits::Active

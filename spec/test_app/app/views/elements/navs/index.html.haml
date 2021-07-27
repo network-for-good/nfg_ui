@@ -20,11 +20,11 @@
 %h3 Nav with :nav_items and manually added :nav_links
 = ui.nfg :nav, class: 'bg-light p-3' do
   = ui.nfg :nav_item do
-    = ui.nfg :nav_link, :active, body: 'Nav Link #1', href: '#', icon: 'home'
+    = ui.nfg :nav_link, :active, body: 'Nav Link #1 - with :method and :remote', href: '#', icon: 'home', method: :delete, remote: true
   = ui.nfg :nav_item do
-    = ui.nfg :nav_link, body: 'Nav Link #2', href: '#', icon: 'rocket'
+    = ui.nfg :nav_link, body: 'Nav Link #2', href: '#', icon: 'rocket', method: :patch
   = ui.nfg :nav_item do
-    = ui.nfg :nav_link, body: 'Nav Link #3', href: '#', icon: 'heart'
+    = ui.nfg :nav_link, body: 'Nav Link #3', href: '#', icon: 'heart', method: :example
   = ui.nfg :nav_item do
     = ui.nfg :nav_link, :disabled, body: 'Nav Link #4 (disabled)', href: '#', icon: 'usd'
 
