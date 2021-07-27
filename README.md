@@ -18,6 +18,9 @@ This gem is an organic, evolving and ongoing work that is the loving result of 4
 With this gem, you can stand up a brand new rails app and it will seamlessly, from day 1, look, feel and be a Network for Good product. *Huzzah*
 
 ## Accessing Component Code Examples & Documentation:
+
+Visit [NFG UI Display App](https://nfg-ui-display-app.herokuapp.com/) for examples.
+
 To review the documentation for the components, get code samples and browse the library, follow the instructions at the bottom for getting the gem setup locally. It has its own `test_app` so the documentation is hosted there and the gem doesn't need to be added to a seperate parent app (unless you want to). We intend to get this online in its own dedicated space... until then, that's your best bet for browsing docs.
 
 ## Configuration
