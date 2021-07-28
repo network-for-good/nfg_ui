@@ -1,4 +1,8 @@
 # Changelog
+## 0.12.9
+* CSS: Fixes `z-index` is too low issue on the builder header
+* CSS: Fixes `.btn-secondary` disabled CSS styles.
+
 ## 0.12.8
 * `NavLink` was unable to accept `method: :delete` in its options hash and was breaking a logout button in Donor Management. `NavLink` is now set to `include NfgUi::Components::Utilities::Methodable`.
 
