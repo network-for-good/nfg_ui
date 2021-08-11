@@ -277,3 +277,10 @@
 [data-action='togglePeriod']:after { content: 'Toggle AM/PM'; }
 [data-action='clear']:after { content: 'Clear the picker'; }
 [data-action='today']:after { content: 'Set the date to today'; }
+
+body:not(.modal-open) {
+  .bootstrap-datetimepicker-widget { z-index: $zindex-dropdown + 1 !important; } // makes datetimepicker dropdown higher than select2
+}
+body.modal-open  {
+  .modal .bootstrap-datetimepicker-widget { z-index: $zindex-modal + 3 !important; } // makes datetimepicker dropdown higher than redactor toolbar and select2 in modals
+}
