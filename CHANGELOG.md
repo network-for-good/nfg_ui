@@ -1,4 +1,7 @@
 # Changelog
+## 0.12.10
+* CSS: Fixes the datepicker z-index appear above the select2 plugin.
+
 ## 0.12.9
 * CSS: Fixes `z-index` is too low issue on the builder header
 * CSS: Fixes `.btn-secondary` disabled CSS styles.
