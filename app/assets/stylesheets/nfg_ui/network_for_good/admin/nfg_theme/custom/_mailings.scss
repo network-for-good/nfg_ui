@@ -1,0 +1,57 @@
+// Used for direct mail and direct mail templates
+.page {
+  position: relative;
+  background-color: $white;
+  border: $border-width solid $border-color;
+  page-break-after: always; // Always insert page break after this element
+  page-break-inside: avoid; // Don't break my page content up browser
+  @media print {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    border: none;
+  }
+  &:before {
+    position: absolute;
+    width: auto;
+    height: auto;
+    border: 2px dashed $border-color;
+    content: '';
+    z-index: 0;
+    @media print { display: none; }
+  }
+}
+.page-margin {
+  width: 100%;
+  height: 100%;
+}
+.page-content {
+  width: 100%;
+  height: 100%;
+  .redactor-editor, .redactor-box { background: transparent; }
+  .redactor-editor {
+    border: none;
+    padding: 0;
+  }
+  blockquote {
+    margin-left: 1.6em !important;
+    font-size: inherit;
+    font-style: italic;
+    color: inherit;
+  }
+  a {
+    color: #15c; // Clear out orange link colors to default blue
+    text-decoration: underline;
+    &:hover, &:focus, &:active {
+      color: #15c;
+      text-decoration: none;
+    }
+  }
+}
+.page-margin-text {
+  position: absolute;
+  top: -($spacer);
+  right: 0;
+}
