@@ -1,8 +1,8 @@
 // Styles for content section buttons
 .cs-edit, .cs-btn-group {
   position: absolute;
-  top: -($spacer);
-  left: 0;
+  top: -($spacer * .5);
+  left: -($spacer * .5);
 }
 .cs-edit, .cs-rm-group, .cs-add-group {
   color: $white !important;
