@@ -1,4 +1,7 @@
 # Changelog
+## 0.12.11
+* Adds document editing (email and direct mail) styles from Donor Management.
+
 ## 0.12.10
 * CSS: Fixes the datepicker z-index appear above the select2 plugin.
 
