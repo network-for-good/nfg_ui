@@ -2,6 +2,7 @@
 .cs-edit, .cs-btn-group {
   position: absolute;
   top: -($spacer);
+  left: 0;
 }
 .cs-edit, .cs-rm-group, .cs-add-group {
   color: $white !important;
