@@ -1,6 +1,9 @@
 # Changelog
+## 0.12.12
+* CSS: Moves and cleans up styles for tasks to nfg ui. Also, moves the status-indicator badge to the top left rather than top right.
+
 ## 0.12.11
-* Adds document editing (email and direct mail) styles from Donor Management.
+* CSS: Adds document editing (email and direct mail) styles from Donor Management.
 
 ## 0.12.10
 * CSS: Fixes the datepicker z-index appear above the select2 plugin.
