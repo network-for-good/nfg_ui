@@ -1,0 +1,20 @@
+// Styles related to the task page in DM
+
+.task {
+  &.selected {
+    border-color: $input-focus-border-color;
+    box-shadow: 0 0 0 ($spacer * .125) transparentize($primary, 0.8);
+  }
+  &.task-completed {
+    background-color: $body-bg;
+    .media-body {
+      color: $text-muted;
+      [class*='text-'] { color: $text-muted !important; }
+    }
+    .badge {
+      color: $text-muted;
+      background-color: $input-disabled-bg;
+      border-color: $border-color;
+    }
+  }
+}

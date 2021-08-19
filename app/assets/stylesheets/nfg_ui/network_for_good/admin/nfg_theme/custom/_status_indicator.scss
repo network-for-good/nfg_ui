@@ -2,7 +2,7 @@
 .status-indicator {
   position: absolute;
   top: -($spacer * .5);
-  right: -($spacer * .5);
+  left: -($spacer * .5);
   display: block;
   z-index: 100;
   font-size: $font-size-base;
