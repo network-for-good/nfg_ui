@@ -1,0 +1,23 @@
+// Holiday themed version for engagement banner
+.snowflake-bg, .hearts-bg, .arrows-bg, .flowers-bg {
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  width: 100%;
+  z-index: 0;
+}
+.snowflakes-bg {
+  background: transparent image-url('nfg_ui/engagement_banners/snow-bg.gif') 0 0 repeat;
+  opacity: 0.5;
+}
+.hearts-bg {
+  background: transparent image-url('nfg_ui/engagement_banners/hearts-bg.gif') 0 0 repeat;
+  opacity: 0.1;
+}
+.arrows-bg {
+  background: transparent image-url('nfg_ui/engagement_banners/arrows-bg.png') 50% 50% no-repeat;
+  background-size: cover;
+}
+.flowers-bg {
+  background: transparent image-url('nfg_ui/engagement_banners/flowers-bg.png') 0 0 repeat;
+  opacity: 0.1;
+}
