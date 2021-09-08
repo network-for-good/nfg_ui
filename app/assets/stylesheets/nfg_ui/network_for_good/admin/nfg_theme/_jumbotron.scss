@@ -1,0 +1,10 @@
+// Cloud jumbotron
+.jumbotron-clouds-white, .jumbotron-clouds-gray {
+  padding-bottom: 10%;
+  background-position: 50% 100%;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+}
+
+.jumbotron-clouds-gray { background-image: image-url("nfg_ui/clouds-gray-lg.png"); }
+.jumbotron-clouds-white { background-image: image-url("nfg_ui/clouds-white-lg.png"); }
