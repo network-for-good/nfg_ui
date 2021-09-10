@@ -12,7 +12,7 @@ PATH
       momentjs-rails (~> 2.11, >= 2.11.1)
       nokogiri (>= 1.11.4)
       rails (>= 4.2.0)
-      sass-rails (~> 5.0)
+      sass-rails (>= 5.0)
       select2-rails (~> 4.0)
 
 GEM
