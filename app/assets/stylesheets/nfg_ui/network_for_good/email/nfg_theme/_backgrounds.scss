@@ -3,7 +3,15 @@
 .bg-success { background-color: $success-color; }
 .bg-warning { background-color: $warning-color; }
 .bg-alert { background-color: $alert-color; }
+.bg-white { background: $white !important; }
+.bg-secondary { background: $medium-gray !important; }
+.bg-tertiary { background: $dark-gray !important; }
 .bg-light-gray { background-color: $light-gray !important; }
+.bg-transparent { background: transparent !important; }
+.bg-black {
+  background: $black !important;
+  color: inherit;
+}
 
 // Images
 .bg-image {
@@ -13,3 +21,12 @@
 .bg-image-primary { background: $primary-color image-url('backgrounds/bg-image-primary.jpg'); }
 .bg-image-success { background: $success-color image-url('backgrounds/bg-image-success.jpg'); }
 .bg-image-warning { background: $warning-color image-url('backgrounds/bg-image-warning.jpg'); }
+
+
+// .bg-transparent { background: transparent !important; }
+// .bg-black {
+//   background: $black !important;
+//   color: inherit;
+// }
+// .bg-white { background: $white !important; }
+// .bg-primary { background: $light-gray !important; }

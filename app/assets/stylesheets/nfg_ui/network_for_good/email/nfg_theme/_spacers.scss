@@ -1,60 +1,36 @@
-$spacer                                     : 24px !default;
-$spacer-x                                   : $spacer !default;
-$spacer-y                                   : $spacer !default;
-$spacers: (
-  0: (
-    x : 0,
-    y : 0
+$spacer: 24px;
+$spacers: ();
+// stylelint-disable-next-line scss/dollar-variable-default
+$spacers: map-merge(
+  (
+    0: 0,
+    quarter: ($spacer * .25),
+    half: ($spacer * .5),
+    base: $spacer,
+    base-half: ($spacer * 1.5),
+    double: ($spacer * 2),
+    double-half: ($spacer * 2.5),
+    triple: ($spacer * 3)
   ),
-  quarter: (
-    x : ($spacer-x * 0.25),
-    y : ($spacer-y * 0.25)
-  ),
-  half: (
-    x : ($spacer-x * 0.5),
-    y : ($spacer-y * 0.5)
-  ),
-  base: (
-    x : $spacer-x,
-    y : $spacer-y
-  ),
-  base-half: (
-    x : $spacer-x * 1.5,
-    y : $spacer-y * 1.5
-  ),
-  double: (
-    x : ($spacer-x * 2),
-    y : ($spacer-y * 2)
-  ),
-  double-half: (
-    x : ($spacer-x * 2.5),
-    y : ($spacer-y * 2.5)
-  ),
-  triple: (
-    x : ($spacer-x * 3),
-    y : ($spacer-y * 3)
-  )
+  $spacers
 );
 
 @each $prop, $abbrev in (margin: m, padding: p) {
-  @each $size, $lengths in $spacers {
-    $length-x:   map-get($lengths, x);
-    $length-y:   map-get($lengths, y);
-
-    .#{$abbrev}-a-#{$size} { #{$prop}:        $length-y $length-x !important; } // a = All sides
-    .#{$abbrev}-t-#{$size} { #{$prop}-top:    $length-y !important; }
-    .#{$abbrev}-r-#{$size} { #{$prop}-right:  $length-x !important; }
-    .#{$abbrev}-b-#{$size} { #{$prop}-bottom: $length-y !important; }
-    .#{$abbrev}-l-#{$size} { #{$prop}-left:   $length-x !important; }
+  @each $size, $length in $spacers {
+    .#{$abbrev}-a-#{$size} { #{$prop}:        $length !important; } // a = All sides
+    .#{$abbrev}-t-#{$size} { #{$prop}-top:    $length !important; }
+    .#{$abbrev}-r-#{$size} { #{$prop}-right:  $length !important; }
+    .#{$abbrev}-b-#{$size} { #{$prop}-bottom: $length !important; }
+    .#{$abbrev}-l-#{$size} { #{$prop}-left:   $length !important; }
 
     // Axes
     .#{$abbrev}-x-#{$size} {
-      #{$prop}-right:  $length-x !important;
-      #{$prop}-left:   $length-x !important;
+      #{$prop}-right:  $length !important;
+      #{$prop}-left:   $length !important;
     }
     .#{$abbrev}-y-#{$size} {
-      #{$prop}-top:    $length-y !important;
-      #{$prop}-bottom: $length-y !important;
+      #{$prop}-top:    $length !important;
+      #{$prop}-bottom: $length !important;
     }
   }
 }
