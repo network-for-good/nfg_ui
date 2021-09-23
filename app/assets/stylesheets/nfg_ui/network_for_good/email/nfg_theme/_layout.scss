@@ -1,14 +1,12 @@
 // Extra layout styles
-
-
-// Inner wrapper styles that Foundation adds inside wrapper classes
-.wrapper-inner {
-  padding: 24px;
-  @media only screen and (max-width: #{$global-breakpoint}) { padding: 24px 0px !important; }
-}
-.collapse {
-  .wrapper-inner {
-    @media only screen and (max-width: #{$global-breakpoint}) { padding: 24px !important; }
+.wrapper {
+  &.strict { // Strict mode: Wrap with zero impact on nested components
+    width: 100% !important;
+    padding: 0 !important;
+    .wrapper-inner {
+      width: 100% !important;
+      padding: 0 !important;
+    }
   }
 }
 

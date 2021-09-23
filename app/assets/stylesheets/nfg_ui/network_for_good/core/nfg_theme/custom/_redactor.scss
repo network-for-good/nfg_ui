@@ -9,7 +9,7 @@
 }
 .redactor-toolbar {
   position: relative;
-  background-color: $body-bg;
+  background-color: $white;
   box-shadow: none;
   border-bottom: $border-width solid $border-color;
   &.redactor-toolbar-external {
@@ -29,7 +29,7 @@
     }
     &:after {
       border-color: rgba(255, 255, 255, 0);
-      border-top-color: $body-bg;
+      border-top-color: $white;
       border-width: 6px;
       margin-left: -6px;
     }
@@ -41,7 +41,7 @@
     }
   }
   li a {
-    color: inherit !important;
+    color: $body-color !important;
     &.re-icon {
       .body-text { font-family: Arial, Helvetica, Verdana, Tahoma, sans-serif !important; }
     }
@@ -52,6 +52,10 @@
   }
 }
 .redactor-editor, .redactor-box, .redactor-box textarea { z-index: auto; }
+.redactor-editor {
+  min-height: ($spacer * 5);
+  border: none;
+}
 .redactor-box .redactor-toolbar { z-index: $zindex-dropdown - 10 !important; }
 #redactor-modal-close {
   border: none;

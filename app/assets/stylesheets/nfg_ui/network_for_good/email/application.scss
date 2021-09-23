@@ -2,13 +2,19 @@
 @import "foundation-emails";
 @import "foundation_emails/alignment";
 @import "foundation_emails/button";
+@import "foundation_emails/typography";
+
 
 // NFG Theme specific
-@import "nfg_theme/spacers";
+@import "nfg_theme/backgrounds";
+@import "nfg_theme/borders";
+@import "nfg_theme/content_sections";
 @import "nfg_theme/layout";
 @import "nfg_theme/rainbow_bar";
+@import "nfg_theme/spacers";
+@import "foundation_emails/grid"; // listed after spacers to utilize variables
+@import "nfg_theme/text_colors";
 @import "nfg_theme/typography";
-@import "nfg_theme/backgrounds";
 
 
 // App Utilities

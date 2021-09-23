@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    nfg_ui (0.12.13)
+    nfg_ui (0.12.14)
       autoprefixer-rails (= 9.4.9)
       bootstrap (= 4.3.1)
       browser (~> 2.7.1)
@@ -123,7 +123,7 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.7.1)
       mini_mime (>= 0.1.1)
-    marcel (1.0.1)
+    marcel (1.0.2)
     method_source (1.0.0)
     mini_mime (1.1.0)
     mini_portile2 (2.5.1)

@@ -1,4 +1,7 @@
 # Changelog
+## 0.12.14
+* CSS: Moves email styles over to nfg_ui gem.
+
 ## 0.12.13
 * CSS: Adds engagement and import banner styles and assets.
 

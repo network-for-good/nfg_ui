@@ -1,0 +1,26 @@
+@mixin text-color-variant($color){
+  &h1,
+  &h2,
+  &h3,
+  &h4,
+  &h5,
+  &h6,
+  &p,
+  &td,
+  &th,
+  &small,
+  & h1,
+  & h2,
+  & h3,
+  & h4,
+  & h5,
+  & h6,
+  & p,
+  & td,
+  & th,
+  & small {
+    color: $color !important;
+  }
+}
+
+.text-black { @include text-color-variant($black); }
