@@ -38,10 +38,10 @@
   bottom: 100%;
   margin-bottom: ($spacer * .5);
   min-width: 200px;
+  max-width: 100%;
   width: 430px;
   text-align: center;
   z-index: 120;
-  @include media-breakpoint-down(xs) { max-width: 100%; }
   &[data-for='header_text'] {
     top: 100%;
     bottom: auto;
@@ -55,24 +55,24 @@
     z-index: 100;
     a {
       display: inline-block;
-      padding: $btn-padding-y $btn-padding-x;
-      font-size: $btn-font-size;
-      line-height: $btn-line-height;
-      color: $body-color;
+      padding: $btn-padding-y $btn-padding-x !important;
+      font-size: $btn-font-size !important;
+      line-height: $btn-line-height !important;
+      color: $body-color !important;
       text-align: center;
-      background-color: $white;
+      background-color: $white !important;
       border: $border-width solid $border-color;
       border-bottom: 0;
-      text-decoration: none;
+      text-decoration: none !important;
       border-radius: $btn-border-radius $btn-border-radius 0 0;
-      @include hover-focus-active {
-        color: $white;
-        background: $primary;
+      &:hover, &:focus, &:active {
+        color: $white !important;
+        background: $primary !important;
       }
       i.fa { margin-right: ($spacer * .25); }
       &.cs-html-editor-save {
-        color: $white;
-        background-color: $primary;
+        color: $white !important;
+        background-color: $primary !important;
       }
       + a[class^='cs-html-editor-'] { margin-left: ($spacer * .25); }
     }

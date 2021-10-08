@@ -403,8 +403,8 @@ $table-dark-color:            theme-color("light");
 $input-btn-padding-y:         .7rem;
 $input-btn-padding-x:         ($spacer * .25) + ($spacer * .125);
 // $input-btn-font-family:       null !default;
-// $input-btn-font-size:         $font-size-base !default;
-// $input-btn-line-height:       $line-height-base !default;
+$input-btn-font-size:         $font-size-base;
+$input-btn-line-height:       $line-height-base;
 
 $input-btn-focus-width:       ($spacer * .125);
 $input-btn-focus-color:       transparentize($primary, 0.8);
@@ -430,8 +430,8 @@ $input-btn-padding-x-lg:      ($spacer * .75) - ($spacer * .125);
 $btn-padding-y:               ($input-btn-padding-y + .1rem);
 $btn-padding-x:               ($spacer * .5);
 // $btn-font-family:             $input-btn-font-family !default;
-// $btn-font-size:               $input-btn-font-size !default;
-// $btn-line-height:             $input-btn-line-height !default;
+$btn-font-size:               $input-btn-font-size;
+$btn-line-height:             $input-btn-line-height;
 
 $btn-padding-y-sm:            ($input-btn-padding-y-sm + .1rem);
 // $btn-padding-x-sm:            $input-btn-padding-x-sm !default;
@@ -695,13 +695,13 @@ $form-validation-states: map-merge(
 // Warning: Avoid customizing these values. They're used for a bird's eye view
 // of components dependent on the z-axis and are designed to all work together.
 
-// $zindex-dropdown:                   1000 !default;
-// $zindex-sticky:                     1020 !default;
-// $zindex-fixed:                      1030 !default;
-// $zindex-modal-backdrop:             1040 !default;
-// $zindex-modal:                      1050 !default;
-// $zindex-popover:                    1060 !default;
-// $zindex-tooltip:                    1070 !default;
+$zindex-dropdown:                   1000;
+$zindex-sticky:                     1020;
+$zindex-fixed:                      1030;
+$zindex-modal-backdrop:             1040;
+$zindex-modal:                      1050;
+$zindex-popover:                    1060;
+$zindex-tooltip:                    1070;
 
 
 // Navs
