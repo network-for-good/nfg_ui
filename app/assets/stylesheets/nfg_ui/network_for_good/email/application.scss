@@ -3,6 +3,10 @@
 // Variables from core
 @import 'nfg_ui/network_for_good/core/variables';
 
+// Redactor styles
+@import 'nfg_ui/network_for_good/core/nfg_theme/custom/_redactor.scss';
+@import 'nfg_ui/network_for_good/admin/nfg_theme/custom/_content_section.scss';
+
 // Foundation email styles
 @import "settings/settings";
 @import "foundation-emails";
@@ -23,15 +27,14 @@
 
 // App Utilities
 // i18n translation missing visual to help find missing t('')s...
-.translation_missing{
+.translation_missing {
   background-color: $danger;
   display: inline-block;
   border: solid 3px darken($danger, 15%);
-  padding:10px;
-  color:#fff;
+  padding: 10px;
+  color: #fff;
   position: relative;
-
-  &:before{
+  &:before {
     content: "Translation Missing:";
     position: absolute;
     background-color: darken($danger, 15%);

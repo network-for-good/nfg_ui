@@ -1,10 +1,2 @@
-// Styles specific for content section links
-.cs-edit, .cs-rm-group, .cs-add-group {
-  padding: 4px 6px !important;
-  font-weight: $bold-font-weight;
-  font-size: 12px !important;
-  line-height: 1;
-}
-
 // Override white text
 .redactor-box .text-white { color: $global-font-color !important; }
