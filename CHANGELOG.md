@@ -1,4 +1,7 @@
 # Changelog
+## 0.12.16
+CSS: Foundation email settings now uses variables from core variables file
+
 ## 0.12.15
 * Addresses security vulnerability [GHSA-2rr5-8q37-2w7h](https://github.com/advisories/GHSA-2rr5-8q37-2w7h) by bumping `nokogiri` from `1.11.5` to `>= 1.12.5`
 
