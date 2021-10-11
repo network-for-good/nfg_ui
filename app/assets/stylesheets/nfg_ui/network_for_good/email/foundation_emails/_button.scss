@@ -2,60 +2,6 @@
 // zurb.com/ink/
 // Licensed under MIT Open Source
 
-////
-/// @group button
-////
-
-// /// Padding inside buttons at various sizes.
-// /// @type Map
-// $button-padding: (
-//   tiny: 4px 8px 4px 8px,
-//   small: 5px 10px 5px 10px,
-//   default: 8px 16px 8px 16px,
-//   large: 10px 20px 10px 20px,
-// ) !default;
-
-// /// Font sizes of buttons at various sizes.
-// /// @type Map
-// $button-font-size: (
-//   tiny: 10px,
-//   small: 12px,
-//   default: 16px,
-//   large: 20px,
-// ) !default;
-
-// /// Text color of buttons.
-// /// @type Color
-// $button-color: $white !default;
-
-// /// Text color of buttons with a light background.
-// /// @type Color
-// $button-color-alt: $medium-gray !default;
-
-// /// Font weight of buttons.
-// /// @type Weight
-// $button-font-weight: bold !default;
-
-// /// Margin around buttons.
-// /// @type List
-// $button-margin: 0 0 $global-margin 0 !default;
-
-// /// Background color of buttons.
-// /// @type Color
-// $button-background: $primary-color !default;
-
-// /// Border around buttons.
-// /// @type Border
-// $button-border: 2px solid $button-background !default;
-
-// /// Border radius of buttons. Not supported by all email clients.
-// /// @type Number
-// $button-radius: $global-radius !default;
-
-// /// Border radius of rounded buttons. Not supported by all email clients.
-// /// @type Number
-// $button-rounded: $global-rounded !default;
-
 table.button {
   // width: auto;
   // margin: $button-margin;
@@ -157,7 +103,7 @@ table.button.inverse {
     td {
       background: transparent;
       color: $white;
-      border: 1px solid $white;
+      border: $border-width solid $white;
     }
     a {
       color: $white;

@@ -1,7 +1,7 @@
 // Free trial styles for DMS
 
 // Height of banner
-$free_trial_banner_height: 6.2rem;
+$free_trial_banner_height: 7.4rem;
 
 // Styles for container elements when body tag is using .has-free-trial
 body.has-free-trial.nfg_ui {
@@ -15,7 +15,7 @@ body.has-free-trial.nfg_ui {
   @include media-breakpoint-up(xl) {
     .site-nav {
       top: $free_trial_banner_height;
-      height: calc(100% - 62px);
+      height: calc(100% - 74px);
     }
     .full_width_layout { padding-top: ($spacer * 3); }
     .container-wrap { padding-top: ($spacer * 2) + $free_trial_banner_height; }

@@ -45,7 +45,7 @@
     &.re-icon {
       .body-text { font-family: Arial, Helvetica, Verdana, Tahoma, sans-serif !important; }
     }
-    @include hover-focus-active {
+    &:hover, &:focus, &:active {
       color: $white !important;
       background-color: $primary;
     }
@@ -72,7 +72,7 @@ body.modal-open  {
   z-index: $zindex-modal + 1 !important;
   a[class^="redactor-dropdown-"] {
     color: $body-color;
-    @include hover-focus-active {
+    &:hover, &:focus, &:active {
       color: $white;
       background-color: $primary;
     }

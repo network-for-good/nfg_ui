@@ -1,9 +1,18 @@
+//** Email Styles **//
+
+// Variables from core
+@import 'nfg_ui/network_for_good/core/variables';
+
+// Redactor styles
+@import 'nfg_ui/network_for_good/core/nfg_theme/custom/redactor.scss';
+@import 'nfg_ui/network_for_good/admin/nfg_theme/custom/content_section.scss';
+
+// Foundation email styles
 @import "settings/settings";
 @import "foundation-emails";
 @import "foundation_emails/alignment";
 @import "foundation_emails/button";
 @import "foundation_emails/typography";
-
 
 // NFG Theme specific
 @import "nfg_theme/backgrounds";
@@ -16,21 +25,19 @@
 @import "nfg_theme/text_colors";
 @import "nfg_theme/typography";
 
-
 // App Utilities
 // i18n translation missing visual to help find missing t('')s...
-.translation_missing{
-  background-color: #ec5840;
+.translation_missing {
+  background-color: $danger;
   display: inline-block;
-  border: solid 3px darken(#ec5840, 15%);
-  padding:10px;
-  color:#fff;
+  border: solid 3px darken($danger, 15%);
+  padding: 10px;
+  color: #fff;
   position: relative;
-
-  &:before{
+  &:before {
     content: "Translation Missing:";
     position: absolute;
-    background-color: darken(#ec5840, 15%);
+    background-color: darken($danger, 15%);
     display: inline-block;
     width: 110px;
     left: 50%;
