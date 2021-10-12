@@ -1,4 +1,7 @@
 # Changelog
+## 0.12.16.1
+* Addresses security vulnerability [GHSA-48w2-rm65-62xx](https://github.com/advisories/GHSA-48w2-rm65-62xx) by bumping `puma` to `>= 5.5.1`
+
 ## 0.12.16
 CSS: Foundation email settings now uses variables from core variables file
 
