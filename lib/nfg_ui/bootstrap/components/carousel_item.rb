@@ -9,6 +9,9 @@ module NfgUi
         include Bootstrap::Utilities::Activatable
 
         # Turn on or off auto scrolling carousel
+        # NOTE: this does not yet work
+        # SUSPECTED javascript bug
+        # see bootstrap docs: https://getbootstrap.com/docs/4.3/components/carousel/#individual-carousel-item-interval
         def auto
           options.fetch(:auto, true)
         end
