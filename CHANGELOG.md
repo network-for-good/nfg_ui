@@ -1,4 +1,7 @@
 # Changelog
+## 0.12.17
+Ruby: Updated the `CarouselItem` component to accept the `interval` option which now will update the amount of time it takes before transitioning to the next slide. See [bootstrap 4.3 docs](https://getbootstrap.com/docs/4.3/components/carousel/#individual-carousel-item-interval)
+
 ## 0.12.16
 CSS: Foundation email settings now uses variables from core variables file
 
