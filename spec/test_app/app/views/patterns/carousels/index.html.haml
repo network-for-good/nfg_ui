@@ -36,7 +36,7 @@
       = ui.nfg :carousel_item, active: true, image: 'https://via.placeholder.com/600x400?text=Auto+Generated+Image+No.+1'
       = ui.nfg :carousel_item, image: 'https://via.placeholder.com/600x400?text=Auto+Generated+Image+No.+2'
       = ui.nfg :carousel_item, image: 'https://via.placeholder.com/600x400?text=Auto+Generated+Image+No.+3'
-      
+
 %hr
 
 %h3 Carousel with manually generated controls.
@@ -57,7 +57,7 @@
 %h3 Automatically generated controls & indicators
 %p For controls: send in controls: true to the main carousel component options.
 %p For indicators: set indicators: [number] to the main component. The numbers need to match the amount of carousel items. This will automatically default slide 1 as active (for the indicators, thus no action is needed to identify an active indicator)
-%p Ex: 
+%p Ex:
 %code = ui.nfg :carousel, id: 'carousel_with_controls', class: 'my-4', controls: true, indicators: 3
 
 %h4.text-danger Note: Indicators position in HTML
@@ -86,7 +86,7 @@
 .row
   .col-lg-8.col-12.mx-auto
     = ui.nfg :carousel, id: 'carousel_with_controls_and_indicators', class: 'my-4' do
-      
+
       = ui.nfg :carousel_item, active: true, image: 'https://via.placeholder.com/600x400?text=Auto+Generated+Image+No.+1'
       = ui.nfg :carousel_item, image: 'https://via.placeholder.com/600x400?text=Auto+Generated+Image+No.+2'
       = ui.nfg :carousel_item, image: 'https://via.placeholder.com/600x400?text=Auto+Generated+Image+No.+3'
@@ -102,7 +102,7 @@
 .row
   .col-lg-8.col-12.mx-auto
     = ui.nfg :carousel, id: 'manual_captions', class: 'my-4' do
-      
+
       = ui.nfg :carousel_item, active: true do
         = image_tag 'https://via.placeholder.com/600x400?text=Carousel+Slide+No.+1', class: 'd-block w-100'
         = ui.nfg :carousel_caption, body: 'Carousel 1 Caption', label: 'Carousel 1 Label'
@@ -122,10 +122,48 @@
 .row
   .col-lg-8.col-12.mx-auto
     = ui.nfg :carousel, id: 'auto_captions', class: 'my-4' do
-      
+
       = ui.nfg :carousel_item, caption: 'Automatic Caption No. 1', label: 'Automatic Label No. 1', active: true, image: 'https://via.placeholder.com/600x400?text=Auto+Generated+Image+No.+1'
       = ui.nfg :carousel_item, caption: 'Automatic Caption No. 2', label: 'Automatic Label No. 2', image: 'https://via.placeholder.com/600x400?text=Auto+Generated+Image+No.+2'
       = ui.nfg :carousel_item, caption: 'Automatic Caption No. 3', label: 'Automatic Label No. 3', image: 'https://via.placeholder.com/600x400?text=Auto+Generated+Image+No.+3'
+      = ui.nfg :carousel_control, control: :next, carousel: '#auto_captions'
+      = ui.nfg :carousel_control, control: :prev, carousel: '#auto_captions'
+      = ui.nfg :carousel_indicators, active: 1, count: 3, carousel: '#auto_captions'
+
+%hr
+
+%h2 Carousel rotation timer adjustments
+
+%h3 Carousel with auto rotation turned off.
+%p
+  To turn off auto scrolling through the carousel set the auto option to false
+  %br
+  %code auto: false
+.row
+  .col-lg-8.col-12.mx-auto
+    = ui.nfg :carousel, id: 'auto_captions', class: 'my-4' do
+
+      = ui.nfg :carousel_item, auto: false, caption: 'Automatic Caption No. 1', label: 'Automatic Label No. 1', active: true, image: 'https://via.placeholder.com/600x400?text=Auto+Generated+Image+No.+1'
+      = ui.nfg :carousel_item, auto: false, caption: 'Automatic Caption No. 2', label: 'Automatic Label No. 2', image: 'https://via.placeholder.com/600x400?text=Auto+Generated+Image+No.+2'
+      = ui.nfg :carousel_item, auto: false, caption: 'Automatic Caption No. 3', label: 'Automatic Label No. 3', image: 'https://via.placeholder.com/600x400?text=Auto+Generated+Image+No.+3'
+      = ui.nfg :carousel_control, control: :next, carousel: '#auto_captions'
+      = ui.nfg :carousel_control, control: :prev, carousel: '#auto_captions'
+      = ui.nfg :carousel_indicators, active: 1, count: 3, carousel: '#auto_captions'
+
+%hr
+
+%h3 Carousel with auto rotation interval adjusted from the default.
+%p
+  To adjust the timing of the intervals, send a milisecond counter value for the interval attribute
+  %br
+  %code interval: 1000
+.row
+  .col-lg-8.col-12.mx-auto
+    = ui.nfg :carousel, id: 'auto_captions', class: 'my-4' do
+
+      = ui.nfg :carousel_item, interval: 1000, caption: 'Automatic Caption No. 1', label: 'Automatic Label No. 1', active: true, image: 'https://via.placeholder.com/600x400?text=Auto+Generated+Image+No.+1'
+      = ui.nfg :carousel_item, interval: 1000, caption: 'Automatic Caption No. 2', label: 'Automatic Label No. 2', image: 'https://via.placeholder.com/600x400?text=Auto+Generated+Image+No.+2'
+      = ui.nfg :carousel_item, interval: 1000, caption: 'Automatic Caption No. 3', label: 'Automatic Label No. 3', image: 'https://via.placeholder.com/600x400?text=Auto+Generated+Image+No.+3'
       = ui.nfg :carousel_control, control: :next, carousel: '#auto_captions'
       = ui.nfg :carousel_control, control: :prev, carousel: '#auto_captions'
       = ui.nfg :carousel_indicators, active: 1, count: 3, carousel: '#auto_captions'
