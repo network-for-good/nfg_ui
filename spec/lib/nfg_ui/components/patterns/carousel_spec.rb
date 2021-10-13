@@ -38,18 +38,4 @@ RSpec.describe NfgUi::Components::Patterns::Carousel do
       end
     end
   end
-
-  describe '#carousel_inner_css_classes' do
-    subject { carousel.send(:carousel_inner_css_classes) }
-
-    context 'when indicators in options are greater than 0' do
-      let(:options) { { indicators: 1 } }
-      it { is_expected.to eq 'carousel-inner pb-3' }
-    end
-
-    context 'when indicators in options is 0'
-    let(:options) { { indicators: 0 } }
-    it { is_expected.not_to include 'pb-3' }
-    it { is_expected.to eq 'carousel-inner' }
-  end
 end

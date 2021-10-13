@@ -1,9 +1,80 @@
-// Optional indicator pips
-//
-// Add an unordered list with the following class and add a list item for each
-// slide your carousel holds.
+
+
+
+.carousel-auction {
+  padding: ($spacer * .5);
+  width: 100%;
+  &.carousel-auction-sm {
+    .carousel-inner { height: 200px; }
+  }
+  &.carousel-auction-lg {
+    border: $border-width solid $border-color;
+    border-radius: $border-radius;
+    .carousel-inner { height: 50vh; }
+  }
+  .carousel-item {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    float: none; // overrides BS carousel defaults
+    margin-right: 0; // overrides BS carousel defaults
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    @include transition($transition-fade);
+    &.active.carousel-item-left,
+    &.active.carousel-item-right {
+      @include transition($transition-fade); // overrides BS carousel defaults
+    }
+    img { // keeps image scaled proportionally
+      width: auto !important;
+      max-width: 100%;
+      height: auto !important;
+      max-height: 100%;
+      margin: auto;
+    }
+  }
+}
+
+
+// Icons for within
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  left: 0;
+  width: 100%;
+  background: none;
+  background-image: none;
+  &:after {
+    position: absolute;
+    top: -($carousel-control-icon-width / 2);
+    display: block;
+    width: 100%;
+    height: $carousel-control-icon-width;
+    font-family: "FontAwesome";
+    font-size: $font-size-lg;
+    line-height: 1;
+    color: inherit;
+    text-align: center;
+    content: '\f00c';
+  }
+}
+.carousel-control-prev-icon {
+  &:after { content: $carousel-control-prev-icon-bg; }
+}
+.carousel-control-next-icon {
+  &:after { content: $carousel-control-next-icon-bg; }
+}
+
 
 .carousel-indicators {
-  bottom: 0;
+  // bottom: 0;
   li { border-radius: 50%; }
 }
