@@ -1,5 +1,6 @@
 #bee_plugin_container {
   height: 600px; // fallback value if calc() isn't supported
+  height: calc(100vh - 112px);
   border-top: 1px solid $border-color;
   border-bottom: 1px solid $border-color;
 }

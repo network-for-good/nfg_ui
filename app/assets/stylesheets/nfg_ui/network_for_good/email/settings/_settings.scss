@@ -16,25 +16,25 @@
 // 1. Global
 // ---------
 
-$primary-color: #25aceb;
-$secondary-color: #9A9A9A;
-$success-color: #59bf22;
-$warning-color: #ffaa00;
-$alert-color: #ff6d33;
-$light-gray: #F7F7F7;
-$medium-gray: #D8D8D8;
-$dark-gray: #4D4D4D;
-$black: #000000;
-$white: #ffffff;
-$pre-color: #ff6908;
+$primary-color: $primary;
+$secondary-color: $gray-600;
+$success-color: $success;
+$warning-color: $warning;
+$alert-color: $danger;
+$light-gray: $gray-100;
+$medium-gray: $gray-300;
+$dark-gray: $gray-800;
+$black: $black;
+$white: $white;
+$pre-color: $gray-800;
 $global-width: 580px;
 $global-width-small: 100%;
 $global-gutter: 24px;
-$body-background: $light-gray;
+$body-background: $body-bg;
 $container-background: $white;
 $global-padding: 12px;
 $global-margin: 12px;
-$global-radius: 3px;
+$global-radius: $border-radius;
 $global-rounded: 500px;
 $global-breakpoint: $global-width + $global-gutter;
 
@@ -57,19 +57,19 @@ $block-grid-gutter: $global-gutter;
 $global-font-color: $dark-gray;
 $body-font-family: Helvetica, Arial, sans-serif;
 $global-font-weight: normal;
-$bold-font-weight: 500;
+$bold-font-weight: $font-weight-bold;
 $header-color: inherit;
-$global-line-height: 1.5;
-$global-font-size: 14px;
+$global-line-height: $line-height-base;
+$global-font-size: 16px;
 $body-line-height: $global-line-height;
 $header-font-family: Helvetica, Arial, sans-serif;
 $header-font-weight: $bold-font-weight;
-$h1-font-size: 30px;
-$h2-font-size: 27px;
-$h3-font-size: 24px;
-$h4-font-size: 20px;
-$h5-font-size: 17px;
-$h6-font-size: 14px;
+$h1-font-size: 40px;
+$h2-font-size: 32px;
+$h3-font-size: 28px;
+$h4-font-size: 24px;
+$h5-font-size: 20px;
+$h6-font-size: 16px;
 $header-margin-bottom: 12px;
 $paragraph-margin-bottom: 12px;
 $small-font-size: 80%;
@@ -83,7 +83,7 @@ $subheader-font-weight: $global-font-weight;
 $subheader-margin-top: 4px;
 $subheader-margin-bottom: 8px;
 $hr-width: $global-width;
-$hr-border: 1px solid $medium-gray;
+$hr-border: $border-width solid $border-color;
 $hr-margin: 24px auto;
 $anchor-text-decoration: underline;
 $anchor-color: $primary-color;
@@ -102,10 +102,10 @@ $button-padding: (
   large: 10px 12px 10px 12px,
 );
 $button-font-size: (
-  tiny: 12px,
+  tiny: 14px,
   small: 14px,
-  default: 15px,
-  large: 17px,
+  default: 16px,
+  large: 20px,
 );
 $button-color: $white;
 $button-color-alt: $medium-gray;
@@ -123,11 +123,11 @@ $callout-background: #e5f5fd;
 $callout-background-fade: 88%;
 $callout-padding: 12px;
 $callout-margin-bottom: $global-margin;
-$callout-border: 1px solid $primary-color;
-$callout-border-secondary: 1px solid $secondary-color;
-$callout-border-success: 1px solid $success-color;
-$callout-border-warning: 1px solid $warning-color;
-$callout-border-alert: 1px solid $alert-color;
+$callout-border: $border-width solid $primary-color;
+$callout-border-secondary: $border-width solid $secondary-color;
+$callout-border-success: $border-width solid $success-color;
+$callout-border-warning: $border-width solid $warning-color;
+$callout-border-alert: $border-width solid $alert-color;
 
 // 7. Menu
 // -------

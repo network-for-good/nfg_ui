@@ -1,0 +1,88 @@
+// Styles for content section buttons
+.cs-edit, .cs-btn-group {
+  position: absolute;
+  top: -($spacer * .5);
+  left: -($spacer * .5);
+}
+.cs-edit, .cs-rm-group, .cs-add-group {
+  color: $white !important;
+  background-color: $primary;
+  text-decoration: none !important;
+  opacity: 0.8;
+  z-index: 100;
+  &:hover { opacity: 1; }
+}
+
+
+// Content section styles
+.content-section-wrapper, .content-section {
+  position: relative;
+  width: 100%;
+  line-height: 1.4;
+  .redactor-box {
+    z-index: 50;
+    .redactor-editor {
+      padding: 0;
+      min-height: $spacer;
+      font-size: inherit !important;
+      font-family: inherit !important;
+      line-height: inherit !important;
+      border: none;
+    }
+  }
+}
+.cs-form, .cs-html-editor-undo { display: none; }
+.cs-html-editor-overlay {
+  position: absolute;
+  left: 50%;
+  bottom: 100%;
+  margin-bottom: ($spacer * .5);
+  min-width: 200px;
+  max-width: 100%;
+  width: 430px;
+  text-align: center;
+  z-index: 120;
+  &[data-for='header_text'] {
+    top: 100%;
+    bottom: auto;
+    width: 200px;
+    .redactor-toolbar-external {
+      &:after, &:before { display: none; }
+    }
+  }
+  .cs-html-editor-buttons, .cs-html-editor-toolbar { left: -50%; }
+  .cs-html-editor-buttons {
+    z-index: 100;
+    a {
+      display: inline-block;
+      padding: $btn-padding-y $btn-padding-x !important;
+      font-size: $btn-font-size !important;
+      line-height: $btn-line-height !important;
+      color: $body-color !important;
+      text-align: center;
+      background-color: $white !important;
+      border: $border-width solid $border-color;
+      border-bottom: 0;
+      text-decoration: none !important;
+      border-radius: $btn-border-radius $btn-border-radius 0 0;
+      &:hover, &:focus, &:active {
+        color: $white !important;
+        background: $primary !important;
+      }
+      i.fa { margin-right: ($spacer * .25); }
+      &.cs-html-editor-save {
+        color: $white !important;
+        background-color: $primary !important;
+      }
+      + a[class^='cs-html-editor-'] { margin-left: ($spacer * .25); }
+    }
+  }
+  .cs-html-editor-toolbar { z-index: 50; }
+}
+.cs-hidden-editor-container {
+  position: absolute;
+  z-index: -1;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}

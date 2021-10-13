@@ -1,30 +1,43 @@
+//** Email Styles **//
+
+// Variables from core
+@import 'nfg_ui/network_for_good/core/variables';
+
+// Redactor styles
+@import 'nfg_ui/network_for_good/core/nfg_theme/custom/redactor.scss';
+@import 'nfg_ui/network_for_good/admin/nfg_theme/custom/content_section.scss';
+
+// Foundation email styles
 @import "settings/settings";
 @import "foundation-emails";
 @import "foundation_emails/alignment";
 @import "foundation_emails/button";
+@import "foundation_emails/typography";
 
 // NFG Theme specific
-@import "nfg_theme/spacers";
+@import "nfg_theme/backgrounds";
+@import "nfg_theme/borders";
+@import "nfg_theme/content_sections";
 @import "nfg_theme/layout";
 @import "nfg_theme/rainbow_bar";
+@import "nfg_theme/spacers";
+@import "foundation_emails/grid"; // listed after spacers to utilize variables
+@import "nfg_theme/text_colors";
 @import "nfg_theme/typography";
-@import "nfg_theme/backgrounds";
-
 
 // App Utilities
 // i18n translation missing visual to help find missing t('')s...
-.translation_missing{
-  background-color: #ec5840;
+.translation_missing {
+  background-color: $danger;
   display: inline-block;
-  border: solid 3px darken(#ec5840, 15%);
-  padding:10px;
-  color:#fff;
+  border: solid 3px darken($danger, 15%);
+  padding: 10px;
+  color: #fff;
   position: relative;
-
-  &:before{
+  &:before {
     content: "Translation Missing:";
     position: absolute;
-    background-color: darken(#ec5840, 15%);
+    background-color: darken($danger, 15%);
     display: inline-block;
     width: 110px;
     left: 50%;

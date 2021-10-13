@@ -1,4 +1,35 @@
 # Changelog
+## 0.12.17
+Ruby: Updated the `CarouselItem` component to accept the `interval` option which now will update the amount of time it takes before transitioning to the next slide. See [bootstrap 4.3 docs](https://getbootstrap.com/docs/4.3/components/carousel/#individual-carousel-item-interval)
+
+## 0.12.16
+CSS: Foundation email settings now uses variables from core variables file
+
+## 0.12.15
+* Addresses security vulnerability [GHSA-2rr5-8q37-2w7h](https://github.com/advisories/GHSA-2rr5-8q37-2w7h) by bumping `nokogiri` from `1.11.5` to `>= 1.12.5`
+
+## 0.12.14
+* CSS: Moves email styles over to nfg_ui gem.
+
+## 0.12.13
+* CSS: Adds engagement and import banner styles and assets.
+
+## 0.12.12
+* CSS: Moves and cleans up styles for tasks to nfg ui. Also, moves the status-indicator badge to the top left rather than top right.
+
+## 0.12.11
+* CSS: Adds document editing (email and direct mail) styles from Donor Management.
+
+## 0.12.10
+* CSS: Fixes the datepicker z-index appear above the select2 plugin.
+
+## 0.12.9
+* CSS: Fixes `z-index` is too low issue on the builder header
+* CSS: Fixes `.btn-secondary` disabled CSS styles.
+
+## 0.12.8
+* `NavLink` was unable to accept `method: :delete` in its options hash and was breaking a logout button in Donor Management. `NavLink` is now set to `include NfgUi::Components::Utilities::Methodable`.
+
 ## 0.12.7
 * This update enhances `Tile` and `TileHeader`. In summary, you can now pass in a `:subtitle`, `:button` and associated `:href` to a `Tile` to "speedbuild" a Tile with an enriched `TileHeader`. **This is a non-breaking change.**
   * `:button` option:

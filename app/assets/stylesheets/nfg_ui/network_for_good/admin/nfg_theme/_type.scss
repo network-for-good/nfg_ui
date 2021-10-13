@@ -1,0 +1,35 @@
+// Basic p/ol/ul styles for long content areas (for now, only on task detail description, pdf layout, and mailings edit page)
+.reset-body-text {
+  font-size: $font-size-base;
+  ul, ol {
+    margin-bottom: 0;
+    margin-left: 0;
+    padding-left: ($spacer * .5);
+    font-size: $font-size-base;
+    li {
+      line-height: 1.3;
+      + li { margin-top: ($spacer * .25); }
+      span[style*="inline-block"] { vertical-align: text-top; } // used to adjust for line-height on inline-block elements inside list items
+    }
+  }
+  p, ul, ol {
+    + p, + ul, + ol { margin-top: ($spacer * .5); }
+  }
+  code, pre { font-size: $font-size-sm; }
+
+  // Styles meant for tables inside reset-body-text specifically direct mail
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    td, th {
+      padding: 6px;
+      border: $border-width solid $border-color;
+      vertical-align: top;
+    }
+    thead td,
+    th {
+      font-weight: bold;
+      border-bottom-color: $border-color;
+    }
+  }
+}
