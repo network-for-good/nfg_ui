@@ -15,7 +15,7 @@ module NfgUi
         end
 
         def data
-          super.merge!(ride: 'carousel')
+          super.merge!(interval: 'false')
         end
 
         def indicators
