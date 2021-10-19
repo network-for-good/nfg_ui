@@ -4,7 +4,7 @@
 .row.mt-4
   .col-12.col-sm-6.col-lg-4.col-xl-3.d-flex.mb-3
     = ui.nfg :card, class: 'w-100', render_in_body: false do
-      = ui.nfg :carousel, id: 'card_auction_items_1', class: 'carousel-fixed-height carousel-fade', controls: true, indicators: 3 do
+      = ui.nfg :carousel, id: 'card_auction_items_1', class: 'carousel-fixed-height carousel-fade', controls: true do
         = ui.nfg :carousel_item, active: true, image: 'https://via.placeholder.com/400x300'
         = ui.nfg :carousel_item, image: 'https://via.placeholder.com/200x800'
         = ui.nfg :carousel_item, image: 'https://via.placeholder.com/50x50'
