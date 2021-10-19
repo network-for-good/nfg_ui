@@ -1,6 +1,5 @@
 $carousel-fixed-height: (3 / 4); // 4:3 aspect ratio
-$thumbnail-size: ($spacer * 2.5); // 80px
-
+$carousel-thumbnail-size: ($spacer * 2.5); // 80px
 
 //
 // Left/right controls for nav
@@ -108,17 +107,21 @@ $thumbnail-size: ($spacer * 2.5); // 80px
 // Carousels that use image thumbnails for indicators
 .carousel-has-thumbnails {
   @include media-breakpoint-up(lg) { padding-left: ($spacer * 3.5); }
+  .carousel-inner {
+    border: $border-width solid $border-color;
+    border-radius: $border-radius;
+  }
   .carousel-indicators {
     margin: 0;
     @include media-breakpoint-down(lg) {
-      justify-content: left;
+      justify-content: flex-start;
       position: relative;
       right: auto;
       bottom: auto;
       left: auto;
       margin-top: ($spacer * .5);
       width: 100%;
-      height: $thumbnail-size;
+      height: $carousel-thumbnail-size;
       overflow-x: auto;
       overflow-y: hidden;
       @include clearfix();
@@ -132,12 +135,13 @@ $thumbnail-size: ($spacer * 2.5); // 80px
       left: 0;
       width: auto;
       height: 100%;
+      margin-top: 0;
       overflow-y: auto;
     }
     li {
       position: relative;
-      width: $thumbnail-size;
-      height: $thumbnail-size;
+      width: $carousel-thumbnail-size;
+      height: $carousel-thumbnail-size;
       text-indent: 0;
       text-align: center;
       background-color: transparent;
@@ -148,9 +152,8 @@ $thumbnail-size: ($spacer * 2.5); // 80px
       overflow: hidden;
       opacity: .4;
       @include media-breakpoint-down(lg) {
-        flex-grow: 1;
         flex-shrink: 0;
-        flex-basis: $thumbnail-size;
+        flex-basis: $carousel-thumbnail-size;
         margin: 0 ($spacer * .25) 0 0;
       }
       @include media-breakpoint-up(lg) { margin: 0 0 ($spacer * .25); }
