@@ -1,16 +1,77 @@
+$carousel-fixed-height: (3 / 4); // 4:3 aspect ratio
+$thumbnail-size: ($spacer * 2.5); // 80px
 
 
-
-.carousel-auction {
-  padding: ($spacer * .5);
+//
+// Left/right controls for nav
+//
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  left: 0;
   width: 100%;
-  &.carousel-auction-sm {
-    .carousel-inner { height: 200px; }
+  background: none;
+  background-image: none;
+  &::before, &::after {
+    position: absolute;
+    top: -($carousel-control-icon-width * .5);
+    left: ($spacer * .25);
+    display: block;
+    margin: auto;
+    width: $carousel-control-icon-width;
+    height: $carousel-control-icon-width;
+    content: '';
   }
-  &.carousel-auction-lg {
-    border: $border-width solid $border-color;
-    border-radius: $border-radius;
-    .carousel-inner { height: 50vh; }
+  &::before {
+    background-color: $white;
+    border-radius: 50%;
+    z-index: 1;
+    box-shadow: $box-shadow-sm;
+  }
+  &::after {
+    font-family: "FontAwesome";
+    font-size: $font-size-lg;
+    line-height: $carousel-control-icon-width;
+    color: $body-color;
+    text-align: center;
+    z-index: 10;
+  }
+}
+.carousel-control-prev-icon {
+  &:after {
+    padding-right: 2px;
+    content: $carousel-control-prev-icon-bg;
+  }
+}
+.carousel-control-next-icon {
+  &:after {
+    padding-left: 2px;
+    content: $carousel-control-next-icon-bg;
+  }
+}
+
+
+// Optional indicator pips
+//
+// Add an ordered list with the following class and add a list item for each
+// slide your carousel holds.
+.carousel-indicators {
+  li { border-radius: 50%; }
+}
+
+
+// Carousels that have a fixed aspect ratio height
+.carousel-fixed-height {
+  width: 100%;
+  .carousel-inner {
+    &::before {
+      display: block;
+      content: "";
+      width: 100%;
+      padding-top: $carousel-fixed-height * 100%;
+    }
   }
   .carousel-item {
     position: absolute;
@@ -26,6 +87,7 @@
     width: 100%;
     height: 100%;
     text-align: center;
+    overflow: hidden;
     @include transition($transition-fade);
     &.active.carousel-item-left,
     &.active.carousel-item-right {
@@ -33,8 +95,9 @@
     }
     img { // keeps image scaled proportionally
       width: auto !important;
+      min-width: 0px !important;
       max-width: 100%;
-      height: auto !important;
+      height: 100% !important;
       max-height: 100%;
       margin: auto;
     }
@@ -42,39 +105,78 @@
 }
 
 
-// Icons for within
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-  position: absolute;
-  top: 50%;
-  right: 0;
-  left: 0;
-  width: 100%;
-  background: none;
-  background-image: none;
-  &:after {
-    position: absolute;
-    top: -($carousel-control-icon-width / 2);
-    display: block;
-    width: 100%;
-    height: $carousel-control-icon-width;
-    font-family: "FontAwesome";
-    font-size: $font-size-lg;
-    line-height: 1;
-    color: inherit;
-    text-align: center;
-    content: '\f00c';
+// Carousels that use image thumbnails for indicators
+.carousel-has-thumbnails {
+  @include media-breakpoint-up(lg) { padding-left: ($spacer * 3.5); }
+  .carousel-indicators {
+    margin: 0;
+    @include media-breakpoint-down(lg) {
+      justify-content: left;
+      position: relative;
+      right: auto;
+      bottom: auto;
+      left: auto;
+      margin-top: ($spacer * .5);
+      width: 100%;
+      height: $thumbnail-size;
+      overflow-x: auto;
+      overflow-y: hidden;
+      @include clearfix();
+    }
+    @include media-breakpoint-up(lg) {
+      display: block;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: auto;
+      left: 0;
+      width: auto;
+      height: 100%;
+      overflow-y: auto;
+    }
+    li {
+      position: relative;
+      width: $thumbnail-size;
+      height: $thumbnail-size;
+      text-indent: 0;
+      text-align: center;
+      background-color: transparent;
+      border-top: none;
+      border-bottom: none;
+      box-sizing: border-box;
+      border-radius: $border-radius;
+      overflow: hidden;
+      opacity: .4;
+      @include media-breakpoint-down(lg) {
+        flex-grow: 1;
+        flex-shrink: 0;
+        flex-basis: $thumbnail-size;
+        margin: 0 ($spacer * .25) 0 0;
+      }
+      @include media-breakpoint-up(lg) { margin: 0 0 ($spacer * .25); }
+      &::before {
+        display: block;
+        content: "";
+        width: 100%;
+        padding-top: $carousel-fixed-height * 100%;
+      }
+      &.active {
+        border: $border-width solid $border-color;
+        opacity: 1;
+      }
+      img { // keeps image scaled proportionally
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: auto !important;
+        min-width: 0px !important;
+        max-width: 100%;
+        height: 100% !important;
+        max-height: 100%;
+        margin: auto;
+      }
+    }
   }
-}
-.carousel-control-prev-icon {
-  &:after { content: $carousel-control-prev-icon-bg; }
-}
-.carousel-control-next-icon {
-  &:after { content: $carousel-control-next-icon-bg; }
-}
-
-
-.carousel-indicators {
-  // bottom: 0;
-  li { border-radius: 50%; }
 }

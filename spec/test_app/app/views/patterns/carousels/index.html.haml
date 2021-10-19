@@ -4,47 +4,52 @@
 .row.mt-4
   .col-12.col-sm-6.col-lg-4.col-xl-3.d-flex.mb-3
     = ui.nfg :card, class: 'w-100', render_in_body: false do
-      = ui.nfg :carousel, id: 'card_auction_items_1', class: 'carousel-auction carousel-auction-sm carousel-fade', controls: true do
-        = ui.nfg :carousel_item, active: true, image: 'https://via.placeholder.com/600x400'
+      = ui.nfg :carousel, id: 'card_auction_items_1', class: 'carousel-fixed-height carousel-fade', controls: true, indicators: 3 do
+        = ui.nfg :carousel_item, active: true, image: 'https://via.placeholder.com/400x300'
         = ui.nfg :carousel_item, image: 'https://via.placeholder.com/200x800'
         = ui.nfg :carousel_item, image: 'https://via.placeholder.com/50x50'
-      = ui.nfg :card_body do
+      = ui.nfg :card_body, class: 'd-flex flex-column align-items-start border-top' do
         = ui.nfg :typeface, subheading: "Title"
-
-  .col-12.col-sm-6.col-lg-4.col-xl-3.d-flex.mb-3
-    = ui.nfg :card, class: 'w-100', render_in_body: false do
-      = ui.nfg :carousel, id: 'card_auction_items_2', class: 'carousel-auction carousel-auction-sm carousel-fade', controls: true do
-        = ui.nfg :carousel_item, active: true, image: 'https://via.placeholder.com/600x400'
-        = ui.nfg :carousel_item, image: 'https://via.placeholder.com/200x800'
-        = ui.nfg :carousel_item, image: 'https://via.placeholder.com/50x50'
-      = ui.nfg :card_body do
-        = ui.nfg :typeface, subheading: "Title this is a longer title yahoo yahoo"
-
-  .col-12.col-sm-6.col-lg-4.col-xl-3.d-flex.mb-3
-    = ui.nfg :card, class: 'w-100', render_in_body: false do
-      = ui.nfg :carousel, id: 'card_auction_items_3', class: 'carousel-auction carousel-auction-sm carousel-fade', controls: true do
-        = ui.nfg :carousel_item, active: true, image: 'https://via.placeholder.com/600x400'
-        = ui.nfg :carousel_item, image: 'https://via.placeholder.com/200x800'
-        = ui.nfg :carousel_item, image: 'https://via.placeholder.com/50x50'
-      = ui.nfg :card_body do
-        = ui.nfg :typeface, subheading: "Title"
-
-  .col-12.col-sm-6.col-lg-4.col-xl-3.d-flex.mb-3
-    = ui.nfg :card, class: 'w-100', render_in_body: false do
-      = ui.nfg :carousel, id: 'card_auction_items_4', class: 'carousel-auction carousel-auction-sm carousel-fade', controls: true do
-        = ui.nfg :carousel_item, active: true, image: 'https://via.placeholder.com/600x400'
-        = ui.nfg :carousel_item, image: 'https://via.placeholder.com/200x800'
-        = ui.nfg :carousel_item, image: 'https://via.placeholder.com/50x50'
-      = ui.nfg :card_body do
-        = ui.nfg :typeface, subheading: "Title this is a longer title yahoo yahoo Title this is a longer title yahoo yahoo"
 
 .row.pb-6
-  .col-12.col-md-8.mt-3
-    = ui.nfg :carousel, id: 'auction_items', class: 'carousel-auction carousel-auction-lg carousel-fade', controls: true do
-      = ui.nfg :carousel_item, active: true, image: 'https://via.placeholder.com/600x400'
-      = ui.nfg :carousel_item, image: 'https://via.placeholder.com/200x800'
-      = ui.nfg :carousel_item, image: 'https://via.placeholder.com/150x150'
-  .col-12.col-md-3.offset-md-1.mt-3
+  .col-12.col-lg-8.mt-3
+    #auction_items.carousel.slide.carousel-fixed-height.carousel-has-thumbnails.carousel-fade{ data: { interval: 'false' } }
+      .carousel-inner
+        = ui.nfg :carousel_item, active: true, image: 'https://via.placeholder.com/400x300'
+        = ui.nfg :carousel_item, image: 'https://via.placeholder.com/200x800'
+        = ui.nfg :carousel_item, image: 'https://via.placeholder.com/150x150'
+        = ui.nfg :carousel_item, image: 'https://via.placeholder.com/600x400'
+        = ui.nfg :carousel_item, image: 'https://via.placeholder.com/200x800'
+        = ui.nfg :carousel_item, image: 'https://via.placeholder.com/150x150'
+        = ui.nfg :carousel_item, image: 'https://via.placeholder.com/600x400'
+        = ui.nfg :carousel_item, image: 'https://via.placeholder.com/200x800'
+        = ui.nfg :carousel_item, image: 'https://via.placeholder.com/150x150'
+
+        = ui.nfg :carousel_control, control: :next, carousel: '#auction_items'
+        = ui.nfg :carousel_control, control: :prev, carousel: '#auction_items'
+
+      %ol.carousel-indicators.mb-0
+        %li.active{ data: { target: '#auction_items', 'slide-to' => '0' } }
+          = ui.nfg :image, image: 'https://via.placeholder.com/400x300'
+        %li{ data: { target: '#auction_items', 'slide-to' => '1' } }
+          = ui.nfg :image, image: 'https://via.placeholder.com/200x800'
+        %li{ data: { target: '#auction_items', 'slide-to' => '2' } }
+          = ui.nfg :image, image: 'https://via.placeholder.com/150x150'
+        %li{ data: { target: '#auction_items', 'slide-to' => '3' } }
+          = ui.nfg :image, image: 'https://via.placeholder.com/600x400'
+        %li{ data: { target: '#auction_items', 'slide-to' => '4' } }
+          = ui.nfg :image, image: 'https://via.placeholder.com/200x800'
+        %li{ data: { target: '#auction_items', 'slide-to' => '5' } }
+          = ui.nfg :image, image: 'https://via.placeholder.com/150x150'
+        %li{ data: { target: '#auction_items', 'slide-to' => '6' } }
+          = ui.nfg :image, image: 'https://via.placeholder.com/600x400'
+        %li{ data: { target: '#auction_items', 'slide-to' => '7' } }
+          = ui.nfg :image, image: 'https://via.placeholder.com/200x800'
+        %li{ data: { target: '#auction_items', 'slide-to' => '8' } }
+          = ui.nfg :image, image: 'https://via.placeholder.com/150x150'
+
+
+  .col-12.col-lg-3.offset-lg-1.mt-3
     = ui.nfg :typeface, subheading: "Title"
 
 
