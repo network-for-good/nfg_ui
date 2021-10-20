@@ -1,6 +1,6 @@
 # Changelog
 ## 0.13.0 *UI & HTML OUTPUT BREAKING CHANGES*
-NFG_UI: This change impacts the `Carousel`. The breaking change is that the `.carousel-inner` div no longer contains the controls or the indicators.
+NFG_UI: This change impacts the `Carousel`. The breaking change is that the `.carousel-inner` div no longer contains the controls or the indicators and instead the `CarouselIndicators` and `CarouselControl` are now siblings of the `.carousel-inner` div.
 
 Additional changes:
 Ruby:
