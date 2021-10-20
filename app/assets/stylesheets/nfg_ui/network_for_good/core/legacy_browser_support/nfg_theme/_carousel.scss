@@ -1,3 +1,5 @@
+$carousel-thumbnail-size: ($spacer * 2.5); // 80px
+
 .carousel-item { -ms-flex-align: center; }
 
 // Left/right controls for nav
@@ -15,4 +17,30 @@
   display: -ms-flexbox;
   -ms-flex-pack: center;
   li { -ms-flex: 0 1 auto; }
+}
+
+
+// Carousels that have a fixed aspect ratio height
+.carousel-fixed-height {
+  .carousel-item {
+    display: -ms-flexbox;
+    -ms-flex-align: center;
+    -ms-flex-pack: center;
+  }
+}
+
+
+// Carousels that use image thumbnails for indicators
+.carousel-has-thumbnails {
+  .carousel-indicators {
+    @include media-breakpoint-down(lg) {
+      -ms-flex-pack: start;
+    }
+    li {
+      @include media-breakpoint-down(lg) {
+        -ms-flex-negative: 0;
+        -ms-flex-preferred-size: $carousel-thumbnail-size;
+      }
+    }
+  }
 }

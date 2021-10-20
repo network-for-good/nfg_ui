@@ -16,8 +16,21 @@ module NfgUi
           :carousel
         end
 
+        def data
+          return super unless interval
+          super.merge!(interval: interval)
+        end
+
         def image
           options.fetch(:image, nil)
+        end
+
+        # manually pass in an interval numerical value
+        # which translates to miliseconds between carousel item
+        # slide transitions.
+        # ex: interval: 5000
+        def interval
+          options[:interval] || nil
         end
 
         def label
@@ -41,7 +54,8 @@ module NfgUi
         def non_html_attribute_options
           super.push(:image,
                      :caption,
-                     :label)
+                     :label,
+                     :interval)
         end
       end
     end

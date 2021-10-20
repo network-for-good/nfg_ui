@@ -31,6 +31,36 @@ RSpec.describe NfgUi::Bootstrap::Components::CarouselItem do
     it { is_expected.to eq :carousel }
   end
 
+  describe '#data' do
+    subject { carousel_item.data }
+    let(:options) { { data: example_data, interval: test_interval } }
+
+    context 'when no test interval is set' do
+      let(:example_data) { { test: :example } }
+      let(:test_interval) { nil }
+      it 'returns a super data' do
+        expect(subject).to eq(example_data)
+      end
+    end
+
+    context 'when there is more data in the data hash' do
+      let(:example_data) { { test: :example } }
+      let(:test_interval) { 5000 }
+
+      it 'merges in the interval data with the existing data' do
+        expect(subject).to eq({ **example_data, interval: test_interval })
+      end
+    end
+
+    context 'when data is empty' do
+      let(:example_data) { { } }
+      let(:test_interval) { 5000 }
+      it 'sets the interval value in data' do
+        expect(subject).to eq({ interval: test_interval })
+      end
+    end
+  end
+
   describe '#image' do
     subject { carousel_item.image }
 

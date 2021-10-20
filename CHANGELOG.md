@@ -1,4 +1,17 @@
 # Changelog
+## 0.13.0 *UI & HTML OUTPUT BREAKING CHANGES*
+NFG_UI: This change impacts the `Carousel`. The breaking change is that the `.carousel-inner` div no longer contains the controls or the indicators and instead the `CarouselIndicators` and `CarouselControl` are now siblings of the `.carousel-inner` div.
+
+Additional changes:
+Ruby:
+* Updated the `CarouselItem` component to accept the `interval` option which now will update the amount of time it takes before transitioning to the next slide. See [bootstrap 4.3 docs](https://getbootstrap.com/docs/4.3/components/carousel/#individual-carousel-item-interval)
+* Updated bootstrap (and nfg_ui) `Carousel` to allow for `auto: false` which will turn off rotation of the carousel items at the `:carousel` level.
+
+CSS:
+* Updates styling to allow for image based carousel indicators
+* Updates styling to account for carousel indicators and controls being outside of the `.carousel-inner` div.
+
+
 ## 0.12.16.1
 * Addresses security vulnerability [GHSA-48w2-rm65-62xx](https://github.com/advisories/GHSA-48w2-rm65-62xx) by bumping `puma` to `>= 5.5.1`
 
