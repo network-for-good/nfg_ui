@@ -11,18 +11,6 @@ module NfgUi
         include NfgUi::Components::Utilities::Describable
         include NfgUi::Components::Utilities::Renderable
 
-        # Turn on or off auto scrolling carousel
-        def auto
-          options.fetch(:auto, true)
-        end
-
-        def data
-          # false on auto means that the carousel should not automatically rotate.
-          data_val = auto == false ? { interval: 'false' } : { ride: 'carousel' }
-
-          options[:data].merge!(**data_val)
-        end
-
         def render
           content_tag(:div, html_options) do
             concat(

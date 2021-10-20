@@ -6,23 +6,62 @@ RSpec.describe NfgUi::Bootstrap::Components::Carousel do
   it { expect(described_class).to be < NfgUi::Bootstrap::Components::Base }
   it_behaves_like 'a component with a consistent initalized construction'
 
-  describe '#component_family' do
-    subject { carousel.component_family }
-    it { is_expected.to eq :carousel }
+
+  describe '#auto' do
+    let(:tested_option) { :auto }
+    subject { carousel.auto }
+    it_behaves_like 'a fetched option with a defined fallback', fallback: true
   end
 
   describe '#data' do
     subject { carousel.data }
-    context 'when data attributes are currently present' do
-      let(:tested_data) { { tested: 'data' } }
-      let(:options) { { data: tested_data } }
-      it { is_expected.to eq(**tested_data, ride: 'carousel') }
+    let(:example_data) { {} }
+    let(:tested_auto) { nil }
+    let(:options) { { auto: tested_auto, data: example_data } }
+
+    context 'when :auto is false' do
+      let(:tested_auto) { false }
+      context 'when data has additional options present in the hash' do
+        let(:example_data) { { test: :example } }
+        it 'sets interval to false and merges in the sample data hash' do
+          expect(subject).to eq({ interval: 'false', **example_data })
+        end
+      end
+
+      context 'when data does not have additional options present in the hash' do
+        let(:example_data) { {} }
+        it 'sets interval to false and merges in the sample data hash' do
+          expect(subject).to eq({ interval: 'false' })
+        end
+      end
+    end
+
+    context 'when :auto is not false' do
+      let(:auto) { nil }
+      context 'when data has additional options present in the hash' do
+        let(:example_data) { { test: :example } }
+        it 'sets the data-ride to carousel and merges in the sample data hash' do
+          expect(subject).to eq({ ride: 'carousel', **example_data })
+        end
+      end
+
+      context 'when data does not have additional options present in the hash' do
+        let(:example_data) { {} }
+        it 'sets the data-ride to carousel' do
+          expect(subject).to eq({ ride: 'carousel' })
+        end
+      end
     end
 
     context 'when data attributes are not present' do
       let(:options) { {} }
       it { is_expected.to eq(ride: 'carousel') }
     end
+  end
+
+  describe '#component_family' do
+    subject { carousel.component_family }
+    it { is_expected.to eq :carousel }
   end
 
   describe '#indicators' do
