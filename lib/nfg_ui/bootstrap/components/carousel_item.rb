@@ -8,14 +8,6 @@ module NfgUi
       class CarouselItem < NfgUi::Bootstrap::Components::Base
         include Bootstrap::Utilities::Activatable
 
-        # Turn on or off auto scrolling carousel
-        # NOTE: this does not yet work
-        # SUSPECTED javascript bug
-        # see bootstrap docs: https://getbootstrap.com/docs/4.3/components/carousel/#individual-carousel-item-interval
-        def auto
-          options.fetch(:auto, true)
-        end
-
         def caption
           options.fetch(:caption, nil)
         end
@@ -25,12 +17,8 @@ module NfgUi
         end
 
         def data
-          # when auto is false, do not auto rotate carousel items
-          # Otherwise, allow usage of the interval attribute
-          # 'false' as a text string turns off transitions
-          interval_val = auto == false ? 'false' : interval
-
-          super.merge!(interval: interval_val)
+          return super unless interval
+          super.merge!(interval: interval)
         end
 
         def image
