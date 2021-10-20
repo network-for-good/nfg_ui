@@ -55,7 +55,6 @@ module NfgUi
           super.push(:image,
                      :caption,
                      :label,
-                     :auto,
                      :interval)
         end
       end
