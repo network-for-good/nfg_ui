@@ -27,6 +27,10 @@ module NfgUi
             end
           end
         end
+
+        def non_html_attribute_options
+          super.push(:auto)
+        end
       end
     end
   end

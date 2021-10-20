@@ -6,6 +6,11 @@ module NfgUi
       # Bootstrap Carousel Component
       # https://getbootstrap.com/docs/4.1/components/carousel/
       class Carousel < NfgUi::Bootstrap::Components::Base
+        # Turn on or off auto scrolling carousel
+        def auto
+          options.fetch(:auto, true)
+        end
+
         def component_family
           :carousel
         end
@@ -15,7 +20,10 @@ module NfgUi
         end
 
         def data
-          super.merge!(interval: 'false')
+          # false on auto means that the carousel should not automatically rotate.
+          data_val = auto == false ? { interval: 'false' } : { ride: 'carousel' }
+
+          super.merge!(**data_val)
         end
 
         def indicators
