@@ -7,9 +7,13 @@ $builder-options-padding: $spacer;
 $builder-preview-padding: ($spacer * 1.5);
 
 // Put on the <body> to help with correct scrolling within builder-wrap and builder-options
-.builder-layout {
+.builder-layout, .nfg_ui_onboarder {
   background-color: $white;
   @include media-breakpoint-up(lg) {
+    height: 100%;
+    > form { height: 100%; } // targets form directly inside <body> and needed for correct scrolling
+  }
+  > .page-content {
     height: 100%;
     > form { height: 100%; } // targets form directly inside <body> and needed for correct scrolling
   }
@@ -49,6 +53,11 @@ $builder-preview-padding: ($spacer * 1.5);
     right: 0;
     min-height: $builder-nav-height;
   }
+  body.nfg_ui_onboarder & {
+    @include media-breakpoint-up(lg) { top: 113px; }
+    border-bottom: none;
+    .btn { border-radius: 50px; }
+  }
 }
 .builder-nav-sm {
   position: fixed;
@@ -57,6 +66,11 @@ $builder-preview-padding: ($spacer * 1.5);
   min-height: $builder-header-height;
   background-color: $blue-700;
   @include media-breakpoint-up(lg) { display: none; }
+  body.nfg_ui_onboarder & {
+    background-color: $white;
+    border-top: $border-width solid $border-color;
+    .btn { border-radius: 50px; }
+  }
 }
 
 // Container that provides padding to the top of the page to move content below header and nav
