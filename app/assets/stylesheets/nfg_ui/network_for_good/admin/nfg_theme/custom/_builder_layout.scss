@@ -1,0 +1,11 @@
+// Specific styles needed for admin onboarding pages
+
+// Header and nav styles for builder layout
+.builder-nav { border-bottom: $border-width solid $border-color; }
+.builder-nav-sm { background-color: $blue-700; }
+
+// Block containers for side by side view
+.builder-options {
+  @include media-breakpoint-down(md) { border-bottom: $border-width solid $border-color; }
+  @include media-breakpoint-up(lg) { border-left: $border-width solid $border-color; }
+}

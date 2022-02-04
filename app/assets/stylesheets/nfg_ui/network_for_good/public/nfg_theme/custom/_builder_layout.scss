@@ -1,0 +1,12 @@
+// Specific styles needed for public onboarding pages
+
+// Header and nav styles for builder layout
+.builder-nav {
+  @include media-breakpoint-up(lg) { top: 113px; }
+  .btn { border-radius: 50px; }
+}
+.builder-nav-sm {
+  background-color: $white;
+  border-top: $border-width solid $border-color;
+  .btn { border-radius: 50px; }
+}
