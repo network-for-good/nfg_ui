@@ -1,4 +1,7 @@
 # Changelog
+## 0.13.2
+* Moves builder layout styles out from admin to core and customized styles for both admin/public onboarders
+
 ## 0.13.1
 * Moves the turbolinks and typeahead from the admin only to core stylesheet so both admin and public views can use them.
 
