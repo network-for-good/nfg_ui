@@ -1,106 +1,11 @@
-// Setting a common height for the builder header and nav
-$builder-header-height: ($spacer * 2.25);
-$builder-header-padding: ($spacer * .25) ($spacer * .5);
-$builder-nav-height: ($spacer * 3.25);
-$builder-nav-padding: ($spacer * .75) ($spacer * .5);
-$builder-options-padding: $spacer;
-$builder-preview-padding: ($spacer * 1.5);
-
-// Put on the <body> to help with correct scrolling within builder-wrap and builder-options
-.builder-layout {
-  background-color: $white;
-  @include media-breakpoint-up(lg) {
-    height: 100%;
-    > form { height: 100%; } // targets form directly inside <body> and needed for correct scrolling
-  }
-}
+// Specific styles needed for admin onboarding pages
 
 // Header and nav styles for builder layout
-.builder-header, .builder-header-fixed-bottom {
-  padding: $builder-header-padding;
-  width: 100%;
-  min-height: $builder-header-height;
-  background-color: $blue-700;
-  z-index: $zindex-fixed + 1;
-  @include media-breakpoint-up(lg) {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-  }
-  .text-muted { color: $blue-200 !important; }
-}
-.builder-header-fixed-bottom {
-  position: fixed;
-  @include media-breakpoint-down(md) { bottom: 0; }
-}
-.builder-nav, .builder-nav-sm {
-  width: 100%;
-  z-index: $zindex-fixed;
-}
-.builder-nav {
-  padding: $builder-nav-padding;
-  background-color: $white;
-  border-bottom: $border-width solid $border-color;
-  @include media-breakpoint-up(lg) {
-    position: fixed;
-    top: $builder-header-height;
-    left: 0;
-    right: 0;
-    min-height: $builder-nav-height;
-  }
-}
-.builder-nav-sm {
-  position: fixed;
-  bottom: 0;
-  padding: $builder-header-padding;
-  min-height: $builder-header-height;
-  background-color: $blue-700;
-  @include media-breakpoint-up(lg) { display: none; }
-}
-
-// Container that provides padding to the top of the page to move content below header and nav
-.builder-container {
-  @include media-breakpoint-down(md) { padding-bottom: $builder-header-height; }
-  @include media-breakpoint-up(lg) { height: 100%; }
-}
-
-// Adjusts padding on the top of builder-container depending on how many elements come before it
-.builder-header ~ .builder-container {
-  @include media-breakpoint-up(lg) { padding-top: $builder-header-height; }
-}
-.builder-header ~ .builder-nav ~ .builder-container {
-  @include media-breakpoint-up(lg) { padding-top: $builder-header-height + $builder-nav-height; }
-}
+.builder-nav { border-bottom: $border-width solid $border-color; }
+.builder-nav-sm { background-color: $blue-700; }
 
 // Block containers for side by side view
-.builder-body {
-  @include media-breakpoint-up(lg) {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-  }
-}
-.builder-preview {
-  padding: $builder-preview-padding ($builder-preview-padding / 2);
-  @include media-breakpoint-up(lg) {
-    float: left;
-    width: 67%;
-    height: 100%;
-    overflow-y: auto;
-    > :last-child { margin-bottom: $builder-preview-padding; }
-  }
-}
 .builder-options {
-  padding: $builder-options-padding;
-  background-color: $white;
   @include media-breakpoint-down(md) { border-bottom: $border-width solid $border-color; }
-  @include media-breakpoint-up(lg) {
-    float: right;
-    width: 33%;
-    height: 100%;
-    border-left: $border-width solid $border-color;
-    overflow-y: auto;
-    > :last-child { margin-bottom: $builder-options-padding; }
-  }
+  @include media-breakpoint-up(lg) { border-left: $border-width solid $border-color; }
 }

@@ -1,5 +1,6 @@
 $page-header-height: ($spacer * 3.5); // 11.2rem
 $page-header-height-admin: ($spacer * 5); // 16rem
+$page-header-height-public: (($spacer * 6.75) + 1); // 21.7rem (adds 1px for width of bottom border)
 
 // Page header specific styles
 .page-header {
@@ -14,17 +15,22 @@ $page-header-height-admin: ($spacer * 5); // 16rem
     right: 0;
     min-height: $page-header-height;
   }
-  body.admin & { // this renders as body.admin .page-header specifying when the view is in admin status
+
+  // this renders as body.admin .page-header specifying when the view there is an admin logged in (includes top admin black bar)
+  body.admin & {
     @include media-breakpoint-up(lg) { min-height: $page-header-height-admin; }
   }
 }
 
 // Moving .page-content container down with padding when page-header exists but ONLY on larger screens
 .page-header {
-  + .page-content {
-    @include media-breakpoint-up(lg) { padding-top: $page-header-height; }
-  }
-  body.admin & + .page-content { // this renders as body.admin .page-header + .page-content specifying when the view is in admin status
-    @include media-breakpoint-up(lg) { padding-top: $page-header-height-admin; }
+  @include media-breakpoint-up(lg) {
+    + .page-content { padding-top: $page-header-height; }
+
+    // this renders as body.admin .page-header + .page-content specifying when the view there is an admin logged in (includes top admin black bar)
+    body.admin & + .page-content { padding-top: $page-header-height-admin; }
+
+    // this renders as body.nfg_ui_onboarder .page-header + .page-content specifying when the view is in a public onboarding status i.e. fundraiser onboarder in Fundraising Pages
+    body.nfg_ui_onboarder & + .page-content { padding-top: $page-header-height-public; }
   }
 }
