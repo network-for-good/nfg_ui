@@ -1,5 +1,6 @@
 # Changelog
-## 0.13.3
+## 0.14.0 *RUBY VERSION BREAKING CHANGES*
+* Bumps ruby to 2.7.5 to match NFG applications.
 * Bumping `puma` to `5.6.4`
   * Addresses security vulnerability [GHSA-h99w-9q5r-gjq9](https://github.com/advisories/GHSA-h99w-9q5r-gjq9)
   * Addresses security vulnerability [GHSA-rmj8-8hhh-gv5h](https://github.com/advisories/GHSA-rmj8-8hhh-gv5h)
