@@ -23,7 +23,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'sass-rails', '~> 5.0'
   s.add_dependency 'select2-rails', '~> 4.0'
   s.add_dependency 'momentjs-rails', '~> 2.11', '>= 2.11.1' # client side date formatting - used for bootstrap-datetimepicker
-  s.add_dependency 'nokogiri', '>= 1.12.5' # manually set to '>= 1.12.5' to address security vulnerability: https://github.com/advisories/GHSA-2rr5-8q37-2w7h
+  s.add_dependency 'nokogiri', '>= 1.13.3'
 
   s.add_dependency 'browser', '~> 2.7.1'
 

@@ -1,4 +1,11 @@
 # Changelog
+## 0.13.3
+* Puma:
+  * Addresses security vulnerability [GHSA-h99w-9q5r-gjq9](https://github.com/advisories/GHSA-h99w-9q5r-gjq9) by bumping `puma` to `5.6.4`
+  * Addresses security vulnerability [GHSA-rmj8-8hhh-gv5h](https://github.com/advisories/GHSA-rmj8-8hhh-gv5h)
+* Addresses security vulnerability [GHSA-w749-p3v6-hccq](https://github.com/advisories/GHSA-w749-p3v6-hccq) by bumping `activestorage` from `5.2.6` to `5.2.6.3`
+* Addresses security vulnerability [GHSA-fq42-c5rg-92c2](https://github.com/advisories/GHSA-fq42-c5rg-92c2) by bumping `nokogiri` from `1.12.5` to `1.13.3`
+
 ## 0.13.2
 * Moves builder layout styles out from admin to core and customized styles for both admin/public onboarders
 
