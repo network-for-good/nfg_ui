@@ -23,14 +23,6 @@
       .card-body { padding: 0; }
     }
   }
-  .progress-stats {
-    position: absolute;
-    top: ($spacer * .125);
-    left: $grid-gutter-width / 2;
-    width: 100%;
-    z-index: 1;
-  }
-
   &.admin {
     .jumbotron {
       &::before { margin-top: 0; }
@@ -39,6 +31,6 @@
 }
 
 // positioning background image properly in iframe campaign preview
-body.preview.everyday_default{
+body.preview.everyday_default {
   .jumbotron::before { position: absolute; }
 }

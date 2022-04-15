@@ -1,0 +1,14 @@
+// Used for charts on peer-to-peer and fundraiser public pages
+.thumbnail {
+  .avatar { z-index: 1; }
+  .pies {
+    font-size: 185px;
+    line-height: 1;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    z-index: 0;
+    margin-top: 5px;
+  }
+}
