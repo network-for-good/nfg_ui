@@ -1,0 +1,97 @@
+//
+// Provides a drop-in pointer for the default Trix stylesheet that will format the toolbar and
+// the trix-editor content (whether displayed or under editing). Feel free to incorporate this
+// inclusion directly in any other asset bundle and remove this file.
+//
+//= require trix/dist/trix
+
+// We need to override trix.css’s image gallery styles to accommodate the
+// <action-text-attachment> element we wrap around attachments. Otherwise,
+// images in galleries will be squished by the max-width: 33%; rule.
+// @import "trix/dist/trix";
+
+.trix-content {
+  .attachment-gallery {
+    > action-text-attachment,
+    > .attachment {
+      flex: 1 0 33%;
+      padding: 0 0.5em;
+      max-width: 33%;
+    }
+
+    &.attachment-gallery--2,
+    &.attachment-gallery--4 {
+      > action-text-attachment,
+      > .attachment {
+        flex-basis: 50%;
+        max-width: 50%;
+      }
+    }
+  }
+
+  action-text-attachment {
+    .attachment {
+      padding: 0 !important;
+      max-width: 100% !important;
+    }
+  }
+}
+
+// Styles to make it look similar to redactor
+[id *= 'trix-toolbar'] {
+  border: $border-width solid $border-color;
+  border-bottom: none;
+  .trix-button-group {
+    margin-bottom: 0;
+    border: none;
+    border-radius: 0;
+    &:not(:first-child) { margin-left: 0; }
+  }
+  .trix-button {
+    padding: 16px 10px;
+    width: auto;
+    min-width: 34px;
+    color: $body-color;
+    font-size: $font-size-sm;
+    border: none;
+
+    &:hover {
+      color: $white;
+      background-color: $primary;
+    }
+    &.trix-active { background-color: $input-disabled-bg; }
+    &:not(:first-child) { border-left: none; }
+    &:before {
+      opacity: 1;
+      background-size: 18px;
+    }
+  }
+  .trix-dialog {
+    padding: $dropdown-padding-y $dropdown-padding-x;
+    font-size: $dropdown-font-size;
+    color: $dropdown-color;
+    background: $dropdown-bg;
+    border: none;
+    border-radius: $dropdown-border-radius;
+    box-shadow: $dropdown-box-shadow;
+  }
+  .trix-input--dialog {
+    padding: $input-padding-y $input-padding-x;
+    font-family: $input-font-family;
+    font-size: $input-font-size;
+    font-weight: $input-font-weight;
+    line-height: $input-line-height;
+    color: $input-color;
+    border: $input-border-width solid $input-border-color;
+    border-radius: $input-border-radius;
+    &:placeholder { color: $input-placeholder-color; }
+  }
+}
+
+// Editor similar to textarea
+trix-editor {
+  padding: 20px;
+  min-height: ($spacer * 5);
+  border: $input-border-width solid $input-border-color;
+  border-radius: $input-border-radius;
+}

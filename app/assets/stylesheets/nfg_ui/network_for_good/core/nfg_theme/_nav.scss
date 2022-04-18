@@ -1,3 +1,6 @@
+// Used in auctions... This overrides bootstrap 4 alpha's &:not(.in) on the .fade class
+.tab-content > .active { opacity: 1; }
+
 //
 // Tabs
 //
