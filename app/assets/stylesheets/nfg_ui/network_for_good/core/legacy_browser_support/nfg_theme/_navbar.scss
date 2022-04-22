@@ -52,3 +52,14 @@
     }
   }
 }
+
+#site_navbar {
+  .nav {
+    .nav-item {
+      @include media-breakpoint-down(lg) {
+        -ms-flex-preferred-size: 0;
+        -ms-flex-positive: 1;
+      }
+    }
+  }
+}
