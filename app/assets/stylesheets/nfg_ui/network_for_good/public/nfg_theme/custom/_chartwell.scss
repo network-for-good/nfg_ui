@@ -1,3 +1,15 @@
+// FF Chartwell - Visual Graphing Font
+// Pies
+@font-face {
+  font-family: ChartwellPiesWebPro;
+  src:url(font-path('ff_chartwell/ChartwellPiesWebPro.eot'));
+}
+
+@font-face {
+  font-family: ChartwellPiesWebPro;
+  src:url(font-path('ff_chartwell/ChartwellPiesWebPro.woff')) format('woff');
+}
+
 // Used for charts on peer-to-peer and fundraiser public pages
 .thumbnail {
   .avatar { z-index: 1; }
