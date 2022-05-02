@@ -1,4 +1,8 @@
 # Changelog
+## 0.14.0.1
+* Adds missing dependabot security fixes: `Rails` and associated packages are upgraded to `5.2.7.1`
+* Updates `publisher` app to use ruby 2.7.5
+
 ## 0.14.0 *RUBY VERSION BREAKING CHANGES*
 * Bumps ruby to 2.7.5 to match NFG applications.
 * Bumping `puma` to `5.6.4`
