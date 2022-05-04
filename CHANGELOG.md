@@ -1,4 +1,9 @@
 # Changelog
+## 0.14.1
+* `BreadcrumbItem` has been updated in `Bootstrap` & `NfgUi`:
+  * It now accepts the `:href` option and correctly nests an `<a>` tag.
+  * The `NfgUi` version also accepts the `:active` trait and no longer requires `active: true` as the only way to activate a `BreadcrumbItem`
+
 ## 0.14.0.1
 * Adds missing dependabot security fixes: `Rails` and associated packages are upgraded to `5.2.7.1`
 * Updates `publisher` app to use ruby 2.7.5
