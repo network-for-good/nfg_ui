@@ -50,7 +50,7 @@ module NfgUi
 
         def assistive_html_attributes
           return super unless tab
-          { role: 'tab', aria: { controls: tab.tr('#', ''), selected: active } }
+          { aria: { controls: tab.tr('#', ''), selected: active } }
         end
       end
     end
