@@ -14,13 +14,13 @@
 .thumbnail {
   .avatar { z-index: 1; }
   .pies {
-    font-size: 185px;
-    line-height: 1;
     position: absolute;
-    transform: translate(-50%, -50%);
-    left: 50%;
-    top: 50%;
+    top: -34px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    font-size: 160px;
+    line-height: 1;
     z-index: 0;
-    margin-top: 5px;
   }
 }
