@@ -1,4 +1,29 @@
 # Changelog
+## 0.14.2
+* Adds stylesheets for the NFG Auctions application.
+
+## 0.14.1
+* `BreadcrumbItem` has been updated in `Bootstrap` & `NfgUi`:
+  * It now accepts the `:href` option and correctly nests an `<a>` tag.
+  * The `NfgUi` version also accepts the `:active` trait and no longer requires `active: true` as the only way to activate a `BreadcrumbItem`
+* Assistive HTML attributes for tabular navigation has been updated:
+  * `Nav` now includes `role='tablist'` when `tabs: true` in the `:options` hash
+  * `NavItem` now includes `role='tab'` (moved from `NavLink`) when `:tab` is included in the `:options` hash
+
+## 0.14.0.1
+* Adds missing dependabot security fixes: `Rails` and associated packages are upgraded to `5.2.7.1`
+* Updates `publisher` app to use ruby 2.7.5
+
+## 0.14.0 *RUBY VERSION BREAKING CHANGES*
+* Bumps ruby to 2.7.5 to match NFG applications.
+* Bumping `puma` to `5.6.4`
+  * Addresses security vulnerability [GHSA-h99w-9q5r-gjq9](https://github.com/advisories/GHSA-h99w-9q5r-gjq9)
+  * Addresses security vulnerability [GHSA-rmj8-8hhh-gv5h](https://github.com/advisories/GHSA-rmj8-8hhh-gv5h)
+* Addresses security vulnerability [GHSA-w749-p3v6-hccq](https://github.com/advisories/GHSA-w749-p3v6-hccq) by bumping `activestorage` from `5.2.6` to `5.2.6.3`
+* Addresses security vulnerability [GHSA-fq42-c5rg-92c2](https://github.com/advisories/GHSA-fq42-c5rg-92c2) by bumping `nokogiri` from `1.12.5` to `1.13.3`
+* Addresses security vulnerability [GHSA-wh98-p28r-vrc9](https://github.com/advisories/GHSA-wh98-p28r-vrc9) by bumping `actionpack` to `5.2.6.2`
+
+
 ## 0.13.2
 * Moves builder layout styles out from admin to core and customized styles for both admin/public onboarders
 

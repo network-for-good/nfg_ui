@@ -226,4 +226,17 @@ RSpec.describe NfgUi::Bootstrap::Components::NavItem do
                                 :button,
                                 :tab) }
   end
+
+  describe '#assistive_html_attributes' do
+    let(:options) { { tab: test_tab } }
+    subject { nav_item.send(:assistive_html_attributes) }
+    context 'when :tab is present in options' do
+      let(:test_tab) { '#tab_link' }
+      it { is_expected.to include(role: 'tab') }
+    end
+    context 'when :tab is not present in options' do
+      let(:test_tab) { nil }
+      it { is_expected.not_to include(role: 'tab') }
+    end
+  end
 end

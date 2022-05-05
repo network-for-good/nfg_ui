@@ -1,0 +1,48 @@
+// Pulsating "beacon" styles for indicator
+.beacon {
+  width: ($spacer * .25);
+  height: ($spacer * .25);
+  border-radius: ($spacer * .25);
+  &::after {
+    position: absolute;
+    top: -8px;
+    left: -8px;
+    height: 12px;
+    width: 12px;
+    border: 12px solid;
+    border-radius: ($spacer * .375);
+    animation: pulsate 1s ease-out infinite;
+    content: '';
+  }
+}
+@each $color, $value in $theme-colors {
+  .beacon-#{$color} {
+    background-color: $value;
+    &::after { border-color: $value; }
+  }
+}
+
+
+// Heartbeat animation used on beacon for sysusers
+@keyframes pulsate {
+  0% {
+    transform: scale(0);
+    opacity: .1;
+  }
+  25% {
+    transform: scale(0.1);
+    opacity: .2;
+  }
+  50% {
+    transform: scale(0.5);
+    opacity: .3;
+  }
+  75% {
+    transform: scale(0.8);
+    opacity: .4;
+  }
+  100% {
+    transform: scale(1);
+    opacity: .1;
+  }
+}

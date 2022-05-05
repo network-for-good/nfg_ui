@@ -66,7 +66,7 @@ RSpec.describe 'nfg_ui/bootstrap/navs/_nav.html.haml', type: :view do
     let(:options) { { tabs: true } }
     it 'outputs a nav with tabs' do
       expect(subject).to have_css '.nav.nav-tabs'
-      expect(subject).to eq "<ul class=\"nav nav-tabs\">#{body}</ul>"
+      expect(subject).to eq "<ul class=\"nav nav-tabs\" role=\"tablist\">#{body}</ul>"
     end
   end
 

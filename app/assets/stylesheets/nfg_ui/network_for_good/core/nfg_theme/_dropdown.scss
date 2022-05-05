@@ -1,3 +1,7 @@
+// Used in auctions... bootstrap 4 alpha used this method to show dropdown-menus when clicked. current nfg_ui adds a "show" class to the dropdown-menu to render it block.
+.open > .dropdown-menu { display: block; }
+
+
 .dropdown-toggle::after { content: none; }
 
 
