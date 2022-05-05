@@ -99,7 +99,7 @@ RSpec.describe 'nfg_ui/bootstrap/navs/_nav_item.html.haml', type: :view do
     let(:options) { { tab: tested_tab } }
     it 'outputs a nav_item with a nav_link connected to a javascript data toggled tab' do
       expect(subject).to have_css "li.nav-item a.nav-link[aria-controls='#{tested_tab.tr('#', '')}'][data-toggle='tab']"
-      expect(subject).to eq "<li class=\"nav-item\"><a class=\"nav-link\" data-toggle=\"tab\" href=\"#{tested_tab}\" role=\"tab\" aria-controls=\"#{tested_tab.tr('#', '')}\" aria-selected=\"false\">#{body}</a></li>"
+      expect(subject).to eq "<li class=\"nav-item\" role=\"tab\"><a class=\"nav-link\" data-toggle=\"tab\" href=\"#{tested_tab}\" aria-controls=\"#{tested_tab.tr('#', '')}\" aria-selected=\"false\">#{body}</a></li>"
     end
 
     it "supplies the link's href from the :tab argument in options" do

@@ -1,7 +1,8 @@
 %h1 Breadcrumbs
 
 = ui.nfg :breadcrumb, class: 'example-class' do
-  = ui.nfg :breadcrumb_item, body: 'Home', class: 'example-class'
+  = ui.nfg :breadcrumb_item, class: 'example-class', href: patterns_media_path do
+    %b Home
   -# Block example
-  = ui.nfg :breadcrumb_item, active: true, class: 'example-class' do
+  = ui.nfg :breadcrumb_item, :active, class: 'example-class' do
     Active Page

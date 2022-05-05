@@ -13,6 +13,22 @@ module NfgUi
           :breadcrumb
         end
 
+        def render
+          if href
+            # remove href from options hash so it does not
+            # get added to the parent element -- and instead
+            # gets stored so we can use it to build the
+            # inserted <a> tag.
+            delegated_href = options.delete(:href)
+
+            super do
+              view_context.link_to(body, delegated_href)
+            end
+          else
+            super
+          end
+        end
+
         private
 
         def base_element
