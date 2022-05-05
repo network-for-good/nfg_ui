@@ -37,7 +37,7 @@ module NfgUi
 
         def assistive_html_attributes
           return super unless tabs
-          super.merge(role: 'tab-list')
+          super.merge(role: 'tablist')
         end
 
         def base_element
