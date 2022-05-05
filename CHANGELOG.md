@@ -1,4 +1,7 @@
 # Changelog
+## 0.14.2
+* Adds stylesheets for the NFG Auctions application.
+
 ## 0.14.1
 * `BreadcrumbItem` has been updated in `Bootstrap` & `NfgUi`:
   * It now accepts the `:href` option and correctly nests an `<a>` tag.
