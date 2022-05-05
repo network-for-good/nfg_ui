@@ -92,12 +92,12 @@ RSpec.describe NfgUi::Bootstrap::Components::NavLink do
       
       context 'when active is true in options' do
         let(:options) { { tab: tested_tab, active: true } }
-        it { is_expected.to eq(role: 'tab', aria: { controls: test_tab_word, selected: true }) }
+        it { is_expected.to eq(aria: { controls: test_tab_word, selected: true }) }
       end
 
       context 'when active is falsey in options' do
         let(:options) { { tab: tested_tab } }
-        it { is_expected.to eq(role: 'tab', aria: { controls: test_tab_word, selected: false }) }
+        it { is_expected.to eq(aria: { controls: test_tab_word, selected: false }) }
       end
     end
 

@@ -1,0 +1,15 @@
+.dropzone-target {
+  padding: $spacer !important;
+  min-height: ($spacer * 6) !important;
+  border: $border-width solid $border-color !important;
+  background-color: $white;
+  transition: $transition-base;
+  border-radius: $border-radius !important;
+}
+.dz-default {
+  transition: $transition-fade;
+  .dz-drag-hover & { opacity: 0.5; }
+  .dz-started & { display: none; }
+}
+[data-dz-remove] { cursor: pointer; }
+.dz-preview + .dz-preview { margin-top: $spacer; }

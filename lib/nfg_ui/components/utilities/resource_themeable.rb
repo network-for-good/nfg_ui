@@ -84,6 +84,7 @@ module NfgUi
 
         # Centralizes how we format the controller name for interpretation in our cases
         def formatted_controller_name(controller_name_string)
+          return unless controller_name_string
           controller_name_string.split('/').last.classify
         end
       end

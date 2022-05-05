@@ -1,4 +1,19 @@
 # Changelog
+## 0.14.2
+* Adds stylesheets for the NFG Auctions application.
+
+## 0.14.1
+* `BreadcrumbItem` has been updated in `Bootstrap` & `NfgUi`:
+  * It now accepts the `:href` option and correctly nests an `<a>` tag.
+  * The `NfgUi` version also accepts the `:active` trait and no longer requires `active: true` as the only way to activate a `BreadcrumbItem`
+* Assistive HTML attributes for tabular navigation has been updated:
+  * `Nav` now includes `role='tablist'` when `tabs: true` in the `:options` hash
+  * `NavItem` now includes `role='tab'` (moved from `NavLink`) when `:tab` is included in the `:options` hash
+
+## 0.14.0.1
+* Adds missing dependabot security fixes: `Rails` and associated packages are upgraded to `5.2.7.1`
+* Updates `publisher` app to use ruby 2.7.5
+
 ## 0.14.0 *RUBY VERSION BREAKING CHANGES*
 * Bumps ruby to 2.7.5 to match NFG applications.
 * Bumping `puma` to `5.6.4`

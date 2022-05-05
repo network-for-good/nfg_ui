@@ -207,5 +207,18 @@ RSpec.describe NfgUi::Bootstrap::Components::Nav do
                                   :pill,
                                   :vertical) }
     end
+
+    describe '#assistive_html_attributes' do
+      let(:options) { { tabs: test_tabs } }
+      subject { nav.send(:assistive_html_attributes) }
+      context 'when :tabs is true' do
+        let(:test_tabs) { true }
+        it { is_expected.to include(role: 'tablist') }
+      end
+      context 'when :tabs is falsy' do
+        let(:test_tabs) { nil }
+        it { is_expected.not_to include(role: 'tablist') }
+      end
+    end
   end
 end

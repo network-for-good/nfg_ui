@@ -14,6 +14,27 @@ RSpec.describe NfgUi::Bootstrap::Components::BreadcrumbItem do
     it { is_expected.to eq :breadcrumb }
   end
 
+  describe '#render' do
+    subject { breadcrumb_item.render }
+    let(:test_body) { 'Breadcrumb Text' }
+    let(:options) { { href: test_link, body: test_body } }
+
+    context 'when :href is present in options' do
+      let(:test_link) { '#link' }
+
+      it 'renders the <li> with a nested <a> link' do
+        expect(subject).to eq "<li class=\"breadcrumb-item\"><a href=\"#{test_link}\">#{test_body}</a></li>"
+      end
+    end
+
+    context 'when :href is not present in options' do
+      let(:test_link) { nil }
+      it 'renders the <li> only' do
+        expect(subject).to eq "<li class=\"breadcrumb-item\">#{test_body}</li>"
+      end
+    end
+  end
+
   describe 'private methods' do
     describe '#assistive_html_attributes' do
       subject { breadcrumb_item.send(:assistive_html_attributes) }

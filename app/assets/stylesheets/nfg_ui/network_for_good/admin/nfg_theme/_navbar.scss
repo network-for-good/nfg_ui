@@ -101,6 +101,7 @@
     left: 200px;
     border-bottom: $border-width solid $nav-divider-color;
   }
+
 }
 #site_navbar {
   font-size: $font-size-sm;
@@ -120,7 +121,10 @@
       text-align: center;
       border-left: $border-width solid $nav-divider-color;
       @include media-breakpoint-down(lg) {
-        width: 20%;
+        flex-basis: 0;
+        flex-grow: 1;
+        width: 100%;
+        max-width: 100%;
         &:first-child { border-left: none; }
       }
       .nav-alert {

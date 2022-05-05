@@ -35,6 +35,11 @@ module NfgUi
 
         private
 
+        def assistive_html_attributes
+          return super unless tabs
+          super.merge(role: 'tablist')
+        end
+
         def base_element
           as
         end
