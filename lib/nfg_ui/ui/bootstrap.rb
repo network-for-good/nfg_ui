@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require_relative 'utilities/initializer'
+
 module NfgUi
   module UI
     # The class that yields the component for the view

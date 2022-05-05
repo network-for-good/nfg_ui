@@ -1,3 +1,6 @@
+// Used in auctions... bootstrap 4 alpha used this method to show modal backgrounds when modals are open. current nfg_ui adds a "show" class to the modal background to render it.
+.modal-backdrop.in { opacity: $modal-backdrop-opacity; }
+
 // Footer (for actions)
 .modal-footer { justify-content: flex-start; } // Left align buttons which overrides bootstrap's default of right aligned
 

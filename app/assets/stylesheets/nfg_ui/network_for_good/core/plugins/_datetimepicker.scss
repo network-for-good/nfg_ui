@@ -5,10 +5,12 @@
 //*****************************//
 
 //** form style that clears out readonly styles
-.form-control[data-datetimepicker] {
+.form-control[data-datetimepicker],
+.form-control.datetime-picker:disabled, .form-control.datetime-picker[readonly] { // Used in auctions... it is not using the NFG UI version of the datetimepicker, so we need this style as a duplicate of the above style.
   background-color: $input-bg;
   cursor: pointer;
 }
+
 
 //** Base styles
 .bootstrap-datetimepicker-widget {

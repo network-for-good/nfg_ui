@@ -1,0 +1,2 @@
+// Used in auctions... bootstrap 4 alpha used this method to show collapsible elements when opened. current nfg_ui displays none on any element that has both .collapse and not(.show).
+.collapse.in { display: block; }
