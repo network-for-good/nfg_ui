@@ -9,7 +9,7 @@ gem 'execjs', '~> 2.7.0' # later versions break our deploy & publish processes; 
 gem 'haml', '~> 5.1'
 gem 'nfg_ui', '~> 0.14', path: '..'
 gem 'rails', '~> 5.2.4', '>= 5.2.4.5'
-gem 'sass-rails', '~> 5.0'
+gem 'sass-rails', '~> 6.0'
 
 group :development do
   gem 'byebug'
