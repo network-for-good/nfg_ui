@@ -1,4 +1,7 @@
 # Changelog
+## 0.14.2.2
+* Bumps `nokogiri` from `1.13.4` to `1.13.6` in `/publisher` application.
+
 ## 0.14.2.1
 * In `14.0` `puma` was not correctly bumped to `5.6.4`
   * Bumping `puma` to `5.6.4`
