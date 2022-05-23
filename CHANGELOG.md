@@ -1,4 +1,13 @@
 # Changelog
+## 0.14.2.2
+* Bumps `nokogiri` from `1.13.4` to `1.13.6` in `/publisher` application.
+
+## 0.14.2.1
+* In `14.0` `puma` was not correctly bumped to `5.6.4`
+  * Bumping `puma` to `5.6.4`
+    * Addresses security vulnerability [GHSA-h99w-9q5r-gjq9](https://github.com/advisories/GHSA-h99w-9q5r-gjq9)
+    * Addresses security vulnerability [GHSA-rmj8-8hhh-gv5h](https://github.com/advisories/GHSA-rmj8-8hhh-gv5h)
+
 ## 0.14.2
 * Adds stylesheets for the NFG Auctions application.
 
