@@ -1,0 +1,9 @@
+// styles for stats positioned on top of progress bar
+.progress-stats {
+  position: absolute;
+  top: ($spacer * .125);
+  left: $grid-gutter-width / 2;
+  width: 100%;
+  z-index: 1;
+  .progress-text-on { color: color-yiq($primary); }
+}
