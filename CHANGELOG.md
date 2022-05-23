@@ -1,4 +1,8 @@
 # Changelog
+## 0.14.3
+* Adds Fundraising Pages 'peer to peer' page styles to the CSS
+  * Adds Chartwell pies javascript and css.
+
 ## 0.14.2.2
 * Bumps `nokogiri` from `1.13.4` to `1.13.6` in `/publisher` application.
 
