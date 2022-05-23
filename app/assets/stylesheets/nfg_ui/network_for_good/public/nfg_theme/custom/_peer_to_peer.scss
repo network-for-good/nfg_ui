@@ -1,0 +1,20 @@
+.peer_to_peer {
+  .jumbotron {
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    @include media-breakpoint-down(md) { background-image: none !important; }
+    @include media-breakpoint-up(lg) {
+      min-height: 600px;
+      color: $white;
+      text-shadow: $box-shadow-sm;
+    }
+  }
+  .campaign-status {
+    .chartwell {
+      color: $gray-200;
+      font-size: 40px;
+      line-height: 1;
+    }
+  }
+}
