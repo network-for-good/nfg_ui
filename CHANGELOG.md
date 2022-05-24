@@ -1,4 +1,7 @@
 # Changelog
+## 0.14.3.1
+* Addresses security vulnerability [GHSA-xh29-r2w5-wx8m](https://github.com/advisories/GHSA-xh29-r2w5-wx8m) by bumping `Nokogiri` to `1.13.6`
+
 ## 0.14.3
 * Adds Fundraising Pages 'peer to peer' page styles to the CSS
   * Adds Chartwell pies javascript and css.
