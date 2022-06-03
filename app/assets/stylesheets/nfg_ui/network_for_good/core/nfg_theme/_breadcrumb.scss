@@ -1,0 +1,24 @@
+.breadcrumb-item {
+  color: $text-muted;
+  a {
+    color: $text-muted;
+    @include hover-focus() { text-decoration: underline; }
+  }
+}
+
+
+// Used on FP onboarders where there are two levels of navigation for steps
+.breadcrumb {
+  &.nav-secondary {
+    .breadcrumb-item {
+      a { color: $primary; }
+      &.active {
+        color: $primary;
+        text-decoration: underline;
+      }
+      + .breadcrumb-item {
+        &::before { content: '>'; }
+      }
+    }
+  }
+}
