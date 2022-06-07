@@ -12,10 +12,7 @@
   &.nav-secondary {
     .breadcrumb-item {
       a { color: $primary; }
-      &.active {
-        color: $primary;
-        text-decoration: underline;
-      }
+      &.active { color: $body-color; }
       + .breadcrumb-item {
         &::before { content: '>'; }
       }
