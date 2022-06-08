@@ -1,4 +1,7 @@
 # Changelog
+## 0.14.4.1
+* In `Publisher` app, addresses security vulnerability [GHSA-hxqx-xwvh-44m2](https://github.com/advisories/GHSA-hxqx-xwvh-44m2) by bumping `rack` to `2.2.3.1`
+
 ## 0.14.4
 * CSS: Updates styles for breadcrumbs.
 * CSS: Adds styles for p2p projects for Fundraising Pages application.
