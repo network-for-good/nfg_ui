@@ -16,8 +16,8 @@ $page-header-height-public: (($spacer * 6.75) + 1); // 21.7rem (adds 1px for wid
     min-height: $page-header-height;
   }
 
-  // this renders as body.admin .page-header specifying when the view there is an admin logged in (includes top admin black bar)
-  body.admin & {
+  // this renders as body.admin .page-header specifying when the view there is an admin logged in or on a donorcreatedproject (includes top admin black bar)
+  body.admin &, body.donorcreatedproject & {
     @include media-breakpoint-up(lg) { min-height: $page-header-height-admin; }
   }
 }
@@ -27,8 +27,10 @@ $page-header-height-public: (($spacer * 6.75) + 1); // 21.7rem (adds 1px for wid
   @include media-breakpoint-up(lg) {
     + .page-content { padding-top: $page-header-height; }
 
-    // this renders as body.admin .page-header + .page-content specifying when the view there is an admin logged in (includes top admin black bar)
-    body.admin & + .page-content { padding-top: $page-header-height-admin; }
+    // this renders as body.admin .page-header + .page-content specifying when the view there is an admin logged in or on a donorcreatedproject (includes top admin black bar)
+    body.admin &, body.donorcreatedproject & {
+      + .page-content { padding-top: $page-header-height-admin; }
+    }
 
     // this renders as body.nfg_ui_onboarder .page-header + .page-content specifying when the view is in a public onboarding status i.e. fundraiser onboarder in Fundraising Pages
     body.nfg_ui_onboarder & + .page-content { padding-top: $page-header-height-public; }
