@@ -1,4 +1,8 @@
 # Changelog
+## 0.14.4
+* CSS: Updates styles for breadcrumbs.
+* CSS: Adds styles for p2p projects for Fundraising Pages application.
+
 ## 0.14.3.2
 * Addresses security vulnerability [GHSA-wq4h-7r42-5hrr](https://github.com/advisories/GHSA-wq4h-7r42-5hrr) by bumping `rack` to `2.2.3.1`
 
