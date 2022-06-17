@@ -23,12 +23,10 @@ module NfgUi
 
           # Check if we've got any color themes passed through in addition to :link
           if traits.collect { |t| t.in?(colors) }.any? && traits.include?(:link)
-
-            # Grab the symbol that's been passed through
-            theme_color = (traits & colors).first
-
-            # remove the theme color from traits so it doesn't override the :link theme
-            traits.delete(theme_color)
+            # Grab and remove the theme color from traits so it
+            # doesn't override the :link theme
+            # and so that we can apply it to the css.
+            theme_color = traits.delete((traits & colors).first)
 
             # Add the text styling to the button's CSS\
             options[:class] += " text-#{theme_color}"
