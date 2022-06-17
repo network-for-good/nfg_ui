@@ -28,7 +28,7 @@ module NfgUi
             # and so that we can apply it to the css.
             theme_color = traits.delete((traits & colors).first)
 
-            # Add the text styling to the button's CSS\
+            # Add the text styling to the button's CSS
             options[:class] += " text-#{theme_color}"
           end
 
