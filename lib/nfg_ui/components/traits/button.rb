@@ -12,7 +12,29 @@ module NfgUi
                     remote
                     submit].freeze
 
+        # Link trait has some customizations because it outputs
+        # a button without button styles (useful for spacing)
+        # which makes it feel like the following SHOULD work:
+        # = ui.nfg :button, :link, :danger, icon: 'trash-o'
+        # Where it generates a link themed button that also has
+        # a color style.
         def link_trait
+          colors = NfgUi::Components::Traits::Theme::COLOR_TRAITS
+
+          # Check if we've got any color themes passed through in addition to :link
+          if traits.collect { |t| t.in?(colors) }.any? && traits.include?(:link)
+
+            # Grab the symbol that's been passed through
+            theme_color = (traits & colors).first
+
+            # remove the theme color from traits so it doesn't override the :link theme
+            traits.delete(theme_color)
+
+            # Add the text styling to the button's CSS\
+            options[:class] += " text-#{theme_color}"
+          end
+
+          # And finally, set the official theme as a link
           options[:theme] = :link
         end
 
