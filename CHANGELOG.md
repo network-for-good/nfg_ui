@@ -1,4 +1,7 @@
 # Changelog
+## 0.14.5
+* Updates `Button` that are set to use `:link` theme to also accept a color theme (like `:danger`) so that both themes can be stacked. Example `= ui.nfg :button, :link, :success, as: :button, body: 'Link'`
+
 ## 0.14.4.1
 * In `Publisher` app, addresses security vulnerability [GHSA-hxqx-xwvh-44m2](https://github.com/advisories/GHSA-hxqx-xwvh-44m2) by bumping `rack` to `2.2.3.1`
 

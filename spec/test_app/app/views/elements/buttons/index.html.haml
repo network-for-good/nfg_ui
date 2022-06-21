@@ -102,6 +102,18 @@
 = ui.nfg :button, as: :button, body: 'Link', theme: :link, class: 'example-class'
 
 %hr
+%h4 Buttons as :links, using color themes:
+= ui.nfg :button, :link, :primary, as: :button, body: 'Primary Link'
+= ui.nfg :button, :link, :secondary, as: :button, body: 'Secondary Link'
+= ui.nfg :button, :link, :success, as: :button, body: 'Success Link'
+= ui.nfg :button, :link, :danger, as: :button, body: 'Danger Link'
+= ui.nfg :button, :link, :warning, as: :button, body: 'Warning Link'
+= ui.nfg :button, :link, :info, as: :button, body: 'Info Link'
+= ui.nfg :button, :link, :light, as: :button, body: 'Light Link'
+= ui.nfg :button, :link, :dark, as: :button, body: 'Dark Link'
+= ui.nfg :button, :link, :white, as: :button, body: 'White Link'
+
+%hr
 
 %h4 Themes with :theme trait
 %p
