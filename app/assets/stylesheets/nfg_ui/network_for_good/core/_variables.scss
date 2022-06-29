@@ -256,7 +256,7 @@ $border-radius-sm:            .2rem;
 
 // $rounded-pill:                50rem !default;
 
-$box-shadow-xs:               0 2px 9px transparentize($gray-900, 0.5);
+$box-shadow-xs:               0 1px 6px transparentize($gray-900, 0.3);
 $box-shadow-sm:               0 4px 18px transparentize($gray-900, 0.8);
 $box-shadow:                  0 8px 24px 3px transparentize($gray-900, 0.8);
 $box-shadow-lg:               0 12px 30px 8px transparentize($gray-900, 0.75);
