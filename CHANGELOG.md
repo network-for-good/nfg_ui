@@ -1,4 +1,7 @@
 # Changelog
+## 0.14.6
+* CSS: Adds additional missing styles for the Fundriasing Pages "p2p" onboarder.
+
 ## 0.14.5
 * Updates `Button` that are set to use `:link` theme to also accept a color theme (like `:danger`) so that both themes can be stacked. Example `= ui.nfg :button, :link, :success, as: :button, body: 'Link'`
 

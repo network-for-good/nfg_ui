@@ -17,7 +17,7 @@ $page-header-height-public: (($spacer * 6.75) + 1); // 21.7rem (adds 1px for wid
   }
 
   // this renders as body.admin .page-header specifying when the view there is an admin logged in or on a donorcreatedproject (includes top admin black bar)
-  body.admin &, body.donorcreatedproject & {
+  body.admin &, body.public_admin & {
     @include media-breakpoint-up(lg) { min-height: $page-header-height-admin; }
   }
 }
@@ -28,7 +28,7 @@ $page-header-height-public: (($spacer * 6.75) + 1); // 21.7rem (adds 1px for wid
     + .page-content { padding-top: $page-header-height; }
 
     // this renders as body.admin .page-header + .page-content specifying when the view there is an admin logged in or on a donorcreatedproject (includes top admin black bar)
-    body.admin &, body.donorcreatedproject & {
+    body.admin &, body.public_admin & {
       + .page-content { padding-top: $page-header-height-admin; }
     }
 
