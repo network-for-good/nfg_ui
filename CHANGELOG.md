@@ -1,4 +1,7 @@
 # Changelog
+## 0.14.6.1
+* Addresses security vulnerability [GHSA-pg8v-g4xq-hww9](https://github.com/advisories/GHSA-pg8v-g4xq-hww9) by bumping `rails-html-sanitizer` from `1.4.2` to `1.4.3`
+
 ## 0.14.6
 * CSS: Adds additional missing styles for the Fundriasing Pages "p2p" onboarder.
 
