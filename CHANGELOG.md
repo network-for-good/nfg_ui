@@ -1,4 +1,7 @@
 # Changelog
+## 0.14.6.2
+* Addresses security vulnerability [GHSA-3hhc-qp5v-9p2j](https://github.com/advisories/GHSA-3hhc-qp5v-9p2j) by bumping `activerecord` from `5.2.7.1` to `5.2.8.1` for rails 5.
+
 ## 0.14.6.1
 * Addresses security vulnerability [GHSA-pg8v-g4xq-hww9](https://github.com/advisories/GHSA-pg8v-g4xq-hww9) by bumping `rails-html-sanitizer` from `1.4.2` to `1.4.3`
 
