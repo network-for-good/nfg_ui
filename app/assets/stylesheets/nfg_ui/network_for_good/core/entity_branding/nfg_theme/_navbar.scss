@@ -3,16 +3,16 @@
 .navbar-light {
   .navbar-brand,
   .navbar-toggler {
-    color: color-yiq($primary, $yiq-text-dark, $primary);
-    &:hover, &:focus { color: color-yiq($primary, $yiq-text-dark, $primary); }
+    color: color-yiq(var(--primary), $yiq-text-dark, var(--primary));
+    &:hover, &:focus { color: color-yiq(var(--primary), $yiq-text-dark, var(--primary)); }
   }
   .navbar-nav {
     .nav-link {
-      &:hover, &:focus { color: color-yiq($primary, darken($primary, 10%), $primary); }
+      &:hover, &:focus { color: color-yiq(var(--primary), darken(var(--primary), 10%), var(--primary)); }
     }
     .open > .nav-link,
     .active > .nav-link,
     .nav-link.open,
-    .nav-link.active { color: color-yiq($primary, darken($primary, 10%), $primary); }
+    .nav-link.active { color: color-yiq(var(--primary), darken(var(--primary), 10%), var(--primary)); }
   }
 }

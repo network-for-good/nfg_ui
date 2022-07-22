@@ -5,16 +5,16 @@
   .nav-item {
 
     &.visited, &.active {
-      &::before { background-color: $primary; }
+      &::before { background-color: var(--primary); }
       .step-indicator {
-        color: color-yiq($primary);
-        background-color: $primary;
-        border-color: $primary;
+        color: color-yiq(var(--primary));
+        background-color: var(--primary);
+        border-color: var(--primary);
       }
     }
 
     .step-indicator {
-      &::after { box-shadow: 0 0 0 ($spacer * .25) transparentize($primary, 0.8); }
+      &::after { box-shadow: 0 0 0 ($spacer * .25) transparentize(var(--primary), 0.8); }
     }
   }
 }

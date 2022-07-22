@@ -8,8 +8,8 @@
   .next,
   .timepicker-picker a.btn {
     &:hover, &:active, &.active {
-      color: color-yiq($primary) !important;
-      background-color: $primary !important;
+      color: color-yiq(var(--primary)) !important;
+      background-color: var(--primary) !important;
     }
   }
 
@@ -17,8 +17,8 @@
   .today {
     &.active {
       &:hover, &:active {
-        color: color-yiq($primary) !important;
-        background-color: $primary !important;
+        color: color-yiq(var(--primary)) !important;
+        background-color: var(--primary) !important;
       }
     }
   }
@@ -26,19 +26,19 @@
 
 //** Datepicker specific
 .datepicker {
-  .prev, .next { color: color-yiq($primary, $yiq-text-dark, $primary); }
+  .prev, .next { color: color-yiq(var(--primary), $yiq-text-dark, var(--primary)); }
 }
 
 //** Timepicker picker section
-.timepicker-picker td a { color: color-yiq($primary, $yiq-text-dark, $primary); }
+.timepicker-picker td a { color: color-yiq(var(--primary), $yiq-text-dark, var(--primary)); }
 
 //** Time/Date Toggle
 .picker-switch.accordion-toggle {
   a {
-    color: color-yiq($primary, $yiq-text-dark, $primary);
+    color: color-yiq(var(--primary), $yiq-text-dark, var(--primary));
     &:hover, &:active {
-      color: color-yiq($primary) !important;
-      background-color: $primary !important;
+      color: color-yiq(var(--primary)) !important;
+      background-color: var(--primary) !important;
     }
   }
 }

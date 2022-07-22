@@ -1,6 +1,6 @@
 // Specific styles for entity branding
 
 a {
-  color: color-yiq($primary, $yiq-text-dark, $primary);
-  &:not(.btn):hover, &:not(.btn):focus { color: darken($primary, 15%) !important; }
+  color: color-yiq(var(--primary), $yiq-text-dark, var(--primary));
+  &:not(.btn):hover, &:not(.btn):focus { color: darken(var(--primary), 15%) !important; }
 }

@@ -1,16 +1,16 @@
 // Specific styles for entity branding
 
 a.no-link-color {
-  &:hover, &:active, &:focus { color: $primary !important; }
+  &:hover, &:active, &:focus { color: var(--primary) !important; }
 }
 
-.text-primary { color: color-yiq($primary, $yiq-text-dark, $primary) !important; }
+.text-primary { color: color-yiq(var(--primary), $yiq-text-dark, var(--primary)) !important; }
 
 a.text-primary {
-  color: color-yiq($primary, darken($primary, 15%), $primary) !important;
-  &:hover, &:focus { color: darken($primary, 15%) !important; }
+  color: color-yiq(var(--primary), darken(var(--primary), 15%), var(--primary)) !important;
+  &:hover, &:focus { color: darken(var(--primary), 15%) !important; }
 }
 
 .bg-dark {
-  .text-primary { color: color-yiq($primary, $primary, $yiq-text-light) !important; }
+  .text-primary { color: color-yiq(var(--primary), var(--primary), $yiq-text-light) !important; }
 }
