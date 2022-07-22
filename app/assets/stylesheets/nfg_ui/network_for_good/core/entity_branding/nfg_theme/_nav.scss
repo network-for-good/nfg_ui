@@ -3,7 +3,7 @@
   &.flex-column {
     .nav-link {
       &:hover, &.active {
-        &:after { background: var(--primary); }
+        &:after { background: $primary; }
       }
     }
   }
@@ -11,7 +11,7 @@
 .nav-tabs {
   .nav-link {
     &:hover, &.active {
-      &:after { background: var(--primary); }
+      &:after { background: $primary; }
     }
   }
 }

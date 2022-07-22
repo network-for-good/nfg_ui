@@ -1,8 +1,8 @@
 // Specific styles for entity branding
 .form-control {
   &:focus {
-    border-color: var(--primary);
-    box-shadow: 0 0 0 ($spacer * .125) transparentize(var(--primary), 0.8);
+    border-color: $primary;
+    box-shadow: 0 0 0 ($spacer * .125) transparentize($primary, 0.8);
   }
 }
 
@@ -11,6 +11,6 @@
 .form-control,
 .custom-select {
   .was-validated &:valid {
-    &:focus { border-color: var(--primary); }
+    &:focus { border-color: $primary; }
   }
 }

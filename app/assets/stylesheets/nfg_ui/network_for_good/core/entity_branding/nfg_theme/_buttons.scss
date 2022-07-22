@@ -1,54 +1,54 @@
 // Specific styles for entity branding
 .btn-primary {
-  color: color-yiq(var(--primary));
-  background-color: var(--primary);
-  border-color: var(--primary);
+  color: color-yiq($primary);
+  background-color: $primary;
+  border-color: $primary;
   &:hover {
-    color: color-yiq(darken(var(--primary), 10%));
-    background-color: darken(var(--primary), 10%);
-    border-color: darken(var(--primary), 10%);
+    color: color-yiq(darken($primary, 10%));
+    background-color: darken($primary, 10%);
+    border-color: darken($primary, 10%);
   }
   &:focus,
   &.focus {
-    box-shadow: 0 0 0 $input-btn-focus-width transparentize(var(--primary), 0.8);
+    box-shadow: 0 0 0 $input-btn-focus-width transparentize($primary, 0.8);
   }
   &.disabled, &:disabled {
-    color: color-yiq(var(--primary));
-    background-color: var(--primary);
-    border-color: var(--primary);
+    color: color-yiq($primary);
+    background-color: $primary;
+    border-color: $primary;
   }
   &:not(:disabled):not(.disabled):active,
   &:not(:disabled):not(.disabled).active,
   .show > &.dropdown-toggle {
-    color: color-yiq(var(--primary));
-    background-color: var(--primary);
-    border-color: var(--primary);
-    box-shadow: 0 0 0 $input-btn-focus-width transparentize(var(--primary), 0.8);
-    &:focus { box-shadow: 0 0 0 $input-btn-focus-width transparentize(var(--primary), 0.8); }
+    color: color-yiq($primary);
+    background-color: $primary;
+    border-color: $primary;
+    box-shadow: 0 0 0 $input-btn-focus-width transparentize($primary, 0.8);
+    &:focus { box-shadow: 0 0 0 $input-btn-focus-width transparentize($primary, 0.8); }
   }
 }
 
 .btn-secondary, .btn-outline-secondary {
-  color: color-yiq(var(--primary), $yiq-text-dark, var(--primary));
-  &:hover { color: color-yiq(var(--primary), $yiq-text-dark, var(--primary)) !important; }
+  color: color-yiq($primary, $yiq-text-dark, $primary);
+  &:hover { color: color-yiq($primary, $yiq-text-dark, $primary) !important; }
   &:not(:disabled):not(.disabled):active,
   &:not(:disabled):not(.disabled).active,
   .show > &.dropdown-toggle {
-    color: color-yiq(var(--primary), $yiq-text-dark, var(--primary)) !important;
+    color: color-yiq($primary, $yiq-text-dark, $primary) !important;
   }
 }
 
 .btn-link {
-  color: color-yiq(var(--primary), $yiq-text-dark, var(--primary));
-  &:hover { color: color-yiq(darken(var(--primary), 15%), $yiq-text-dark, darken(var(--primary), 15%)); }
-  &:focus { box-shadow: 0 0 0 $input-btn-focus-width transparentize(var(--primary), 0.8); }
+  color: color-yiq($primary, $yiq-text-dark, $primary);
+  &:hover { color: color-yiq(darken($primary, 15%), $yiq-text-dark, darken($primary, 15%)); }
+  &:focus { box-shadow: 0 0 0 $input-btn-focus-width transparentize($primary, 0.8); }
 }
 
 .bg-dark {
   .btn-primary {
-    h1, h2, h3, h4, h5, h6, p, label { color: color-yiq(var(--primary)); }
+    h1, h2, h3, h4, h5, h6, p, label { color: color-yiq($primary); }
   }
   .btn-outline-secondary {
-    h1, h2, h3, h4, h5, h6, p, label { color: color-yiq(var(--primary), $yiq-text-dark, var(--primary)); }
+    h1, h2, h3, h4, h5, h6, p, label { color: color-yiq($primary, $yiq-text-dark, $primary); }
   }
 }

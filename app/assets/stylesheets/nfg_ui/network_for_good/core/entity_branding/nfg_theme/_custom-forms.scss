@@ -3,42 +3,42 @@
 .custom-control {
   .custom-control-input {
     &:checked {
-      ~ .custom-control-label, ~ .custom-control-label::before { border-color: var(--primary); }
+      ~ .custom-control-label, ~ .custom-control-label::before { border-color: $primary; }
       ~ .custom-control-label::before {
-        background-color: var(--primary);
-        box-shadow: 0 0 0 ($spacer * .125) transparentize(var(--primary), 0.8);
+        background-color: $primary;
+        box-shadow: 0 0 0 ($spacer * .125) transparentize($primary, 0.8);
       }
     }
     &:not(:disabled):active ~ .custom-control-label::before {
-      background-color: lighten(var(--primary), 35%);
-      border-color: lighten(var(--primary), 35%);
+      background-color: lighten($primary, 35%);
+      border-color: lighten($primary, 35%);
     }
   }
   &.custom-control-block {
-    .custom-control-input:checked ~ .custom-control-label { box-shadow: 0 0 0 ($spacer * .125) transparentize(var(--primary), 0.8); }
+    .custom-control-input:checked ~ .custom-control-label { box-shadow: 0 0 0 ($spacer * .125) transparentize($primary, 0.8); }
   }
 }
 
 .custom-select {
   &:active, &:focus {
-    border-color: var(--primary);
-    box-shadow: 0 0 0 ($spacer * .125) transparentize(var(--primary), 0.8);
+    border-color: $primary;
+    box-shadow: 0 0 0 ($spacer * .125) transparentize($primary, 0.8);
   }
 }
 
 .custom-file-input {
   &:focus ~ .custom-file-label {
-    border-color: var(--primary);
-    &::after { border-color: var(--primary); }
+    border-color: $primary;
+    &::after { border-color: $primary; }
   }
 }
 
 .custom-switch {
   .custom-control-input:checked ~ .custom-control-label {
-    &::after { border-color: var(--primary); }
+    &::after { border-color: $primary; }
     &::before {
-      background-color: var(--primary);
-      border-color: var(--primary);
+      background-color: $primary;
+      border-color: $primary;
     }
   }
 }
@@ -48,7 +48,7 @@
 .custom-control-input {
   .was-validated &:valid {
     &:checked {
-      ~ .custom-control-label::before { background-color: var(--primary); }
+      ~ .custom-control-label::before { background-color: $primary; }
     }
   }
 }

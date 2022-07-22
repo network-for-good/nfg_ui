@@ -3,11 +3,11 @@
 .select2-container--default {
   &.select2-container--focus .select2-selection--multiple,
   &.select2-container--open .select2-selection--single {
-    border-color: var(--primary) !important;
-    box-shadow: 0 0 0 ($spacer * .125) transparentize(var(--primary), 0.8);
+    border-color: $primary !important;
+    box-shadow: 0 0 0 ($spacer * .125) transparentize($primary, 0.8);
   }
   .select2-search--dropdown .select2-search__field:focus {
-    border-color: var(--primary) !important;
-    box-shadow: 0 0 0 ($spacer * .125) transparentize(var(--primary), 0.8);
+    border-color: $primary !important;
+    box-shadow: 0 0 0 ($spacer * .125) transparentize($primary, 0.8);
   }
 }
