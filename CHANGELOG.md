@@ -1,4 +1,7 @@
 # Changelog
+## 0.14.6.3
+* Addresses security vulnerability [GHSA-5cm2-9h8c-rvfx](https://github.com/advisories/GHSA-5cm2-9h8c-rvfx) by bumping `tzinfo` to `1.2.10`.
+
 ## 0.14.6.2
 * Addresses security vulnerability [GHSA-3hhc-qp5v-9p2j](https://github.com/advisories/GHSA-3hhc-qp5v-9p2j) by bumping `activerecord` from `5.2.7.1` to `5.2.8.1` for rails 5.
 
