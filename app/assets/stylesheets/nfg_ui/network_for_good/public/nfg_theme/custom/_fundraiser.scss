@@ -7,7 +7,7 @@
     @include media-breakpoint-up(lg) {
       min-height: 500px;
       color: $white;
-      text-shadow: $box-shadow-sm;
+      text-shadow: $box-shadow-xs;
     }
   }
 }
