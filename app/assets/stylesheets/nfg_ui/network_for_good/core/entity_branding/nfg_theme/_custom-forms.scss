@@ -3,42 +3,42 @@
 .custom-control {
   .custom-control-input {
     &:checked {
-      ~ .custom-control-label, ~ .custom-control-label::before { border-color: $primary; }
+      ~ .custom-control-label, ~ .custom-control-label::before { border-color: var(--brand-primary); }
       ~ .custom-control-label::before {
-        background-color: $primary;
-        box-shadow: 0 0 0 ($spacer * .125) transparentize($primary, 0.8);
+        background-color: var(--brand-primary);
+        box-shadow: 0 0 0 ($spacer * .125) var(--brand-primary-transparent);
       }
     }
     &:not(:disabled):active ~ .custom-control-label::before {
-      background-color: lighten($primary, 35%);
-      border-color: lighten($primary, 35%);
+      background-color: var(--brand-primary-light);
+      border-color: var(--brand-primary-light);
     }
   }
   &.custom-control-block {
-    .custom-control-input:checked ~ .custom-control-label { box-shadow: 0 0 0 ($spacer * .125) transparentize($primary, 0.8); }
+    .custom-control-input:checked ~ .custom-control-label { box-shadow: 0 0 0 ($spacer * .125) var(--brand-primary-transparent); }
   }
 }
 
 .custom-select {
   &:active, &:focus {
-    border-color: $primary;
-    box-shadow: 0 0 0 ($spacer * .125) transparentize($primary, 0.8);
+    border-color: var(--brand-primary);
+    box-shadow: 0 0 0 ($spacer * .125) var(--brand-primary-transparent);
   }
 }
 
 .custom-file-input {
   &:focus ~ .custom-file-label {
-    border-color: $primary;
-    &::after { border-color: $primary; }
+    border-color: var(--brand-primary);
+    &::after { border-color: var(--brand-primary); }
   }
 }
 
 .custom-switch {
   .custom-control-input:checked ~ .custom-control-label {
-    &::after { border-color: $primary; }
+    &::after { border-color: var(--brand-primary); }
     &::before {
-      background-color: $primary;
-      border-color: $primary;
+      background-color: var(--brand-primary);
+      border-color: var(--brand-primary);
     }
   }
 }
@@ -48,7 +48,7 @@
 .custom-control-input {
   .was-validated &:valid {
     &:checked {
-      ~ .custom-control-label::before { background-color: $primary; }
+      ~ .custom-control-label::before { background-color: var(--brand-primary); }
     }
   }
 }

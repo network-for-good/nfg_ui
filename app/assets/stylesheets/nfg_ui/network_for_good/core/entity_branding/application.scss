@@ -4,7 +4,6 @@
 @import 'nfg_ui/network_for_good/core/variables';
 
 // NFG Theme - listed individually because we need functions and reboot first
-@import 'nfg_theme/functions';
 @import 'nfg_theme/reboot';
 @import 'nfg_theme/badge';
 @import 'nfg_theme/buttons';
@@ -19,4 +18,3 @@
 // Plugins
 @import 'plugins/datetimepicker';
 @import 'plugins/select2';
-
