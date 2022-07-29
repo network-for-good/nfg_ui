@@ -1,0 +1,32 @@
+- brand_primary = local_assigns[:brand_primary]
+
+:scss
+
+  // Brings in core variables needed (ex: $yiq-text-dark)
+  @import 'nfg_ui/network_for_good/core/variables';
+
+  // Brings in color-yiq function for color contrasts
+  @import 'nfg_ui/network_for_good/core/entity_branding/nfg_theme/functions';
+
+  // CSS variables that override bootstrap's default colors with the entity's colors
+  $brand-colors: (
+    brand-primary: #{brand_primary},
+    brand-primary-scale-light: scale-color(#{brand_primary}, $lightness: 80%),
+    brand-primary-light: lighten(#{brand_primary}, 35%),
+    brand-primary-dark: darken(#{brand_primary}, 10%),
+    brand-primary-dark-yiq: color-yiq(darken(#{brand_primary}, 10%)),
+    brand-primary-transparent: transparentize(#{brand_primary}, 0.8),
+    brand-primary-yiq: color-yiq(#{brand_primary}),
+    brand-primary-yiq-text-dark: color-yiq(#{brand_primary}, $yiq-text-dark, #{brand_primary}),
+    brand-primary-yiq-text-darker: color-yiq(#{brand_primary}, darken(#{brand_primary}, 10%), #{brand_primary}),
+    brand-primary-yiq-text-darkest: color-yiq(darken(#{brand_primary}, 15%), $yiq-text-dark, darken(#{brand_primary}, 15%)),
+    brand-primary-yiq-text-light: color-yiq(#{brand_primary}, #{brand_primary}, $yiq-text-light)
+  );
+
+  // CSS variables at root
+  :root {
+    // Loop over each name, color
+    @each $name, $color in $brand-colors {
+      --\#{$name}: \#{$color};
+    }
+  }
