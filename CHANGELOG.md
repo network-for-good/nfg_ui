@@ -1,4 +1,7 @@
 # Changelog
+## 0.14.7
+* CSS: Adds mobile first check-in code for event management on Fundraising Pages application.
+
 ## 0.14.6.3
 * Addresses security vulnerability [GHSA-5cm2-9h8c-rvfx](https://github.com/advisories/GHSA-5cm2-9h8c-rvfx) by bumping `tzinfo` to `1.2.10`.
 

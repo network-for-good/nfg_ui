@@ -1,0 +1,39 @@
+$check-in-header-height: ($spacer * 2.25);
+
+// Contains the header fixed to the top of the browser on all devices
+.check-in-header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: $zindex-fixed + 1;
+  border-bottom: $border-width solid $blue-800;
+}
+
+// Shared styles between header and title
+.check-in-header, .check-in-title {
+  padding: ($spacer * .5);
+  background-color: $blue-700;
+}
+
+// Container that provides padding to the top of the page to move content below header and above the footer (small devices only)
+.check-in-container {
+  padding-top: $check-in-header-height;
+  @include media-breakpoint-down(sm) {
+    padding-bottom: ($spacer * 5);
+  }
+}
+
+// Shows the CTAs fixed to the bottom of the browser on small devices
+.check-in-footer {
+  @include media-breakpoint-down(sm) {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: $zindex-fixed + 1;
+    padding: ($spacer * .5);
+    border-top: $border-width solid $border-color;
+    background-color: $white;
+  }
+}
