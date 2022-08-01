@@ -4,13 +4,13 @@
 @import 'nfg_ui/network_for_good/core/variables';
 
 // NFG Theme - listed individually because we need functions and reboot first
-@import 'nfg_theme/functions';
 @import 'nfg_theme/reboot';
 @import 'nfg_theme/badge';
 @import 'nfg_theme/buttons';
 @import 'nfg_theme/custom-forms';
 @import 'nfg_theme/custom';
 @import 'nfg_theme/forms';
+@import 'nfg_theme/functions';
 @import 'nfg_theme/nav';
 @import 'nfg_theme/navbar';
 @import 'nfg_theme/type';
