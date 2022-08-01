@@ -1,4 +1,8 @@
 # Changelog
+## 0.15.0 *CSS BREAKING CHANGES*
+* We have moved from `@import`ing the entity branding stylesheets from haml into using CSS variables.
+  * If your app is using custom entity colors, you must now leverage `app/views/nfg_ui/_entity_branding_styles.html.haml` and pass in a local hex value for `brand_primary`
+
 ## 0.14.7
 * CSS: Adds mobile first check-in code for event management on Fundraising Pages application.
 

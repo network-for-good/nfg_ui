@@ -1,0 +1,54 @@
+- brand_primary = local_assigns[:brand_primary]
+
+:scss
+
+  //**********
+  // NOTE:
+  // if $white, $gray-800, or any of the $yiq-* variables are updated,
+  // update them here as well: /app/assets/stylesheets/nfg_ui/network_for_good/core/_variables.scss
+  //**********
+
+  // Brings in core variables needed (ex: $yiq-text-dark) because @import doesn't work in auctions (rails_6 branch)
+  // @import 'nfg_ui/network_for_good/core/variables';
+  $yiq-contrasted-threshold:  147;
+  $yiq-text-dark:             #313A3E; // $gray-800
+  $yiq-text-light:            #FFFFFF; // $white
+
+  // Brings in color-yiq function for color contrasts because @import doesn't work in auctions (rails_6 branch)
+  // @import 'nfg_ui/network_for_good/core/entity_branding/nfg_theme/functions';
+  @function color-yiq($color, $dark: $yiq-text-dark, $light: $yiq-text-light) {
+    $r: red($color);
+    $g: green($color);
+    $b: blue($color);
+
+    $yiq: (($r * 299) + ($g * 587) + ($b * 114)) / 1000;
+
+    @if ($yiq >= $yiq-contrasted-threshold) {
+      @return $dark;
+    } @else {
+      @return $light;
+    }
+  }
+
+  // CSS variables that override bootstrap's default colors with the entity's colors
+  $brand-colors: (
+    brand-primary: #{brand_primary},
+    brand-primary-scale-light: scale-color(#{brand_primary}, $lightness: 80%),
+    brand-primary-light: lighten(#{brand_primary}, 35%),
+    brand-primary-dark: darken(#{brand_primary}, 10%),
+    brand-primary-dark-yiq: color-yiq(darken(#{brand_primary}, 10%)),
+    brand-primary-transparent: transparentize(#{brand_primary}, 0.8),
+    brand-primary-yiq: color-yiq(#{brand_primary}),
+    brand-primary-yiq-text-dark: color-yiq(#{brand_primary}, $yiq-text-dark, #{brand_primary}),
+    brand-primary-yiq-text-darker: color-yiq(#{brand_primary}, darken(#{brand_primary}, 10%), #{brand_primary}),
+    brand-primary-yiq-text-darkest: color-yiq(darken(#{brand_primary}, 15%), $yiq-text-dark, darken(#{brand_primary}, 15%)),
+    brand-primary-yiq-text-light: color-yiq(#{brand_primary}, #{brand_primary}, $yiq-text-light)
+  );
+
+  // CSS variables at root
+  :root {
+    // Loop over each name, color
+    @each $name, $color in $brand-colors {
+      --\#{$name}: \#{$color};
+    }
+  }
