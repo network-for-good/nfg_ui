@@ -1,8 +1,8 @@
 // Specific styles for entity branding
 
 .bg-primary {
-  color: color-yiq($primary) !important;
-  background-color: $primary !important;
+  color: var(--brand-primary-yiq) !important;
+  background-color: var(--brand-primary) !important;
 }
 
-.border-primary { border-color: $primary !important; }
+.border-primary { border-color: var(--brand-primary) !important; }
