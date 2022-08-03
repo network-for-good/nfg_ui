@@ -2,5 +2,15 @@
 
 a {
   color: var(--brand-primary-yiq-text-dark);
-  &:not(.btn):hover, &:not(.btn):focus { color: var(--brand-primary-dark) !important; }
+  &:not([class*="btn"], [class*="nav"]) {
+    color: var(--brand-primary-yiq-text-dark);
+    text-decoration: underline;
+    &:hover, &:focus {
+      text-decoration: none;
+    }
+  }
+  .bg-dark & {
+    color: $white;
+    &:hover, &:focus { color: $white; }
+  }
 }
