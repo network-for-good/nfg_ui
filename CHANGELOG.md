@@ -1,4 +1,7 @@
 # Changelog
+## 0.15.2
+* Updates the `rails_6` branch to have rails 6 as a dependency.
+
 ## 0.15.1
 * CSS: Updates `<a>` links that aren't nav or buttons to utilize `var(--brand-primary-yiq-text-dark)`
 
