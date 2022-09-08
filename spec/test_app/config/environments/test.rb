@@ -1,3 +1,8 @@
+# TODO_RAILS_UPGRADE
+# There is a bug in rails 6 https://github.com/rails/rails/issues/37391
+# We can likely remove this require in later versions of rails.
+require "active_support/time"
+
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
