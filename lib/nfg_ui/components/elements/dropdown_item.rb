@@ -33,6 +33,16 @@ module NfgUi
                 end
               end
             end
+          elsif as == :button_to
+            # button_to_options = options.delete()
+            view_context.button_to(nil, html_options) do
+              if icon
+                NfgUi::Components::Foundations::Icon.new({ traits: ["#{icon} fw"], text: (block_given? ? yield : body), class: 'text-center' }, view_context).render
+              else
+                (block_given? ? yield : body)
+              end
+
+            end
           else
             super do
               if icon
