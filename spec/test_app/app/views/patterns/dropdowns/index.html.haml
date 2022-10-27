@@ -203,5 +203,17 @@
     = ui.nfg :dropdown_item, body: 'Dropdown Item 4'
 
 
+%hr
+
+%h2 Dropdown Items with <code>as: :button_to</code>
+
+=ui.nfg :dropdown, button: 'Auto Dropdown with Theme', theme: :success do
+  = ui.nfg :dropdown_menu do
+    = ui.nfg :dropdown_item, as: :button_to, button_url: patterns_slat_actions_path(something: 1), body: 'Dropdown Item 1', form: { "data-type" => "json" }, form_class: 'test-form-class', params: { test_param: 'test-value' }
+
+    = ui.nfg :dropdown_item, body: 'Dropdown Item 2'
+    = ui.nfg :dropdown_item, body: 'Dropdown Item 3'
+    = ui.nfg :dropdown_item, body: 'Dropdown Item 4'
+
 .mb-5.pb-5
 .mb-5.pb-5
