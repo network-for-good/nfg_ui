@@ -34,8 +34,11 @@ module NfgUi
               end
             end
           elsif as == :button_to
-            # button_to_options = options.delete()
-            view_context.button_to(nil, html_options) do
+            # Manually pass in url_for args for routing
+            # example: = ui.nfg :dropdown_item, as: :button_to, url_for: { action: 'something', controller: 'something', id: @something.id }
+            url_for_options = options.delete(:url_for)
+
+            view_context.button_to(url_for_options, html_options) do
               if icon
                 NfgUi::Components::Foundations::Icon.new({ traits: ["#{icon} fw"], text: (block_given? ? yield : body), class: 'text-center' }, view_context).render
               else

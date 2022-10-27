@@ -209,7 +209,7 @@
 
 =ui.nfg :dropdown, button: 'Auto Dropdown with Theme', theme: :warning do
   = ui.nfg :dropdown_menu do
-    = ui.nfg :dropdown_item, as: :button_to, body: 'Dropdown Item 1', form: { "data-type" => "json" }, form_class: 'test-form-class', remote: true, method: :delete, params: { test_param: 'test-value' }, action: 'create'
+    = ui.nfg :dropdown_item, as: :button_to, url_for: { action: 'index', controller: 'patterns/dropdown_menus', id: 1 }, body: 'Dropdown Item 1', form: { "data-type" => "json" }, form_class: 'test-form-class', remote: true, method: :delete, params: { test_param: 'test-value' }
     = ui.nfg :dropdown_item, body: 'Dropdown Item 2'
     = ui.nfg :dropdown_item, body: 'Dropdown Item 3'
     = ui.nfg :dropdown_item, body: 'Dropdown Item 4'
