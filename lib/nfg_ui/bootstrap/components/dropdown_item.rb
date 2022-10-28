@@ -16,9 +16,7 @@ module NfgUi
         # when not using as: :button_to
         def component_initialize
           if as != :button_to
-            class << self
-              include Bootstrap::Utilities::Remotable
-            end
+            extend Bootstrap::Utilities::Remotable
           end
         end
 
