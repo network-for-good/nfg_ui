@@ -26,7 +26,9 @@ module NfgUi
         # when not using as: :button_to
         def component_initialize
           if as != :button_to
-            extend NfgUi::Components::Utilities::Methodable
+            class << self
+              include NfgUi::Components::Utilities::Methodable
+            end
           end
         end
 
