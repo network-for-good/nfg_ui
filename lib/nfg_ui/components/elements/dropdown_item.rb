@@ -12,7 +12,6 @@ module NfgUi
         include NfgUi::Components::Utilities::Describable
         include NfgUi::Components::Utilities::DisableWithable
         include NfgUi::Components::Utilities::Iconable
-        include NfgUi::Components::Utilities::Methodable
         include NfgUi::Components::Utilities::Renderable
         include NfgUi::Components::Utilities::Traitable
 
@@ -21,6 +20,17 @@ module NfgUi
         include NfgUi::Components::Traits::DisableWith
         include NfgUi::Components::Traits::Disable
         include NfgUi::Components::Traits::Theme
+
+        # We do not want to overwrite button_to's interpretation
+        # of `method`. Conditionally include Methodable
+        # when not using as: :button_to
+        def component_initialize
+          if as != :button_to
+            class << self
+              include NfgUi::Components::Utilities::Methodable
+            end
+          end
+        end
 
         def render
           if tooltip && disabled
@@ -35,10 +45,10 @@ module NfgUi
             end
           elsif as == :button_to
             # Manually pass in url_for args for routing
-            # example: = ui.nfg :dropdown_item, as: :button_to, url_for: { action: 'something', controller: 'something', id: @something.id }
-            url_for_options = options.delete(:button_url)
+            # example: = ui.nfg :dropdown_item, as: :button_to, button_url: some_action_path(@object)
+            url_for_option = options.delete(:button_url)
 
-            view_context.button_to(url_for_options, html_options) do
+            view_context.button_to(url_for_option, html_options) do
               if icon
                 NfgUi::Components::Foundations::Icon.new({ traits: ["#{icon} fw"], text: (block_given? ? yield : body), class: 'text-center' }, view_context).render
               else
