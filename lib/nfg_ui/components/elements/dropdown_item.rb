@@ -24,11 +24,10 @@ module NfgUi
         # We do not want to overwrite button_to's interpretation
         # of `method`. Conditionally include Methodable
         # when not using as: :button_to
-        def component_initialize
+        def initialize(*)
+          super
           if as != :button_to
-            class << self
-              include NfgUi::Components::Utilities::Methodable
-            end
+            extend NfgUi::Components::Utilities::Methodable
           end
         end
 
