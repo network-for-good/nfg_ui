@@ -7,7 +7,7 @@ ruby '2.7.5'
 
 gem 'execjs', '~> 2.7.0' # later versions break our deploy & publish processes; see DM and FP Gemfiles
 gem 'haml', '~> 5.1'
-gem 'nfg_ui', '~> 0.14', path: '..'
+gem 'nfg_ui', path: '..'
 gem 'rails', '~> 6.0'
 gem 'sass-rails', '~> 6.0'
 
