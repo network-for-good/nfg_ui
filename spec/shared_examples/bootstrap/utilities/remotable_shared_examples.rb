@@ -1,8 +1,13 @@
-shared_examples_for 'a component that includes the Remotable utility module' do |component_suite:|
+shared_examples_for 'a component that includes the Remotable utility module' do |component_suite:, skip_include_check: false|
   describe 'Remotable module included in the component' do
     let(:component) { described_class.new({}, ActionController::Base.new.view_context) }
-    it { expect(described_class.included_modules).to include NfgUi::Bootstrap::Utilities::Remotable }
-    it 'responds to the dismissible public methods' do
+
+    # In some rare instances, e.g. on DropdownItem, we are conditionally extending this module
+    # AFTER initialize; as such, it won't show up.
+    unless skip_include_check
+      it { expect(described_class.included_modules).to include NfgUi::Bootstrap::Utilities::Remotable }
+    end
+    it 'responds to the public methods' do
       expect(component).to respond_to :remote
     end
   end

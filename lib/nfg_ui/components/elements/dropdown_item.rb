@@ -35,11 +35,7 @@ module NfgUi
           if tooltip && disabled
             content_tag(:span, disabled_component_tooltip_wrapper_html_options) do
               content_tag(as, html_options.except(:href)) do
-                if icon
-                  NfgUi::Components::Foundations::Icon.new({ traits: ["#{icon} fw"], text: (block_given? ? yield : body), class: 'text-center' }, view_context).render
-                else
-                  (block_given? ? yield : body)
-                end
+                yield_icon_or_body
               end
             end
           elsif as == :button_to
@@ -48,19 +44,11 @@ module NfgUi
             url_for_option = options.delete(:button_url)
 
             view_context.button_to(url_for_option, html_options) do
-              if icon
-                NfgUi::Components::Foundations::Icon.new({ traits: ["#{icon} fw"], text: (block_given? ? yield : body), class: 'text-center' }, view_context).render
-              else
-                (block_given? ? yield : body)
-              end
+              yield_icon_or_body
             end
           else
             super do
-              if icon
-                NfgUi::Components::Foundations::Icon.new({ traits: ["#{icon} fw"], text: (block_given? ? yield : body), class: 'text-center' }, view_context).render
-              else
-                (block_given? ? yield : body)
-              end
+              yield_icon_or_body
             end
           end
         end
@@ -72,6 +60,14 @@ module NfgUi
         end
 
         private
+
+        def yield_icon_or_body
+          if icon
+            NfgUi::Components::Foundations::Icon.new({ traits: ["#{icon} fw"], text: (block_given? ? yield : body), class: 'text-center' }, view_context).render
+          else
+            (block_given? ? yield : body)
+          end
+        end
 
         def base_element
           as
