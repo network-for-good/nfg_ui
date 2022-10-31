@@ -21,34 +21,57 @@ RSpec.describe NfgUi::Components::Elements::DropdownItem do
     let(:body) { 'Test body' }
 
     subject { Capybara.string(rendered) }
+
     context 'when a dropdown item is not disabled and does not have a tooltip' do
-      let(:options) { { icon: icon, body: body, disabled: false, tooltip: nil } }
 
-      it 'does not render a disabled dropdown item' do
-        by 'rendering an enabled component' do
-          expect(subject).to have_css '.dropdown-item'
-        end
 
-        and_by 'not adding the disabled css class to the dropdown item' do
-          expect(subject).not_to have_css '.dropdown-item.disabled'
-        end
+      let(:options) { { icon: icon, body: body, disabled: false, tooltip: nil, as: tested_as, **additional_options } }
 
-        and_by 'not wrapping the component in the disabled component wrapper' do
-          expect(subject).not_to have_css "span.d-inline-block[data-toggle='tooltip'][tabindex='0']"
+      context 'when as: is :button_to' do
+        subject { described_class.new(options, ActionController::Base.new.view_context).render }
+        let(:tested_as) { :button_to }
+        let(:additional_options) { { button_url: '#' } }
+
+        it 'wraps the dropdown item in a button_to helper' do
+          expect(subject).to eq "<form class=\"button_to\" method=\"post\" action=\"#\"><button class=\"dropdown-item\" type=\"submit\">Test body</button></form>"
         end
       end
 
-      context 'and when the dropdown item has an icon' do
-        let(:icon) { 'rocket' }
-        it 'renders the component with an icon with the correct css spacing class' do
-          expect(subject).to have_css "a.dropdown-item #{icon_css_selector}"
-        end
-      end  
+      context 'when as: is not :button_to' do
+        let(:tested_as) { :a }
+        let(:additional_options) { {} }
 
-      context 'and when the dropdown item does not have an icon' do
-        let(:icon) { nil }
-        it 'renders the component without an icon' do
-          expect(subject).not_to have_css "a.dropdown-item #{icon_css_selector}"
+        it 'does not wrap the dropdown item in a button_to helper' do
+          expect(described_class.new(options, ActionController::Base.new.view_context).render).to eq "<#{tested_as} class=\"dropdown-item\">Test body</#{tested_as}>"
+
+        end
+
+        it 'does not render a disabled dropdown item' do
+          by 'rendering an enabled component' do
+            expect(subject).to have_css '.dropdown-item'
+          end
+
+          and_by 'not adding the disabled css class to the dropdown item' do
+            expect(subject).not_to have_css '.dropdown-item.disabled'
+          end
+
+          and_by 'not wrapping the component in the disabled component wrapper' do
+            expect(subject).not_to have_css "span.d-inline-block[data-toggle='tooltip'][tabindex='0']"
+          end
+        end
+
+        context 'and when the dropdown item has an icon' do
+          let(:icon) { 'rocket' }
+          it 'renders the component with an icon with the correct css spacing class' do
+            expect(subject).to have_css "a.dropdown-item #{icon_css_selector}"
+          end
+        end
+
+        context 'and when the dropdown item does not have an icon' do
+          let(:icon) { nil }
+          it 'renders the component without an icon' do
+            expect(subject).not_to have_css "a.dropdown-item #{icon_css_selector}"
+          end
         end
       end
     end
