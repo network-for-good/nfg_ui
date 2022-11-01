@@ -1,7 +1,7 @@
 PATH
   remote: ..
   specs:
-    nfg_ui (0.15.2)
+    nfg_ui (5.15.3)
       autoprefixer-rails (= 9.4.9)
       bootstrap (= 4.3.1)
       browser (~> 2.7.1)
@@ -114,7 +114,7 @@ GEM
       racc (~> 1.4)
     nokogiri (1.13.6-x86_64-darwin)
       racc (~> 1.4)
-    popper_js (1.16.0)
+    popper_js (1.16.1)
     racc (1.6.0)
     rack (2.2.3.1)
     rack-test (1.1.0)
@@ -205,7 +205,7 @@ DEPENDENCIES
   byebug
   execjs (~> 2.7.0)
   haml (~> 5.1)
-  nfg_ui (~> 0.14)!
+  nfg_ui!
   rails (~> 5.2.4, >= 5.2.4.5)
   rspec
   sass-rails (~> 5.0)

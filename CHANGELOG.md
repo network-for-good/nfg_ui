@@ -1,4 +1,10 @@
 # Changelog
+## 5.15.3
+* Note: We've adopted main version update to reflect the version of rails this branch works on (Rails 5)
+* Updates `DropdownItem` to accept `as: :button_to` which wraps the component in the `button_to` rails helper.
+  * Pass in `button_url` to supply a custom route for the form.
+  * Example: `= ui.nfg :dropdown_item, as: :button_to, button_url: edit_something_path(@something), body: 'Edit', form: { "data-type" => "json" }, form_class: 'custom-form-class', params: { test_param: 'test-value' }, method: :delete, remote: true`
+
 ## 0.15.2
 * Updates the `rails_6` branch to have rails 6 as a dependency.
 

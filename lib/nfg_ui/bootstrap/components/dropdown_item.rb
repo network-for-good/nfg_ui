@@ -10,7 +10,16 @@ module NfgUi
         include Bootstrap::Utilities::Activatable
         include Bootstrap::Utilities::Disableable
         include Bootstrap::Utilities::Tooltipable
-        include Bootstrap::Utilities::Remotable
+
+        # We do not want to overwrite button_to's interpretation
+        # of `remote`. Conditionally include Remotable
+        # when not using as: :button_to
+        def initialize(*)
+          super
+          if as != :button_to
+            extend Bootstrap::Utilities::Remotable
+          end
+        end
 
         def component_family
           :dropdown
