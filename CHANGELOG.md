@@ -1,4 +1,11 @@
 # Changelog
+## 6.15.4
+* `NfgUi::Components::Patterns::Collapse` has been updated:
+  * When "speed building" a collapse (using `:header` to create a link text that collapses and expands the collapse component), a CSS `id` is automatically generated for you if you forget to pass one in.
+    * The random CSS `:id` consists of a letter and then 6 random alphanumeric letters. Ex: `<id='a-AHfh24'>` which will automatically be passed to the collapse button toggle and the collapse component.
+  * You can now customize the `:icon` associated with the `:header` by passing in an `:icon` into options.
+    * Example: `= ui.nfg :collapse, :collapsed, body: 'Body', heading: 'Collapse heading link', icon: 'rocket'`
+
 ## 6.15.3
 * Note: We've adopted main version update to reflect the version of rails this branch works on (Rails 6)
 * Updates `DropdownItem` to accept `as: :button_to` which wraps the component in the `button_to` rails helper.
