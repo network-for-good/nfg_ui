@@ -1,5 +1,27 @@
 %h1 Cards
 
+= ui.nfg :typeface, heading: 'Connect with your new Stripe account', class: 'mb-2'
+
+= ui.nfg :card, :light do
+  = ui.nfg :media do
+    = ui.nfg :media_object do
+      %span.fa-stack.text-muted.mr-2
+        %i.fa.fa-circle.fa-stack-2x
+        = ui.nfg :icon, 'question-circle inverse stack-1x'
+
+    = ui.nfg :media_body, body: "The next page will reference Bonterra, our new parent company."
+
+  = ui.nfg :media do
+    = ui.nfg :media_object do
+      %span.fa-stack.text-muted.mr-2
+        %i.fa.fa-circle.fa-stack-2x
+        = ui.nfg :icon, 'lock inverse stack-1x'
+
+    = ui.nfg :media_body, body: "To verify you're a real person, we ask for the last 4 of your social security number."
+
+
+
+
 = ui.nfg :card, heading: 'stuff', title: 'title!', describe: 'donor-scroll' do
   Howdy
 
