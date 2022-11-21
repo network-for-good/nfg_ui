@@ -1,4 +1,7 @@
 # Changelog
+## 6.15.6
+* Addresses security vulnerability [GHSA-2qc6-mcvw-92cw](https://github.com/advisories/GHSA-2qc6-mcvw-92cw) by bumping `nokogiri` to `1.13.9`.
+
 ## 6.15.5
 * Updates CSS: Fixes top padding issue on p2p fundraise template.
 
