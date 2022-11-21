@@ -1,4 +1,7 @@
 # Changelog
+## 6.15.5
+* Updates CSS: Fixes top padding issue on p2p fundraise template.
+
 ## 6.15.4
 * `NfgUi::Components::Patterns::Collapse` has been updated:
   * When "speed building" a collapse (using `:header` to create a link text that collapses and expands the collapse component), a CSS `id` is automatically generated for you if you forget to pass one in.
