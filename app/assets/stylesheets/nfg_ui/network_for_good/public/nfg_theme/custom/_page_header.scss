@@ -33,6 +33,8 @@ $page-header-height-public: (($spacer * 6.75) + 1); // 21.7rem (adds 1px for wid
     }
 
     // this renders as body.nfg_ui_onboarder .page-header + .page-content specifying when the view is in a public onboarding status i.e. fundraiser onboarder in Fundraising Pages
-    body.nfg_ui_onboarder & + .page-content { padding-top: $page-header-height-public; }
+    body.nfg_ui_onboarder &, body.create_fundraiser & {
+      + .page-content { padding-top: $page-header-height-public; }
+    }
   }
 }
