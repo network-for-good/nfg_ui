@@ -1,6 +1,6 @@
 # Deploying NFG_UI Across NFG Apps & Engines
 This is a pretty straight forward, though laborious process. It works like this:
-1. Make your updates to nfg_ui master branch.
+1. Make your updates to nfg_ui master branch (include a version bump and make sure `/publisher` is re-bundled after the version bump)
 2. Merge them into master and release the change to rubygems.org
 3. Merge updates from master into nfg_ui's rails_6 branch (very carefully review the PR for unwanted changes!!!)
 4. Merge nfg_ui into the engines (onboarder, THEN importer due to dependencies) which require rails 5 version (master branches) and rails_6 versions (rails_6 branches)
@@ -10,7 +10,7 @@ A more detailed breakdown is below:
 
 ## Requirements for merging:
 1. You've provided full spec coverage for all changes
-2. The version has been bumped up appropriately for nfg_ui and the contained publisher app
+2. The version has been bumped up appropriately for nfg_ui and the contained `/publisher` app
 3. The changelog includes the version update as well as a summary of updates
 4. The [nfg_ui_display_app](https://github.com/network-for-good/nfg_ui_display_app) has an associated PR and all component updates are accurately recorded and reflected in the display app.
 
