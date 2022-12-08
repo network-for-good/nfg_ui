@@ -36,21 +36,21 @@ Really simple: from master branch run `bundle exec rake release`
 ### Engines:
 You must go in this order due to dependencies:
 1. Merge in `nfg_ui` to `nfg_onboarder`
-  1. nfg_ui 5.X.X merges into `nfg_onboarder`'s `master` branch
-  2. nfg_ui 6.X.X merges into `nfg_onboarder`'s `rails_6` branch
+  * nfg_ui 5.X.X merges into `nfg_onboarder`'s `master` branch
+  * nfg_ui 6.X.X merges into `nfg_onboarder`'s `rails_6` branch
 2. Then merge in nfg_ui to `nfg_csv_importer`
-  1. `nfg_csv_importer` depends on `nfg_onboarder`
-  2. nfg_ui 5.X.X merges into `nfg_csv_importer`'s `master` branch
-  3. nfg_ui 6.X.X merges into `nfg_csv_importer`'s `rails_6` branch
+  * `nfg_csv_importer` depends on `nfg_onboarder`
+  * nfg_ui 5.X.X merges into `nfg_csv_importer`'s `master` branch
+  * nfg_ui 6.X.X merges into `nfg_csv_importer`'s `rails_6` branch
 
 ### Apps:
 Go in any order you desire...
 (At the time of this writing ... 12/8/22 ... `Givecorps-site` is rails 5, if that changes, `nfg_ui` should then use the `rails_6` branch -- until then, `Givecorps-site` uses nfg_ui `master`)
 1. (While rails 5) `Givecorps-site` uses nfg_ui `master`
-  1. While rails 5, `Givecorps-site` needs the updated `nfg_onboarder` that you merged in before.
+  * While rails 5, `Givecorps-site` needs the updated `nfg_onboarder` that you merged in before.
 2. `donor_management` uses nfg_ui `rails_6`
-  1. `donor_management` needs updated `nfg_onboarder`
-  2. `donor_management` needs updated `nfg_csv_importer`
+  * `donor_management` needs updated `nfg_onboarder`
+  * `donor_management` needs updated `nfg_csv_importer`
 3. `auctions` uses nfg_ui `rails_6`
-  1. At the time of this writing, `auctions` does not consume the onboarder or the importer. If that changes, it will also need an update.
+  * At the time of this writing, `auctions` does not consume the onboarder or the importer. If that changes, it will also need an update.
 
