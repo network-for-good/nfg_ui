@@ -1,5 +1,12 @@
 # Deploying NFG_UI Across NFG Apps & Engines
 This is a pretty straight forward, though laborious process. It works like this:
+1. Make your updates to nfg_ui master branch.
+2. Merge them into master and release the change to rubygems.org
+3. Merge updates from master into nfg_ui's rails_6 branch (very carefully review the PR for unwanted changes!!!)
+4. Merge nfg_ui into the engines (onboarder, THEN importer due to dependencies) which require rails 5 version (master branches) and rails_6 versions (rails_6 branches)
+5. Then merge nfg_ui and updated importer and onboarder engines into Givecorops-site, donor_management and auctions.
+
+A more detailed breakdown is below:
 
 ## Requirements for merging:
 1. You've provided full spec coverage for all changes
