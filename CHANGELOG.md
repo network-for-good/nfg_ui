@@ -1,4 +1,7 @@
 # Changelog
+## 6.15.7
+* Addresses security vulnerability [GHSA-qv4q-mr5r-qprj](https://github.com/advisories/GHSA-qv4q-mr5r-qprj) by bumping `nokogiri` to `1.13.10`.
+
 ## 6.15.6
 * Addresses security vulnerability [GHSA-2qc6-mcvw-92cw](https://github.com/advisories/GHSA-2qc6-mcvw-92cw) by bumping `nokogiri` to `1.13.9`.
 
