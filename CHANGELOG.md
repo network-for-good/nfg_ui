@@ -1,4 +1,7 @@
 # Changelog
+## 5.15.8
+* CSS: Cleans up `<a>` links that aren't nav or buttons by moving the :not() outside of the nested style
+
 ## 5.15.7
 * Addresses security vulnerability [GHSA-qv4q-mr5r-qprj](https://github.com/advisories/GHSA-qv4q-mr5r-qprj) by bumping `nokogiri` to `1.13.10`.
 
