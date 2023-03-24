@@ -2,15 +2,18 @@
 
 a {
   color: var(--brand-primary-yiq-text-dark);
-  &:not([class*="btn"], [class*="nav"]) {
-    color: var(--brand-primary-yiq-text-dark);
-    text-decoration: underline;
-    &:hover, &:focus {
-      text-decoration: none;
-    }
-  }
   .bg-dark & {
     color: $white;
     &:hover, &:focus { color: $white; }
+  }
+}
+
+// have to call out each individual instead of combining multiple elements using nested &:not(.btn, .nav-link)
+a:not(.btn, .nav-link, .dropdown-item, .page-link) {
+  color: var(--brand-primary-yiq-text-dark);
+  text-decoration: underline;
+  &:hover, &:focus {
+    color: var(--brand-primary-yiq-text-dark);
+    text-decoration: none !important;
   }
 }

@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    nfg_ui (6.15.7)
+    nfg_ui (6.15.8)
       autoprefixer-rails (= 9.4.9)
       bootstrap (= 4.3.1)
       browser (~> 2.7.1)
@@ -303,4 +303,4 @@ DEPENDENCIES
   webdrivers
 
 BUNDLED WITH
-   2.3.18
+   2.4.6

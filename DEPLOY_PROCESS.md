@@ -53,6 +53,3 @@ Go in any order you desire...
   * `donor_management` needs updated `nfg_csv_importer`
 3. `auctions` uses nfg_ui `rails_6`
   * At the time of this writing, `auctions` does not consume the onboarder or the importer. If that changes, it will also need an update.
-
-update.
-
