@@ -1,3 +1,5 @@
+## Note: The `rails_5` branch is deprecated and is no longer being supported as of April 2023.
+
 # Network for Good's Design System for Ruby on Rails
 The authoritative resource for the Network for Good front-end UI, empowered by the NFG Design System.
 
