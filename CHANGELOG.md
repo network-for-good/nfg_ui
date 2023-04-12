@@ -1,25 +1,28 @@
 # Changelog
-## 5.15.8
+## 6.16.0 *BREAKING CHANGES*
+* As of April 12, 2023 `nfg_ui`'s `master` branch is now _*Rails 6*_ only. Support for rails 5 is officially deprecated. A (no longer updated or maintained) `rails_5` branch is available for legacy use.
+
+## 6.15.8
 * CSS: Cleans up `<a>` links that aren't nav or buttons by moving the :not() outside of the nested style
 
-## 5.15.7
+## 6.15.7
 * Addresses security vulnerability [GHSA-qv4q-mr5r-qprj](https://github.com/advisories/GHSA-qv4q-mr5r-qprj) by bumping `nokogiri` to `1.13.10`.
 
-## 5.15.6
+## 6.15.6
 * Addresses security vulnerability [GHSA-2qc6-mcvw-92cw](https://github.com/advisories/GHSA-2qc6-mcvw-92cw) by bumping `nokogiri` to `1.13.9`.
 
-## 5.15.5
+## 6.15.5
 * Updates CSS: Fixes top padding issue on p2p fundraise template.
 
-## 5.15.4
+## 6.15.4
 * `NfgUi::Components::Patterns::Collapse` has been updated:
   * When "speed building" a collapse (using `:header` to create a link text that collapses and expands the collapse component), a CSS `id` is automatically generated for you if you forget to pass one in.
     * The random CSS `:id` consists of a letter and then 6 random alphanumeric letters. Ex: `<id='a-AHfh24'>` which will automatically be passed to the collapse button toggle and the collapse component.
   * You can now customize the `:icon` associated with the `:header` by passing in an `:icon` into options.
     * Example: `= ui.nfg :collapse, :collapsed, body: 'Body', heading: 'Collapse heading link', icon: 'rocket'`
 
-## 5.15.3
-* Note: We've adopted main version update to reflect the version of rails this branch works on (Rails 5)
+## 6.15.3
+* Note: We've adopted main version update to reflect the version of rails this branch works on (Rails 6)
 * Updates `DropdownItem` to accept `as: :button_to` which wraps the component in the `button_to` rails helper.
   * Pass in `button_url` to supply a custom route for the form.
   * Example: `= ui.nfg :dropdown_item, as: :button_to, button_url: edit_something_path(@something), body: 'Edit', form: { "data-type" => "json" }, form_class: 'custom-form-class', params: { test_param: 'test-value' }, method: :delete, remote: true`
