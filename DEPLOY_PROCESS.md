@@ -1,3 +1,34 @@
+## Releasing New Versions
+
+1. Add `~/.gem/credentials` to enable you to push to NFG's private gem repository:
+
+```yaml
+---
+:github: Bearer ########################################
+```
+
+2. Bump the version number in `lib/nfg_page_actions/version.rb`.
+
+3. Run the following command. When prompted, enter your github username and the token created above.
+
+```bash
+rake build
+gem push --key github --host https://rubygems.pkg.github.com/network-for-good pkg/nfg_page_actions-#.#.#.gem
+```
+
+4. Tag the new version:
+
+```bash
+git tag -a v#.#.# -m 'release v#.#.#'
+git push --tags
+```
+
+5. Create a new release in Github by right clicking on the newly-pushed tag and selecting 'Create release':
+
+```bash
+open https://github.com/network-for-good/nfg_page_actions/tags
+```
+
 # Deploying NFG_UI Across NFG Apps & Engines
 This is a pretty straight forward, though laborious process. It works like this:
 1. Make your updates to nfg_ui master branch (include a version bump and make sure `/publisher` is re-bundled after the version bump)
