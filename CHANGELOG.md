@@ -1,4 +1,7 @@
 # Changelog
+## 6.17.0
+* Updates HAML development dependency to `~> 6.0` after removal of HAML 5's `init_haml_helpers` method.
+
 ## 6.16.1
 * Adds Bonterra logos and partials for access in host apps.
 
