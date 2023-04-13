@@ -1,0 +1,12 @@
+- bonterra = false if local_assigns[:bonterra].nil?
+
+- if bonterra
+  = link_to 'https://www.bonterratech.com', title: 'Powered by Bonterra', class: 'd-inline-block text-decoration-none align-middle' do
+    = ui.nfg :image, image: "#{image_path('nfg_ui/logo/logo-symbol-indigo-bonterra.svg')}", alt: 'Powered by Bonterra', height: '16', responsive: false
+    = ui.nfg :typeface, :caption, class: 'd-inline-block mb-0' do
+      %span{ style: "color: #14022D;"}Powered by
+      %span{ style: "color: #726F76;"}Bonterra
+
+- else
+  = link_to 'http://www.networkforgood.com', target: '_blank', title: 'Network for Good. Simple. Smart. Fundraising Software.', class: 'd-inline-block' do
+    = ui.nfg :image, image: "#{image_path('nfg_ui/logo/logo-full-color-nfg.svg')}", alt: 'Network for Good. Simple. Smart. Fundraising Software.', height: '24', responsive: false

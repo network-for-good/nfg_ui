@@ -1,4 +1,7 @@
 # Changelog
+## 6.16.1
+* Adds Bonterra logos and partials for access in host apps.
+
 ## 6.16.0 *BREAKING CHANGES*
 * As of April 12, 2023 `nfg_ui`'s `master` branch is now _*Rails 6*_ only. Support for rails 5 is officially deprecated. A (no longer updated or maintained) `rails_5` branch is available for legacy use.
 
