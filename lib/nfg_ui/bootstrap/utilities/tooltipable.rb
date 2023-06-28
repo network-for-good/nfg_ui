@@ -40,7 +40,7 @@ module NfgUi
         # It is undesirable that every Tooltipable component also received
         # the disableable functionality as well.
         include Bootstrap::Utilities::Disableable
-        
+
         def tooltip
           options.fetch(:tooltip, nil)
         end
@@ -70,7 +70,7 @@ module NfgUi
         def disabled_component_tooltip_wrapper_html_options
           { data: tooltip_data_attributes,
             title: tooltip,
-            class: 'd-inline-block',
+            class: options[:block] ? 'd-block' : 'd-inline-block',
             tabindex: '0' }
         end
 
