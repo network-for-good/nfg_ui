@@ -1,4 +1,7 @@
 # Changelog
+## 6.18.9
+* Allows a block element that is tooltipable to remain a block element, instead of an inline element, when the tooltip is applied.
+
 ## 6.15.8
 * CSS: Cleans up `<a>` links that aren't nav or buttons by moving the :not() outside of the nested style
 
@@ -677,4 +680,3 @@ _Jun. 5, 2019_
 
 ## <= 0.9.8.18
 * Not documented
-
