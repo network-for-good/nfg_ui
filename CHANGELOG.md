@@ -1,4 +1,7 @@
 # Changelog
+## 6.16.2
+* Allows a block element that is tooltipable to remain a block element, instead of an inline element, when the tooltip is applied.
+
 ## 6.16.1
 * Adds Bonterra logos and partials for access in host apps.
 
@@ -683,4 +686,3 @@ _Jun. 5, 2019_
 
 ## <= 0.9.8.18
 * Not documented
-
