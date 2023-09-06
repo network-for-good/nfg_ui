@@ -1,5 +1,6 @@
+//** Override styles for dropzone
 .dropzone-target {
-  padding: $spacer !important;
+  padding: ($spacer * 1.25) !important;
   min-height: ($spacer * 6) !important;
   border: $border-width solid $border-color !important;
   background-color: $white;
@@ -13,3 +14,4 @@
 }
 [data-dz-remove] { cursor: pointer; }
 .dz-preview + .dz-preview { margin-top: $spacer; }
+.dropzone .dz-message { margin: 0 !important; }

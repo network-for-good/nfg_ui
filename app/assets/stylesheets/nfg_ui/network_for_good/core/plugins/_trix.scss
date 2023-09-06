@@ -88,10 +88,12 @@
   }
 }
 
+.trix-button-row { overflow-y: hidden !important; }
+
 // Editor similar to textarea
 trix-editor {
-  padding: 20px;
-  min-height: ($spacer * 5);
-  border: $input-border-width solid $input-border-color;
-  border-radius: $input-border-radius;
+  padding: $input-padding-y $input-padding-x !important;
+  min-height: ($spacer * 5) !important;
+  border: $input-border-width solid $input-border-color !important;
+  border-radius: $input-border-radius !important;
 }

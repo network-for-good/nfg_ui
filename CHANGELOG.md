@@ -1,4 +1,7 @@
 # Changelog
+## 6.16.3
+* Adds styles for sorting images for auction items on the admin form. Also cleans up dropzone and trix plugin styles.
+
 ## 6.16.2
 * Allows a block element that is tooltipable to remain a block element, instead of an inline element, when the tooltip is applied.
 
