@@ -1,7 +1,8 @@
 @each $color, $value in $colors {
   .#{$color} {
     .select2-container--default {
-      .select2-search--dropdown .select2-search__field:focus,
+      .select2-selection--single:focus,
+      &.select2-search--dropdown .select2-search__field:focus,
       &.select2-container--focus .select2-selection--multiple,
       &.select2-container--open .select2-selection--single {
         border-color: $value;
