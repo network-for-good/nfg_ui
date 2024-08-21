@@ -130,9 +130,8 @@ GEM
     foundation_emails (2.2.1.0)
     globalid (1.2.1)
       activesupport (>= 6.1)
-    haml (6.3.0)
-      temple (>= 0.8.2)
-      thor
+    haml (5.2.2)
+      temple (>= 0.8.0)
       tilt
     i18n (1.14.5)
       concurrent-ruby (~> 1.0)
@@ -326,7 +325,7 @@ DEPENDENCIES
   capybara (~> 3.9)
   execjs (~> 2.7.0)
   factory_bot_rails (~> 4.11)
-  haml
+  haml (= 5.2.2)
   nfg_ui!
   puma (~> 5.3)
   rails-controller-testing (~> 1.0)
