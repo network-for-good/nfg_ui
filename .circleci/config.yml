@@ -26,14 +26,19 @@ jobs:
     working_directory: ~/repo
 
     steps:
+      - checkout
+      # Install Chrome using the browser-tools orb
       - browser-tools/install-chrome
+
+      # Install ChromeDriver using the browser-tools orb
       - browser-tools/install-chromedriver
+
+      # Check installation of Chrome and ChromeDriver
       - run:
+          name: Check install
           command: |
             google-chrome --version
             chromedriver --version
-          name: Check install
-      - checkout
 
       # Download and cache dependencies
       - restore_cache:
