@@ -12,10 +12,12 @@ module NfgUi
       end
 
       def bootstrap(component_name = nil, *traits, **options, &block)
+        traits, options = process_traits_and_options(*traits, **options)
         NfgUi::UI::Bootstrap.new(view_context, component_name, *traits, **options, &block).render_component
       end
 
       def nfg(component_name = nil, *traits, **options, &block)
+        traits, options = process_traits_and_options(*traits, **options)
         return unless render_nfg_component?(options)
         NfgUi::UI::NetworkForGood.new(view_context, component_name, *traits, **options, &block).render_component
       end
@@ -29,6 +31,19 @@ module NfgUi
         else
           !options[:render_unless]
         end
+      end
+
+      def process_traits_and_options(*traits, **options)
+        # In ruby 3 keyword arguments are separated from positional arguments
+        # Ensure traits is an array and default to an empty array if no elements are passed
+        traits = traits.empty? ? [] : traits
+
+        # Check if the last element of traits is a hash and merge it with options
+        if traits.last.is_a?(Hash)
+          options = traits.pop.merge(options)
+        end
+
+        [traits, options]
       end
     end
   end

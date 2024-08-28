@@ -17,6 +17,7 @@ require 'selenium/webdriver'
 require 'capybara/rails'
 require 'factory_bot_rails'
 require 'support/factory_bot'
+require 'pry'
 
 # Supporting helpers used on feature specs
 require 'support/helpers/feature_spec_helpers'
