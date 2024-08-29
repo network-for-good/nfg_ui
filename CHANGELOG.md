@@ -1,4 +1,7 @@
 # Changelog
+## 6.17.0
+* Upgrade ruby version to 3.1.4
+
 ## 6.16.3
 * Adds styles for sorting images for auction items on the admin form. Also cleans up dropzone and trix plugin styles.
 
