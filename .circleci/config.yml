@@ -2,12 +2,15 @@
 #
 # Check https://circleci.com/docs/2.0/language-ruby/ for more details
 #
-version: 2
+version: 2.1
+orbs:
+  browser-tools: circleci/browser-tools@1.4.8
+  ruby: circleci/ruby@2.1.0
 jobs:
   build:
     docker:
       # specify the version you desire here
-       - image: circleci/ruby:2.7.5-node-browsers
+       - image: cimg/ruby:3.1.4-browsers
          environment:
            PGHOST: 127.0.0.1
            RAILS_ENV: test
@@ -24,6 +27,18 @@ jobs:
 
     steps:
       - checkout
+      # Install Chrome using the browser-tools orb
+      - browser-tools/install-chrome
+
+      # Install ChromeDriver using the browser-tools orb
+      - browser-tools/install-chromedriver
+
+      # Check installation of Chrome and ChromeDriver
+      - run:
+          name: Check install
+          command: |
+            google-chrome --version
+            chromedriver --version
 
       # Download and cache dependencies
       - restore_cache:
