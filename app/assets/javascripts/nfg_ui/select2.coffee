@@ -26,8 +26,17 @@ initNfgUiSelect2 = () ->
 
   # Likewise with the shown.bs.modal, the same applies here for re-initializing on body
   # after the a tooltipped element is removed from the page
+  # Also re-initializing the select2 element to fix the issue mentioned in
+  # https://bonterra.atlassian.net/browse/NFG-513
+  # Reason: re-initialization of body affects the select2 inputs present on the screen.
+  # The destroy() and reinitialize process ensures Select2 works correctly after the modal
+  # is closed.
   doc.on 'hidden.bs.modal ajax:success', (e) ->
     init_plugin body
+    setTimeout ->
+      $('select.select2').each ->
+        $(this).select2('destroy').select2()
+    , 0
 
 if NfgUi.turbolinks
   $(document).on('turbolinks:load', initNfgUiSelect2)
