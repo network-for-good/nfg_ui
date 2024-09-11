@@ -38,6 +38,10 @@ initNfgUiSelect2 = () ->
         $(this).select2('destroy').select2()
     , 0
 
+  # on first focus (bubbles up to document), open the menu
+  doc.on 'focus', '.select2-selection.select2-selection--single', (e) ->
+    $(this).closest('.select2-container').siblings('select:enabled').select2('open')
+
 if NfgUi.turbolinks
   $(document).on('turbolinks:load', initNfgUiSelect2)
 else

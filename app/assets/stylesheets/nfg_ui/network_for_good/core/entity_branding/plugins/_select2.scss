@@ -2,6 +2,7 @@
 
 .select2-container--default {
   &.select2-container--focus .select2-selection--multiple,
+  &.select2-selection--single:focus,
   &.select2-container--open .select2-selection--single {
     border-color: var(--brand-primary) !important;
     box-shadow: 0 0 0 ($spacer * .125) var(--brand-primary-transparent);
