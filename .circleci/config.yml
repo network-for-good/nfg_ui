@@ -18,10 +18,10 @@ jobs:
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
       # documented at https://circleci.com/docs/2.0/circleci-images/
-       - image: cimg/postgres:9.4
+       - image: cimg/postgres:11.12
          environment:
            POSTGRES_HOST_AUTH_METHOD: trust
-       - image: cimg/redis:4
+       - image: cimg/redis:6.2.6
 
     working_directory: ~/repo
 
