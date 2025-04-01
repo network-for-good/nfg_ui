@@ -1,7 +1,7 @@
 PATH
   remote: ..
   specs:
-    nfg_ui (6.17.0)
+    nfg_ui (6.17.3)
       autoprefixer-rails (= 9.4.9)
       bootstrap (= 4.3.1)
       browser (~> 2.7.1)
@@ -96,8 +96,8 @@ GEM
     erubi (1.11.0)
     execjs (2.7.0)
     ffi (1.15.5)
-    font-awesome-rails (4.7.0.8)
-      railties (>= 3.2, < 8.0)
+    font-awesome-rails (4.7.0.9)
+      railties (>= 3.2, < 9.0)
     foundation_emails (2.2.1.0)
     globalid (1.0.0)
       activesupport (>= 5.0)

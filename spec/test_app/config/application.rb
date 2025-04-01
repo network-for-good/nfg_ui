@@ -1,5 +1,6 @@
 require_relative 'boot'
 
+require 'logger'
 require 'rails'
 
 Bundler.require(*Rails.groups)
