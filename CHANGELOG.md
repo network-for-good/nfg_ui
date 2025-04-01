@@ -1,4 +1,6 @@
 # Changelog
+##  7.1.0
+* Upgrades ruby version to 3.3.7
 ##  7.0.0
 * Upgrade rails version to 7.2.0
 ## 6.17.0
