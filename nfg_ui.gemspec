@@ -19,7 +19,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'font-awesome-rails', '~> 4.7'
   s.add_dependency 'inky-rb', '~> 1.3.7'
   s.add_dependency 'jquery-rails', '~> 4.3'
-  s.add_dependency 'rails', '~> 6.0'
+  s.add_dependency 'rails', '~> 7.2'
   s.add_dependency 'sass-rails', '~> 6.0'
   s.add_dependency 'select2-rails', '~> 4.0'
   s.add_dependency 'momentjs-rails', '~> 2.11', '>= 2.11.1' # client side date formatting - used for bootstrap-datetimepicker
@@ -39,7 +39,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'puma', '~> 5.3'
   s.add_development_dependency 'rails-controller-testing', '~> 1.0' # for assert-template
   s.add_development_dependency 'rspec_junit_formatter', '~> 0.4'
-  s.add_development_dependency 'rspec-rails', '~> 3.8'
+  s.add_development_dependency 'rspec-rails', '~> 6.1'
   s.add_development_dependency 'selenium-webdriver', '~> 3.14'
   s.add_development_dependency 'simplecov', '~> 0.16'
   s.add_development_dependency 'sprockets', '~> 3.7', '>= 0'

@@ -24,7 +24,8 @@ module NfgUi
               end
             end
           else
-            content_tag(as, html_options) do
+            tag_name = as || default_html_wrapper_element
+            content_tag(tag_name, html_options) do
               (block_given? ? yield : body)
             end
           end
