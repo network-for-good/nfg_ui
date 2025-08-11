@@ -12,5 +12,6 @@
 #= require nfg_ui/tooltips
 #= require nfg_ui/file_inputs
 #= require nfg_ui/datepicker
+#= require nfg_ui/pendo_overlap_handler
 
 window.NfgUi = {}

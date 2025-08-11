@@ -1,0 +1,23 @@
+// Pendo Resource Center z-index override styles
+// Ensures Pendo Resource Center stays on top of other fixed elements like Bongentic widget
+
+#bonterra-widget-container {
+  all: initial;
+  font-family: Arial, Helvetica, sans-serif; /* Or any fallback */
+  position: relative;
+  font-size: 24px;
+  z-index: 9999999999;
+}
+
+/* Ensure Pendo Resource Center stays on top of other fixed elements */
+.pendo-resource-center-container {
+  z-index: 10000000000 !important;
+}
+
+/* Additional selectors to ensure Pendo stays on top */
+#pendo-resource-center-container,
+.pendo-resource-center-overlay,
+._pendo-resource-center-badge-container,
+._pendo-resource-center_ {
+  z-index: 10000000000 !important;
+}
