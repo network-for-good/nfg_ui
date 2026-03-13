@@ -5,7 +5,7 @@
 version: 2.1
 orbs:
   browser-tools: circleci/browser-tools@1.4.8
-  ruby: circleci/ruby@2.1.0
+  ruby: circleci/ruby@2.6.0
 jobs:
   build:
     docker:
@@ -56,9 +56,13 @@ jobs:
             gem install bundler
 
       - run:
+          name: Set Bundler Path
+          command: bundle config set path 'vendor/bundle'
+
+      - run:
           name: install dependencies
           command: |
-            bundle install --jobs=4 --retry=3 --path vendor/bundle
+            bundle install --jobs=4 --retry=3
 
       - save_cache:
           paths:
