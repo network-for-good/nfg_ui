@@ -5,7 +5,7 @@ en:
         name: "Network for Good"
         address: "Network for Good | 1140 Connecticut Avenue NW, Suite 700, Washington, District of Columbia 20036"
       images:
-        logo: "https://identity.networkforgood.org/images/nfg-logo.png"
+        logo: "nfg_ui/email/nfg-bonterra-logo.png"
         alt:
           caret: ">"
           logo: "Network for Good"
