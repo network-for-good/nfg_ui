@@ -1,4 +1,7 @@
 # Changelog
+##  7.3.0
+* Updates theme colors for accessibility (WCAG contrast): refreshes the blue (primary) scale, primary blue, and red; updates app icon / favicon tile colors to `#006DA8`.
+* Restricts secondary buttons to text-primary color and primary buttons to the primary color; updates nav colors and active/hover nav states.
 ##  7.2.1
 * Upgrades ruby version to 3.3.7
 ##  7.2.0
