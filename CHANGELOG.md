@@ -1,4 +1,8 @@
 # Changelog
+##  7.2.4
+* Set $danger to #D92C2C for WCAG AA compliance (decoupled from $red)
+* Set $input-border-color and $input-placeholder-color to $gray-600 (#70787C) for AA border/placeholder contrast
+* Fix _trix.scss ::placeholder pseudo-element and add Firefox opacity override
 ##  7.2.1
 * Upgrades ruby version to 3.3.7
 ##  7.2.0
