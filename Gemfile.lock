@@ -173,7 +173,7 @@ GEM
       net-imap
       net-pop
       net-smtp
-    marcel (1.0.4)
+    marcel (1.2.1)
     matrix (0.4.2)
     method_source (1.1.0)
     mini_mime (1.1.5)
@@ -373,6 +373,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activestorage (= 7.2.3.1)
   byebug
   capybara (~> 3.9)
   execjs (~> 2.7.0)
