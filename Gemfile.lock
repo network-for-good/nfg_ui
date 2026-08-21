@@ -373,7 +373,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activestorage (= 7.2.3.1)
+  activestorage (= 7.2.3.2)
   byebug
   capybara (~> 3.9)
   execjs (~> 2.7.0)

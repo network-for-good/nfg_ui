@@ -44,7 +44,7 @@ RSpec.describe 'app/views/nfg_ui/app_icons/_icons.html.haml', type: :view do
   end
 
   it 'includes the msapplication settings' do
-    expect(subject).to have_css "meta[content='#ffffff'][name='msapplication-TileColor']", visible: :all
+    expect(subject).to have_css "meta[content='#006DA8'][name='msapplication-TileColor']", visible: :all
   end
 
   it 'references browserconfig.xml' do
@@ -52,7 +52,7 @@ RSpec.describe 'app/views/nfg_ui/app_icons/_icons.html.haml', type: :view do
   end
 
   it 'includes the meta theme-color' do
-    expect(subject).to have_css "meta[content='#ffffff'][name='theme-color']", visible: :all
+    expect(subject).to have_css "meta[content='#006DA8'][name='theme-color']", visible: :all
   end
 end
 
