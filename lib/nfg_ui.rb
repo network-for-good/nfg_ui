@@ -6,7 +6,7 @@ require 'coffee-script'
 require 'font-awesome-rails'
 require 'haml'
 require 'jquery-rails'
-require 'sass-rails'
+require 'dartsass-sprockets' # migrated from sass-rails
 require 'select2-rails'
 require 'inky'
 require 'momentjs-rails'

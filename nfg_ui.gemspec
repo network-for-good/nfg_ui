@@ -14,13 +14,13 @@ Gem::Specification.new do |s|
 
   s.files = Dir['{app,config,db,lib}/**/*', 'MIT-LICENSE', 'Rakefile', 'README.md']
 
-  s.add_dependency 'bootstrap', '4.3.1'
+  s.add_dependency 'bootstrap', '4.3.1' # local fork: sassc-rails replaced with dartsass-sprockets
   s.add_dependency 'coffee-script', '~> 2.4'
   s.add_dependency 'font-awesome-rails', '~> 4.7'
   s.add_dependency 'inky-rb', '~> 1.3.7'
   s.add_dependency 'jquery-rails', '~> 4.3'
   s.add_dependency 'rails', '~> 7.2'
-  s.add_dependency 'sass-rails', '~> 6.0'
+  # s.add_dependency 'sass-rails', '~> 6.0' # removed: replaced by dartsass-sprockets
   s.add_dependency 'select2-rails', '~> 4.0'
   s.add_dependency 'momentjs-rails', '~> 2.11', '>= 2.11.1' # client side date formatting - used for bootstrap-datetimepicker
   s.add_dependency 'nokogiri', '>= 1.13.10'
