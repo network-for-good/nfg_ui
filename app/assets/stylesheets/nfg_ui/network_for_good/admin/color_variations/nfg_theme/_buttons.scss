@@ -1,17 +1,17 @@
 @each $color, $value in $colors {
   .#{$color} {
     .btn-primary {
-      @include button-variant($value, $value);
+      @include button-variant($primary, $primary);
       color: $white !important;
       &:focus,
       &.focus {
-        box-shadow: 0 0 0 $input-btn-focus-width transparentize($value, 0.8);
+        box-shadow: 0 0 0 $input-btn-focus-width transparentize($primary, 0.8);
       }
       &:not(:disabled):not(.disabled):active,
       &:not(:disabled):not(.disabled).active,
       .show > &.dropdown-toggle {
-        box-shadow: 0 0 0 $input-btn-focus-width transparentize($value, 0.8);
-        &:focus { box-shadow: 0 0 0 $input-btn-focus-width transparentize($value, 0.8); }
+        box-shadow: 0 0 0 $input-btn-focus-width transparentize($primary, 0.8);
+        &:focus { box-shadow: 0 0 0 $input-btn-focus-width transparentize($primary, 0.8); }
       }
     }
     .btn-link {
@@ -31,6 +31,6 @@
       border-color: darken($value, 10%);
       &:focus { box-shadow: 0 0 0 $input-btn-focus-width transparentize($value, 0.8); }
     }
-    .btn-secondary, .btn-outline-secondary, .btn-link { color: $value; }
+    .btn-secondary, .btn-outline-secondary, .btn-link { color: $yiq-text-dark; }
   }
 }

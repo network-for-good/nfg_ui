@@ -9,3 +9,5 @@ spec/test_app/.sass-cache
 coverage/*
 .idea/
 .idea/*
+.claude/settings.json
+vendor/
