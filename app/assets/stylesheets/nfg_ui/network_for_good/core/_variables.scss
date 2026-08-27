@@ -40,11 +40,11 @@ $black:    #000000;
 //   $grays
 // );
 
-$blue:    #25aceb;
+$blue:    #006DA8;
 // $indigo:  #6610f2 !default; // not used in our theme
 // $purple:  #6f42c1 !default; // not used in our theme
 // $pink:    #e83e8c !default; // not used in our theme
-$red:     #ff6d33;
+$red:     #D92C2C;
 $orange:  #ffaa00;
 // $yellow:  #ffc107 !default; // not used in our theme
 $green:   #59bf22;
@@ -74,15 +74,15 @@ $green:   #59bf22;
 
 
 // Blue (primary) scale
-$blue-100: #d3eefb;
-$blue-200: #a8def7;
-$blue-300: #7ccdf3;
-$blue-400: #51bdef;
-$blue-500: #1e8abc;
-$blue-600: #16678d;
-$blue-700: #135676;
-$blue-800: #0f455e;
-$blue-900: #0b3446;
+$blue-100: #E5F6FF;
+$blue-200: #A8DEF7;
+$blue-300: #5CC6FF;
+$blue-400: #009FF5;
+$blue-500: #007FC4;
+$blue-600: #006DA8;
+$blue-700: #005D8F;
+$blue-800: #003B5C;
+$blue-900: #001A29;
 $blue-1000: #07222f;
 
 
@@ -727,6 +727,7 @@ $nav-tabs-link-active-border-color: $primary;
 
 $nav-pills-border-radius:           0;
 $nav-pills-link-active-color:       $white;
+$nav-pills-link-hover-color:        $blue-700;
 $nav-pills-link-active-bg:          $blue-800;
 
 $nav-divider-color:                 $border-color;

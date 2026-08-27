@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    nfg_ui (7.2.4)
+    nfg_ui (7.2.4.1.pre.uat1)
       autoprefixer-rails (= 9.4.9)
       bootstrap (= 4.3.1)
       browser (~> 2.7.1)
@@ -177,10 +177,10 @@ GEM
     matrix (0.4.2)
     method_source (1.1.0)
     mini_mime (1.1.5)
-    mini_portile2 (2.8.9)
     minitest (5.27.0)
     momentjs-rails (2.29.4.1)
       railties (>= 3.1)
+    mutex_m (0.3.0)
     net-imap (0.5.15)
       date
       net-protocol
@@ -191,11 +191,9 @@ GEM
     net-smtp (0.5.1)
       net-protocol
     nio4r (2.7.5)
-    nokogiri (1.19.4)
-      mini_portile2 (~> 2.8.2)
-      racc (~> 1.4)
     nokogiri (1.19.4-arm64-darwin)
       racc (~> 1.4)
+    observer (0.1.2)
     parallel (1.26.3)
     parser (3.3.4.2)
       ast (~> 2.4.1)
@@ -341,8 +339,6 @@ GEM
       actionpack (>= 6.1)
       activesupport (>= 6.1)
       sprockets (>= 3.0.0)
-    sqlite3 (2.9.5)
-      mini_portile2 (~> 2.8.0)
     sqlite3 (2.9.5-arm64-darwin)
     stringio (3.1.9)
     strscan (3.1.0)
@@ -370,16 +366,18 @@ GEM
 
 PLATFORMS
   arm64-darwin-21
-  ruby
+  arm64-darwin-24
 
 DEPENDENCIES
-  activestorage (= 7.2.3.1)
+  activestorage (= 7.2.3.2)
   byebug
   capybara (~> 3.9)
   execjs (~> 2.7.0)
   factory_bot_rails (~> 4.11)
   haml
+  mutex_m
   nfg_ui!
+  observer
   pry
   pry-byebug
   puma (~> 5.3)
