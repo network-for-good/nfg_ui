@@ -3,6 +3,7 @@
   &.flex-column {
     .nav-link {
       &:hover, &.active {
+        color: $nav-pills-link-active-color;
         &:after { background: var(--brand-primary); }
       }
     }

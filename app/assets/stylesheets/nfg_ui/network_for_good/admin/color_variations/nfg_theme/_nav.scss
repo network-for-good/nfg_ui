@@ -3,7 +3,7 @@
     .nav-tabs {
       .nav-link {
         &:hover, &.active {
-          &:after { background: $value; }
+          &:after { background: $primary; }
         }
       }
     }
@@ -14,7 +14,7 @@
     .nav-item.#{$color} {
       .nav-link {
         &:hover, &.active, &[aria-expanded="true"] {
-          &:after { background-color: $value; }
+          &:after { background-color: $primary; }
         }
       }
     }

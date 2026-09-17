@@ -5,7 +5,7 @@ gemspec
 
 gem 'haml'
 gem 'execjs', '~> 2.7.0' # later versions break our deploy & publish processes; see DM and FP Gemfiles
-gem 'activestorage', '7.2.3.1' # pinned: security fix, exact maintenance-branch version
+gem 'activestorage', '7.2.3.2' # pinned: security fix, exact maintenance-branch version
 
 group :development do
   gem 'spring'
