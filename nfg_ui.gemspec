@@ -36,6 +36,9 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'capybara', '~> 3.9'
   s.add_development_dependency 'webdrivers'
   s.add_development_dependency 'factory_bot_rails', '~> 4.11'
+  # ruby 3.4 removed these from default gems; factory_bot 4.11 requires them without declaring the dependency
+  s.add_development_dependency 'observer'
+  s.add_development_dependency 'mutex_m'
   s.add_development_dependency 'puma', '~> 5.3'
   s.add_development_dependency 'rails-controller-testing', '~> 1.0' # for assert-template
   s.add_development_dependency 'rspec_junit_formatter', '~> 0.4'
@@ -43,7 +46,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'selenium-webdriver', '~> 3.14'
   s.add_development_dependency 'simplecov', '~> 0.16'
   s.add_development_dependency 'sprockets', '~> 3.7', '>= 0'
-  s.add_development_dependency 'sqlite3', '~> 1.7'
+  s.add_development_dependency 'sqlite3', '~> 2.9'
   s.add_development_dependency 'rubocop'
   s.add_development_dependency 'pry'
   s.add_development_dependency 'pry-byebug'

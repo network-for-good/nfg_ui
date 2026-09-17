@@ -15,11 +15,12 @@
         transition: $btn-transition;
         content: '';
       }
-      &.active {
-        color: $nav-tabs-link-active-color !important;
+     &.active {
+        color: $nav-pills-link-active-color !important;
         &:after { background: $nav-tabs-link-hover-border-color; }
       }
-      @include hover-focus {
+      // Hover only when NOT active
+      &:not(.active):hover {
         color: $nav-tabs-link-active-color !important;
         &:after { background: $nav-tabs-link-hover-border-color; }
       }

@@ -9,7 +9,7 @@ RSpec.describe 'app/views/nfg_ui/app_icons/_icons.html.haml', type: :view do
   let(:favicon_attributes) { { href: 'nfg_ui/app_icon/favicon', rel: 'shortcut icon' } }
   let(:favicon_32x32_attributes) { { href: 'nfg_ui/app_icon/favicon-32x32', rel: 'icon', sizes: '32x32', type: 'image/png'} }
   let(:favicon_16x16_attributes) { { href: 'nfg_ui/app_icon/favicon-16x16', rel: 'icon', sizes: '32x32', type: 'image/png'} }
-  let(:safari_pinned_tab_attributes) { { href: 'nfg_ui/app_icon/safari-pinned-tab', rel: 'mask-icon', color: '#25ACEB' } }
+  let(:safari_pinned_tab_attributes) { { href: 'nfg_ui/app_icon/safari-pinned-tab', rel: 'mask-icon', color: '#006DA8' } }
 
   it 'includes the apple touch icon' do
     expect(subject).to have_css "link#{element_attributes(attributes: apple_touch_icon_attributes)}", visible: :all
@@ -44,7 +44,7 @@ RSpec.describe 'app/views/nfg_ui/app_icons/_icons.html.haml', type: :view do
   end
 
   it 'includes the msapplication settings' do
-    expect(subject).to have_css "meta[content='#ffffff'][name='msapplication-TileColor']", visible: :all
+    expect(subject).to have_css "meta[content='#006DA8'][name='msapplication-TileColor']", visible: :all
   end
 
   it 'references browserconfig.xml' do
@@ -52,7 +52,7 @@ RSpec.describe 'app/views/nfg_ui/app_icons/_icons.html.haml', type: :view do
   end
 
   it 'includes the meta theme-color' do
-    expect(subject).to have_css "meta[content='#ffffff'][name='theme-color']", visible: :all
+    expect(subject).to have_css "meta[content='#006DA8'][name='theme-color']", visible: :all
   end
 end
 
