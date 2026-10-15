@@ -34,6 +34,7 @@ Rails.application.routes.draw do
     get :modal
     get :tooltip
     get :tile
+    get :file_input
   end
 
   resource :javascript_plugins, only: [] do

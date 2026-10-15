@@ -2,6 +2,8 @@
 ##  7.3.0
 * Updates theme colors for accessibility (WCAG contrast): refreshes the blue (primary) scale, primary blue, and red; updates app icon / favicon tile colors to `#006DA8`.
 * Restricts secondary buttons to text-primary color and primary buttons to the primary color; updates nav colors and active/hover nav states.
+##  7.2.4.2
+* Security (NFG-4000): file input labels now insert the selected filename as text rather than HTML, fixing a DOM based XSS where markup in a filename was parsed and executed.
 ##  7.2.4
 * Set $danger to #D92C2C for WCAG AA compliance (decoupled from $red)
 * Set $input-border-color and $input-placeholder-color to $gray-600 (#70787C) for AA border/placeholder contrast
