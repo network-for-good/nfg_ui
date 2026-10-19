@@ -48,6 +48,21 @@ A more detailed breakdown is below:
 ## *You must do a version bump*
 Much can be done with `bundle update nfg_ui --conservative` to avoid bumping every possible gem update in the your gemfile.
 
+## Deploy to GitHub Packages (automated)
+Pushing the gem itself to GitHub Packages is automated: the `.github/workflows/publish-gem.yml`
+workflow runs on every merge to `main`, checks whether `lib/nfg_ui/version.rb`'s version has
+already been published (a `v<version>` tag already exists, matching this repo's existing tag
+convention, e.g. `v7.1.3`), and only builds + pushes the gem (via `bin/publish_gem`) and creates
+that tag when it hasn't. A merge that doesn't bump the version doesn't publish anything, so there's
+no need to run `gem push` or create the tag by hand anymore for a normal release.
+
+`bin/publish_gem` remains available as a manual break-glass fallback if you ever need to push a
+build outside of CI.
+
+This does **not** cover the asset publish step below (`rake publish` / uploading to
+`s3://nfg-ui`) — that still requires the AWS CLI and credentials and is a separate, manual step
+after the version has published.
+
 ## Deploy to rubygems.org
 Really simple: from master branch run `bundle exec rake release`
 

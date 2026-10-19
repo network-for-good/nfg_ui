@@ -1,0 +1,74 @@
+name: Publish gem to GitHub Packages
+
+# Triggered by merges to main rather than a manually-pushed tag, so releasing
+# no longer depends on a human bumping the version, tagging, and running
+# `gem push` locally (see DEPLOY_PROCESS.md).
+#
+# Whether a merge "warrants a release" is decided by the version bump
+# itself: the versioning policy is a human judgment call (this repo doesn't
+# follow semver or Conventional Commits), not something derivable from
+# commit messages, so a PR author bumps lib/nfg_ui/version.rb as part of
+# their change when a release is warranted. This workflow just checks
+# whether that version has already been published (a v<version> tag
+# already exists, matching this repo's existing tag convention, e.g.
+# v7.1.3) and skips publishing a merge that didn't change it.
+#
+# Runs with the workflow's own GITHUB_TOKEN (packages: write below), which
+# can push a new package version to this repo's GitHub Packages scope and,
+# with contents: write, can push the release tag itself.
+#
+# Note: this only automates the `gem build` / `gem push` step. The separate
+# asset publish to s3://nfg-ui (the `rake publish` task described in
+# DEPLOY_PROCESS.md / Rakefile) is NOT run by this workflow and remains a
+# manual step requiring AWS credentials.
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+  packages: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.4.2'
+
+      - name: Check whether this version was already published
+        id: check
+        run: |
+          VERSION="$(ruby -r ./lib/nfg_ui/version -e 'puts NfgUi::VERSION')"
+          echo "version=${VERSION}" >> "$GITHUB_OUTPUT"
+          if git ls-remote --exit-code --tags origin "refs/tags/v${VERSION}" > /dev/null 2>&1; then
+            echo "publish=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "publish=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Configure gem credentials
+        if: steps.check.outputs.publish == 'true'
+        run: |
+          mkdir -p ~/.gem
+          cat > ~/.gem/credentials <<CREDS
+          ---
+          :github: Bearer ${{ secrets.GITHUB_TOKEN }}
+          CREDS
+          chmod 0600 ~/.gem/credentials
+
+      - name: Build and publish
+        if: steps.check.outputs.publish == 'true'
+        run: bin/publish_gem
+
+      - name: Tag release
+        if: steps.check.outputs.publish == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git tag "v${{ steps.check.outputs.version }}"
+          git push origin "v${{ steps.check.outputs.version }}"
