@@ -30,26 +30,35 @@ permissions:
   contents: write
   packages: write
 
+# One publish at a time: two quick merges to main would otherwise both see the release tag as
+# missing and both try to upload the same version. Never cancel an upload that is in flight.
+concurrency:
+  group: publish-gem
+  cancel-in-progress: false
+
 jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # the tag-recovery check walks history back to the version bump
 
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.4.2'
 
+      # Decides between "nothing to do", "publish", and "only the release tag is missing" (a previous
+      # run published the package but failed to push the tag). See .github/scripts/release-check.sh.
       - name: Check whether this version was already published
         id: check
-        run: |
-          VERSION="$(ruby -r ./lib/nfg_ui/version -e 'puts NfgUi::VERSION')"
-          echo "version=${VERSION}" >> "$GITHUB_OUTPUT"
-          if git ls-remote --exit-code --tags origin "refs/tags/v${VERSION}" > /dev/null 2>&1; then
-            echo "publish=false" >> "$GITHUB_OUTPUT"
-          else
-            echo "publish=true" >> "$GITHUB_OUTPUT"
-          fi
+        env:
+          GEM_NAME: nfg_ui
+          VERSION_FILE: lib/nfg_ui/version.rb
+          VERSION_CONST: NfgUi::VERSION
+          TAG_PREFIX: v
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: .github/scripts/release-check.sh
 
       - name: Configure gem credentials
         if: steps.check.outputs.publish == 'true'
