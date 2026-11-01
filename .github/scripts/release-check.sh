@@ -11,8 +11,9 @@
 # 2. version is not in the registry            -> publish
 # 3. version is in the registry but has no tag -> a previous run published it and then failed
 #    to push the tag. Find the commit the package was built from by building the gem at each
-#    candidate commit and comparing its files with the published package's; tag the first
-#    match, or fail if none matches (never tag a commit we couldn't verify).
+#    candidate commit and comparing its files AND its specification (dependencies, required
+#    Ruby, ...) with the published package's; tag the first match, or fail if none matches
+#    (never tag a commit we couldn't verify).
 # If the registry can't be queried at all we fall back to step 2, i.e. the behaviour before
 # this check existed (a real duplicate is then rejected by the registry).
 set -euo pipefail
@@ -45,7 +46,8 @@ trap cleanup EXIT
 # Is this exact version already in the registry? A failed fetch (not found, or no access) is
 # treated as "not published" so the normal publish path is never blocked by this check.
 mkdir -p "$WORK/published"
-if ! (cd "$WORK/published" && gem fetch "$GEM_NAME" --version "$VERSION" --source "$SOURCE_URL" > "$WORK/fetch.log" 2>&1); then
+if ! (cd "$WORK/published" && gem fetch "$GEM_NAME" --version "$VERSION" --source "$SOURCE_URL" > "$WORK/fetch.log" 2>&1) \
+   || [ ! -s "$WORK/published/${GEM_NAME}-${VERSION}.gem" ]; then
   echo "Version ${VERSION} is not in the registry (or the registry could not be read): publishing."
   emit publish true
   exit 0
@@ -54,6 +56,20 @@ fi
 echo "::warning::${GEM_NAME} ${VERSION} is already in the registry but ${TAG} is missing (a previous run likely published it and failed to tag). Looking for the source commit."
 PUBLISHED_GEM="$WORK/published/${GEM_NAME}-${VERSION}.gem"
 gem unpack "$PUBLISHED_GEM" --target "$WORK/published/unpacked" > /dev/null
+
+# `gem unpack` only extracts files, and a gemspec is often not part of the payload, so two commits
+# can ship identical files but different dependency requirements. Fingerprint the package's
+# specification too (everything that matters for installing it; excludes build-time noise such as
+# the build date and the RubyGems version that built it).
+spec_fingerprint() {
+  ruby -e 'require "rubygems/package"
+    s = Gem::Package.new(ARGV[0]).spec
+    puts [s.name, s.version.to_s, s.platform.to_s, s.required_ruby_version.to_s,
+          s.required_rubygems_version.to_s, s.require_paths.sort, s.executables.sort,
+          s.extensions.sort, s.files.sort,
+          s.dependencies.map { |d| [d.name, d.type.to_s, d.requirement.to_s] }.sort].inspect' "$1"
+}
+PUBLISHED_SPEC="$(spec_fingerprint "$PUBLISHED_GEM")"
 
 version_at() { # VERSION literal in the version file at commit $1
   git show "$1:${VERSION_FILE}" 2> /dev/null \
@@ -85,7 +101,8 @@ for c in $CANDIDATES; do
   # to get a tree directly comparable with the published package's.
   if (cd "$WORK/src" && gem build "$GEMSPEC" --output "$WORK/cand/${GEM_NAME}-${VERSION}.gem" > /dev/null 2>&1); then
     gem unpack "$WORK/cand/${GEM_NAME}-${VERSION}.gem" --target "$WORK/cand/unpacked" > /dev/null
-    if diff -r "$WORK/published/unpacked/${GEM_NAME}-${VERSION}" "$WORK/cand/unpacked/${GEM_NAME}-${VERSION}" > /dev/null 2>&1; then
+    if diff -r "$WORK/published/unpacked/${GEM_NAME}-${VERSION}" "$WORK/cand/unpacked/${GEM_NAME}-${VERSION}" > /dev/null 2>&1 \
+       && [ "$(spec_fingerprint "$WORK/cand/${GEM_NAME}-${VERSION}.gem")" = "$PUBLISHED_SPEC" ]; then
       MATCH="$c"
     fi
   fi
