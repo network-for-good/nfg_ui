@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+# Build and publish nfg_ui to the network-for-good GitHub Packages registry.
+#
+# Usage: bin/publish_gem
+#
+# Invoked automatically by the publish-gem workflow on merges to main that
+# bump the version (see .github/workflows/publish-gem.yml and
+# DEPLOY_PROCESS.md). Running it locally is a break-glass fallback, not the
+# normal release path.
+#
+# This only builds and pushes the gem itself. It does NOT run the separate
+# `rake publish` task that uploads compiled assets to s3://nfg-ui — that
+# still requires the AWS CLI and credentials and is a manual step.
+#
+# Requires a `:github` entry in ~/.gem/credentials with a GitHub personal
+# access token (or, in CI, the workflow's own GITHUB_TOKEN) that has the
+# `write:packages` scope:
+#   :github: Bearer <token>
+set -euo pipefail
+
+cd "$(dirname "$0")/.."
+
+GEM_HOST="https://rubygems.pkg.github.com/network-for-good"
+VERSION="$(ruby -r ./lib/nfg_ui/version -e 'puts NfgUi::VERSION')"
+GEM_FILE="pkg/nfg_ui-${VERSION}.gem"
+
+if ! grep -q '^:github:' "${HOME}/.gem/credentials" 2>/dev/null; then
+  echo "ERROR: no :github key found in ~/.gem/credentials" >&2
+  echo "Add a line like ':github: Bearer <token>' (token needs write:packages scope)." >&2
+  exit 1
+fi
+
+mkdir -p pkg
+echo "Building nfg_ui ${VERSION}..."
+gem build nfg_ui.gemspec -o "${GEM_FILE}"
+
+echo "Pushing ${GEM_FILE} to ${GEM_HOST}..."
+gem push --key github --host "${GEM_HOST}" "${GEM_FILE}"
