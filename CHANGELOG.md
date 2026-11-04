@@ -1,4 +1,9 @@
 # Changelog
+##  8.1.0
+* Rails 8.1 support (NFG-4789): gemspec now allows `rails >= 7.2, < 8.2`; the default bundle (root `Gemfile`) is Rails 8.1 and `gemfiles/rails_7_2.gemfile` keeps a Rails 7.2 CI leg
+* Test app runs on `load_defaults 8.1`; dropped the `to_time_preserves_timezone` and `new_framework_defaults_7_2` initializers
+* Dev dependencies: rspec-rails 8, selenium-webdriver 4 (Selenium Manager) with headless Chrome; removed the webdrivers gem; capybara 3.40; font-awesome-rails 4.7.0.9
+* GitHub Actions test workflow runs a Rails 7.2 / 8.1 matrix
 ##  7.3.0
 * Updates theme colors for accessibility (WCAG contrast): refreshes the blue (primary) scale, primary blue, and red; updates app icon / favicon tile colors to `#006DA8`.
 * Restricts secondary buttons to text-primary color and primary buttons to the primary color; updates nav colors and active/hover nav states.

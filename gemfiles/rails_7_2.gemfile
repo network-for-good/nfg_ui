@@ -1,0 +1,23 @@
+# frozen_string_literal: true
+
+# Rails 7.2 leg of the CI matrix (see .github/workflows/test.yml).
+# Mirrors the root Gemfile except for the Rails series.
+source 'https://rubygems.org'
+git_source(:github) { |repo| "https://github.com/#{repo}.git" }
+
+gemspec path: '..'
+
+gem 'haml', '~> 5.2' # the components call Haml 5 helpers (init_haml_helpers); Haml 6+ removed them
+gem 'execjs', '~> 2.7.0' # later versions break our deploy & publish processes; see DM and FP Gemfiles
+gem 'rails', '~> 7.2.4'
+gem 'websocket-driver', '>= 0.8.2' # pinned: CVE-2026-61666 (Uncaught Exception, High)
+
+group :development do
+  gem 'spring'
+  gem 'spring-watcher-listen'
+  gem 'byebug'
+end
+
+group :test do
+  gem 'spring-commands-rspec'
+end

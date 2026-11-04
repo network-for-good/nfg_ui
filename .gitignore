@@ -11,3 +11,5 @@ coverage/*
 .idea/*
 .claude/settings.json
 vendor/
+spec/test_app/db/*.sqlite3-shm
+spec/test_app/db/*.sqlite3-wal

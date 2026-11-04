@@ -27,8 +27,15 @@ include FeatureSpecHelpers
 Dir[File.join(ENGINE_ROOT, 'spec/support/**/*.rb')].each { |f| require f }
 Dir[File.join(ENGINE_ROOT, 'spec/shared_examples/**/*.rb')].each { |f| require f }
 
+# Headless Chrome: Selenium Manager (selenium-webdriver >= 4.11) locates Chrome and
+# fetches a matching chromedriver, so no webdrivers gem or display server is needed.
 Capybara.register_driver :selenium do |app|
-  Capybara::Selenium::Driver.new(app, browser: :chrome)
+  options = Selenium::WebDriver::Chrome::Options.new
+  options.add_argument('--headless=new')
+  options.add_argument('--window-size=1400,1400')
+  options.add_argument('--no-sandbox')
+  options.add_argument('--disable-dev-shm-usage')
+  Capybara::Selenium::Driver.new(app, browser: :chrome, options:)
 end
 
 # ActiveRecord::Migrator.migrations_paths = File.join(ENGINE_ROOT, 'spec/test_app/db/migrate')
@@ -57,7 +64,7 @@ end
 
 RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
-  config.fixture_path = "#{::Rails.root}/spec/fixtures"
+  config.fixture_paths = ["#{::Rails.root}/spec/fixtures"]
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
