@@ -38,7 +38,9 @@ concurrency:
 
 jobs:
   publish:
-    runs-on: ubuntu-latest
+    # Pinned: ubuntu-latest now resolves to Ubuntu 26.04, where ruby/setup-ruby only offers the
+    # latest patch of each Ruby series, so exact pins (e.g. 3.4.2) fail. See NFG-5011.
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
         with:
