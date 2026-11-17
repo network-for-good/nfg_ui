@@ -1,6 +1,6 @@
 name: Test
 
-# Runs the gem's RSpec suite on every PR targeting main, so a failing test
+# Runs the gem's RSpec suite on every PR targeting main or develop, so a failing test
 # blocks merge instead of only being caught by CircleCI after the fact.
 #
 # No services are provisioned: spec/test_app/config/database.yml is
@@ -13,6 +13,7 @@ on:
   pull_request:
     branches:
       - main
+      - develop
 
 env:
   RAILS_ENV: test
