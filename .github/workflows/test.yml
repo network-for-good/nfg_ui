@@ -1,0 +1,61 @@
+name: Test
+
+# Runs the gem's RSpec suite on every PR targeting main, so a failing test
+# blocks merge instead of only being caught by CircleCI after the fact.
+#
+# No services are provisioned: spec/test_app/config/database.yml is
+# sqlite3-only and spec/test_app/db/schema.rb defines no tables (this gem
+# ships no ActiveRecord models), and nothing in the app or spec suite
+# references Redis, so the Postgres and Redis containers CircleCI's job
+# starts are both unused here.
+
+on:
+  pull_request:
+    branches:
+      - main
+
+env:
+  RAILS_ENV: test
+  DISABLE_SPRING: "true"
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.4.2'
+          bundler-cache: true
+
+      - name: Check install
+        # ubuntu-latest ships Chrome and a matching chromedriver preinstalled
+        # (same as the CircleCI browser-tools orb provides); this just makes
+        # the versions visible in the log if something ever drifts.
+        run: |
+          google-chrome --version
+          chromedriver --version
+
+      - name: Install Xvfb
+        # spec/rails_helper.rb registers a non-headless Chrome driver for
+        # js: true specs. CircleCI's cimg/ruby:*-browsers image runs those
+        # under a virtual display automatically; ubuntu-latest has Chrome
+        # but no display server, so headed Chrome exits immediately
+        # (Selenium::WebDriver::Error::SessionNotCreatedError) without this.
+        run: sudo apt-get update && sudo apt-get install -y xvfb
+
+      - name: Run test suite
+        run: |
+          mkdir -p tmp/test-results
+          xvfb-run -a bundle exec rspec --format progress \
+                          --format RspecJunitFormatter \
+                          --out tmp/test-results/rspec.xml
+
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: rspec-results
+          path: tmp/test-results
