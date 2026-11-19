@@ -19,8 +19,11 @@ require 'nfg_ui'
 
 module TestApp
   class Application < Rails::Application
-    # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 5.2
+    # Load the newest framework defaults the running Rails supports: the suite runs on
+    # both 7.2 (gemfiles/rails_7_2.gemfile) and 8.1 (root Gemfile), and 7.2 does not
+    # know the 8.1 defaults. Testing under the newest defaults catches problems early
+    # for consumers that adopt them.
+    config.load_defaults [Rails.gem_version.segments.first(2).join('.').to_f, 8.1].min
 
     # Please, add to the `ignore` list any other `lib` subdirectories that do
     # not contain `.rb` files, or that should not be reloaded or eager loaded.

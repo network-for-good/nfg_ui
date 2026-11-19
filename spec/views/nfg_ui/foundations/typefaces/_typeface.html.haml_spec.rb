@@ -8,7 +8,7 @@ RSpec.describe 'nfg_ui/foundations/typefaces/_typeface.html.haml', type: :view d
 
   pending 'Typeface spec needed'
 
-  it { is_expected.to have_css typeface.send(:default_html_wrapper_element) }
+  it { is_expected.to have_css typeface.send(:default_html_wrapper_element).to_s }
 
   describe 'typeface output html' do
     it 'outputs the typeface component in html' do
