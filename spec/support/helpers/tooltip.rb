@@ -10,6 +10,10 @@
 #
 # This then adds the '#' symbol in front of the value to return
 # a valid CSS ID selector, ex: '#tooltip41235'
+#
+# Bootstrap adds `aria-describedby` asynchronously after the hover, so this
+# waits (Capybara's default wait) for the attribute to appear instead of
+# reading it immediately, which would yield a bare '#' and an invalid selector.
 def tooltip_id(selector:)
-  "##{page.find(selector)['aria-describedby']}"
+  "##{page.find("#{selector}[aria-describedby]")['aria-describedby']}"
 end
