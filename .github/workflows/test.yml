@@ -1,6 +1,6 @@
 name: Test
 
-# Runs the gem's RSpec suite on every PR targeting main, so a failing test
+# Runs the gem's RSpec suite on every PR targeting main or develop, so a failing test
 # blocks merge instead of only being caught by CircleCI after the fact.
 #
 # No services are provisioned: spec/test_app/config/database.yml is
@@ -13,6 +13,7 @@ on:
   pull_request:
     branches:
       - main
+      - develop
 
 env:
   RAILS_ENV: test
@@ -20,7 +21,9 @@ env:
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    # Pinned: ubuntu-latest now resolves to Ubuntu 26.04, where ruby/setup-ruby only offers the
+    # latest patch of each Ruby series, so exact pins (e.g. 3.4.2) fail. See NFG-5011.
+    runs-on: ubuntu-24.04
 
     # The gemspec allows Rails >= 7.2, < 8.2 (NFG-4789 / NFG-4201 decision D2), so the
     # suite runs once per supported Rails series. The root Gemfile is the 8.1 leg;
