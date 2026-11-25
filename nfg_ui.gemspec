@@ -18,8 +18,9 @@ Gem::Specification.new do |s|
   s.add_dependency 'coffee-script', '~> 2.4'
   s.add_dependency 'font-awesome-rails', '~> 4.7'
   s.add_dependency 'inky-rb', '~> 1.3.7'
+  s.add_dependency 'haml', '~> 5.2' # components call Haml 5 helpers (init_haml_helpers); Haml 6+ removed them
   s.add_dependency 'jquery-rails', '~> 4.3'
-  s.add_dependency 'rails', '~> 7.2'
+  s.add_dependency 'rails', '>= 7.2', '< 8.2'
   s.add_dependency 'sass-rails', '~> 6.0'
   s.add_dependency 'select2-rails', '~> 4.0'
   s.add_dependency 'momentjs-rails', '~> 2.11', '>= 2.11.1' # client side date formatting - used for bootstrap-datetimepicker
@@ -34,7 +35,6 @@ Gem::Specification.new do |s|
   s.add_dependency 'autoprefixer-rails', '9.4.9'
 
   s.add_development_dependency 'capybara', '~> 3.9'
-  s.add_development_dependency 'webdrivers'
   s.add_development_dependency 'factory_bot_rails', '~> 4.11'
   # ruby 3.4 removed these from default gems; factory_bot 4.11 requires them without declaring the dependency
   s.add_development_dependency 'observer'
@@ -42,8 +42,9 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'puma', '~> 5.3'
   s.add_development_dependency 'rails-controller-testing', '~> 1.0' # for assert-template
   s.add_development_dependency 'rspec_junit_formatter', '~> 0.4'
-  s.add_development_dependency 'rspec-rails', '~> 6.1'
-  s.add_development_dependency 'selenium-webdriver', '~> 3.14'
+  s.add_development_dependency 'rspec-rails', '~> 8.0'
+  # 4.11+ ships Selenium Manager, which fetches chromedriver; the webdrivers gem is no longer needed
+  s.add_development_dependency 'selenium-webdriver', '~> 4.11'
   s.add_development_dependency 'simplecov', '~> 0.16'
   s.add_development_dependency 'sprockets', '~> 3.7', '>= 0'
   s.add_development_dependency 'sqlite3', '~> 2.9'

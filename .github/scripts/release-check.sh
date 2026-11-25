@@ -46,7 +46,7 @@ trap cleanup EXIT
 # Is this exact version already in the registry? A failed fetch (not found, or no access) is
 # treated as "not published" so the normal publish path is never blocked by this check.
 mkdir -p "$WORK/published"
-if ! (cd "$WORK/published" && gem fetch "$GEM_NAME" --version "$VERSION" --source "$SOURCE_URL" > "$WORK/fetch.log" 2>&1) \
+if ! (cd "$WORK/published" && gem fetch "$GEM_NAME" --version "$VERSION" --clear-sources --source "$SOURCE_URL" > "$WORK/fetch.log" 2>&1) \
    || [ ! -s "$WORK/published/${GEM_NAME}-${VERSION}.gem" ]; then
   echo "Version ${VERSION} is not in the registry (or the registry could not be read): publishing."
   emit publish true
